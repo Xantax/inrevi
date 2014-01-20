@@ -7,6 +7,14 @@ match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
   get "static_pages/advertising"
   get "static_pages/faq"
   
-  resources :users, :only => [:show]
+  resources :users, :only => [:show, :index] do
+    member do
+      get :following 
+      get :followers
+    end
+  end
+  
+  resources :sessions,      only: [:new, :create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
 end

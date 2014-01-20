@@ -21,7 +21,8 @@
   <% if current_user %>
     <strong><%= link_to current_user.name, user_path(current_user) %></strong><br>
   <div class="full_profile"><%= link_to "full profile", user_path(current_user) %> | <%= link_to "logout", signout_path, class: "sign_out" %></div> <br>
-  <%= image_tag(current_user.smallimage)%>
+  <%= image_tag(current_user.smallimage)%> <br>
+  <%= render 'shared/stats' %>
   <% else %>
     <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
   <% end %>
