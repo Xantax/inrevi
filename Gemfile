@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 gem 'bootstrap-sass', '3.0.3'
 gem 'omniauth-facebook'
 gem "koala", "~> 1.8.0rc1"
+gem 'oauth2'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

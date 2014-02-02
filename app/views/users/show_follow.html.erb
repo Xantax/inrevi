@@ -1,9 +1,8 @@
-      <%= render 'shared/stats' %>
       <% if @users.any? %>
         <div class="user_avatars">
           <% @users.each do |user| %>
-            <%= user.name %>
-            <%= link_to user.smallimage, user %>
+            <%= link_to image_tag(user.smallimage), user%>
+          <div class="namefollow"><%= link_to user.name, user %></div>
           <% end %>
         </div>
      <% end %>

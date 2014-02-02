@@ -2,29 +2,29 @@
 
 <div class="row">
 
-<div class="col-sm-3 categories">
+<div class="col-sm-2 categories">
   <%= render 'shared/categories' %>
 </div>
   
-<div class="col-sm-7"> 
+<div class="col-sm-8"> 
   <div class="qupdate">  
-  What body & bath products are you using in bathroom?
-    <div class="qupdate ud"><%= link_to "updates", "#" %> | <%= link_to "discussions", "#" %></div>
+    <div class="texty">What body & bath products are you using in bathroom?</div>
   </div>
   <div class="allnews">
+    <div class="separatenews">
 
+    </div>
   </div>
-
 </div>
 
 <div class="col-sm-2">
-  <% if current_user %>
-    <strong><%= link_to current_user.name, user_path(current_user) %></strong><br>
-  <div class="full_profile"><%= link_to "full profile", user_path(current_user) %> | <%= link_to "logout", signout_path, class: "sign_out" %></div> <br>
-  <%= image_tag(current_user.smallimage)%> <br>
+  <% if signed_in? %>
+    <strong><%= link_to current_user.name, user_path(current_user) %></strong> <br > <br >
+  <%= image_tag(current_user.smallimage)%><div class="full_profile"><%= link_to "full profile", user_path(current_user) %> <br >
+  <%= link_to "logout", signout_path, class: "sign_out" %></div> 
   <%= render 'shared/stats' %>
   <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+    <%= link_to image_tag("FBlogins.png", alt: "FB Login"), "/auth/facebook", id: "sign_in" %>
   <% end %>
 </div>
 

@@ -143,6 +143,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails (~> 2.3.0)
   koala (~> 1.8.0rc1)
+  oauth2
   omniauth-facebook
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)

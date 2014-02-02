@@ -92,29 +92,16 @@ background-image: url("caticons/cathealth.PNG");
 background-repeat: no-repeat; }
 }
 
-.categorylist.hobbies {
+.categorylist.beauty {
 a::before {
 content: "";
 position: absolute;
 top: 50%;
 left: -25px;
-width: 24px;
+width: 26px;
 height: 24px;
 margin-top: -11px;
-background-image: url("caticons/cathobby.PNG");
-background-repeat: no-repeat; }
-}
-
-.categorylist.home {
-a::before {
-content: "";
-position: absolute;
-top: 50%;
-left: -25px;
-width: 24px;
-height: 24px;
-margin-top: -11px;
-background-image: url("caticons/cathome.PNG");
+background-image: url("caticons/catbeauty.PNG");
 background-repeat: no-repeat; }
 }
 

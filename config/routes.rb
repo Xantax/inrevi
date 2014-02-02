@@ -16,5 +16,9 @@ match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
   
   resources :sessions,      only: [:new, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
+  
+  resources :media, :only => [:index] do
+    
+  end
 
 end

@@ -1,29 +1,17 @@
-.full_profile {
-font-size: 0.75em;
-text-align:left;
-  padding-top:5px;
-  a{color:#000000;}
-a:hover{color:#000000;}
+
+#sign_in {
+padding-top:10px;
 }
 
 .stats {
-  overflow: auto;
-  padding-top: 10px;
-  a {
-    float: left;
-    padding: 0 10px;
-    border-left: 1px solid #E8E8E8;
-    color: gray;
-    &:first-child {
-      padding-left: 0;
-      border: 0;
-    }
-    &:hover {
-      text-decoration: none;
-      color: #404040;
-    }
-  }
-  strong {
-    display: block;
-  }
+  padding-top:10px;
+  a{color:#707070;}
+a:hover{text-decoration:none; color:#000000;}
+}
+
+.namefollow{
+vertical-align:top;
+display:inline-block;
+a{color:#707070;}
+a:hover{text-decoration:none; color:#000000;} 
 }
