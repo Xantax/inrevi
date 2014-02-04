@@ -1,0 +1,26 @@
+<% provide(:title, 'Media') %>
+
+<div class="row">
+
+<div class="col-sm-2 categories">
+  <%= render 'shared/categories' %>
+</div>
+  
+<div class="col-sm-8"> 
+  <div class="mediacat">  
+    <ul>
+    <li><%= link_to "books", "#" %></li>
+    <li><%= link_to "movies", movies_path %></li>
+    <li><%= link_to "TV", "#" %></li>
+    <li><%= link_to "games", "#" %></li>
+    <li><%= link_to "podcasts", "#" %></li>
+    </ul>
+   </div>
+</div>
+
+<div class="col-sm-2">
+  <%= render 'shared/user_mainprofile' %>
+</div>
+
+  
+</div>

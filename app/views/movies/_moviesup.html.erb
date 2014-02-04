@@ -1,0 +1,18 @@
+<div class="moviesfirst">
+        <div class="moviesfirstsearch">
+<%= form_tag("/search", :method => "get") do %>
+<%= text_field_tag(:query, nil, :class => "moviesearchbutton") %>
+  <% end %>
+          </div>
+       <div class="moviesfirstlist">
+          <ul>
+          <li><%= link_to "popular", "#" %></li>
+          <li><%= link_to "by genre", "#" %></li>
+          <li id="watchmovie"><%= link_to "watch", "#" %></li>
+          </ul>
+        </div>
+      </div>
+     <div class="moviessecond">
+        <div id="movieyears"> d </div>
+        <div id="movieratings"> r </div>
+     </div>

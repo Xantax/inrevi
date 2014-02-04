@@ -1,4 +1,4 @@
-<% provide(:title, 'Create and collaborate') %>
+<% provide(:title, 'Just reviews, no bullshit') %>
 
 <div class="row">
 
@@ -12,20 +12,14 @@
   </div>
   <div class="allnews">
     <div class="separatenews">
-
+dfg <br>
+      sdf
     </div>
   </div>
 </div>
 
 <div class="col-sm-2">
-  <% if signed_in? %>
-    <strong><%= link_to current_user.name, user_path(current_user) %></strong> <br > <br >
-  <%= image_tag(current_user.smallimage)%><div class="full_profile"><%= link_to "full profile", user_path(current_user) %> <br >
-  <%= link_to "logout", signout_path, class: "sign_out" %></div> 
-  <%= render 'shared/stats' %>
-  <% else %>
-    <%= link_to image_tag("FBlogins.png", alt: "FB Login"), "/auth/facebook", id: "sign_in" %>
-  <% end %>
+  <%= render 'shared/user_mainprofile' %>
 </div>
 
   

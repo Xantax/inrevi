@@ -6,7 +6,9 @@ gem 'bootstrap-sass', '3.0.3'
 gem 'omniauth-facebook'
 gem "koala", "~> 1.8.0rc1"
 gem 'oauth2'
-
+gem 'themoviedb'
+gem 'httparty'
+gem 'json'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
