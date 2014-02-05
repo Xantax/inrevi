@@ -16,7 +16,7 @@
     <div class="moviefacts">
       <b>Runtime:</b> <%= @movie.runtime %> min. <br>
       <b>Release Date:</b>
-      <%= @movie.release_date.to_date.strftime("%m/%d/%Y") if @movie.release_date %><br />
+      <%= @movie.release_date.to_date.try("%m/%d/%Y") if @movie.release_date %><br />
       <b>Trailers:</b>
       <% @trailers['youtube'].first(1).each do |trailer| %>
     		<%= link_to "#{trailer['name']} - #{trailer['size']}", "http://www.youtube.com/watch?v=#{trailer['source']}" %>.<br />
@@ -24,7 +24,8 @@
       <b>Genres:</b>
 			<% @movie.genres.each do |genre| %>
 				<%= genre['name'] %>.
-			<% end %>
+			<% end %><br>
+      <b>Directors:</b> <% @crew.each do |crew| %> <% if crew['department'] == 'Directing' %> <%= crew['name'] %> <% end %><% end %><br />
       </div>
   </div>
   
@@ -39,11 +40,11 @@
 <div class="row movie2">
   
   <div class="col-sm-2">
-    
+    + Add a photo
   </div>
   
   <div class="col-sm-2">
-    
+    + Add a video
   </div>
   
   <div class="col-sm-8">

@@ -17,21 +17,24 @@
     </ul>
   </div>
     <div class="allnews">
-      <%= render 'movies/moviesup' %>
-            
+      <%= render 'movies/moviesup' %>            
       <div class="moviesnow">
-	<% @movie.each do |movie| %>
-				<%= link_to movie_path(movie.id) do %><br><br>
-					<%= image_tag("#{@configuration.base_url}w154#{movie.poster_path}") if movie.poster_path %>
-        <%= movie.title %>
-        <%= movie.release_date.to_date.strftime("%Y") %> <br />
-				<% end %>
+        <div class="row">
+	<% @movie.each do |movie| %><br><br>
+          <% if movie %>
+				<%= link_to movie_path(movie.id) do %>          
+					<div class="col-sm-4 moviesin">
+            <%= image_tag("#{@configuration.base_url}w154#{movie.poster_path}") if movie.poster_path %></div>
+          <div class="col-sm-8 moviesin">
         <div class="moviesnowindex">
-
-        </div>
+        <%= movie.title %> (<%= movie.release_date.to_date.try(:year) %>) <br /> </div>
+				<% end %> 
+          </div>
 	<% end %>
-        </div>
-   </div>
+<% end %>           
+      </div>
+    </div>
+  </div>
 </div>
 
 

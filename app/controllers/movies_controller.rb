@@ -18,10 +18,15 @@ require 'themoviedb'
   	@cast = Tmdb::Movie.casts(params[:id])
   	@trailers = Tmdb::Movie.trailers(params[:id])
   	@similar_movies = Tmdb::Movie.similar_movies(params[:id])
+    @crew = Tmdb::Movie.crew(params[:id])
   end
   
   def search
     @movie = Tmdb::Movie.find(params[:query])
+  end
+  
+  def popular
+    @popular = Tmdb::Movie.popular
   end
   
 end

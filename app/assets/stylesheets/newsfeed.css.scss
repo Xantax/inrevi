@@ -67,7 +67,7 @@ border-bottom: 1px solid #D0D0D0;
 
 .moviesfirstlist{
   display: inline-block;
-  padding-left:100px;
+  padding-left:120px;
 }
 
 .moviesfirstlist ul
@@ -90,7 +90,9 @@ padding: .5em 0.85em;
 
 .moviesfirstlist ul li a:hover
 {
-border-bottom: 2px solid #A8A8A8;
+border-bottom: 0px solid #E8E8E8;
+  background-color:#FFFFFF;
+  color: #000000;
 }
 
 .moviesfirstsearch{
@@ -117,7 +119,8 @@ display: inline-block;
 
 .moviesnow{
 padding-top: 20px;
-
+a{color: #707070;}
+a:hover{color: #202020; text-decoration:none;}
 }
 
 .moviesresult{
@@ -125,8 +128,16 @@ padding-top: 40px;
 }
 
 .moviesnowindex{
-vertical-align:top;
-display: inline-block;
-  padding-left:10px;
-  font-size:1em;
+
+  font-size: 130%;
+  a{color: #707070;}
+a:hover{color: #202020; text-decoration:none;}
+}
+
+.col-sm-4.moviesin{
+}
+
+.col-sm-8.moviesin{
+height: 300px;
+  width:400px;
 }
