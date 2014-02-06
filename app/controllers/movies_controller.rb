@@ -19,6 +19,7 @@ require 'themoviedb'
   	@trailers = Tmdb::Movie.trailers(params[:id])
   	@similar_movies = Tmdb::Movie.similar_movies(params[:id])
     @crew = Tmdb::Movie.crew(params[:id])
+    @movie_review = MovieReview.new
   end
   
   def search

@@ -11,12 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140205015757) do
+ActiveRecord::Schema.define(version: 20140205203724) do
 
   create_table "movie_reviews", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "movie_id"
+    t.string   "title"
+    t.string   "content"
   end
+
+  add_index "movie_reviews", ["movie_id"], name: "index_movie_reviews_on_movie_id"
 
   create_table "movies", force: true do |t|
     t.datetime "created_at"

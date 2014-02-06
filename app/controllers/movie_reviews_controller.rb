@@ -1,6 +1,6 @@
 class MovieReviewsController < ApplicationController
   before_action :set_movie_review, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_movie
   # GET /movie_reviews
   # GET /movie_reviews.json
   def index
@@ -14,6 +14,7 @@ class MovieReviewsController < ApplicationController
 
   # GET /movie_reviews/new
   def new
+    @movie = Tmdb::Movie.find(params[:id])
     @movie_review = MovieReview.new
   end
 
@@ -24,7 +25,9 @@ class MovieReviewsController < ApplicationController
   # POST /movie_reviews
   # POST /movie_reviews.json
   def create
-    @movie_review = MovieReview.new(movie_review_params)
+    
+    @movie = Tmdb::Movie.find(params[:movie_id])
+    @movie_review = @movie.movie_reviews.new(movie_review_params)
 
     respond_to do |format|
       if @movie_review.save
@@ -66,9 +69,13 @@ class MovieReviewsController < ApplicationController
     def set_movie_review
       @movie_review = MovieReview.find(params[:id])
     end
+  
+  def set_movie
+    @movie = Tmdb::Movie.find(params[:movie_id])
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_review_params
-      params[:movie_review]
+      params.require(:movie_review).permit(:title, :content)
     end
 end

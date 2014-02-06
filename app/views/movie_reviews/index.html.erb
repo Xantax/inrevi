@@ -10,11 +10,10 @@
   </thead>
 
   <tbody>
-    <% @movie_reviews.each do |movie_review| %>
+    <% @movie.movie_reviews.each do |movie_review| %>
       <tr>
         <td><%= link_to 'Show', movie_review %></td>
-        <td><%= link_to 'Edit', edit_movie_review_path(movie_review) %></td>
-        <td><%= link_to 'Destroy', movie_review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_movie_movie_review_path(movie_review) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +21,4 @@
 
 <br>
 
-<%= link_to 'New Movie review', new_movie_review_path %>
+<%= link_to 'New Movie review', new_movie_movie_review_path %>
