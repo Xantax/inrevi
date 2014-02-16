@@ -1,0 +1,54 @@
+<%= form_for(@podcast) do |f| %>
+  <% if @podcast.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@podcast.errors.count, "error") %> prohibited this podcast from being saved:</h2>
+
+      <ul>
+      <% @podcast.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :hosts %><br>
+    <%= f.text_field :hosts %>
+  </div>
+  <div class="field">
+    <%= f.label :language %><br>
+    <%= f.text_field :language %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br>
+    <%= f.text_field :website %>
+  </div>
+  <div class="field">
+    <%= f.label :links %><br>
+    <%= f.text_field :links %>
+  </div>
+  <div class="field">
+    <%= f.label :fb %><br>
+    <%= f.text_field :fb %>
+  </div>
+  <div class="field">
+    <%= f.label :tw %><br>
+    <%= f.text_field :tw %>
+  </div>
+
+  <div class="field">
+    <%= f.collection_select :podcast_category_id, PodcastCategory.order(:name), :id, :name, :prompt => "--  Select Category --" %>
+  </div>
+  <div class="field">
+    <%= f.grouped_collection_select :podcast_sub_category_id, PodcastCategory.order(:name), :podcast_sub_categories, :name, :id, :name, :prompt => "-- Select Property Subtype --"  %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

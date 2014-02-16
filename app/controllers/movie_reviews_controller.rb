@@ -14,7 +14,7 @@ class MovieReviewsController < ApplicationController
 
   # GET /movie_reviews/new
   def new
-    @movie = Tmdb::Movie.find(params[:id])
+    @movie = Tmdb::Movie.detail(params[:movie_id])
     @movie_review = MovieReview.new
   end
 
@@ -26,8 +26,8 @@ class MovieReviewsController < ApplicationController
   # POST /movie_reviews.json
   def create
     
-    @movie = Tmdb::Movie.find(params[:movie_id])
-    @movie_review = @movie.movie_reviews.new(movie_review_params)
+    movie = Tmdb::Movie.find(params[:movie_id])
+    @movie_review = movie.movie_reviews.new(movie_review_params)
 
     respond_to do |format|
       if @movie_review.save

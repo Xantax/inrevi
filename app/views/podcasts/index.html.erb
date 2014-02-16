@@ -1,0 +1,46 @@
+<% provide(:title, 'Podcasts') %>
+
+<div class="row">
+
+<div class="col-sm-2 categories">
+  <%= render 'shared/categories' %>
+</div>
+  
+<div class="col-sm-8"> 
+  <div class="mediacat">  
+    <ul>
+    <li><%= link_to "books", "#" %></li>
+    <li><%= link_to "movies", movies_path %></li>
+    <li><%= link_to "TV", "#" %></li>
+    <li><%= link_to "games", "#" %></li>
+    <li class="listcat"><%= link_to "podcasts", podcasts_path %></li>
+    </ul>
+  </div>
+<div class="allnews">
+  <div class="podcastup">       
+        <div class="col-sm-6"> <%= form_tag("/search", :method => "get") do %>
+<%= text_field_tag(:query, nil, :class => "moviesearchbutton") %>
+  <% end %></div>        
+        <div class="col-sm-6 linkup">
+          <%= link_to "by genre", "#" %>
+          <b><%= link_to "+ Add a podcast", new_podcast_path %></b>
+        </div>      
+      </div>
+            
+    <% @podcasts.each do |podcast| %>
+
+        <%= podcast.name %>
+        <%= podcast.hosts %>
+        <%= link_to 'Show', podcast %>
+        <%= link_to 'Edit', edit_podcast_path(podcast) %>
+        <%= link_to 'Destroy', podcast, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+    <% end %>
+  </div>
+</div>
+ 
+<div class="col-sm-2">
+  <%= render 'shared/user_mainprofile' %>
+</div>
+ 
+</div>

@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140205203724) do
+ActiveRecord::Schema.define(version: 20140216054124) do
 
   create_table "movie_reviews", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "movie_id"
     t.string   "title"
-    t.string   "content"
+    t.text     "content"
   end
 
   add_index "movie_reviews", ["movie_id"], name: "index_movie_reviews_on_movie_id"
@@ -27,6 +27,48 @@ ActiveRecord::Schema.define(version: 20140205203724) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "podcast_categories", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
+  create_table "podcast_reviews", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "podcast_id"
+  end
+
+  add_index "podcast_reviews", ["podcast_id"], name: "index_podcast_reviews_on_podcast_id"
+
+  create_table "podcast_sub_categories", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.integer  "podcast_category_id"
+  end
+
+  add_index "podcast_sub_categories", ["podcast_category_id"], name: "index_podcast_sub_categories_on_podcast_category_id"
+
+  create_table "podcasts", force: true do |t|
+    t.string   "name"
+    t.string   "hosts"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "language"
+    t.string   "website"
+    t.string   "fb"
+    t.string   "tw"
+    t.string   "links"
+    t.integer  "podcast_category_id"
+    t.integer  "podcast_sub_category_id"
+  end
+
+  add_index "podcasts", ["podcast_category_id"], name: "index_podcasts_on_podcast_category_id"
+  add_index "podcasts", ["podcast_sub_category_id"], name: "index_podcasts_on_podcast_sub_category_id"
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"

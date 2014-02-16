@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+podcast_categories = PodcastCategory.create([{ name: 'vogo' }, { name: 'Johnny' }, { name: 'Smart' }, { name: 'Tenty' }])
+
+PodcastSubCategory.create(name: 'Hyberbeard', podcast_category: podcast_categories.first)
+PodcastSubCategory.create(name: 'dfgdfggggg', podcast_category: podcast_categories.second)
+PodcastSubCategory.create(name: 'cvcxfgdfgd', podcast_category: podcast_categories.third)
+PodcastSubCategory.create(name: 'vbnfghfghe', podcast_category: podcast_categories.fourth)
+
