@@ -26,12 +26,12 @@ class MovieReviewsController < ApplicationController
   # POST /movie_reviews.json
   def create
     
-    movie = Tmdb::Movie.find(params[:movie_id])
-    @movie_review = movie.movie_reviews.new(movie_review_params)
+    @movie = Tmdb::Movie.detail(params[:movie_id])
+    @movie_review = MovieReview.new(movie_review_params)
 
     respond_to do |format|
       if @movie_review.save
-        format.html { redirect_to @movie_review, notice: 'Movie review was successfully created.' }
+        format.html { redirect_to movie_path(@movie.id), notice: 'Movie review was successfully created.' }
         format.json { render action: 'show', status: :created, location: @movie_review }
       else
         format.html { render action: 'new' }
@@ -76,6 +76,6 @@ class MovieReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_review_params
-      params.require(:movie_review).permit(:title, :content)
+      params.require(:movie_review).permit(:title, :content, :movie_id)
     end
 end

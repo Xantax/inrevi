@@ -30,6 +30,8 @@
   <%= @podcast.tw %>
 </p>
 
+<%= link_to image_tag("FBfavicon.png", alt: "logo"), @podcast.fb, :method => "get" %>
+
 <p>
   <strong>Links:</strong>
   <%= @podcast.links %>

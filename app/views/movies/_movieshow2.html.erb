@@ -26,6 +26,8 @@
 				<%= genre['name'] %>.
 			<% end %><br>
       <b>Directors:</b> <% @crew.each do |crew| %> <% if crew['department'] == 'Directing' %> <%= crew['name'] %> <% end %><% end %><br />
+      All photos(0)<br>
+      All videos(0)
       </div>
   </div>
   
@@ -39,19 +41,19 @@
 
 <div class="row movie2">
   
-  <div class="col-sm-2">
-    + Add a photo
+  <div class="col-sm-9">
+<% @movie_reviews.each do |movie_review| %>
+    <%= movie_review.title %>
+    <%= movie_review.content %>    
+    <% end %>
   </div>
+
   
-  <div class="col-sm-2">
-    + Add a video
-  </div>
-  
-  <div class="col-sm-8">
+  <div class="col-sm-3">
     <div class="similarmovies">
     <% if @similar_movies %>
       <p>Similar Movies:</p>
-				<% @similar_movies.first(4).each do |movie| %>
+				<% @similar_movies.first(4).each do |movie| %><br><br>
 					<% if movie %>
 						<%= link_to movie_path(movie['id']) do %>
 							<%= image_tag("#{@configuration.base_url}w92#{movie['poster_path']}") if movie['poster_path'] %>
