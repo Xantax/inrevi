@@ -26,16 +26,19 @@
           <b><%= link_to "+ Add a podcast", new_podcast_path %></b>
         </div>      
       </div>
-            
+<div class="row">  
+  
     <% @podcasts.each do |podcast| %>
-
+  <div class="col-sm-4 moviesin">g</div>
+  <div class="col-sm-8 moviesin">
         <%= podcast.name %>
         <%= podcast.hosts %>
         <%= link_to 'Show', podcast %>
         <%= link_to 'Edit', edit_podcast_path(podcast) %>
         <%= link_to 'Destroy', podcast, method: :delete, data: { confirm: 'Are you sure?' } %>
-
+  </div>
     <% end %>
+    </div>
   </div>
 </div>
  

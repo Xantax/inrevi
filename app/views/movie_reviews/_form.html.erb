@@ -1,5 +1,6 @@
 <%= form_for :movie_review, url: movie_movie_reviews_path do |f| %>
 
+
 <%= f.hidden_field :movie_id, :value => @movie.id %>
   <p>
     <%= f.label :title %><br>

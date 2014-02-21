@@ -27,9 +27,15 @@
           <%= image_tag("#{@configuration.base_url}w154#{movie['poster_path']}") if movie['poster_path'] %></div>
          <div class="col-sm-8 moviesin">
            <div class="moviesnowindex">
-           <%= movie['title'] %> (<%= movie['release_date'].to_date.strftime("%Y") %>) <br></div>
-		<% end %>          
-        </div>
+           <%= movie['title'] %> (<%= movie['release_date'].to_date.strftime("%Y") %>) <br>
+           </div>
+		<% end %>                      
+        
+    <% @movie_reviews.last(2).each do |movie_review| %>
+      <%= movie_review.content %>    
+    <% end %>
+
+          </div> 
   <% end %>
 <% end %>
       </div>

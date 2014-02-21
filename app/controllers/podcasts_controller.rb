@@ -12,7 +12,9 @@ class PodcastsController < ApplicationController
   # GET /podcasts/1
   # GET /podcasts/1.json
   def show
-
+    @podcast = Podcast.find(params[:id])
+    @podcast_review_all = @podcast.podcast_reviews
+    @podcast_reviews = @podcast.podcast_reviews
   end
 
   # GET /podcasts/new

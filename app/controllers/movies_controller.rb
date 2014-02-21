@@ -9,7 +9,9 @@ require 'themoviedb'
   end 
   
   def index
+
   	@now_playing = Tmdb::Movie.now_playing
+    @movie_reviews = MovieReview.where(now_playing_id: params[:id])
   end
   
   def show
@@ -24,6 +26,7 @@ require 'themoviedb'
   
   def search
     @movie = Tmdb::Movie.find(params[:query])
+    @movie_reviews = MovieReview.where(movie_id: params[:query])
   end
   
   def popular

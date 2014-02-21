@@ -52,7 +52,10 @@
 	
 	<h5>Stars: <%= podcast_review.title %></h5>
 	<p><%= podcast_review.content %></p>
+by <%= podcast_review.user.name %>
 <% end %>
+
+There are: <%= @podcast.podcast_reviews.count %> reviews!
 
 <%= link_to 'Edit', edit_podcast_path(@podcast) %> |
 <%= link_to 'Back', podcasts_path %>

@@ -1,7 +1,6 @@
 Inrevi::Application.routes.draw do
 
   resources :podcast_sub_categories
-
   resources :podcast_categories
 
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]

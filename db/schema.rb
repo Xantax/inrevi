@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140216054124) do
+ActiveRecord::Schema.define(version: 20140220203836) do
 
   create_table "movie_reviews", force: true do |t|
     t.datetime "created_at"
@@ -19,9 +19,12 @@ ActiveRecord::Schema.define(version: 20140216054124) do
     t.integer  "movie_id"
     t.string   "title"
     t.text     "content"
+    t.integer  "now_playing_id"
+    t.integer  "user_id"
   end
 
   add_index "movie_reviews", ["movie_id"], name: "index_movie_reviews_on_movie_id"
+  add_index "movie_reviews", ["user_id"], name: "index_movie_reviews_on_user_id"
 
   create_table "movies", force: true do |t|
     t.datetime "created_at"
@@ -40,9 +43,11 @@ ActiveRecord::Schema.define(version: 20140216054124) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "podcast_id"
+    t.integer  "user_id"
   end
 
   add_index "podcast_reviews", ["podcast_id"], name: "index_podcast_reviews_on_podcast_id"
+  add_index "podcast_reviews", ["user_id"], name: "index_podcast_reviews_on_user_id"
 
   create_table "podcast_sub_categories", force: true do |t|
     t.datetime "created_at"

@@ -1,0 +1,5 @@
+<section class='review'>
+  <% @movie_reviews.first(1).each do |movie_review| %>
+  <%= movie_review.content.truncate(200, omission: '...') %>
+  <% end %>
+</section>

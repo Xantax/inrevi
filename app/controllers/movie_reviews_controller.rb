@@ -71,11 +71,13 @@ class MovieReviewsController < ApplicationController
     end
   
   def set_movie
-    @movie = Tmdb::Movie.find(params[:movie_id])
+    @movie = Tmdb::Movie.detail(params[:movie_id])
+    @now_playing = Tmdb::Movie.now_playing
   end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_review_params
-      params.require(:movie_review).permit(:title, :content, :movie_id)
+      params.require(:movie_review).permit(:title, :content, :movie_id, :now_playing_id, :user_id)
     end
+  
 end

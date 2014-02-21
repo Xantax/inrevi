@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   
   def show
   	@user = User.find(params[:id])
+    @podcast_reviews = PodcastReview.where("user_id = ?", @user.id).all
   end
   
   def index

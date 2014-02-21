@@ -45,7 +45,8 @@
 <% @movie_reviews.each do |movie_review| %>
     <%= movie_review.title %>
     <%= movie_review.content %>    
-    <% end %>
+<% end %>
+    <%= render 'movie_reviews/indexreview' %>
   </div>
 
   
