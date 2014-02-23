@@ -31,14 +31,6 @@
     <%= f.label :links %><br>
     <%= f.text_field :links %>
   </div>
-  <div class="field">
-    <%= f.label :fb %><br>
-    <%= f.text_field :fb %>
-  </div>
-  <div class="field">
-    <%= f.label :tw %><br>
-    <%= f.text_field :tw %>
-  </div>
 
   <div class="field">
     <%= f.collection_select :podcast_category_id, PodcastCategory.order(:name), :id, :name, :prompt => "--  Select Category --" %>

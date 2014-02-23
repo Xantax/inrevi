@@ -1,63 +1,16 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @podcast.name) %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @podcast.name %>
-</p>
+<div class="row">
+ 
+<div class="col-sm-9"> 
+  <div class="movieitem">
+    <%= render 'podcasts/podcastshow2' %>
+  </div>
+</div>
 
-<p>
-  <strong>Host:</strong>
-  <%= @podcast.hosts %>
-</p>
+<div class="col-sm-3">
+  <%= render 'shared/user_mainprofile' %>
+</div>
 
-<p>
-  <strong>Language:</strong>
-  <%= @podcast.language %>
-</p>
-
-<p>
-  <strong>Website:</strong>
-  <%= @podcast.website %>
-</p>
-
-<p>
-  <strong>FB:</strong>
-  <%= @podcast.fb %>
-</p>
-
-<p>
-  <strong>Twitter:</strong>
-  <%= @podcast.tw %>
-</p>
-
-<%= link_to image_tag("FBfavicon.png", alt: "logo"), @podcast.fb, :method => "get" %>
-
-<p>
-  <strong>Links:</strong>
-  <%= @podcast.links %>
-</p>
-
-<p>
-<b>Property Type:</b>
-  <%= @podcast.podcast_category.name %>
-</p>
-
-<p>
-  <b>Prop Subtype:</b>
-  <%= @podcast.podcast_sub_category.name %>
-</p>
-
-
-<% @podcast.podcast_reviews.each do |podcast_review| %>
-	
-	<h5>Stars: <%= podcast_review.title %></h5>
-	<p><%= podcast_review.content %></p>
-by <%= podcast_review.user.name %>
-<% end %>
-
-There are: <%= @podcast.podcast_reviews.count %> reviews!
-
-<%= link_to 'Edit', edit_podcast_path(@podcast) %> |
-<%= link_to 'Back', podcasts_path %>
-
-<%= link_to "Write a review", new_podcast_podcast_review_path(@podcast) %>
+  
+</div>

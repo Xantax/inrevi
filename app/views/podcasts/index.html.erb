@@ -29,8 +29,8 @@
 <div class="row">  
   
     <% @podcasts.each do |podcast| %>
-  <div class="col-sm-4 moviesin">g</div>
-  <div class="col-sm-8 moviesin">
+  <div class="col-sm-4 podsin"><%= image_tag("NoImage.png", height: '180', width: '150') %></div>
+  <div class="col-sm-8 podsin">
         <%= podcast.name %>
         <%= podcast.hosts %>
         <%= link_to 'Show', podcast %>

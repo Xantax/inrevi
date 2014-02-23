@@ -1,15 +1,20 @@
 <% @user ||= current_user %>
 <div class="stats">
-  <%= link_to "points", "#" %> <br >
-  <%= link_to "reviews", "#" %> <br >
-  <a href="<%= following_user_path(@user) %>">
+  <%= image_tag("othericons/pointicon.PNG", height: '12', width: '12') %> <%= @user.podcast_reviews.count * 5 %>  points <br >
+    <%= image_tag("othericons/writeRev.png", height: '12', width: '12') %> <a href="<%= user_path(@user) %>">
+    <strong id="following">
+      <%= @user.podcast_reviews.count %>
+    </strong>
+    reviews
+  </a><br >
+  <%= image_tag("othericons/Ufollowing.PNG", height: '12', width: '12') %> <a href="<%= following_user_path(@user) %>">
     <strong id="following">
       <%= @user.followed_users.count %>
     </strong>
     following
-  </a>
+  </a> 
 <br >
-<a href="<%= followers_user_path(@user) %>">
+<%= image_tag("othericons/Ufollowers.PNG", height: '12', width: '12') %> <a href="<%= followers_user_path(@user) %>">
     <strong id="followers">
       <%= @user.followers.count %>
   </strong>

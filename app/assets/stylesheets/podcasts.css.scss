@@ -1,3 +1,19 @@
 // Place all the styles related to the Podcasts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+
+.col-sm-8.podreview {
+height:150px;
+}
+
+.podinfo{
+font-size: 0.75em
+}
+
+.row.podup {
+border-bottom: 1px solid #E8E8E8;
+border-top: 1px solid #E8E8E8;
+  padding-top:20px;
+  padding-bottom: 20px;
+}

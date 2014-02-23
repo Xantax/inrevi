@@ -1,0 +1,43 @@
+<div class="specreview">
+<%= link_to "Write a review", new_podcast_podcast_review_path(@podcast) %>
+  </div>
+<br><br>
+
+<div class="row podup"> 
+  <div class="col-sm-3"> <%= image_tag("NoImage.png", height: '120', width: '120') %> </div> 
+ <div class="col-sm-5"> 
+   <b><%= @podcast.name %></b> <br ><br >
+   <div class="podinfo">
+Host(s): <%= @podcast.hosts %><br >
+Language: <%= @podcast.language %><br >
+Website: <%= @podcast.website %><br >
+Category: <%= @podcast.podcast_category.name %><br >
+Subcategory: <%= @podcast.podcast_sub_category.name %> 
+   </div>
+  </div>
+  <div class="col-sm-4">   
+<%= link_to image_tag("othericons/ListenPod.PNG", alt: "logo4"), @podcast.links, :method => "get" %> (12) <br > <br >
+<%= image_tag("othericons/PhotoShow.PNG", alt: "logo4") %> (6) 
+<%= image_tag("othericons/VideoShow.PNG", alt: "logo4") %> (7) <br > <br >
+    <%= link_to 'Edit', edit_podcast_path(@podcast) %>
+  </div>
+</div> <br>
+<div class="row"> 
+<% @podcast.podcast_reviews.each do |podcast_review| %>
+	
+<div class="col-sm-3"> <%= link_to podcast_review.user.name, user_path(podcast_review.user) %> <br> 
+  <%= image_tag(podcast_review.user.smallimage) %><div class="inreviews"></div> </div>
+  
+  <div class="col-sm-8 podreview"> <b><%= podcast_review.title %>:</b>   
+  <div>
+  <% if podcast_review.content.length > 250 %>
+    <%= truncate(podcast_review.content, length: 250) %>
+    <%= link_to_function '...Read more', "$(this).parent().html('#{escape_javascript podcast_review.content}')" %>
+  <% else %>
+    <%= podcast_review.content %>
+  <% end %>
+   </div>  
+  </div>
+<% end %>
+</div> 
+

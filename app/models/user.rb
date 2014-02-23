@@ -35,6 +35,10 @@ end
     "http://graph.facebook.com/#{self.uid}/picture?type=large"
   end
   
+    def normalimage
+    "http://graph.facebook.com/#{self.uid}/picture?type=normal"
+  end
+  
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)
   end

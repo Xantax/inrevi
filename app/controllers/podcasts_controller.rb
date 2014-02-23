@@ -15,6 +15,7 @@ class PodcastsController < ApplicationController
     @podcast = Podcast.find(params[:id])
     @podcast_review_all = @podcast.podcast_reviews
     @podcast_reviews = @podcast.podcast_reviews
+
   end
 
   # GET /podcasts/new
@@ -80,4 +81,5 @@ class PodcastsController < ApplicationController
     def podcast_params
       params.require(:podcast).permit(:name, :hosts, :podcast_category_id, :podcast_sub_category_id, :fb, :tw, :language, :website, :links)
     end
+
 end
