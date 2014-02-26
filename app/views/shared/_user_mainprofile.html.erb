@@ -1,6 +1,6 @@
 <% if signed_in? %>
    <strong><%= link_to current_user.name, user_path(current_user) %></strong><br >
-<%= link_to "logout", signout_path, class: "sign_out" %><br>
+<div class="logoutlink"><%= link_to "logout", signout_path%><br></div>
   <%= image_tag(current_user.normalimage)%>
 <div class="inreviews">
 </div>

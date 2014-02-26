@@ -7,15 +7,7 @@
 </div>
   
 <div class="col-sm-8"> 
-  <div class="mediacat">  
-    <ul>
-    <li><%= link_to "books", "#" %></li>
-    <li class="listcat"><%= link_to "movies", movies_path %></li>
-    <li><%= link_to "TV", "#" %></li>
-    <li><%= link_to "games", "#" %></li>
-    <li><%= link_to "podcasts", podcasts_path %></li>
-    </ul>
-  </div>
+  <%= render "media/mcategories" %>
     <div class="allnews">
       <%= render 'movies/moviesup' %>
       <div class="moviesnow">

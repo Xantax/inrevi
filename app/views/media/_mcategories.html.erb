@@ -1,13 +1,4 @@
-<% provide(:title, 'Media') %>
-
-<div class="row">
-
-<div class="col-sm-2 categories">
-  <%= render 'shared/categories' %>
-</div>
-  
-<div class="col-sm-8"> 
-  <div class="mediacat">  
+<div class="mediacat">  
     <ul>
     <li><%= image_tag("caticons/Mbook.PNG", height: '12', width: '12') %><%= link_to "books", "#" %></li>
     <li><%= image_tag("caticons/Mmovie.PNG", height: '12', width: '12') %><%= link_to "movies", movies_path %></li>
@@ -16,12 +7,4 @@
     <li><%= image_tag("caticons/Mmusic.PNG", height: '12', width: '12') %><%= link_to "music", "#" %></li>
     <li><%= image_tag("caticons/Mpodcast.PNG", height: '12', width: '12') %><%= link_to "podcasts", podcasts_path %></li>
     </ul>
-   </div>
-</div>
-
-<div class="col-sm-2">
-  <%= render 'shared/user_mainprofile' %>
-</div>
-
-  
 </div>

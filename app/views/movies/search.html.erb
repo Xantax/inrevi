@@ -8,19 +8,13 @@
   
 <div class="col-sm-8"> 
   <div class="mediacat">  
-    <ul>
-    <li><%= link_to "books", "#" %></li>
-    <li class="listcat"><%= link_to "movies", movies_path %></li>
-    <li><%= link_to "TV", "#" %></li>
-    <li><%= link_to "games", "#" %></li>
-    <li><%= link_to "podcasts", "#" %></li>
-    </ul>
-  </div>
+  <%= render "media/mcategories" %>
+    
     <div class="allnews">
       <%= render 'movies/moviesup' %>            
       <div class="moviesnow">
         <div class="row">
-	<% @movie.each do |movie| %><br><br>
+	<% @movie.first(5).each do |movie| %><br><br>
           <% if movie %>
 				<%= link_to movie_path(movie.id) do %>          
 					<div class="col-sm-4 moviesin">
@@ -30,8 +24,8 @@
         <%= movie.title %> (<%= movie.release_date.to_date.try(:year) %>) <br /> </div>
 				<% end %> 
             
-                <% @movie_reviews.each do |movie_review| %>
-      <%= movie_review.content %>    
+            <% @movie_reviews.each do |movie_review| %>
+            <%= movie_review.content %>    
     <% end %>
           </div>
 	<% end %>

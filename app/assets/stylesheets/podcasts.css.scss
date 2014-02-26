@@ -4,7 +4,7 @@
 @import "bootstrap";
 
 .col-sm-8.podreview {
-height:150px;
+min-height:150px;
 }
 
 .podinfo{
@@ -12,8 +12,36 @@ font-size: 0.75em
 }
 
 .row.podup {
-border-bottom: 1px solid #E8E8E8;
+border-bottom: 2px solid #E8E8E8;
 border-top: 1px solid #E8E8E8;
   padding-top:20px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.podcastreviews.body {
+padding-left:50px;
+width:550px;
+  height:150px;
+vertical-align:text-top;
+  float:right;
+}
+
+.podcastreviews.image {
+float:left;
+width:100px;
+  height:200px;
+}
+
+.inreviews{
+display:inline-block;
+vertical-align:top;
+  padding-left:10px;
+}
+
+.row.podcast {
+padding-top:30px;
+}
+
+.separatereview{
+border-bottom: 1px solid #E8E8E8;
 }

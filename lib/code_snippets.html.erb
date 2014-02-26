@@ -1,0 +1,30 @@
+    <div class="separatereview">
+  <div class="col-sm-8 podreview"> <b><%= podcast_review.title %>:</b>   
+  <div>
+  <% if podcast_review.content.length > 350 %>
+    <%= truncate(podcast_review.content, length: 350) %>
+    <%= link_to_function '...Read more', "$(this).parent().html('#{escape_javascript podcast_review.content}')" %><br><br><br>
+  <% else %>
+    <%= podcast_review.content %><br>
+  <% end %>
+   </div>  
+  </div>
+</div>
+
+----------
+
+    @podcast_reviews = Podcast.find_by(params[:id]).podcast_reviews
+
+    <div class="quickreview">
+      <% @podcast_reviews.first(1).each do |podcast_review| %><br>
+      <%= podcast_review.content.truncate(200, omission: '...') %>    
+        <% end %> </div>
+
+-----------
+
+  <div class="field">
+    <%= f.label :podcast_sub_category_id %>
+    <%= f.grouped_collection_select :podcast_sub_category_id, PodcastCategory.order(:name), :podcast_sub_categories, :name, :id, :name, include_blank: true  %>
+  </div>
+
+--------------
