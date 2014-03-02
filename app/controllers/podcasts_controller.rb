@@ -13,8 +13,8 @@ class PodcastsController < ApplicationController
   # GET /podcasts/1
   # GET /podcasts/1.json
   def show
-@podcast_review = PodcastReview.new
-@podcast_reviews = Podcast.find(params[:id]).podcast_reviews.order(created_at: :desc)
+    @podcast_review = PodcastReview.new
+    @podcast_reviews = Podcast.find(params[:id]).podcast_reviews.order(created_at: :desc)
   end
 
   # GET /podcasts/new
@@ -78,7 +78,7 @@ class PodcastsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def podcast_params
-      params.require(:podcast).permit(:name, :hosts, :podcast_category_id, :podcast_sub_category_id, :fb, :tw, :podcast_language_id, :website, :links)
+      params.require(:podcast).permit(:name, :hosts, :podcast_category_id, :podcast_sub_category_id, :podcast_language_id, :website, :links, :image, :remote_image_url)
     end
 
 end

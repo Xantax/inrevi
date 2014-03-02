@@ -1,0 +1,2 @@
+module PodcastRatingsHelper
+end

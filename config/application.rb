@@ -8,6 +8,8 @@ Bundler.require(:default, Rails.env)
 
 module Inrevi
   class Application < Rails::Application
+    require 'bootstrap-sass'
+    require 'factual'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -19,6 +21,8 @@ module Inrevi
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    config.serve_static_assets = true
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.autoload_paths += %W(#{config.root}/lib #{config.root}/app/uploaders)
   end
 end

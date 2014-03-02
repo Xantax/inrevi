@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225002849) do
+ActiveRecord::Schema.define(version: 20140228003135) do
+
+  create_table "locals", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "movie_reviews", force: true do |t|
     t.datetime "created_at"
@@ -42,6 +47,17 @@ ActiveRecord::Schema.define(version: 20140225002849) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "podcast_ratings", force: true do |t|
+    t.integer  "podcast_review_id"
+    t.integer  "user_id"
+    t.integer  "score",             default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "podcast_ratings", ["podcast_review_id"], name: "index_podcast_ratings_on_podcast_review_id"
+  add_index "podcast_ratings", ["user_id"], name: "index_podcast_ratings_on_user_id"
 
   create_table "podcast_reviews", force: true do |t|
     t.string   "title"
@@ -76,6 +92,7 @@ ActiveRecord::Schema.define(version: 20140225002849) do
     t.integer  "podcast_category_id"
     t.integer  "podcast_sub_category_id"
     t.integer  "podcast_language_id"
+    t.string   "image"
   end
 
   add_index "podcasts", ["podcast_category_id"], name: "index_podcasts_on_podcast_category_id"

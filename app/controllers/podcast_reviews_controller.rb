@@ -12,7 +12,7 @@ class PodcastReviewsController < ApplicationController
 
   def new
     @podcast = Podcast.find(params[:podcast_id])
-    @podcast_review = PodcastReview.new
+    @podcast_review = PodcastReview.new 
   end
 
   def edit

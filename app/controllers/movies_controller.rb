@@ -1,15 +1,14 @@
 class MoviesController < ApplicationController
-require 'themoviedb'
+  require 'themoviedb'
 
   before_filter :set_config
   Tmdb::Api.key("a8ddb278788ceab2a58875b7f172c327")
 
   def set_config
   	@configuration = Tmdb::Configuration.new
-  end 
+  end
   
   def index
-
   	@now_playing = Tmdb::Movie.now_playing
     @movie_reviews = MovieReview.where(now_playing_id: params[:id])
   end

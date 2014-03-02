@@ -1,19 +1,19 @@
 <div class="row podup"> 
-  <div class="col-sm-3"> <%= image_tag("NoImage.png", height: '120', width: '120') %> </div> 
+  <div class="col-sm-3"> <%= image_tag @podcast.image_url(:thumb) if @podcast.image? %></div> 
  <div class="col-sm-5"> 
    <b><%= @podcast.name %></b> <br ><br >
+
    <div class="podinfo">
-Website: <%= @podcast.website %><br >
+Website:  <%= @podcast.website %><br >
 Category: <%= @podcast.podcast_category.name %><br >
 Language: <%= @podcast.podcast_language.name %><br >
    </div>
   </div>
   <div class="col-sm-4">
 <%= link_to "Write a review", new_podcast_podcast_review_path(@podcast) %><br><br>
-<%= link_to image_tag("othericons/ListenPod.PNG", height: '12', width: '12'), @podcast.links, :method => "get" %> Listen 1 <br>
- <%= link_to image_tag("othericons/ListenPod.PNG", height: '12', width: '12'), @podcast.links, :method => "get" %> Listen 2 <br><br> 
-<%= image_tag("othericons/PhotoShow.PNG", alt: "logo4") %> (6) 
-<%= image_tag("othericons/VideoShow.PNG", alt: "logo4") %> (7) <br > <br >
+<%= image_tag("othericons/ListenPod.PNG", height: '12', width: '12')%> <%= link_to "Listen", @podcast.links, :target => :blank %><br><br>
+<%= image_tag("othericons/PhotoShow.PNG", height: '16', width: '18') %> (6) 
+<%= image_tag("othericons/VideoShow.PNG", height: '16', width: '18') %> (7) <br > <br >
   </div>
 </div> <br>
 <div class="row"> 
