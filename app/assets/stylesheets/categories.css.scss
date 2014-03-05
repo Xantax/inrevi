@@ -14,6 +14,19 @@ background-repeat: no-repeat;
   }
 }
 
+.categorylist.media:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 30px;
+height: 24px;
+margin-top: -11px;
+background-image: url("caticons/hover/catmedia.PNG");
+    background-repeat: no-repeat; }
+}
+
 .categorylist.electronics {
 a::before {
 content: "";
@@ -24,6 +37,19 @@ width: 24px;
 height: 24px;
 margin-top: -11px;
 background-image: url("caticons/Celectronics.PNG");
+background-repeat: no-repeat;  }
+}
+
+.categorylist.electronics:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 24px;
+height: 24px;
+margin-top: -11px;
+background-image: url("caticons/hover/catelectronics.PNG");
 background-repeat: no-repeat;  }
 }
 
@@ -40,7 +66,7 @@ background-image: url("caticons/Clocal.PNG");
 background-repeat: no-repeat; }
 }
 
-.categorylist.travel {
+.categorylist.local:hover {
 a::before {
 content: "";
 position: absolute;
@@ -49,9 +75,10 @@ left: -25px;
 width: 24px;
 height: 24px;
 margin-top: -11px;
-background-image: url("caticons/Ctravel.PNG");
+background-image: url("caticons/hover/catlocal.PNG");
 background-repeat: no-repeat; }
 }
+
 
 .categorylist.fashion {
 a::before {
@@ -63,6 +90,19 @@ width: 24px;
 height: 24px;
 margin-top: -11px;
 background-image: url("caticons/Cfashion.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.fashion:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 24px;
+height: 24px;
+margin-top: -11px;
+background-image: url("caticons/hover/catfashion.PNG");
 background-repeat: no-repeat; }
 }
 
@@ -79,6 +119,19 @@ background-image: url("caticons/Ctech.PNG");
 background-repeat: no-repeat; }
 }
 
+.categorylist.tech:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 24px;
+height: 24px;
+margin-top: -11px;
+background-image: url("caticons/hover/cattech.PNG");
+background-repeat: no-repeat; }
+}
+
 .categorylist.health {
 a::before {
 content: "";
@@ -89,6 +142,19 @@ width: 26px;
 height: 24px;
 margin-top: -11px;
 background-image: url("caticons/Chealth.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.health:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 26px;
+height: 24px;
+margin-top: -11px;
+background-image: url("caticons/hover/cathealth.PNG");
 background-repeat: no-repeat; }
 }
 
@@ -105,6 +171,19 @@ background-image: url("caticons/Cbeauty.PNG");
 background-repeat: no-repeat; }
 }
 
+.categorylist.beauty:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 26px;
+height: 24px;
+margin-top: -11px;
+background-image: url("caticons/hover/catbeauty.PNG");
+background-repeat: no-repeat; }
+}
+
 .categorylist.auto {
 a::before {
 content: "";
@@ -115,5 +194,18 @@ width: 28px;
 height: 24px;
 margin-top: -11px;
 background-image: url("caticons/Cauto.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.auto:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 24px;
+margin-top: -11px;
+background-image: url("caticons/hover/catauto.PNG");
 background-repeat: no-repeat; }
 }

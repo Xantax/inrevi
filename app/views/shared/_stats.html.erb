@@ -1,12 +1,16 @@
 <% @user ||= current_user %>
 <div class="stats">
-  <%= image_tag("othericons/pointicon.PNG", height: '12', width: '12') %> <%= @user.podcast_reviews.count * 5 %>  points <br >
+  <div class="points">
+  <%= image_tag("othericons/pointicon.PNG", height: '12', width: '12') %> <%= @user.podcast_reviews.count * 5 %> <div class="pointz">points</div> <br >
+  </div>
+  
     <%= image_tag("othericons/writeRev.png", height: '12', width: '12') %> <a href="<%= user_path(@user) %>">
     <strong id="following">
       <%= @user.podcast_reviews.count %>
     </strong>
     reviews
   </a><br >
+  
   <%= image_tag("othericons/Ufollowing.PNG", height: '12', width: '12') %> <a href="<%= following_user_path(@user) %>">
     <strong id="following">
       <%= @user.followed_users.count %>

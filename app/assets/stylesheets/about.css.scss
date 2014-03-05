@@ -1,0 +1,15 @@
+@import "bootstrap";
+
+.col-sm-3.about {
+border-right: 1px solid #E8E8E8;
+}
+
+ul.aboutlist{
+list-style-type: none;
+}
+
+li.aboutitem{
+padding-bottom:15px;
+  font-size:120%;
+  font-weight:bold;
+}

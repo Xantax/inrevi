@@ -5,9 +5,19 @@ class StaticPagesController < ApplicationController
   def advertising
   end
 
-  def faq
+  def about
   end
   
-  def community
+  def contact
   end
+  
+  def careers
+  end
+  
+  def tos
+  end
+  
+  def policy
+  end
+  
 end
