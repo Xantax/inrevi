@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
 //= require raty.min.js
 //= require turbolinks
 //= require jquery.raty

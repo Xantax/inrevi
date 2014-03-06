@@ -1,8 +1,8 @@
 <%= form_tag lsearch_path, method: :get do %>
   <div class="qform-actions">
-    <%= hidden_field_tag :tags, nil, data: {category: Factual_Taxonomy.taxonomies , place: PLACES.places + PLACES.neighborhoods}, id: 'tags' %>
+    <%= text_field_tag :tags, nil, data: {category: Factual_Taxonomy.taxonomies , place: PLACES.places + PLACES.neighborhoods}, id: 'tags' %>
     <%= text_field_tag :query, params[:query], placeholder: "e.g. restaurants, Starbucks...", class: 'qform-control', id: 'query-text-field' %> <b> in </b>
-    <%= text_field_tag :place, params[:place], placeholder: " 'City' or 'Neighborhood, City' ", class: 'qform-control', id: 'query-text-field' %>
+    <%= text_field_tag :place, params[:place], placeholder: " 'City' or 'Neighborhood, City' ", class: 'qform-control', id: 'place-text-field' %>
     <%= submit_tag 'Go', :class => 'btn btn-primary' %>
   </div>
 <% end %>
