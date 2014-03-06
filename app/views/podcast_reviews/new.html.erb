@@ -1,5 +1,3 @@
-<h1>New podcast_review</h1>
-
+<h4><%= link_to @podcast.name, podcast_path(@podcast) %></h4><br>
 <%= render 'form' %>
 
-<%= link_to 'Back', podcast_podcast_reviews_path %>

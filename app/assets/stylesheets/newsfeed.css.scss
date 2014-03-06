@@ -180,7 +180,17 @@ min-height: 250px;
 a:hover{color: #202020; text-decoration:none;}
 }
 
+.podcastsearchbutton{
+padding: 6px; 
+border-radius: 3px; 
+border: 1px solid #CCC; 
+background-image: none; 
+width:200px; 
+}
 
+.podcastsearchbutton:focus { 
+outline-color: #0066FF; 
+} 
 
 /* LOCAL */
 

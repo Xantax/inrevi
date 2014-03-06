@@ -9,8 +9,7 @@
         <%= @local['address'] %>
         <%= @local['locality'] %>
         <%= @local['region'] %>
-        <%= @local['accessibility'] %>
-        
+        <%= Country.find_country_by_alpha2(@local['country']).name %>
       </h2>
     </div>
     <div class="return-search">
@@ -20,4 +19,23 @@
   <h3>
     <%= @local['category_labels'].join(', ') %>
   </h3>
-</div> 
+  <h4>
+    Website:
+    <%= link_to @local['website'], @local['website'] %>
+  </h4>
+  <h4>
+    Website:
+    <%= @local['tel'] %>
+  </h4>
+  <h4>
+    Addition Information
+    <% if@addition_info %>
+      <% @addition_info[1].first.reject {|key, value| select_params.include?(key)}.each do |key, value| %>
+        <h5>
+          <%= "#{key.humanize}: " %>
+          <%= value %>
+        </h5>
+      <% end %>
+    <% end %>
+  </h4>
+</div>

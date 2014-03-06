@@ -15,4 +15,6 @@
 //= require jquery-ui
 //= require raty.min.js
 //= require turbolinks
+//= require jquery.raty
+//= require jquery.ui.all
 //= require_tree .

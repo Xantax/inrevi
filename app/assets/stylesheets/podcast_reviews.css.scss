@@ -1,3 +1,29 @@
 // Place all the styles related to the PodcastReviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+
+.field.podcontent{
+padding: 6px; 
+border-radius: 3px; 
+border: 1px solid #CCC; 
+background-image: none; 
+width:400px; 
+height:300px;
+}
+
+.field.podcontent:focus { 
+outline-color: #0066FF; 
+} 
+
+.field.podtitle{
+padding: 6px; 
+border-radius: 3px; 
+border: 1px solid #CCC; 
+background-image: none; 
+width:280px; 
+}
+
+.field.podtitle:focus { 
+outline-color: #0066FF; 
+} 

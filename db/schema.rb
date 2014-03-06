@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140228003135) do
+ActiveRecord::Schema.define(version: 20140306013107) do
 
   create_table "locals", force: true do |t|
     t.datetime "created_at"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20140228003135) do
     t.datetime "updated_at"
     t.integer  "podcast_id"
     t.integer  "user_id"
+    t.integer  "rating"
   end
 
   add_index "podcast_reviews", ["podcast_id"], name: "index_podcast_reviews_on_podcast_id"

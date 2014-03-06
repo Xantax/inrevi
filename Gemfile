@@ -20,7 +20,9 @@ gem 'jquery-ui-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'factual-api'
-gem 'edmunds_ruby'
+gem 'countries'
+gem 'country_select'
+gem 'rails_config'
 
 group :development do
   gem 'debugger'

@@ -10,13 +10,16 @@
   <%= render "media/mcategories" %>
 
 <div class="allnews">
-  <div class="podcastup">       
-        <div class="col-sm-6"> <%= form_tag("/search", :method => "get") do %>
-<%= text_field_tag(:query, nil, :class => "moviesearchbutton") %>
-  <% end %></div>        
+  <div class="podcastup"> 
+    
+    <div class="col-sm-6 podcastsearch"> 
+      <%= form_tag("/search", :method => "get") do %>
+      <%= text_field_tag(:query, nil, :class => "podcastsearchbutton") %>
+      <% end %>
+    </div>  
+        
         <div class="col-sm-6 linkup">
           <%= link_to "by genre", "#" %>
-          <%= link_to "by rating", "#" %>
           <b><%= link_to "+ Add", new_podcast_path %></b>
         </div>      
       </div>
@@ -26,7 +29,7 @@
   <div class="col-sm-4 podsin"><%= image_tag podcast.image_url(:podindex) if podcast.image? %></div>
   <div class="col-sm-8 podsin">
     <div class="podcastsnowindex"><%= link_to podcast.name, podcast %></div>
-
+<%= podcast.podcast_category.name %>
   </div>
     <% end %>
     </div>
