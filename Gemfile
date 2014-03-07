@@ -26,7 +26,7 @@ gem 'rails_config'
 gem 'gmaps4rails'
 gem 'geocoder'
 gem 'meta-spotify'
-gem 'isbndb', '~> 2.0.0'
+gem 'openlibrary'
 
 group :development do
   gem 'debugger'

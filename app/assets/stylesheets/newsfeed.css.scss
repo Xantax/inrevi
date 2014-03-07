@@ -151,6 +151,19 @@ a:hover{color: #202020; text-decoration:none;}
 min-height: 300px;
 }
 
+.moviesearchbutton{ 
+padding: 6px; 
+border-radius: 3px; 
+border: 1px solid #CCC; 
+background-image: none; 
+width:200px; 
+}
+
+.moviesearchbutton:focus{ 
+outline-color: #0066FF; 
+}
+
+
 
 /* PODCASTS */
 
@@ -222,4 +235,23 @@ font-weight:bold;
 .localbottom{
   padding-bottom:15px;
 border-bottom: 1px solid #D0D0D0;
+}
+
+/* BOOKS */
+
+.booksearchbutton{ 
+padding: 6px; 
+border-radius: 3px; 
+border: 1px solid #CCC; 
+background-image: none; 
+width:280px; 
+}
+
+.booksearchbutton:focus{ 
+outline-color: #0066FF; 
+}
+
+.booksearchbox{
+border-bottom: 1px solid #D0D0D0;
+padding-bottom:20px;
 }
