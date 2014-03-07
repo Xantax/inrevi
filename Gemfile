@@ -25,7 +25,8 @@ gem 'country_select'
 gem 'rails_config'
 gem 'gmaps4rails'
 gem 'geocoder'
-gem 'lastfm'
+gem 'meta-spotify'
+gem 'isbndb', '~> 2.0.0'
 
 group :development do
   gem 'debugger'

@@ -1,11 +1,14 @@
 Inrevi::Application.routes.draw do
 
+  get "books/index"
+  get "books/show"
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 match 'auth/failure', to: redirect('/'), via: [:get, :post]
 match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 match 'media', to: 'media#index', as: 'media', via: [:get]
 match 'search' => "movies#search", via: [:get]
 match 'lsearch' => "locals#lsearch", via: [:get]
+match 'songsearch' => "songs#songsearch", via: [:get]
 match 'about' => "static_pages#about", via: [:get]
 match 'advertising' => "static_pages#advertising", via: [:get]
 match 'contact' => "static_pages#contact", via: [:get]
@@ -19,6 +22,8 @@ match 'model_year' => "model_years#show", via: [:get]
 match 'style_detail' => "model_years#details", via: [:get] 
   
   resources :autos, :only => [:index, :show]
+  
+  resources :songs, :only => [:index, :show]
   
   resources :users, :only => [:show, :index] do
     member do

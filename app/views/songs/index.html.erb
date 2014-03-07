@@ -1,0 +1,24 @@
+<% provide(:title, 'Songs') %>
+
+<div class="row">
+
+<div class="col-sm-2 categories">
+  <%= render 'shared/categories' %>
+</div>
+  
+<div class="col-sm-8"> 
+
+  <%= form_tag songsearch_path, method: :get do %>
+  <div class="qform-actions">    
+    <%= text_field_tag :query, params[:query], placeholder: "Songs", class: 'qform-control' %>
+    <%= submit_tag 'Go', :class => 'btn btn-primary' %>
+  </div>
+<% end %>
+  
+</div>
+
+<div class="col-sm-2">
+  <%= render 'shared/user_mainprofile' %>
+</div>
+ 
+</div>
