@@ -3,15 +3,26 @@ before_action :factual_authorize, only: [:index, :lsearch, :show]
 
   def index
     @results = []
+    @hash = Gmaps4rails.build_markers(@results) do |result, marker|
+      marker.lat result['latitude']
+      marker.lng result['longitude']
+      marker.infowindow result['address']
+      marker.picture({
+       "url" => "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
+       "width" =>  32,
+       "height" => 32})
+    end
   end
 
   def lsearch
     query = @factual.table('places')
     @results, @total_results = Local.factual_results(query, params)
 
+
+    
     respond_to do |format|
       format.html { render 'index' }
-    end
+    end    
   end
 
   def show
@@ -19,6 +30,17 @@ before_action :factual_authorize, only: [:index, :lsearch, :show]
     @local = query.filters('factual_id' => params[:id]).first
     
     other_local @local
+    
+    @hash = Gmaps4rails.build_markers(@locals) do |local, marker|
+      marker.lat local['latitude']
+      marker.lng local['longitude']
+      marker.infowindow local['address']
+      marker.picture({
+       "url" => "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
+       "width" =>  32,
+       "height" => 32})
+    end
+    
   end
 
   private

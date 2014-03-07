@@ -1,8 +1,11 @@
 class Local < ActiveRecord::Base
   require 'open-uri'
   require 'json'
+  
+  geocoded_by :result['address']
+  after_validation :geocode
 
-  class << self
+  class << self    
     def factual_results query, params
       query = build_fatual_query query, params
       page = params[:page] || '1'

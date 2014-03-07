@@ -23,6 +23,9 @@ gem 'factual-api'
 gem 'countries'
 gem 'country_select'
 gem 'rails_config'
+gem 'gmaps4rails'
+gem 'geocoder'
+gem 'lastfm'
 
 group :development do
   gem 'debugger'
