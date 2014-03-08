@@ -39,11 +39,13 @@ match 'style_detail' => "model_years#details", via: [:get]
     resources :movie_reviews
  end
 
+  resources :podcast_category
   
   resources :podcasts do
-   resources :podcast_reviews
-    resources :podcast_category do
-     resources :podcast_sub_category
+    resources :podcast_reviews do
+      member do
+      post 'podcast_reviews_like'
+    end
    end
   end
   

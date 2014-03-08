@@ -27,6 +27,7 @@ gem 'gmaps4rails'
 gem 'geocoder'
 gem 'meta-spotify'
 gem 'openlibrary'
+gem 'acts_as_votable', '~> 0.8.0'
 
 group :development do
   gem 'debugger'
