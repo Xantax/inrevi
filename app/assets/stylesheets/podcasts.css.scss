@@ -45,3 +45,41 @@ padding-top:30px;
 .separatereview{
 border-bottom: 1px solid #E8E8E8;
 }
+
+.podcastup{
+padding-bottom: 50px;
+border-bottom: 1px solid #D0D0D0;
+}
+
+.col-sm-6.linkup{
+  a{color: #707070;}
+  a:hover{color: #000000;
+text-decoration:none;}
+float:left;
+}
+
+.col-sm-4.podsin{
+}
+
+.col-sm-8.podsin{
+min-height: 250px;
+}
+
+.podcastsnowindex{
+
+  font-size: 130%;
+  a{color: #707070;}
+a:hover{color: #202020; text-decoration:none;}
+}
+
+.podcastsearchbutton{
+padding: 6px; 
+border-radius: 3px; 
+border: 1px solid #CCC; 
+background-image: none; 
+width:200px; 
+}
+
+.podcastsearchbutton:focus { 
+outline-color: #0066FF; 
+} 

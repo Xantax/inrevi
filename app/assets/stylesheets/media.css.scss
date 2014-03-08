@@ -1,3 +1,44 @@
 // Place all the styles related to the media controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+
+.quickreview{
+font-style:italic;
+  font-size:90%;
+}
+
+.mediacat {
+border-bottom: 1px solid #E8E8E8;
+  padding-bottom:5px;
+  padding-left:15px;
+}
+
+.mediacat ul
+{
+margin: 0;
+padding: 0;
+list-style-type: none;
+text-align: center;
+}
+
+.mediacat ul li { display: inline; }
+
+.mediacat ul li a
+{
+color: #808080;  
+text-decoration: none;
+padding: .4em 2.4em 0.5em 0.5em;
+font-size:1em;
+}
+
+.mediacat ul li a:hover
+{
+background-color: #FFFFFF;
+color:#000000;
+}
+
+.listcat {
+  a{background-color: #F0F0F0;}
+}

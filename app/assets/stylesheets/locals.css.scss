@@ -24,3 +24,33 @@ ul.ui-autocomplete {
 .col-sm-6.localmap{
 height:5000px;
 }
+
+.form-control{
+width:50px;
+}
+
+.qform-control
+{ 
+padding: 6px; 
+border-radius: 3px; 
+border: 1px solid #CCC; 
+background-image: none; 
+width:280px; 
+} 
+ .qform-control:focus { 
+outline-color: #0066FF; 
+} 
+
+.localcategory{
+font-size:80%;
+}
+
+.localindexname{
+font-size:120%;
+font-weight:bold;
+}
+
+.localbottom{
+  padding-bottom:15px;
+border-bottom: 1px solid #D0D0D0;
+}
