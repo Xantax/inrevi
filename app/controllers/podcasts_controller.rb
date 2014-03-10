@@ -5,7 +5,7 @@ class PodcastsController < ApplicationController
   # GET /podcasts.json
   def index
     @podcasts = Podcast.all
-    @podcast_categories = PodcastCategory.all
+
   end
 
   # GET /podcasts/1
@@ -18,12 +18,12 @@ class PodcastsController < ApplicationController
   # GET /podcasts/new
   def new
     @podcast = Podcast.new
-    @podcast_categories = PodcastCategory.all
+
   end
 
   # GET /podcasts/1/edit
   def edit
-    @podcast_categories = PodcastCategory.all
+
   end
 
   # POST /podcasts
@@ -74,7 +74,7 @@ class PodcastsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def podcast_params
-      params.require(:podcast).permit(:name, :podcast_category_id, :podcast_language_id, :website, :links, :image, :remote_image_url)
+      params.require(:podcast).permit(:name, :podcast_language_id, :website, :image, :remote_image_url)
     end
 
 end

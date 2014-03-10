@@ -12,9 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require raty.min.js
 //= require turbolinks
-//= require jquery.raty
 //= require jquery.ui.all
 //= require underscore
 //= require gmaps/google

@@ -5,15 +5,13 @@
 
    <div class="podinfo">
 Website:  <%= @podcast.website %><br >
-Category: <%= @podcast.podcast_category.name %><br >
 Language: <%= @podcast.podcast_language.name %><br >
    </div>
   </div>
   <div class="col-sm-4">
 <%= link_to "Write a review", new_podcast_podcast_review_path(@podcast) %><br><br>
-<%= image_tag("othericons/ListenPod.PNG", height: '12', width: '12')%> <%= link_to "Listen", @podcast.links, :target => :blank %><br><br>
-<%= image_tag("othericons/PhotoShow.PNG", height: '16', width: '18') %> (6) 
-<%= image_tag("othericons/VideoShow.PNG", height: '16', width: '18') %> (7) <br > <br >
+<%= image_tag("othericons/PhotoShow.PNG") %> (6) 
+<%= image_tag("othericons/VideoShow.PNG") %> (7) <br > <br >
   </div>
 </div> <br>
 <div class="row"> 

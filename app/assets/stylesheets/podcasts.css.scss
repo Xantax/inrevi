@@ -47,11 +47,11 @@ border-bottom: 1px solid #E8E8E8;
 }
 
 .podcastup{
-padding-bottom: 50px;
+padding-bottom: 64px;
 border-bottom: 1px solid #D0D0D0;
 }
 
-.col-sm-6.linkup{
+.col-sm-2.linkup{
   a{color: #707070;}
   a:hover{color: #000000;
 text-decoration:none;}
@@ -77,9 +77,21 @@ padding: 6px;
 border-radius: 3px; 
 border: 1px solid #CCC; 
 background-image: none; 
-width:200px; 
+width:300px; 
 }
 
 .podcastsearchbutton:focus { 
+outline-color: #0066FF; 
+} 
+
+.podcastnew{
+padding: 5px; 
+border-radius: 3px; 
+border: 1px solid #CCC; 
+background-image: none; 
+width:200px; 
+}
+
+.podcastnew:focus { 
 outline-color: #0066FF; 
 } 

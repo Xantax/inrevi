@@ -11,30 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div><br>
-  <div class="field">
-    <%= f.label :language_id %>
-    <%= f.collection_select :podcast_language_id, PodcastLanguage.order(:id), :id, :name, include_blank: true %>
-  </div><br>
-  <div class="field">
-    <%= f.label :website %><br>
-    <%= f.text_field :website %>
-  </div>
-  <div class="field">
-    <%= f.label :links %><br>
-    <%= f.text_field :links %>
-  </div><br>
-  <div class="field">
-    <%= f.label :category_id %>
-    <%= f.collection_select :podcast_category_id, PodcastCategory.order(:name), :id, :name, include_blank: true %>
-  </div>
-    <%= f.label :remote_image_url, "Image URL (min. 150x150)" %><br />
-    <%= f.text_field :remote_image_url %>
+    <%= f.text_field :name, :class => "podcastnew" %><br><br>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.label :language_id %>
+    <%= f.collection_select :podcast_language_id, PodcastLanguage.order(:id), :id, :name %><br><br>
+
+    <%= f.label :website %><br>
+    <%= f.text_field :website, :class => "podcastnew" %><br><br>
+
+    <%= f.label :remote_image_url, "Image URL (min. 150x150)" %><br />
+    <%= f.text_field :remote_image_url, :class => "podcastnew" %><br><br>
+
+    <%= submit_tag 'Submit', :class => 'btn btn-primary' %>
+
 <% end %>
