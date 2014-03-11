@@ -4,7 +4,18 @@ class PodcastsController < ApplicationController
   # GET /podcasts
   # GET /podcasts.json
   def index
-    @podcasts = Podcast.all
+    
+    @search = Podcast.search do
+      fulltext params[:search]
+    end
+    
+    if params[:tag]
+      @podcasts = Podcast.tagged_with(params[:tag])
+    elsif
+      @podcasts = @search.results
+    else
+      @podcasts = Podcast.all
+    end
 
   end
 
@@ -74,7 +85,7 @@ class PodcastsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def podcast_params
-      params.require(:podcast).permit(:name, :podcast_language_id, :website, :image, :remote_image_url)
+      params.require(:podcast).permit(:name, :podcast_language_id, :website, :image, :tag_list, :remote_image_url)
     end
 
 end

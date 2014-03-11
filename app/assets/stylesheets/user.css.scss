@@ -1,10 +1,14 @@
 
 #sign_in {
-padding-top:10px;
+  padding-top:10px;
+}
+
+.col-sm-3.usershow{
+border-right: 1px solid #E8E8E8;
 }
 
 .points{
-color:#707070;
+  color:#707070;
   font-weight:bold;
 }
 
@@ -16,12 +20,23 @@ color:#707070;
 .stats {
   padding-top:10px;
   a{color:#707070;}
-a:hover{text-decoration:none; color:#000000;}
+  a:hover{text-decoration:none; color:#000000;}
 }
 
 .namefollow{
-vertical-align:top;
-display:inline-block;
-a{color:#707070;}
-a:hover{text-decoration:none; color:#000000;} 
+  vertical-align:top;
+  display:inline-block;
+  a{color:#707070;}
+  a:hover{text-decoration:none; color:#000000;} 
+}
+
+.podcastusershow{
+  font-size:120%;
+  font-weight:bold;
+  padding-bottom:5px;
+}
+
+.podcastusercontent{
+  padding-left:20px;
+  padding-top:5px;
 }

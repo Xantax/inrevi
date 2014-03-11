@@ -96,3 +96,46 @@ width:200px;
 .moviesearchbutton:focus{ 
 outline-color: #0066FF; 
 }
+
+.movieitem{
+padding-top:10px;
+  padding-right:15px;
+border-right: 1px solid #E8E8E8;
+border-top: 1px solid #E8E8E8;
+  
+}
+
+.moviefacts {
+border-right: 1px solid #F0F0F0;
+
+}
+
+.movieoverview{
+  
+}
+
+.movieposter{
+  
+}
+
+.specreview{
+float:right;
+border-bottom: 2px solid #E0E0E0; 
+}
+
+.row.movie1{
+border-bottom: 1px solid #F0F0F0;
+border-top: 1px solid #F0F0F0; 
+  padding-top:10px;
+}
+
+.row.movie2{
+border-bottom: 1px solid #F0F0F0;
+border-top: 1px solid #F0F0F0; 
+  padding-top:10px;
+  text-align:center;
+}
+
+.similarmovies{
+
+}

@@ -1,4 +1,9 @@
-      <% if @users.any? %>
+<div class="col-sm-3">
+  <%= render 'shared/user_info' %>
+</div>
+
+<div class="col-sm-7"> 
+  <% if @users.any? %>
         <div class="user_avatars">
           <% @users.each do |user| %>
             <%= link_to image_tag(user.smallimage), user%>
@@ -6,3 +11,8 @@
           <% end %>
         </div>
      <% end %>
+</div>
+
+<div class="col-sm-2">
+
+</div>

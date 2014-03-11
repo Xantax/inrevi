@@ -30,6 +30,7 @@ gem 'openlibrary'
 gem 'acts_as_votable', '~> 0.8.0'
 gem 'sunspot_rails'
 gem 'progress_bar'
+gem 'acts-as-taggable-on'
 
 group :development do
   gem 'debugger'

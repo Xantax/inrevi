@@ -1,5 +1,6 @@
 Inrevi::Application.routes.draw do
-
+  
+  get 'podtags/:tag', to: 'podcasts#index', as: :tag
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 match 'auth/failure', to: redirect('/'), via: [:get, :post]
 match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
@@ -38,14 +39,9 @@ match 'style_detail' => "model_years#details", via: [:get]
  resources :movies do
     resources :movie_reviews
  end
-
-  resources :podcast_category
-  
+ 
   resources :podcasts do
     resources :podcast_reviews do
-      member do
-      post 'podcast_reviews_like'
-    end
    end
   end
   
