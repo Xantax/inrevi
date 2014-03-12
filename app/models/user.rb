@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   acts_as_voter
+  has_many :auto_reviews
   has_many :movie_reviews
   has_many :podcast_reviews
   has_many :podcast_ratings

@@ -1,0 +1,23 @@
+<% provide(:title, 'Review this auto') %>
+<div class="row">
+
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div>
+  <div class="col-sm-8 categories">
+    <div class="allnews">
+      
+      <%= render 'autos/autoshow' %>
+      
+      <div class="row"> 
+      <%= render 'form' %>
+      </div>
+      
+   </div>
+  </div>
+  
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
+  
+</div>

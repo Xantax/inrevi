@@ -1,4 +1,4 @@
-<% provide(:title, 'Autos') %>
+<% provide(:title, 'Cars') %>
 
 <div class="row">
 
@@ -9,6 +9,18 @@
 <div class="col-sm-8"> 
   <div class="allnews">
     
+    <div class="autosearchup">
+    <%= form_tag autos_path, :method => :get do %>
+      <%= text_field_tag :search, params[:search], :placeholder => "e.g. Tesla S or sedan " , :class => "autosearchbutton" %>
+      <%= submit_tag "Search", :name => nil, :class => "btn btn-primary" %>
+    <% end %>
+    </div>
+      <% @autos.each do |auto| %>
+       <div class="col-sm-4 podsin"><%= image_tag auto.image_url(:thumb) if auto.image? %></div>
+        <div class="col-sm-8 podsin">
+      <div class="podcastsnowindex"><%= link_to auto.name, auto %></div>
+      </div>
+      <% end %>
   </div>
 </div>
 

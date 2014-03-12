@@ -32,12 +32,10 @@ include CarrierWave::RMagick
 
   # Create different versions of your uploaded files:
  version :thumb do
-   process :resize_to_limit => [120, 120]
+   process :resize_to_limit => [130, 130]
  end
     
- version :podindex do
-   process :resize_to_limit => [160, 220]
- end  
+    # VERSON :podindex etc... 
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

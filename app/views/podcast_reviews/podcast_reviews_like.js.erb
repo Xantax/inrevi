@@ -1,3 +1,0 @@
-alert('<%=@podcast_review.total_podcast_reviews_likes%> total <%="podcast_reviews_like".pluralize(@podcast_review.total_podcast_reviews_likes)%> for <%=@podcast_review.title%>');
-
-$("#podcast_review_<%=@podcast_review.id%>_podcast_reviews_like").html('<%= pluralize(@podcast_review.total_podcast_reviews_likes, 'podcast_reviews_like') %>');

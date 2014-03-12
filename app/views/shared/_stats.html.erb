@@ -6,7 +6,7 @@
   
     <%= image_tag("othericons/writeRev.png", height: '12', width: '12') %> <a href="<%= user_path(@user) %>">
     <strong id="following">
-      <%= @user.podcast_reviews.count %>
+      <%= render "shared/reviewcounter" %>
     </strong>
     reviews
   </a><br>

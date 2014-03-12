@@ -16,7 +16,7 @@ class PodcastReviewsController < ApplicationController
   end
 
   def edit
-#    @podcast = Podcast.find(params[:podcast_id])
+    @podcast = Podcast.find(params[:podcast_id])
   end
 
   def create

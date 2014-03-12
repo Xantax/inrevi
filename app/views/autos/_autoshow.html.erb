@@ -1,0 +1,27 @@
+<div class="row podup"> 
+  <div class="col-sm-3"> 
+    <b><%= link_to @auto.name, auto_path(@auto) %></b> <br >
+    <%= image_tag @auto.image_url(:thumb) if @auto.image? %> 
+  </div> 
+  
+   <div class="col-sm-5"> 
+
+     <div class="podinfo">
+        <%= @auto.engine %><br>
+        <%= @auto.transmission %><br>
+        <%= @auto.horsepower %><br>
+        <%= @auto.fueleconomy %><br>
+        <%= @auto.navigation %><br>
+        <%= @auto.bodytype %><br>
+     </div>
+   
+  </div>
+  
+  <div class="col-sm-4">
+    <%= link_to "Write a review", new_auto_auto_review_path(@auto) %><br><br>
+    <%= image_tag("othericons/PhotoShow.PNG") %> (6) 
+    <%= image_tag("othericons/VideoShow.PNG") %> (7) <br><br>
+    <%= link_to "Edit", edit_auto_path(@auto) %>
+  </div>
+  
+</div> <br>

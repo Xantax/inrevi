@@ -1,5 +1,5 @@
 Inrevi::Application.routes.draw do
-  
+
   get 'podtags/:tag', to: 'podcasts#index', as: :tag
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 match 'auth/failure', to: redirect('/'), via: [:get, :post]
@@ -20,8 +20,7 @@ match 'make' => "makes#show", via: [:get]
 match 'model_years' => "model_years#index", via: [:get]
 match 'model_year' => "model_years#show", via: [:get]
 match 'style_detail' => "model_years#details", via: [:get] 
-  
-  resources :autos, :only => [:index, :show]  
+     
   resources :songs, :only => [:index, :show] 
   
   resources :users, :only => [:show, :index] do
@@ -41,8 +40,11 @@ match 'style_detail' => "model_years#details", via: [:get]
  end
  
   resources :podcasts do
-    resources :podcast_reviews do
-   end
+    resources :podcast_reviews
+  end
+  
+  resources :autos do
+    resources :auto_reviews
   end
   
 root 'static_pages#home'

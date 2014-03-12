@@ -30,7 +30,7 @@
 <div class="row podcast">  
   
     <% @podcasts.each do |podcast| %>
-  <div class="col-sm-4 podsin"><%= image_tag podcast.image_url(:podindex) if podcast.image? %></div>
+  <div class="col-sm-4 podsin"><%= image_tag podcast.image_url(:thumb) if podcast.image? %></div>
   <div class="col-sm-8 podsin">
     <div class="podcastsnowindex"><%= link_to podcast.name, podcast %></div>
   </div>

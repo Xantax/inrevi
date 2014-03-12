@@ -7,18 +7,26 @@
 </div>
   
 <div class="col-sm-8"> 
-  <div class="qupdate">  
+  <div class="qupdate">
+    <% if signed_in? %>
     <div class="texty">What body & bath products are you using in bathroom?</div>
+    <% else %>
+    <% end %>
   </div>
   <div class="allnews">
+    <% if signed_in? %>
+    
+    <% else %>
+    <%= image_tag("arrowhome.PNG", height: '140', width: '140') %>
+    <% end %>
     <div class="separatenews">
-dfg11    
+      
     </div>
   </div>
 </div>
 
 <div class="col-sm-2">
-  <%= render 'shared/user_mainprofile' %>
+  <%= render 'shared/user_mainprofile' %>  
 </div>
 
   

@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312012707) do
+ActiveRecord::Schema.define(version: 20140312030421) do
+
+  create_table "auto_reviews", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "auto_id"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "auto_reviews", ["auto_id"], name: "index_auto_reviews_on_auto_id"
+  add_index "auto_reviews", ["user_id"], name: "index_auto_reviews_on_user_id"
 
   create_table "autos", force: true do |t|
     t.string   "name"

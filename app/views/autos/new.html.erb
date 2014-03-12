@@ -1,0 +1,22 @@
+<% provide(:title, 'Add a new auto') %>
+
+<div class="row">
+
+<div class="col-sm-2 categories">
+  <%= render 'shared/categories' %>
+</div>
+  
+<div class="col-sm-8"> 
+
+  <div class="allnews">
+      <h3>Add a new auto</h3><br>
+      <%= render 'form' %> <br>
+      <%= link_to 'Back', autos_path %>
+    </div>
+  </div>
+ 
+<div class="col-sm-2">
+  <%= render 'shared/user_mainprofile' %>
+</div>
+
+</div>

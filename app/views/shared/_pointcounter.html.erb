@@ -1,2 +1,6 @@
+<%= 
 
-<%= @user.podcast_reviews.count * 5 %>
+(@user.podcast_reviews.count * 5) + 
+(@user.auto_reviews.count * 5) 
+
+%>
