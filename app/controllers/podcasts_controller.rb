@@ -1,14 +1,14 @@
 class PodcastsController < ApplicationController
-  before_action :set_podcast, only: [:show, :edit, :update, :destroy]
+  before_action :set_podcast, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /podcasts
   # GET /podcasts.json
   def index
-    
+
     @search = Podcast.search do
       fulltext params[:search]
     end
-    
+
     if params[:tag]
       @podcasts = Podcast.tagged_with(params[:tag])
     elsif

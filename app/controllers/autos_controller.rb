@@ -1,20 +1,18 @@
 class AutosController < ApplicationController
-  include AutoModelYearsHelper
-  
-  before_filter :condition
+   before_action :set_podcast, only: [:index, :show, :edit, :update, :destroy]
   
   def index
-  end
+  end 
   
-  def condition
-    if params[:type].present?
-      session[:condition] = params[:type]
-    else
-      unless session[:condition].present?
-        session[:condition] = "NEW"
-      end
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_auto
+      @auto = Auto.find(params[:id])
     end
-  end
-  
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def auto_params
+      params.require(:auto).permit(:name)
+    end
   
 end

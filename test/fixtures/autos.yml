@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  engine: MyString
+  transmission: MyString
+  horsepower: MyString
+  fueleconomy: MyString
+  navigation: MyString
+  bodytype: MyString
+
+two:
+  name: MyString
+  engine: MyString
+  transmission: MyString
+  horsepower: MyString
+  fueleconomy: MyString
+  navigation: MyString
+  bodytype: MyString
