@@ -9,13 +9,25 @@
 }
 
 .autosearchbutton{
-padding: 5px; 
-border-radius: 3px; 
-border: 1px solid #CCC; 
-background-image: none; 
-width:400px; 
+  padding: 5px; 
+  border-radius: 3px; 
+  border: 1px solid #CCC; 
+  background-image: none; 
+  width:400px; 
 }
 
 .autosearchbutton:focus{
 outline-color: #0066FF; 
+}
+
+.row.autoup {
+  border-bottom: 2px solid #E8E8E8;
+  border-top: 1px solid #E8E8E8;
+  padding-bottom: 15px;
+  padding-top:15px;
+}
+
+.autosmallinfo{
+    font-size: 0.75em;
+    padding-left:15px;
 }

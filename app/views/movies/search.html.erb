@@ -6,14 +6,13 @@
   <%= render 'shared/categories' %>
 </div>
   
-<div class="col-sm-8"> 
-  <div class="mediacat">  
+<div class="col-sm-8">   
   <%= render "media/mcategories" %>
     <div class="allnews">
       <%= render 'movies/moviesup' %>            
       <div class="moviesnow">
         <div class="row">
-	<% @movie.first(5).each do |movie| %><br><br>
+	<% @movie.first(3).each do |movie| %><br><br>
           <% if movie %>
 				<%= link_to movie_path(movie.id) do %>          
 					<div class="col-sm-4 moviesin">
@@ -21,23 +20,12 @@
           <div class="col-sm-8 moviesin">
         <div class="moviesnowindex">
         <%= movie.title %> (<%= movie.release_date.to_date.try(:year) %>) <br /> </div>
-				<% end %> 
-            
-            <% @movie_reviews.each do |movie_review| %>
-            <%= movie_review.content %>    
-    <% end %>
+				<% end %>             
           </div>
-	<% end %>
-<% end %>           
-      </div>
-    </div>
+	  <% end %>
+  <% end %>           
+     </div>
   </div>
 </div>
-
-
-<div class="col-sm-2">
-  <%= render 'shared/user_mainprofile' %>
-</div>
-
   
 </div>

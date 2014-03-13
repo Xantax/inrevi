@@ -90,7 +90,7 @@ padding: 6px;
 border-radius: 3px; 
 border: 1px solid #CCC; 
 background-image: none; 
-width:200px; 
+width:180px; 
 }
 
 .moviesearchbutton:focus{ 
@@ -123,12 +123,6 @@ float:right;
 border-bottom: 2px solid #E0E0E0; 
 }
 
-.row.movie1{
-border-bottom: 1px solid #F0F0F0;
-border-top: 1px solid #F0F0F0; 
-  padding-top:10px;
-}
-
 .row.movie2{
 border-bottom: 1px solid #F0F0F0;
 border-top: 1px solid #F0F0F0; 
@@ -139,3 +133,9 @@ border-top: 1px solid #F0F0F0;
 .similarmovies{
 
 }
+
+.row.movieup{
+  border-bottom: 1px solid #F0F0F0;
+  padding-bottom: 15px;
+}
+

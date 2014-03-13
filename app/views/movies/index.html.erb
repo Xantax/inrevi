@@ -22,10 +22,6 @@
            <%= movie['title'] %> (<%= movie['release_date'].to_date.strftime("%Y") %>) <br>
            </div>
 		<% end %>                      
-        
-    <% @movie_reviews.last(2).each do |movie_review| %>
-      <%= movie_review.content %>    
-    <% end %>
 
           </div> 
   <% end %>

@@ -1,4 +1,4 @@
-<div class="row podup"> 
+<div class="row autoup"> 
   <div class="col-sm-3"> 
     <b><%= link_to @auto.name, auto_path(@auto) %></b> <br >
     <%= image_tag @auto.image_url(:thumb) if @auto.image? %> 
@@ -6,7 +6,7 @@
   
    <div class="col-sm-5"> 
 
-     <div class="podinfo">
+     <div class="autosmallinfo">
         <%= @auto.engine %><br>
         <%= @auto.transmission %><br>
         <%= @auto.horsepower %><br>
@@ -18,7 +18,7 @@
   </div>
   
   <div class="col-sm-4">
-    <%= link_to "Write a review", new_auto_auto_review_path(@auto) %><br><br>
+    <%= link_to "Review it!", new_auto_auto_review_path(@auto) %><br><br>
     <%= image_tag("othericons/PhotoShow.PNG") %> (6) 
     <%= image_tag("othericons/VideoShow.PNG") %> (7) <br><br>
     <%= link_to "Edit", edit_auto_path(@auto) %>

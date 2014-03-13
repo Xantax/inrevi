@@ -4,51 +4,49 @@
 @import "bootstrap";
 
 .col-sm-8.podreview {
-min-height:150px;
+  min-height:150px;
 }
 
 .podinfo{
-font-size: 0.75em
+  font-size: 0.75em
 }
 
 .row.podup {
-border-bottom: 2px solid #E8E8E8;
-border-top: 1px solid #E8E8E8;
-  padding-top:20px;
+  border-bottom: 2px solid #E8E8E8;
   padding-bottom: 10px;
 }
 
 .podcastreviews.body {
-padding-left:50px;
-width:550px;
+  padding-left:50px;
+  width:550px;
   height:150px;
-vertical-align:text-top;
+  vertical-align:text-top;
   float:right;
 }
 
 .podcastreviews.image {
-float:left;
-width:100px;
+  float:left;
+  width:100px;
   height:200px;
 }
 
 .inreviews{
-display:inline-block;
-vertical-align:top;
+  display:inline-block;
+  vertical-align:top;
   padding-left:10px;
 }
 
 .row.podcast {
-padding-top:30px;
+  padding-top:30px;
 }
 
 .separatereview{
-border-bottom: 1px solid #E8E8E8;
+  border-bottom: 1px solid #E8E8E8;
 }
 
 .podcastup{
-padding-bottom: 64px;
-border-bottom: 1px solid #D0D0D0;
+  padding-bottom: 64px;
+  border-bottom: 1px solid #D0D0D0;
 }
 
 .col-sm-2.linkup{
@@ -62,36 +60,36 @@ float:left;
 }
 
 .col-sm-8.podsin{
-min-height: 250px;
+  min-height: 250px;
 }
 
 .podcastsnowindex{
 
   font-size: 130%;
   a{color: #707070;}
-a:hover{color: #202020; text-decoration:none;}
+  a:hover{color: #202020; text-decoration:none;}
 }
 
 .podcastsearchbutton{
-padding: 5px; 
-border-radius: 3px; 
-border: 1px solid #CCC; 
-background-image: none; 
-width:280px; 
+  padding: 4px; 
+  border-radius: 3px; 
+  border: 1px solid #CCC; 
+  background-image: none; 
+  width:280px; 
 }
 
 .podcastsearchbutton:focus { 
-outline-color: #0066FF; 
+  outline-color: #0066FF; 
 } 
 
 .podcastnew{
-padding: 5px; 
-border-radius: 3px; 
-border: 1px solid #CCC; 
-background-image: none; 
-width:230px; 
+  padding: 5px; 
+  border-radius: 3px; 
+  border: 1px solid #CCC; 
+  background-image: none; 
+  width:230px; 
 }
 
 .podcastnew:focus { 
-outline-color: #0066FF; 
+  outline-color: #0066FF; 
 } 

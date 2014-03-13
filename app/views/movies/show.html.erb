@@ -2,8 +2,13 @@
 
 <div class="row">
  
-<div class="col-sm-10"> 
-  <div class="movieitem">
+<div class="col-sm-2 categories">
+  <%= render 'shared/categories' %>
+</div> 
+  
+<div class="col-sm-8"> 
+  <%= render "media/mcategories" %>
+  <div class="allnews">
     <%= render 'movies/movieshow2' %>
   </div>
 </div>
