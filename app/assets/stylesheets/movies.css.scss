@@ -62,76 +62,62 @@ display: inline-block;
 }
 
 .moviesnow{
-padding-top: 20px;
-a{color: #707070;}
-a:hover{color: #202020; text-decoration:none;}
+  padding-top: 20px;
+  a{color: #707070;}
+  a:hover{color: #202020; text-decoration:none;}
 }
 
 .moviesresult{
-padding-top: 40px;
+  padding-top: 40px;
 }
 
 .moviesnowindex{
 
   font-size: 130%;
   a{color: #707070;}
-a:hover{color: #202020; text-decoration:none;}
+  a:hover{color: #202020; text-decoration:none;}
 }
 
 .col-sm-4.moviesin{
 }
 
 .col-sm-8.moviesin{
-min-height: 300px;
+  min-height: 300px;
 }
 
 .moviesearchbutton{ 
-padding: 6px; 
-border-radius: 3px; 
-border: 1px solid #CCC; 
-background-image: none; 
-width:180px; 
+  padding: 6px; 
+  border-radius: 3px; 
+  border: 1px solid #CCC; 
+  background-image: none; 
+  width:180px; 
 }
 
 .moviesearchbutton:focus{ 
-outline-color: #0066FF; 
+  outline-color: #0066FF; 
 }
 
 .movieitem{
-padding-top:10px;
+  padding-top:10px;
   padding-right:15px;
-border-right: 1px solid #E8E8E8;
-border-top: 1px solid #E8E8E8;
-  
+  border-right: 1px solid #E8E8E8;
+  border-top: 1px solid #E8E8E8;  
 }
 
 .moviefacts {
-border-right: 1px solid #F0F0F0;
-
-}
-
-.movieoverview{
-  
-}
-
-.movieposter{
-  
+  border-right: 1px solid #F0F0F0;
 }
 
 .specreview{
-float:right;
-border-bottom: 2px solid #E0E0E0; 
+  float:right;
+  border-bottom: 2px solid #E0E0E0; 
 }
 
 .row.movie2{
-border-bottom: 1px solid #F0F0F0;
-border-top: 1px solid #F0F0F0; 
+  border-bottom: 1px solid #F0F0F0;
+  border-top: 1px solid #F0F0F0; 
   padding-top:10px;
   text-align:center;
-}
-
-.similarmovies{
-
 }
 
 .row.movieup{
@@ -140,6 +126,6 @@ border-top: 1px solid #F0F0F0;
 }
 
 .moviereviewcontent{
-font-size:90%;
+  font-size:90%;
 }
 

@@ -1,29 +1,23 @@
 class MovieReviewsController < ApplicationController
   before_action :set_movie_review, only: [:show, :edit, :update, :destroy]
   before_action :set_movie
-  # GET /movie_reviews
-  # GET /movie_reviews.json
+
   def index
+    @movie_reviews = MovieReview.where(movie_id: params[:id])
+  end
+
+  def show
     @movie_reviews = MovieReview.all
   end
 
-  # GET /movie_reviews/1
-  # GET /movie_reviews/1.json
-  def show
-  end
-
-  # GET /movie_reviews/new
   def new
     @movie = Tmdb::Movie.detail(params[:movie_id])
     @movie_review = MovieReview.new
   end
 
-  # GET /movie_reviews/1/edit
   def edit
   end
 
-  # POST /movie_reviews
-  # POST /movie_reviews.json
   def create
     
     @movie = Tmdb::Movie.detail(params[:movie_id])
@@ -41,8 +35,6 @@ class MovieReviewsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /movie_reviews/1
-  # PATCH/PUT /movie_reviews/1.json
   def update
     respond_to do |format|
       if @movie_review.update(movie_review_params)
@@ -55,8 +47,6 @@ class MovieReviewsController < ApplicationController
     end
   end
 
-  # DELETE /movie_reviews/1
-  # DELETE /movie_reviews/1.json
   def destroy
     @movie_review.destroy
     respond_to do |format|
@@ -66,17 +56,16 @@ class MovieReviewsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_movie_review
       @movie_review = MovieReview.find(params[:id])
     end
   
-  def set_movie
-    @movie = Tmdb::Movie.detail(params[:movie_id])
-    @now_playing = Tmdb::Movie.now_playing
-  end
+    def set_movie
+      @movie = Tmdb::Movie.detail(params[:movie_id])
+      @now_playing = Tmdb::Movie.now_playing
+    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def movie_review_params
       params.require(:movie_review).permit(:title, :content, :movie_id, :now_playing_id, :user_id)
     end

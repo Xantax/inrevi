@@ -62,7 +62,7 @@ class PodcastReviewsController < ApplicationController
    
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_podcast_review
       @podcast_review = PodcastReview.find(params[:id])
     end

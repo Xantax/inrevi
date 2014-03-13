@@ -2,45 +2,45 @@
 
 <div class="row">
 
-<div class="col-sm-2 categories">
-  <%= render 'shared/categories' %>
-</div>
-  
-<div class="col-sm-8"> 
-  <%= render "media/mcategories" %>
-
-<div class="allnews">
-  <div class="podcastup"> 
-    
-    <div class="col-sm-10 podcastsearch"> 
-       
-<%= form_tag podcasts_path, :method => :get do %>
-  <p>
-    <%= text_field_tag :search, params[:search], :placeholder => "by subject or title" , :class => "podcastsearchbutton" %>
-    <%= submit_tag "Search", :name => nil, :class => "btn btn-primary" %>
-  </p>
-<% end %>
-      
-    </div>  
-        
-        <div class="col-sm-2 linkup">
-          <b><%= link_to "+ Add", new_podcast_path %></b>
-        </div>      
-      </div>
-<div class="row podcast">  
-  
-    <% @podcasts.each do |podcast| %>
-  <div class="col-sm-4 podsin"><%= image_tag podcast.image_url(:thumb) if podcast.image? %></div>
-  <div class="col-sm-8 podsin">
-    <div class="podcastsnowindex"><%= link_to podcast.name, podcast %></div>
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
   </div>
-    <% end %>
+    
+  <div class="col-sm-8"> 
+    <%= render "media/mcategories" %>
+  
+  <div class="allnews">
+    <div class="podcastup"> 
+      
+      <div class="col-sm-10 podcastsearch"> 
+         
+          <%= form_tag podcasts_path, :method => :get do %>
+            <p>
+              <%= text_field_tag :search, params[:search], :placeholder => "by subject or title" , :class => "podcastsearchbutton" %>
+              <%= submit_tag "Search", :name => nil, :class => "btn btn-primary" %>
+            </p>
+          <% end %>
+        
+      </div>  
+          
+        <div class="col-sm-2 linkup">
+            <b><%= link_to "+ Add", new_podcast_path %></b>
+          </div>      
+       </div>
+    
+    <div class="row podcast">      
+        <% @podcasts.each do |podcast| %>
+          <div class="col-sm-4 podsin"><%= image_tag podcast.image_url(:thumb) if podcast.image? %></div>
+          <div class="col-sm-8 podsin">
+            <div class="podcastsnowindex"><%= link_to podcast.name, podcast %></div>
+    </div>
+      <% end %>
+      </div>
     </div>
   </div>
-</div>
- 
-<div class="col-sm-2">
-  <%= render 'shared/user_mainprofile' %>
-</div>
+   
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
 
 </div>

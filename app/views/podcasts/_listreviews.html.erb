@@ -1,19 +1,22 @@
 <% @podcast_reviews.each do |podcast_review| %><br>
-<div class="col-sm-3"> 
-  <div class="reviewname"><%= link_to podcast_review.user.name, user_path(podcast_review.user) %></div>
-  <%= image_tag(podcast_review.user.smallimage) %>
-      <div class="inreviews">
-  <%= image_tag("othericons/pointicon.PNG", height: '12', width: '12') %> 
-        <b><%= podcast_review.user.podcast_reviews.count * 5 %></b><br >
-  <%= image_tag("othericons/writeRev.png", height: '12', width: '12') %> 
-        <b><%= podcast_review.user.podcast_reviews.count %></b>
-      </div>   
-  </div>
+  <div class="col-sm-3"> 
+    <div class="reviewname">
+      <%= link_to podcast_review.user.name, user_path(podcast_review.user) %>
+    </div>
     
-  <div class="col-sm-8 podreview"> 
-    <div class="separatereview">
-    <b><%= podcast_review.title %>:</b> <br>  
-    <%= podcast_review.content %><br><br><br>
-  </div><br>
-</div>
+          <%= image_tag(podcast_review.user.smallimage) %>
+        <div class="inreviews">
+            <%= image_tag("othericons/pointicon.PNG", height: '12', width: '12') %> 
+          <b><%= podcast_review.user.podcast_reviews.count * 5 %></b><br >
+            <%= image_tag("othericons/writeRev.png", height: '12', width: '12') %> 
+          <b><%= podcast_review.user.podcast_reviews.count %></b>
+        </div>   
+    </div>
+      
+    <div class="col-sm-8 podreview"> 
+      <div class="separatereview">
+      <b><%= podcast_review.title %>:</b> <br>  
+      <%= podcast_review.content %><br><br><br>
+    </div><br>
+  </div>
 <% end %>

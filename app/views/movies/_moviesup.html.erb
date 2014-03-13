@@ -1,14 +1,14 @@
 <div class="moviesfirst">
-        <div class="moviesfirstsearch">
-<%= form_tag("/search", :method => "get") do %>
+ <div class="moviesfirstsearch">
+    <%= form_tag("/search", :method => "get") do %>
           <%= text_field_tag(:query, nil, :placeholder => "e.g. Fight Club" , :class => "moviesearchbutton") %>
           <%= submit_tag "Search", :name => nil, :class => "btn btn-primary" %>
-  <% end %>
-          </div>
+     <% end %>
+ </div>
        <div class="moviesfirstlist">
           <ul>
           <li><%= link_to "by genre", "#" %></li>
           <li id="watchmovie"><%= link_to "watch", "#" %></li>
           </ul>
-        </div>
-      </div>
+       </div>
+</div>

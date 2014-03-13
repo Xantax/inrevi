@@ -1,0 +1,8 @@
+<% @podcast_reviews.each do |podcast_review| %><br>
+   <div class="podcastusershow">
+     <%= link_to podcast_review.podcast.name, podcast_review.podcast(@podcast) %>
+   </div>
+     <%= raw podcast_review.podcast.tags.map(&:name).first(3).join(', ') %><br><br>
+        <b><%= podcast_review.title %></b><br>
+     <div class="podcastusercontent"><%= podcast_review.content %></div><br>
+<% end %>

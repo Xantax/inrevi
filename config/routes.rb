@@ -15,11 +15,6 @@ match 'contact' => "static_pages#contact", via: [:get]
 match 'careers' => "static_pages#careers", via: [:get]
 match 'tos' => "static_pages#tos", via: [:get]
 match 'policy' => "static_pages#policy", via: [:get] 
-match 'makes' => "makes#index", via: [:get]  
-match 'make' => "makes#show", via: [:get]  
-match 'model_years' => "model_years#index", via: [:get]
-match 'model_year' => "model_years#show", via: [:get]
-match 'style_detail' => "model_years#details", via: [:get] 
      
   resources :songs, :only => [:index, :show] 
   
@@ -35,10 +30,10 @@ match 'style_detail' => "model_years#details", via: [:get]
  
   resources :books, only: [:index, :show, :booksearch]
   
- resources :movies do
+  resources :movies do
     resources :movie_reviews
- end
- 
+  end
+  
   resources :podcasts do
     resources :podcast_reviews
   end
