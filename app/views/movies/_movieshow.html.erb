@@ -7,9 +7,9 @@
   
   <div class="col-sm-5">
     <div class="moviefacts">
-      <b><%= @movie.title %> (<%= @movie.release_date.to_date.strftime("%Y") %>)</b><br><br>
+      <b><%= link_to @movie.title, movie_path(@movie.id) %> (<%= @movie.release_date.to_date.strftime("%Y") %>)</b><br><br>
       <% @trailers['youtube'].first(1).each do |trailer| %>
-    		<%= link_to "Trailer", "http://www.youtube.com/watch?v=#{trailer['source']}" %><br />
+    		<%= link_to "Trailer", "http://www.youtube.com/watch?v=#{trailer['source']}", :target => "_blank" %><br />
     	<% end %>
       <%= @movie.runtime %> min. <br>
       <b>Genres:</b>

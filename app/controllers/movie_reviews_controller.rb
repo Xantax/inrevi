@@ -28,6 +28,7 @@ class MovieReviewsController < ApplicationController
     
     @movie = Tmdb::Movie.detail(params[:movie_id])
     @movie_review = MovieReview.new(movie_review_params)
+    @movie_review.user = current_user
 
     respond_to do |format|
       if @movie_review.save
