@@ -6,32 +6,58 @@
     <%= render 'shared/categories' %><br><br>
   </div>
   
-  <div class="col-sm-8">
+<% if signed_in? %>
+<div class="col-sm-8">
     
-    <div class="qupdate">
-      <% if signed_in? %>
-      <div class="texty">
-        What body & bath products are you using in bathroom?
-      </div>
-      <% else %>
-      <% end %>
-    </div>
+ <div class="qupdate">
+
+   <div class="texty">
+       What body & bath products are you using in bathroom?
+   </div>
+
+ </div>
     
     <div class="allnews">
-      <% if signed_in? %>
-      
-      <% else %>
-      <%= image_tag("arrowhome.PNG", height: '140', width: '140') %>
-      <% end %>
-      <div class="separatenews">
-        
-      </div>
+      <div class="separatenews"></div> 
     </div>
   </div>
 
-  <div class="col-sm-2">
-    <%= render 'shared/user_mainprofile' %>  
+  <div class="col-sm-2"> 
+	   <strong><%= link_to user_path(current_user) do %> 
+        <%= current_user.first_name %>
+        <%= current_user.last_name.truncate(2, omission: '.')%>
+      <% end %>
+    </strong><br >
+    <div class="logoutlink"><%= link_to "logout", signout_path%><br></div>
+      <%= image_tag(current_user.normalimage)%>
+    <div class="inreviews">
+    </div>
+      <%= render 'shared/stats' %>  <br><br>
+	
   </div>
+
+<% else %>
+
+  <div class="col-sm-8">
+    
+    <div class="qupdate">
+      <div class="texty"></div>
+    </div>
+    
+    <div class="allnews">
+      
+      <div class="row">
+        <div class="col-sm-5"></div>
+          <div class="col-sm-2 homefblogo"><%= link_to image_tag("FBlogins.png", alt: "FB Login"), "/auth/facebook", id: "sign_in" %></div>      
+        <div class="col-sm-5"></div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="col-sm-2"> </div>
+
+<% end %>
   
 </div>
 

@@ -1,13 +1,19 @@
 <% if signed_in? %>
-   <strong><%= link_to current_user.name, user_path(current_user) %></strong><br >
-<div class="logoutlink"><%= link_to "logout", signout_path%><br></div>
+   <strong>
+      <%= link_to user_path(current_user) do %> 
+        <%= current_user.first_name %>
+        <%= current_user.last_name.truncate(2, omission: '.')%>
+      <% end %>
+    </strong><br >
+
+    <div class="logoutlink"><%= link_to "logout", signout_path%><br></div>
   <%= image_tag(current_user.normalimage)%>
-<div class="inreviews">
-</div>
+    <div class="inreviews">
+    </div>
   <%= render 'shared/stats' %>  <br><br>
   <div class="homeprofile">
       <%= link_to image_tag("FREEstorage1.GIF", height: '90', width: '98'), "http://trkur.com/trk?o=5654&p=120012", :target => "_blank" %>
   </div>
   <% else %>
     <%= link_to image_tag("FBlogins.png", alt: "FB Login"), "/auth/facebook", id: "sign_in" %>
-  <% end %>
+<% end %>

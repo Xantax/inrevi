@@ -1,0 +1,29 @@
+<h1>Listing teches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Website</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teches.each do |tech| %>
+      <tr>
+        <td><%= tech.name %></td>
+        <td><%= tech.website %></td>
+        <td><%= link_to 'Show', tech %></td>
+        <td><%= link_to 'Edit', edit_tech_path(tech) %></td>
+        <td><%= link_to 'Destroy', tech, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tech', new_tech_path %>

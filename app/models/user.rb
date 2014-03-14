@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  acts_as_voter
+
   has_many :auto_reviews
   has_many :movie_reviews
   has_many :podcast_reviews
@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
     user.provider = auth.provider
     user.uid = auth.uid
     user.name = auth.info.name
+    user.first_name = auth.info.first_name
+    user.last_name = auth.info.last_name
     user.oauth_token = auth.credentials.token
     user.oauth_expires_at = Time.at(auth.credentials.expires_at)
     user.save!

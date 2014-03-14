@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312030421) do
+ActiveRecord::Schema.define(version: 20140314072829) do
 
   create_table "auto_reviews", force: true do |t|
     t.integer  "user_id"
@@ -128,6 +128,26 @@ ActiveRecord::Schema.define(version: 20140312030421) do
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
+  create_table "tech_reviews", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "tech_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tech_reviews", ["tech_id"], name: "index_tech_reviews_on_tech_id"
+  add_index "tech_reviews", ["user_id"], name: "index_tech_reviews_on_user_id"
+
+  create_table "teches", force: true do |t|
+    t.string   "name"
+    t.string   "website"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image"
+  end
+
   create_table "users", force: true do |t|
     t.string   "provider"
     t.string   "uid"
@@ -136,6 +156,8 @@ ActiveRecord::Schema.define(version: 20140312030421) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   create_table "votes", force: true do |t|

@@ -6,7 +6,7 @@
     <%= render 'shared/categories' %>
   </div>
     
-  <div class="col-sm-8"> 
+ <div class="col-sm-8"> 
     <%= render "media/mcategories" %>
   
   <div class="allnews">
@@ -25,19 +25,19 @@
           
         <div class="col-sm-2 linkup">
             <b><%= link_to "+ Add", new_podcast_path %></b>
-          </div>      
-       </div>
+        </div>      
+     </div>
     
     <div class="row podcast">      
         <% @podcasts.each do |podcast| %>
           <div class="col-sm-4 podsin"><%= image_tag podcast.image_url(:thumb) if podcast.image? %></div>
           <div class="col-sm-8 podsin">
             <div class="podcastsnowindex"><%= link_to podcast.name, podcast %></div>
-    </div>
+          </div>
       <% end %>
       </div>
     </div>
-  </div>
+ </div>
    
   <div class="col-sm-2">
     <%= render 'shared/user_mainprofile' %>

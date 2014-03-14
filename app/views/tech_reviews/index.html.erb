@@ -1,0 +1,33 @@
+<h1>Listing tech_reviews</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th>User</th>
+      <th>Tech</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tech_reviews.each do |tech_review| %>
+      <tr>
+        <td><%= tech_review.title %></td>
+        <td><%= tech_review.content %></td>
+        <td><%= tech_review.user %></td>
+        <td><%= tech_review.tech %></td>
+        <td><%= link_to 'Show', tech_review %></td>
+        <td><%= link_to 'Edit', edit_tech_review_path(tech_review) %></td>
+        <td><%= link_to 'Destroy', tech_review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tech review', new_tech_review_path %>

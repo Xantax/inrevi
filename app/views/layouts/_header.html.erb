@@ -6,9 +6,15 @@
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+    <% if signed_in? %>
     <ul class="nav navbar-nav navbar-center" >
       <li><%= link_to "Write a Review", "#" %></li>
-  </ul>
+    </ul>
+    <% else %>
+    <ul class="nav navbar-nav navbar-center" >
+      <li><%= link_to "Write a Review", "/auth/facebook" %></li>
+    </ul>
+    <% end %>
     <ul class="nav nav-navbar navbar-right nav-tabs"> 
 
     </ul>  

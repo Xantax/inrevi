@@ -28,7 +28,7 @@ class PodcastsController < ApplicationController
 
   def edit
   end
-n
+
   def create
     @podcast = Podcast.new(podcast_params)
 

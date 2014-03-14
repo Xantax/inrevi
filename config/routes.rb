@@ -30,6 +30,10 @@ match 'policy' => "static_pages#policy", via: [:get]
  
   resources :books, only: [:index, :show, :booksearch]
   
+  resources :teches do
+    resources :tech_reviews
+  end
+  
   resources :movies do
     resources :movie_reviews
   end
