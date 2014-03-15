@@ -1,6 +1,8 @@
 Inrevi::Application.routes.draw do
 
   get 'podtags/:tag', to: 'podcasts#index', as: :tag
+  get 'techtags/:tag', to: 'teches#index', as: :ttag
+  get 'drugtags/:tag', to: 'drugs#index', as: :dtag
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 match 'auth/failure', to: redirect('/'), via: [:get, :post]
 match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
@@ -29,6 +31,10 @@ match 'policy' => "static_pages#policy", via: [:get]
   resources :relationships, only: [:create, :destroy] 
  
   resources :books, only: [:index, :show, :booksearch]
+  
+  resources :drugs do
+    resources :drug_reviews
+  end
   
   resources :teches do
     resources :tech_reviews

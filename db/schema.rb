@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140314072829) do
+ActiveRecord::Schema.define(version: 20140315025526) do
 
   create_table "auto_reviews", force: true do |t|
     t.integer  "user_id"
@@ -39,6 +39,25 @@ ActiveRecord::Schema.define(version: 20140314072829) do
   end
 
   create_table "books", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "drug_reviews", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "drug_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "drug_reviews", ["drug_id"], name: "index_drug_reviews_on_drug_id"
+  add_index "drug_reviews", ["user_id"], name: "index_drug_reviews_on_user_id"
+
+  create_table "drugs", force: true do |t|
+    t.string   "name"
+    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

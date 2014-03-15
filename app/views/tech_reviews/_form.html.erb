@@ -1,14 +1,26 @@
-<%= simple_form_for(@tech_review) do |f| %>
-  <%= f.error_notification %>
+<%= form_for([@tech, @tech_review]) do |f| %>
+  <% if @tech_review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tech_review.errors.count, "error") %> prohibited this tech_review from being saved:</h2>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :content %>
-    <%= f.association :user %>
-    <%= f.association :tech %>
-  </div>
+      <ul>
+      <% @tech_review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, :class => "field podtitle" %>
+  </div><br>
+
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content, :class => "field podcontent", :placeholder => "Tell the world what you like, dislike, favorite episodes..." %>
+  </div><br>
+  <div class="actions">
+    <%= f.submit " Submit ", :class => "btn btn-primary" %>
   </div>
 <% end %>

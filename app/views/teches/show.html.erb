@@ -1,14 +1,19 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @tech.name) %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @tech.name %>
-</p>
+<div class="row">
+ 
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div> 
+    
+  <div class="col-sm-8"> 
+     <div class="allnews">
+        <%= render 'teches/techshow2' %>
+     </div>
+  </div>
+  
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
 
-<p>
-  <strong>Website:</strong>
-  <%= @tech.website %>
-</p>
-
-<%= link_to 'Edit', edit_tech_path(@tech) %> |
-<%= link_to 'Back', teches_path %>
+</div>

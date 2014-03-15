@@ -1,7 +1,7 @@
 <div class="row movieup">  
   <div class="col-sm-4">
     <div class="movieposter">
-      <%= image_tag("#{@configuration.base_url}w154#{@movie.poster_path}") if @movie.poster_path %>
+      <%= image_tag("#{@configuration.base_url}w92#{@movie.poster_path}") if @movie.poster_path %>
      </div>
   </div>
   
@@ -20,7 +20,11 @@
   </div>
   
   <div class="col-sm-3">
+    <% if signed_in? %>
         <%= link_to "Review it!", new_movie_movie_review_path(@movie.id) %><br><br>
+    <% else %>
+        <%= link_to "Review it!", "/auth/facebook" %><br><br>
+    <% end %>
     <%= image_tag("othericons/PhotoShow.PNG") %> (6) 
     <%= image_tag("othericons/VideoShow.PNG") %> (7)      
   </div>  

@@ -1,29 +1,45 @@
-<h1>Listing teches</h1>
+<% provide(:title, 'Software and Services') %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Website</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="row">
 
-  <tbody>
-    <% @teches.each do |tech| %>
-      <tr>
-        <td><%= tech.name %></td>
-        <td><%= tech.website %></td>
-        <td><%= link_to 'Show', tech %></td>
-        <td><%= link_to 'Edit', edit_tech_path(tech) %></td>
-        <td><%= link_to 'Destroy', tech, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div>
+    
+ <div class="col-sm-8"> 
+  
+  <div class="allnews">
+    <div class="techup"> 
+      
+      <div class="col-sm-10 techsearch"> 
+         
+          <%= form_tag teches_path, :method => :get do %>
+            <p>
+              <%= text_field_tag :search, params[:search], :placeholder => "by category or name" , :class => "techsearchbutton" %>
+              <%= submit_tag "Search", :name => nil, :class => "btn btn-primary" %>
+            </p>
+          <% end %>
+        
+      </div>  
+          
+        <div class="col-sm-2 linkup">
+            <b><%= link_to "+ Add", new_tech_path %></b>
+        </div>      
+     </div>
+    
+    <div class="row tech">      
+        <% @teches.each do |tech| %>
+          <div class="col-sm-4 techin"><%= image_tag tech.image_url(:thumb) if tech.image? %></div>
+          <div class="col-sm-8 techin">
+            <div class="techsnowindex"><%= link_to tech.name, tech %></div>
+          </div>
+      <% end %>
+      </div>
+    </div>
+ </div>
+   
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
 
-<br>
-
-<%= link_to 'New Tech', new_tech_path %>
+</div>

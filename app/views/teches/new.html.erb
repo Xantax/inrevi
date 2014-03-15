@@ -1,5 +1,23 @@
-<h1>New tech</h1>
+<% provide(:title, 'Add a new podcast') %>
 
-<%= render 'form' %>
+<div class="row">
 
-<%= link_to 'Back', teches_path %>
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div>
+    
+  <div class="col-sm-8"> 
+    <%= render "media/mcategories" %>
+  
+  <div class="allnews">
+      <h3>Add a new tech app or service</h3><br>
+        <%= render 'form' %> <br>
+        <%= link_to 'Back', teches_path %>
+    </div>
+  </div>
+   
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
+
+</div>

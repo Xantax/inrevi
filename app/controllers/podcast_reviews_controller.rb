@@ -1,6 +1,6 @@
 class PodcastReviewsController < ApplicationController
   before_action :set_podcast_review, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_podcast
   def index
     @podcast = Podcast.find(params[:podcast_id])
     @podcast_reviews = PodcastReview.all
@@ -60,8 +60,11 @@ class PodcastReviewsController < ApplicationController
   end
 
    
-
   private
+  
+    def set_podcast
+      @podcast = Podcast.find(params[:podcast_id])
+    end
 
     def set_podcast_review
       @podcast_review = PodcastReview.find(params[:id])

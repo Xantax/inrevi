@@ -2,10 +2,22 @@ class TechesController < ApplicationController
   before_action :set_tech, only: [:show, :edit, :update, :destroy]
 
   def index
-    @teches = Tech.all
+    @search = Tech.search do
+      fulltext params[:search]
+    end
+
+    if params[:ttag]
+      @teches = Tech.tagged_with(params[:ttag])
+    elsif
+      @teches = @search.results
+    else
+      @teches = Tech.all
+    end
   end
 
   def show
+    @tech_review = TechReview.new
+    @tech_reviews = Tech.find(params[:id]).tech_reviews.order(created_at: :desc)
   end
 
   def new
@@ -56,6 +68,6 @@ class TechesController < ApplicationController
     end
 
     def tech_params
-      params.require(:tech).permit(:name, :website)
+      params.require(:tech).permit(:name, :website, :image, :tag_list, :remote_image_url)
     end
 end

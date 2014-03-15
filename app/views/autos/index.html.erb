@@ -11,8 +11,8 @@
       
       <div class="autosearchup">
       <%= form_tag autos_path, :method => :get do %>
-        <%= text_field_tag :search, params[:search], :placeholder => "e.g. Tesla S or sedan " , :class => "autosearchbutton" %>
-        <%= submit_tag "Search", :name => nil, :class => "btn btn-primary" %>
+        <%= text_field_tag :search, params[:search], :placeholder => "by name (drugs, supplements...) or by condition (e.g diabetis) " , :class => "autosearchbutton" %>
+        <div class="searchstyle"><%= image_submit_tag("searchbutton.PNG", height: '18', width: '18' ) %></div>
       <% end %>
       </div>
       

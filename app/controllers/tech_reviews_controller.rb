@@ -1,5 +1,6 @@
 class TechReviewsController < ApplicationController
   before_action :set_tech_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_tech
 
   def index
     @tech_reviews = TechReview.all
@@ -16,7 +17,8 @@ class TechReviewsController < ApplicationController
   end
 
   def create
-    @tech_review = TechReview.new(tech_review_params)
+    @tech_review = @tech.tech_reviews.build(tech_review_params)
+    @tech_review.user = current_user
 
     respond_to do |format|
       if @tech_review.save
@@ -30,9 +32,12 @@ class TechReviewsController < ApplicationController
   end
 
   def update
+    @tech_review = @tech.tech_reviews.build(tech_review_params)
+    @tech_review.user = current_user
+    
     respond_to do |format|
       if @tech_review.update(tech_review_params)
-        format.html { redirect_to @tech_review, notice: 'Tech review was successfully updated.' }
+        format.html { redirect_to [@tech, @tech_review], notice: 'Tech review was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -50,12 +55,15 @@ class TechReviewsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+  
+    def set_tech
+      @tech = Tech.find(params[:tech_id])
+    end
+    
     def set_tech_review
       @tech_review = TechReview.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def tech_review_params
       params.require(:tech_review).permit(:title, :content, :user_id, :tech_id)
     end

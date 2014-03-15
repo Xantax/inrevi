@@ -1,12 +1,28 @@
-<%= simple_form_for(@tech) do |f| %>
-  <%= f.error_notification %>
+<%= form_for @tech, :html => {:multipart => true} do |f| %>
+  <% if @tech.errors.any? %>
+    <div id="error_explanation">
+      <%= pluralize(@tech.errors.count, "error") %> prohibited this from being saved:
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :website %>
-  </div>
+      <ul>
+      <% @tech.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :class => "podcastnew" %><br><br>
+
+    <%= f.label :tag_list, "Subject(s) - separate by commas" %><br>
+    <%= f.text_field :tag_list, :placeholder => "e.g comedy, technology" , :class => "podcastnew" %><br><br>
+
+    <%= f.label :website, "Website (or iTunes link)" %><br>
+    <%= f.text_field :website, :class => "podcastnew", :placeholder => "include https://..." %><br><br>
+
+    <%= image_tag("othericons/PhotoShow.PNG") %>    <%= f.label :remote_image_url, "Image URL (min. 150x150)" %><br />
+    <%= f.text_field :remote_image_url, :placeholder => "e.g. https://imgur.com/Iks3rd" , :class => "podcastnew" %><br><br>
+
+    <%= submit_tag 'Submit', :class => 'btn btn-primary' %>
+
 <% end %>
