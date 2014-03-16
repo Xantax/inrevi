@@ -1,14 +1,20 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @drug.name) %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @drug.name %>
-</p>
+<div class="row">
+ 
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div> 
+    
+  <div class="col-sm-8"> 
 
-<p>
-  <strong>Image:</strong>
-  <%= @drug.image %>
-</p>
+     <div class="allnews">
+        <%= render 'drugs/drugshow2' %>
+     </div>
+  </div>
+  
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
 
-<%= link_to 'Edit', edit_drug_path(@drug) %> |
-<%= link_to 'Back', drugs_path %>
+</div>

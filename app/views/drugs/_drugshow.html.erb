@@ -1,0 +1,17 @@
+<div class="row podup"> 
+  <div class="col-sm-3"> <%= image_tag @drug.image_url(:thumb) if @drug.image? %></div> 
+  
+  <div class="col-sm-5"> 
+   <b><%= link_to @drug.name, drug_path(@drug) %></b> <br><br>
+
+   <div class="podinfo">
+      Subject(s): <%= raw @tech.tags.map(&:name).map { |t| link_to t, dtag_path(t) }.join(', ') %>
+   </div>
+  </div>
+  <div class="col-sm-4">
+    <%= link_to "Write a review", new_drug_drug_review_path(@drug) %><br><br>
+    <%= image_tag("othericons/PhotoShow.PNG") %> (6) 
+    <%= image_tag("othericons/VideoShow.PNG") %> (7) <br><br>
+    <%= link_to "Edit", edit_drug_path(@drug) %>
+  </div>
+</div> <br>

@@ -1,12 +1,17 @@
-<%= simple_form_for(@drug) do |f| %>
-  <%= f.error_notification %>
+<%= form_for @drug, :html => {:multipart => true} do |f| %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :image %>
-  </div>
+<%= render 'shared/main_error_messages', object: f.object %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :class => "podcastnew" %><br><br>
+
+    <%= f.label :tag_list, "Condition(s) - separate by commas" %><br>
+    <%= f.text_field :tag_list, :placeholder => "e.g diabetis, breast cancer" , :class => "podcastnew" %><br><br>
+
+    <%= image_tag("othericons/PhotoShow.PNG") %>    <%= f.label :remote_image_url, "Image URL (min. 150x150)" %><br />
+    <%= f.text_field :remote_image_url, :placeholder => "e.g. https://imgur.com/Iks3rd" , :class => "podcastnew" %><br><br>
+
+    <%= submit_tag 'Submit', :class => 'btn btn-primary' %>
+
 <% end %>
+

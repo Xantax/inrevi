@@ -1,3 +1,38 @@
 // Place all the styles related to the Drugs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+
+.drugup{
+  padding-bottom: 64px;
+  border-bottom: 1px solid #D0D0D0;
+}
+
+.drugsearchbutton{
+  padding: 4px; 
+  border-radius: 3px; 
+  border: 1px solid #CCC; 
+  background-image: none; 
+  width:310px; 
+}
+
+.drugsearchbutton:focus { 
+  outline-color: #0066FF; 
+}
+
+.row.drug {
+  padding-top:30px;
+}
+
+.col-sm-4.drugin{
+}
+
+.col-sm-8.drugin{
+  min-height: 200px;
+}
+
+.drugsnowindex{
+  font-size: 130%;
+  a{color: #707070;}
+  a:hover{color: #202020; text-decoration:none;}
+}

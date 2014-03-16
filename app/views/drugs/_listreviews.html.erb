@@ -1,0 +1,22 @@
+<% @drug_reviews.each do |drug_review| %><br>
+  <div class="col-sm-3"> 
+    <div class="reviewname">
+      <%= link_to drug_review.user.name, user_path(drug_review.user) %>
+    </div>
+    
+          <%= image_tag(drug_review.user.smallimage) %>
+        <div class="inreviews">
+            <%= image_tag("othericons/pointicon.PNG", height: '12', width: '12') %> 
+          <b><%= drug_review.user.drug_reviews.count * 5 %></b><br >
+            <%= image_tag("othericons/writeRev.png", height: '12', width: '12') %> 
+          <b><%= drug_review.user.drug_reviews.count %></b>
+        </div>   
+    </div>
+      
+    <div class="col-sm-8 podreview"> 
+      <div class="separatereview">
+      <b><%= drug_review.title %>:</b> <br>  
+      <%= drug_review.content %><br><br><br>
+    </div><br>
+  </div>
+<% end %>

@@ -68,6 +68,6 @@ class DrugsController < ApplicationController
     end
 
     def drug_params
-      params.require(:drug).permit(:name, :image)
+      params.require(:drug).permit(:name, :image, :tag_list, :remote_image_url)
     end
 end

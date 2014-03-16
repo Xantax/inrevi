@@ -1,15 +1,6 @@
 <%= form_for @podcast, :html => {:multipart => true} do |f| %>
-  <% if @podcast.errors.any? %>
-    <div id="error_explanation">
-      <%= pluralize(@podcast.errors.count, "error") %> prohibited this podcast from being saved:
 
-      <ul>
-      <% @podcast.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/main_error_messages', object: f.object %>
 
     <%= f.label :name %><br>
     <%= f.text_field :name, :class => "podcastnew" %><br><br>

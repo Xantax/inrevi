@@ -1,29 +1,45 @@
-<h1>Listing drugs</h1>
+<% provide(:title, 'Drugs, Supplements, Vitamins...') %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Image</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="row">
 
-  <tbody>
-    <% @drugs.each do |drug| %>
-      <tr>
-        <td><%= drug.name %></td>
-        <td><%= drug.image %></td>
-        <td><%= link_to 'Show', drug %></td>
-        <td><%= link_to 'Edit', edit_drug_path(drug) %></td>
-        <td><%= link_to 'Destroy', drug, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div>
+    
+ <div class="col-sm-8"> 
+  
+  <div class="allnews">
+    <div class="drugup"> 
+      
+      <div class="col-sm-10 drugsearch"> 
+         
+          <%= form_tag drugs_path, :method => :get do %>
+            <p>
+              <%= text_field_tag :search, params[:search], :placeholder => "drugs, supplements... or by condition (e.g. diabetis)" , :class => "drugsearchbutton" %>
+              <%= submit_tag "Search", :name => nil, :class => "btn btn-primary" %>
+            </p>
+          <% end %>
+        
+      </div>  
+          
+        <div class="col-sm-2 linkup">
+            <b><%= link_to "+ Add", new_drug_path %></b>
+        </div>      
+     </div>
+    
+    <div class="row drug">      
+        <% @drugs.each do |drug| %>
+          <div class="col-sm-4 drugin"><%= image_tag drug.image_url(:thumb) if drug.image? %></div>
+          <div class="col-sm-8 drugin">
+            <div class="drugsnowindex"><%= link_to drug.name, drug %></div>
+          </div>
+      <% end %>
+      </div>
+    </div>
+ </div>
+   
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
 
-<br>
-
-<%= link_to 'New Drug', new_drug_path %>
+</div>
