@@ -19,7 +19,8 @@ module SessionsHelper
   def signed_in_user
     unless signed_in?
       store_location
-      redirect_to root_path, notice: "Please log in."
+      flash[:notice] = "You need to log in to do that."
+      redirect_to root_path  
     end
   end
   

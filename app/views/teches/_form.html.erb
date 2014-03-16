@@ -5,10 +5,10 @@
     <%= f.label :name %><br>
     <%= f.text_field :name, :class => "podcastnew" %><br><br>
 
-    <%= f.label :tag_list, "Subject(s) - separate by commas" %><br>
-    <%= f.text_field :tag_list, :placeholder => "e.g comedy, technology" , :class => "podcastnew" %><br><br>
+    <%= f.label :tag_list, "Category - separate by commas" %><br>
+    <%= f.text_field :tag_list, :placeholder => "e.g hosting, accounting" , :class => "podcastnew" %><br><br>
 
-    <%= f.label :website, "Website (or iTunes link)" %><br>
+    <%= f.label :website, "Website" %><br>
     <%= f.text_field :website, :class => "podcastnew", :placeholder => "include https://..." %><br><br>
 
     <%= image_tag("othericons/PhotoShow.PNG") %>    <%= f.label :remote_image_url, "Image URL (min. 150x150)" %><br />

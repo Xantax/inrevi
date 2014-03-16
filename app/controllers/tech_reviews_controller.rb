@@ -1,6 +1,7 @@
 class TechReviewsController < ApplicationController
   before_action :set_tech_review, only: [:show, :edit, :update, :destroy]
   before_action :set_tech
+  before_action :signed_in_user, only: [:new]
 
   def index
     @tech_reviews = TechReview.all

@@ -20,11 +20,9 @@
   </div>
   
   <div class="col-sm-3">
-    <% if signed_in? %>
+
         <%= link_to "Review it!", new_movie_movie_review_path(@movie.id) %><br><br>
-    <% else %>
-        <%= link_to "Review it!", "/auth/facebook" %><br><br>
-    <% end %>
+
     <%= image_tag("othericons/PhotoShow.PNG") %> (6) 
     <%= image_tag("othericons/VideoShow.PNG") %> (7)      
   </div>  

@@ -1,5 +1,6 @@
 class DrugsController < ApplicationController
   before_action :set_drug, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:new]
 
   def index
     @search = Drug.search do

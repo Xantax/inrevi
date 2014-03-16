@@ -207,6 +207,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
   acts-as-taggable-on
   bootstrap-sass (= 3.0.3)
   carrierwave

@@ -30,6 +30,8 @@ gem 'openlibrary'
 gem 'sunspot_rails'
 gem 'progress_bar'
 gem 'acts-as-taggable-on'
+gem 'activerecord'
+
 
 group :development do
   gem 'debugger'

@@ -1,5 +1,6 @@
 class PodcastsController < ApplicationController
   before_action :set_podcast, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:new]
 
   def index
 

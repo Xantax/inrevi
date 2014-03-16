@@ -1,6 +1,8 @@
 class PodcastReviewsController < ApplicationController
   before_action :set_podcast_review, only: [:show, :edit, :update, :destroy]
   before_action :set_podcast
+  before_action :signed_in_user, only: [:new]
+  
   def index
     @podcast = Podcast.find(params[:podcast_id])
     @podcast_reviews = PodcastReview.all

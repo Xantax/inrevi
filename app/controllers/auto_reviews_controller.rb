@@ -1,5 +1,6 @@
 class AutoReviewsController < ApplicationController
   before_action :set_auto_review, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:new]
 
   def index
     @auto = Auto.find(params[:auto_id])

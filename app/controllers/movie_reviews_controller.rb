@@ -1,6 +1,7 @@
 class MovieReviewsController < ApplicationController
   before_action :set_movie_review, only: [:show, :edit, :update, :destroy]
   before_action :set_movie
+  before_action :signed_in_user, only: [:new]
 
   def index
     @movie_reviews = MovieReview.where(movie_id: params[:id])

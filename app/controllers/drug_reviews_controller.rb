@@ -1,6 +1,7 @@
 class DrugReviewsController < ApplicationController
   before_action :set_drug_review, only: [:show, :edit, :update, :destroy]
   before_action :set_drug
+  before_action :signed_in_user, only: [:new]
 
   def index
     @drug_reviews = DrugReview.all
