@@ -1,9 +1,6 @@
 class Local < ActiveRecord::Base
   require 'open-uri'
   require 'json'
-  
-  geocoded_by :result['address']
-  after_validation :geocode
 
   class << self    
     def factual_results query, params
@@ -11,8 +8,8 @@ class Local < ActiveRecord::Base
       page = params[:page] || '1'
 
       [
-        query.select('name', 'region', 'country', 'locality', 'address', 'factual_id', 'tel', 'category_labels', 'neighborhood', 'website').
-          page(page, per: Places::FREE_ACC_QUERY_LIMIT).rows,
+        query.select('name', 'region', 'country', 'locality', 'address', 'factual_id', 'tel', 'category_labels', 'neighborhood', 'website', 'longitude', 'latitude').
+          page(page, per: 10).rows,
         query.total_count
       ]
     end
@@ -28,10 +25,6 @@ class Local < ActiveRecord::Base
         },
         {
           'neighborhood' =>
-            {'$search' => place}
-        },
-        {
-          'address' =>
             {'$search' => place}
         }
       ]

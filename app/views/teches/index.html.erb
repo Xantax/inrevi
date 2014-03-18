@@ -11,7 +11,7 @@
   <div class="allnews">
     <div class="techup"> 
       
-      <div class="col-sm-10 techsearch"> 
+      <div class="col-sm-11 techsearch"> 
          
           <%= form_tag teches_path, :method => :get do %>
               <%= text_field_tag :search, params[:search], :placeholder => "by category or name" , :class => "techsearchbutton" %>
@@ -20,7 +20,7 @@
         
       </div>  
           
-        <div class="col-sm-2 linkup">
+        <div class="col-sm-1 linkup">
             <b><%= link_to "+ Add", new_tech_path %></b>
         </div>      
      </div>

@@ -7,6 +7,10 @@
   display: none;
 }
 
+#map-canvas {
+  height: 300px;
+}
+
 .ui-helper-hidden-accessible {
   display:none;
 }
@@ -35,7 +39,7 @@ padding: 6px;
 border-radius: 3px; 
 border: 1px solid #CCC; 
 background-image: none; 
-width:260px; 
+width:280px; 
 } 
  .qform-control:focus { 
 outline-color: #0066FF; 
