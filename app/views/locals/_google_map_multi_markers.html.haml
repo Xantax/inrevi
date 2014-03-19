@@ -2,7 +2,7 @@
   console.log('test');
   function initialize() {
   if (#{results.count <= 0}) return;
-  $("#map-canvas-search").css('height', '270px');
+  $("#map-canvas-search").css('height', '320px');
   $("#map-canvas-search").css('margin', '8px 0');
 
   var default_lat = parseFloat(#{results.first[0]}) || 0;
@@ -22,7 +22,7 @@
     var marker = new google.maps.Marker({
     position: place,
     map: map,
-    title: name
+    title: name,
     })
   }
   google.maps.event.addDomListener(window, 'load', initialize);

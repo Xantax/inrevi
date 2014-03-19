@@ -1,0 +1,34 @@
+<% model_class = Local %>
+
+<div class="row podup"> 
+
+  <div class="col-sm-5"> 
+    <div class="local name"><%= link_to @local['name'], local_path %></div>
+    <div class="localcategory"><%= @local['category_labels'].join(', ').split.last(1).join('') %></div>
+    <div id="map-canvas" style="width: 170px; height: 160px" ></div>
+    <%= render 'google_map.html.haml' %>
+  </div> 
+  
+  <div class="col-sm-4">
+        <%= @local['address'] %><br>
+        <%= @local['locality'] %>,
+        <%= @local['region'] %><br><br>
+        <%= image_tag("localicons/directionicon.PNG", height: '12', width: '12') %>
+        <%= link_to "Get directions", "http://maps.google.com/maps?daddr=#{@local['latitude']},#{@local['longitude']}", :target => "_blank" %><br>
+    
+        <%= image_tag("localicons/phoneicon.PNG", height: '12', width: '12') %>
+        <b><%= @local['tel'] %></b><br>
+    
+        <% if @local['website'].blank? %>
+        <% else %>
+          <%= image_tag("localicons/newtabicon.PNG", height: '14', width: '14') %>
+          <%= link_to "website", @local['website'], :target => "_blank" %><br>
+        <% end %>
+  </div>
+
+  <div class="col-sm-3">
+    <%= link_to "Write a review", "#" %><br><br>
+    <%= image_tag("othericons/PhotoShow.PNG") %> (6)<br><br>
+  </div>
+
+</div> <br>

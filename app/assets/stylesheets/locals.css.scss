@@ -35,11 +35,11 @@ width:50px;
 
 .qform-control
 { 
-padding: 6px; 
+padding: 5px; 
 border-radius: 3px; 
 border: 1px solid #CCC; 
 background-image: none; 
-width:280px; 
+width:300px; 
 } 
  .qform-control:focus { 
 outline-color: #0066FF; 
@@ -47,6 +47,7 @@ outline-color: #0066FF;
 
 .localcategory{
 font-size:80%;
+  padding-bottom:5px;
 }
 
 .localindexname{
@@ -57,4 +58,21 @@ font-weight:bold;
 .localbottom{
   padding-bottom:15px;
 border-bottom: 1px solid #D0D0D0;
+}
+
+.local.name{
+  font-weight:bold;
+  font-size:110%;
+  padding-bottom:0px;
+  a{color: #606060;}
+  a:hover{text-decoration:none;
+  color:black;}
+}
+
+.emaillink{
+  font-size: 70%;
+}
+
+.localhours{
+font-size:85%;
 }

@@ -19,29 +19,19 @@
           <div class="localcategory"><b>·</b> <%= result['category_labels'].join(', ') unless result['category_labels'].blank? %></div><br>
               <%= result['address'] %><br>
               <%= result['locality'] %>, 
-              <%= result['region'] %>, 
-              <%= result['postcode'] %><br>
-              <%= result['tel'] %>
+              <%= result['region'] %><br>
+              <%= image_tag("localicons/phoneicon.PNG", height: '12', width: '12') %>
+              <b><%= result['tel'] %></b>
           
           <div class="localbottom"></div>
-        <% end %>
+        <% end %><br>
+          <%= render 'nextpage' %>
       </div>
       
-      <div class="col-sm-6 localmap"><br><br> 
-        
-          <div class="paginate pull-right">
-            <% page = params[:page] || 1 %>
-            <% next_page = page.to_i + 1 %>
-            <% previous_page = page.to_i - 1 %>
-            <% if previous_page > 0 %>
-              <%= link_to "Previous Page", lsearch_path(params.merge(page: page.to_i - 1)) %>
-            <% end %>
-            <% if next_page <= max_pages(@total_results) %>
-              <%= link_to "Next Page", lsearch_path(params.merge(page: page.to_i + 1)) %>
-            <% end %>
-          </div>
-        
-        <div id="map-canvas-search" style="width: 300px; height: 200px"></div>
+      <div class="col-sm-6 localmap"><br><br>         
+          <%= render 'nextpage' %>
+        <br>
+        <div id="map-canvas-search" style="width: 320px; height: 260px"></div>
         <% if params[:place].present? && @results.count > 0 %>
         <%= render 'google_map_multi_markers.html.haml', {results: lat_long_places(@results)} %>
         <% end %>

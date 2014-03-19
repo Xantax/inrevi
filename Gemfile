@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails', "~> 2.3.0"
 gem 'jquery-ui-rails'
+gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'factual-api'
@@ -30,6 +31,7 @@ gem 'progress_bar'
 gem 'acts-as-taggable-on'
 gem 'activerecord'
 gem 'haml-rails'
+gem 'fastimage'
 
 
 group :development do

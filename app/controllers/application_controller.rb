@@ -5,5 +5,6 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include MediaHelper
   include LocalsHelper
+  include BooksHelper
   
 end

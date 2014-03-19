@@ -1,0 +1,19 @@
+<%= render 'locals/localshow' %>
+<div class="row">
+  <div class="col-sm-3">
+      <%= image_tag("localicons/clockicon.PNG", height: '18', width: '18') %>
+    <div class="localhours"><% JSON.parse(@local['hours']).each do |key, value| %><br>
+      <b><%= key.first(3).capitalize %></b>
+      <%= value.join(' - ').first(13) %>
+      <% end %>
+    </div><br>
+    
+  </div>
+  <div class="col-sm-8">
+
+  </div>
+    
+</div>
+  <div class="row"> 
+    <%= render "listreviews" %>
+  </div>

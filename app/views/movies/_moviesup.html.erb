@@ -1,6 +1,6 @@
 <div class="moviesfirst">
  <div class="moviesfirstsearch">
-    <%= form_tag("/search", :method => "get") do %>
+    <%= form_tag msearch_path, :method => :get do %>
           <%= text_field_tag(:query, nil, :placeholder => "e.g. Fight Club" , :class => "moviesearchbutton") %>
           <%= submit_tag "Search", :name => nil, :class => "btn btn-primary" %>
      <% end %>

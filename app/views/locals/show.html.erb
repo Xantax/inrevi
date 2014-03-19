@@ -1,46 +1,19 @@
-  <% model_class = Local %>
+<% provide(:title, @local['name']) %>
 
-
-<div class="container">
-  <h1>
-    <%= @local['name'] %>
-  </h1>
-  <div class="rows">
-    <div class="address">
-      <h2>
-        Address:
-        <%= @local['address'] %>
-        <%= @local['locality'] %>
-        <%= @local['region'] %>
-        <%= Country.find_country_by_alpha2(@local['country']).name %>
-      </h2>
-    </div>
-    <div class="return-search">
-      <%= link_to "Go Back to Search", request.referer, class: 'btn btn-success' %>
-    </div>
+<div class="row">
+ 
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div> 
+    
+  <div class="col-sm-8"> 
+     <div class="allnews">
+      <%= render 'locals/localshow2' %>
+     </div>
   </div>
-  <h3>
-    <%= @local['category_labels'].join(', ') %>
-  </h3>
-  <h4>
-    Website:
-    <%= link_to @local['website'], @local['website'] %>
-  </h4>
-  <h4>
-    Website:
-    <%= @local['tel'] %>
-  </h4>
-  <h4>
-    Addition Information
-        <% if@addition_info %>
-      <% @addition_info[1].first.select {|key, value| select_params.include?(key)}.each do |key, value| %>
-        <h5>
-          <%= "#{key.humanize}: " %>
-          <%= value.is_a?(Array) ? value.join(', ') : value %>
-        </h5>
-      <% end %>
-    <% end %>
-  </h4>
-    <div id="map-canvas" style="width: 150px; height: 150px" ></div>
-    <%= render 'google_map.html.haml' %>
+  
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
+
 </div>
