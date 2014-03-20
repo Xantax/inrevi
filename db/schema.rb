@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320111138) do
+ActiveRecord::Schema.define(version: 20140320131058) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -211,6 +211,18 @@ ActiveRecord::Schema.define(version: 20140320111138) do
     t.datetime "updated_at"
     t.string   "image"
   end
+
+  create_table "tvshow_reviews", force: true do |t|
+    t.integer  "tvshow_id"
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tvshow_reviews", ["tvshow_id"], name: "index_tvshow_reviews_on_tvshow_id"
+  add_index "tvshow_reviews", ["user_id"], name: "index_tvshow_reviews_on_user_id"
 
   create_table "tvshows", force: true do |t|
     t.datetime "created_at"

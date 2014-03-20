@@ -1,0 +1,25 @@
+%h1 Listing tvshow_reviews
+
+%table
+  %tr
+    %th Tvshow
+    %th User
+    %th Title
+    %th Content
+    %th
+    %th
+    %th
+
+  - @tvshow_reviews.each do |tvshow_review|
+    %tr
+      %td= tvshow_review.tvshow
+      %td= tvshow_review.user
+      %td= tvshow_review.title
+      %td= tvshow_review.content
+      %td= link_to 'Show', tvshow_review
+      %td= link_to 'Edit', edit_tvshow_review_path(tvshow_review)
+      %td= link_to 'Destroy', tvshow_review, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Tvshow review', new_tvshow_review_path
