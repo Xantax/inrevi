@@ -1,34 +1,29 @@
 class TvshowReviewsController < ApplicationController
   before_action :set_tvshow_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_tvshow
+  before_action :signed_in_user, only: [:new]
 
-  # GET /tvshow_reviews
-  # GET /tvshow_reviews.json
   def index
-    @tvshow_reviews = TvshowReview.all
+    @tvshow_reviews = TvshowReview.where(tvshow_id: params[:id])
   end
 
-  # GET /tvshow_reviews/1
-  # GET /tvshow_reviews/1.json
   def show
   end
 
-  # GET /tvshow_reviews/new
   def new
     @tvshow_review = TvshowReview.new
   end
 
-  # GET /tvshow_reviews/1/edit
   def edit
   end
 
-  # POST /tvshow_reviews
-  # POST /tvshow_reviews.json
   def create
     @tvshow_review = TvshowReview.new(tvshow_review_params)
+    @tvshow_review.user = current_user
 
     respond_to do |format|
       if @tvshow_review.save
-        format.html { redirect_to @tvshow_review, notice: 'Tvshow review was successfully created.' }
+        format.html { redirect_to tvshow_path(@tvshow.id), notice: 'Tvshow review was successfully created.' }
         format.json { render action: 'show', status: :created, location: @tvshow_review }
       else
         format.html { render action: 'new' }
@@ -37,8 +32,6 @@ class TvshowReviewsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tvshow_reviews/1
-  # PATCH/PUT /tvshow_reviews/1.json
   def update
     respond_to do |format|
       if @tvshow_review.update(tvshow_review_params)
@@ -51,8 +44,6 @@ class TvshowReviewsController < ApplicationController
     end
   end
 
-  # DELETE /tvshow_reviews/1
-  # DELETE /tvshow_reviews/1.json
   def destroy
     @tvshow_review.destroy
     respond_to do |format|
@@ -62,12 +53,15 @@ class TvshowReviewsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+  
+    def set_tvshow
+      @tvshow = Tmdb::TV.detail(params[:tvshow_id])
+    end
+
     def set_tvshow_review
       @tvshow_review = TvshowReview.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def tvshow_review_params
       params.require(:tvshow_review).permit(:tvshow_id, :user_id, :title, :content)
     end

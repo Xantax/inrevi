@@ -1,7 +1,5 @@
 Inrevi::Application.routes.draw do
 
-  resources :tvshow_reviews
-
   get 'podtags/:tag', to: 'podcasts#index', as: :tag
   get 'techtags/:tag', to: 'teches#index', as: :ttag
   get 'drugtags/:tag', to: 'drugs#index', as: :dtag
@@ -57,7 +55,7 @@ match 'policy' => "static_pages#policy", via: [:get]
   end
   
   resources :tvshows do
-    
+    resources :tvshow_reviews
   end
   
   resources :podcasts do
