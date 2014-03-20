@@ -53,6 +53,10 @@ match 'policy' => "static_pages#policy", via: [:get]
     resources :movie_reviews
   end
   
+  resources :tvshows do
+    
+  end
+  
   resources :podcasts do
     resources :podcast_reviews
   end
