@@ -1,0 +1,27 @@
+<div class="row movieup">  
+  <div class="col-sm-4">
+    <div class="movieposter">
+      <%= image_tag("#{@configuration.base_url}w92#{@tvshow.poster_path}") if @tvshow.poster_path %>
+     </div>
+  </div>
+  
+  <div class="col-sm-5">
+    <div class="tvshowfacts">
+      <b><%= link_to @tvshow.name, tvshow_path(@tvshow.id) %> (<%= @tvshow.first_air_date.to_date.strftime("%Y") %>)</b><br><br>
+      
+      <%= @tvshow.episode_run_time %> min. <br>
+      <b>Genres:</b>
+			<% @tvshow.genres.each do |genre| %>
+				<%= genre['name'] %>.
+			<% end %><br>
+      </div>
+  </div>
+  
+  <div class="col-sm-3">
+
+        <%= link_to "Review it!", "#" %><br><br>
+
+    <%= image_tag("othericons/PhotoShow.PNG") %> (6) 
+    <%= image_tag("othericons/VideoShow.PNG") %> (7)      
+  </div>  
+</div>

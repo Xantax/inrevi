@@ -1,0 +1,21 @@
+<% provide(:title, @tvshow.name) %>
+
+<div class="row">
+ 
+<div class="col-sm-2 categories">
+  <%= render 'shared/categories' %>
+</div> 
+  
+<div class="col-sm-8"> 
+  <%= render "media/mcategories" %>
+  <div class="allnews">
+    <%= render 'tvshows/tvshowshow2' %>
+  </div>
+</div>
+
+<div class="col-sm-2">
+  <%= render 'shared/user_mainprofile' %>
+</div>
+
+  
+</div>
