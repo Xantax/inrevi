@@ -21,7 +21,11 @@
               <%= result['locality'] %>, 
               <%= result['region'] %><br>
               <%= image_tag("localicons/phoneicon.PNG", height: '12', width: '12') %>
-              <b><%= result['tel'] %></b>
+              <% if @local['tel'].blank? %>
+              <% else %>
+                <%= image_tag("localicons/phoneicon.PNG", height: '12', width: '12') %>
+                <b><%= @local['tel'] %></b><br>
+              <% end %>
           
           <div class="localbottom"></div>
         <% end %><br>
@@ -31,7 +35,7 @@
       <div class="col-sm-6 localmap"><br><br>         
           <%= render 'nextpage' %>
         <br>
-        <div id="map-canvas-search" style="width: 320px; height: 260px"></div>
+        <div id="map-canvas-search" style="width: 330px; height: 280px"></div>
         <% if params[:place].present? && @results.count > 0 %>
         <%= render 'google_map_multi_markers.html.haml', {results: lat_long_places(@results)} %>
         <% end %>

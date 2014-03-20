@@ -14,7 +14,18 @@ module LocalsHelper
   end
 
   def select_params
-    ['meal_lunch', 'wifi', 'room_private', 'stars', 'internet', 'rating', 'degrees', 'insurances']
+    ['cuisine', 'payment_cashonly', 'reservations', 'attire', 'parking', 'smoking', 'meal_breakfast', 'meal_lunch', 'meal_dinner',
+     'meal_takeout', 'meal_cater', 'alcohol', 'kids_menu', 'accessible_wheelchair', 'seating_outdoor', 'wifi', '', 
+      'room_private', 'options_vegetarian', 'options_vegan', 'options_glutenfree', 'options_organic', 'options_healthy',
+      
+      'degrees', 'insurances', 'years_experience', 'affiliations', 'languages', 'education', 'email', 
+      
+      'air_conditioning', 'complimentary_breakfast', 'lowest_price', 'highest_price', 'deposit', 'room_count', 'stars', 
+      'pets', 'non_smoking_rooms', 'smoking', 'internet', 'fitness_facilities', 'check_in', 'check_out', 
+      'express_check_in', 'express_check_out', 'laundry_service', 'cable_tv', 'accessibility', 'spa_services',
+      'cribs', 'concierge', 'twentyfour_hour_front_desk', 'meeting_rooms', 'banquet_facilities', 'event_catering',
+      'type', 'roll_out_beds'
+      ]
   end
   
   def lat_long_places results

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140316225644) do
+ActiveRecord::Schema.define(version: 20140319112845) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -94,6 +94,18 @@ ActiveRecord::Schema.define(version: 20140316225644) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "local_reviews", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "local_id"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "local_reviews", ["local_id"], name: "index_local_reviews_on_local_id"
+  add_index "local_reviews", ["user_id"], name: "index_local_reviews_on_user_id"
 
   create_table "locals", force: true do |t|
     t.datetime "created_at"

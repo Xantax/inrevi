@@ -1,0 +1,25 @@
+%h1 Listing local_reviews
+
+%table
+  %tr
+    %th User
+    %th Local
+    %th Title
+    %th Content
+    %th
+    %th
+    %th
+
+  - @local_reviews.each do |local_review|
+    %tr
+      %td= local_review.user
+      %td= local_review.local
+      %td= local_review.title
+      %td= local_review.content
+      %td= link_to 'Show', local_review
+      %td= link_to 'Edit', edit_local_review_path(local_review)
+      %td= link_to 'Destroy', local_review, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Local review', new_local_review_path

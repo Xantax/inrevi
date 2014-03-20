@@ -9,7 +9,7 @@
   var default_long = parseFloat(#{results.first[1]}) || 0;
   var mapOptions = {
   center: new google.maps.LatLng(default_lat, default_long),
-  zoom: 11
+  zoom: 10
   };
   var map = new google.maps.Map(document.getElementById("map-canvas-search"), mapOptions);
   - results.each do |result|

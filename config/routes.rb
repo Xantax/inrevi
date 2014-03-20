@@ -26,7 +26,15 @@ match 'policy' => "static_pages#policy", via: [:get]
       get :followers
     end
   end
-  resources :locals
+  
+  resources :locals do
+    member do
+      get "additionalinfo" => "locals#additionalinfo"
+    end
+    resources :local_reviews
+  end
+  
+  
   resources :sessions,      only: [:new, :create, :destroy]
   resources :relationships, only: [:create, :destroy] 
  

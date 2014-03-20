@@ -1,0 +1,30 @@
+<% provide(:title, @local['name']) %>
+
+<div class="row">
+ 
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div> 
+    
+  <div class="col-sm-8"> 
+     <div class="allnews">
+        <%= render 'locals/localshow' %>
+  
+        <% if @addition_info.present? %>
+          <% @addition_info[1].first.select {|key, value| select_params.include?(key)}.each do |key, value| %>
+            <div class="localaddition">
+              <b><%= "#{key.humanize}: " %></b>
+              <%= value.is_a?(Array) ? value.join(', ') : value %>
+            </div>
+          <% end %>
+        <% else %>
+        No additional information.
+        <% end %>
+     </div>
+  </div>
+  
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
+
+</div>

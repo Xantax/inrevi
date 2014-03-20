@@ -1,5 +1,5 @@
 class LocalsController < ApplicationController
-before_action :factual_authorize, only: [:index, :lsearch, :show]
+  before_action :factual_authorize, only: [:index, :lsearch, :show, :additionalinfo]
 
   def index
     @results = []    
@@ -19,6 +19,15 @@ before_action :factual_authorize, only: [:index, :lsearch, :show]
     @local = query.filters('factual_id' => params[:id]).first
     
     other_local @local 
+  end
+  
+  def additionalinfo
+    query = @factual.table('places')
+    @local = query.filters('factual_id' => params[:id]).first
+    
+    other_local @local 
+    
+    render 'additionalinfo'
   end
 
   private

@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @local_review.user
+%p
+  %b Local:
+  = @local_review.local
+%p
+  %b Title:
+  = @local_review.title
+%p
+  %b Content:
+  = @local_review.content
+
+= link_to 'Edit', edit_local_review_path(@local_review)
+\|
+= link_to 'Back', local_reviews_path

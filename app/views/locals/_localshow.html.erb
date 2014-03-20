@@ -16,19 +16,37 @@
         <%= image_tag("localicons/directionicon.PNG", height: '12', width: '12') %>
         <%= link_to "Get directions", "http://maps.google.com/maps?daddr=#{@local['latitude']},#{@local['longitude']}", :target => "_blank" %><br>
     
+        <% if @local['tel'].blank? %>
+        <% else %>
         <%= image_tag("localicons/phoneicon.PNG", height: '12', width: '12') %>
         <b><%= @local['tel'] %></b><br>
+        <% end %>
     
         <% if @local['website'].blank? %>
         <% else %>
           <%= image_tag("localicons/newtabicon.PNG", height: '14', width: '14') %>
-          <%= link_to "website", @local['website'], :target => "_blank" %><br>
-        <% end %>
+          <%= link_to "website", @local['website'], :target => "_blank" %>
+        <% end %><br>
+    
+        <% if @addition_info.present? %>
+          <%= image_tag("localicons/infoicon.PNG", height: '15', width: '6') %>
+          <%= link_to "additional info", additionalinfo_local_path %>
+        <% else %>
+        <% end %><br><br>
+        <%= image_tag("othericons/PhotoShow.PNG") %> (6)       
   </div>
 
   <div class="col-sm-3">
     <%= link_to "Write a review", "#" %><br><br>
-    <%= image_tag("othericons/PhotoShow.PNG") %> (6)<br><br>
+    <% if @local['hours'].blank? %>
+    <% else %>
+      <%= image_tag("localicons/clockicon.PNG", height: '18', width: '18') %>
+      <div class="localhours"><% JSON.parse(@local['hours']).each do |key, value| %><br>
+        <b><%= key.first(3).capitalize %></b>
+        <%= value.join(' - ').first(14) %>
+        <% end %>
+      </div>
+     <% end %>
   </div>
 
 </div> <br>
