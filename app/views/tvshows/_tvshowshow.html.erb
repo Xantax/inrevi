@@ -1,19 +1,36 @@
 <div class="row movieup">  
   <div class="col-sm-4">
     <div class="movieposter">
-      <%= image_tag("#{@configuration.base_url}w92#{@tvshow.poster_path}") if @tvshow.poster_path %>
+      
+      <% if @tvshow.poster_path.blank? %>
+        <%= image_tag("no-image.png") %>
+      <% else %>
+        <%= image_tag("#{@configuration.base_url}w92#{@tvshow.poster_path}") %>
+      <% end %>
+      
      </div>
   </div>
   
   <div class="col-sm-5">
     <div class="tvshowfacts">
-      <b><%= link_to @tvshow.name, tvshow_path(@tvshow.id) %> (<%= @tvshow.first_air_date.to_date.strftime("%Y") %>)</b><br><br>
+      <div class="tvtitle"><%= link_to @tvshow.name, tvshow_path(@tvshow.id) %> (<%= @tvshow.first_air_date.to_date.strftime("%Y") %>)</div><br>
       
-      <%= @tvshow.episode_run_time %> min. <br>
-      <b>Genres:</b>
-			<% @tvshow.genres.each do |genre| %>
-				<%= genre['name'] %>.
-			<% end %><br>
+      <% if @tvshow.episode_run_time.blank? %>
+      <% else %>
+        <%= image_tag("localicons/clockicon.PNG", height: '14', width: '14') %>
+        <% @tvshow.episode_run_time.first(1).each do |run| %>
+        <%= run %> min. 
+        <% end %><br>
+      <% end %>
+      
+      <% if @tvshow.genres.blank? %>
+      <% else %>
+        <b>Genres:</b>
+        <% @tvshow.genres.each do |genre| %>
+          <%= genre['name'] %>.
+        <% end %><br>
+      <% end %>
+      
       </div>
   </div>
   

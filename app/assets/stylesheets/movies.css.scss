@@ -6,7 +6,7 @@
 
 .moviesfirst{
 padding-bottom: 20px;
-border-bottom: 1px solid #D0D0D0;
+border-bottom: 1px solid #E8E8E8;
 }
 
 .moviesfirstlist{
@@ -37,10 +37,6 @@ padding: .5em 0.85em;
 border-bottom: 0px solid #E8E8E8;
   background-color:#FFFFFF;
   color: #000000;
-}
-
-.moviesfirstsearch{
-  display: inline-block;
 }
 
 #watchmovie {
@@ -86,11 +82,11 @@ display: inline-block;
 }
 
 .moviesearchbutton{ 
-  padding: 6px; 
+  padding: 5px; 
   border-radius: 3px; 
   border: 1px solid #CCC; 
   background-image: none; 
-  width:180px; 
+  width:460px;
 }
 
 .moviesearchbutton:focus{ 
@@ -126,6 +122,18 @@ display: inline-block;
 }
 
 .moviereviewcontent{
+  font-size:90%;
+}
+
+.movtitle{
+  a{color: #707070;}
+  a:hover{color: #202020; text-decoration:none;}
+  font-weight:bold;
+  font-size:105%;
+}
+
+.moviegenres{
+  display: inline-block;
   font-size:90%;
 }
 

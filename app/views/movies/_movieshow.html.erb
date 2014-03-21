@@ -1,21 +1,42 @@
 <div class="row movieup">  
   <div class="col-sm-4">
     <div class="movieposter">
-      <%= image_tag("#{@configuration.base_url}w92#{@movie.poster_path}") if @movie.poster_path %>
+      
+      <% if @movie.poster_path.blank? %>
+        <%= image_tag("no-image.png") %>
+      <% else %>
+        <%= image_tag("#{@configuration.base_url}w92#{@movie.poster_path}") %>
+      <% end %>
+      
      </div>
   </div>
   
   <div class="col-sm-5">
     <div class="moviefacts">
-      <b><%= link_to @movie.title, movie_path(@movie.id) %> (<%= @movie.release_date.to_date.strftime("%Y") %>)</b><br><br>
-      <% @trailers['youtube'].first(1).each do |trailer| %>
-    		<%= link_to "Trailer", "http://www.youtube.com/watch?v=#{trailer['source']}", :target => "_blank" %><br />
-    	<% end %>
-      <%= @movie.runtime %> min. <br>
-      <b>Genres:</b>
-			<% @movie.genres.each do |genre| %>
-				<%= genre['name'] %>.
-			<% end %><br>
+      <div class="movtitle"><%= link_to @movie.title, movie_path(@movie.id) %> (<%= @movie.release_date.to_date.try(:year) %>)</div><br>
+      
+      <% if @trailers['youtube'].blank? %>
+      <% else %>
+        <%= image_tag("othericons/playicon.PNG", height: '14', width: '14') %>
+        <% @trailers['youtube'].first(1).each do |trailer| %>
+          <%= link_to "Trailer", "http://www.youtube.com/watch?v=#{trailer['source']}", :target => "_blank" %><br />
+        <% end %>
+      <% end %>
+      
+      <% if @movie.runtime.nil? %>
+      <% else %>
+        <%= image_tag("localicons/clockicon.PNG", height: '14', width: '14') %>
+        <%= @movie.runtime %> min. <br>
+      <% end %>
+      
+      <% if @movie.genres.blank? %>
+      <% else %>
+        <b>Genres:</b>
+        <% @movie.genres.each do |genre| %>
+        <div class="moviegenres"><%= genre['name'] %>.</div>
+        <% end %><br>
+      <% end %>
+      
       </div>
   </div>
   

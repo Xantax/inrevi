@@ -1,14 +1,7 @@
-<div class="moviesfirst">
- <div class="moviesfirstsearch">
+ <div class="moviesfirst">
     <%= form_tag msearch_path, :method => :get do %>
           <%= text_field_tag(:query, nil, :placeholder => "e.g. Fight Club" , :class => "moviesearchbutton") %>
-          <%= submit_tag "Search", :name => nil, :class => "btn btn-primary" %>
+          <div class="searchstyle"><%= image_submit_tag("searchbutton.PNG", height: '20', width: '20' ) %></div>
      <% end %>
  </div>
-       <div class="moviesfirstlist">
-          <ul>
-          <li><%= link_to "by genre", "#" %></li>
-          <li id="watchmovie"><%= link_to "watch", "#" %></li>
-          </ul>
-       </div>
-</div>
+

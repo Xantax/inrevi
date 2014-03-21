@@ -16,10 +16,15 @@
       <% if movie %>
         <%= link_to movie_path(movie['id']) do %> 
           <div class="col-sm-4 tvshowsin">
-            <%= image_tag("#{@configuration.base_url}w154#{movie['poster_path']}") if movie['poster_path'] %></div>
+            <% if movie['poster_path'].blank? %>
+              <%= image_tag("no-image.png") %>
+            <% else %>
+              <%= image_tag("#{@configuration.base_url}w154#{movie['poster_path']}") if movie['poster_path'] %>
+            <% end %>
+            </div>
            <div class="col-sm-8 tvshowsin">
              <div class="tvshowsnowindex">
-             <%= movie['title'] %> (<%= movie['release_date'].to_date.strftime("%Y") %>) <br>
+             <%= movie['title'] %> (<%= movie['release_date'].to_date.try(:year) %>) <br>
              </div>
         <% end %>                        
            </div> 

@@ -11,9 +11,7 @@
     <div class="inreviews">
     </div>
   <%= render 'shared/stats' %>  <br><br>
-  <div class="homeprofile">
-      <%= link_to image_tag("FREEstorage1.GIF", height: '90', width: '98'), "http://trkur.com/trk?o=5654&p=120012", :target => "_blank" %>
-  </div>
+
   <% else %>
     <%= link_to image_tag("FBlogins.png", alt: "FB Login"), "/auth/facebook", id: "sign_in" %>
 <% end %>
