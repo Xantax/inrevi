@@ -1,4 +1,6 @@
 class Local < ActiveRecord::Base
+  has_many :local_reviews
+  
   require 'open-uri'
   require 'json'
 
@@ -8,7 +10,7 @@ class Local < ActiveRecord::Base
       page = params[:page] || '1'
 
       [
-        query.select('name', 'region', 'country', 'locality', 'address', 'factual_id' , 'category_labels', 'neighborhood', 'website', 'longitude', 'latitude').
+        query.select('name', 'region', 'country', 'locality', 'address', 'factual_id', 'tel' , 'category_labels', 'neighborhood', 'website', 'longitude', 'latitude').
           page(page, per: 10).rows,
         query.total_count
       ]

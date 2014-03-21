@@ -16,6 +16,12 @@
         <%= image_tag("localicons/directionicon.PNG", height: '12', width: '12') %>
         <%= link_to "Get directions", "http://maps.google.com/maps?daddr=#{@local['latitude']},#{@local['longitude']}", :target => "_blank" %><br>
     
+        <% if @local['tel'].blank? %>
+        <% else %>
+          <%= image_tag("localicons/phoneicon.PNG", height: '12', width: '12') %>
+          <b><%= @local['tel'] %></b>
+        <% end %><br>
+    
         <% if @local['website'].blank? %>
         <% else %>
           <%= image_tag("localicons/newtabicon.PNG", height: '14', width: '14') %>
@@ -31,7 +37,7 @@
   </div>
 
   <div class="col-sm-3">
-    <%= link_to "Write a review", "#" %><br><br>
+    <%= link_to "Review it!", new_local_local_review_path(@local['factual_id']) %><br><br>
     <% if @local['hours'].blank? %>
     <% else %>
       <%= image_tag("localicons/clockicon.PNG", height: '18', width: '18') %>

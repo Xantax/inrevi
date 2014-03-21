@@ -20,7 +20,12 @@
               <%= result['address'] %><br>
               <%= result['locality'] %>, 
               <%= result['region'] %><br>
-              <%= image_tag("localicons/phoneicon.PNG", height: '12', width: '12') %>
+        
+              <% if result['tel'].blank? %>
+              <% else %>
+                <%= image_tag("localicons/phoneicon.PNG", height: '12', width: '12') %>
+                <b><%= result['tel'] %></b>
+              <% end %><br>
           
           <div class="localbottom"></div>
         <% end %><br>

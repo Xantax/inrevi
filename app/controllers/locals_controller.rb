@@ -2,7 +2,8 @@ class LocalsController < ApplicationController
   before_action :factual_authorize, only: [:index, :lsearch, :show, :additionalinfo]
 
   def index
-    @results = []    
+    @results = []   
+    @local_reviews = LocalReview.where(local_id: params[:id])
   end
 
   def lsearch
@@ -15,6 +16,8 @@ class LocalsController < ApplicationController
   end
 
   def show
+    @local_reviews = LocalReview.where(local_id: params[:id])
+    
     query = @factual.table('places')
     @local = query.filters('factual_id' => params[:id]).first
     
