@@ -1,14 +1,10 @@
 Inrevi::Application.routes.draw do
 
-  get 'podtags/:tag', to: 'podcasts#index', as: :tag
   get 'techtags/:tag', to: 'teches#index', as: :ttag
   get 'drugtags/:tag', to: 'drugs#index', as: :dtag
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 match 'auth/failure', to: redirect('/'), via: [:get, :post]
 match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
-match 'msearch' => "movies#search", via: [:get]
-match 'tvsearch' => "tvshows#search", via: [:get]
-match 'search' => "books#search", via: [:get]
 match 'lsearch' => "locals#lsearch", via: [:get]
 match 'songsearch' => "songs#songsearch", via: [:get]
 match 'about' => "static_pages#about", via: [:get]
@@ -18,7 +14,6 @@ match 'careers' => "static_pages#careers", via: [:get]
 match 'tos' => "static_pages#tos", via: [:get]
 match 'policy' => "static_pages#policy", via: [:get] 
      
-  resources :songs, :only => [:index, :show] 
   
   resources :users, :only => [:show, :index] do
     member do
@@ -46,9 +41,18 @@ match 'policy' => "static_pages#policy", via: [:get]
     resources :tech_reviews
   end
 
+# ------------   MEDIA   ------------------
+  
 scope module: 'media' do 
   
+  get 'podtags/:tag', to: 'podcasts#index', as: :tag  
+match 'msearch' => "movies#search", via: [:get]
+match 'tvsearch' => "tvshows#search", via: [:get]
+match 'search' => "books#search", via: [:get]
+  
   resources :media
+  
+  resources :songs, :only => [:index, :show] 
   
   resources :books do
   end
@@ -66,6 +70,8 @@ scope module: 'media' do
   end
   
 end
+  
+# ------------  END MEDIA ------------------
   
   resources :autos do
     resources :auto_reviews

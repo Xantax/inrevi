@@ -1,4 +1,4 @@
-class Book < ActiveRecord::Base
+class Media::Book < ActiveRecord::Base
   CATEGORY = {title: "Name", author: "Author", subject: "Subject"}.freeze
   PER_PAGE = 10
 

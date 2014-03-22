@@ -1,4 +1,4 @@
-class PodcastReview < ActiveRecord::Base  
+class Media::PodcastReview < ActiveRecord::Base  
   belongs_to :podcast
   belongs_to :user
   

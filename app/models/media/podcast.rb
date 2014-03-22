@@ -1,4 +1,4 @@
-class Podcast < ActiveRecord::Base
+class Media::Podcast < ActiveRecord::Base
   acts_as_taggable
   
   validates :name, presence: true

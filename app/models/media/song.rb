@@ -1,2 +1,2 @@
-class Song < ActiveRecord::Base
+class Media::Song < ActiveRecord::Base
 end

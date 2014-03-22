@@ -1,3 +1,3 @@
-class PodcastLanguage < ActiveRecord::Base
+class Media::PodcastLanguage < ActiveRecord::Base
   has_many :podcasts
 end

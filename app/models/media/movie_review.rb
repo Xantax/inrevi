@@ -1,4 +1,4 @@
-class MovieReview < ActiveRecord::Base
+class Media::MovieReview < ActiveRecord::Base
   
   belongs_to :movie
   belongs_to :user
