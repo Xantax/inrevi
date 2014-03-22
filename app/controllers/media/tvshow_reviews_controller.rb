@@ -4,21 +4,21 @@ class Media::TvshowReviewsController < ApplicationController
   before_action :signed_in_user, only: [:new]
 
   def index
-    @tvshow_reviews = TvshowReview.where(tvshow_id: params[:id])
+    @tvshow_reviews = Media::TvshowReview.where(tvshow_id: params[:id])
   end
 
   def show
   end
 
   def new
-    @tvshow_review = TvshowReview.new
+    @tvshow_review = Media::TvshowReview.new
   end
 
   def edit
   end
 
   def create
-    @tvshow_review = TvshowReview.new(tvshow_review_params)
+    @tvshow_review = Media::TvshowReview.new(tvshow_review_params)
     @tvshow_review.user = current_user
 
     respond_to do |format|
@@ -59,7 +59,7 @@ class Media::TvshowReviewsController < ApplicationController
     end
 
     def set_tvshow_review
-      @tvshow_review = TvshowReview.find(params[:id])
+      @tvshow_review = Media::TvshowReview.find(params[:id])
     end
 
     def tvshow_review_params

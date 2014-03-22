@@ -4,25 +4,25 @@ class Media::PodcastReviewsController < ApplicationController
   before_action :signed_in_user, only: [:new]
   
   def index
-    @podcast = Podcast.find(params[:podcast_id])
+    @podcast = Media::Podcast.find(params[:podcast_id])
     @podcast_reviews = PodcastReview.all
   end
 
   def show
-    @podcast = Podcast.find(params[:podcast_id])
+    @podcast = Media::Podcast.find(params[:podcast_id])
   end
 
   def new
-    @podcast = Podcast.find(params[:podcast_id])
-    @podcast_review = PodcastReview.new 
+    @podcast = Media::Podcast.find(params[:podcast_id])
+    @podcast_review = Media::PodcastReview.new 
   end
 
   def edit
-    @podcast = Podcast.find(params[:podcast_id])
+    @podcast = Media::Podcast.find(params[:podcast_id])
   end
 
   def create
-    @podcast = Podcast.find(params[:podcast_id])
+    @podcast = Media::Podcast.find(params[:podcast_id])
     @podcast_review = @podcast.podcast_reviews.build(podcast_review_params)
     @podcast_review.user = current_user
 
@@ -38,7 +38,7 @@ class Media::PodcastReviewsController < ApplicationController
   end
 
   def update
-    @podcast = Podcast.find(params[:podcast_id])
+    @podcast = Media::Podcast.find(params[:podcast_id])
     @podcast_review = @podcast.podcast_reviews.build(podcast_review_params)
     @podcast_review.user = current_user
     
@@ -65,11 +65,11 @@ class Media::PodcastReviewsController < ApplicationController
   private
   
     def set_podcast
-      @podcast = Podcast.find(params[:podcast_id])
+      @podcast = Media::Podcast.find(params[:podcast_id])
     end
 
     def set_podcast_review
-      @podcast_review = PodcastReview.find(params[:id])
+      @podcast_review = Media::PodcastReview.find(params[:id])
     end
 
     def podcast_review_params

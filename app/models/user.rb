@@ -2,9 +2,8 @@ class User < ActiveRecord::Base
 
   has_many :local_reviews
   has_many :auto_reviews
-  has_many :movie_reviews
-  has_many :podcast_reviews
-  has_many :podcast_ratings
+  has_many :movie_reviews, :class_name => 'Media::MovieReview' 
+  has_many :podcast_reviews, :class_name => 'Media::PodcastReview' 
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
   has_many :reverse_relationships, foreign_key: "followed_id",

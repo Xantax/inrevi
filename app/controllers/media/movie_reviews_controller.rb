@@ -4,16 +4,16 @@ class Media::MovieReviewsController < ApplicationController
   before_action :signed_in_user, only: [:new]
 
   def index
-    @movie_reviews = MovieReview.where(movie_id: params[:id])
+    @movie_reviews = Media::MovieReview.where(movie_id: params[:id])
   end
 
   def show
-    @movie_reviews = MovieReview.all
+    @movie_reviews = Media::MovieReview.all
   end
 
   def new
     @movie = Tmdb::Movie.detail(params[:movie_id])
-    @movie_review = MovieReview.new
+    @movie_review = Media::MovieReview.new
   end
 
   def edit
@@ -22,7 +22,7 @@ class Media::MovieReviewsController < ApplicationController
   def create
     
     @movie = Tmdb::Movie.detail(params[:movie_id])
-    @movie_review = MovieReview.new(movie_review_params)
+    @movie_review = Media::MovieReview.new(movie_review_params)
     @movie_review.user = current_user
 
     respond_to do |format|
@@ -59,7 +59,7 @@ class Media::MovieReviewsController < ApplicationController
   private
 
     def set_movie_review
-      @movie_review = MovieReview.find(params[:id])
+      @movie_review = Media::MovieReview.find(params[:id])
     end
   
     def set_movie

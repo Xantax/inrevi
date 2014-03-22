@@ -4,34 +4,34 @@ class Media::PodcastsController < ApplicationController
 
   def index
 
-    @search = Podcast.search do
+    @search = Media::Podcast.search do
       fulltext params[:search]
     end
 
     if params[:tag]
-      @podcasts = Podcast.tagged_with(params[:tag])
+      @podcasts = Media::Podcast.tagged_with(params[:tag])
     elsif
       @podcasts = @search.results
     else
-      @podcasts = Podcast.all
+      @podcasts = Media::Podcast.all
     end
 
   end
 
   def show
-    @podcast_review = PodcastReview.new
-    @podcast_reviews = Podcast.find(params[:id]).podcast_reviews.order(created_at: :desc)
+    @podcast_review = Media::PodcastReview.new
+    @podcast_reviews = Media::Podcast.find(params[:id]).podcast_reviews.order(created_at: :desc)
   end
 
   def new
-    @podcast = Podcast.new
+    @podcast = Media::Podcast.new
   end
 
   def edit
   end
 
   def create
-    @podcast = Podcast.new(podcast_params)
+    @podcast = Media::Podcast.new(podcast_params)
 
     respond_to do |format|
       if @podcast.save
@@ -67,7 +67,7 @@ class Media::PodcastsController < ApplicationController
   private
 
     def set_podcast
-      @podcast = Podcast.find(params[:id])
+      @podcast = Media::Podcast.find(params[:id])
     end
 
     def podcast_params
