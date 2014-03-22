@@ -22,6 +22,11 @@ match 'policy' => "static_pages#policy", via: [:get]
     end
   end
   
+  resources :sessions,      only: [:new, :create, :destroy]
+  resources :relationships, only: [:create, :destroy] 
+  
+#----------   LOCAL   ----------  
+  
   resources :locals do
     member do
       get "additionalinfo" => "locals#additionalinfo"
@@ -29,19 +34,25 @@ match 'policy' => "static_pages#policy", via: [:get]
     resources :local_reviews
   end
   
-  
-  resources :sessions,      only: [:new, :create, :destroy]
-  resources :relationships, only: [:create, :destroy] 
+#----------   HEALTH   ----------
  
   resources :drugs do
     resources :drug_reviews
   end
+ 
+#----------   TECH   ----------  
   
   resources :teches do
     resources :tech_reviews
   end
+ 
+#----------   AUTO   ----------  
+  
+  resources :autos do
+    resources :auto_reviews
+  end
 
-# ------------   MEDIA   ------------------
+#----------   MEDIA   ----------
   
 scope module: 'media' do 
   
@@ -71,11 +82,8 @@ match 'search' => "books#search", via: [:get]
   
 end
   
-# ------------  END MEDIA ------------------
+#----------   END MEDIA   ----------
   
-  resources :autos do
-    resources :auto_reviews
-  end
   
 root 'static_pages#home'
   
