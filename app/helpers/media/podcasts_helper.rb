@@ -1,0 +1,2 @@
+module Media::PodcastsHelper
+end

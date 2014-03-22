@@ -6,7 +6,6 @@ Inrevi::Application.routes.draw do
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 match 'auth/failure', to: redirect('/'), via: [:get, :post]
 match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
-match 'media', to: 'media#index', as: 'media', via: [:get]
 match 'msearch' => "movies#search", via: [:get]
 match 'tvsearch' => "tvshows#search", via: [:get]
 match 'search' => "books#search", via: [:get]
@@ -39,15 +38,19 @@ match 'policy' => "static_pages#policy", via: [:get]
   resources :sessions,      only: [:new, :create, :destroy]
   resources :relationships, only: [:create, :destroy] 
  
-  resources :books do
-  end
-  
   resources :drugs do
     resources :drug_reviews
   end
   
   resources :teches do
     resources :tech_reviews
+  end
+
+scope module: 'media' do 
+  
+  resources :media
+  
+  resources :books do
   end
   
   resources :movies do
@@ -61,6 +64,8 @@ match 'policy' => "static_pages#policy", via: [:get]
   resources :podcasts do
     resources :podcast_reviews
   end
+  
+end
   
   resources :autos do
     resources :auto_reviews

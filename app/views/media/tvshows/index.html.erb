@@ -1,0 +1,38 @@
+<% provide(:title, 'TV Shows') %>
+
+<div class="row">
+
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div>
+    
+  <div class="col-sm-8"> 
+    <%= render "media/media/mcategories" %>
+      <div class="allnews">
+        <%= render 'tvshowsup' %>
+        <div class="tvshowsnow">
+          <div class="row">   
+    <% @popular.first(10).each do |tvshow| %> <br> <br>
+      <% if tvshow %>
+        <%= link_to tvshow_path(tvshow['id']) do %> 
+          <div class="col-sm-4 moviesin">
+            <%= image_tag("#{@configuration.base_url}w154#{tvshow['poster_path']}") if tvshow['poster_path'] %></div>
+           <div class="col-sm-8 moviesin">
+             <div class="moviesnowindex">
+             <%= tvshow['name'] %> (<%= tvshow['first_air_date'].to_date.strftime("%Y") %>) <br>
+             </div>
+        <% end %>                        
+           </div> 
+      <% end %>
+    <% end %>
+         </div>
+       </div>
+     </div>
+  </div>
+  
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
+
+  
+</div>

@@ -88,9 +88,15 @@ float:left;
   border-radius: 3px; 
   border: 1px solid #CCC; 
   background-image: none; 
-  width:280px; 
+  width:300px; 
 }
 
 .podcastnew:focus { 
   outline-color: #0066FF; 
 } 
+
+.podcastnewadd{
+  font-size:130%;
+  font-weight:bold;
+  display:inline-block;
+}

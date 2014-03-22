@@ -1,0 +1,29 @@
+<% provide(:title, 'Books') %>
+
+<div class="row">
+
+<div class="col-sm-2 categories">
+  <%= render 'shared/categories' %>
+</div>
+  
+<div class="col-sm-8">  
+  <%= render "media/media/mcategories" %>  
+    <div class="allnews">
+     
+      <%= render "search_form" %>
+      
+      <% @books.each do |book| %><br><br>
+          <%= image_tag cover_picture(book), alt: book.title %>
+          <%= link_to book.title, book_path(book.edition_key.first) %>
+          <%= book.author_name.join(', ') if book.author_name.is_a? Array %>
+          
+      <% end %>
+      
+    </div>
+</div>
+
+<div class="col-sm-2">
+  <%= render 'shared/user_mainprofile' %>
+</div>
+  
+</div>

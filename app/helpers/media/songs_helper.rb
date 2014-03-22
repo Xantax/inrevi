@@ -1,0 +1,2 @@
+module Media::SongsHelper
+end

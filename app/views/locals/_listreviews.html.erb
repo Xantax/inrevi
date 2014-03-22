@@ -1,7 +1,10 @@
 <% @local_reviews.each do |local_review| %><br>
   <div class="col-sm-3"> 
     <div class="reviewname">
-      <%= link_to local_review.user.name, user_path(local_review.user) %>
+      <%= link_to user_path(current_user) do %> 
+        <%= current_user.first_name %>
+        <%= current_user.last_name.truncate(2, omission: '.')%>
+      <% end %>
     </div>
     
     <%= image_tag(local_review.user.smallimage) %>
@@ -17,7 +20,7 @@
       <div class="separatereview">
       <b><%= local_review.title %>:</b> <br>  
         <div class="moviereviewcontent">
-          <%= local_review.content %>
+          <%= simple_format(local_review.content) %>
         </div><br><br><br>
       </div><br>
     </div>
