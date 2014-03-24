@@ -4,25 +4,20 @@ class Media::PodcastReviewsController < ApplicationController
   before_action :signed_in_user, only: [:new]
   
   def index
-    @podcast = Media::Podcast.find(params[:podcast_id])
-    @podcast_reviews = PodcastReview.all
+    @podcast_reviews = Media::PodcastReview.all
   end
 
   def show
-    @podcast = Media::Podcast.find(params[:podcast_id])
   end
 
   def new
-    @podcast = Media::Podcast.find(params[:podcast_id])
-    @podcast_review = Media::PodcastReview.new 
+    @podcast_review = PodcastReview.new 
   end
 
   def edit
-    @podcast = Media::Podcast.find(params[:podcast_id])
   end
 
   def create
-    @podcast = Media::Podcast.find(params[:podcast_id])
     @podcast_review = @podcast.podcast_reviews.build(podcast_review_params)
     @podcast_review.user = current_user
 
@@ -38,7 +33,6 @@ class Media::PodcastReviewsController < ApplicationController
   end
 
   def update
-    @podcast = Media::Podcast.find(params[:podcast_id])
     @podcast_review = @podcast.podcast_reviews.build(podcast_review_params)
     @podcast_review.user = current_user
     

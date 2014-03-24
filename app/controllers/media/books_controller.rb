@@ -1,5 +1,5 @@
 class Media::BooksController < ApplicationController
-  include BooksHelper
+  include Media::BooksHelper
   
   def index
     @books = []

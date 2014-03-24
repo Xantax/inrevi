@@ -7,7 +7,50 @@
   </div>
 
   <div class="col-sm-9">
-   
+    
+    <div class="row advertisinglist">
+      
+      <div class="col-sm-4">
+        <%= image_tag('caticons/Clocal.PNG') %> <div class="adtitle">Local</div>
+        <br><br>
+          <div class="addescription">Promote your local business</div>
+        for example: <br><br>
+        - restaurants <br>
+        - hotels <br>
+        - home services <br> 
+        ...and <b>many</b> more <hr>
+        <%= image_tag('othericons/planicon.PNG') %> <div class="seeplans"><%= link_to "See plans", localads_path %></div>
+        <br>
+      </div>
+      
+      
+      <div class="col-sm-4">
+        <%= image_tag('caticons/Ctech.PNG') %> <div class="adtitle">Tech</div>
+        <br><br>
+          <div class="addescription">Promote your tech company</div> 
+          for example: <br><br>
+          - hosting <br>
+          - eLearning platforms <br>
+          - advertising networks <br>
+          ...and <b>many</b> more <hr>
+        <%= image_tag('othericons/planicon.PNG') %> <div class="seeplans"><%= link_to "See plans", techads_path %></div>
+        <br>
+      </div>
+      
+      <div class="col-sm-4">
+        <%= image_tag('caticons/Cauto.png') %> <div class="adtitle">Auto</div>
+        <br><br>
+          <div class="addescription">Sell your car</div> 
+          <br>
+          - add a link <br>
+          - sell new or used <br>
+          <br> <br> <br>
+          <hr>
+        <%= image_tag('othericons/planicon.PNG') %> <div class="seeplans"><%= link_to "See plans", autoads_path %></div>
+        <br>
+      </div>
+      
+    </div>    
   </div>
   
 </div>

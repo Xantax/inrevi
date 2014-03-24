@@ -20,4 +20,22 @@ class StaticPagesController < ApplicationController
   def policy
   end
   
+  def localads
+  end
+  
+  def localplan1
+  end
+  
+  def localplan2
+  end
+  
+  def localplan3
+  end
+  
+  def techads
+  end
+  
+  def autoads
+  end
+  
 end
