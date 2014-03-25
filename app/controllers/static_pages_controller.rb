@@ -35,6 +35,15 @@ class StaticPagesController < ApplicationController
   def techads
   end
   
+  def techplan1
+  end
+  
+  def techplan2
+  end
+  
+  def techplan3
+  end
+  
   def autoads
   end
   
