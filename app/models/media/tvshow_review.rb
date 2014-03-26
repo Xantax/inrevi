@@ -1,4 +1,4 @@
-class Media::TvshowReview < ActiveRecord::Base
+class TvshowReview < ActiveRecord::Base
   belongs_to :tvshow
   belongs_to :user
 end

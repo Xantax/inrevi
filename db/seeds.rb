@@ -6,6 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-podcast_languages = PodcastLanguage.create([{ name: 'English' }, { name: 'Spanish' }, { name: 'Portuguese' }, 
-  { name: 'German' }, { name: 'Russian' }, { name: 'French' },  { name: 'Chinese' }, { name: 'Other' }])
 

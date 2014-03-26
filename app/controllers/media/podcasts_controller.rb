@@ -1,37 +1,38 @@
-class Media::PodcastsController < ApplicationController
+module Media
+ class PodcastsController < ApplicationController
   before_action :set_podcast, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:new]
 
   def index
 
-    @search = Media::Podcast.search do
+    @search = Podcast.search do
       fulltext params[:search]
     end
 
     if params[:tag]
-      @podcasts = Media::Podcast.tagged_with(params[:tag])
+      @podcasts = Podcast.tagged_with(params[:tag])
     elsif
       @podcasts = @search.results
     else
-      @podcasts = Media::Podcast.all
+      @podcasts = Podcast.all
     end
 
   end
 
   def show
-    @podcast_review = Media::PodcastReview.new
-    @podcast_reviews = Media::Podcast.find(params[:id]).podcast_reviews.order(created_at: :desc)
+    @podcast_review = PodcastReview.new
+    @podcast_reviews = Podcast.find(params[:id]).podcast_reviews.order(created_at: :desc)
   end
 
   def new
-    @podcast = Media::Podcast.new
+    @podcast =  Podcast.new
   end
 
   def edit
   end
 
   def create
-    @podcast = Media::Podcast.new(podcast_params)
+    @podcast =  Podcast.new(podcast_params)
 
     respond_to do |format|
       if @podcast.save
@@ -67,11 +68,12 @@ class Media::PodcastsController < ApplicationController
   private
 
     def set_podcast
-      @podcast = Media::Podcast.find(params[:id])
+      @podcast = Podcast.find(params[:id])
     end
 
     def podcast_params
-      params.require(:podcast).permit(:name, :podcast_language_id, :website, :image, :tag_list, :remote_image_url)
+      params.require(:media_podcast).permit(:name, :podcast_language_id, :website, :image, :tag_list, :remote_image_url)
     end
 
+ end
 end

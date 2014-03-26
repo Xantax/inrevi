@@ -1,4 +1,5 @@
-class Media::PodcastReview < ActiveRecord::Base  
+module Media
+class PodcastReview < ActiveRecord::Base  
   belongs_to :podcast
   belongs_to :user
   
@@ -6,5 +7,5 @@ class Media::PodcastReview < ActiveRecord::Base
   validates :user_id, presence: true
   validates :title, presence: true
   validates :content, presence: true, length: { maximum: 5000, minimum: 100 }
-  
+ end  
 end

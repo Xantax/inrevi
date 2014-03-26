@@ -1,10 +1,11 @@
-class Media::PodcastReviewsController < ApplicationController
+module Media 
+class PodcastReviewsController < ApplicationController
   before_action :set_podcast_review, only: [:show, :edit, :update, :destroy]
   before_action :set_podcast
   before_action :signed_in_user, only: [:new]
   
   def index
-    @podcast_reviews = Media::PodcastReview.all
+    @podcast_reviews = PodcastReview.all
   end
 
   def show
@@ -59,15 +60,16 @@ class Media::PodcastReviewsController < ApplicationController
   private
   
     def set_podcast
-      @podcast = Media::Podcast.find(params[:podcast_id])
+      @podcast = Podcast.find(params[:podcast_id])
     end
 
     def set_podcast_review
-      @podcast_review = Media::PodcastReview.find(params[:id])
+      @podcast_review = PodcastReview.find(params[:id])
     end
 
     def podcast_review_params
       params.require(:podcast_review).permit(:title, :content, :podcast_id, :user_id)
     end
-
+  
+  end
 end

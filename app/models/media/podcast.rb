@@ -1,4 +1,5 @@
-class Media::Podcast < ActiveRecord::Base
+module Media
+class Podcast < ActiveRecord::Base
   acts_as_taggable
   
   validates :name, presence: true
@@ -8,12 +9,11 @@ class Media::Podcast < ActiveRecord::Base
   validates :remote_image_url, presence: true
   
   has_many :podcast_reviews
-  belongs_to :podcast_language
   mount_uploader :image, ImageUploader
   
   searchable do
     text :name
     text :tag_list, :boost => 5 
   end
-  
+ end  
 end

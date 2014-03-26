@@ -1,13 +1,23 @@
-<%= form_for new_podcast_path do |f| %>
+<%= form_for(@podcast, url: podcasts_path) do |f| %>
+
+<% if @podcast.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@podcast.errors.count, "error") %> prohibited
+      this post from being saved:</h2>
+    <ul>
+    <% @podcast.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 
     <%= f.label :name %><br>
     <%= f.text_field :name, :class => "podcastnew" %><br><br>
 
     <%= f.label :tag_list, "Subject(s) - separate by commas" %><br>
     <%= f.text_field :tag_list, :placeholder => "e.g comedy, technology" , :class => "podcastnew" %><br><br>
-
-    <%= f.label :language_id %>
-<%= f.collection_select :podcast_language_id, Media::PodcastLanguage.order(:id), :id, :name %><br><br>
 
     <%= f.label :website, "Website (or iTunes link)" %><br>
     <%= f.text_field :website, :class => "podcastnew", :placeholder => "include https://..." %><br><br>
