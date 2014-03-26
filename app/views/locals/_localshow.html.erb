@@ -4,7 +4,7 @@
 
   <div class="col-sm-5"> 
     <div class="local name"><%= link_to @local['name'], local_path %></div>
-    <div class="localcategory"><%= @local['category_labels'].join(', ').split.last(1).join('') %></div>
+    <div class="localcategory"><%= @local['category_labels'].join(', ').split.last(1).join('') if @local['category_labels'].present? %></div>
     <div id="map-canvas" style="width: 170px; height: 160px" ></div>
     <%= render 'google_map.html.haml' %>
   </div> 

@@ -1,35 +1,35 @@
-class DrugsController < ApplicationController
+class Health::DrugsController < ApplicationController
   before_action :set_drug, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:new]
 
   def index
-    @search = Drug.search do
+    @search = Health::Drug.search do
       fulltext params[:search]
     end
 
     if params[:dtag]
-      @drugs = Drug.tagged_with(params[:dtag])
+      @drugs = Health::Drug.tagged_with(params[:dtag])
     elsif
       @drugs = @search.results
     else
-      @drugs = Drug.all
+      @drugs = Health::Drug.all
     end
   end
 
   def show
-    @drug_review = DrugReview.new
-    @drug_reviews = Drug.find(params[:id]).drug_reviews.order(created_at: :desc)
+    @drug_review = Health::DrugReview.new
+    @drug_reviews = Health::Drug.find(params[:id]).drug_reviews.order(created_at: :desc)
   end
 
   def new
-    @drug = Drug.new
+    @drug = Health::Drug.new
   end
 
   def edit
   end
 
   def create
-    @drug = Drug.new(drug_params)
+    @drug = Health::Drug.new(drug_params)
 
     respond_to do |format|
       if @drug.save
@@ -65,7 +65,7 @@ class DrugsController < ApplicationController
   private
 
     def set_drug
-      @drug = Drug.find(params[:id])
+      @drug = Health::Drug.find(params[:id])
     end
 
     def drug_params

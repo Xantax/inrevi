@@ -19,7 +19,6 @@ match 'advertising' => "static_pages#advertising", via: [:get]
     match 'techplan3' => "static_pages#techplan3", via: [:get]
   match 'autoads' => "static_pages#autoads", via: [:get]
 match 'contact' => "static_pages#contact", via: [:get]
-match 'careers' => "static_pages#careers", via: [:get]
 match 'tos' => "static_pages#tos", via: [:get]
 match 'policy' => "static_pages#policy", via: [:get] 
      
@@ -44,10 +43,18 @@ match 'policy' => "static_pages#policy", via: [:get]
   end
   
 #----------   HEALTH   ----------
- 
+
+scope module: 'health' do  
+  
   resources :drugs do
     resources :drug_reviews
   end
+  
+  resources :supplements do
+    resources :supplement_reviews
+  end
+    
+end
  
 #----------   TECH   ----------  
   

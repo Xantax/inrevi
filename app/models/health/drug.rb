@@ -1,4 +1,4 @@
-class Drug < ActiveRecord::Base
+class Health::Drug < ActiveRecord::Base
   acts_as_taggable
   
   validates :name, presence: true

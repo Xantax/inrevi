@@ -36,3 +36,36 @@
   a{color: #707070;}
   a:hover{color: #202020; text-decoration:none;}
 }
+
+
+/* CATEGORIES */
+
+.healthcat {
+  border-bottom: 0px solid #E8E8E8;
+  padding-bottom:5px;
+  padding-left:30px;
+}
+
+.healthcat ul
+{
+margin: 0;
+padding: 0;
+list-style-type: none;
+text-align: center;
+}
+
+.healthcat ul li { display: inline; font-size:120%; }
+
+.healthcat ul li a
+{
+color: #808080;  
+text-decoration: none;
+font-size:1em;
+  padding: .5em 5.5em 0.5em 0.6em;
+}
+
+.healthcat ul li a:hover
+{
+background-color: #FFFFFF;
+color:#000000;
+}

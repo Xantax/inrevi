@@ -1,17 +1,17 @@
-class DrugReviewsController < ApplicationController
+class Health::DrugReviewsController < ApplicationController
   before_action :set_drug_review, only: [:show, :edit, :update, :destroy]
   before_action :set_drug
   before_action :signed_in_user, only: [:new]
 
   def index
-    @drug_reviews = DrugReview.all
+    @drug_reviews = Health::DrugReview.all
   end
 
   def show
   end
 
   def new
-    @drug_review = DrugReview.new
+    @drug_review = Health::DrugReview.new
   end
 
   def edit
@@ -58,11 +58,11 @@ class DrugReviewsController < ApplicationController
   private
   
     def set_drug
-      @drug = Drug.find(params[:drug_id])
+      @drug = Health::Drug.find(params[:drug_id])
     end
 
     def set_drug_review
-      @drug_review = DrugReview.find(params[:id])
+      @drug_review = Health::DrugReview.find(params[:id])
     end
 
     def drug_review_params
