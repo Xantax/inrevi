@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320131058) do
+ActiveRecord::Schema.define(version: 20140327225506) do
 
   create_table "auto_reviews", force: true do |t|
     t.integer  "user_id"
@@ -64,14 +64,14 @@ ActiveRecord::Schema.define(version: 20140320131058) do
 
   create_table "local_reviews", force: true do |t|
     t.integer  "user_id"
-    t.integer  "local_id"
+    t.integer  "factual_id"
     t.string   "title"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "local_reviews", ["local_id"], name: "index_local_reviews_on_local_id"
+  add_index "local_reviews", ["factual_id"], name: "index_local_reviews_on_factual_id"
   add_index "local_reviews", ["user_id"], name: "index_local_reviews_on_user_id"
 
   create_table "locals", force: true do |t|
@@ -124,6 +124,13 @@ ActiveRecord::Schema.define(version: 20140320131058) do
   end
 
   add_index "podcasts", ["podcast_language_id"], name: "index_podcasts_on_podcast_language_id"
+
+  create_table "promotions", force: true do |t|
+    t.integer  "vote_id"
+    t.string   "place"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
@@ -206,6 +213,14 @@ ActiveRecord::Schema.define(version: 20140320131058) do
     t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
+  end
+
+  create_table "votes", force: true do |t|
+    t.string   "factual_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "query"
+    t.string   "place"
   end
 
 end

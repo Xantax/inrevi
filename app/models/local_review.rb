@@ -5,3 +5,4 @@ class LocalReview < ActiveRecord::Base
   validates :title, presence: true
   validates :content, presence: true, length: { maximum: 5000, minimum: 100 }
 end
+

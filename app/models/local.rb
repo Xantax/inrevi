@@ -1,17 +1,23 @@
-class Local < ActiveRecord::Base
+class Local < ActiveRecord::Base;
   has_many :local_reviews
+
   
   require 'open-uri'
   require 'json'
 
-  class << self    
+  class << self
     def factual_results query, params
       query = build_fatual_query query, params
-      page = params[:page] || '1'
+
+      # get 2 first page
+      results_page_1 = query.select('name', 'region', 'country', 'locality', 'address', 'factual_id', 'tel', 'category_labels', 'neighborhood', 'website', 'longitude', 'latitude').
+          page(1, per: Places::FREE_ACC_QUERY_LIMIT).rows
+
+      results_page_2 = query.select('name', 'region', 'country', 'locality', 'address', 'factual_id', 'tel', 'category_labels', 'neighborhood', 'website', 'longitude', 'latitude').
+          page(2, per: Places::FREE_ACC_QUERY_LIMIT).rows
 
       [
-        query.select('name', 'region', 'country', 'locality', 'address', 'factual_id', 'tel' , 'category_labels', 'neighborhood', 'website', 'longitude', 'latitude').
-          page(page, per: 10).rows,
+        results_page_1.concat(results_page_2),
         query.total_count
       ]
     end
@@ -31,7 +37,7 @@ class Local < ActiveRecord::Base
         }
       ]
     end
-         
+
     def places_params places
       params = [{'postcode' => places}]
       params.concat partial_params places
@@ -53,7 +59,7 @@ class Local < ActiveRecord::Base
         '$or' => params_for_place(places)
       }
     end
-    
+
     def query_by_name name
       {
         '$or' => [
@@ -99,5 +105,25 @@ class Local < ActiveRecord::Base
        'website' => local['website'] || {"$blank" => true}
       }
     end
+
+    def promoted_factual params_query, place, query
+      promoted_factual_ids = Vote.promoted_factual_ids params_query, place
+      promoted_factual_ids.reject! { |id| !Vote.find_by_factual_id(id).live_vote? }
+
+      # Impression every factual_id
+      Vote.impression_list promoted_factual_ids
+      query_params = promoted_factual_ids.inject([]) do |factual_params, id|
+        factual_params << {"factual_id" => id}
+      end
+
+      if query_params.count > 0
+        query.select('name', 'region', 'country', 'locality', 'address', 'factual_id', 'tel', 'category_labels', 'neighborhood', 'website', 'longitude', 'latitude').
+          filters({'$or' => query_params}).
+          rows
+      else
+        []
+      end
+    end
   end
+  
 end

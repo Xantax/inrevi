@@ -75,3 +75,4 @@ class LocalReviewsController < ApplicationController
     end
   
 end
+

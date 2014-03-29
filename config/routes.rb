@@ -5,7 +5,6 @@ Inrevi::Application.routes.draw do
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 match 'auth/failure', to: redirect('/'), via: [:get, :post]
 match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
-match 'lsearch' => "locals#lsearch", via: [:get]
 match 'songsearch' => "songs#songsearch", via: [:get]
 match 'about' => "static_pages#about", via: [:get]
 match 'advertising' => "static_pages#advertising", via: [:get]
@@ -35,12 +34,17 @@ match 'policy' => "static_pages#policy", via: [:get]
   
 #----------   LOCAL   ----------  
   
+  
+  match 'lsearch' => "locals#lsearch", via: [:get]
+  post 'vote' => 'votes#create', as: :vote
+  
   resources :locals do
     member do
       get "additionalinfo" => "locals#additionalinfo"
     end
     resources :local_reviews
   end
+
   
 #----------   HEALTH   ----------
 

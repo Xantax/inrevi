@@ -15,3 +15,4 @@
 //= require bootstrap
 //= require_tree .
 //= require jquery.ui.all
+//= require jquery-simple-pagination-plugin

@@ -1,13 +1,12 @@
 <div class="paginate pull-right">
-            <% page = params[:page] || 1 %>
-            <% next_page = page.to_i + 1 %>
-            <% previous_page = page.to_i - 1 %>
-            <% if previous_page > 0 %>
-              <%= link_to image_tag("othericons/backarrow.PNG", height: '16', width: '16'), lsearch_path(params.merge(page: page.to_i - 1)) %>
-              <%= link_to "Previous Page", lsearch_path(params.merge(page: page.to_i - 1)) %> |
-            <% end %>
-            <% if next_page <= max_pages(@total_results) %>
-              <%= link_to "Next Page", lsearch_path(params.merge(page: page.to_i + 1)) %>
-              <%= link_to image_tag("othericons/nextarrow.PNG", height: '16', width: '16'), lsearch_path(params.merge(page: page.to_i - 1)) %>
-            <% end %>
+  
+<div id="results-container">
+  <div class="simple-navigation top">
+    <div class="simple-pagination-first"></div>
+    <div class="simple-pagination-previous"></div>
+    <div class="simple-pagination-page-numbers"></div>
+    <div class="simple-pagination-next"></div>
+    <div class="simple-pagination-last"></div>
+  </div>
+  
 </div>

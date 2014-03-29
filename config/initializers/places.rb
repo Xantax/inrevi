@@ -30,6 +30,7 @@ class Places
 
     pages > limit_pages ? limit_pages : pages
   end
+  
 end
 
 PLACES = Places.new

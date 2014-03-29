@@ -2,6 +2,19 @@
 
 <div class="row podup"> 
 
+    <div class="<%= 'disabled' if @vote && @vote.live_vote? %> btn btn-warning glyphicon glyphicon-thumbs-up" data-factual-id="<%= @local['factual_id'] %>" data-place="<%= @local['locality'] %>" data-query="<%= @local['category_labels'] %>" id="vote-up">
+      Vote
+    </div>
+  
+  <% if @alternate_local %>
+    <div class="alert alert-info alert-dismissable">
+      You might also like this place:
+      <strong>
+        <%= link_to @alternate_local['name'], local_path(@alternate_local['factual_id']) %>
+      </strong>
+    </div>
+  <% end %>
+  
   <div class="col-sm-5"> 
     <div class="local name"><%= link_to @local['name'], local_path %></div>
     <div class="localcategory"><%= @local['category_labels'].join(', ').split.last(1).join('') if @local['category_labels'].present? %></div>

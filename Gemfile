@@ -32,6 +32,8 @@ gem 'acts-as-taggable-on'
 gem 'activerecord'
 gem 'haml-rails'
 gem 'fastimage'
+gem 'newrelic_rpm'
+gem 'nokogiri'
 
 
 group :development do
