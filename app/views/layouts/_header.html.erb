@@ -1,23 +1,18 @@
 <nav class="navbar" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <%= link_to image_tag("logou8.PNG", alt: "logo"), root_path %>
-  </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-    <% if signed_in? %>
-    <ul class="nav navbar-nav navbar-center" >
-      <li><%= link_to "Write a Review", "#" %></li>
-    </ul>
-    <% else %>
-    <ul class="nav navbar-nav navbar-center" >
-      <li><%= link_to "Write a Review", "/auth/facebook" %></li>
-    </ul>
-    <% end %>
-    <ul class="nav nav-navbar navbar-right nav-tabs"> 
 
-    </ul>  
+    <ul class="nav navbar-nav navbar-center" >
+      <div class="navbar-header">
+    <%= link_to image_tag("logou8.PNG", alt: "logo"), root_path %>
+      </div>
     </ul>
+
+    <ul class="nav nav-navbar navbar-right nav-tabs"> 
+    </ul>  
+    
+   </ul>
   </div><!-- /.navbar-collapse -->
 </nav>

@@ -1,6 +1,4 @@
 class Local < ActiveRecord::Base;
-  has_many :local_reviews
-
   
   require 'open-uri'
   require 'json'

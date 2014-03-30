@@ -7,8 +7,7 @@ class Podcast < ActiveRecord::Base
   validates :tag_list, presence: true
   validates :image, presence: true
   validates :remote_image_url, presence: true
-  
-  has_many :podcast_reviews
+
   mount_uploader :image, ImageUploader
   
   searchable do

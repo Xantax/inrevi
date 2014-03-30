@@ -34,6 +34,7 @@ gem 'haml-rails'
 gem 'fastimage'
 gem 'newrelic_rpm'
 gem 'nokogiri'
+gem 'acts_as_votable'
 
 
 group :development do

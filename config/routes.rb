@@ -42,7 +42,7 @@ match 'policy' => "static_pages#policy", via: [:get]
     member do
       get "additionalinfo" => "locals#additionalinfo"
     end
-    resources :local_reviews
+
   end
 
   
@@ -51,11 +51,11 @@ match 'policy' => "static_pages#policy", via: [:get]
 scope module: 'health' do  
   
   resources :drugs do
-    resources :drug_reviews
+
   end
   
   resources :supplements do
-    resources :supplement_reviews
+
   end
     
 end
@@ -63,13 +63,13 @@ end
 #----------   TECH   ----------  
   
   resources :teches do
-    resources :tech_reviews
+
   end
  
 #----------   AUTO   ----------  
   
   resources :autos do
-    resources :auto_reviews
+
   end
 
 #----------   MEDIA   ----------
@@ -89,15 +89,15 @@ match 'search' => "books#search", via: [:get]
   end
   
   resources :movies do
-    resources :movie_reviews
+
   end
   
   resources :tvshows do
-    resources :tvshow_reviews
+
   end
   
   resources :podcasts do
-    resources :podcast_reviews
+
   end
   
 end

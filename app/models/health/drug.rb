@@ -6,8 +6,6 @@ class Health::Drug < ActiveRecord::Base
   validates :image, presence: true
   validates :remote_image_url, presence: true
   
-  has_many :drug_reviews
-  
   mount_uploader :image, ImageUploader
   
   searchable do

@@ -50,7 +50,7 @@
   </div>
 
   <div class="col-sm-3">
-    <%= link_to "Review it!", new_local_local_review_path(@local['factual_id']) %><br><br>
+    <%= link_to "Review it!", "#" %><br><br>
     <% if @local['hours'].blank? %>
     <% else %>
       <%= image_tag("localicons/clockicon.PNG", height: '18', width: '18') %>

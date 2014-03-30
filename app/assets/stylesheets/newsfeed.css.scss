@@ -2,12 +2,19 @@
 
 /* General */
 .qupdate{
-border-bottom: 1px solid #E8E8E8;
+  border-bottom: 0px solid #E8E8E8;
   padding-bottom:5px;
 }
 .texty {
   padding-left:30px;
   border-bottom: 0px;
+}
+
+.safelogin{
+  font-weight:bold;
+  font-size:80%;
+  text-align:center;
+
 }
 
 .qupdate.ud{

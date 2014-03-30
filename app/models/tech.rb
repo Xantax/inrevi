@@ -6,8 +6,6 @@ class Tech < ActiveRecord::Base
   validates :image, presence: true
   validates :remote_image_url, presence: true
   
-  has_many :tech_reviews
-  
   mount_uploader :image, ImageUploader
   
   searchable do
