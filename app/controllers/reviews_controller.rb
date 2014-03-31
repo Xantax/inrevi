@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:new]
+  before_filter :load_reviewable
 
   def index
     @reviewable = load_reviewable
@@ -13,11 +15,14 @@ class ReviewsController < ApplicationController
   end
 
   def new
+    @reviewable = load_reviewable
     @review = @reviewable.reviews.new
   end
 
   def create
-    @review = @reviewable.reviews.new(params[:review])
+    @review = @reviewable.reviews.new(review_params)
+    @review.user = current_user
+    
     if @review.save
       redirect_to @review, notice: "Review created."
     else
@@ -57,6 +62,6 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-      params.require(:review).permit(:title, :content, :reviewable_id, :reviewable_type)
+      params.require(:review).permit(:title, :content, :reviewable_id, :reviewable_type, :user_id)
     end
 end

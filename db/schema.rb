@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20140330231150) do
   create_table "reviews", force: true do |t|
     t.string   "title"
     t.text     "content"
+    t.integer  "user_id"
     t.integer  "reviewable_id"
     t.string   "reviewable_type"
     t.datetime "created_at"
@@ -84,6 +85,7 @@ ActiveRecord::Schema.define(version: 20140330231150) do
   end
 
   add_index "reviews", ["reviewable_id", "reviewable_type"], name: "index_reviews_on_reviewable_id_and_reviewable_type"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "songs", force: true do |t|
     t.datetime "created_at"
@@ -107,18 +109,6 @@ ActiveRecord::Schema.define(version: 20140330231150) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
-
-  create_table "tech_reviews", force: true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "user_id"
-    t.integer  "tech_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "tech_reviews", ["tech_id"], name: "index_tech_reviews_on_tech_id"
-  add_index "tech_reviews", ["user_id"], name: "index_tech_reviews_on_user_id"
 
   create_table "teches", force: true do |t|
     t.string   "name"
