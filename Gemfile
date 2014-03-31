@@ -10,7 +10,7 @@ gem 'httparty'
 gem 'json'
 gem "carrierwave"
 gem "rmagick"
-gem 'sqlite3'
+
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -38,8 +38,16 @@ gem 'acts_as_votable'
 
 
 group :development do
+  gem 'sqlite3'
   gem 'debugger'
   gem 'sunspot_solr'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+end
+
+group :production do
+  gem 'pg'
 end
 
 group :doc do

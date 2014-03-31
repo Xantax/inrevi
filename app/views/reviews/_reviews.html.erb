@@ -19,7 +19,7 @@
     <div class="col-sm-9 podreview"> 
       <div class="separatereview">
       <b><%= review.title %>:</b> <br>  
-      <%= simple_format(review.content) %><br><br><br>
+        <div class="reviewcontent"><%= simple_format(review.content) %></div><br><br><br>
     </div><br>
   </div>
 <% end %>

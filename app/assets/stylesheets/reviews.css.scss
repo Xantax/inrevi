@@ -4,8 +4,42 @@
 
 @import "bootstrap";
 
+.reviewcontent{
+  font-size:85%;
+}
+
 .contentcharacters{
   display:inline-block;
   padding-left:250px;
   font-size:85%;
+}
+
+.field.podcontent{
+padding: 6px; 
+border-radius: 3px; 
+border: 1px solid #CCC; 
+background-image: none; 
+width:450px; 
+height:300px;
+white-space: pre-wrap;
+}
+
+.field.podcontent:focus { 
+outline-color: #0066FF; 
+} 
+
+.field.podtitle{
+padding: 6px; 
+border-radius: 3px; 
+border: 1px solid #CCC; 
+background-image: none; 
+width:400px; 
+}
+
+.field.podtitle:focus { 
+outline-color: #0066FF; 
+}
+
+.separatereview{
+  border-bottom: 1px solid #E8E8E8;
 }

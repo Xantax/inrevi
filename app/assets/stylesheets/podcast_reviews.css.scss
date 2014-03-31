@@ -3,28 +3,4 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap";
 
-.field.podcontent{
-padding: 6px; 
-border-radius: 3px; 
-border: 1px solid #CCC; 
-background-image: none; 
-width:450px; 
-height:300px;
-white-space: pre-wrap;
-}
-
-.field.podcontent:focus { 
-outline-color: #0066FF; 
-} 
-
-.field.podtitle{
-padding: 6px; 
-border-radius: 3px; 
-border: 1px solid #CCC; 
-background-image: none; 
-width:400px; 
-}
-
-.field.podtitle:focus { 
-outline-color: #0066FF; 
-} 
+ 
