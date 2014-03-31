@@ -1,5 +1,7 @@
 Inrevi::Application.routes.draw do
 
+  resources :reviews
+
   get 'techtags/:tag', to: 'teches#index', as: :ttag
   get 'drugtags/:tag', to: 'drugs#index', as: :dtag
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
@@ -42,7 +44,7 @@ match 'policy' => "static_pages#policy", via: [:get]
     member do
       get "additionalinfo" => "locals#additionalinfo"
     end
-
+  resources :reviews
   end
 
   
@@ -51,11 +53,11 @@ match 'policy' => "static_pages#policy", via: [:get]
 scope module: 'health' do  
   
   resources :drugs do
-
+    resources :reviews
   end
   
   resources :supplements do
-
+    resources :reviews
   end
     
 end
@@ -63,13 +65,13 @@ end
 #----------   TECH   ----------  
   
   resources :teches do
-
+    resources :reviews
   end
  
 #----------   AUTO   ----------  
   
   resources :autos do
-
+    resources :reviews
   end
 
 #----------   MEDIA   ----------
@@ -86,18 +88,19 @@ match 'search' => "books#search", via: [:get]
   resources :songs, :only => [:index, :show] 
   
   resources :books do
+    resources :reviews
   end
   
   resources :movies do
-
+    resources :reviews
   end
   
   resources :tvshows do
-
+    resources :reviews
   end
   
   resources :podcasts do
-
+    resources :reviews
   end
   
 end

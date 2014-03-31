@@ -10,7 +10,7 @@
    </div>
   </div>
   <div class="col-sm-4">
-    <%= link_to "Write a review", new_tech_tech_review_path(@tech) %><br><br>
+    <%= link_to "New Review", [:new, @reviewable, :review] %><br><br>
     <%= image_tag("othericons/PhotoShow.PNG") %> (6) 
     <%= image_tag("othericons/VideoShow.PNG") %> (7) <br><br>
     <%= link_to "Edit", edit_tech_path(@tech) %>

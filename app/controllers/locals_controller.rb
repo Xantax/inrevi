@@ -6,7 +6,6 @@ class LocalsController < ApplicationController
 
   def index
     @results = []
-    @local_reviews = LocalReview.where(factual_id: params[:id])
   end
 
   def lsearch
@@ -18,7 +17,6 @@ class LocalsController < ApplicationController
   end
 
   def show
-    @local_reviews = LocalReview.where(factual_id: params[:id])
     
     query = @factual.table('places')
     @local = query.filters('factual_id' => params[:id]).first

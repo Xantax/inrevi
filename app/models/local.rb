@@ -1,5 +1,7 @@
 class Local < ActiveRecord::Base;
   
+  has_many :reviews, as: :reviewable
+  
   require 'open-uri'
   require 'json'
 

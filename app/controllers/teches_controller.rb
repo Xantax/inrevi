@@ -17,8 +17,9 @@ class TechesController < ApplicationController
   end
 
   def show
-    @tech_review = TechReview.new
-    @tech_reviews = Tech.find(params[:id]).tech_reviews.order(created_at: :desc)
+    @reviewable = @tech
+    @reviews = @reviewable.reviews
+    @review = Review.new
   end
 
   def new

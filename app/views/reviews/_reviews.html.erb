@@ -1,0 +1,32 @@
+<h1>Reviews</h1>
+
+<div id="reviews">
+  <% @reviews.each do |review| %>
+    <div class="review">
+      <%= simple_format review.content %>
+    </div>
+  <% end %>
+</div>
+
+<% @reviews.each do |review| %><br>
+  <div class="col-sm-3"> 
+    <div class="reviewname">
+      <%= link_to review.user.name, user_path(review.user) %>
+    </div>
+    
+          <%= image_tag(review.user.smallimage) %>
+        <div class="inreviews">
+            <%= image_tag("othericons/pointicon.PNG", height: '12', width: '12') %> 
+          <b><%= review.user.reviews.count * 5 %></b><br >
+            <%= image_tag("othericons/writeRev.png", height: '12', width: '12') %> 
+          <b><%= review.user.reviews.count %></b>
+        </div>   
+    </div>
+      
+    <div class="col-sm-8 podreview"> 
+      <div class="separatereview">
+      <b><%= review.title %>:</b> <br>  
+      <%= review.content %><br><br><br>
+    </div><br>
+  </div>
+<% end %>
