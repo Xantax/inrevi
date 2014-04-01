@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   
   def show
   	@user = User.find(params[:id])
-
+    @reviews = @user.reviews
   end
   
   def index
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     def signed_in_user
       unless signed_in?
         store_location
-        redirect_to signin_url, notice: "Please sign in."
+        redirect_to root_url, notice: "Please sign in."
       end
     end
 

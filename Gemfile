@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 gem 'bootstrap-sass', '3.0.3'
 gem 'omniauth-facebook'
+gem 'sprockets'
 gem "koala", "~> 1.8.0rc1"
 gem 'oauth2'
 gem 'themoviedb'

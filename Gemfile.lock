@@ -275,6 +275,7 @@ DEPENDENCIES
   rmagick
   sass-rails (~> 4.0.0)
   sdoc
+  sprockets
   sqlite3
   sunspot_rails
   sunspot_solr

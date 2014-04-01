@@ -2,15 +2,15 @@
   <div class="col-sm-3"> <%= image_tag @tech.image_url(:thumb) if @tech.image? %></div> 
   
   <div class="col-sm-5"> 
-   <b><%= link_to @tech.name, tech_path(@tech) %></b> <br><br>
+    <div class="technameshow"><%= link_to @tech.name, tech_path(@tech) %></div>
 
    <div class="podinfo">
-      Website:  <%= @tech.website %><br >
-      Subject(s): <%= raw @tech.tags.map(&:name).map { |t| link_to t, ttag_path(t) }.join(', ') %>
+     <%= image_tag('localicons/newtabicon.PNG', height: '10', width: '10') %>  <%= link_to "Website", @tech.website, :target => "_blank" %><br >
+      Categories: <%= raw @tech.tags.map(&:name).map { |t| link_to t, ttag_path(t) }.join(', ') %>
    </div>
   </div>
   <div class="col-sm-4">
-    <%= link_to "New Review", [:new, @reviewable, :review] %><br><br>
+    <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %><div class="writeareview"><%= link_to "Write a Review", [:new, @reviewable, :review] %></div><br>
     <%= image_tag("othericons/PhotoShow.PNG") %> (6) 
     <%= image_tag("othericons/VideoShow.PNG") %> (7) <br><br>
     <%= link_to "Edit", edit_tech_path(@tech) %>
