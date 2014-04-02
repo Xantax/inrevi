@@ -2,4 +2,9 @@
 
     <%= render partial: 'shared/feed_item', collection: @feed_items %>
 
+<% else %>
+
+<div class="noreviewshome">No reviews yet :(</div>
+<div class="noreviewshomebottom">Follow someone or tell friends to join</div>
+
 <% end %>

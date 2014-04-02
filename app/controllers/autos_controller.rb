@@ -10,8 +10,9 @@ def index
   end
 
   def show
-    @auto_review = AutoReview.new
-    @auto_reviews = Auto.find(params[:id]).auto_reviews.order(created_at: :desc)
+    @reviewable = @auto
+    @reviews = @reviewable.reviews
+    @review = Review.new
   end
 
   def new

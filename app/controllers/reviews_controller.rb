@@ -12,7 +12,9 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @reviewable = load_reviewable
+
+    @review = @reviewable.reviews.find(params[:id])
+
   end
 
   def new
@@ -32,7 +34,7 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    @review = @reviewable.reviews.build(review_params)
+    @review = @reviewable.reviews.find(params[:id])
     @review.user = current_user
     
     respond_to do |format|
