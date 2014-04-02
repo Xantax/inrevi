@@ -1,6 +1,6 @@
 Inrevi::Application.routes.draw do
 
-  resources :reviews
+#  resources :reviews
 
   get 'techtags/:tag', to: 'teches#index', as: :ttag
   get 'drugtags/:tag', to: 'drugs#index', as: :dtag

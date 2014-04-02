@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [:new]
+  before_action :signed_in_user, only: [:new, :edit]
   before_filter :load_reviewable
 
   def index
@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @reviewable = load_reviewable
   end
 
   def new
@@ -31,6 +32,9 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    @review = @reviewable.reviews.build(review_params)
+    @review.user = current_user
+    
     respond_to do |format|
       if @review.update(review_params)
         format.html { redirect_to @review, notice: 'Review was successfully updated.' }

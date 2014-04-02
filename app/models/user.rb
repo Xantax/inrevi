@@ -21,13 +21,17 @@ class User < ActiveRecord::Base
   end
 end
   
- def facebook
-  @facebook ||= Koala::Facebook::API.new(oauth_token)
-  block_given? ? yield(@facebook) : @facebook
-  rescue Koala::Facebook::APIError => e
-  logger.info e.to_s
-  nil # or consider a custom null object
- end 
+  def feed
+    Review.from_users_followed_by(self)
+  end
+  
+   def facebook
+    @facebook ||= Koala::Facebook::API.new(oauth_token)
+    block_given? ? yield(@facebook) : @facebook
+    rescue Koala::Facebook::APIError => e
+    logger.info e.to_s
+    nil # or consider a custom null object
+   end 
   
   def smallimage
   "http://graph.facebook.com/#{self.uid}/picture?type=small"
