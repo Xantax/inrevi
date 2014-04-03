@@ -1,6 +1,6 @@
 class CreateBusinessVotes < ActiveRecord::Migration
   def change
-    create_table :votes do |t|
+    create_table :local_votes do |t|
     t.string   "factual_id"
     t.datetime "created_at"
     t.datetime "updated_at"

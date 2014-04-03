@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:new, :edit]
+  before_action :correct_user,   only: :destroy
   before_filter :load_reviewable
 
   def index
@@ -12,9 +13,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-
     @review = @reviewable.reviews.find(params[:id])
-
   end
 
   def new
@@ -58,6 +57,11 @@ class ReviewsController < ApplicationController
 
   private
   
+    def correct_user
+      @review = current_user.reviews.find_by(id: params[:id])
+      redirect_to root_url if @review.nil?
+    end
+  
   def load_reviewable
     resource, id = request.path.split('/')[1, 2]
     @reviewable = resource.singularize.classify.constantize.find(id)
@@ -70,4 +74,5 @@ class ReviewsController < ApplicationController
     def review_params
       params.require(:review).permit(:title, :content, :reviewable_id, :reviewable_type, :user_id)
     end
+  
 end

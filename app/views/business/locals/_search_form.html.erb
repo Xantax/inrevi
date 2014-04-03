@@ -1,4 +1,4 @@
-<%= form_tag lsearch_path, method: :get do %>
+<%= form_tag business_lsearch_path, method: :get do %>
   <div class="qform-actions">
     <%= text_field_tag :tags, nil, data: {category: Factual_Taxonomy.taxonomies , place: PLACES.places + PLACES.neighborhoods}, id: 'tags' %>
     <%= text_field_tag :query, params[:query], placeholder: "e.g. bars, Starbucks, japanese food...", class: 'qform-control', id: 'query-text-field' %> <b> in </b>

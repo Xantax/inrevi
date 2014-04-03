@@ -1,9 +1,9 @@
-class Vote < ActiveRecord::Base;
+module Business
+class LocalVote < ActiveRecord::Base;
  
   MAX_PROMOTIONS_PER_VOTE = 9
 
-  has_many :promotions
-  belongs_to :local
+  has_many :local_promotions
   
   before_save :not_exist_another_live_vote
 
@@ -18,7 +18,7 @@ class Vote < ActiveRecord::Base;
   end
 
   def exist_another_live_vote
-    another_vote = Vote.find_by_factual_id factual_id
+    another_vote = LocalVote.find_by_factual_id factual_id
     another_vote.present? && another_vote.live_vote?
   end
 
@@ -38,9 +38,10 @@ class Vote < ActiveRecord::Base;
   end
 
   def self.impression factual_id
-    vote = Vote.find_by_factual_id factual_id
+    vote = LocalVote.find_by_factual_id factual_id
     vote.promotions.create
   end
   
 end  
+end
 

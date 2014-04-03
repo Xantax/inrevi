@@ -1,6 +1,6 @@
 Inrevi::Application.routes.draw do
 
-#  resources :reviews
+  resources :reviews
 
   get 'techtags/:tag', to: 'teches#index', as: :ttag
   get 'drugtags/:tag', to: 'drugs#index', as: :dtag
@@ -36,9 +36,10 @@ match 'policy' => "static_pages#policy", via: [:get]
   
 #----------   LOCAL   ----------  
   
+namespace :business do 
   
   match 'lsearch' => "locals#lsearch", via: [:get]
-  post 'vote' => 'votes#create', as: :vote
+  post 'vote' => 'votes#create', as: :local_vote
   
   resources :locals do
     member do
@@ -47,6 +48,7 @@ match 'policy' => "static_pages#policy", via: [:get]
   resources :reviews
   end
 
+end
   
 #----------   HEALTH   ----------
 
@@ -76,14 +78,13 @@ end
 
 #----------   MEDIA   ----------
   
-scope module: 'media' do 
+namespace :media do
   
   get 'podtags/:tag', to: 'podcasts#index', as: :tag  
 match 'msearch' => "movies#search", via: [:get]
 match 'tvsearch' => "tvshows#search", via: [:get]
 match 'search' => "books#search", via: [:get]
-  
-  resources :media
+match 'media' => "media#index", via: [:get]  
   
   resources :songs, :only => [:index, :show] 
   

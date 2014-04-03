@@ -20,8 +20,9 @@ module Media
   end
 
   def show
-    @podcast_review = PodcastReview.new
-    @podcast_reviews = Podcast.find(params[:id]).podcast_reviews.order(created_at: :desc)
+    @reviewable = @podcast
+    @reviews = @reviewable.reviews
+    @review = Review.new
   end
 
   def new

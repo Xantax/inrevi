@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
   include Media::MediaHelper
-  include LocalsHelper
+  include Business::LocalsHelper
   include Media::BooksHelper
   
 end

@@ -1,5 +1,6 @@
 require 'open-uri'
 
+module Business
 class LocalsController < ApplicationController
   before_action :factual_authorize
   before_action :promoted_factual, only: [:lsearch]
@@ -21,14 +22,19 @@ class LocalsController < ApplicationController
     query = @factual.table('places')
     @local = query.filters('factual_id' => params[:id]).first
 
-    @vote = Vote.find_by_factual_id @local['factual_id']
+    @vote = LocalVote.find_by_factual_id @local['factual_id']
 
     alternate_id = alternate_local_id
 
     if alternate_id
       @alternate_local = query.filters('factual_id' => alternate_id).first
-      Vote.impression @alternate_local['factual_id']
+      LocalVote.impression @alternate_local['factual_id']
     end
+    
+    @reviewable = @local
+    @reviews = @reviewable.reviews
+    @review = Review.new
+    
   end
 
   def additionalinfo
@@ -60,7 +66,7 @@ class LocalsController < ApplicationController
 
     @addition_info = response.select { |key, value| value.count > 0 }.first
 
-    display_cat_image response
+#    display_cat_image response
   end
 
   def factual_query local
@@ -81,7 +87,7 @@ class LocalsController < ApplicationController
   end
 
   def alternate_local_id
-    votes_by_city = Vote.find_all_by_place(@local['locality'])
+    votes_by_city = LocalVote.find_all_by_place(@local['locality'])
     random_vote = votes_by_city
       .select { |vote| longest_common_substr([@local['category_labels'], vote.query]) }
       .reject { |vote| vote.factual_id.eql?(@local['factual_id']) || !vote.live_vote? }
@@ -99,6 +105,8 @@ class LocalsController < ApplicationController
       end
     end
   end
+  
+end
   
 end
 

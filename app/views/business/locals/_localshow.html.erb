@@ -1,4 +1,4 @@
-<% model_class = Local %>
+<% model_class = Business::Local %>
 
 <div class="row podup"> 
 
@@ -16,7 +16,7 @@
   <% end %>
   
   <div class="col-sm-5"> 
-    <div class="local name"><%= link_to @local['name'], local_path %></div>
+    <div class="local name"><%= link_to @local['name'], business_local_path %></div>
     <div class="localcategory"><%= @local['category_labels'].join(', ').split.last(1).join('') if @local['category_labels'].present? %></div>
     <div id="map-canvas" style="width: 170px; height: 160px" ></div>
     <%= render 'google_map.html.haml' %>
@@ -50,7 +50,7 @@
   </div>
 
   <div class="col-sm-3">
-    <%= link_to "Review it!", "#" %><br><br>
+        <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %><div class="writeareview"><%= link_to "Write a Review", [:new, @reviewable, :review] %></div><br>
     <% if @local['hours'].blank? %>
     <% else %>
       <%= image_tag("localicons/clockicon.PNG", height: '18', width: '18') %>

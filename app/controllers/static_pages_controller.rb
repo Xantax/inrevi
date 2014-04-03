@@ -1,8 +1,9 @@
 class StaticPagesController < ApplicationController
   def home
-    @review  = current_user.reviews.build
-    @feed_items = current_user.feed
-    #reviews = @user.reviews
+    if signed_in?
+      @review  = current_user.reviews.build
+      @feed_items = current_user.feed
+    end
   end
 
   def advertising

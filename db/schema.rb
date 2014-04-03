@@ -38,6 +38,21 @@ ActiveRecord::Schema.define(version: 20140330231150) do
     t.datetime "updated_at"
   end
 
+  create_table "local_promotions", force: true do |t|
+    t.integer  "local_vote_id"
+    t.string   "place"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "local_votes", force: true do |t|
+    t.string   "factual_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "query"
+    t.string   "place"
+  end
+
   create_table "locals", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -54,13 +69,6 @@ ActiveRecord::Schema.define(version: 20140330231150) do
     t.datetime "updated_at"
     t.string   "website"
     t.string   "image"
-  end
-
-  create_table "promotions", force: true do |t|
-    t.integer  "vote_id"
-    t.string   "place"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "relationships", force: true do |t|
@@ -133,14 +141,6 @@ ActiveRecord::Schema.define(version: 20140330231150) do
     t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
-  end
-
-  create_table "votes", force: true do |t|
-    t.string   "factual_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "query"
-    t.string   "place"
   end
 
 end

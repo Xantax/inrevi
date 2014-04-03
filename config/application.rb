@@ -24,5 +24,6 @@ module Inrevi
     config.serve_static_assets = true
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     config.autoload_paths += %W(#{config.root}/lib #{config.root}/app/uploaders)
+    config.autoload_paths += %W(#{config.root}/queries)
   end
 end

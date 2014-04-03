@@ -1,4 +1,5 @@
-module LocalsHelper
+
+module Business::LocalsHelper
   
   def max_pages results_count
     max = Places::FREE_ACC_ROW_LIMIT/ Places::FREE_ACC_QUERY_LIMIT
