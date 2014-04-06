@@ -1,2 +1,0 @@
-module Media::TvshowsHelper
-end

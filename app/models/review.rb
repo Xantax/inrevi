@@ -1,4 +1,5 @@
 class Review < ActiveRecord::Base
+    
   belongs_to :reviewable, polymorphic: true
   default_scope -> { order('created_at DESC') }
   belongs_to :user

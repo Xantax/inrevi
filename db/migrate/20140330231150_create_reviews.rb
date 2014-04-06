@@ -3,6 +3,7 @@ class CreateReviews < ActiveRecord::Migration
     create_table :reviews do |t|
       t.string :title
       t.text :content
+      t.integer :point, default: -1
       t.references :user, index: true
       t.references :reviewable, polymorphic: true
 

@@ -17,8 +17,13 @@ class ReviewsController < ApplicationController
   end
 
   def new
+    query = @factual.table('places')
+    @local = query.filters('factual_id' => params[:local_id]).first
+    
+    
     @reviewable = load_reviewable
     @review = @reviewable.reviews.new
+    
   end
 
   def create
@@ -26,7 +31,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     
     if @review.save
-      redirect_to @review, notice: "Review created."
+      redirect_to root_path, notice: "Review created."
     else
       render :new
     end
@@ -64,7 +69,7 @@ class ReviewsController < ApplicationController
   
   def load_reviewable
     resource, id = request.path.split('/')[1, 2]
-    @reviewable = resource.singularize.classify.constantize.find(id)
+    @reviewable = resource.singularize.classify.constantize.find(id) 
   end
 
     def set_review

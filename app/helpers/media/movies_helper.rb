@@ -1,2 +1,0 @@
-module Media::MoviesHelper
-end

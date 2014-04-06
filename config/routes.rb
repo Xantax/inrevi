@@ -1,13 +1,21 @@
 Inrevi::Application.routes.draw do
 
-  resources :reviews
+#  resources :reviews
 
   get 'techtags/:tag', to: 'teches#index', as: :ttag
   get 'drugtags/:tag', to: 'drugs#index', as: :dtag
+  get 'podtags/:tag', to: 'podcasts#index', as: :tag  
+  
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 match 'auth/failure', to: redirect('/'), via: [:get, :post]
 match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 match 'songsearch' => "songs#songsearch", via: [:get]
+match 'msearch' => "movies#search", via: [:get]
+match 'tvsearch' => "tvshows#search", via: [:get]
+match 'search' => "books#search", via: [:get]
+  
+match 'media' => "media#index", via: [:get]
+  
 match 'about' => "static_pages#about", via: [:get]
 match 'advertising' => "static_pages#advertising", via: [:get]
   match 'localads' => "static_pages#localads", via: [:get]
@@ -36,8 +44,6 @@ match 'policy' => "static_pages#policy", via: [:get]
   
 #----------   LOCAL   ----------  
   
-namespace :business do 
-  
   match 'lsearch' => "locals#lsearch", via: [:get]
   post 'vote' => 'votes#create', as: :local_vote
   
@@ -45,14 +51,10 @@ namespace :business do
     member do
       get "additionalinfo" => "locals#additionalinfo"
     end
-  resources :reviews
+  resources :local_reviews
   end
-
-end
   
 #----------   HEALTH   ----------
-
-scope module: 'health' do  
   
   resources :drugs do
     resources :reviews
@@ -61,8 +63,6 @@ scope module: 'health' do
   resources :supplements do
     resources :reviews
   end
-    
-end
  
 #----------   TECH   ----------  
   
@@ -77,14 +77,6 @@ end
   end
 
 #----------   MEDIA   ----------
-  
-namespace :media do
-  
-  get 'podtags/:tag', to: 'podcasts#index', as: :tag  
-match 'msearch' => "movies#search", via: [:get]
-match 'tvsearch' => "tvshows#search", via: [:get]
-match 'search' => "books#search", via: [:get]
-match 'media' => "media#index", via: [:get]  
   
   resources :songs, :only => [:index, :show] 
   
@@ -103,9 +95,7 @@ match 'media' => "media#index", via: [:get]
   resources :podcasts do
     resources :reviews
   end
-  
-end
-  
+
 #----------   END MEDIA   ----------
   
   

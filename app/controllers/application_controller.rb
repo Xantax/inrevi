@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   include SessionsHelper
-  include Media::MediaHelper
-  include Business::LocalsHelper
-  include Media::BooksHelper
+  include MediaHelper
+  include LocalsHelper
+  include BooksHelper
   
 end

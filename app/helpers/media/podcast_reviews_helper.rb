@@ -1,2 +1,0 @@
-module Media::PodcastReviewsHelper
-end
