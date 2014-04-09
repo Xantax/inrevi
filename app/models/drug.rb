@@ -1,4 +1,4 @@
-class Health::Drug < ActiveRecord::Base
+class Drug < ActiveRecord::Base
   acts_as_taggable
   
   has_many :reviews, as: :reviewable

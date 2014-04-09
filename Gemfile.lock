@@ -283,5 +283,4 @@ DEPENDENCIES
   sunspot_solr
   themoviedb
   therubyracer
-  turbolinks
   uglifier (>= 1.3.0)

@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :signed_in_user, only: [:new, :edit]
   before_action :correct_user,   only: :destroy
   before_filter :load_reviewable
@@ -16,14 +16,9 @@ class ReviewsController < ApplicationController
     @review = @reviewable.reviews.find(params[:id])
   end
 
-  def new
-    query = @factual.table('places')
-    @local = query.filters('factual_id' => params[:local_id]).first
-    
-    
+  def new   
     @reviewable = load_reviewable
     @review = @reviewable.reviews.new
-    
   end
 
   def create
@@ -58,6 +53,16 @@ class ReviewsController < ApplicationController
       format.html { redirect_to reviews_url }
       format.json { head :no_content }
     end
+  end
+  
+  def upvote
+    @review.liked_by current_user
+    render "update_likes"
+  end
+
+  def downvote
+    @review.downvote_from current_user
+    render "update_likes"
   end
 
   private

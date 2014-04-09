@@ -1,6 +1,11 @@
 Inrevi::Application.routes.draw do
 
-#  resources :reviews
+  resources :reviews do
+      member do
+        put "like", to: "reviews#upvote"
+        put "dislike", to: "reviews#downvote"
+      end
+  end
 
   get 'techtags/:tag', to: 'teches#index', as: :ttag
   get 'drugtags/:tag', to: 'drugs#index', as: :dtag
@@ -73,7 +78,9 @@ match 'policy' => "static_pages#policy", via: [:get]
 #----------   AUTO   ----------  
   
   resources :autos do
-    resources :reviews
+    resources :reviews do
+
+    end
   end
 
 #----------   MEDIA   ----------

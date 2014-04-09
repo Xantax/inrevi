@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  acts_as_voter
+  
   has_many :reviews
   has_many :local_reviews
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy

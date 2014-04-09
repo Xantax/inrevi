@@ -1,5 +1,7 @@
 class Review < ActiveRecord::Base
-    
+  
+  acts_as_votable
+  
   belongs_to :reviewable, polymorphic: true
   default_scope -> { order('created_at DESC') }
   belongs_to :user
@@ -14,5 +16,6 @@ class Review < ActiveRecord::Base
     where("user_id IN (#{followed_user_ids}) OR user_id = :user_id",
           user_id: user.id)
   end
-  
+
+    
 end

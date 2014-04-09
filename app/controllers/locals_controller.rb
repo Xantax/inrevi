@@ -16,10 +16,9 @@ class LocalsController < ApplicationController
 
   def lsearch
     @results, @total_results = Local.factual_results(@query, params)
+    @results.sort_by! { |result| -LocalReview.find_all_by_local_id(result['factual_id']).count }
 
-    respond_to do |format|
-      format.html { render 'index' }
-    end
+      render 'index'
   end
 
   def show
