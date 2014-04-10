@@ -1,0 +1,21 @@
+<% @auto_reviews.each do |auto_review| %><br>
+  <div class="col-sm-3"> 
+    <div class="reviewname">     
+      <%= link_to user_path(auto_review.user) do %> 
+        <%= auto_review.user.first_name %>
+        <%= auto_review.user.last_name.truncate(2, omission: '.')%>
+      <% end %>
+    </div>    
+          <%= image_tag(auto_review.user.reviewimage) %>  
+    </div>
+      
+    <div class="col-sm-9 podreview"> 
+      <div class="separatereview">
+      <b><%= auto_review.title %>:</b> <br>  
+        <div class="reviewcontent"><%= simple_format(auto_review.content) %></div><br>
+
+        <%= render 'auto_reviews/bottom_auto_review' %>
+        
+    </div><br>
+  </div>
+<% end %>

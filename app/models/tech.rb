@@ -1,8 +1,6 @@
 class Tech < ActiveRecord::Base
   acts_as_taggable
-  
-  has_many :reviews, as: :reviewable
-  
+
   validates :name, presence: true
   validates :tag_list, presence: true
   validates :image, presence: true

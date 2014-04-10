@@ -10,7 +10,7 @@ class Auto < ActiveRecord::Base
   validates :image, presence: true
   validates :remote_image_url, presence: true
   
-  has_many :reviews, as: :reviewable
+  has_many :auto_reviews
   mount_uploader :image, ImageUploader
   
   searchable do

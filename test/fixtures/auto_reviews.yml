@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  user_id: 
-  auto_id: 
   title: MyString
   content: MyText
+  user_id: 
+  auto_id: 
 
 two:
-  user_id: 
-  auto_id: 
   title: MyString
   content: MyText
+  user_id: 
+  auto_id: 

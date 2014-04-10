@@ -10,9 +10,8 @@ def index
   end
 
   def show
-    @reviewable = @auto
-    @reviews = @reviewable.reviews
-    @review = Review.new
+    @auto_review = AutoReview.new
+    @auto_reviews = Auto.find(params[:id]).auto_reviews
   end
 
   def new

@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
 
   acts_as_voter
   
-  has_many :reviews
   has_many :local_reviews
+  has_many :auto_reviews
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
   has_many :reverse_relationships, foreign_key: "followed_id",
@@ -44,8 +44,12 @@ end
     "http://graph.facebook.com/#{self.uid}/picture?type=large"
   end
   
-    def normalimage
+  def normalimage
     "http://graph.facebook.com/#{self.uid}/picture?type=normal"
+  end
+  
+  def reviewimage
+    "https://graph.facebook.com/#{self.uid}/picture?width=60"
   end
   
   def following?(other_user)

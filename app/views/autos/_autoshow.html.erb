@@ -18,7 +18,10 @@
   </div>
   
   <div class="col-sm-4">
-    <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %><div class="writeareview"><%= link_to "Write a Review", [:new, @reviewable, :review] %></div><br>
+    <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+    <div class="writeareview">
+      <%= link_to "Write a Review", new_auto_auto_review_path(@auto) %>
+    </div><br>
     <%= image_tag("othericons/PhotoShow.PNG") %> (6) 
     <%= image_tag("othericons/VideoShow.PNG") %> (7) <br><br>
     <%= link_to "Edit", edit_auto_path(@auto) %>

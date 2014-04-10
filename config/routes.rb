@@ -76,10 +76,13 @@ match 'policy' => "static_pages#policy", via: [:get]
   end
  
 #----------   AUTO   ----------  
-  
-  resources :autos do
-    resources :reviews do
 
+  resources :autos do
+    resources :auto_reviews do
+      member do
+        put "like", to: "auto_reviews#upvote"
+        put "dislike", to: "auto_reviews#downvote"
+      end
     end
   end
 

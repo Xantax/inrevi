@@ -1,6 +1,5 @@
 class Local < ActiveRecord::Base;
   
-  has_many :reviews, as: :reviewable
   has_many :local_reviews
   
   require 'open-uri'

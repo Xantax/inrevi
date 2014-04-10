@@ -13,7 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require_tree .
 //= require jquery.ui.all
+//= require jquery.turbolinks
 //= require jquery-simple-pagination-plugin
 //= require jquery.raty
+//= require_tree .
