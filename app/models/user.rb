@@ -21,8 +21,8 @@ class User < ActiveRecord::Base
     user.oauth_token = auth.credentials.token
     user.oauth_expires_at = Time.at(auth.credentials.expires_at)
     user.save!
-  end
-end
+   end
+ end
   
   def feed
     Review.from_users_followed_by(self)

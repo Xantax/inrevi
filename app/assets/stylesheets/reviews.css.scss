@@ -1,0 +1,102 @@
+@import "bootstrap";
+
+.reviewcontent{
+  font-size:85%;
+}
+
+.contentcharacters{
+  display:inline-block;
+  padding-left:245px;
+  font-size:85%;
+}
+
+.flagicon{
+  display:inline-block;
+  padding-left:280px;
+}
+
+.thumbsdown{
+  display:inline-block;
+  padding-left:10px;
+}
+
+.bottomreviewicons{
+  padding-bottom:10px;
+}
+
+.reviewname {
+  font-weight:bold;
+  padding-bottom:10px;
+  font-size:95%;
+}
+
+.writeareview{
+  display:inline-block;
+  padding-bottom:20px;
+  padding-left:5px;
+  font-weight:bold;
+}
+
+.noreviewsuser{
+  font-size:200%;
+  text-align:center;
+  color:#A8A8A8;
+}
+
+.noreviewshome{
+  font-size:200%;
+  text-align:center;
+  color:#B8B8B8;
+  padding-top:20px;
+}
+
+.noreviewshomebottom{
+  font-size:110%;
+  text-align:center;
+  color:#C8C8C8;
+}
+
+.optionalreview{
+  font-size:120%;
+  font-weight:bold;
+  color:#A8A8A8;
+  padding-bottom:10px;
+}
+
+.row.reviewbottom{
+  padding-bottom:50px;
+}
+
+.field.podcontent{
+padding: 6px;
+border-radius: 3px;
+border: 1px solid #CCC;
+background-image: none;
+width:450px;
+height:300px;
+white-space: pre-wrap;
+}
+
+.field.podcontent:focus {
+outline-color: #0066FF;
+}
+
+.field.podtitle{
+padding: 6px;
+border-radius: 3px;
+border: 1px solid #CCC;
+background-image: none;
+width:400px;
+}
+
+.field.podtitle:focus {
+outline-color: #0066FF;
+}
+
+.separatereview{
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.thumbsup {
+  float:left;
+}

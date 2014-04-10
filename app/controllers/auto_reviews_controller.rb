@@ -1,5 +1,5 @@
 class AutoReviewsController < ApplicationController
-  before_action :set_auto_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :set_auto_review, only: [:index, :show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :set_auto, only: [:index, :show, :new, :create, :edit, :update, :upvote, :downvote]
   before_action :signed_in_user, only: [:new]
 
@@ -68,7 +68,7 @@ class AutoReviewsController < ApplicationController
   private
     
     def set_auto
-      @auto = Auto.find(params[:auto_id])
+      @auto = Auto.find(params[:id])
     end
   
     def set_auto_review
