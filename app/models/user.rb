@@ -24,9 +24,9 @@ class User < ActiveRecord::Base
    end
  end
   
-  def feed
-    Review.from_users_followed_by(self)
-  end
+#  def feed
+#    Review.from_users_followed_by(self)
+#  end
   
    def facebook
     @facebook ||= Koala::Facebook::API.new(oauth_token)

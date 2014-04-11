@@ -11,18 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409202256) do
+ActiveRecord::Schema.define(version: 20140410204541) do
 
   create_table "auto_reviews", force: true do |t|
     t.string   "title"
     t.text     "content"
+    t.integer  "point",                 default: -1
     t.integer  "user_id"
     t.integer  "auto_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cached_votes_total",    default: 0
+    t.integer  "cached_votes_score",    default: 0
+    t.integer  "cached_votes_up",       default: 0
+    t.integer  "cached_votes_down",     default: 0
+    t.integer  "cached_weighted_score", default: 0
   end
 
   add_index "auto_reviews", ["auto_id"], name: "index_auto_reviews_on_auto_id"
+  add_index "auto_reviews", ["cached_votes_down"], name: "index_auto_reviews_on_cached_votes_down"
+  add_index "auto_reviews", ["cached_votes_score"], name: "index_auto_reviews_on_cached_votes_score"
+  add_index "auto_reviews", ["cached_votes_total"], name: "index_auto_reviews_on_cached_votes_total"
+  add_index "auto_reviews", ["cached_votes_up"], name: "index_auto_reviews_on_cached_votes_up"
+  add_index "auto_reviews", ["cached_weighted_score"], name: "index_auto_reviews_on_cached_weighted_score"
   add_index "auto_reviews", ["user_id"], name: "index_auto_reviews_on_user_id"
 
   create_table "autos", force: true do |t|
@@ -106,30 +117,6 @@ ActiveRecord::Schema.define(version: 20140409202256) do
   add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
-
-  create_table "reviews", force: true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "point",                 default: -1
-    t.integer  "user_id"
-    t.integer  "reviewable_id"
-    t.string   "reviewable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "cached_votes_total",    default: 0
-    t.integer  "cached_votes_score",    default: 0
-    t.integer  "cached_votes_up",       default: 0
-    t.integer  "cached_votes_down",     default: 0
-    t.integer  "cached_weighted_score", default: 0
-  end
-
-  add_index "reviews", ["cached_votes_down"], name: "index_reviews_on_cached_votes_down"
-  add_index "reviews", ["cached_votes_score"], name: "index_reviews_on_cached_votes_score"
-  add_index "reviews", ["cached_votes_total"], name: "index_reviews_on_cached_votes_total"
-  add_index "reviews", ["cached_votes_up"], name: "index_reviews_on_cached_votes_up"
-  add_index "reviews", ["cached_weighted_score"], name: "index_reviews_on_cached_weighted_score"
-  add_index "reviews", ["reviewable_id", "reviewable_type"], name: "index_reviews_on_reviewable_id_and_reviewable_type"
-  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "songs", force: true do |t|
     t.datetime "created_at"

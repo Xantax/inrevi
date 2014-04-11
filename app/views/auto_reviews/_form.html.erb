@@ -11,6 +11,18 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :point %>
+  <div class="rating-comments"></div>
+
+    <script type="text/javascript">
+        $('.rating-comments').raty({
+          click: function(score, evt) {
+            $("#point").val(score);
+            return console.log(score);
+          }
+        });
+    </script> <br>
+
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title, :class => "field podtitle" %>
@@ -35,4 +47,5 @@
   <div class="actions">
     <%= f.submit " Submit ", :class => "btn btn-primary" %>
   </div>
+
 <% end %>

@@ -1,3 +1,14 @@
+/*!
+ * jQuery Raty - A Star Rating Plugin
+ *
+ * Licensed under The MIT License
+ *
+ * @author  : Washington Botelho
+ * @doc     : http://wbotelhos.com/raty
+ * @version : 2.5.2
+ *
+ */
+
 ;(function($) {
 
   var methods = {
@@ -423,7 +434,7 @@
     click         : undefined,
     half          : false,
     halfShow      : true,
-    hints         : ['bad', 'poor', 'regular', 'good', 'gorgeous'],
+    hints         : ['awful', 'bad', 'average', 'good', 'great'],
     iconRange     : undefined,
     mouseout      : undefined,
     mouseover     : undefined,
@@ -437,7 +448,7 @@
     score         : undefined,
     scoreName     : 'score',
     single        : false,
-    size          : 16,
+    size          : 35,
     space         : true,
     starHalf      : 'star-half.PNG',
     starOff       : 'star-off.PNG',

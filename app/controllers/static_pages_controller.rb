@@ -1,8 +1,8 @@
 class StaticPagesController < ApplicationController
   def home
     if signed_in?
-      @review  = current_user.reviews.build
-      @feed_items = current_user.feed
+#      @auto_review  = current_user.auto_reviews.build
+#      @feed_items = current_user.feed
     end
   end
 

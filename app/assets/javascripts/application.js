@@ -16,5 +16,5 @@
 //= require jquery.ui.all
 //= require jquery.turbolinks
 //= require jquery-simple-pagination-plugin
-//= require jquery.raty
 //= require_tree .
+//= require jquery.raty

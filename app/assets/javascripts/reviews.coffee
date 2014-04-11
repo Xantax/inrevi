@@ -4,10 +4,11 @@ ready = ->
     $("#" + target).prepend data
     $('#content').val('')
 
-  score = $('.rating').data('score')
+  score = $('.rating-total').data('score')
   $('.rating-total').raty({
-    haft: true,
-    score: score
+    haftShow: true,
+    score: score,
+    readOnly: true
   })
 
 $(document).ready(ready)
