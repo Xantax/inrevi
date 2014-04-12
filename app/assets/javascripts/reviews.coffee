@@ -1,5 +1,5 @@
 ready = ->
-  $("form[data-update-target]").bind "ajax:success", (evt, data) ->
+  $("form[data_update_target]").bind "ajax:success", (evt, data) ->
     target = $(this).data("update-target")
     $("#" + target).prepend data
     $('#content').val('')
@@ -12,7 +12,7 @@ ready = ->
   })
 
 $(document).ready(ready)
-$(document).on('page:load', ready)
+#$(document).on('page:load', ready)
 #click: (score, evt) ->
   #asin = $(this).data('asin')
   #$.ajax

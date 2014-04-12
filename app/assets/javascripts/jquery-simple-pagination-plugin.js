@@ -257,9 +257,9 @@ refresh_simple_pagination(page_number);
       for (var i = 1; i < arrays.length; i++) {
         if (arrays[i].style.display != 'none') {
           // declare a marker
-          latitude = arrays[i].getAttribute("dlatitude");
-          longtitude = arrays[i].getAttribute("dlongitude");
-          name = arrays[i].getAttribute("dname");
+          latitude = arrays[i].getAttribute("data-latitude");
+          longtitude = arrays[i].getAttribute("data-longitude");
+          name = arrays[i].getAttribute("data-name");
 
           var place = new google.maps.LatLng(latitude, longtitude);
           var marker = new google.maps.Marker({
@@ -271,7 +271,7 @@ refresh_simple_pagination(page_number);
           markers.push(marker);
         }
       }
-      center = new google.maps.LatLng(arrays[1].getAttribute("dlatitude"), arrays[1].getAttribute("dlongitude"));
+      center = new google.maps.LatLng(arrays[1].getAttribute("data-latitude"), arrays[1].getAttribute("data-longitude"));
       map.setCenter(center);
 });
 

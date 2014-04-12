@@ -76,7 +76,7 @@ class AutoReviewsController < ApplicationController
     end
 
     def auto_review_params
-      params.require(:auto_review).permit(:title, :content, :auto_id, :user_id, :point)
+      params.require(:auto_review).permit(:title, :content, :auto_id, :user_id, :point, :score)
     end
   
 end

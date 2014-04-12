@@ -5,13 +5,12 @@
   </div> 
   
    <div class="col-sm-5"> 
-      <div class="rating-total">
 
-      </div>
-      <div class="total_score">
-        <%= @avg_score ? @avg_score.round(1) : 0 %>
-      </div>
-     
+<div class="rating-total" data-id= <%= @auto.id %> data-score= <%= @avg_score || 0 %> >
+<div class="total_score">
+  <%= @avg_score ? @avg_score.round(1) : 0 %>
+</div></div>
+
      <div class="autosmallinfo">
         <%= @auto.engine %><br>
         <%= @auto.transmission %><br>

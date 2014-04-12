@@ -1,4 +1,4 @@
-<%= form_for([@auto, @auto_review]) do |f| %>
+<%= form_for [@auto, @auto_review], 'data-update-target' => 'comments', class: 'comments', method: :post do  |f| %>
   <% if @auto_review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@auto_review.errors.count, "error") %> prohibited this auto_review from being saved:</h2>
@@ -10,18 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+  
   <%= f.hidden_field :point %>
   <div class="rating-comments"></div>
-
-    <script type="text/javascript">
-        $('.rating-comments').raty({
-          click: function(score, evt) {
-            $("#point").val(score);
-            return console.log(score);
-          }
-        });
-    </script> <br>
+      <br>
 
   <div class="field">
     <%= f.label :title %><br>
@@ -43,9 +35,17 @@
       <%= image_tag("othericons/VideoShow.PNG") %> + Add videos
     </div>    
   </div>
-
   <div class="actions">
     <%= f.submit " Submit ", :class => "btn btn-primary" %>
   </div>
 
 <% end %>
+
+<script type="text/javascript">
+        $('.rating-comments').raty({
+  click: function(score, evt) {
+    $("#auto_review_point").val(score);
+    return console.log(score);
+  }
+});
+</script>
