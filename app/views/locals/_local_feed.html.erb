@@ -10,7 +10,7 @@
         <% if @promoted_factual.present? %><br>
         <% @promoted_factual.each do |result| %>
       <div class="localresult">
-        <div data-latitude= <%= result['latitude'] %> data-longitude= <%= result['longitude'] %> data-name= <%= result['name'] %> >
+        
           <br>
               <div class="localindexname"><%= link_to result['name'], local_path(result['factual_id']) %></div>
               <div class="localcategory"><b>·</b> 
@@ -24,7 +24,7 @@
                <% else %>
                  <%= image_tag("localicons/phoneicon.PNG", height: '12', width: '12') %>
                  <b><%= result['tel'] %></b>
-              <% end %></div></div>
+              <% end %></div>
         <br>
                   <div class="localbottom"></div>
         <% end %>
@@ -33,7 +33,7 @@
       <% promoted_ids = @promoted_factual.map { |promoted_factual| promoted_factual['factual_id'] } if @promoted_factual.present? %>
       <% @results.reject { |result| promoted_ids.include?(result['factual_id'])}.each do |result| %>
       <div class="localresult">
-        <div data-latitude= <%= result['latitude'] %> data-longitude= <%= result['longitude'] %> data-name= <%= result['name'] %> >
+        
           <br>
             <div class="localindexname"><%= link_to result['name'], local_path(result['factual_id']) %></div>
             <div class="localcategory"><b>·</b> 
@@ -47,7 +47,7 @@
                <% else %>
                  <%= image_tag("localicons/phoneicon.PNG", height: '12', width: '12') %>
                  <b><%= result['tel'] %></b>
-               <% end %></div>
+               <% end %>
      <br></div>
                   <div class="localbottom"></div>
       <% end %><br>

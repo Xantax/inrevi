@@ -11,5 +11,5 @@ $(document).ready ->
       results = $.ui.autocomplete.filter($('#tags').data('place'), request.term)
       response(results.slice(0, 10))
   $('#results-container').simplePagination
-     items_per_page: 5
+     items_per_page: 10
      number_of_visible_page_numbers: 5

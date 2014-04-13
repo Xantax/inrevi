@@ -294,7 +294,7 @@ $.fn.simplePagination.defaults = {
 pagination_container: '.col-sm-6.local',
 html_prefix: 'simple-pagination',
 navigation_element: 'a',//button, span, div, et cetera
-items_per_page: 25,
+items_per_page: 10,
 number_of_visible_page_numbers: 5,
 //
 use_page_numbers: true,

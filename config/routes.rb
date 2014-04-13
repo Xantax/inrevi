@@ -1,12 +1,5 @@
 Inrevi::Application.routes.draw do
 
-  resources :reviews do
-      member do
-        put "like", to: "reviews#upvote"
-        put "dislike", to: "reviews#downvote"
-      end
-  end
-
   get 'techtags/:tag', to: 'teches#index', as: :ttag
   get 'drugtags/:tag', to: 'drugs#index', as: :dtag
   get 'podtags/:tag', to: 'podcasts#index', as: :tag  

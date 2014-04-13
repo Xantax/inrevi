@@ -11,7 +11,12 @@
       
     <div class="col-sm-9 podreview"> 
       <div class="separatereview">
-      <b><%= auto_review.title %>:</b> <br>  
+        
+          <div class="numberOne">
+            <%= auto_review.point %>
+          </div>
+        
+        <div class="reviewtitle"><%= auto_review.title %></div><br><br>
         <div class="reviewcontent"><%= simple_format(auto_review.content) %></div><br>
                 
             <div class="bottomreviewicons">

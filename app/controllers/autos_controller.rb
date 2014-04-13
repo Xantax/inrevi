@@ -1,8 +1,9 @@
 class AutosController < ApplicationController
-   before_action :set_auto, only: [:show, :edit, :update, :destroy]
+  before_action :set_auto, only: [:show, :edit, :update, :destroy]
    before_action :signed_in_user, only: [:new]
   
-def index
+def index  
+    @auto = Auto.first
     @search = Auto.search do
       fulltext params[:search]
     end

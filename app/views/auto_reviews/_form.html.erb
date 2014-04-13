@@ -1,4 +1,4 @@
-<%= form_for [@auto, @auto_review], 'data-update-target' => 'comments', class: 'comments', method: :post do  |f| %>
+<%= form_for [@auto, @auto_review], 'data-update-target' => 'comments', class: 'comments' do  |f| %>
   <% if @auto_review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@auto_review.errors.count, "error") %> prohibited this auto_review from being saved:</h2>
@@ -17,12 +17,12 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title, :class => "field podtitle" %>
+    <%= f.text_field :title, :class => "field podtitle", :placeholder => "max. 50 characters", :onfocus => "this.placeholder = ''" %>
   </div><br>
 
   <div class="field">
     <%= f.label :content %><div class="contentcharacters">(minimum 140 characters)</div><br>
-    <%= f.text_area :content, :class => "field podcontent", :placeholder => "Tell the world what you like or dislike, give tips and suggestions... " %>
+    <%= f.text_area :content, :class => "field podcontent", :placeholder => "Tell the world what you like or dislike, give tips and suggestions... ", :onfocus => "this.placeholder = ''" %>
   </div><br>
 
   <div class="optionalreview">Optional:</div>

@@ -17,5 +17,9 @@
 
         <%= render 'auto_reviews/bottom_auto_review' %>
 
+        <%= link_to "Edit", edit_auto_auto_review_path(@auto_review.auto_id, @auto_review) %>
+        <%= link_to 'Destroy', auto_auto_review_path(@auto_review.auto_id, @auto_review),
+                    method: :delete, data: { confirm: 'Are you sure?' } %>
+        
     </div><br>
   </div>

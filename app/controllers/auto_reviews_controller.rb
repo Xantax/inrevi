@@ -1,6 +1,6 @@
 class AutoReviewsController < ApplicationController
   before_action :set_auto_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :set_auto, only: [:index, :show, :new, :create, :edit, :update, :upvote, :downvote]
+  before_action :set_auto, only: [:index, :show, :new, :create, :edit, :update, :destroy, :upvote, :downvote]
   before_action :signed_in_user, only: [:new]
 
   def index
@@ -33,11 +33,11 @@ class AutoReviewsController < ApplicationController
   end
 
   def update
-    @auto_review = @auto.auto_reviews.build(auto_review_params)
+    @auto_review = @auto.auto_reviews.find(params[:id])
     @auto_review.user = current_user
     
     respond_to do |format|
-      if @auto_review.update(podcast_review_params)
+      if @auto_review.update(auto_review_params)
         format.html { redirect_to [@auto, @auto_review], notice: 'Auto review was successfully updated.' }
         format.json { head :no_content }
       else
@@ -50,7 +50,7 @@ class AutoReviewsController < ApplicationController
   def destroy
     @auto_review.destroy
     respond_to do |format|
-      format.html { redirect_to auto_reviews_url }
+      format.html { redirect_to auto_path(@auto_review.auto) }
       format.json { head :no_content }
     end
   end
