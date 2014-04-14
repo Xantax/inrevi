@@ -4,7 +4,7 @@ class AutoReviewsController < ApplicationController
   before_action :signed_in_user, only: [:new]
 
   def index
-    @auto_reviews = AutoReview.order("cached_votes_score DESC")
+    @auto_reviews = @auto.auto_reviews.order("cached_votes_score DESC")
   end
 
   def show
