@@ -19,13 +19,14 @@
         <% @autos.each do |auto| %>
          <div class="col-sm-4 podsin"><%= image_tag auto.image_url(:thumb) if auto.image? %></div>
          <div class="col-sm-8 podsin">
+
             <div class="podcastsnowindex"><%= link_to auto.name, auto %></div>
            
              <div class="rating-total" data-id= <%= auto.id %> data-score= <%= avg_score_for(auto) %> >
-                <div class="total_score">
-                  <%= avg_score_for auto %>
-                </div>
              </div>
+           <div class="total-score">
+             <%= avg_score_for auto %>
+           </div>
            
          </div>
         <% end %>

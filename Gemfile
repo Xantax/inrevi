@@ -35,6 +35,7 @@ gem 'fastimage'
 gem 'newrelic_rpm'
 gem 'nokogiri'
 gem 'acts_as_votable'
+gem 'passenger'
 
 
 group :development do

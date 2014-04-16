@@ -1,18 +1,19 @@
 ready = ->
-  $("form[data_update_target]").bind "ajax:success", (evt, data) ->
+  $("form[data-update-target]").bind "ajax:success", (evt, data) ->
     target = $(this).data("update-target")
     $("#" + target).prepend data
     $('#content').val('')
 
-  score = $('.rating-total').data('score')
-  $('.rating-total').raty({
-    haftShow: true,
-    score: score,
-    readOnly: true
-  })
+  $('.rating-total').each () ->
+    score = $(this).data('score')
+    $(this).raty({
+      haftShow: true,
+      score: score,
+      readOnly: true
+    })
 
 $(document).ready(ready)
-#$(document).on('page:load', ready)
+$(document).on('page:load', ready)
 #click: (score, evt) ->
   #asin = $(this).data('asin')
   #$.ajax

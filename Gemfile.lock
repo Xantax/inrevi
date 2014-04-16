@@ -61,6 +61,7 @@ GEM
     country_select (1.3.1)
       countries (= 0.9.3)
     currencies (0.4.2)
+    daemon_controller (1.2.0)
     debug_inspector (0.0.2)
     debugger (1.6.6)
       columnize (>= 0.3.1)
@@ -151,6 +152,10 @@ GEM
       json (>= 1.7.7)
       rest-client (~> 1.6)
     options (2.3.2)
+    passenger (4.0.41)
+      daemon_controller (>= 1.2.0)
+      rack
+      rake (>= 0.8.1)
     pg (0.17.1)
     polyglot (0.3.4)
     pr_geohash (1.0.0)
@@ -269,6 +274,7 @@ DEPENDENCIES
   oauth2
   omniauth-facebook
   openlibrary
+  passenger
   pg
   progress_bar
   rails (= 4.0.0)
