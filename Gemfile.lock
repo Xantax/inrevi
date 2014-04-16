@@ -213,7 +213,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    sqlite3 (1.3.9)
     sunspot (2.1.0)
       pr_geohash (~> 1.0)
       rsolr (~> 1.0.7)
@@ -282,7 +281,6 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   sdoc
   sprockets
-  sqlite3
   sunspot_rails
   sunspot_solr
   themoviedb

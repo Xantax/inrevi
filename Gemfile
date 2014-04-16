@@ -36,10 +36,10 @@ gem 'newrelic_rpm'
 gem 'nokogiri'
 gem 'acts_as_votable'
 gem 'passenger'
+gem 'mysql2'
 
 
 group :development do
-  gem 'sqlite3'
   gem 'debugger'
   gem 'sunspot_solr'
   gem 'better_errors'
@@ -48,7 +48,6 @@ group :development do
 end
 
 group :production do
-  gem 'mysql2'
   gem 'rails_12factor'
 end
 
