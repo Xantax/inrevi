@@ -10,7 +10,7 @@ gem 'themoviedb'
 gem 'httparty'
 gem 'json'
 gem "carrierwave"
-gem "rmagick"
+#gem "rmagick"
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
