@@ -14,18 +14,13 @@ test:
   timeout: 5000
 
 development:
-  adapter: mysql2
-  database: TestingApp_development
-  username: xantar
+  adapter: sqlite3
+  database: db/development.sqlite3
   pool: 5
   timeout: 5000
 
 production:
-  adapter: mysql2
-  database: TestingApp
-  username: xantar
-  host: testingapp.cuwke3qherrx.us-west-2.rds.amazonaws.com
-  password: aloalo12
-  port: 3306
+  adapter: sqlite3
+  database: db/production.sqlite3
   pool: 5
   timeout: 5000

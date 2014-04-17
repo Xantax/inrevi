@@ -209,3 +209,55 @@ margin-top: -11px;
 background-image: url("caticons/Cauto.png");
 background-repeat: no-repeat; }
 }
+
+.categorylist.sustenance {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/hover/catdrink.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.sustenance:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/Cdrink.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.home {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/hover/cathome.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.home:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/Chome.PNG");
+background-repeat: no-repeat; }
+}

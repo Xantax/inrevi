@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
   end
   
   def normalimage
-    "http://graph.facebook.com/#{self.uid}/picture?type=normal"
+    "http://graph.facebook.com/#{self.uid}/picture?width=100"
   end
   
   def reviewimage

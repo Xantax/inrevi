@@ -7,9 +7,19 @@
 </div>
   
 <div class="col-sm-8"> 
-  <%= render "mcategories" %>
   <div class="allnews">
-    <div class="dumbspace"></div>
+    <%= image_tag("caticons/media/Marrow.PNG") %>
+    <div class="mediasubcategories">
+      <ul>
+        <li><%= link_to image_tag("caticons/media/Mbooks.PNG"), books_path %><%= link_to "books", books_path %></li>
+        <li><%= link_to image_tag("caticons/media/Mmovies.PNG"), movies_path %><%= link_to "movies", movies_path %></li>
+        <li><%= link_to image_tag("caticons/media/Mgames.PNG", height: '22', width: '24'), "#" %><%= link_to "games", "#" %></li>
+        <li><%= link_to image_tag("caticons/media/Msongs.PNG"), songs_path %><%= link_to "music", songs_path %></li>
+        <li><%= link_to image_tag("caticons/media/Mtv.PNG", height: '26', width: '24'), tvshows_path %><%= link_to "TV", tvshows_path %></li>
+        <li><%= link_to image_tag("caticons/media/Mpodcasts.PNG", height: '26', width: '24'), podcasts_path %><%= link_to "podcasts", podcasts_path %></li>
+      </ul>
+    
+    </div>
   </div>
 </div>
 
