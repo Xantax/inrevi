@@ -23,6 +23,8 @@ class AutoReviewsController < ApplicationController
 
     respond_to do |format|
       if @auto_review.save
+        @auto_review.create_activity :create, owner: current_user
+        
         format.html { redirect_to [@auto, @auto_review], notice: 'Auto review was successfully created.' }
         format.json { render action: 'index', status: :created, location: @auto_review }
       else
@@ -49,6 +51,7 @@ class AutoReviewsController < ApplicationController
 
   def destroy
     @auto_review.destroy
+    @auto_review.create_activity :destroy, owner: current_user
     respond_to do |format|
       format.html { redirect_to auto_path(@auto_review.auto) }
       format.json { head :no_content }

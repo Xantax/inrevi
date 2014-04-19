@@ -51,4 +51,13 @@ class StaticPagesController < ApplicationController
   def autoads
   end
   
+  def catmedia
+  end
+  
+  def cathome
+  end
+  
+  def catbeauty
+  end
+  
 end

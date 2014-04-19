@@ -36,6 +36,7 @@ gem 'newrelic_rpm'
 gem 'nokogiri'
 gem 'acts_as_votable'
 gem 'passenger'
+gem 'public_activity'
 
 
 group :development do

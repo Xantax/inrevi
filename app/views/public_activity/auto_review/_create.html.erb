@@ -1,0 +1,16 @@
+<% if activity.trackable %>
+
+  <% if activity.owner %>
+YOU
+  <% else %>
+  <%= link_to activity.owner.name, activity.owner if activity.owner %>
+    reviewed
+  <% end %>
+  <%= link_to activity.trackable.auto.name, activity.trackable.auto %><br>
+  <%= activity.trackable.title %><br>
+  <%= activity.trackable.content %>
+
+
+<% else %>
+  - REMOVED -
+<% end %>

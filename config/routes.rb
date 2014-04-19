@@ -12,7 +12,10 @@ match 'msearch' => "movies#search", via: [:get]
 match 'tvsearch' => "tvshows#search", via: [:get]
 match 'search' => "books#search", via: [:get]
   
-match 'media' => "media#index", via: [:get]
+match 'media' => "static_pages#catmedia", via: [:get]
+match 'home' => "static_pages#cathome", via: [:get]
+match 'beauty' => "static_pages#catbeauty", via: [:get]
+match 'fashion' => "static_pages#catfashion", via: [:get]
   
 match 'about' => "static_pages#about", via: [:get]
 match 'advertising' => "static_pages#advertising", via: [:get]
@@ -29,6 +32,8 @@ match 'contact' => "static_pages#contact", via: [:get]
 match 'tos' => "static_pages#tos", via: [:get]
 match 'policy' => "static_pages#policy", via: [:get] 
      
+  
+  resources :activities
   
   resources :users, :only => [:show, :index] do
     member do
