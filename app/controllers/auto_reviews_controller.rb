@@ -1,6 +1,6 @@
 class AutoReviewsController < ApplicationController
-  before_action :set_auto_review, only: [:show, :edit, :update, :destroy]
-  before_action :set_auto, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  before_action :set_auto_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :set_auto, only: [:index, :show, :new, :create, :edit, :update, :destroy, :upvote, :downvote]
   before_action :signed_in_user, only: [:new]
 
   def index
@@ -57,6 +57,16 @@ class AutoReviewsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def upvote
+   @auto_review.liked_by current_user
+   render "update_likes"
+  end
+
+  def downvote
+   @auto_review.downvote_from current_user
+   render "update_likes"
+  end 
 
   private
     

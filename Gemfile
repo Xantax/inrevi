@@ -36,6 +36,7 @@ gem 'nokogiri'
 gem 'passenger'
 gem 'public_activity'
 gem 'tire'
+gem 'acts_as_votable'
 
 
 group :development do
