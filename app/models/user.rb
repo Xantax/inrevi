@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
 #    Review.from_users_followed_by(self)
 #  end
   
+  
    def facebook
     @facebook ||= Koala::Facebook::API.new(oauth_token)
     block_given? ? yield(@facebook) : @facebook

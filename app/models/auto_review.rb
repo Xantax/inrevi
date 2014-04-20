@@ -2,7 +2,6 @@ class AutoReview < ActiveRecord::Base
 include PublicActivity::Common
 # tracked owner: ->(controller, model) { controller && controller.current_user }
   
-  acts_as_votable
   
   belongs_to :user
   belongs_to :auto
