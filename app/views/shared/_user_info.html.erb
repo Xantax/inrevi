@@ -1,9 +1,9 @@
 <%= render 'follow_form' if signed_in? %><br>
   <% current_user ||= @user %>
    <strong><%= link_to user_path(current_user) do %> 
-        <%= current_user.first_name %>
-        <%= current_user.last_name.truncate(2, omission: '.')%>
+     <div class="unameonshow"><%= current_user.first_name %>
+        <%= current_user.last_name.truncate(2, omission: '.')%></div>
       <% end %>
    </strong><br >
-  <%= image_tag(current_user.normalimage)%>
+  <%= image_tag(current_user.largeimage)%><br><br>
   <%= render 'shared/stats' %>

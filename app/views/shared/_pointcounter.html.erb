@@ -1,11 +1,2 @@
 <%= @user.auto_reviews.count * 5 %>
 
-<% auto_review_vote_count = current_user.auto_reviews.map{|c| c.votes.count}.sum
-
-   auto_review_vote_count ||=0 
-
-   auto_review_vote_count *= 2
-
-   total_vote_count = auto_review_vote_count %>
-
-<%= total_vote_count %>

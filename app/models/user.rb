@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
   end
   
   def largeimage
-    "http://graph.facebook.com/#{self.uid}/picture?type=large"
+    "http://graph.facebook.com/#{self.uid}/picture?width=130"
   end
   
   def normalimage
