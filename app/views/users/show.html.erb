@@ -6,9 +6,14 @@
     <%= render 'shared/user_info' %>
   </div>
   
-  <div class="col-sm-6"> 
+  <div class="col-sm-6 usershow"> 
    
-    <%= render :file => '/activities/show' %>
+    <% @activities.each do |activity| %>
+      <div class="activity">
+        <%= render_activity activity %>
+        <%= activity.inspect %>
+      </div>
+    <% end %>
     
   </div>
   

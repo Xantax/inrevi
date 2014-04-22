@@ -1,6 +1,6 @@
 <% if activity.trackable %>
   
-    <% if activity.owner == current_user %>
+    <% if activity.owner == @user %>
     
     <% else %>
       <%= link_to activity.owner.name, activity.owner if activity.owner %>
