@@ -261,3 +261,29 @@ margin-top: -11px;
 background-image: url("caticons/Chome.PNG");
 background-repeat: no-repeat; }
 }
+
+.categorylist.hobbies {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/hover/cathobby.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.hobbies:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/Chobby.PNG");
+background-repeat: no-repeat; }
+}

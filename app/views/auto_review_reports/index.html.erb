@@ -1,0 +1,23 @@
+%h1 Listing auto_review_reports
+
+%table
+  %tr
+    %th Content
+    %th User
+    %th Auto review
+    %th
+    %th
+    %th
+
+  - @auto_review_reports.each do |auto_review_report|
+    %tr
+      %td= auto_review_report.content
+      %td= auto_review_report.user
+      %td= auto_review_report.auto_review
+      %td= link_to 'Show', auto_review_report
+      %td= link_to 'Edit', edit_auto_review_report_path(auto_review_report)
+      %td= link_to 'Destroy', auto_review_report, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Auto review report', new_auto_review_report_path

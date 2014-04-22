@@ -1,0 +1,30 @@
+<% provide(:title, 'Admin area') %>
+
+<% if signed_in? %>
+
+  <div class="row">
+    
+     <div class="col-sm-3 admin">
+       <ul>
+          <li><span class="glyphicon glyphicon-list"></span> <%= link_to "Latest reviews", admin_dashboard_index_path %></li>
+          <li><span class="glyphicon glyphicon-flag"></span> Reported</li>
+       </ul>
+     </div>
+      
+     <div class="col-sm-9">
+       
+       Latest reviews
+       
+        <% @activities.each do |activity| %>
+          <div class="activity">
+            <%= render_activity activity %>
+          </div>
+        <% end %>
+      
+     </div>  
+     
+  </div>
+
+<% else %>
+  Error. Access denied
+<% end %>

@@ -1,26 +1,19 @@
 <div class="row autoup"> 
   <div class="col-sm-3"> 
-    <b><%= link_to @auto.name, auto_path(@auto) %></b> <br>
     <%= image_tag @auto.image_url(:thumb) if @auto.image? %> 
   </div> 
   
    <div class="col-sm-5"> 
-
+     <b><%= link_to @auto.name, auto_path(@auto) %></b> <br>
+     
      <div class="rating-total" data-id= <%= @auto.id %> data-score= <%= @avg_score || 0 %> >
         <div class="total_score">
           <%= @avg_score ? @avg_score.round(1) : 0 %>
         </div>
      </div>
-
-     <div class="autosmallinfo">
-        <%= @auto.engine %><br>
-        <%= @auto.transmission %><br>
-        <%= @auto.horsepower %><br>
-        <%= @auto.fueleconomy %><br>
-        <%= @auto.navigation %><br>
-        <%= @auto.bodytype %><br>
-     </div>
-   
+     
+     <%= link_to "additional info", additionalinfo_auto_path %>
+  
   </div>
   
   <div class="col-sm-4">

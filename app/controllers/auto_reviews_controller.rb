@@ -1,13 +1,15 @@
 class AutoReviewsController < ApplicationController
   before_action :set_auto_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :set_auto, only: [:index, :show, :new, :create, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :signed_in_user, only: [:new]
+  before_action :signed_in_user, only: [:new, :reportform]
 
   def index
     @auto_reviews = @auto.auto_reviews.order("cached_votes_score DESC")
+    @auto_review_report = AutoReviewReport.new
   end
 
   def show
+    @auto_review_report = AutoReviewReport.new
   end
 
   def new

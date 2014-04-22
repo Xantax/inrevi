@@ -1,11 +1,12 @@
 class AutoReview < ActiveRecord::Base
 include PublicActivity::Common
 # tracked owner: ->(controller, model) { controller && controller.current_user }
-  
-
-  
+    
   belongs_to :user
   belongs_to :auto
+  
+  has_many :auto_review_reports
+  
   validates :user_id, presence: true
   validates :auto_id, presence: true
   validates :title, presence: true, length: { maximum: 50}

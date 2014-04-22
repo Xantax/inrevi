@@ -1,5 +1,7 @@
 Inrevi::Application.routes.draw do
 
+  get "admin_dashboard/index"
+  
   get 'techtags/:tag', to: 'teches#index', as: :ttag
   get 'drugtags/:tag', to: 'drugs#index', as: :dtag
   get 'podtags/:tag', to: 'podcasts#index', as: :tag  
@@ -74,13 +76,19 @@ match 'policy' => "static_pages#policy", via: [:get]
   end
  
 #----------   AUTO   ----------  
-
+  
   resources :autos do
+    member do
+      get "additionalinfo" => "autos#additionalinfo"
+    end
     resources :auto_reviews do
       member do
         put "like", to: "auto_reviews#upvote"
         put "dislike", to: "auto_reviews#downvote"
       end
+      
+        resources :auto_review_reports
+      
     end
   end
 

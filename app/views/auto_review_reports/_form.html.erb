@@ -1,0 +1,19 @@
+= form_for @auto_review_report do |f|
+  - if @auto_review_report.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@auto_review_report.errors.count, "error")} prohibited this auto_review_report from being saved:"
+      %ul
+        - @auto_review_report.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :content
+    = f.text_area :content
+  .field
+    = f.label :user
+    = f.text_field :user
+  .field
+    = f.label :auto_review
+    = f.text_field :auto_review
+  .actions
+    = f.submit 'Save'

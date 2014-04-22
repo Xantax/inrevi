@@ -15,7 +15,7 @@
       <b><%= @auto_review.title %>:</b> <br>  
         <div class="reviewcontent"><%= simple_format(@auto_review.content) %></div><br>
 
-        <%= render 'auto_reviews/bottom_auto_review' %>
+
 
         <%= link_to "Edit", edit_auto_auto_review_path(@auto_review.auto_id, @auto_review) %>
         <%= link_to 'Destroy', auto_auto_review_path(@auto_review.auto_id, @auto_review),

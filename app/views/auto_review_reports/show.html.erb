@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Content:
+  = @auto_review_report.content
+%p
+  %b User:
+  = @auto_review_report.user
+%p
+  %b Auto review:
+  = @auto_review_report.auto_review
+
+= link_to 'Edit', edit_auto_review_report_path(@auto_review_report)
+\|
+= link_to 'Back', auto_review_reports_path

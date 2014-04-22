@@ -1,16 +1,13 @@
 class Auto < ActiveRecord::Base
   
   validates :name, presence: true
-  validates :engine, presence: true
-  validates :transmission, presence: true
-  validates :horsepower, presence: true
-  validates :fueleconomy, presence: true
-  validates :navigation, presence: true
-  validates :bodytype, presence: true
+  validates :additionalinfo, presence: true
   validates :image, presence: true
   validates :remote_image_url, presence: true
   
   has_many :auto_reviews
+  has_many :auto_review_reports
+  
   mount_uploader :image, ImageUploader
   
 end

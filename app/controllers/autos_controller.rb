@@ -1,6 +1,6 @@
 class AutosController < ApplicationController
-  before_action :set_auto, only: [:show, :edit, :update, :destroy]
-   before_action :signed_in_user, only: [:new]
+  before_action :set_auto, only: [:show, :edit, :update, :destroy, :additionalinfo]
+  before_action :signed_in_user, only: [:new]
   
   def index  
     @autos = Auto.all  
@@ -9,6 +9,7 @@ class AutosController < ApplicationController
   def show
     @auto_review = AutoReview.new
     @auto_reviews = Auto.find(params[:id]).auto_reviews.order("cached_votes_score DESC")
+    @auto_review_report = AutoReviewReport.new
     @avg_score = 0
     @avg_score = @auto_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @auto_reviews.count if @auto_reviews.count > 0
   end
@@ -17,6 +18,9 @@ class AutosController < ApplicationController
     @auto = Auto.new
   end
 
+  def additionalinfo
+  end
+  
   def edit
   end
 
@@ -61,7 +65,7 @@ class AutosController < ApplicationController
     end
 
     def auto_params
-      params.require(:auto).permit(:name, :engine, :transmission, :horsepower, :fueleconomy, :navigation, :bodytype, :image, :remote_image_url)
+      params.require(:auto).permit(:name, :additionalinfo, :image, :remote_image_url)
     end
   
 end
