@@ -1,6 +1,26 @@
-<% @activities.each do |activity| %>
-  <div class="activity">
-    <%= render_activity activity %>
-  </div>
+<% if @activities.empty? %>
+
+   <% if current_user.followed_users.empty? %>
+        <div class="noreviews home">No reviews. Follow someone!</div>
+     <% else %>
+        <div class="noreviews home">No reviews from people you follow.</div>
+   <% end %>
+
+    <div class="popularactivitiesname">Latest reviews from popular users:</div>
+  <br>
+  <% @popular_activities.each do |activity| %>
+    <div class="activity">
+      <%= render_activity activity %>
+    </div>
+  <% end %>
+
+  <% else %>
+
+  <% @activities.each do |activity| %>
+    <div class="activity">
+      <%= render_activity activity %>
+    </div>
+  <% end %>
+
 <% end %>
 

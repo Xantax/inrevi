@@ -8,10 +8,16 @@
   
   <div class="col-sm-6 usershow"> 
    
-    <% @activities.each do |activity| %>
-      <div class="activity">
-        <%= render_activity activity %>
-      </div>
+    <% if @activities.empty? %>
+    <div class="noreviews usershow">No reviews here :(</div>    
+    <% else %>
+    
+      <% @activities.each do |activity| %>
+        <div class="activity">
+          <%= render_activity activity %>
+        </div>
+      <% end %>
+    
     <% end %>
     
   </div>

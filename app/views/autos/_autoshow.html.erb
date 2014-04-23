@@ -5,10 +5,11 @@
   
    <div class="col-sm-5 autoshow"> 
      <b><%= link_to @auto.name, auto_path(@auto) %></b> <br><br>
- 
-     <div>
-     <%= render 'show_rating' %>
-     </div>
+
+      <span class="glyphicon glyphicon-th-large"></span>
+      <%= link_to "additional info", additionalinfo_auto_path %><br><br>
+     
+     <%= image_tag("othericons/PhotoShow.PNG") %> (6)
   
   </div>
   
@@ -19,10 +20,9 @@
       <%= link_to "Write a Review", new_auto_auto_review_path(@auto) %>
     </div><br>
     
-    <%= image_tag("othericons/PhotoShow.PNG") %> (6)<br><br>
-    
-    <span class="glyphicon glyphicon-th-large"></span>
-    <%= link_to "additional info", additionalinfo_auto_path %>
+     <div>
+     <%= render 'show_rating' %>
+     </div>
     
   </div>
   

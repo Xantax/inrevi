@@ -78,4 +78,13 @@ class User < ActiveRecord::Base
     relationships.find_by(followed_id: other_user.id).destroy
   end
   
+  def self.popular_users
+    #SQL statement to find most followed users
+    sql_select = "a.id, count(*)"
+    sql_from ="users as a inner join relationships as b on a.id = b.followed_id"
+    sql_group = "a.id"
+    
+    User.select(sql_select).from(sql_from).group(sql_group).limit(100)
+  end
+  
 end
