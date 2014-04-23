@@ -1,6 +1,5 @@
 Inrevi::Application.routes.draw do
 
-  get "admin_dashboard/index"
   
   get 'techtags/:tag', to: 'teches#index', as: :ttag
   get 'drugtags/:tag', to: 'drugs#index', as: :dtag

@@ -1,23 +1,13 @@
-%h1 Listing auto_review_reports
+<% @auto_review_reports.each do |auto_review_report| %><br><br>
 
-%table
-  %tr
-    %th Content
-    %th User
-    %th Auto review
-    %th
-    %th
-    %th
+ 
+<%= link_to "Original Review" , auto_auto_review_path(auto_id: auto_review_report.auto_review.auto.id, id: auto_review_report.auto_review.id) %>
 
-  - @auto_review_reports.each do |auto_review_report|
-    %tr
-      %td= auto_review_report.content
-      %td= auto_review_report.user
-      %td= auto_review_report.auto_review
-      %td= link_to 'Show', auto_review_report
-      %td= link_to 'Edit', edit_auto_review_report_path(auto_review_report)
-      %td= link_to 'Destroy', auto_review_report, :method => :delete, :data => { :confirm => 'Are you sure?' }
+<%= link_to user_path(auto_review_report.user) do %> 
+   <%= auto_review_report.user.first_name %>
+   <%= auto_review_report.user.last_name.truncate(2, omission: '.')%>
+<% end %>
 
-%br
+<%= auto_review_report.content %>
 
-= link_to 'New Auto review report', new_auto_review_report_path
+<% end %>

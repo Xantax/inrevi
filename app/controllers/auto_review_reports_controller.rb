@@ -1,10 +1,9 @@
 class AutoReviewReportsController < ApplicationController
   before_action :set_auto_review_report, only: [:show, :edit, :update, :destroy]
-  before_action :set_auto
   before_action :set_auto_review
 
   def index
-    @auto_review_reports = AutoReviewReport.all
+    @auto_review_reports = @auto_review.auto_review_reports.all
   end
 
   def show
@@ -18,11 +17,13 @@ class AutoReviewReportsController < ApplicationController
   end
 
   def create
-    @auto_review_report = AutoReviewReport.new(auto_review_report_params)
+    @auto_review = AutoReview.find(params[:auto_review_id])
+    @auto_review_report = @auto_review.auto_review_reports.new(auto_review_report_params)
+    @auto_review_report.user = current_user
 
     respond_to do |format|
       if @auto_review_report.save
-        format.html { redirect_to @auto_review_report, notice: 'Auto review report was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Auto review report was successfully created.' }
         format.json { render action: 'show', status: :created, location: @auto_review_report }
       else
         format.html { render action: 'new' }
@@ -54,11 +55,7 @@ class AutoReviewReportsController < ApplicationController
   private
   
     def set_auto_review
-      @auto = AutoReview.find(params[:auto_review_id])
-    end
-  
-    def set_auto
-      @auto = Auto.find(params[:auto_id])
+      @auto_review = AutoReview.find(params[:auto_review_id])
     end
 
     def set_auto_review_report

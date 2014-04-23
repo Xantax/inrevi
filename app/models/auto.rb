@@ -6,7 +6,6 @@ class Auto < ActiveRecord::Base
   validates :remote_image_url, presence: true
   
   has_many :auto_reviews
-  has_many :auto_review_reports
   
   mount_uploader :image, ImageUploader
   

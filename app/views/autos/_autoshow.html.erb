@@ -3,26 +3,27 @@
     <%= image_tag @auto.image_url(:thumb) if @auto.image? %> 
   </div> 
   
-   <div class="col-sm-5"> 
-     <b><%= link_to @auto.name, auto_path(@auto) %></b> <br>
-     
-     <div class="rating-total" data-id= <%= @auto.id %> data-score= <%= @avg_score || 0 %> >
-        <div class="total_score">
-          <%= @avg_score ? @avg_score.round(1) : 0 %>
-        </div>
+   <div class="col-sm-5 autoshow"> 
+     <b><%= link_to @auto.name, auto_path(@auto) %></b> <br><br>
+ 
+     <div>
+     <%= render 'show_rating' %>
      </div>
-     
-     <%= link_to "additional info", additionalinfo_auto_path %>
   
   </div>
   
   <div class="col-sm-4">
+    
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
     <div class="writeareview">
       <%= link_to "Write a Review", new_auto_auto_review_path(@auto) %>
     </div><br>
+    
     <%= image_tag("othericons/PhotoShow.PNG") %> (6)<br><br>
-    <%= link_to "Edit", edit_auto_path(@auto) %>
+    
+    <span class="glyphicon glyphicon-th-large"></span>
+    <%= link_to "additional info", additionalinfo_auto_path %>
+    
   </div>
   
 </div> <br>
