@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
   end
   
   def reviewimage
-    "https://graph.facebook.com/#{self.uid}/picture?width=60"
+    "https://graph.facebook.com/#{self.uid}/picture?width=70"
   end
   
   def following?(other_user)

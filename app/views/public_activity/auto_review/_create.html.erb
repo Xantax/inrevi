@@ -1,16 +1,38 @@
 <% if activity.trackable %>
   
-    <% if activity.owner == @user %>
+   <% if activity.owner == @user %>
+      
+   <% else %>
+  
+    <div class="col-sm-3">
+      <div class="reviewname">  
+      <%= link_to user_path(activity.owner) do %> 
+         <%= activity.owner.first_name %>
+         <%= activity.owner.last_name.truncate(2, omission: '.')%>
+      <% end %>
+      </div>
+        <%= image_tag(activity.owner.reviewimage) %>  
+    </div>
+  
+   <% end %>
+
+    <div class="col-sm-9 podreview"> 
+      <div class="separatereview">
+        <% if activity.owner == @user %>
+          
+        <% else %>
+        <%= image_tag('caticons/hover/catauto.PNG', height: '16', width: '16') %> reviewed
+        <% end %>
     
-    <% else %>
-      <%= link_to activity.owner.name, activity.owner if activity.owner %>
-        reviewed
-    <% end %>
-
-    <%= link_to activity.trackable.auto.name, activity.trackable.auto %><br>
-    <%= activity.trackable.title %><br>
-    <%= activity.trackable.content %>
-
+        <%= link_to activity.trackable.auto.name, activity.trackable.auto %><br><br>
+    
+        <div class="numberOne"><%= activity.trackable.point %></div>
+        <div class="reviewtitle"><%= activity.trackable.title %></div><br><br>
+        <div class="reviewcontent"><%= simple_format(activity.trackable.content) %></div><br>
+    
+        <div class="bottomreviewicons"></div>
+      </div>
+    </div>
 
 <% else %>
 

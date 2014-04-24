@@ -55,7 +55,6 @@ class AutoReviewsController < ApplicationController
 
   def destroy
     @auto_review.destroy
-    @auto_review.create_activity :destroy, owner: current_user
     respond_to do |format|
       format.html { redirect_to auto_path(@auto_review.auto) }
       format.json { head :no_content }
