@@ -1,44 +1,14 @@
  <% if @avg_score == 0.0 %>
 
  <% else %>
-<div class="total_score">
-   
-    <% if @avg_score >= 4.5 %>
-   
-       <div class="reviewnumberfive">
-         <%= @avg_score ? @avg_score.round(1) : 0 %>
-       </div>
-   
-    <% elsif @avg_score >= 3.5 %>
-   
-       <div class="reviewnumberfour">
-         <%= @avg_score ? @avg_score.round(1) : 0 %>
-       </div>
-   
-    <% elsif @avg_score >= 2.5 %>
-   
-       <div class="reviewnumberthree">
-         <%= @avg_score ? @avg_score.round(1) : 0 %>
-       </div>
+  <div class="total_score">   
+        <div class="reviewnumberscore">
+           <%= @avg_score ? @avg_score.round(1) : 0 %>
+         </div>
+  </div>
 
-    <% elsif @avg_score >= 1.5 %>
-   
-       <div class="reviewnumbertwo">
-         <%= @avg_score ? @avg_score.round(1) : 0 %>
-       </div>
-   
-    <% elsif @avg_score <= 1.4 %>
-   
-       <div class="reviewnumberone">
-         <%= @avg_score ? @avg_score.round(1) : 0 %>
-       </div>
-   
-    <% end %>
-   
- </div>
-
-<div class="reviewslashfive">
-        / <div class="reviewtotalfive">5</div>
-</div>
+  <div class="reviewslashfive">
+          / <div class="reviewtotalfive">5</div>
+  </div>
 
 <% end %>
