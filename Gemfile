@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0'
+gem 'rails', '~> 4.0.0'
 gem 'bootstrap-sass', '3.0.3'
 gem 'omniauth-facebook'
 gem 'sprockets'
@@ -12,6 +12,7 @@ gem 'json'
 gem "carrierwave"
 gem "rmagick"
 
+gem "tilt"
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -35,7 +36,7 @@ gem 'newrelic_rpm'
 gem 'nokogiri'
 gem 'passenger'
 gem 'public_activity'
-gem 'tire'
+gem 'sunspot_rails'
 gem 'acts_as_votable'
 gem 'will_paginate', '~> 3.0'
 
@@ -44,6 +45,7 @@ group :development do
   gem 'brakeman', :require => false
   gem 'sqlite3'
   gem 'debugger'
+  gem 'sunspot_solr'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
