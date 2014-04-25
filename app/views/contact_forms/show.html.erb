@@ -1,0 +1,16 @@
+  <strong>Name:</strong>
+  <%= @contact_form.name %><br><br>
+
+  <strong>Email:</strong>
+  <%= @contact_form.email %><br><br>
+
+  <strong>Title:</strong>
+  <%= @contact_form.category %><hr>
+
+  <%= simple_format(@contact_form.message) %><hr>
+ 
+  <%= link_to 'Back', contact_forms_path %>
+  <%= link_to 'Edit', edit_contact_form_path(@contact_form) %>
+  <%= link_to 'Destroy', contact_form_path(@contact_form),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
