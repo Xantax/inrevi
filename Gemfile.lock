@@ -41,6 +41,17 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.0.3.0)
       sass (~> 3.2)
+    brakeman (2.4.3)
+      erubis (~> 2.6)
+      fastercsv (~> 1.5)
+      haml (>= 3.0, < 5.0)
+      highline (~> 1.6.20)
+      multi_json (~> 1.2)
+      ruby2ruby (~> 2.0.5)
+      ruby_parser (~> 3.4.0)
+      sass (~> 3.0)
+      slim (>= 1.3.6, < 3.0)
+      terminal-table (~> 1.4)
     builder (3.1.4)
     callsite (0.0.11)
     carrierwave (0.10.0)
@@ -77,6 +88,7 @@ GEM
       oauth (>= 0.4.4)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    fastercsv (1.5.5)
     fastimage (1.6.1)
       addressable (~> 2.3, >= 2.3.5)
     haml (4.0.5)
@@ -181,6 +193,9 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.0)
       sprockets-rails (~> 2.0.0)
+    rails-i18n (4.0.2)
+      i18n (~> 0.6)
+      rails (>= 4.0)
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
@@ -200,6 +215,11 @@ GEM
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rmagick (2.13.2)
+    ruby2ruby (2.0.8)
+      ruby_parser (~> 3.1)
+      sexp_processor (~> 4.0)
+    ruby_parser (3.4.1)
+      sexp_processor (~> 4.1)
     sass (3.2.18)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -209,6 +229,10 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    sexp_processor (4.4.3)
+    slim (2.0.2)
+      temple (~> 0.6.6)
+      tilt (>= 1.3.3, < 2.1)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -219,6 +243,13 @@ GEM
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     sqlite3 (1.3.9)
+    temple (0.6.7)
+    terminal-table (1.4.5)
+    the_role (2.5.4)
+      rails (>= 3, < 5)
+      the_string_to_slug (~> 1.2)
+    the_string_to_slug (1.2)
+      rails-i18n (~> 4.0.0.pre)
     themoviedb (0.0.20)
       httparty (~> 0)
     therubyracer (0.12.1)
@@ -257,6 +288,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass (= 3.0.3)
+  brakeman
   carrierwave
   coffee-rails (~> 4.0.0)
   countries
@@ -291,6 +323,7 @@ DEPENDENCIES
   sdoc
   sprockets
   sqlite3
+  the_role (~> 2.5.2)
   themoviedb
   therubyracer
   tire

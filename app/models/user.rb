@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-
+include TheRole::User
+  
   acts_as_voter
   
   #---  REVIEWS  ---#
@@ -30,11 +31,6 @@ class User < ActiveRecord::Base
     user.save!
    end
  end
-  
-#  def feed
-#    Review.from_users_followed_by(self)
-#  end
-  
   
    def facebook
     @facebook ||= Koala::Facebook::API.new(oauth_token)

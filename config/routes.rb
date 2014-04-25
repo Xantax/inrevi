@@ -22,6 +22,11 @@ match 'contact' => "static_pages#contact", via: [:get]
 match 'tos' => "static_pages#tos", via: [:get]
 match 'policy' => "static_pages#policy", via: [:get] 
      
+  concern :the_role, TheRole::AdminRoutes.new
+
+  namespace :admin do
+    concerns :the_role
+  end
   
   resources :contact_forms 
   resources :activities
