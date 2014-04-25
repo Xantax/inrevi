@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140425065532) do
+ActiveRecord::Schema.define(version: 20140425022018) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -160,15 +160,6 @@ ActiveRecord::Schema.define(version: 20140425065532) do
 
   add_index "reports", ["reportable_id", "reportable_type"], name: "index_reports_on_reportable_id_and_reportable_type"
 
-  create_table "roles", force: true do |t|
-    t.string   "name",        null: false
-    t.string   "title",       null: false
-    t.text     "description", null: false
-    t.text     "the_role",    null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "songs", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -211,7 +202,6 @@ ActiveRecord::Schema.define(version: 20140425065532) do
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
-    t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "first_name"

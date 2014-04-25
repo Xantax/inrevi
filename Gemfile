@@ -38,7 +38,6 @@ gem 'public_activity'
 gem 'tire'
 gem 'acts_as_votable'
 gem 'will_paginate', '~> 3.0'
-gem 'the_role', '~> 2.5.2'
 
 
 group :development do

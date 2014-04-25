@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-include TheRole::User
   
   acts_as_voter
   
