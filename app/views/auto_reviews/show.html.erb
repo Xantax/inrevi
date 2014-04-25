@@ -15,11 +15,12 @@
       <b><%= @auto_review.title %>:</b> <br>  
         <div class="reviewcontent"><%= simple_format(@auto_review.content) %></div><br>
 
-
-
         <%= link_to "Edit", edit_auto_auto_review_path(@auto_review.auto_id, @auto_review) %>
         <%= link_to 'Destroy', auto_auto_review_path(@auto_review.auto_id, @auto_review),
                     method: :delete, data: { confirm: 'Are you sure?' } %>
+        
+        <%= link_to "New Report", new_auto_auto_review_report_path(@reportable.auto_id, @reportable) %>
+        
         
     </div><br>
   </div>

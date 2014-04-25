@@ -12,6 +12,10 @@ class AutoReviewsController < ApplicationController
 
   def show
     @auto_review_report = AutoReviewReport.new
+    
+    @reportable = @auto_review
+    @reports = @reportable.reports
+    @report = Report.new
   end
 
   def new

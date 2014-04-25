@@ -1,6 +1,8 @@
 Inrevi::Application.routes.draw do
 
   
+  get "reports/index"
+  get "reports/new"
   get 'techtags/:tag', to: 'teches#index', as: :ttag
   get 'drugtags/:tag', to: 'drugs#index', as: :dtag
   get 'podtags/:tag', to: 'podcasts#index', as: :tag  
@@ -87,7 +89,7 @@ match 'policy' => "static_pages#policy", via: [:get]
       end
       
         resources :auto_review_reports
-      
+        resources :reports      
     end
   end
 

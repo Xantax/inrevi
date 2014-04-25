@@ -2,22 +2,24 @@
 
    <% if current_user.followed_users.empty? %>
         <div class="noreviews home">No reviews. Follow someone!</div>
-     <% elsif %>
+    <% elsif @activities.empty? %>
         <div class="noreviews home">No reviews from people you follow.</div>
-     <% else %>
+   <% end %>
+
         <% @activities.each do |activity| %>
            <div class="activity">
              <%= render_activity activity %>
            </div>
         <% end %>
-   <% end %>
-    <div class="popularactivitiesname"></div>
-      <br>
-      <% @popular_activities.each do |activity| %>
-        <div class="activity">
-          <%= render_activity activity %>
-        </div>
-      <% end %>
+
+
+        <div class="popularactivitiesname"></div>
+          <br>
+          <% @popular_activities.each do |activity| %>
+            <div class="activity">
+              <%= render_activity activity %>
+            </div>
+          <% end %>
 
   <% else %>
 

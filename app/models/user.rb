@@ -8,14 +8,8 @@ class User < ActiveRecord::Base
   has_many :auto_reviews
   
   #---  END OF REVIEWS  ---#
-
   
-  #---  REPORTS  ---#
-  
-  has_many :auto_review_reports
-  
-  #---  END REPORTS  ---#
-  
+  has_many :reports
   
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
