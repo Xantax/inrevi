@@ -1,2 +1,1 @@
-<%= @user.auto_reviews.count * 5 %>
-
+<%= human_number @user.points(category: 'gold_points') %>

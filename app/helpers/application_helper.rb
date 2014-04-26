@@ -14,5 +14,9 @@ module ApplicationHelper
     ((resource.auto_reviews.inject(0) { |sum, e| sum += e.point }).to_f / resource.auto_reviews.count).round(1) rescue 0
   end
   
+  def human_number number
+    number_to_human number, :format => '%n%u', :units => { :thousand => 'k' }
+  end
+  
 end
 

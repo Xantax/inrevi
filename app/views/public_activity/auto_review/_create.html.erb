@@ -37,7 +37,7 @@
         <div class="bottomreviewicons">
                 <% if current_user == activity.owner %>
                   
-                <% elsif current_user.voted_for? activity.trackable %>
+                <% elsif @user.voted_for? activity.trackable %>
                   Voted!
                   <div class="flagicon"><%= link_to image_tag('othericons/flagicon.PNG', height: '16', width: '12'), new_auto_auto_review_report_path(activity.trackable.auto_id, activity.trackable) %></div>
                 <% else %>

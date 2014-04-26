@@ -31,6 +31,7 @@ GEM
       activesupport (>= 3, < 5)
     acts_as_votable (0.8.0)
     addressable (2.3.6)
+    ambry (0.3.1)
     arel (4.0.2)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
@@ -125,6 +126,8 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    merit (2.1.1)
+      ambry (~> 0.3.0)
     meta-spotify (0.3.3)
       httparty (> 0.8)
     meta_request (0.3.0)
@@ -293,6 +296,7 @@ DEPENDENCIES
   jquery-ui-rails
   json
   koala (~> 1.8.0rc1)
+  merit
   meta-spotify
   meta_request
   newrelic_rpm

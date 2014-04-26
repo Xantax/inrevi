@@ -38,6 +38,7 @@ gem 'passenger'
 gem 'public_activity'
 gem 'sunspot_rails'
 gem 'acts_as_votable'
+gem 'merit'
 gem 'will_paginate', '~> 3.0'
 
 

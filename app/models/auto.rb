@@ -12,8 +12,8 @@ class Auto < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   
   searchable do
-    text :name, :boost => 5
-    text :bodytype
+    text :name, :boost => 10
+    text :additionalinfo
   end
   
 end

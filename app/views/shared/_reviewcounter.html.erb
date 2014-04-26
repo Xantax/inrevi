@@ -1,5 +1,1 @@
-<%=
-
-@user.auto_reviews.count
-
-%>
+<%= human_number @user.points(category: 'just_reviews') %>
