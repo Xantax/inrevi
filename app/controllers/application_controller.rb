@@ -9,5 +9,6 @@ class ApplicationController < ActionController::Base
   include MediaHelper
   include LocalsHelper
   include BooksHelper
+  include PointsHelper
   
 end

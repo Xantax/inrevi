@@ -34,10 +34,12 @@
         <div class="reviewtitle"><%= activity.trackable.title %></div><br><br>
         <div class="reviewcontent"><%= simple_format(activity.trackable.content) %></div><br>
     
-        <div class="bottomreviewicons">
+          <div class="bottomreviewicons">
+            <% if signed_in? %>
+            
                 <% if current_user == activity.owner %>
                   
-                <% elsif @user.voted_for? activity.trackable %>
+                <% elsif current_user.voted_for? activity.trackable %>
                   Voted!
                   <div class="flagicon"><%= link_to image_tag('othericons/flagicon.PNG', height: '16', width: '12'), new_auto_auto_review_report_path(activity.trackable.auto_id, activity.trackable) %></div>
                 <% else %>
@@ -50,8 +52,10 @@
                  </div>
                           
                  <div class="flagicon"><%= link_to image_tag('othericons/flagicon.PNG', height: '16', width: '12'), new_auto_auto_review_report_path(activity.trackable.auto_id, activity.trackable) %></div>
-                <% end %>        
-        </div>
+                <% end %> 
+            
+            <% end %>
+          </div>
         
       </div>
     </div>

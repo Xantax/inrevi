@@ -90,6 +90,8 @@ GEM
     fastercsv (1.5.5)
     fastimage (1.6.1)
       addressable (~> 2.3, >= 2.3.5)
+    googlebooks (0.0.8)
+      httparty
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -288,6 +290,7 @@ DEPENDENCIES
   debugger
   factual-api
   fastimage
+  googlebooks
   haml-rails
   httparty
   jbuilder (~> 1.2)

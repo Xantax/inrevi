@@ -1,2 +1,57 @@
-
+<h1>
+  <%= @book.title %>
+</h1>
+<h4>
+  Authors:
+  <%= @book.authors %>
+</h4>
+<div class="row">
+  <div class="col-md-4 cover">
+    <%= image_tag @book.image_link(zoom: 2) %>
+  </div>
+  <div class="col-md-8 details">
+    <h5>
+      <%= link_to "Go Back", root_path %>
+    </h5>
+    <ul>
+      <li>
+        ISBN:
+        <%= @book.isbn %>
+      </li>
+      <li>
+        Publisher:
+        <%= @book.publisher %>
+      </li>
+      <li>
+        Published Date:
+        <%= @book.published_date %>
+      </li>
+      <li>
+        Pages:
+        <%= @book.page_count %>
+      </li>
+      <li>
+        Category:
+        <%= @book.categories %>
+      </li>
+      <li>
+        Languages:
+        <%= @book.language %>
+      </li>
+      <% if @book.description %>
+        <div class="description">
+          <%= @book.description %>
+        </div>
+      <% end %>
+      <li>
+        Info Link
+        <%= link_to @book.info_link, @book.info_link %>
+      </li>
+      <li>
+        Preview Link
+        <%= link_to @book.preview_link, @book.preview_link %>
+      </li>
+    </ul>
+  </div>
+</div>
 

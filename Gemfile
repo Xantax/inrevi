@@ -40,6 +40,7 @@ gem 'sunspot_rails'
 gem 'acts_as_votable'
 gem 'merit'
 gem 'will_paginate', '~> 3.0'
+gem 'googlebooks'
 
 
 group :development do
