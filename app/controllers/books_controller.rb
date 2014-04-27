@@ -9,7 +9,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = GoogleBooks.search(params[:id]).first
+    @book = GoogleBooks.retrieve(params[:id])
   end
   
 end

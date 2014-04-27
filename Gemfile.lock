@@ -290,7 +290,7 @@ DEPENDENCIES
   debugger
   factual-api
   fastimage
-  googlebooks
+  googlebooks (~> 0.0.8)
   haml-rails
   httparty
   jbuilder (~> 1.2)
