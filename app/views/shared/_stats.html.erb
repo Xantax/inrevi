@@ -1,6 +1,7 @@
 <% @user ||= current_user %>
 <div class="stats">
-    <div class="points">
+    
+    <div class="points" title="5 points - Write a review &#13;2 points - Get an upvote">
       <%= image_tag("othericons/pointicon.PNG", height: '12', width: '12') %> <%= render "shared/pointcounter" %> <div class="pointz">points</div> <br >
     </div>
   
@@ -13,15 +14,16 @@
   
   <%= image_tag("othericons/Ufollowing.PNG", height: '12', width: '12') %> <a href="<%= following_user_path(@user) %>">
       <strong id="following">
-        <%= @user.followed_users.count %>
+        <%= human_number @user.followed_users.count %>
       </strong>
     following
     </a> 
   <br>
   <%= image_tag("othericons/Ufollowers.PNG", height: '12', width: '12') %> <a href="<%= followers_user_path(@user) %>">
       <strong id="followers">
-        <%= @user.followers.count %>
+        <%= human_number @user.followers.count %>
       </strong>
     followers
   </a>
+  
 </div>
