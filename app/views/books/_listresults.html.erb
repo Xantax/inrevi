@@ -3,7 +3,7 @@
         <% @books.each do |book| %><br><br>
             <div class="col-sm-4 booksin">
               <% if book.image_link.present? %>
-               <%= image_tag book.image_link %>
+              <%= image_tag book.image_link, height: "160" %>
               <% else %>
                <%= image_tag('noimage.PNG') %>
               <% end %>
