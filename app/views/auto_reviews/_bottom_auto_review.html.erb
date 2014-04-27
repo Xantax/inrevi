@@ -7,8 +7,7 @@
  <div class="thumbsdown">
   <%= link_to image_tag('othericons/thumbsdown_off.PNG', height: '20', width: '20', id: "imgClickAndChange", :onclick => "window.toggleImage($(this))"), dislike_auto_auto_review_path(@auto_review.auto_id, @auto_review), method: :put, :remote => true %>
  </div>
-          
- <div class="flagicon"><%= link_to image_tag('othericons/flagicon.PNG', height: '20', width: '18'), auto_auto_review_auto_review_report(@auto_review_report.auto_review.auto_id, @auto_review_report.auto_review, @auto_review_report) %></div>
+
   <%= @auto_review.upvotes.size %><%= @auto_review.downvotes.size %>
   
 </div>

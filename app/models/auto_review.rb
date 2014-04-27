@@ -7,10 +7,6 @@ include PublicActivity::Common
   belongs_to :user
   belongs_to :auto
   
-  has_many :reports, as: :reportable
-  
-  has_many :auto_review_reports
-  
   validates :user_id, presence: true
   validates :auto_id, presence: true
   validates :title, presence: true, length: { maximum: 50}

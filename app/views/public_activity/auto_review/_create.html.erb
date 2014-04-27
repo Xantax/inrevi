@@ -41,7 +41,6 @@
                   
                 <% elsif current_user.voted_for? activity.trackable %>
                   Voted!
-                  <div class="flagicon"><%= link_to image_tag('othericons/flagicon.PNG', height: '16', width: '12'), new_auto_auto_review_report_path(activity.trackable.auto_id, activity.trackable) %></div>
                 <% else %>
                  <div class="thumbsup">
                    <%= link_to image_tag('othericons/thumbsup_off.PNG', height: '20', width: '20', id: "imgClickAndChange", :onclick => "window.changeImage($(this))"),  like_auto_auto_review_path(activity.trackable.auto_id, activity.trackable), method: :put, :remote => true %>
@@ -51,7 +50,6 @@
                   <%= link_to image_tag('othericons/thumbsdown_off.PNG', height: '20', width: '20', id: "imgClickAndChange", :onclick => "window.toggleImage($(this))"), dislike_auto_auto_review_path(activity.trackable.auto_id, activity.trackable), method: :put, :remote => true %>
                  </div>
                           
-                 <div class="flagicon"><%= link_to image_tag('othericons/flagicon.PNG', height: '16', width: '12'), new_auto_auto_review_report_path(activity.trackable.auto_id, activity.trackable) %></div>
                 <% end %> 
             
             <% end %>

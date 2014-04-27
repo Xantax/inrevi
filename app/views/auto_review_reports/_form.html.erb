@@ -1,9 +1,0 @@
-<%= form_for [:auto, :auto_review, @auto_review_report] do |f| %>
-
-<%= f.hidden_field :auto_review %>
-<%= f.hidden_field :user %>
-<%= f.text_area :content, :placeholder => "what is the problem?" %>
-<br><br>
-<%= f.submit 'Submit' %>
-
-<% end %>
