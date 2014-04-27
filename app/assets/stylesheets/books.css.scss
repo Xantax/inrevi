@@ -9,14 +9,29 @@
   border-radius: 3px; 
   border: 1px solid #CCC; 
   background-image: none; 
-  width:460px; 
+  width:320px; 
 }
 
 .booksearchbutton:focus{ 
-  outline-color: #0066FF; 
+  outline-color: none; 
+  box-shadow: 0 0 3px 0px #0066FF;
 }
 
 .booksearchbox{
   border-bottom: 1px solid #E8E8E8;
   padding-bottom:20px;
+}
+
+.btn.booksearch{
+  height:32px;
+  width:140px;
+  border: 1px solid #CCC; 
+}
+
+.col-sm-4.booksin{
+  height:160px;
+}
+
+.col-sm-8.booksin{
+  min-height:180px;
 }

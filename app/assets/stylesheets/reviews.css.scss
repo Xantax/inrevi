@@ -98,7 +98,8 @@ white-space: pre-wrap;
 }
 
 .field.podcontent:focus {
-outline-color: #0066FF;
+  outline-color: none; 
+  box-shadow: 0 0 3px 0px #0066FF;
 }
 
 .field.podtitle{
@@ -110,7 +111,8 @@ width:400px;
 }
 
 .field.podtitle:focus {
-outline-color: #0066FF;
+  outline-color: none; 
+  box-shadow: 0 0 3px 0px #0066FF;
 }
 
 .separatereview{

@@ -17,7 +17,8 @@
 }
 
 .autosearchbutton:focus{
-outline-color: #0066FF; 
+  outline-color: none; 
+  box-shadow: 0 0 3px 0px #0066FF; 
 }
 
 .row.autoup {

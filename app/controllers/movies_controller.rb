@@ -10,7 +10,6 @@ class MoviesController < ApplicationController
   
   def index
   	@now_playing = Tmdb::Movie.now_playing
-    @movie_reviews = MovieReview.where(movie_id: params[:id])
   end
   
   def show
@@ -20,12 +19,10 @@ class MoviesController < ApplicationController
   	@trailers = Tmdb::Movie.trailers(params[:id])
   	@similar_movies = Tmdb::Movie.similar_movies(params[:id])
     @crew = Tmdb::Movie.crew(params[:id])
-    @movie_reviews = MovieReview.where(movie_id: params[:id])
   end
   
   def search
     @movie = Tmdb::Movie.find(params[:query])
-    @movie_reviews = MovieReview.where(movie_id: params[:query])
   end
   
   def popular

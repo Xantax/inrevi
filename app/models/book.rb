@@ -1,5 +1,5 @@
 class Book
-  CATEGORY = {intitle: "by title", inauthor: "by author"}.freeze
+  CATEGORY = {intitle: "by title", inauthor: "by author", subject: "by category", isbn: "by isbn"}.freeze
   PER_PAGE = 10
 
   class << self
