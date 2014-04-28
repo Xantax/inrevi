@@ -38,11 +38,12 @@ gem 'nokogiri'
 gem 'passenger'
 gem 'public_activity'
 gem 'sunspot_rails'
-gem 'acts_as_votable'
+gem 'acts_as_votable', '~> 0.9.0'
 gem 'merit'
 gem 'will_paginate', '~> 3.0'
 gem 'googlebooks', '~> 0.0.8'
 gem 'jquery-fileupload-rails'
+gem 'formtastic'
 
 group :development do
   gem 'brakeman', :require => false

@@ -5,7 +5,6 @@ class AutoReviewsController < ApplicationController
 
   def index
     @auto_reviews = @auto.auto_reviews.order("cached_votes_score DESC")
-    @auto_review_report = AutoReviewReport.new
     @avg_score = 0
     @avg_score = @auto_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @auto_reviews.count if @auto_reviews.count > 0
   end
@@ -14,7 +13,9 @@ class AutoReviewsController < ApplicationController
   end
 
   def new
+    puts "params********************#{params.inspect}" 
     @auto_review = AutoReview.new
+    @auto_review.review_images.build  
   end
 
   def edit
@@ -39,6 +40,7 @@ class AutoReviewsController < ApplicationController
 
   def update
     @auto_review = @auto.auto_reviews.find(params[:id])
+    @auto_review.review_images.build if @auto_review.review_images.empty?
     @auto_review.user = current_user
     
     respond_to do |format|
@@ -77,11 +79,11 @@ class AutoReviewsController < ApplicationController
     end
   
     def set_auto_review
-      @auto_review = AutoReview.find(params[:id])
+      @auto_review = AutoReview.with_pictures.find(params[:id])
     end
 
     def auto_review_params
-      params.require(:auto_review).permit(:title, :content, :auto_id, :user_id, :point, :score, :image, :remote_image_url)
+      params.require(:auto_review).permit(:title, :content, :auto_id, :user_id, :point, :score, review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
   
 end

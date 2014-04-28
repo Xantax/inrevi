@@ -1,13 +1,15 @@
 class AutoReview < ActiveRecord::Base
 include PublicActivity::Common
 # tracked owner: ->(controller, model) { controller && controller.current_user }
-  
-  before_create :default_name
+  attr_accessor :image, :file
   
   acts_as_votable
     
   belongs_to :user
   belongs_to :auto
+  
+  has_many :review_images, :as => :attachable, :dependent => :destroy
+  accepts_nested_attributes_for :review_images
   
   validates :user_id, presence: true
   validates :auto_id, presence: true
@@ -16,11 +18,8 @@ include PublicActivity::Common
   
   validates_numericality_of :point, greater_than_or_equal_to: 0
   
-  mount_uploader :image, ImageUploader
-  
-
-  def default_name
-    self.name ||= File.basename(image.filename, '.*').titleize if image
+  def self.with_pictures
+    includes(:review_images)
   end
   
 end

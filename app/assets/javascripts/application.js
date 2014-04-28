@@ -18,5 +18,4 @@
 //= require jquery-simple-pagination-plugin
 //= require jquery.raty
 //= require jquery-fileupload/basic
-//= require jquery-fileupload/vendor/tmpl
 //= require_tree .
