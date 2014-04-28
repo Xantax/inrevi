@@ -107,7 +107,7 @@ padding: 6px;
 border-radius: 3px;
 border: 1px solid #CCC;
 background-image: none;
-width:400px;
+width:450px;
 }
 
 .field.podtitle:focus {
@@ -183,4 +183,52 @@ width:400px;
   font-size:250%;
   font-weight:bold;
   color:#808080;
+}
+
+/* Drop photos */
+
+label.filebutton {
+    width:211px;
+    height:71px;
+    overflow:hidden;
+    position:relative;
+    background-color:white;
+    background-image: url("otherbigimages/DropPhotos4.PNG");
+    background-repeat: no-repeat;
+}
+
+label span input {
+    z-index: 999;
+    line-height: 0;
+    font-size: 50px;
+    position: absolute;
+    top: -2px;
+    left: -630px;
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    -ms-filter: "alpha(opacity=0)";
+    cursor: pointer;
+    _cursor: hand;
+    margin: 0;
+    padding:0;
+}
+
+/* Image upload */
+
+.upload {
+  border-bottom: solid 1px #CCC;
+  width: 300px;
+  padding-top: 10px;
+  margin-top: 10px;
+
+  .progress {
+    margin-top: 8px;
+    border: solid 1px #555;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    .bar {
+      height: 10px;
+      background: #3e91c1;
+    }
+  }
 }

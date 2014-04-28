@@ -17,6 +17,7 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer', platforms: :ruby
+gem 'execjs'
 gem 'jquery-rails', "~> 2.3.0"
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
@@ -41,7 +42,7 @@ gem 'acts_as_votable'
 gem 'merit'
 gem 'will_paginate', '~> 3.0'
 gem 'googlebooks', '~> 0.0.8'
-
+gem 'jquery-fileupload-rails'
 
 group :development do
   gem 'brakeman', :require => false

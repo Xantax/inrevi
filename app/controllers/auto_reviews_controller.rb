@@ -10,12 +10,7 @@ class AutoReviewsController < ApplicationController
     @avg_score = @auto_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @auto_reviews.count if @auto_reviews.count > 0
   end
 
-  def show
-    @auto_review_report = AutoReviewReport.new
-    
-    @reportable = @auto_review
-    @reports = @reportable.reports
-    @report = Report.new
+  def show    
   end
 
   def new
@@ -86,7 +81,7 @@ class AutoReviewsController < ApplicationController
     end
 
     def auto_review_params
-      params.require(:auto_review).permit(:title, :content, :auto_id, :user_id, :point, :score)
+      params.require(:auto_review).permit(:title, :content, :auto_id, :user_id, :point, :score, :image, :remote_image_url)
     end
   
 end

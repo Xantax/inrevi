@@ -26,11 +26,27 @@
   </div><br>
 
   <div class="optionalreview">Optional:</div>
-  <div class="row reviewbottom">
 
-      <%= image_tag("othericons/PhotoShow.PNG") %> + Add images
-   
-  </div>
+    <div class="row">
+      <div class="col-sm-5">
+        <label class="filebutton">
+          <span><input id="auto_review_image" multiple="multiple" name="painting[image]" type="file"></span>
+        </label>
+      </div>
+      
+      <div class="col-sm-7">
+          <script id="template-upload" type="text/x-tmpl">
+            <div class="upload">
+              {%=o.name%}
+              <div class="progress"><div class="bar" style="width: 0%"></div></div>
+            </div>
+          </script>
+      </div>
+      
+    </div>
+
+  <br><br>
+
   <div class="actions">
     <%= f.submit " Submit ", :class => "btn btn-primary" %>
   </div>

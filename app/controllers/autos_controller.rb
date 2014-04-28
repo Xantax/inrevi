@@ -13,7 +13,6 @@ class AutosController < ApplicationController
   def show
     @auto_review = AutoReview.new
     @auto_reviews = Auto.find(params[:id]).auto_reviews.order("cached_votes_score DESC")
-    @auto_review_report = AutoReviewReport.new
     @avg_score = 0
     @avg_score = @auto_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @auto_reviews.count if @auto_reviews.count > 0
   end
