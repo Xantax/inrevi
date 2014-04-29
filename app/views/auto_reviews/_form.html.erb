@@ -25,7 +25,7 @@
     <%= f.text_area :content, :class => "field podcontent", :placeholder => "Tell the world what you like or dislike, give tips and suggestions... ", :onfocus => "this.placeholder = ''" %>
   </div><br>
 
-  <div class="optionalreview">Optional:</div>
+  <div class="optionalreview">Optional (images):</div>
 
       <%= f.fields_for :review_images do |p| %>
       <%= image_tag('othericons/PhotoShow.PNG') %>

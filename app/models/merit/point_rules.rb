@@ -18,8 +18,8 @@ module Merit
       # end
       score 2, :to => [:user], :on => 'auto_reviews#upvote', category: 'gold_points', model_name: 'User'
 
-      score 1, :on => ['auto_reviews#create'], :to => [:user], category: 'just_reviews', model_name: 'User'
-      score 5, :on => ['auto_reviews#create'], :to => [:user], category: 'gold_points', model_name: 'User'
+      score 1, :on => ['auto_reviews#create'], :to => [:user], category: 'just_reviews'
+      score 5, :on => ['auto_reviews#create'], :to => [:user], category: 'gold_points'
       #
       # score 20, :on => [
       #   'comments#create',

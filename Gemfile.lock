@@ -305,7 +305,7 @@ DEPENDENCIES
   jquery-ui-rails
   json
   koala (~> 1.8.0rc1)
-  merit
+  merit (~> 2.1.1)
   meta-spotify
   meta_request
   nested_form
