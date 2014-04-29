@@ -3,10 +3,13 @@ class SongsController < ApplicationController
   def index
   end
 
-  def show
+  def search
+    @songs = Song.search params
+    render 'index'
   end
-  
-  def songsearch
+
+  def show
+    @song = Song.retrieve params[:id]
   end
   
 end

@@ -7,14 +7,36 @@
 </div>
   
 <div class="col-sm-8"> 
+  <div class="allnews">
+    <div class="search-box">
+      <%= render :file => 'songs/songsearch' %>
+    </div>
 
-  <%= form_tag songsearch_path, method: :get do %>
-  <div class="qform-actions">    
-    <%= text_field_tag :query, params[:query], placeholder: "Songs", class: 'qform-control' %>
-    <%= submit_tag 'Go', :class => 'btn btn-primary' %>
-  </div>
-<% end %>
+    <hr>
+        <% if @songs %>
+          <% @songs[:tracks].each do |song| %>
+            <div class="row">
+              <div class="col-sm-7">
+                
+                <div class="songname"><%= link_to song.name, song_path(song.uri) %></div>
+                <div class="songartistalbum">
+                  <b>Artist:</b> <%= song.artists.map(&:name).join(', ') %><br>
+                  <b>Album:</b> <%= song.album.name %>
+                </div><br>
+                
+              </div>
+              
+              <div class="col-sm-5">
+                rating
+              </div>
+              
+            </div>
+          <% end %>
+        <% end %>
   
+    <%= render 'indexpaginate' %>
+    
+  </div>
 </div>
 
 <div class="col-sm-2">

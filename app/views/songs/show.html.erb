@@ -1,2 +1,38 @@
-<h1>Songs#show</h1>
-<p>Find me in app/views/songs/show.html.erb</p>
+<% provide(:title, @song.name) %>
+
+<div class="row">
+ 
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div> 
+    
+  <div class="col-sm-8"> 
+     <div class="allnews">       
+       <div class="row">
+         
+         <div class="col-sm-8">
+           <div class="songname"><%= @song.name %></div>
+           <div class="songartistalbum">
+             <b>Artists:</b> <%= @song.artists.map(&:name).join(', ') %><br>
+             <b>Album:</b> <%= @song.album.name %>
+           </div>
+            
+            <iframe allowtransparency="true" frameborder="0" height="80" src="https://embed.spotify.com/?uri=<%= @song.uri %>" width="300"></iframe>
+         </div>
+         
+         <div class="col-sm-4">
+            <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+            <div class="writeareview">
+              <%= link_to "Write a Review", "#" %>
+            </div>
+         </div>
+         
+       </div> <hr>      
+     </div>
+  </div>
+  
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
+
+</div>

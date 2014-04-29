@@ -7,7 +7,7 @@ Inrevi::Application.routes.draw do
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 match 'auth/failure', to: redirect('/'), via: [:get, :post]
 match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
-match 'songsearch' => "songs#songsearch", via: [:get]
+match 'songs/search' => "songs#search", via: [:get]
 match 'msearch' => "movies#search", via: [:get]
 match 'tvsearch' => "tvshows#search", via: [:get]
 match 'booksearch' => "books#search", via: [:get]
