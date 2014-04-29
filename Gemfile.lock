@@ -90,8 +90,6 @@ GEM
     fastercsv (1.5.5)
     fastimage (1.6.1)
       addressable (~> 2.3, >= 2.3.5)
-    formtastic (2.3.0.rc2)
-      actionpack (>= 3.0)
     googlebooks (0.0.8)
       httparty
     haml (4.0.5)
@@ -147,6 +145,7 @@ GEM
     multi_json (1.9.3)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    nested_form (0.3.2)
     newrelic_rpm (3.8.0.218)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
@@ -296,7 +295,6 @@ DEPENDENCIES
   execjs
   factual-api
   fastimage
-  formtastic
   googlebooks (~> 0.0.8)
   haml-rails
   httparty
@@ -310,6 +308,7 @@ DEPENDENCIES
   merit
   meta-spotify
   meta_request
+  nested_form
   newrelic_rpm
   nokogiri
   oauth2

@@ -43,7 +43,7 @@ gem 'merit'
 gem 'will_paginate', '~> 3.0'
 gem 'googlebooks', '~> 0.0.8'
 gem 'jquery-fileupload-rails'
-gem 'formtastic'
+gem "nested_form"
 
 group :development do
   gem 'brakeman', :require => false

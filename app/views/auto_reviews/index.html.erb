@@ -20,6 +20,10 @@
           
           <div class="reviewtitle"><%= auto_review.title %></div><br><br>
           <div class="reviewcontent"><%= simple_format(auto_review.content) %></div><br>
+           
+            <% auto_review.review_images.each do |pic| %>
+              <%= image_tag(pic.image_url(:review_thumb)) if pic.image? %>
+            <% end %>
                   
               <div class="bottomreviewicons">
                 <% if signed_in? %>

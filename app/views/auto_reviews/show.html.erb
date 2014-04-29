@@ -15,7 +15,9 @@
       <b><%= @auto_review.title %>:</b> <br>  
         <div class="reviewcontent"><%= simple_format(@auto_review.content) %></div><br>
         
-        <%= @auto_review.review_images.all %>
+        <% @auto_review.review_images.each do |pic| %>
+        <%= image_tag(pic.image_url(:review_thumb)) if pic.image? %>
+        <% end %>
 
         <%= link_to "Edit", edit_auto_auto_review_path(@auto_review.auto_id, @auto_review) %>
         <%= link_to 'Destroy', auto_auto_review_path(@auto_review.auto_id, @auto_review),

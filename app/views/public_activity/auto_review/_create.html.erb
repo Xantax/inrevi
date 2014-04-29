@@ -33,6 +33,10 @@
         <div class="numberOne"><%= activity.trackable.point %></div>
         <div class="reviewtitle"><%= activity.trackable.title %></div><br><br>
         <div class="reviewcontent"><%= simple_format(activity.trackable.content) %></div><br>
+        
+             <% activity.trackable.review_images.each do |pic| %>
+              <%= image_tag(pic.image_url(:review_thumb)) if pic.image? %>
+            <% end %>
     
           <div class="bottomreviewicons">
             <% if signed_in? %>

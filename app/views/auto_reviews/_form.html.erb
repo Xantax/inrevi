@@ -1,4 +1,4 @@
-<%= semantic_form_for([@auto, @auto_review], validate: true, html: {multipart: true}, 'data-update-target' => 'comments', class: 'comments') do  |f| %>
+<%= nested_form_for([@auto, @auto_review], validate: true, html: {multipart: true}, 'data-update-target' => 'comments', class: 'comments') do  |f| %>
   <% if @auto_review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@auto_review.errors.count, "error") %> prohibited this auto_review from being saved:</h2>
@@ -27,29 +27,15 @@
 
   <div class="optionalreview">Optional:</div>
 
-    <div class="row">
-      <div class="col-sm-5">
-            <fieldset class="inputs">
-              <ol>
-                  <input id="auto_review_review_images_attributes_0_id" name="auto_review[review_images_attributes][0][id]" type="hidden" />
-                  <input id="auto_review_review_images_attributes_0_attachable_id" name="auto_review[review_images_attributes][0][attachable_id]" type="hidden" />
-                  <input id="auto_review_review_images_attributes_0_attachable_type" name="auto_review[review_images_attributes][0][attachable_type]" type="hidden" value="AutoReview" />
-                  <input id="auto_review_review_images_attributes_0_image" name="auto_review[review_images_attributes][0][image]" type="file" multiple="multiple" />
-              </ol>
-            </fieldset>
-      </div>
-      
-      <div class="col-sm-7">
-          <script id="template-upload" type="text/x-tmpl">
-            <div class="upload">
-              {%=o.name%}
-              <div class="progress"><div class="bar" style="width: 0%"></div></div>
-            </div>
-          </script>
-      </div> 
-    </div>
+      <%= f.fields_for :review_images do |p| %>
+      <%= image_tag('othericons/PhotoShow.PNG') %>
+        <div class="browseimage"><%= p.file_field :image %></div>  
+        <div class="removeicon"><%= p.link_to_remove image_tag('othericons/removeicon.PNG') %></div><br><br>
+      <% end %>
+      <%= f.link_to_add "+ Add another image", :review_images %>
 
-  <br><br>
+
+  <br><br><br>
 
   <div class="actions">
     <%= f.submit " Submit ", :class => "btn btn-primary" %>
