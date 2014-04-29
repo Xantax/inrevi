@@ -1,7 +1,7 @@
 class AutoReviewsController < ApplicationController
   before_action :set_auto_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :set_auto, only: [:index, :show, :new, :create, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :signed_in_user, only: [:new, :reportform, :upvote, :downvote, :edit, :update, :destroy]
+  before_action :set_auto, only: [:index, :show, :new, :create, :edit]
+  before_action :signed_in_user, only: [:new, :upvote, :downvote, :edit, :update, :destroy]
 
   def index
     @auto_reviews = @auto.auto_reviews.order("cached_votes_score DESC")
@@ -13,7 +13,6 @@ class AutoReviewsController < ApplicationController
   end
 
   def new
-    puts "params********************#{params.inspect}" 
     @auto_review = AutoReview.new
     @auto_review.review_images.build  
   end
@@ -64,12 +63,11 @@ class AutoReviewsController < ApplicationController
   
   def upvote
    @auto_review.liked_by current_user
-   render "update_likes"
+   render nothing: true
   end
 
   def downvote
    @auto_review.downvote_from current_user
-   render "update_likes"
   end 
 
   private
@@ -79,7 +77,8 @@ class AutoReviewsController < ApplicationController
     end
   
     def set_auto_review
-      @auto_review = AutoReview.with_pictures.find(params[:id])
+      @auto = Auto.find(params[:auto_id])
+      @auto_review = @auto.auto_reviews.find(params[:id])
     end
 
     def auto_review_params

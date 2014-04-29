@@ -18,9 +18,6 @@ include PublicActivity::Common
   
   validates_numericality_of :point, greater_than_or_equal_to: 0
   
-  def self.with_pictures
-    includes(:review_images)
-  end
   
 end
 

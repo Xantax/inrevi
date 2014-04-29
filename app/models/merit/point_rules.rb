@@ -16,10 +16,11 @@ module Merit
       # score 10, :on => 'users#update' do
       #   user.name.present?
       # end
-      score 2, :to => [:user], :on => 'auto_reviews#upvote', category: 'gold_points', model_name: 'User'
-
-      score 1, :on => ['auto_reviews#create'], :to => [:user], category: 'just_reviews'
-      score 5, :on => ['auto_reviews#create'], :to => [:user], category: 'gold_points'
+      #
+      score 5, :on => ['auto_reviews#create'], category: 'gold_points'
+      score 2, :on => ['auto_reviews#upvote'], to: :user, category: 'gold_points'
+      
+      score 1, :on => ['auto_reviews#create'], to: :user, category: 'just_reviews'
       #
       # score 20, :on => [
       #   'comments#create',
