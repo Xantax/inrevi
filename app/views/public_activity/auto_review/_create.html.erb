@@ -32,11 +32,16 @@
     
         <div class="numberOne"><%= activity.trackable.point %></div>
         <div class="reviewtitle"><%= activity.trackable.title %></div><br><br>
-        <div class="reviewcontent"><%= simple_format(activity.trackable.content) %></div><br>
+        <div class="reviewcontent"><%= simple_format(activity.trackable.content) %></div>
         
              <% activity.trackable.review_images.each do |pic| %>
-              <%= image_tag(pic.image_url(:review_thumb)) if pic.image? %>
-            <% end %>
+              <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image? %>
+            <% end %> 
+              <% if signed_in? %>
+                <% unless current_user == activity.owner %>
+                  <hr>
+                <% end %>
+              <% end %>
     
           <div class="bottomreviewicons">
             <% if signed_in? %>
