@@ -66,7 +66,7 @@ match 'policy' => "static_pages#policy", via: [:get]
   end
  
 #----------   AUTO   ----------  
-  resources :auto_reviews
+#  resources :auto_reviews
   resources :autos do
     member do
       get "additionalinfo" => "autos#additionalinfo"
@@ -78,6 +78,8 @@ match 'policy' => "static_pages#policy", via: [:get]
       end     
     end
   end
+
+  match 'auto_reviews/all' => "auto_reviews#all", via: [:get]
 
 #----------   MEDIA   ----------
   
