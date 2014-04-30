@@ -6,13 +6,15 @@
       <% end %>
     </strong><br >
 
-<%= image_tag('othericons/logout.PNG') %><div class="logoutlink"><%= link_to "logout", signout_path%><br></div>
-  <%= image_tag(current_user.normalimage)%>
-    <div class="inreviews">
-    </div>
-  <%= render 'shared/stats' %>  <br><br>
+  <%= image_tag('othericons/logout.PNG') %><div class="logoutlink"><%= link_to "logout", signout_path%><br></div>
+    <%= image_tag(current_user.normalimage)%>
+      <div class="inreviews">
+      </div>
+    <%= render 'shared/stats' %>  <br><br>
 
   <% else %>
-    <%= link_to image_tag("FBlogins.png", alt: "FB Login"), "/auth/facebook", id: "sign_in" %>
-      <div class="safelogin">100% safe</div>
+  <br>
+  <%= link_to image_tag("otherbigimages/FBlogins.png", alt: "FB Login"), "/auth/facebook", id: "sign_in" %>
+        <div class="loginversus">or</div>
+  <%= image_tag("otherbigimages/Glogin.PNG") %>
 <% end %>
