@@ -10,7 +10,7 @@ match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 match 'songs/search' => "songs#search", via: [:get]
 match 'msearch' => "movies#search", via: [:get]
 match 'tvsearch' => "tvshows#search", via: [:get]
-match 'booksearch' => "books#search", via: [:get]
+match 'search' => "books#search", via: [:get]
   
 match 'media' => "static_pages#catmedia", via: [:get]
 match 'home' => "static_pages#cathome", via: [:get]

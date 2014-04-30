@@ -1,4 +1,5 @@
 module GoogleBooks
+  
   class << self
     def retrieve(id)
       RetrieveResponse.new get(retrieve_url(id).to_s)
@@ -20,7 +21,6 @@ module GoogleBooks
 
     def method_missing(method_sym, *args, &block)
       @response[method_sym.to_s]
-    end    
+    end
   end
-  
 end

@@ -40,10 +40,10 @@ gem 'public_activity'
 gem 'sunspot_rails'
 gem 'acts_as_votable', '~> 0.9.0'
 gem 'will_paginate', '~> 3.0'
-gem 'googlebooks', '~> 0.0.8'
 gem 'jquery-fileupload-rails'
 gem 'nested_form'
 gem 'merit'
+gem 'googlebooks', '~> 0.0.8'
 
 
 group :development do

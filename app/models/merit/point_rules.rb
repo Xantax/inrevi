@@ -19,6 +19,8 @@ module Merit
       #
       score 5, :on => ['auto_reviews#create'], category: 'gold_points'
       score 2, :on => ['auto_reviews#upvote'], to: :user, category: 'gold_points'
+      score 1, :on => ['auto_reviews#upvote', 
+        'auto_reviews#downvote'], category: 'gold_points'
       
       score 1, :on => ['auto_reviews#create'], to: :user, category: 'just_reviews'
       #
