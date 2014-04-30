@@ -3,6 +3,7 @@ class AutoReviewsController < ApplicationController
   before_action :set_auto, only: [:index, :show, :new, :create, :edit]
   before_action :signed_in_user, only: [:new, :upvote, :downvote, :edit, :update, :destroy]
 
+  
   def index
     @auto_reviews = @auto.auto_reviews.order("cached_votes_score DESC")
     @avg_score = 0

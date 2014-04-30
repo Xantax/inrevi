@@ -1,0 +1,27 @@
+<%= form_for @link do |f| %>
+ 
+  <% if @link.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@link.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @link.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <b>Name / Company</b><br>
+    <%= f.text_field :link, :class => "field podtitle" %><br><br>
+
+    <%= f.label :text %><br>
+    <%= f.text_field :text, :class => "field podtitle" %><br><br>
+
+    <div class="actions">
+      <%= f.submit " Submit ", :class => "btn btn-primary" %>
+    </div>
+ 
+<% end %>

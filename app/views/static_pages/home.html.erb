@@ -13,7 +13,11 @@
  <div class="qupdate">
 
    <div class="texty">
-       What body & bath products are you using in bathroom?
+     
+      <% @links.limit(10).shuffle.each do |link| %>
+        <a href="<%= link.link %>"><%= link.text %></a>
+      <% end %>
+     
    </div>
 
  </div>

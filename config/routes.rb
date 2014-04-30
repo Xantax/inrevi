@@ -1,5 +1,7 @@
 Inrevi::Application.routes.draw do
 
+  resources :links
+
   get 'techtags/:tag', to: 'teches#index', as: :ttag
   get 'drugtags/:tag', to: 'drugs#index', as: :dtag
   get 'podtags/:tag', to: 'podcasts#index', as: :tag  
@@ -64,7 +66,7 @@ match 'policy' => "static_pages#policy", via: [:get]
   end
  
 #----------   AUTO   ----------  
-  
+  resources :auto_reviews
   resources :autos do
     member do
       get "additionalinfo" => "autos#additionalinfo"
