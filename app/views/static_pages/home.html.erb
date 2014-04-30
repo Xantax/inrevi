@@ -12,12 +12,8 @@
     
  <div class="qupdate">
 
-   <div class="texty">
-     
-      <% @links.limit(10).shuffle.each do |link| %>
-        <a href="<%= link.link %>"><%= link.text %></a>
-      <% end %>
-     
+   <div class="texty">    
+        <a href="<%= @link.link %>"><%= @link.text %></a>     
    </div>
 
  </div>
