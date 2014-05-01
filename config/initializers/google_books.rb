@@ -20,7 +20,7 @@ module GoogleBooks
     end
 
     def method_missing(method_sym, *args, &block)
-      @response[method_sym.to_s]
+      @response[method_sym.to_s] ||= {}
     end
   end
 end

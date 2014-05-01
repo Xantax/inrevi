@@ -9,7 +9,7 @@
           <%= auto_review.user.last_name.truncate(2, omission: '.')%>
         <% end %>
       </div>    
-            <%= image_tag(auto_review.user.reviewimage) %>  
+        <%= image_tag(auto_review.user.image, width: "80") %>  
       </div>
         
       <div class="col-sm-9 podreview"> 

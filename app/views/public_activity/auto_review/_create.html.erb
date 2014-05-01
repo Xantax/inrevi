@@ -12,7 +12,7 @@
          <%= activity.owner.last_name.truncate(2, omission: '.')%>
       <% end %>
       </div>
-        <%= image_tag(activity.owner.reviewimage) %>  
+      <%= image_tag(activity.owner.image, width: "80") %>  
     </div>
   
    <% end %>
