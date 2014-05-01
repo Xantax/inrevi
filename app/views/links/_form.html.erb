@@ -1,5 +1,5 @@
 <%= form_for @link do |f| %>
- 
+
   <% if @link.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -14,7 +14,7 @@
     </div>
   <% end %>
 
-    <b>Name / Company</b><br>
+    <b>Link</b><br>
     <%= f.text_field :link, :class => "field podtitle" %><br><br>
 
     <%= f.label :text %><br>

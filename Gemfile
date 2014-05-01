@@ -11,7 +11,6 @@ gem 'httparty'
 gem 'json'
 gem "carrierwave"
 gem "rmagick"
-
 gem "tilt"
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
@@ -31,7 +30,6 @@ gem 'openlibrary'
 gem 'progress_bar'
 gem 'acts-as-taggable-on'
 gem 'activerecord'
-gem 'haml-rails'
 gem 'fastimage'
 gem 'newrelic_rpm'
 gem 'nokogiri'
@@ -44,6 +42,7 @@ gem 'jquery-fileupload-rails'
 gem 'nested_form'
 gem 'merit'
 gem 'googlebooks', '~> 0.0.8'
+gem 'simple_form'
 
 
 group :development do

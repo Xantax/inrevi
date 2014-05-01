@@ -1,4 +1,13 @@
 <%= render 'autos/autoshow' %>
+
+    <% if @promotion.present? %>
+      <% if @promotion.auto %>
+        <div class="row showpromotion">
+          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
+        </div>
+      <% end %>
+    <% end %>
+
   <div class="row"> 
     <%= render :file => '/auto_reviews/index' %>
   </div>

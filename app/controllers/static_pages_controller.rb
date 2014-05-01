@@ -6,9 +6,9 @@ class StaticPagesController < ApplicationController
      @popular_activities = PublicActivity::Activity.order("created_at desc").where(owner_id: @popular_users, owner_type: "User").limit(10)
 
      @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.followed_user_ids, owner_type: "User")
-
-     @link = Link.order("RANDOM()").first
-
+      
+       @link = Link.order("RANDOM()").first
+      
     end
   end
 

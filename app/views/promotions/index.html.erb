@@ -1,0 +1,43 @@
+<%= link_to 'New Ad', new_promotion_path, class: "btn btn-primary" %><br><br>
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Text</th>
+      <th>Link</th>
+      <th>Category</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @promotions.each do |promotion| %>
+      <tr>
+        <td><%= promotion.text %></td>
+        <td><%= promotion.link %></td>
+        <td>
+          <% if promotion.auto %>
+          Auto
+          <% elsif promotion.local %>
+          Local
+          <% elsif promotion.tech %>
+          Tech
+          <% elsif promotion.book %>
+          Book
+          <% elsif promotion.movie %>
+          Movie
+          <% elsif promotion.music %>
+          Music
+          <% elsif promotion.podcast %>
+          Podcast
+          <% else %>
+          Uncategorized
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', promotion %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

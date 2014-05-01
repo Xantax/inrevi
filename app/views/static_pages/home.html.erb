@@ -1,4 +1,4 @@
-<% provide(:title, 'Inrevi - Just reviews.') %>
+<% provide(:title, 'Just reviews.') %>
 
 <div class="row">
   
@@ -10,8 +10,10 @@
    <p id="notice"><%= notice %></p>
         <% if signed_in? %>
            <div class="qupdate">
-               <div class="texty">    
-                  <a href="<%= @link.link %>"><%= @link.text %></a>     
+               <div class="texty">
+                 <% if @link.present? %>
+                 <a href="<%= @link.link if @link.link.present? %>"><%= @link.text %></a>
+                 <% end %>
                </div>
            </div>
           

@@ -1,5 +1,7 @@
 Inrevi::Application.routes.draw do
 
+  resources :promotions
+
   resources :links
 
   get 'techtags/:tag', to: 'teches#index', as: :ttag
