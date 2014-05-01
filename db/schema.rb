@@ -258,12 +258,14 @@ ActiveRecord::Schema.define(version: 20140501005741) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "image"
+    t.string   "email"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name"
-    t.string   "last_name"
     t.integer  "sash_id"
     t.integer  "level",            default: 0
   end
