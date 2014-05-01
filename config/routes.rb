@@ -29,7 +29,7 @@ match 'policy' => "static_pages#policy", via: [:get]
   resources :contact_forms 
   resources :activities
   
-  resources :users, :only => [:show, :index] do
+  resources :users, :only => [:show, :index, :edit, :update] do
     member do
       get :following 
       get :followers

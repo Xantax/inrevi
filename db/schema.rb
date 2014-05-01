@@ -257,6 +257,7 @@ ActiveRecord::Schema.define(version: 20140501005741) do
   create_table "users", force: true do |t|
     t.string   "provider"
     t.string   "uid"
+    t.boolean  "admin"
     t.string   "name"
     t.string   "first_name"
     t.string   "last_name"

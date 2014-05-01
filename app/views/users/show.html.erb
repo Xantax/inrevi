@@ -4,6 +4,11 @@
   
   <div class="col-sm-3 usershow">
     <%= render 'shared/user_info' %>
+    <% if @user.admin %>
+      Administrator
+    <% else %>
+      Not an admin
+    <% end %>
   </div>
   
   <div class="col-sm-7 usershow"> 
