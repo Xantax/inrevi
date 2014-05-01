@@ -5,16 +5,17 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   
-  before_filter :authorize
-
-  delegate :allow?, to: :current_permission
-  helper_method :allow?
-  
   include SessionsHelper
   include MediaHelper
   include LocalsHelper
   include BooksHelper
   include PointsHelper
+  
+  before_filter :authorize
+
+  delegate :allow?, to: :current_permission
+  helper_method :allow?
+  
   
   private
 

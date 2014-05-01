@@ -1,27 +1,16 @@
-class Permission
-  
-  def initialize(user)
-
-      allow_all
-
-  end
-  
+class Permission < Struct.new(:user)
   def allow?(controller, action)
-    @allow_all ||= @allowed_actions[[controller.to_s, action.to_s]]
-  end
-  
-  def allow_all
-    @allow_all = true
-  end
-  
-  def allow(controllers, actions)
-    @allowed_actions ||= {}
-    Array[controllers].each do |controller|
-      Array[actions].each do |action|
-        @allowed_actions[[controller.to_s, action.to_s]] = true
-      end
+    return true if controller == "sessions"
+    return true if controller == "static_pages"
+    return true if controller == "users" && action.in?(%w[show])
+    return true if controller == "auto_reviews" && action.in?(%w[index])
+    if user
+      return true if controller == "auto_reviews" && action.in?(%w[new create index])
+      return true if user.admin?
     end
+    false
   end
-   
 end
+
+
 
