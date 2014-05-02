@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140501005741) do
     t.string   "title"
     t.text     "content"
     t.integer  "point",                 default: -1
+    t.boolean  "published",             default: true
     t.integer  "user_id"
     t.integer  "auto_id"
     t.datetime "created_at"
@@ -245,6 +246,7 @@ ActiveRecord::Schema.define(version: 20140501005741) do
   create_table "teches", force: true do |t|
     t.string   "name"
     t.string   "website"
+    t.boolean  "published",  default: true
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
@@ -260,6 +262,7 @@ ActiveRecord::Schema.define(version: 20140501005741) do
     t.string   "uid"
     t.boolean  "admin"
     t.boolean  "banned"
+    t.boolean  "moderator"
     t.string   "name"
     t.string   "first_name"
     t.string   "last_name"

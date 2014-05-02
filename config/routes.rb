@@ -83,6 +83,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   end
 
   match 'auto_reviews/all' => "auto_reviews#all", via: [:get]
+  match 'auto_reviews/unpublished' => "auto_reviews#unpublished", via: [:get]
 
 #----------   MEDIA   ----------
   

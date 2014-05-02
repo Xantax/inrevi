@@ -1,0 +1,25 @@
+<div class="row">
+  <% @all_auto_reviews.each do |all_auto_review| %>
+    <div class="col-sm-3">
+      <%= link_to user_path(all_auto_review.user) do %> 
+        <%= all_auto_review.user.name %><br>
+      <% end %>
+      <%= image_tag(all_auto_review.user.reviewimage) %>
+    </div>
+    <div class="col-sm-9">
+      Auto: <%= link_to all_auto_review.auto.name, all_auto_review.auto %><br>
+      <%= all_auto_review.point %> - <b><%= all_auto_review.title %></b><br>
+      <%= all_auto_review.content %><br>
+      <% all_auto_review.review_images.each do |pic| %>
+         <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>
+      <% end %><br><br>
+      <%= all_auto_review.get_upvotes.size %> | <%= all_auto_review.get_downvotes.size %>
+      <%= link_to "Edit", edit_auto_auto_review_path(all_auto_review.auto, all_auto_review), class: "btn btn-primary" %>
+      <%= link_to 'Delete', [all_auto_review.auto, all_auto_review],
+               method: :delete,
+               data: { confirm: 'Are you sure?'},
+               class: "btn btn-primary" %>
+      <hr>
+    </div>
+  <% end %>
+</div>

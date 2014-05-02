@@ -4,6 +4,7 @@ class CreateAutoReviews < ActiveRecord::Migration
       t.string :title
       t.text :content
       t.integer :point, default: -1
+      t.boolean :published, default: true
       t.references :user, index: true
       t.references :auto, index: true
 

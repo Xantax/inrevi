@@ -4,6 +4,9 @@ include PublicActivity::Common
   attr_accessor :image, :file
   
   acts_as_votable
+  
+  scope :published, where(published: true)
+  scope :unpublished, where(published: false)
     
   belongs_to :user
   belongs_to :auto

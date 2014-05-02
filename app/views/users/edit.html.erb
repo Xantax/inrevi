@@ -11,12 +11,16 @@
   </div>
   <% end %>
 
-    Admin:
-    <%= f.check_box :admin %>
-      <br><br>
     Ban:
     <%= f.check_box :banned %>
       <br><br>
-    <%= f.submit %>
+    Moderator:
+    <%= f.check_box :moderator %>
+      <br><br>
+    Admin:
+    <%= f.check_box :admin %>
+      <br><br>
+
+<%= f.submit %>
 
 <% end %>
