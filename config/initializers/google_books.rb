@@ -7,7 +7,8 @@ module GoogleBooks
 
     def retrieve_url(id)
       URI::HTTPS.build(:host => 'www.googleapis.com',
-                       :path => "/books/v1/volumes/#{id}"
+                       :path => "/books/v1/volumes/#{id}", 
+                       :query => "country=ca&key=AIzaSyDxG-6sGqo6mwxmtKa2JAkxECAwCJVLE_M"
                       )
     end
   end
@@ -20,7 +21,7 @@ module GoogleBooks
     end
 
     def method_missing(method_sym, *args, &block)
-      @response[method_sym.to_s] ||= {}
+      @response[method_sym.to_s]
     end
   end
 end

@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:admin)
+      params.require(:user).permit(:admin, :banned)
     end
 
     # Before filters

@@ -258,6 +258,7 @@ ActiveRecord::Schema.define(version: 20140501005741) do
     t.string   "provider"
     t.string   "uid"
     t.boolean  "admin"
+    t.boolean  "banned"
     t.string   "name"
     t.string   "first_name"
     t.string   "last_name"

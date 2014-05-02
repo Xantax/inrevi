@@ -3,12 +3,12 @@
 <div class="row">
   
   <div class="col-sm-3 usershow">
-    <%= render 'shared/user_info' %>
-    <% if @user.admin %>
-      Administrator
-    <% else %>
-      Not an admin
+    <%= render 'shared/user_info' %><br>
+    
+    <% if allow? "users", "edit" %>
+    <%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary" %>
     <% end %>
+    
   </div>
   
   <div class="col-sm-7 usershow"> 
