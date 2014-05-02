@@ -26,6 +26,11 @@
     <%= f.label :message %><br>
     <%= f.text_area :message, :class => "field podcontent" %><br><br>
 
+    <% if allow? "contact_forms", "index" %>
+      <%= f.label :read %><br>
+      <%= f.check_box :read %><br><br>
+    <% end %>
+
     <div class="actions">
       <%= f.submit " Submit ", :class => "btn btn-primary" %>
     </div>

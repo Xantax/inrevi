@@ -3,7 +3,8 @@
     <th>Title</th>
     <th>Email</th>
     <th>Created</th>
-    <th colspan="3"></th>
+    <th></th>
+    <th>Status</th>
   </tr>
  
   <% @contact_forms.each do |contact_form| %>
@@ -12,10 +13,8 @@
       <td><%= contact_form.email %></td>
       <td><%= time_ago_in_words(contact_form.created_at) %></td>
       <td><%= link_to 'Show', contact_form_path(contact_form) %></td>
-      <td><%= link_to 'Edit', edit_contact_form_path(contact_form) %></td>
-      <td><%= link_to 'Destroy', contact_form_path(contact_form),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+      <td><%= image_tag('othericons/checkbox_blue.PNG') if contact_form.read %></td>
+
     </tr>
   <% end %>
 </table>

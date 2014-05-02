@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20140501005741) do
     t.string   "email"
     t.string   "category"
     t.text     "message"
+    t.boolean  "read"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
