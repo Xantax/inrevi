@@ -3,16 +3,15 @@
 <div class="row podup"> 
   
   <div class="col-sm-5"> 
-    <div class="local name"><%= link_to @local['name'], local_path %></div>
+    <div class="local name"><%= link_to @local['name'], local_path if @local['name'].present? %></div>
     <div class="localcategory"><%= @local['category_labels'].join(', ').split.last(1).join('') if @local['category_labels'].present? %></div>
-    <div id="map-canvas" style="width: 170px; height: 160px" ></div>
-    <%= render 'google_map.html.haml' %>
-  </div> 
+     <%= link_to image_tag("http://maps.googleapis.com/maps/api/staticmap?center=#{@local['latitude']},#{@local['longitude']}&zoom=14&size=170x160&markers=color:black%7Xlabel:C%7C#{@local['latitude']},#{@local['longitude']}&sensor=false"), "http://maps.google.com/maps?daddr=#{@local['latitude']},#{@local['longitude']}", :target => "_blank" %>
+  </div>
   
   <div class="col-sm-4">
-        <%= @local['address'] %><br>
-        <%= @local['locality'] %>,
-        <%= @local['region'] %><br>
+        <%= @local['address'] if @local['address'].present? %><br>
+        <%= @local['locality'] if @local['locality'].present? %>,
+        <%= @local['region'] if @local['region'].present? %><br>
     
         <% unless @local['tel'].blank? %>
         <%= image_tag("localicons/phoneicon.PNG", height: '12', width: '12') %>
