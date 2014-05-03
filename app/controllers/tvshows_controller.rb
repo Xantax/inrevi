@@ -10,17 +10,14 @@ class TvshowsController < ApplicationController
     
   def index
     @popular = Tmdb::TV.popular
-    @tvshow_reviews = TvshowReview.where(tvshow_id: params[:id])
   end
 
   def show
     @tvshow = Tmdb::TV.detail(params[:id])
-    @tvshow_reviews = TvshowReview.where(tvshow_id: params[:id])
   end
   
   def search
     @tvshow = Tmdb::TV.find(params[:query])
-    @tvshow_reviews = TvshowReview.where(tvshow_id: params[:query])
   end
   
 end
