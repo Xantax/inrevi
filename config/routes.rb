@@ -55,17 +55,17 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
 #----------   HEALTH   ----------
   
   resources :drugs do
-    resources :reviews
+
   end
   
   resources :supplements do
-    resources :reviews
+
   end
  
 #----------   TECH   ----------  
   
   resources :teches do
-    resources :reviews
+
   end
  
 #----------   AUTO   ----------  

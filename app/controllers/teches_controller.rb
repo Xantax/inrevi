@@ -17,9 +17,7 @@ class TechesController < ApplicationController
   end
 
   def show
-    @reviewable = @tech
-    @reviews = @reviewable.reviews
-    @review = Review.new
+
   end
 
   def new
