@@ -15,7 +15,9 @@ module LocalsHelper
   end
 
   def select_params
-    ['cuisine', 'payment_cashonly', 'reservations', 'attire', 'parking', 'smoking', 'meal_breakfast', 'meal_lunch', 'meal_dinner',
+    ['hours_display',
+      
+      'cuisine', 'payment_cashonly', 'reservations', 'attire', 'parking', 'smoking', 'meal_breakfast', 'meal_lunch', 'meal_dinner',
      'meal_takeout', 'meal_cater', 'alcohol', 'kids_menu', 'accessible_wheelchair', 'seating_outdoor', 'wifi', '', 
       'room_private', 'options_vegetarian', 'options_vegan', 'options_glutenfree', 'options_organic', 'options_healthy',
       

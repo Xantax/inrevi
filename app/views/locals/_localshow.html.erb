@@ -26,7 +26,7 @@
           <%= link_to "website", @local['website'], :target => "_blank" %>
         <% end %><br>
     
-        <% unless @addition_info.present? %>
+        <% unless @addition_info.blank? %>
           <%= link_to "additional info", additionalinfo_local_path %>
         <% end %><br><br>
     
