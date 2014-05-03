@@ -1,19 +1,6 @@
 <% model_class = Local %>
 
 <div class="row podup"> 
-
-    <div class="<%= 'disabled' if @vote && @vote.live_vote? %> btn btn-warning glyphicon glyphicon-thumbs-up" data-factual-id="<%= @local['factual_id'] %>" data-place="<%= @local['locality'] %>" data-query="<%= @local['category_labels'] %>" id="vote-up">
-      Vote
-    </div>
-  
-  <% if @alternate_local %>
-    <div class="alert alert-info alert-dismissable">
-      You might also like this place:
-      <strong>
-        <%= link_to @alternate_local['name'], local_path(@alternate_local['factual_id']) %>
-      </strong>
-    </div>
-  <% end %>
   
   <div class="col-sm-5"> 
     <div class="local name"><%= link_to @local['name'], local_path %></div>
@@ -25,43 +12,30 @@
   <div class="col-sm-4">
         <%= @local['address'] %><br>
         <%= @local['locality'] %>,
-        <%= @local['region'] %><br><br>
+        <%= @local['region'] %><br>
+    
+        <% unless @local['tel'].blank? %>
+        <%= image_tag("localicons/phoneicon.PNG", height: '12', width: '12') %>
+        <b><%= @local['tel'] %></b>
+        <% end %><br><br>
+    
         <%= image_tag("localicons/directionicon.PNG", height: '12', width: '12') %>
-        <%= link_to "Get directions", "http://maps.google.com/maps?daddr=#{@local['latitude']},#{@local['longitude']}", :target => "_blank" %><br>
+        <%= link_to "Get directions", "http://maps.google.com/maps?daddr=#{@local['latitude']},#{@local['longitude']}", :target => "_blank" %><br><br>
     
-        <% if @local['tel'].blank? %>
-        <% else %>
-          <%= image_tag("localicons/phoneicon.PNG", height: '12', width: '12') %>
-          <b><%= @local['tel'] %></b>
-        <% end %><br>
-    
-        <% if @local['website'].blank? %>
-        <% else %>
-          <%= image_tag("localicons/newtabicon.PNG", height: '14', width: '14') %>
+        <% unless @local['website'].blank? %>
           <%= link_to "website", @local['website'], :target => "_blank" %>
         <% end %><br>
     
-        <% if @addition_info.present? %>
-          <%= image_tag("localicons/infoicon.PNG", height: '15', width: '6') %>
+        <% unless @addition_info.present? %>
           <%= link_to "additional info", additionalinfo_local_path %>
-        <% else %>
         <% end %><br><br>
-        <%= image_tag("othericons/PhotoShow.PNG") %> (6)       
+    
   </div>
 
   <div class="col-sm-3">
         <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
         <div class="writeareview"><%= link_to "Review it!", new_local_local_review_path(@local['factual_id']) %>
       </div><br>
-    <% if @local['hours'].blank? %>
-    <% else %>
-      <%= image_tag("localicons/clockicon.PNG", height: '18', width: '18') %>
-      <div class="localhours"><% JSON.parse(@local['hours']).each do |key, value| %><br>
-        <b><%= key.first(3).capitalize %></b>
-        <%= value.join(' - ').first(14) %>
-        <% end %>
-      </div>
-     <% end %>
   </div>
 
 </div> <br>

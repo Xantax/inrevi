@@ -1,2 +1,0 @@
-class LocalPromotionsController < ApplicationController
-end

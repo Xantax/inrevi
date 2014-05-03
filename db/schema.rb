@@ -102,13 +102,6 @@ ActiveRecord::Schema.define(version: 20140501005741) do
     t.datetime "updated_at"
   end
 
-  create_table "local_promotions", force: true do |t|
-    t.integer  "local_vote_id"
-    t.string   "place"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "local_reviews", force: true do |t|
     t.integer  "user_id"
     t.integer  "local_id"
@@ -120,14 +113,6 @@ ActiveRecord::Schema.define(version: 20140501005741) do
 
   add_index "local_reviews", ["local_id"], name: "index_local_reviews_on_local_id"
   add_index "local_reviews", ["user_id"], name: "index_local_reviews_on_user_id"
-
-  create_table "local_votes", force: true do |t|
-    t.string   "factual_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "query"
-    t.string   "place"
-  end
 
   create_table "locals", force: true do |t|
     t.integer  "factual_id"

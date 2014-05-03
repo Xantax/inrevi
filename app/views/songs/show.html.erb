@@ -15,7 +15,7 @@
            <div class="songartistalbum">
              <b>Artists:</b> <%= @song.artists.map(&:name).join(', ') %><br>
              <b>Album:</b> <%= @song.album.name %>
-           </div>
+           </div><br>
             
             <iframe allowtransparency="true" frameborder="0" height="80" src="https://embed.spotify.com/?uri=<%= @song.uri %>" width="300"></iframe>
          </div>

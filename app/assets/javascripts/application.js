@@ -15,7 +15,6 @@
 //= require bootstrap
 //= require jquery.ui.all
 //= require jquery.turbolinks
-//= require jquery-simple-pagination-plugin
 //= require jquery.raty
 //= require jquery-fileupload/basic
 //= require jquery_nested_form

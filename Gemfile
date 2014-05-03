@@ -43,7 +43,8 @@ gem 'nested_form'
 gem 'merit'
 gem 'googlebooks', '~> 0.0.8'
 gem 'simple_form'
-gem "omniauth-google-oauth2"
+gem 'omniauth-google-oauth2'
+gem 'haml-rails'
 
 
 group :development do
