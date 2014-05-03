@@ -1,4 +1,4 @@
-<% provide(:title, @book.title) %>
+<% provide(:title, @book.name) %>
 
 <div class="row">
  
@@ -8,7 +8,8 @@
     
   <div class="col-sm-8"> 
      <div class="allnews">
-        <%= render 'books/bookshow2' %>
+       <%= render 'books/bookshow' %>
+       <%= @book.description if @book.description.present? %>
      </div>
   </div>
   

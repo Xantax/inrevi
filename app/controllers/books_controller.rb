@@ -12,4 +12,8 @@ class BooksController < ApplicationController
     @book = GoogleBooks.retrieve(params[:id])
   end
   
+  def description
+    @book = GoogleBooks.retrieve(params[:id])
+  end
+  
 end

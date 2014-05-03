@@ -1,0 +1,25 @@
+<div class="row autoup"> 
+  <div class="col-sm-3"> 
+    <%= image_tag @book.imageLinks['thumbnail'] %>
+  </div> 
+  
+   <div class="col-sm-5 autoshow"> 
+     <b><%= link_to @book.title, book_path() if @book.title.present? %></b> <br>
+     by <%= @book.authors.first if @book.authors.present? %> <br><br>
+     Pages: <%= @book.pageCount if @book.pageCount.present? %> <br>
+     Year: <%= Date.parse(@book.publishedDate).strftime("%Y") if @book.publishedDate.present? %> <br><br>
+     <%= link_to "Preview", @book.previewLink, :target => "_blank" if @book.previewLink.present? %> <br>
+     <%= link_to "Description", description_book_path() %>
+  
+   </div>
+  
+  <div class="col-sm-4">
+    
+    <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+    <div class="writeareview">
+      <%= link_to "Write a Review", "#" %>
+    </div><br>
+    
+  </div>
+  
+</div> <br>

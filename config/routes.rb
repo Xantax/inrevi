@@ -90,19 +90,21 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   resources :songs, :only => [:index, :show] 
   
   resources :books do
-    resources :reviews
+    member do
+      get "description" => "books#description"
+    end
   end
   
   resources :movies do
-    resources :reviews
+
   end
   
   resources :tvshows do
-    resources :reviews
+
   end
   
   resources :podcasts do
-    resources :reviews
+
   end
 
 #----------   END MEDIA   ----------
