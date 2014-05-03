@@ -5,7 +5,7 @@
   <div class="col-sm-5"> 
     <div class="local name"><%= link_to @local['name'], local_path if @local['name'].present? %></div>
     <div class="localcategory"><%= @local['category_labels'].join(', ').split.last(1).join('') if @local['category_labels'].present? %></div>
-     <%= link_to image_tag("http://maps.googleapis.com/maps/api/staticmap?center=#{@local['latitude']},#{@local['longitude']}&zoom=14&size=170x160&markers=color:black%7Xlabel:C%7C#{@local['latitude']},#{@local['longitude']}&sensor=false"), "http://maps.google.com/maps?daddr=#{@local['latitude']},#{@local['longitude']}", :target => "_blank" %>
+    <%= link_to image_tag("http://maps.googleapis.com/maps/api/staticmap?center=#{@local['latitude']},#{@local['longitude']}&zoom=14&size=170x160&markers=color:black%7Xlabel:C%7C#{@local['latitude']},#{@local['longitude']}&sensor=false&key=#{Settings.google.key}"), "http://maps.google.com/maps?daddr=#{@local['latitude']},#{@local['longitude']}", :target => "_blank" %>
   </div>
   
   <div class="col-sm-4">

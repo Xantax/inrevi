@@ -2,19 +2,18 @@
   <div class="col-sm-3"> <%= image_tag @podcast.image_url(:thumb) if @podcast.image? %></div> 
   
   <div class="col-sm-5"> 
-   <b><%= link_to @podcast.name, podcast_path(@podcast) %></b> <br><br>
+    <div class="podcastnameshow"><%= link_to @podcast.name, podcast_path(@podcast) %></div><br>
 
    <div class="podinfo">
       Website:  <%= @podcast.website %><br >
-      Subject(s): <%= raw @podcast.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
+      Subjects: <%= raw @podcast.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
    </div>
   </div>
   <div class="col-sm-4">
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
-      <div class="writeareview"><%= link_to "Write a Review", [:new, @reviewable, :review] %>
+      <div class="writeareview"><%= link_to "Write a Review", "#" %>
       </div><br>
-    <%= image_tag("othericons/PhotoShow.PNG") %> (6) 
-    <%= image_tag("othericons/VideoShow.PNG") %> (7) <br><br>
+
     <%= link_to "Edit", edit_podcast_path(@podcast) %>
   </div>
 </div> <br>

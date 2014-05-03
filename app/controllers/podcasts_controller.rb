@@ -19,9 +19,6 @@
   end
 
   def show
-    @reviewable = @podcast
-    @reviews = @reviewable.reviews
-    @review = Review.new
   end
 
   def new
