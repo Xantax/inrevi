@@ -1,10 +1,10 @@
 <div class="row autoup"> 
   <div class="col-sm-3"> 
-    <%= image_tag @auto.image_url(:thumb) if @auto.image? %> 
+    <%= image_tag @auto_review.auto.image_url(:thumb) if @auto_review.auto.image? %> 
   </div> 
   
    <div class="col-sm-5 autoshow"> 
-     <b><%= link_to @auto.name, auto_path(@auto) %></b> <br><br>
+     <b><%= link_to @auto_review.auto.name, auto_path(@auto_review.auto) %></b> <br><br>
 
       <%= link_to "additional info", additionalinfo_auto_path %><br><br>
   
@@ -14,12 +14,8 @@
     
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
     <div class="writeareview">
-      <%= link_to "Write a Review", new_auto_auto_review_path(@auto) %>
+      <%= link_to "Write a Review", new_auto_auto_review_path(@auto_review.auto) %>
     </div><br>
-    
-     <div>
-     <%= render 'show_rating' %>
-     </div>
     
   </div>
   

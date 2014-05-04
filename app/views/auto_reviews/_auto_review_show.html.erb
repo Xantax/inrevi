@@ -1,0 +1,46 @@
+<% if current_user == @auto_review.user %>
+  <p id="notice"><%= notice %></p> <div align="center"><%= social_share_button_tag(@auto_review.title, :text => "twipsy") %></div>
+  <hr>
+<% end %>
+
+<div class="row">
+  
+  <div class="col-sm-3"> 
+    <div class="reviewname">     
+      <%= link_to user_path(@auto_review.user) do %> 
+        <%= @auto_review.user.first_name %>
+        <%= @auto_review.user.last_name.truncate(2, omission: '.')%>
+      <% end %>
+    </div>    
+          <%= image_tag(@auto_review.user.image, width: "80") %>  
+  </div>
+      
+    <div class="col-sm-9 podreview"> 
+      <div class="separatereview">
+        
+         <div class="numberOne">
+            <%= @auto_review.point %>
+         </div>
+        
+            <div class="reviewtitle"><%= @auto_review.title %>:</div> <br><br>  
+            <div class="reviewcontent">
+              <%= simple_format(@auto_review.content) %>
+            </div><br>
+          
+             <% unless @auto_review.review_images.empty? %>
+                <% @auto_review.review_images.each do |pic| %>
+                     <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>
+                <% end %>
+                 <% if signed_in? %>
+                   <% unless current_user == @auto_review.user %>
+                     <hr>
+                   <% end %>
+                 <% end %>
+             <% end %>
+        
+              <%= render 'bottom_auto_review' %>
+      
+        </div><br>
+    </div>
+  
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140501005741) do
+ActiveRecord::Schema.define(version: 20140503201009) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -74,6 +74,22 @@ ActiveRecord::Schema.define(version: 20140501005741) do
   add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id"
 
   create_table "books", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "computer_categories", force: true do |t|
+    t.string   "name"
+    t.integer  "parent_cat_id"
+    t.integer  "cat_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "computers", force: true do |t|
+    t.string   "name"
+    t.integer  "parent_cat_id"
+    t.integer  "cat_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -251,6 +267,7 @@ ActiveRecord::Schema.define(version: 20140501005741) do
     t.string   "name"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "friends"
     t.string   "image"
     t.string   "email"
     t.string   "oauth_token"

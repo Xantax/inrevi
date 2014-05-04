@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :first_name
       t.string :last_name
+      t.string :friends
       t.string :image
       t.string :email
       t.string :oauth_token

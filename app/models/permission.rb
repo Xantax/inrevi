@@ -7,7 +7,7 @@ class Permission < Struct.new(:user)
     return true if controller == "autos" && action.in?(%w[index show])
     return true if controller == "users" && action.in?(%w[show])
     return true if controller == "contact_forms" && action.in?(%w[new create])
-    return true if controller == "auto_reviews" && action.in?(%w[index])
+    return true if controller == "auto_reviews" && action.in?(%w[index show])
     if user
       return true if user.admin?
       #return false if user.banned?

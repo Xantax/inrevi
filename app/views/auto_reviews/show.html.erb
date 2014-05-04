@@ -1,27 +1,18 @@
-<div class="col-sm-3"> 
-    <div class="reviewname">     
-      <%= link_to user_path(@auto_review.user) do %> 
-        <%= @auto_review.user.first_name %>
-        <%= @auto_review.user.last_name.truncate(2, omission: '.')%>
-      <% end %>
-    </div>
+<div class="row">
+ 
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div> 
     
-          <%= image_tag(@auto_review.user.smallimage) %>
-  
-    </div>
-      
-    <div class="col-sm-9 podreview"> 
-      <div class="separatereview">
-      <b><%= @auto_review.title %>:</b> <br>  
-        <div class="reviewcontent"><%= simple_format(@auto_review.content) %></div><br>
-        
-        <% @auto_review.review_images.each do |pic| %>
-        <%= image_tag(pic.image_url(:review_thumb)) if pic.image? %>
-        <% end %>
-
-        <%= link_to "Edit", edit_auto_auto_review_path(@auto_review.auto_id, @auto_review) %>
-        <%= link_to 'Destroy', auto_auto_review_path(@auto_review.auto_id, @auto_review),
-                    method: :delete, data: { confirm: 'Are you sure?' } %>
-      
-    </div><br>
+  <div class="col-sm-8"> 
+     <div class="allnews">
+        <%= render 'auto_review_show_auto' %>
+        <%= render 'auto_review_show' %>
+     </div>
   </div>
+  
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
+
+</div>

@@ -36,7 +36,7 @@ class AutoReviewsController < ApplicationController
       if @auto_review.save
         @auto_review.create_activity :create, owner: current_user
         
-        format.html { redirect_to [@auto, @auto_review], notice: 'Auto review was successfully created.' }
+        format.html { redirect_to [@auto, @auto_review], notice: 'Thank you. Share your review' }
         format.json { render action: 'index', status: :created, location: @auto_review }
       else
         format.html { render action: 'new' }

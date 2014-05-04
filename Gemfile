@@ -45,6 +45,8 @@ gem 'googlebooks', '~> 0.0.8'
 gem 'simple_form'
 gem 'omniauth-google-oauth2'
 gem 'haml-rails'
+gem 'semantics3'
+gem 'social-share-button', '~> 0.1.6'
 
 
 group :development do
