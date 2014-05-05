@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @movie_review.title
+%p
+  %b Content:
+  = @movie_review.content
+%p
+  %b User:
+  = @movie_review.user
+%p
+  %b Movie:
+  = @movie_review.movie
+
+= link_to 'Edit', edit_movie_review_path(@movie_review)
+\|
+= link_to 'Back', movie_reviews_path

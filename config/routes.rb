@@ -1,5 +1,7 @@
 Inrevi::Application.routes.draw do
 
+  resources :movie_reviews
+
   get 'techtags/:tag', to: 'teches#index', as: :ttag
   get 'drugtags/:tag', to: 'drugs#index', as: :dtag
   get 'podtags/:tag', to: 'podcasts#index', as: :tag  

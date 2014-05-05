@@ -1,10 +1,21 @@
 <div class="row autoup"> 
-  <div class="col-sm-3"> 
-    map
+  <div class="col-sm-4">
+    <%= link_to image_tag("http://maps.googleapis.com/maps/api/staticmap?center=#{@local_review.local_latitude},#{@local_review.local_longitude}&zoom=14&size=140x130&markers=color:black%7Xlabel:C%7C#{@local_review.local_latitude},#{@local_review.local_longitude}&sensor=false&key=#{Settings.google.key}"), "http://maps.google.com/maps?daddr=#{@local_review.local_latitude},#{@local_review.local_longitude}", :target => "_blank" %>
   </div> 
   
-   <div class="col-sm-5 autoshow"> 
-basic info
+   <div class="col-sm-4"> 
+     <b><%= link_to @local_review.local_name, "locals/#{@local_review.local_factual}" if @local_review.local_name.present? %></b><br><br>
+        <%= @local_review.local_address if @local_review.local_address.present? %><br>
+        <%= @local_review.local_locality if @local_review.local_locality.present? %>,
+        <%= @local_review.local_region if @local_review.local_region.present? %><br>
+    
+        <% unless @local_review.local_tel.blank? %>
+        <%= image_tag("localicons/phoneicon.PNG", height: '12', width: '12') %>
+        <b><%= @local_review.local_tel %></b>
+        <% end %><br><br>
+    
+        <%= image_tag("localicons/directionicon.PNG", height: '12', width: '12') %>
+        <%= link_to "Get directions", "http://maps.google.com/maps?daddr=#{@local_review.local_latitude},#{@local_review.local_longitude}", :target => "_blank" %><br><br>
   
   </div>
   
@@ -12,7 +23,7 @@ basic info
     
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
     <div class="writeareview">
-      <%= link_to "Write a Review", new_local_local_review_path(@local['factual_id'], @local_reviews) %>
+      <%= link_to "Write a Review", new_local_local_review_path(@local_review.local_factual, @local_reviews) %>
     </div><br>
     
   </div>
