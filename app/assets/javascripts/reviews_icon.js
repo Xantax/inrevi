@@ -1,6 +1,6 @@
-$('.thumbsdown a, .thumbsup a').on('click', function() 
+$(document).on('click', '.thumbsdown a, .thumbsup a', function()
 {
-    var parent = $(this).closest('li');
-    $('.thumbsdown', parent).before('You voted');
+    var parent = $(this).closest('.separatereview');
+    $('.thumbsdown', parent).before('Voted!');
     $('.thumbsdown, .thumbsup', parent).remove();
 })
