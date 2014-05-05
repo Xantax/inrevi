@@ -4,7 +4,7 @@
       <%= link_to user_path(all_auto_review.user) do %> 
         <%= all_auto_review.user.name %><br>
       <% end %>
-      <%= image_tag(all_auto_review.user.reviewimage) %>
+      <%= image_tag(all_auto_review.user.image, width: "80") %>
     </div>
     <div class="col-sm-9">
       Auto: <%= link_to all_auto_review.auto.name, all_auto_review.auto %><br>

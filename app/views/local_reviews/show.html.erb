@@ -1,18 +1,18 @@
-%p#notice= notice
+<div class="row">
+ 
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div> 
+    
+  <div class="col-sm-8"> 
+     <div class="allnews">
+        <%= render 'local_review_show_local' %>
+        <%= render 'local_review_show' %>
+     </div>
+  </div>
+  
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
 
-%p
-  %b User:
-  = @local_review.user
-%p
-  %b Local:
-  = @local_review.local
-%p
-  %b Title:
-  = @local_review.title
-%p
-  %b Content:
-  = @local_review.content
-
-= link_to 'Edit', edit_local_review_path(@local_review)
-\|
-= link_to 'Back', local_reviews_path
+</div>

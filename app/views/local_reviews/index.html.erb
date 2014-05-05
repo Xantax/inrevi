@@ -1,25 +1,57 @@
-%h1 Listing local_reviews
-
-%table
-  %tr
-    %th User
-    %th Local
-    %th Title
-    %th Content
-    %th
-    %th
-    %th
-
-  - @local_reviews.each do |local_review|
-    %tr
-      %td= local_review.user
-      %td= local_review.local
-      %td= local_review.title
-      %td= local_review.content
-      %td= link_to 'Show', local_review
-      %td= link_to 'Edit', edit_local_review_path(local_review)
-      %td= link_to 'Destroy', local_review, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Local review', new_local_review_path
+<% @local_reviews.each do |local_review| %><br>
+    <div class="col-sm-3"> 
+      <div class="reviewname">     
+        <%= link_to user_path(local_review.user) do %> 
+          <%= local_review.user.first_name %>
+          <%= local_review.user.last_name.truncate(2, omission: '.')%>
+        <% end %>
+      </div>    
+        <%= image_tag(local_review.user.image, width: "80") %>  
+      </div>
+        
+      <div class="col-sm-9 podreview"> 
+         <div class="separatereview">
+           
+            <div class="numberOne">
+              <%= local_review.point %>
+            </div>
+          
+          <div class="reviewtitle"><%= local_review.title %></div><br><br>
+          <div class="reviewcontent"><%= simple_format(local_review.content) %></div>
+           
+             <% unless local_review.review_images.empty? %>
+                <% local_review.review_images.each do |pic| %>
+                     <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>
+                <% end %>
+                 <% if signed_in? %>
+                   <% unless current_user == local_review.user %>
+                     <hr>
+                   <% end %>
+                 <% end %>
+             <% end %>
+           
+              <div class="bottomreviewicons">
+                <% if signed_in? %>
+                
+                  <% if current_user == local_review.user %>
+                    
+                  <% elsif current_user.voted_for? local_review %>
+                    Voted!
+                  <% else %>
+                   <div class="thumbsup">
+                     <%= link_to image_tag('othericons/thumbsup_off.PNG', height: '21', width: '20'),  like_local_local_review_path(local_review.local_id, local_review), method: :put, :remote => true %>
+                   </div>
+                            
+                   <div class="thumbsdown">
+                    <%= link_to image_tag('othericons/thumbsdown_off.PNG', height: '21', width: '20'), dislike_local_local_review_path(local_review.local_id, local_review), method: :put, :remote => true %>
+                   </div>
+                
+                  <% end %>
+                
+                <% end %>
+                
+              </div>
+          
+      </div><br>
+    </div>
+  <% end %>

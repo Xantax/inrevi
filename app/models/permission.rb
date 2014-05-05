@@ -16,6 +16,7 @@ class Permission < Struct.new(:user)
       end
       return true if controller == "relationships" && action.in?(%w[create destroy])
       return true if controller == "auto_reviews" && action.in?(%w[new create upvote downvote])
+      return true if controller == "local_reviews" && action.in?(%w[new create upvote downvote])
       return true if controller == "locals" && action.in?(%w[index])
       return true if controller == "users" && action.in?(%w[edit update])
     end

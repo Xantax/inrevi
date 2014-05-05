@@ -1,7 +1,6 @@
 class AutoReviewsController < ApplicationController
   before_action :set_auto_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :set_auto, only: [:index, :show, :new, :create, :edit]
-  before_action :signed_in_user, only: [:new, :upvote, :downvote, :edit, :update, :destroy]
 
   def all
     @all_auto_reviews = AutoReview.published.order("cached_votes_score ASC")
@@ -46,7 +45,6 @@ class AutoReviewsController < ApplicationController
   end
 
   def update
-    @auto_review = @auto.auto_reviews.find(params[:id])
     @auto_review.review_images.build if @auto_review.review_images.empty?
     @auto_review.user = current_user
     

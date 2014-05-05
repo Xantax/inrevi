@@ -1,9 +1,5 @@
 Inrevi::Application.routes.draw do
 
-  resources :promotions
-
-  resources :links
-
   get 'techtags/:tag', to: 'teches#index', as: :ttag
   get 'drugtags/:tag', to: 'drugs#index', as: :dtag
   get 'podtags/:tag', to: 'podcasts#index', as: :tag  
@@ -28,6 +24,8 @@ match 'policy' => "static_pages#policy", via: [:get]
 match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
 
   
+  resources :promotions
+  resources :links
   resources :contact_forms 
   resources :activities
   
@@ -44,14 +42,21 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
 #----------   LOCAL   ----------  
   
   match 'lsearch' => "locals#lsearch", via: [:get]
-  post 'vote' => 'votes#create', as: :local_vote
   
   resources :locals do
     member do
       get "additionalinfo" => "locals#additionalinfo"
     end
-  resources :local_reviews
+    resources :local_reviews do
+      member do
+        put "like", to: "local_reviews#upvote"
+        put "dislike", to: "local_reviews#downvote"
+      end     
+    end
   end
+  
+  match 'local_reviews/all' => "local_reviews#all", via: [:get]
+  match 'local_reviews/unpublished' => "local_reviews#unpublished", via: [:get]
   
 #----------   HEALTH   ----------
   

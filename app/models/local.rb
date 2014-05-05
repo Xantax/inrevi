@@ -1,6 +1,8 @@
 class Local < ActiveRecord::Base
   has_many :local_reviews
   
+  mount_uploader :image, ImageUploader
+  
   require 'open-uri'
   require 'json'
 

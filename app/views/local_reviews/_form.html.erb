@@ -1,4 +1,4 @@
-<%= form_for :local_review, url: local_local_reviews_path do |f| %>
+<%= nested_form_for(:local_review, url: local_local_reviews_path, validate: true, html: {multipart: true}, 'data-update-target' => 'comments', class: 'comments') do |f| %>
   <% if @local_review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@local_review.errors.count, "error") %> prohibited this review from being saved:</h2>
@@ -11,26 +11,72 @@
     </div>
   <% end %>
 
-<%= f.hidden_field :local_id, :value => @local['factual_id'] %>
+    <%= f.hidden_field :point %>
+    <div class="rating-comments"></div>
+    <br>
+  
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title, :class => "field podtitle", :placeholder => "max. 50 characters", :onfocus => "this.placeholder = ''" %>
+    </div><br>
+  
+    <div class="field">
+      <%= f.label :content %><div class="contentcharacters">(minimum 140 characters)</div><br>
+      <%= f.text_area :content, :class => "field podcontent", :placeholder => "Tell the world what you like or dislike, give tips and suggestions... ", :onfocus => "this.placeholder = ''" %>
+    </div><br>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title, :class => "field podtitle" %>
-  </div><br>
+  <div class="optionalreview">Optional (images):</div>
 
-  <div class="field">
-    <%= f.label :content %><div class="contentcharacters">(minimum 140 characters)</div><br>
-    <%= f.text_area :content, :class => "field podcontent", :placeholder => "Tell the world what you like or dislike, give tips and suggestions... " %>
-  </div><br>
+      <%= f.fields_for :review_images do |p| %>
+      <%= image_tag('othericons/PhotoShow.PNG') %>
+        <div class="browseimage"><%= p.file_field :image %></div>  
+        <div class="removeicon"><%= p.link_to_remove image_tag('othericons/removeicon.PNG') %></div><br><br>
+      <% end %>
 
-  <div class="optionalreview">Optional:</div>
-  <div class="row reviewbottom">
 
-      <%= image_tag("othericons/PhotoShow.PNG") %> + Add images
- 
-  </div>
+  <br><br><br>
 
-  <div class="actions">
-    <%= f.submit " Submit ", :class => "btn btn-primary" %>
-  </div>
+      <% if allow? "local_reviews", "edit" %>
+        <%= f.check_box :published %>
+      <% end %>
+    
+      <div class="actions">
+        <%= f.submit " Submit ", :class => "btn btn-primary", :id => "submit" %>
+      </div><br>
+    
+      <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
+
+      <%= f.text_field :local_id, :value => @local['factual_id'] %>
+      <%= f.text_field :local_name, :value => @local['name'] %>
+      <%= f.text_field :local_factual, :value => @local['factual_id'] %>
+      <%= f.text_field :local_address, :value => @local['address'] %>
+      <%= f.text_field :local_locality, :value => @local['locality'] %>
+      <%= f.text_field :local_region, :value => @local['region'] %>
+      <%= f.text_field :local_postcode, :value => @local['postcode'] %>
+      <%= f.text_field :local_country, :value => @local['country'] %>
+      <%= f.text_field :local_neighborhood , :value => @local['neighborhood'] %>
+      <%= f.text_field :local_tel, :value => @local['tel'] %>
+      <%= f.text_field :local_latitude, :value => @local['latitude'] %>
+      <%= f.text_field :local_longitude, :value => @local['longitude'] %>
+      <%= f.text_field :local_category_labels, :value => @local['category_labels'] %>
+      <%= f.text_field :local_email, :value => @local['email'] %>
+
 <% end %>
+
+<script type="text/javascript">
+        $('.rating-comments').raty({
+  click: function(score, evt) {
+    $("#local_review_point").val(score);
+    return console.log(score);
+  }
+});
+</script>
+
+<script type="text/javascript">
+(function (d) {
+  d.getElementById('new_local_review').onsubmit = function () {
+    d.getElementById('submit').style.display = 'block';
+    d.getElementById('loading2').style.display = 'block';
+  };
+}(document));
+</script>

@@ -25,7 +25,8 @@ class ApplicationController < ActionController::Base
     
     def authorize
       if !current_permission.allow?(params[:controller], params[:action])
-        redirect_to root_url, notice: "Not authorized."
+        store_location
+        redirect_to root_url, notice: "You need to log in!"
       end
     end
   
