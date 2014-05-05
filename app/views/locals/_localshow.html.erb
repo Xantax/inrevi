@@ -1,40 +1,49 @@
 <% model_class = Local %>
 
-<div class="row podup"> 
+<div class="row podup">
   
-  <div class="col-sm-4"> 
-    <div class="local name"><%= link_to @local['name'], local_path if @local['name'].present? %></div>
-    <div class="localcategory"><%= @local['category_labels'].join(', ').split.last(1).join('') if @local['category_labels'].present? %></div>
-    <%= link_to image_tag("http://maps.googleapis.com/maps/api/staticmap?center=#{@local['latitude']},#{@local['longitude']}&zoom=14&size=140x130&markers=color:black%7Xlabel:C%7C#{@local['latitude']},#{@local['longitude']}&sensor=false&key=#{Settings.google.key}"), "http://maps.google.com/maps?daddr=#{@local['latitude']},#{@local['longitude']}", :target => "_blank" %>
-  </div>
-  
-  <div class="col-sm-4">
-        <%= @local['address'] if @local['address'].present? %><br>
-        <%= @local['locality'] if @local['locality'].present? %>,
-        <%= @local['region'] if @local['region'].present? %><br>
-    
-        <% unless @local['tel'].blank? %>
-        <%= image_tag("localicons/phoneicon.PNG", height: '12', width: '12') %>
-        <b><%= @local['tel'] %></b>
-        <% end %><br><br>
-    
-        <%= image_tag("localicons/directionicon.PNG", height: '12', width: '12') %>
-        <%= link_to "Get directions", "http://maps.google.com/maps?daddr=#{@local['latitude']},#{@local['longitude']}", :target => "_blank" %><br><br>
-    
-        <% unless @local['website'].blank? %>
-          <%= link_to "website", @local['website'], :target => "_blank" %>
-        <% end %><br>
-    
-        <% unless @addition_info.blank? %>
-          <%= link_to "additional info", additionalinfo_local_path %>
-        <% end %><br><br>
+  <div class="col-sm-8"> 
+    <div class="row">
+      <div class="local name">
+        <%= link_to @local['name'], local_path if @local['name'].present? %>
+      </div>
+    </div><br>
+ 
+      <div class="row">        
+          <div class="col-sm-6"> 
+            <div class="localcategory"><%= @local['category_labels'].join(', ').split.last(1).join('') if @local['category_labels'].present? %></div>
+            <%= link_to image_tag("http://maps.googleapis.com/maps/api/staticmap?center=#{@local['latitude']},#{@local['longitude']}&zoom=14&size=140x130&markers=color:black%7Xlabel:C%7C#{@local['latitude']},#{@local['longitude']}&sensor=false&key=#{Settings.google.key}"), "http://maps.google.com/maps?daddr=#{@local['latitude']},#{@local['longitude']}", :target => "_blank" %>
+          </div>
+          
+          <div class="col-sm-6">
+                <%= @local['address'] if @local['address'].present? %><br>
+                <%= @local['locality'] if @local['locality'].present? %>,
+                <%= @local['region'] if @local['region'].present? %><br>
+            
+                <% unless @local['tel'].blank? %>
+                <%= image_tag("localicons/phoneicon.PNG", height: '12', width: '12') %>
+                <b><%= @local['tel'] %></b>
+                <% end %><br><br>
+            
+                <%= image_tag("localicons/directionicon.PNG", height: '12', width: '12') %>
+                <%= link_to "Get directions", "http://maps.google.com/maps?daddr=#{@local['latitude']},#{@local['longitude']}", :target => "_blank" %><br><br>
+            
+                <% unless @local['website'].blank? %>
+                  <%= link_to "website", @local['website'], :target => "_blank" %>
+                <% end %><br>
+            
+                <% unless @addition_info.blank? %>
+                  <%= link_to "additional info", additionalinfo_local_path %>
+                <% end %><br><br>
+          </div>        
+      </div>
     
   </div>
 
   <div class="col-sm-4">
         <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
         <div class="writeareview"><%= link_to "Write a Review", new_local_local_review_path(@local['factual_id']) %>
-      </div><br>
+      </div><br><br>
     
        <div>
          <%= render 'show_rating' %>

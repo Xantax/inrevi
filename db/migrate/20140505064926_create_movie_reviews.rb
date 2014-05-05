@@ -3,12 +3,12 @@ class CreateMovieReviews < ActiveRecord::Migration
     create_table :movie_reviews do |t|
       t.string :title
       t.text :content
-      t.reference :user
-      t.reference :movie
+      t.integer :point, default: -1
+      t.boolean :published, default: true
+      t.references :user, index: true
+      t.references :movie, index: true
 
       t.timestamps
     end
-    add_index :movie_reviews, :user
-    add_index :movie_reviews, :movie
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504191729) do
+ActiveRecord::Schema.define(version: 20140505064926) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -176,6 +176,20 @@ ActiveRecord::Schema.define(version: 20140504191729) do
     t.integer "sash_id"
     t.string  "category", default: "default"
   end
+
+  create_table "movie_reviews", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "point",      default: -1
+    t.boolean  "published",  default: true
+    t.integer  "user_id"
+    t.integer  "movie_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "movie_reviews", ["movie_id"], name: "index_movie_reviews_on_movie_id"
+  add_index "movie_reviews", ["user_id"], name: "index_movie_reviews_on_user_id"
 
   create_table "movies", force: true do |t|
     t.datetime "created_at"

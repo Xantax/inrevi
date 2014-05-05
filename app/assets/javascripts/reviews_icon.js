@@ -1,4 +1,6 @@
-$(document).on("click", ".thumbsdown a, .thumbsup a", function() {
-    $('.thumbsdown').before('Voted!')
-    $('.thumbsdown, .thumbsup').remove()
-});
+$('.thumbsdown a, .thumbsup a').on('click', function() 
+{
+    var parent = $(this).closest('li');
+    $('.thumbsdown', parent).before('You voted');
+    $('.thumbsdown, .thumbsup', parent).remove();
+})
