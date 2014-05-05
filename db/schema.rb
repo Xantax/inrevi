@@ -180,8 +180,13 @@ ActiveRecord::Schema.define(version: 20140505064926) do
   create_table "movie_reviews", force: true do |t|
     t.string   "title"
     t.text     "content"
-    t.integer  "point",      default: -1
-    t.boolean  "published",  default: true
+    t.integer  "point",         default: -1
+    t.boolean  "published",     default: true
+    t.string   "movie_ident"
+    t.string   "movie_imdb"
+    t.string   "movie_title"
+    t.string   "movie_runtime"
+    t.string   "movie_year"
     t.integer  "user_id"
     t.integer  "movie_id"
     t.datetime "created_at"

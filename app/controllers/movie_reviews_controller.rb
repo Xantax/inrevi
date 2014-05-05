@@ -1,33 +1,37 @@
 class MovieReviewsController < ApplicationController
   before_action :set_movie_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_movie, [:new, :create, :show]
 
-  # GET /movie_reviews
-  # GET /movie_reviews.json
+  def all
+    @all_movie_reviews = MovieReview.published.order("cached_votes_score ASC")
+  end
+  
+  def unpublished
+    @all_movie_reviews = MovieReview.unpublished.order("cached_votes_score ASC")
+  end
+  
   def index
-    @movie_reviews = MovieReview.all
+    @movie_reviews = MovieReview.where(movie_id: params[:id]).published.order("cached_votes_score DESC")
   end
 
-  # GET /movie_reviews/1
-  # GET /movie_reviews/1.json
   def show
   end
 
-  # GET /movie_reviews/new
   def new
     @movie_review = MovieReview.new
   end
 
-  # GET /movie_reviews/1/edit
   def edit
   end
 
-  # POST /movie_reviews
-  # POST /movie_reviews.json
   def create
     @movie_review = MovieReview.new(movie_review_params)
+    @movie_review.user = current_user
 
     respond_to do |format|
       if @movie_review.save
+        @movie_review.create_activity :create, owner: current_user
+        
         format.html { redirect_to @movie_review, notice: 'Movie review was successfully created.' }
         format.json { render action: 'show', status: :created, location: @movie_review }
       else
@@ -37,8 +41,6 @@ class MovieReviewsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /movie_reviews/1
-  # PATCH/PUT /movie_reviews/1.json
   def update
     respond_to do |format|
       if @movie_review.update(movie_review_params)
@@ -51,8 +53,6 @@ class MovieReviewsController < ApplicationController
     end
   end
 
-  # DELETE /movie_reviews/1
-  # DELETE /movie_reviews/1.json
   def destroy
     @movie_review.destroy
     respond_to do |format|
@@ -62,13 +62,17 @@ class MovieReviewsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_movie_review
       @movie_review = MovieReview.find(params[:id])
     end
+  
+    def set_movie
+      @movie = Tmdb::Movie.detail(params[:movie_id])
+    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def movie_review_params
-      params.require(:movie_review).permit(:title, :content, :user, :movie)
+      params.require(:movie_review).permit(:title, :content, :user, :movie, :point, :score, :published, :movie_imdb, :movie_title, :movie_year, :movie_runtime, :movie_ident, 
+        review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
 end

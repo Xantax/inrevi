@@ -104,8 +104,16 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   end
   
   resources :movies do
-
+    resources :movie_reviews do
+      member do
+        put "like", to: "movie_reviews#upvote"
+        put "dislike", to: "movie_reviews#downvote"
+      end     
+    end
   end
+
+  match 'movie_reviews/all' => "movie_reviews#all", via: [:get]
+  match 'movie_reviews/unpublished' => "movie_reviews#unpublished", via: [:get]
   
   resources :tvshows do
 

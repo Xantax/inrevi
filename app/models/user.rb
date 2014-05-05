@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   
   has_many :local_reviews
   has_many :auto_reviews
+  has_many :movie_reviews
   
   #---  END OF REVIEWS  ---#
   

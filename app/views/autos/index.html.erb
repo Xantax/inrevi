@@ -23,10 +23,10 @@
     
                 <div class="podcastsnowindex"><%= link_to auto.name, auto %></div>
                
-                 <div class="rating-total" data-id= "<%= auto.id %>" data-score= "<%= avg_score_for(auto) %>" >
+                 <div class="rating-total" data-id= "<%= auto.id %>" data-score= "<%= ((auto.auto_reviews.inject(0) { |sum, e| sum += e.point }).to_f / auto.auto_reviews.count).round(1) rescue 0 %>" >
                  </div>
                <div class="total-score">
-                 <%= avg_score_for auto %>
+                 <%= ((auto.auto_reviews.inject(0) { |sum, e| sum += e.point }).to_f / auto.auto_reviews.count).round(1) rescue 0 %>
                </div>
             </div>
            

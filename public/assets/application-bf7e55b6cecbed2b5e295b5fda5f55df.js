@@ -28747,23 +28747,13 @@ $.widget( "ui.tooltip", {
   $(document).on('page:load', ready);
 
 }).call(this);
-(function() {
-  var ready;
-
-  ready = function() {};
-
-  $(".thumbsdown a, .thumbsup a").on("click", function() {
-    var parent;
-    parent = $(this).closest(".separatereview");
-    $(".thumbsdown", parent).before("You voted");
-    $(".thumbsdown, .thumbsup", parent).remove();
-  });
-
-  $(document).ready(ready);
-
-  $(document).on('page:load', ready);
-
-}).call(this);
+$(document).on('click', '.thumbsdown a, .thumbsup a', function()
+{
+    var parent = $(this).closest('.separatereview');
+    $('.thumbsdown', parent).before('Voted!');
+    $('.thumbsdown, .thumbsup', parent).remove();
+})
+;
 (function() {
 
 

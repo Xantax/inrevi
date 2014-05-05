@@ -1,10 +1,10 @@
-<%= nested_form_for(@local_review, url: local_local_reviews_path, validate: true, html: {multipart: true}, 'data-update-target' => 'comments', class: 'comments') do |f| %>
-  <% if @local_review.errors.any? %>
+<%= nested_form_for(@movie_review, url: movie_movie_reviews_path, validate: true, html: {multipart: true}, 'data-update-target' => 'comments', class: 'comments') do |f| %>
+  <% if @movie_review.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@local_review.errors.count, "error") %> prohibited this review from being saved:</h2>
+      <h2><%= pluralize(@movie_review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
       <ul>
-      <% @local_review.errors.full_messages.each do |msg| %>
+      <% @movie_review.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -42,31 +42,23 @@
     
       <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
 
-      <% if allow? "local_reviews", "edit" %>
+      <% if allow? "movie_reviews", "edit" %>
         <%= f.check_box :published %>
       <% end %>
 
-      <%= f.text_field :local_id, :value => @local['factual_id'] %>
-      <%= f.text_field :local_name, :value => @local['name'] %>
-      <%= f.text_field :local_factual, :value => @local['factual_id'] %>
-      <%= f.text_field :local_address, :value => @local['address'] %>
-      <%= f.text_field :local_locality, :value => @local['locality'] %>
-      <%= f.text_field :local_region, :value => @local['region'] %>
-      <%= f.text_field :local_postcode, :value => @local['postcode'] %>
-      <%= f.text_field :local_country, :value => @local['country'] %>
-      <%= f.text_field :local_neighborhood , :value => @local['neighborhood'] %>
-      <%= f.text_field :local_tel, :value => @local['tel'] %>
-      <%= f.text_field :local_latitude, :value => @local['latitude'] %>
-      <%= f.text_field :local_longitude, :value => @local['longitude'] %>
-      <%= f.text_field :local_category_labels, :value => @local['category_labels'] %>
-      <%= f.text_field :local_email, :value => @local['email'] %>
+      <%= f.text_field :movie_id, :value => @movie.id %>
+      <%= f.text_field :movie_ident, :value => @movie.id %>
+      <%= f.text_field :movie_imdb, :value => @movie.imdb_id %>
+      <%= f.text_field :movie_title, :value => @movie.title %>
+      <%= f.text_field :movie_runtime, :value => @movie.runtime %>
+      <%= f.text_field :movie_year, :value => @movie.release_date.to_date.try(:year) %>
 
 <% end %>
 
 <script type="text/javascript">
         $('.rating-comments').raty({
   click: function(score, evt) {
-    $("#local_review_point").val(score);
+    $("#movie_review_point").val(score);
     return console.log(score);
   }
 });
@@ -74,7 +66,7 @@
 
 <script type="text/javascript">
 (function (d) {
-  d.getElementById('new_local_review').onsubmit = function () {
+  d.getElementById('new_movie_review').onsubmit = function () {
     d.getElementById('submit').style.display = 'block';
     d.getElementById('loading2').style.display = 'block';
   };

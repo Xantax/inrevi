@@ -1,5 +1,5 @@
 <div class="row movieup">  
-  <div class="col-sm-4">
+  <div class="col-sm-3">
     <div class="movieposter">
       
       <% if @movie.poster_path.blank? %>
@@ -40,7 +40,16 @@
       </div>
   </div>
   
-  <div class="col-sm-3">
-        <%= link_to "Review it!", "#" %>
+  <div class="col-sm-4">
+    
+        <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+        <div class="writeareview"><%= link_to "Write a Review", new_movie_movie_review_path(@movie.id) %>
+      </div><br><br>
+    
+       <div>
+         <%= render 'show_rating' %>
+       </div>
+    
   </div>  
+  
 </div>
