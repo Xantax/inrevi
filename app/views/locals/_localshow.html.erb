@@ -35,6 +35,12 @@
         <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
         <div class="writeareview"><%= link_to "Write a Review", new_local_local_review_path(@local['factual_id']) %>
       </div><br>
+    
+       <div>
+         <%= render 'show_rating' %>
+       </div>
+
+    
   </div>
 
 </div> <br>

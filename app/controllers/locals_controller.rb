@@ -16,12 +16,17 @@ class LocalsController < ApplicationController
   end
 
   def show
-    @local_reviews = LocalReview.where(local_id: params[:id])
     
     query = @factual.table('places')
     @local = query.filters('factual_id' => params[:id]).first
     
     other_local @local
+    
+    @local_reviews = LocalReview.where(local_id: params[:id]).published.order("cached_votes_score DESC")
+    
+    @avg_score = 0
+    @avg_score = @local_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @local_reviews.count if @local_reviews.count > 0
+    
   end
   
   def additionalinfo

@@ -5,8 +5,8 @@ include PublicActivity::Common
   
   acts_as_votable
   
-  scope :published, where(published: true)
-  scope :unpublished, where(published: false)
+  scope :published, -> { where(published: true) }
+  scope :unpublished, -> { where(published: false) }
   
   belongs_to :user
   belongs_to :local
