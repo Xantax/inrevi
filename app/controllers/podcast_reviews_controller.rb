@@ -35,7 +35,7 @@ class PodcastReviewsController < ApplicationController
       if @podcast_review.save
         @podcast_review.create_activity :create, owner: current_user
         
-        format.html { redirect_to @podcast_review, notice: 'Podcast review was successfully created.' }
+        format.html { redirect_to [@podcast, @podcast_review], notice: 'Podcast review was successfully created.' }
         format.json { render action: 'show', status: :created, location: @podcast_review }
       else
         format.html { render action: 'new' }

@@ -35,7 +35,7 @@ class TechReviewsController < ApplicationController
       if @tech_review.save
         @tech_review.create_activity :create, owner: current_user
         
-        format.html { redirect_to @tech_review, notice: 'Tech review was successfully created.' }
+        format.html { redirect_to [@tech, @tech_review], notice: 'Tech review was successfully created.' }
         format.json { render action: 'show', status: :created, location: @tech_review }
       else
         format.html { render action: 'new' }

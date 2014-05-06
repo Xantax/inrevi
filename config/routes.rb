@@ -1,6 +1,6 @@
 Inrevi::Application.routes.draw do
 
-  resources :tech_reviews
+#  resources :tech_reviews
   resources :podcast_reviews
   resources :tvshow_reviews
   resources :movie_reviews
