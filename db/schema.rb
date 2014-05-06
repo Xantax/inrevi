@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506155121) do
+ActiveRecord::Schema.define(version: 20140506200456) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -306,6 +306,30 @@ ActiveRecord::Schema.define(version: 20140506155121) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+
+  create_table "tech_reviews", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "point",                 default: -1
+    t.boolean  "published",             default: true
+    t.integer  "user_id"
+    t.integer  "tech_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "cached_votes_total",    default: 0
+    t.integer  "cached_votes_score",    default: 0
+    t.integer  "cached_votes_up",       default: 0
+    t.integer  "cached_votes_down",     default: 0
+    t.integer  "cached_weighted_score", default: 0
+  end
+
+  add_index "tech_reviews", ["cached_votes_down"], name: "index_tech_reviews_on_cached_votes_down"
+  add_index "tech_reviews", ["cached_votes_score"], name: "index_tech_reviews_on_cached_votes_score"
+  add_index "tech_reviews", ["cached_votes_total"], name: "index_tech_reviews_on_cached_votes_total"
+  add_index "tech_reviews", ["cached_votes_up"], name: "index_tech_reviews_on_cached_votes_up"
+  add_index "tech_reviews", ["cached_weighted_score"], name: "index_tech_reviews_on_cached_weighted_score"
+  add_index "tech_reviews", ["tech_id"], name: "index_tech_reviews_on_tech_id"
+  add_index "tech_reviews", ["user_id"], name: "index_tech_reviews_on_user_id"
 
   create_table "teches", force: true do |t|
     t.string   "name"

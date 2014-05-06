@@ -1,7 +1,6 @@
 Inrevi::Application.routes.draw do
 
   resources :tech_reviews
-
   resources :podcast_reviews
   resources :tvshow_reviews
   resources :movie_reviews
@@ -78,8 +77,16 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
 #----------   TECH   ----------  
   
   resources :teches do
-
+    resources :tech_reviews do
+      member do
+        put "like", to: "tech_reviews#upvote"
+        put "dislike", to: "tech_reviews#downvote"
+      end     
+    end
   end
+
+  match 'tech_reviews/all' => "tech_reviews#all", via: [:get]
+  match 'tech_reviews/unpublished' => "tech_reviews#unpublished", via: [:get]
  
 #----------   AUTO   ----------  
 #  resources :auto_reviews

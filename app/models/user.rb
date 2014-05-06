@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :movie_reviews
   has_many :tvshow_reviews
   has_many :podcast_reviews
+  has_many :tech_reviews
   
   #---  END OF REVIEWS  ---#
   

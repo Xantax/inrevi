@@ -1,5 +1,7 @@
 class Tech < ActiveRecord::Base
   acts_as_taggable
+  
+  has_many :tech_reviews
 
   validates :name, presence: true
   validates :tag_list, presence: true

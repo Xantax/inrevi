@@ -1,33 +1,40 @@
 class TechReviewsController < ApplicationController
-  before_action :set_tech_review, only: [:show, :edit, :update, :destroy]
-
-  # GET /tech_reviews
-  # GET /tech_reviews.json
+  before_action :set_tech_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :set_tech, only: [:index, :show, :new, :create, :edit]
+  
+  def all
+    @all_tech_reviews = TechReview.published.order("cached_votes_score ASC")
+  end
+  
+  def unpublished
+    @all_tech_reviews = TechReview.unpublished.order("cached_votes_score ASC")
+  end
+  
   def index
-    @tech_reviews = TechReview.all
+    @tech_reviews = @tech.tech_reviews.published.order("cached_votes_score DESC")
+    @avg_score = 0
+    @avg_score = @tech_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @tech_reviews.count if @tech_reviews.count > 0
   end
 
-  # GET /tech_reviews/1
-  # GET /tech_reviews/1.json
   def show
   end
 
-  # GET /tech_reviews/new
   def new
     @tech_review = TechReview.new
+    @tech_review.review_images.build 
   end
 
-  # GET /tech_reviews/1/edit
   def edit
   end
 
-  # POST /tech_reviews
-  # POST /tech_reviews.json
   def create
-    @tech_review = TechReview.new(tech_review_params)
+    @tech_review = @tech.tech_reviews.build(tech_review_params)
+    @tech_review.user = current_user
 
     respond_to do |format|
       if @tech_review.save
+        @tech_review.create_activity :create, owner: current_user
+        
         format.html { redirect_to @tech_review, notice: 'Tech review was successfully created.' }
         format.json { render action: 'show', status: :created, location: @tech_review }
       else
@@ -37,9 +44,9 @@ class TechReviewsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tech_reviews/1
-  # PATCH/PUT /tech_reviews/1.json
   def update
+    @tech_review.review_images.build if @tech_review.review_images.empty?
+    
     respond_to do |format|
       if @tech_review.update(tech_review_params)
         format.html { redirect_to @tech_review, notice: 'Tech review was successfully updated.' }
@@ -51,8 +58,6 @@ class TechReviewsController < ApplicationController
     end
   end
 
-  # DELETE /tech_reviews/1
-  # DELETE /tech_reviews/1.json
   def destroy
     @tech_review.destroy
     respond_to do |format|
@@ -60,15 +65,28 @@ class TechReviewsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def upvote
+    @tech_review.liked_by current_user
+   render nothing: true
+  end
+
+  def downvote
+    @tech_review.downvote_from current_user
+  end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tech_review
-      @tech_review = TechReview.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+  def set_tech
+    @tech = Tech.find(params[:tech_id])
+    end
+  
+  def set_tech_review
+    @tech = Tech.find(params[:tech_id])
+    @tech_review = @tech.tech_reviews.find(params[:id])
+  end
+
     def tech_review_params
-      params.require(:tech_review).permit(:title, :content, :user_id, :tech_id)
+      params.require(:tech_review).permit(:title, :content, :user_id, :tech_id, :point, :score, :published, review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
 end

@@ -17,7 +17,10 @@ class TechesController < ApplicationController
   end
 
   def show
-
+    @tech_review = TechReview.new
+    @tech_reviews = Tech.find(params[:id]).tech_reviews.published.order("cached_votes_score DESC")
+    @avg_score = 0
+    @avg_score = @tech_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @tech_reviews.count if @tech_reviews.count > 0
   end
 
   def new

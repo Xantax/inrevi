@@ -10,6 +10,10 @@
    </div>
   </div>
   <div class="col-sm-4">
-    <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %><div class="writeareview"><%= link_to "Write a Review", "#" %></div><br>
+    <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+    <div class="writeareview">
+      <%= link_to "Write a Review", new_tech_tech_review_path(@tech) %>
+    </div><br>
+    
   </div>
 </div> <br>
