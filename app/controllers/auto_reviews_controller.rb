@@ -46,7 +46,6 @@ class AutoReviewsController < ApplicationController
 
   def update
     @auto_review.review_images.build if @auto_review.review_images.empty?
-    @auto_review.user = current_user
     
     respond_to do |format|
       if @auto_review.update(auto_review_params)

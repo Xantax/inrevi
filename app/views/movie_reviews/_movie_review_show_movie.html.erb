@@ -1,0 +1,34 @@
+<div class="row movieup">  
+  <div class="col-sm-3">
+    <div class="movieposter">
+      
+      <% if @movie_review.movie_poster.blank? %>
+        <%= image_tag("no-image.png") %>
+      <% else %>
+        <%= image_tag("http://image.tmdb.org/t/p/w92#{@movie_review.movie_poster}") %>
+      <% end %>
+     </div>
+  </div>
+  
+  <div class="col-sm-5">
+    <div class="moviefacts">
+      <div class="movtitle"><%= link_to @movie_review.movie_title, movie_path(@movie_review.movie_ident) %> (<%= @movie_review.movie_year %>)</div><br>
+      
+      <% if @movie_review.movie_runtime.nil? %>
+      <% else %>
+        <%= image_tag("localicons/clockicon.PNG", height: '14', width: '14') %>
+        <%= @movie_review.movie_runtime %> min. <br>
+      <% end %>
+      
+      </div>
+  </div>
+  
+  <div class="col-sm-4">
+    
+        <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+        <div class="writeareview"><%= link_to "Write a Review", new_movie_movie_review_path(@movie_review.movie_ident) %>
+      </div><br><br>
+    
+  </div>  
+  
+</div>

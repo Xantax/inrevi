@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @tech_review.title
+%p
+  %b Content:
+  = @tech_review.content
+%p
+  %b User:
+  = @tech_review.user
+%p
+  %b Tech:
+  = @tech_review.tech
+
+= link_to 'Edit', edit_tech_review_path(@tech_review)
+\|
+= link_to 'Back', tech_reviews_path

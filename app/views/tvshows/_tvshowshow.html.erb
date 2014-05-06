@@ -1,5 +1,5 @@
 <div class="row movieup">  
-  <div class="col-sm-4">
+  <div class="col-sm-3">
     <div class="movieposter">
       
       <% if @tvshow.poster_path.blank? %>
@@ -34,8 +34,9 @@
       </div>
   </div>
   
-  <div class="col-sm-3">
-        <%= link_to "Review it!", "#" %>
+  <div class="col-sm-4">
+        <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+        <%= link_to "Write a Review", new_tvshow_tvshow_review_path(@tvshow.id) %>
   </div> 
   
 </div>

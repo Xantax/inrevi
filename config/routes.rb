@@ -1,6 +1,11 @@
 Inrevi::Application.routes.draw do
 
+  resources :tech_reviews
+
+  resources :podcast_reviews
+  resources :tvshow_reviews
   resources :movie_reviews
+  resources :local_reviews
 
   get 'techtags/:tag', to: 'teches#index', as: :ttag
   get 'drugtags/:tag', to: 'drugs#index', as: :dtag
@@ -116,12 +121,28 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   match 'movie_reviews/unpublished' => "movie_reviews#unpublished", via: [:get]
   
   resources :tvshows do
-
+    resources :tvshow_reviews do
+      member do
+        put "like", to: "tvshow_reviews#upvote"
+        put "dislike", to: "tvshow_reviews#downvote"
+      end     
+    end
   end
+
+  match 'tvshow_reviews/all' => "tvshow_reviews#all", via: [:get]
+  match 'tvshow_reviews/unpublished' => "tvshow_reviews#unpublished", via: [:get]
   
   resources :podcasts do
-
+    resources :podcast_reviews do
+      member do
+        put "like", to: "podcast_reviews#upvote"
+        put "dislike", to: "podcast_reviews#downvote"
+      end     
+    end
   end
+
+  match 'podcast_reviews/all' => "podcast_reviews#all", via: [:get]
+  match 'podcast_reviews/unpublished' => "podcast_reviews#unpublished", via: [:get]
 
 #----------   END MEDIA   ----------
   

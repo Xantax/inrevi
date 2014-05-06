@@ -1,0 +1,74 @@
+<%= nested_form_for(@tvshow_review, url: tvshow_tvshow_reviews_path, validate: true, html: {multipart: true}, 'data-update-target' => 'comments', class: 'comments') do |f| %>
+  <% if @tvshow_review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tvshow_review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+      <% @tvshow_review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.hidden_field :point %>
+    <div class="rating-comments"></div>
+    <br>
+  
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title, :class => "field podtitle", :placeholder => "max. 50 characters", :onfocus => "this.placeholder = ''" %>
+    </div><br>
+  
+    <div class="field">
+      <%= f.label :content %><div class="contentcharacters">(minimum 140 characters)</div><br>
+      <%= f.text_area :content, :class => "field podcontent", :placeholder => "Tell the world what you like or dislike, give tips and suggestions... ", :onfocus => "this.placeholder = ''" %>
+    </div><br>
+
+  <div class="optionalreview">Optional (images):</div>
+
+      <%= f.fields_for :review_images do |p| %>
+      <%= image_tag('othericons/PhotoShow.PNG') %>
+        <div class="browseimage"><%= p.file_field :image %></div>  
+        <div class="removeicon"><%= p.link_to_remove image_tag('othericons/removeicon.PNG') %></div><br><br>
+      <% end %>
+      <%= f.link_to_add "+ Add another image", :review_images %>
+
+  <br><br><br>
+    
+      <div class="actions">
+        <%= f.submit " Submit ", :class => "btn btn-primary", :id => "submit" %>
+      </div><br>
+    
+      <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
+
+      <% if allow? "movie_reviews", "edit" %>
+        <%= f.check_box :published %>
+      <% end %>
+
+      <%= f.text_field :tvshow_id, :value => @tvshow.id %>
+      <%= f.text_field :tvshow_ident, :value => @tvshow.id %>
+      <%= f.text_field :tvshow_name, :value => @tvshow.name %>
+      <%= f.text_field :tvshow_poster, :value => @tvshow.poster_path %>
+      <%= f.text_field :tvshow_year, :value => @tvshow.first_air_date.to_date.strftime("%Y") %>
+
+<% end %>
+
+<script type="text/javascript">
+        $('.rating-comments').raty({
+  click: function(score, evt) {
+    $("#tvshow_review_point").val(score);
+    return console.log(score);
+  }
+});
+</script>
+
+<script type="text/javascript">
+(function (d) {
+  d.getElementById('new_tvshow_review').onsubmit = function () {
+    d.getElementById('submit').style.display = 'block';
+    d.getElementById('loading2').style.display = 'block';
+  };
+}(document));
+</script>
+

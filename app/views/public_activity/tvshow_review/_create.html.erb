@@ -20,7 +20,7 @@
     <div class="col-sm-9 podreview indexreview"> 
       <div class="separatereview">
         
-        <%= image_tag('caticons/media/Mmovies.PNG', height: '16', width: '12') %> 
+        <%= image_tag('caticons/media/Mtv.PNG', height: '16', width: '14') %> 
         
         <% if activity.owner == @user %>
           
@@ -28,7 +28,7 @@
            reviewed
         <% end %>
     
-        <%= link_to activity.trackable.local_name, "/movies/#{activity.trackable.movie_id}" %><br><br>
+        <%= link_to activity.trackable.tvshow_name, "/tvshows/#{activity.trackable.tvshow_ident}" %><br><br>
     
         <div class="numberOne"><%= activity.trackable.point %></div>
         <div class="reviewtitle"><%= activity.trackable.title %></div><br><br>
@@ -52,11 +52,11 @@
                   Voted!
                 <% else %>
                  <div class="thumbsup">
-                   <%= link_to image_tag('othericons/thumbsup_off.PNG', height: '20', width: '20'),  like_movie_movie_review_path(activity.trackable.movie_id, activity.trackable), method: :put, :remote => true %>
+                   <%= link_to image_tag('othericons/thumbsup_off.PNG', height: '20', width: '20'),  like_tvshow_tvshow_review_path(activity.trackable.tvshow_id, activity.trackable), method: :put, :remote => true %>
                  </div>
                           
                  <div class="thumbsdown">
-                  <%= link_to image_tag('othericons/thumbsdown_off.PNG', height: '20', width: '20'), dislike_movie_movie_review_path(activity.trackable.movie_id, activity.trackable), method: :put, :remote => true %>
+                  <%= link_to image_tag('othericons/thumbsdown_off.PNG', height: '20', width: '20'), dislike_tvshow_tvshow_review_path(activity.trackable.tvshow_id, activity.trackable), method: :put, :remote => true %>
                  </div>
                           
                 <% end %> 

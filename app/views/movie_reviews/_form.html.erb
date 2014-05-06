@@ -51,6 +51,7 @@
       <%= f.text_field :movie_imdb, :value => @movie.imdb_id %>
       <%= f.text_field :movie_title, :value => @movie.title %>
       <%= f.text_field :movie_runtime, :value => @movie.runtime %>
+      <%= f.text_field :movie_poster, :value => @movie.poster_path %>
       <%= f.text_field :movie_year, :value => @movie.release_date.to_date.try(:year) %>
 
 <% end %>

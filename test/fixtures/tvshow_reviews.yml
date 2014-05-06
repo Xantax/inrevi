@@ -1,13 +1,13 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  tvshow_id: 
-  user_id: 
   title: MyString
   content: MyText
+  user_id: 
+  tvshow_id: 
 
 two:
-  tvshow_id: 
-  user_id: 
   title: MyString
   content: MyText
+  user_id: 
+  tvshow_id: 

@@ -20,7 +20,7 @@ class MoviesController < ApplicationController
   	@similar_movies = Tmdb::Movie.similar_movies(params[:id])
     @crew = Tmdb::Movie.crew(params[:id])
     
-    @movie_reviews = MovieReview.where(movie_id: params[:id]).published.order("cached_votes_score DESC")
+    @movie_reviews = MovieReview.where(movie_ident: params[:id]).published.order("cached_votes_score DESC")
     
     @avg_score = 0
     @avg_score = @movie_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @movie_reviews.count if @movie_reviews.count > 0

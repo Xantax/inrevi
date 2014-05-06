@@ -1,5 +1,7 @@
 class Podcast < ActiveRecord::Base
   acts_as_taggable
+  
+  has_many :podcast_reviews
 
   validates :name, presence: true
   validates :website, presence: true

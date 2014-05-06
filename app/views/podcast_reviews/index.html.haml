@@ -1,0 +1,25 @@
+%h1 Listing podcast_reviews
+
+%table
+  %tr
+    %th Title
+    %th Content
+    %th User
+    %th Podcast
+    %th
+    %th
+    %th
+
+  - @podcast_reviews.each do |podcast_review|
+    %tr
+      %td= podcast_review.title
+      %td= podcast_review.content
+      %td= podcast_review.user
+      %td= podcast_review.podcast
+      %td= link_to 'Show', podcast_review
+      %td= link_to 'Edit', edit_podcast_review_path(podcast_review)
+      %td= link_to 'Destroy', podcast_review, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Podcast review', new_podcast_review_path

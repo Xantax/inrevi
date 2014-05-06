@@ -1,0 +1,28 @@
+<div class="row movieup">  
+  <div class="col-sm-3">
+    <div class="movieposter">
+      
+      <% if @tvshow_review.tvshow_poster.blank? %>
+        <%= image_tag("no-image.png") %>
+      <% else %>
+        <%= image_tag("http://image.tmdb.org/t/p/w92#{@tvshow_review.tvshow_poster}") %>
+      <% end %>
+     </div>
+  </div>
+  
+  <div class="col-sm-5">
+    <div class="moviefacts">
+      <div class="movtitle"><%= link_to @tvshow_review.tvshow_name, movie_path(@tvshow_review.tvshow_ident) %> (<%= @tvshow_review.tvshow_year %>)</div><br>
+     
+      </div>
+  </div>
+  
+  <div class="col-sm-4">
+    
+        <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+        <div class="writeareview"><%= link_to "Write a Review", new_tvshow_tvshow_review_path(@tvshow_review.tvshow_ident) %>
+      </div><br><br>
+    
+  </div>  
+  
+</div>

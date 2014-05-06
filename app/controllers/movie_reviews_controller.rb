@@ -1,6 +1,15 @@
 class MovieReviewsController < ApplicationController
-  before_action :set_movie_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_movie_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :set_movie, [:new, :create, :show]
+  
+  require 'themoviedb'
+
+  before_filter :set_config
+  Tmdb::Api.key("a8ddb278788ceab2a58875b7f172c327")
+
+  def set_config
+  	@configuration = Tmdb::Configuration.new
+  end
 
   def all
     @all_movie_reviews = MovieReview.published.order("cached_votes_score ASC")
@@ -19,6 +28,7 @@ class MovieReviewsController < ApplicationController
 
   def new
     @movie_review = MovieReview.new
+    @podcast_review.review_images.build  
   end
 
   def edit
@@ -60,6 +70,15 @@ class MovieReviewsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def upvote
+   @movie_review.liked_by current_user
+   render nothing: true
+  end
+
+  def downvote
+    @movie_review.downvote_from current_user
+  end
 
   private
 
@@ -72,7 +91,8 @@ class MovieReviewsController < ApplicationController
     end
 
     def movie_review_params
-      params.require(:movie_review).permit(:title, :content, :user, :movie, :point, :score, :published, :movie_imdb, :movie_title, :movie_year, :movie_runtime, :movie_ident, 
+      params.require(:movie_review).permit(:title, :content, :user, :movie, :point, :score, :published, :movie_imdb, 
+        :movie_title, :movie_year, :movie_runtime, :movie_ident, :movie_poster,
         review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
 end

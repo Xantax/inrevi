@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140505064926) do
+ActiveRecord::Schema.define(version: 20140506155121) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -180,19 +180,30 @@ ActiveRecord::Schema.define(version: 20140505064926) do
   create_table "movie_reviews", force: true do |t|
     t.string   "title"
     t.text     "content"
-    t.integer  "point",         default: -1
-    t.boolean  "published",     default: true
-    t.string   "movie_ident"
+    t.integer  "point",                 default: -1
+    t.boolean  "published",             default: true
+    t.integer  "movie_ident"
     t.string   "movie_imdb"
     t.string   "movie_title"
     t.string   "movie_runtime"
     t.string   "movie_year"
+    t.string   "movie_poster"
     t.integer  "user_id"
     t.integer  "movie_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cached_votes_total",    default: 0
+    t.integer  "cached_votes_score",    default: 0
+    t.integer  "cached_votes_up",       default: 0
+    t.integer  "cached_votes_down",     default: 0
+    t.integer  "cached_weighted_score", default: 0
   end
 
+  add_index "movie_reviews", ["cached_votes_down"], name: "index_movie_reviews_on_cached_votes_down"
+  add_index "movie_reviews", ["cached_votes_score"], name: "index_movie_reviews_on_cached_votes_score"
+  add_index "movie_reviews", ["cached_votes_total"], name: "index_movie_reviews_on_cached_votes_total"
+  add_index "movie_reviews", ["cached_votes_up"], name: "index_movie_reviews_on_cached_votes_up"
+  add_index "movie_reviews", ["cached_weighted_score"], name: "index_movie_reviews_on_cached_weighted_score"
   add_index "movie_reviews", ["movie_id"], name: "index_movie_reviews_on_movie_id"
   add_index "movie_reviews", ["user_id"], name: "index_movie_reviews_on_user_id"
 
@@ -200,6 +211,30 @@ ActiveRecord::Schema.define(version: 20140505064926) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "podcast_reviews", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "point",                 default: -1
+    t.boolean  "published",             default: true
+    t.integer  "user_id"
+    t.integer  "podcast_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "cached_votes_total",    default: 0
+    t.integer  "cached_votes_score",    default: 0
+    t.integer  "cached_votes_up",       default: 0
+    t.integer  "cached_votes_down",     default: 0
+    t.integer  "cached_weighted_score", default: 0
+  end
+
+  add_index "podcast_reviews", ["cached_votes_down"], name: "index_podcast_reviews_on_cached_votes_down"
+  add_index "podcast_reviews", ["cached_votes_score"], name: "index_podcast_reviews_on_cached_votes_score"
+  add_index "podcast_reviews", ["cached_votes_total"], name: "index_podcast_reviews_on_cached_votes_total"
+  add_index "podcast_reviews", ["cached_votes_up"], name: "index_podcast_reviews_on_cached_votes_up"
+  add_index "podcast_reviews", ["cached_weighted_score"], name: "index_podcast_reviews_on_cached_weighted_score"
+  add_index "podcast_reviews", ["podcast_id"], name: "index_podcast_reviews_on_podcast_id"
+  add_index "podcast_reviews", ["user_id"], name: "index_podcast_reviews_on_user_id"
 
   create_table "podcasts", force: true do |t|
     t.string   "name"
@@ -280,6 +315,34 @@ ActiveRecord::Schema.define(version: 20140505064926) do
     t.datetime "updated_at"
     t.string   "image"
   end
+
+  create_table "tvshow_reviews", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "point",                 default: -1
+    t.boolean  "published",             default: true
+    t.integer  "tvshow_ident"
+    t.string   "tvshow_name"
+    t.string   "tvshow_year"
+    t.string   "tvshow_poster"
+    t.integer  "user_id"
+    t.integer  "tvshow_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "cached_votes_total",    default: 0
+    t.integer  "cached_votes_score",    default: 0
+    t.integer  "cached_votes_up",       default: 0
+    t.integer  "cached_votes_down",     default: 0
+    t.integer  "cached_weighted_score", default: 0
+  end
+
+  add_index "tvshow_reviews", ["cached_votes_down"], name: "index_tvshow_reviews_on_cached_votes_down"
+  add_index "tvshow_reviews", ["cached_votes_score"], name: "index_tvshow_reviews_on_cached_votes_score"
+  add_index "tvshow_reviews", ["cached_votes_total"], name: "index_tvshow_reviews_on_cached_votes_total"
+  add_index "tvshow_reviews", ["cached_votes_up"], name: "index_tvshow_reviews_on_cached_votes_up"
+  add_index "tvshow_reviews", ["cached_weighted_score"], name: "index_tvshow_reviews_on_cached_weighted_score"
+  add_index "tvshow_reviews", ["tvshow_id"], name: "index_tvshow_reviews_on_tvshow_id"
+  add_index "tvshow_reviews", ["user_id"], name: "index_tvshow_reviews_on_user_id"
 
   create_table "tvshows", force: true do |t|
     t.datetime "created_at"
