@@ -128,7 +128,16 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
     member do
       get "description" => "books#description"
     end
+    resources :book_reviews do
+      member do
+        put "like", to: "book_reviews#upvote"
+        put "dislike", to: "book_reviews#downvote"
+      end     
+    end
   end
+
+  match 'book_reviews/all' => "book_reviews#all", via: [:get]
+  match 'book_reviews/unpublished' => "book_reviews#unpublished", via: [:get]
   
   resources :movies do
     resources :movie_reviews do

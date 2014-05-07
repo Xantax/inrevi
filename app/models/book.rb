@@ -1,4 +1,6 @@
-class Book
+class Book < ActiveRecord::Base
+  has_many :book_reviews
+  
   CATEGORY = {intitle: "by title", inauthor: "by author", subject: "by category", isbn: "by isbn"}.freeze
   PER_PAGE = 10
 
@@ -18,5 +20,7 @@ class Book
         query
       end
     end
+    
   end
+  
 end

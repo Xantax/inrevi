@@ -1,19 +1,75 @@
-= form_for @book_review do |f|
-  - if @book_review.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@book_review.errors.count, "error")} prohibited this book_review from being saved:"
-      %ul
-        - @book_review.errors.full_messages.each do |msg|
-          %li= msg
+<%= nested_form_for(@book_review, url: book_book_reviews_path, validate: true, html: {multipart: true}, 'data-update-target' => 'comments', class: 'comments') do |f| %>
+  <% if @book_review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@book_review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :content
-    = f.text_area :content
-  .field
-    = f.label :user
-    = f.text_field :user
-  .actions
-    = f.submit 'Save'
+      <ul>
+      <% @book_review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.hidden_field :point %>
+    <div class="rating-comments"></div>
+    <br>
+  
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title, :class => "field podtitle", :placeholder => "max. 50 characters", :onfocus => "this.placeholder = ''" %>
+    </div><br>
+  
+    <div class="field">
+      <%= f.label :content %><div class="contentcharacters">(minimum 140 characters)</div><br>
+      <%= f.text_area :content, :class => "field podcontent", :placeholder => "Tell the world what you like or dislike, give tips and suggestions... ", :onfocus => "this.placeholder = ''" %>
+    </div><br>
+
+  <div class="optionalreview">Optional (images):</div>
+
+      <%= f.fields_for :review_images do |p| %>
+      <%= image_tag('othericons/PhotoShow.PNG') %>
+        <div class="browseimage"><%= p.file_field :image %></div>  
+        <div class="removeicon"><%= p.link_to_remove image_tag('othericons/removeicon.PNG') %></div><br><br>
+      <% end %>
+      <%= f.link_to_add "+ Add another image", :review_images %>
+
+  <br><br><br>
+    
+      <div class="actions">
+        <%= f.submit " Submit ", :class => "btn btn-primary", :id => "submit" %>
+      </div><br>
+    
+      <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
+
+      <% if allow? "book_reviews", "edit" %>
+        <%= f.check_box :published %>
+      <% end %>
+
+      <%= f.text_field :book_id, :value => @book.id %>
+      <%= f.text_field :book_name, :value => @book.title %>
+      <%= f.text_field :book_authors, :value => @book.authors.first %>
+      <%= f.text_field :book_pages, :value => @book.pageCount %>
+      <%= f.text_field :book_image, :value => @book.imageLinks['thumbnail'] %>
+      <%= f.text_field :book_language, :value => @book.language %>
+      <%= f.text_field :book_isbn, :value => @book.isbn %>
+
+<% end %>
+
+<script type="text/javascript">
+        $('.rating-comments').raty({
+  click: function(score, evt) {
+    $("#book_review_point").val(score);
+    return console.log(score);
+  }
+});
+</script>
+
+<script type="text/javascript">
+(function (d) {
+  d.getElementById('new_book_review').onsubmit = function () {
+    d.getElementById('submit').style.display = 'block';
+    d.getElementById('loading2').style.display = 'block';
+  };
+}(document));
+</script>

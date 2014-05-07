@@ -43,7 +43,8 @@
   <div class="col-sm-4">
     
         <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
-        <div class="writeareview"><%= link_to "Write a Review", new_movie_movie_review_path(@movie.id) %>
+        <div class="writeareview">
+          <%= link_to "Write a Review", new_movie_movie_review_path(@movie.id) %>
       </div><br><br>
     
        <div>

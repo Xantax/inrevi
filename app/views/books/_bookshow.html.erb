@@ -7,9 +7,11 @@
      <b><%= link_to @book.title, book_path() if @book.title.present? %></b> <br>
      by <%= @book.authors.first if @book.authors.present? %> <br><br>
      Pages: <%= @book.pageCount if @book.pageCount.present? %> <br>
-     Year: <%= Date.parse(@book.publishedDate).strftime("%Y") if @book.publishedDate.present? %> <br><br>
+     Year: <%= @book.publishedDate if @book.publishedDate.present? %> <br>
+     Language: <%= @book.language if @book.language.present? %> <br><br>     
      <%= link_to "Preview", @book.previewLink, :target => "_blank" if @book.previewLink.present? %> <br>
      <%= link_to "Description", description_book_path() %>
+     <%= @book['saleability'] %>
   
    </div>
   
@@ -17,7 +19,7 @@
     
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
     <div class="writeareview">
-      <%= link_to "Write a Review", "#" %>
+       <%= link_to "Write a Review", new_book_book_review_path() %>
     </div><br>
     
   </div>

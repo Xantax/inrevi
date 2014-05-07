@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506233553) do
+ActiveRecord::Schema.define(version: 20140507153654) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -72,6 +72,35 @@ ActiveRecord::Schema.define(version: 20140506233553) do
   add_index "badges_sashes", ["badge_id", "sash_id"], name: "index_badges_sashes_on_badge_id_and_sash_id"
   add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id"
   add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id"
+
+  create_table "book_reviews", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "point",                 default: -1
+    t.boolean  "published",             default: true
+    t.string   "book_name"
+    t.string   "book_authors"
+    t.string   "book_pages"
+    t.string   "book_image"
+    t.string   "book_language"
+    t.string   "book_isbn"
+    t.integer  "user_id"
+    t.string   "book_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "cached_votes_total",    default: 0
+    t.integer  "cached_votes_score",    default: 0
+    t.integer  "cached_votes_up",       default: 0
+    t.integer  "cached_votes_down",     default: 0
+    t.integer  "cached_weighted_score", default: 0
+  end
+
+  add_index "book_reviews", ["cached_votes_down"], name: "index_book_reviews_on_cached_votes_down"
+  add_index "book_reviews", ["cached_votes_score"], name: "index_book_reviews_on_cached_votes_score"
+  add_index "book_reviews", ["cached_votes_total"], name: "index_book_reviews_on_cached_votes_total"
+  add_index "book_reviews", ["cached_votes_up"], name: "index_book_reviews_on_cached_votes_up"
+  add_index "book_reviews", ["cached_weighted_score"], name: "index_book_reviews_on_cached_weighted_score"
+  add_index "book_reviews", ["user_id"], name: "index_book_reviews_on_user_id"
 
   create_table "books", force: true do |t|
     t.datetime "created_at"
@@ -238,10 +267,10 @@ ActiveRecord::Schema.define(version: 20140506233553) do
 
   create_table "podcasts", force: true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "website"
     t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "promotions", force: true do |t|
