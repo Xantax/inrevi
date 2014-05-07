@@ -1,0 +1,8 @@
+  <% current_user ||= @user %>
+   <strong><%= link_to user_path(current_user) do %> 
+     <div class="unameonshow"><%= current_user.first_name %>
+        <%= current_user.last_name.truncate(2, omission: '.')%></div>
+      <% end %>
+   </strong><br >
+  <%= image_tag(current_user.image, width: "150")%><br><br>
+  <%= render 'shared/stats' %>

@@ -1,0 +1,18 @@
+      <p id="notice"><%= notice %></p>
+        <% if signed_in? %>
+           <div class="qupdate">
+               <div class="texty">
+                 <% if @link.present? %>
+                 <a href="<%= @link.link if @link.link.present? %>"><%= @link.text %></a>
+                 <% end %>
+               </div>
+           </div>
+          
+               <div class="homenews">
+                 <%= render :file => '/activities/index' %>
+               </div>
+        <% else %>
+          <div class="homephoto">
+            <%= image_tag("otherbigimages/inrevinf9.png") %>
+          </div>
+	      <% end %>

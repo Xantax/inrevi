@@ -287,3 +287,163 @@ margin-top: -11px;
 background-image: url("caticons/Chobby.PNG");
 background-repeat: no-repeat; }
 }
+
+
+/*  MEDIA SUBCATEGORIES  */
+
+
+.categorylist.books {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/media/Mbooks.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.books:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/media/hover/mbooks.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.movies {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/media/Mmovies.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.movies:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/media/hover/mmovies.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.games {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 24px;
+margin-top: -11px;
+background-image: url("caticons/media/Mgames.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.games:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 24px;
+margin-top: -11px;
+background-image: url("caticons/media/hover/mgames.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.songs {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/media/Msongs.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.songs:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/media/hover/msongs.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.tvshows {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/media/Mtv.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.tvshows:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/media/hover/mtv.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.podcasts {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/media/Mpodcasts.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.podcasts:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/media/hover/mpodcasts.PNG");
+background-repeat: no-repeat; }
+}

@@ -1,15 +1,7 @@
 class StaticPagesController < ApplicationController
+  before_action :set_activities, only: [:home, :catemedia]
+  
   def home
-    if signed_in?
-
-     @popular_users = User.popular_users.map(&:id)
-     @popular_activities = PublicActivity::Activity.order("created_at desc").where(owner_id: @popular_users, owner_type: "User").limit(10)
-
-     @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.followed_user_ids, owner_type: "User")
-      
-       @link = Link.order("RANDOM()").first
-      
-    end
   end
 
   def advertising
@@ -40,6 +32,19 @@ class StaticPagesController < ApplicationController
   end
   
   def catbeauty
+  end
+  
+  private
+  
+  def set_activities
+     if signed_in?
+       @popular_users = User.popular_users.map(&:id)
+       @popular_activities = PublicActivity::Activity.order("created_at desc").where(owner_id: @popular_users, owner_type: "User").limit(10)
+  
+       @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.followed_user_ids, owner_type: "User")
+      
+       @link = Link.order("RANDOM()").first      
+    end
   end
   
 end
