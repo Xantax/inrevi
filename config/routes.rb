@@ -1,5 +1,7 @@
 Inrevi::Application.routes.draw do
 
+  resources :book_reviews
+
   resources :song_reviews
 
 #  resources :tech_reviews
