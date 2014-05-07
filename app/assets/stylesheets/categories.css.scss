@@ -447,3 +447,110 @@ margin-top: -11px;
 background-image: url("caticons/media/hover/mpodcasts.PNG");
 background-repeat: no-repeat; }
 }
+
+
+/*   HOME SUBCATEGORIES  */
+
+.categorylist.appliances {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/home/Happliance.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.appliances:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/home/hover/happliance.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.baby {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/home/Hbaby.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.baby:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/home/hover/hbaby.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.pets {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/home/Hpet.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.pets:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/home/hover/hpet.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.tools {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/home/Htool.PNG");
+background-repeat: no-repeat; }
+}
+
+.categorylist.tools:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/home/hover/htool.PNG");
+background-repeat: no-repeat; }
+}

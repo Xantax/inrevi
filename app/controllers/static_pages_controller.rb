@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_action :set_activities, only: [:home, :catemedia]
+  before_action :set_activities, only: [:home, :catemedia, :cathome]
   
   def home
   end
