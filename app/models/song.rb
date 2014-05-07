@@ -1,4 +1,4 @@
-class Song
+class Song < ActiveRecord::Base
   class << self
     def search(params)
       MetaSpotify::Track.search(params[:query], page: page(params))

@@ -1,5 +1,7 @@
 Inrevi::Application.routes.draw do
 
+  resources :song_reviews
+
 #  resources :tech_reviews
   resources :podcast_reviews
   resources :tvshow_reviews
@@ -107,7 +109,18 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
 
 #----------   MEDIA   ----------
   
-  resources :songs, :only => [:index, :show] 
+  resources :songs, :only => [:index, :show] do
+    resources :song_reviews do
+      member do
+        put "like", to: "song_reviews#upvote"
+        put "dislike", to: "song_reviews#downvote"
+      end     
+    end
+  end
+
+  match 'song_reviews/all' => "song_reviews#all", via: [:get]
+  match 'song_reviews/unpublished' => "song_reviews#unpublished", via: [:get]
+
   
   resources :books do
     member do

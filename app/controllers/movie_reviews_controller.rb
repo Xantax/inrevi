@@ -28,7 +28,7 @@ class MovieReviewsController < ApplicationController
 
   def new
     @movie_review = MovieReview.new
-    @podcast_review.review_images.build  
+    @movie_review.review_images.build  
   end
 
   def edit

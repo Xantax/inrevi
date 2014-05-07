@@ -1,0 +1,25 @@
+%h1 Listing song_reviews
+
+%table
+  %tr
+    %th Title
+    %th Content
+    %th User
+    %th Song
+    %th
+    %th
+    %th
+
+  - @song_reviews.each do |song_review|
+    %tr
+      %td= song_review.title
+      %td= song_review.content
+      %td= song_review.user
+      %td= song_review.song
+      %td= link_to 'Show', song_review
+      %td= link_to 'Edit', edit_song_review_path(song_review)
+      %td= link_to 'Destroy', song_review, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Song review', new_song_review_path

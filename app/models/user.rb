@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :tvshow_reviews
   has_many :podcast_reviews
   has_many :tech_reviews
+  has_many :song_reviews
   
   #---  END OF REVIEWS  ---#
   
