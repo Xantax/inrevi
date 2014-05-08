@@ -978,3 +978,136 @@ margin-top: -11px;
 background-image: url("caticons/electronics/hover/evehicle.png");
 background-repeat: no-repeat; }
 }
+
+
+/*   HEALTH SUBCATEGORIES   */
+
+.categorylist.healthcare {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/health/Hhealthcare.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.healthcare:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/health/hover/hhealthcare.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.supplements {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/health/Hsupplements.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.supplements:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/health/hover/hsupplements.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.drugs {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/health/Hdrugs.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.drugs:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/health/hover/hdrugs.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.sex {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/health/Hsex.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.sex:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/health/hover/hsex.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.hpersonal {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/health/Hpersonal.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.hpersonal:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/health/hover/hpersonal.png");
+background-repeat: no-repeat; }
+}
