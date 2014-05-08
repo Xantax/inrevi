@@ -3,23 +3,11 @@
 <div class="row">
 
 <div class="col-sm-2 categories">
-  <%= render 'shared/categories' %>
+  <%= render 'shared/subcategories/beauty' %>
 </div>
   
 <div class="col-sm-8"> 
-  <div class="allnews">
-    <%= image_tag("caticons/media/Marrow.PNG") %>
-    <div class="mediasubcategories">
-      <ul>
-        <li><%= link_to image_tag("caticons/beauty/Bmakeup.PNG", height: '24', width: '24'), "#" %><%= link_to "makeup", "#" %></li>
-        <li><%= link_to image_tag("caticons/beauty/Bfragrance.PNG", height: '24', width: '26'), "#" %><%= link_to "fragrance", "#" %></li>
-        <li><%= link_to image_tag("caticons/beauty/Bhair.PNG", height: '24', width: '24'), "#" %><%= link_to "hair care", "#" %></li>
-        <li><%= link_to image_tag("caticons/beauty/Bskin.PNG", height: '24', width: '24'), "#" %><%= link_to "skin care", "#" %></li>
-        <li><%= link_to image_tag("caticons/beauty/Bbath.PNG"), "#" %><%= link_to "bath & body", "#" %></li>
-      </ul>
-    
-    </div>
-  </div>
+  <%= render 'shared/home_newsfeed' %>
 </div>
 
 <div class="col-sm-2">

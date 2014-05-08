@@ -554,3 +554,136 @@ margin-top: -11px;
 background-image: url("caticons/home/hover/htool.PNG");
 background-repeat: no-repeat; }
 }
+
+
+/*  BEAUTY SUBCATEGORIES  */
+
+.categorylist.makeup {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/beauty/Bmakeup.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.makeup:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/beauty/hover/bmakeup.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.fragrance {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/beauty/Bfragrance.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.fragrance:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/beauty/hover/bfragrance.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.hair {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/beauty/Bhair.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.hair:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/beauty/hover/bhair.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.skin {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/beauty/Bskin.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.skin:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/beauty/hover/bskin.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.bath {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/beauty/Bbath.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.bath:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/beauty/hover/bbath.png");
+background-repeat: no-repeat; }
+}
