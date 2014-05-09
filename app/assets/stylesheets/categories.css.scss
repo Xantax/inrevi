@@ -1111,3 +1111,188 @@ margin-top: -11px;
 background-image: url("caticons/health/hover/hpersonal.png");
 background-repeat: no-repeat; }
 }
+
+
+/*  FASHION   SUBCATEGORIES   */
+
+.categorylist.clothing {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/fashion/Fclothing.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.clothing:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/fashion/hover/fclothing.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.footwear {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/fashion/Ffootwear.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.footwear:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/fashion/hover/ffootwear.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.jewelry {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/fashion/Fjewelry.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.jewelry:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/fashion/hover/fjewelry.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.fmen {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/fashion/Fman.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.fmen:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/fashion/hover/fman.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.fwomen {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/fashion/Fwoman.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.fwomen:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/fashion/hover/fwoman.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.fboys {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/fashion/Fboy.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.fboys:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/fashion/hover/fboy.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.fgirls {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/fashion/Fgirl.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.fgirls:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/fashion/hover/fgirl.png");
+background-repeat: no-repeat; }
+}
