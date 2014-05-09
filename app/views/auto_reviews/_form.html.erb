@@ -36,15 +36,16 @@
 
 
   <br><br><br>
-      <% if allow? "auto_reviews", "edit" %>
-        <%= f.check_box :published %>
-      <% end %>
     
       <div class="actions">
         <%= f.submit " Submit ", :class => "btn btn-primary", :id => "submit" %>
       </div><br>
     
       <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
+      
+      <% if allow? "auto_reviews", "edit" %>
+        <%= f.check_box :published %>
+      <% end %>
 
 <% end %>
 

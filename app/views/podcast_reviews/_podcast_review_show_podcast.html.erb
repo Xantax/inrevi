@@ -1,0 +1,25 @@
+<div class="row podup"> 
+  <div class="col-sm-3"> 
+    <%= image_tag @podcast_review.podcast.image_url(:thumb) if @podcast_review.podcast.image? %> 
+  </div> 
+  
+   <div class="col-sm-5"> 
+     <div class="podcastnameshow"><%= link_to @podcast_review.podcast.name, podcast_path(@podcast_review.podcast) %></div> <br>
+     
+   <div class="podinfo">
+      <%= link_to "Website", @podcast_review.podcast.website %><br >
+      Subjects: <%= raw @podcast_review.podcast.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
+   </div>
+     
+  </div>
+  
+  <div class="col-sm-4">
+    
+    <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+    <div class="writeareview">
+      <%= link_to "Write a Review", new_podcast_podcast_review_path(@podcast_review.podcast) %>
+    </div><br>
+    
+  </div>
+  
+</div> <br>

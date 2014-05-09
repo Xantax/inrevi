@@ -28,14 +28,14 @@ class PodcastReviewsController < ApplicationController
   end
 
   def create
-    @podcast_review = @podcast.podcast_reviews.(podcast_review_params)
+    @podcast_review = @podcast.podcast_reviews.build(podcast_review_params)
     @podcast_review.user = current_user
 
     respond_to do |format|
       if @podcast_review.save
         @podcast_review.create_activity :create, owner: current_user
         
-        format.html { redirect_to [@podcast, @podcast_review], notice: 'Podcast review was successfully created.' }
+        format.html { redirect_to [@podcast, @podcast_review], notice: 'Thank you. Share your review' }
         format.json { render action: 'show', status: :created, location: @podcast_review }
       else
         format.html { render action: 'new' }
@@ -49,7 +49,7 @@ class PodcastReviewsController < ApplicationController
     
     respond_to do |format|
       if @podcast_review.update(podcast_review_params)
-        format.html { redirect_to @podcast_review, notice: 'Podcast review was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Podcast review was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -87,6 +87,7 @@ class PodcastReviewsController < ApplicationController
     end
 
     def podcast_review_params
-      params.require(:podcast_review).permit(:title, :content, :user_id, :podcast_id, :point, :score, :published, review_images_attributes: [:image, :attachable_id, :attachable_type])
+      params.require(:podcast_review).permit(:title, :content, :user_id, :podcast_id, :point, :score, :published, 
+        review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
 end

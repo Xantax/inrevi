@@ -2,9 +2,9 @@
   <% @all_auto_reviews.each do |all_auto_review| %>
     <div class="col-sm-3">
       <%= link_to user_path(all_auto_review.user) do %> 
-        <%= all_auto_review.user.name %><br>
+        <%= all_auto_review.user.first_name %><br>
       <% end %>
-      <%= image_tag(all_auto_review.user.reviewimage) %>
+      <%= image_tag(all_auto_review.user.image, width: "80") %>
     </div>
     <div class="col-sm-9">
       Auto: <%= link_to all_auto_review.auto.name, all_auto_review.auto %><br>
@@ -23,3 +23,5 @@
     </div>
   <% end %>
 </div>
+
+<%= will_paginate @all_auto_reviews %>

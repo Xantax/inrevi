@@ -1,0 +1,73 @@
+<div class="row">
+<% if activity.trackable %>
+  
+   <% if activity.owner == @user %>
+      
+   <% else %>
+  
+    <div class="col-sm-3 useronactivity">
+      <div class="reviewname">  
+      <%= link_to user_path(activity.owner) do %> 
+         <%= activity.owner.first_name %>
+         <%= activity.owner.last_name.truncate(2, omission: '.')%>
+      <% end %>
+      </div>
+      <%= image_tag(activity.owner.image, width: "80") %>  
+    </div>
+  
+   <% end %>
+
+    <div class="col-sm-9 podreview indexreview"> 
+      <div class="separatereview">
+        
+        <%= image_tag('caticons/media/Mpodcasts.PNG', height: '16', width: '14') %>
+        
+        <% if activity.owner == @user %>
+          
+        <% else %>
+           reviewed
+        <% end %>
+    
+        <%= link_to activity.trackable.podcast.name, activity.trackable.podcast %><br><br>
+    
+        <div class="numberOne"><%= activity.trackable.point %></div>
+        <div class="reviewtitle"><%= activity.trackable.title %></div><br><br>
+        <div class="reviewcontent"><%= simple_format(activity.trackable.content) %></div>
+        
+             <% activity.trackable.review_images.each do |pic| %>
+              <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image? %>
+            <% end %> 
+              <% if signed_in? %>
+                <% unless current_user == activity.owner %>
+                  <hr>
+                <% end %>
+              <% end %>
+    
+          <div class="bottomreviewicons">
+            <% if signed_in? %>
+            
+                <% if current_user == activity.owner %>
+                  
+                <% elsif current_user.voted_for? activity.trackable %>
+                  Voted!
+                <% else %>
+                 <div class="thumbsup">
+                   <%= link_to image_tag('othericons/thumbsup_off.PNG', height: '20', width: '20'),  like_podcast_podcast_review_path(activity.trackable.podcast_id, activity.trackable), method: :put, :remote => true %>
+                 </div>
+                          
+                 <div class="thumbsdown">
+                  <%= link_to image_tag('othericons/thumbsdown_off.PNG', height: '20', width: '20'), dislike_podcast_podcast_review_path(activity.trackable.podcast_id, activity.trackable), method: :put, :remote => true %>
+                 </div>
+                          
+                <% end %> 
+            
+            <% end %>
+          </div>
+        
+      </div>
+    </div>
+
+<% else %>
+
+<% end %>
+</div><br>

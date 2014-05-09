@@ -3,11 +3,11 @@ class AutoReviewsController < ApplicationController
   before_action :set_auto, only: [:index, :show, :new, :create, :edit]
 
   def all
-    @all_auto_reviews = AutoReview.published.order("cached_votes_score ASC")
+    @all_auto_reviews = AutoReview.published.order("cached_votes_score ASC").paginate(:page => params[:page])
   end
   
   def unpublished
-    @all_auto_reviews = AutoReview.unpublished.order("cached_votes_score ASC")
+    @all_auto_reviews = AutoReview.unpublished.order("cached_votes_score ASC").paginate(:page => params[:page])
   end
   
   def index
@@ -49,7 +49,7 @@ class AutoReviewsController < ApplicationController
     
     respond_to do |format|
       if @auto_review.update(auto_review_params)
-        format.html { redirect_to [@auto, @auto_review], notice: 'Auto review was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Auto review was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -87,7 +87,8 @@ class AutoReviewsController < ApplicationController
     end
 
     def auto_review_params
-      params.require(:auto_review).permit(:title, :content, :auto_id, :user_id, :point, :score, :published, review_images_attributes: [:image, :attachable_id, :attachable_type])
+      params.require(:auto_review).permit(:title, :content, :auto_id, :user_id, :point, :score, :published, 
+        review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
   
 end

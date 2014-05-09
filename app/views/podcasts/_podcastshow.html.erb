@@ -5,15 +5,19 @@
     <div class="podcastnameshow"><%= link_to @podcast.name, podcast_path(@podcast) %></div><br>
 
    <div class="podinfo">
-      Website:  <%= @podcast.website %><br >
+      <%= link_to "Website", @podcast.website %><br >
       Subjects: <%= raw @podcast.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
    </div>
   </div>
   <div class="col-sm-4">
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
-      <div class="writeareview"><%= link_to "Write a Review", "#" %>
+      <div class="writeareview">
+        <%= link_to "Write a Review", new_podcast_podcast_review_path(@podcast) %>
       </div><br>
 
-    <%= link_to "Edit", edit_podcast_path(@podcast) %>
+     <div>
+       <%= render 'show_rating' %>
+     </div>
+    
   </div>
 </div> <br>

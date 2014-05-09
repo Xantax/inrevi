@@ -12,7 +12,7 @@ include PublicActivity::Common
   belongs_to :auto
   
   has_many :review_images, :as => :attachable, :dependent => :destroy
-  accepts_nested_attributes_for :review_images
+  accepts_nested_attributes_for :review_images, :limit => 3
   
   validates :user_id, presence: true
   validates :auto_id, presence: true

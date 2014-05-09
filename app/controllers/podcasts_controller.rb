@@ -19,6 +19,12 @@
   end
 
   def show
+    @podcast_review = PodcastReview.new
+    @podcast_reviews = Podcast.find(params[:id]).podcast_reviews.published.order("cached_votes_score DESC")
+    @avg_score = 0
+    @avg_score = @podcast_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @podcast_reviews.count if @podcast_reviews.count > 0
+    
+    @promotion = Promotion.order("RANDOM()").first
   end
 
   def new
