@@ -1,7 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_action :set_activities, only: [:home, :catemedia, :cathome, :catbeauty, :cathobbies, :cathealth, :catfashion, :catelectronics,
-    :catfashion_clothing, :catfashion_footwear
-    ]
+  before_action :set_activities, only: [:home, :catmedia, :cathome, :catbeauty, :cathobbies, :cathealth, :catfashion, :catelectronics, :catfashion_clothing, :catfashion_footwear]
   
   def home
   end

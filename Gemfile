@@ -20,6 +20,7 @@ gem 'execjs', '~> 2.0.2'
 gem 'jquery-rails', "~> 2.3.0"
 gem 'jquery-ui-rails', '~> 4.2.0'
 gem 'jquery-turbolinks', '~> 0.2.1'
+gem 'jquery_mobile_rails', '~> 1.4.1'
 gem 'jbuilder', '~> 1.2'
 gem 'factual-api', '~> 1.3.14'
 gem 'countries'

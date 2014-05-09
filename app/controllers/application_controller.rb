@@ -12,12 +12,22 @@ class ApplicationController < ActionController::Base
   include PointsHelper
   
   before_filter :authorize
-
+  before_filter :prepare_for_mobile
+  
   delegate :allow?, to: :current_permission
   helper_method :allow?
   
   
   private
+  
+    def mobile_device?
+        request.user_agent =~ /Mobile|webOS|iPhone/
+    end
+    helper_method :mobile_device?
+  
+    def prepare_for_mobile
+      request.format = :mobile if mobile_device?
+    end
 
     def current_permission
       @current_permission ||= Permission.new(current_user)

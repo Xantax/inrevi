@@ -1,0 +1,15 @@
+<div class="mobilelogo">
+  <%= link_to image_tag("logou8.PNG", alt: "logo"), root_path %>
+</div>
+
+<div class="row mobilecatheader">
+  <div class="col-xs-4"><%= link_to "categories", root_path %></div>
+  <div class="col-xs-4">newsfeed</div>
+  <div class="col-xs-4">
+    <% if signed_in? %>
+      <%= link_to "profile", user_path(current_user) %>
+    <% else %>
+      <%= link_to "profile", root_path %>
+    <% end %>
+  </div>
+</div>

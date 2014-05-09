@@ -1,0 +1,15 @@
+  <% current_user ||= @user %>
+   <strong><%= link_to user_path(current_user) do %> 
+     <div class="unameonshow"><%= current_user.first_name %>
+        <%= current_user.last_name.truncate(2, omission: '.')%></div>
+      <% end %>
+   </strong>
+
+  <% if signed_in? %>
+    <% if current_user %>
+      <%= image_tag('othericons/logout.PNG') %><div class="logoutlink"><%= link_to "logout", signout_path%><br></div>
+    <% end %>
+  <% end %>
+
+  <%= render 'follow_form' if signed_in? %><br>
+  <%= image_tag(current_user.image, width: "110")%><br><br>

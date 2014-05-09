@@ -2,8 +2,9 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
-    <%= stylesheet_link_tag "application", media: "all", 
+    <%= stylesheet_link_tag "application", media: "all",
                                         "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag "mobile" if mobile_device? %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
     <%= javascript_include_tag 'http://maps.googleapis.com/maps/api/js?key=AIzaSyDxG-6sGqo6mwxmtKa2JAkxECAwCJVLE_M&sensor=false' %>
@@ -19,7 +20,6 @@
         <%= yield %>
      </div>
     </div>
-   
-    </body>
+  </body>
 
 </html>
