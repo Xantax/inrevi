@@ -3,15 +3,11 @@ class PodcastReviewsController < ApplicationController
   before_action :set_podcast, only: [:index, :show, :new, :create, :edit]
   
   def all
-    @all_podcast_reviews = PodcastReview.published.order("cached_votes_score ASC")
-  end
-  
-  def unpublished
-    @all_podcast_reviews = PodcastReview.unpublished.order("cached_votes_score ASC")
+    @all_podcast_reviews = PodcastReview.order("cached_votes_score ASC")
   end
   
   def index
-    @podcast_reviews = @podcast.podcast_reviews.published.order("cached_votes_score DESC")
+    @podcast_reviews = @podcast.podcast_reviews.order("cached_votes_score DESC")
     @avg_score = 0
     @avg_score = @podcast_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @podcast_reviews.count if @podcast_reviews.count > 0
   end
@@ -87,7 +83,7 @@ class PodcastReviewsController < ApplicationController
     end
 
     def podcast_review_params
-      params.require(:podcast_review).permit(:title, :content, :user_id, :podcast_id, :point, :score, :published, 
-        review_images_attributes: [:image, :attachable_id, :attachable_type])
+      params.require(:podcast_review).permit(:title, :content, :user_id, :podcast_id, :point, :score,
+        review_images_attributes: [:id, :image, :attachable_id, :attachable_type])
     end
 end

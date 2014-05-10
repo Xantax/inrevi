@@ -1,18 +1,14 @@
 class LocalReviewsController < ApplicationController
   before_action :factual_authorize
-  before_action :set_local_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :set_local, only: [:index, :show, :new, :create, :edit]
+  before_action :set_local_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote, :index]
+  before_action :set_local, only: [:index, :new, :create, :edit]
 
   def all
-    @all_local_reviews = LocalReview.published.order("cached_votes_score ASC")
-  end
-  
-  def unpublished
-    @all_local_reviews = LocalReview.unpublished.order("cached_votes_score ASC")
+    @all_local_reviews = LocalReview.order("cached_votes_score ASC")
   end
   
   def index
-    @local_reviews = LocalReview.where(local_id: params[:id]).published.order("cached_votes_score DESC")
+    @local_reviews = LocalReview.where(local_id: params[:id]).order("cached_votes_score DESC")
     @avg_score = 0
     @avg_score = @local_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @local_reviews.count if @local_reviews.count > 0
   end
@@ -46,12 +42,11 @@ class LocalReviewsController < ApplicationController
   end
 
   def update
-    @local_review.review_images.build if @local_review.review_images.empty?
-    @local_review.user = current_user
+#    @local_review.review_images.build if @local_review.review_images.empty?
     
     respond_to do |format|
       if @local_review.update(local_review_params)
-        format.html { redirect_to @local_review, notice: 'Local review was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Local review was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -89,10 +84,10 @@ class LocalReviewsController < ApplicationController
     end
 
     def local_review_params
-      params.require(:local_review).permit(:user_id, :local_id, :title, :content, :point, :score, :published, 
-        :local_factual, :local_name, :local_address, :local_locality, :local_region, :local_postcode, :local_country, :local_neighborhood, 
+      params.require(:local_review).permit(:user_id, :local_id, :title, :content, :point, :score,
+        :local_name, :local_address, :local_locality, :local_region, :local_postcode, :local_country, :local_neighborhood, 
         :local_tel, :local_latitude, :local_longitude, :local_category_labels, :local_email,
-        review_images_attributes: [:image, :attachable_id, :attachable_type])
+        review_images_attributes: [:id, :image, :attachable_id, :attachable_type])
     end
   
     def factual_authorize

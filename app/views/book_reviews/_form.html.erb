@@ -42,10 +42,6 @@
     
       <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
 
-      <% if allow? "book_reviews", "edit" %>
-        <%= f.check_box :published %>
-      <% end %>
-
       <%= f.text_field :book_id, :value => @book.id %>
       <%= f.text_field :book_name, :value => @book.title %>
       <%= f.text_field :book_authors, :value => @book.authors.first %>

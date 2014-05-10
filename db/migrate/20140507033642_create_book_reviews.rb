@@ -4,7 +4,6 @@ class CreateBookReviews < ActiveRecord::Migration
       t.string :title
       t.text :content
       t.integer :point, default: -1
-      t.boolean :published, default: true
       t.string :book_name
       t.string :book_authors
       t.string :book_pages

@@ -12,15 +12,11 @@ class MovieReviewsController < ApplicationController
   end
 
   def all
-    @all_movie_reviews = MovieReview.published.order("cached_votes_score ASC")
-  end
-  
-  def unpublished
-    @all_movie_reviews = MovieReview.unpublished.order("cached_votes_score ASC")
+    @all_movie_reviews = MovieReview.order("cached_votes_score ASC")
   end
   
   def index
-    @movie_reviews = MovieReview.where(movie_id: params[:id]).published.order("cached_votes_score DESC")
+    @movie_reviews = MovieReview.where(movie_id: params[:id]).order("cached_votes_score DESC")
   end
 
   def show
@@ -91,8 +87,8 @@ class MovieReviewsController < ApplicationController
     end
 
     def movie_review_params
-      params.require(:movie_review).permit(:title, :content, :user, :movie, :point, :score, :published, :movie_imdb, 
+      params.require(:movie_review).permit(:title, :content, :user, :movie, :point, :score, :movie_imdb, 
         :movie_title, :movie_year, :movie_runtime, :movie_ident, :movie_poster,
-        review_images_attributes: [:image, :attachable_id, :attachable_type])
+        review_images_attributes: [:id, :image, :attachable_id, :attachable_type])
     end
 end

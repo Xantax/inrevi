@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 20140507153654) do
     t.string   "title"
     t.text     "content"
     t.integer  "point",                 default: -1
-    t.boolean  "published",             default: true
     t.integer  "user_id"
     t.integer  "auto_id"
     t.datetime "created_at"
@@ -77,7 +76,6 @@ ActiveRecord::Schema.define(version: 20140507153654) do
     t.string   "title"
     t.text     "content"
     t.integer  "point",                 default: -1
-    t.boolean  "published",             default: true
     t.string   "book_name"
     t.string   "book_authors"
     t.string   "book_pages"
@@ -133,13 +131,11 @@ ActiveRecord::Schema.define(version: 20140507153654) do
 
   create_table "local_reviews", force: true do |t|
     t.integer  "user_id"
-    t.integer  "local_id"
+    t.string   "local_id"
     t.string   "title"
     t.text     "content"
     t.integer  "point",                 default: -1
-    t.boolean  "published",             default: true
     t.string   "local_name"
-    t.string   "local_factual"
     t.string   "local_address"
     t.string   "local_locality"
     t.string   "local_region"
@@ -165,7 +161,6 @@ ActiveRecord::Schema.define(version: 20140507153654) do
   add_index "local_reviews", ["cached_votes_total"], name: "index_local_reviews_on_cached_votes_total"
   add_index "local_reviews", ["cached_votes_up"], name: "index_local_reviews_on_cached_votes_up"
   add_index "local_reviews", ["cached_weighted_score"], name: "index_local_reviews_on_cached_weighted_score"
-  add_index "local_reviews", ["local_id"], name: "index_local_reviews_on_local_id"
   add_index "local_reviews", ["user_id"], name: "index_local_reviews_on_user_id"
 
   create_table "locals", force: true do |t|
@@ -210,15 +205,13 @@ ActiveRecord::Schema.define(version: 20140507153654) do
     t.string   "title"
     t.text     "content"
     t.integer  "point",                 default: -1
-    t.boolean  "published",             default: true
-    t.integer  "movie_ident"
     t.string   "movie_imdb"
     t.string   "movie_title"
     t.string   "movie_runtime"
     t.string   "movie_year"
     t.string   "movie_poster"
     t.integer  "user_id"
-    t.integer  "movie_id"
+    t.string   "movie_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "cached_votes_total",    default: 0
@@ -233,7 +226,6 @@ ActiveRecord::Schema.define(version: 20140507153654) do
   add_index "movie_reviews", ["cached_votes_total"], name: "index_movie_reviews_on_cached_votes_total"
   add_index "movie_reviews", ["cached_votes_up"], name: "index_movie_reviews_on_cached_votes_up"
   add_index "movie_reviews", ["cached_weighted_score"], name: "index_movie_reviews_on_cached_weighted_score"
-  add_index "movie_reviews", ["movie_id"], name: "index_movie_reviews_on_movie_id"
   add_index "movie_reviews", ["user_id"], name: "index_movie_reviews_on_user_id"
 
   create_table "movies", force: true do |t|
@@ -245,7 +237,6 @@ ActiveRecord::Schema.define(version: 20140507153654) do
     t.string   "title"
     t.text     "content"
     t.integer  "point",                 default: -1
-    t.boolean  "published",             default: true
     t.integer  "user_id"
     t.integer  "podcast_id"
     t.datetime "created_at"
@@ -317,7 +308,6 @@ ActiveRecord::Schema.define(version: 20140507153654) do
     t.string   "title"
     t.text     "content"
     t.integer  "point",                 default: -1
-    t.boolean  "published",             default: true
     t.string   "song_name"
     t.string   "song_artists"
     t.string   "song_album"
@@ -367,7 +357,6 @@ ActiveRecord::Schema.define(version: 20140507153654) do
     t.string   "title"
     t.text     "content"
     t.integer  "point",                 default: -1
-    t.boolean  "published",             default: true
     t.integer  "user_id"
     t.integer  "tech_id"
     t.datetime "created_at"
@@ -400,13 +389,11 @@ ActiveRecord::Schema.define(version: 20140507153654) do
     t.string   "title"
     t.text     "content"
     t.integer  "point",                 default: -1
-    t.boolean  "published",             default: true
-    t.integer  "tvshow_ident"
     t.string   "tvshow_name"
     t.string   "tvshow_year"
     t.string   "tvshow_poster"
     t.integer  "user_id"
-    t.integer  "tvshow_id"
+    t.string   "tvshow_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "cached_votes_total",    default: 0
@@ -421,7 +408,6 @@ ActiveRecord::Schema.define(version: 20140507153654) do
   add_index "tvshow_reviews", ["cached_votes_total"], name: "index_tvshow_reviews_on_cached_votes_total"
   add_index "tvshow_reviews", ["cached_votes_up"], name: "index_tvshow_reviews_on_cached_votes_up"
   add_index "tvshow_reviews", ["cached_weighted_score"], name: "index_tvshow_reviews_on_cached_weighted_score"
-  add_index "tvshow_reviews", ["tvshow_id"], name: "index_tvshow_reviews_on_tvshow_id"
   add_index "tvshow_reviews", ["user_id"], name: "index_tvshow_reviews_on_user_id"
 
   create_table "tvshows", force: true do |t|

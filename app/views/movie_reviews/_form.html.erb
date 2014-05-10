@@ -42,12 +42,7 @@
     
       <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
 
-      <% if allow? "movie_reviews", "edit" %>
-        <%= f.check_box :published %>
-      <% end %>
-
       <%= f.text_field :movie_id, :value => @movie.id %>
-      <%= f.text_field :movie_ident, :value => @movie.id %>
       <%= f.text_field :movie_imdb, :value => @movie.imdb_id %>
       <%= f.text_field :movie_title, :value => @movie.title %>
       <%= f.text_field :movie_runtime, :value => @movie.runtime %>

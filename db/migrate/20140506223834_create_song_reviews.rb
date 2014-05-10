@@ -4,7 +4,6 @@ class CreateSongReviews < ActiveRecord::Migration
       t.string :title
       t.text :content
       t.integer :point, default: -1
-      t.boolean :published, default: true
       t.string :song_name
       t.string :song_artists
       t.string :song_album

@@ -14,6 +14,10 @@
          <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>
       <% end %><br><br>
       <%= all_local_review.get_upvotes.size %> | <%= all_local_review.get_downvotes.size %>
+      <%= link_to 'Delete', [all_local_review.local_id, all_local_review],
+               method: :delete,
+               data: { confirm: 'Are you sure?'},
+               class: "btn btn-primary" %>
 
       <hr>
     </div>

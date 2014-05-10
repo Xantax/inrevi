@@ -34,11 +34,7 @@
       <% end %>
       <%= f.link_to_add "+ Add another image", :review_images %>
 
-
   <br><br><br>
-      <% if allow? "tech_reviews", "edit" %>
-        <%= f.check_box :published %>
-      <% end %>
     
       <div class="actions">
         <%= f.submit " Submit ", :class => "btn btn-primary", :id => "submit" %>

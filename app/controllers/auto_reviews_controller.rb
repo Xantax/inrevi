@@ -3,15 +3,11 @@ class AutoReviewsController < ApplicationController
   before_action :set_auto, only: [:index, :show, :new, :create, :edit]
 
   def all
-    @all_auto_reviews = AutoReview.published.order("cached_votes_score ASC").paginate(:page => params[:page])
-  end
-  
-  def unpublished
-    @all_auto_reviews = AutoReview.unpublished.order("cached_votes_score ASC").paginate(:page => params[:page])
+    @all_auto_reviews = AutoReview.order("cached_votes_score ASC").paginate(:page => params[:page])
   end
   
   def index
-    @auto_reviews = @auto.auto_reviews.published.order("cached_votes_score DESC")
+    @auto_reviews = @auto.auto_reviews.order("cached_votes_score DESC")
     @avg_score = 0
     @avg_score = @auto_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @auto_reviews.count if @auto_reviews.count > 0
   end
@@ -87,7 +83,7 @@ class AutoReviewsController < ApplicationController
     end
 
     def auto_review_params
-      params.require(:auto_review).permit(:title, :content, :auto_id, :user_id, :point, :score, :published, 
+      params.require(:auto_review).permit(:title, :content, :auto_id, :user_id, :point, :score,
         review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
   

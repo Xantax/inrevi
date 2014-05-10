@@ -1,4 +1,4 @@
-<%= nested_form_for(@local_review, url: local_local_reviews_path, validate: true, html: {multipart: true}, 'data-update-target' => 'comments', class: 'comments') do |f| %>
+<%= nested_form_for(@local_review, url: local_local_reviews_path, validate: true, html: {multipart: true, :method => :post}, 'data-update-target' => 'comments', class: 'comments') do |f| %>
   <% if @local_review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@local_review.errors.count, "error") %> prohibited this review from being saved:</h2>
@@ -42,13 +42,8 @@
     
       <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
 
-      <% if allow? "local_reviews", "edit" %>
-        <%= f.check_box :published %>
-      <% end %>
-
       <%= f.text_field :local_id, :value => @local['factual_id'] %>
       <%= f.text_field :local_name, :value => @local['name'] %>
-      <%= f.text_field :local_factual, :value => @local['factual_id'] %>
       <%= f.text_field :local_address, :value => @local['address'] %>
       <%= f.text_field :local_locality, :value => @local['locality'] %>
       <%= f.text_field :local_region, :value => @local['region'] %>

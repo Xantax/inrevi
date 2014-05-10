@@ -4,15 +4,13 @@ class CreateMovieReviews < ActiveRecord::Migration
       t.string :title
       t.text :content
       t.integer :point, default: -1
-      t.boolean :published, default: true
-      t.integer :movie_ident
       t.string :movie_imdb
       t.string :movie_title
       t.string :movie_runtime
       t.string :movie_year
       t.string :movie_poster
       t.references :user, index: true
-      t.references :movie, index: true
+      t.string :movie_id, index: true
 
       t.timestamps
     end

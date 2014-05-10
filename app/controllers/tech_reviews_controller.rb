@@ -3,15 +3,11 @@ class TechReviewsController < ApplicationController
   before_action :set_tech, only: [:index, :show, :new, :create, :edit]
   
   def all
-    @all_tech_reviews = TechReview.published.order("cached_votes_score ASC")
-  end
-  
-  def unpublished
-    @all_tech_reviews = TechReview.unpublished.order("cached_votes_score ASC")
+    @all_tech_reviews = TechReview.order("cached_votes_score ASC")
   end
   
   def index
-    @tech_reviews = @tech.tech_reviews.published.order("cached_votes_score DESC")
+    @tech_reviews = @tech.tech_reviews.order("cached_votes_score DESC")
     @avg_score = 0
     @avg_score = @tech_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @tech_reviews.count if @tech_reviews.count > 0
   end
@@ -87,6 +83,7 @@ class TechReviewsController < ApplicationController
   end
 
     def tech_review_params
-      params.require(:tech_review).permit(:title, :content, :user_id, :tech_id, :point, :score, :published, review_images_attributes: [:image, :attachable_id, :attachable_type])
+      params.require(:tech_review).permit(:title, :content, :user_id, :tech_id, :point, :score,
+        review_images_attributes: [:id, :image, :attachable_id, :attachable_type])
     end
 end

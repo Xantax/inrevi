@@ -3,15 +3,11 @@ class TvshowReviewsController < ApplicationController
   before_action :set_tvshow
 
   def all
-    @all_tvshow_reviews = TvshowReview.published.order("cached_votes_score ASC")
-  end
-  
-  def unpublished
-    @all_tvshow_reviews = TvshowReview.unpublished.order("cached_votes_score ASC")
+    @all_tvshow_reviews = TvshowReview.order("cached_votes_score ASC")
   end
   
   def index
-    @tvshow_reviews = TvshowReview.where(tvshow_id: params[:id]).published.order("cached_votes_score DESC")
+    @tvshow_reviews = TvshowReview.where(tvshow_id: params[:id]).order("cached_votes_score DESC")
   end
 
   def show
@@ -75,8 +71,8 @@ class TvshowReviewsController < ApplicationController
     end
 
     def tvshow_review_params
-      params.require(:tvshow_review).permit(:title, :content, :user_id, :point, :score, :published,
+      params.require(:tvshow_review).permit(:title, :content, :user_id, :point, :score,
         :tvshow_id, :tvshow_ident, :tvshow_name, :tvshow_year, :tvshow_poster, 
-        review_images_attributes: [:image, :attachable_id, :attachable_type])
+        review_images_attributes: [:id, :image, :attachable_id, :attachable_type])
     end
 end

@@ -42,9 +42,6 @@
     
       <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
 
-      <% if allow? "song_reviews", "edit" %>
-        <%= f.check_box :published %>
-      <% end %>
 
       <%= f.text_field :song_id, :value => @song.uri %>
       <%= f.text_field :song_name, :value => @song.name %>

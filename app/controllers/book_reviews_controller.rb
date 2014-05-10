@@ -3,15 +3,11 @@ class BookReviewsController < ApplicationController
   before_action :set_book, [:new, :create, :show]
 
   def all
-    @all_book_reviews = BookReview.published.order("cached_votes_score ASC")
-  end
-  
-  def unpublished
-    @all_book_reviews = BookReview.unpublished.order("cached_votes_score ASC")
+    @all_book_reviews = BookReview.order("cached_votes_score ASC")
   end
   
   def index
-    @book_reviews = BookReview.where(book_id: params[:id]).published.order("cached_votes_score DESC")
+    @book_reviews = BookReview.where(book_id: params[:id]).order("cached_votes_score DESC")
   end
 
   def show
@@ -82,9 +78,9 @@ class BookReviewsController < ApplicationController
     end
 
     def book_review_params
-      params.require(:book_review).permit(:title, :content, :user_id, :book_id, :point, :score, :published,
+      params.require(:book_review).permit(:title, :content, :user_id, :book_id, :point, :score,
         :book_name, :book_authors, :book_pages, :book_image, :book_language, :book_isbn,
-        review_images_attributes: [:image, :attachable_id, :attachable_type]
+        review_images_attributes: [:id, :image, :attachable_id, :attachable_type]
         )
     end
 end

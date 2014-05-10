@@ -6,9 +6,6 @@ class BookReview < ActiveRecord::Base
   
   acts_as_votable
   
-  scope :published, -> { where(published: true) }
-  scope :unpublished, -> { where(published: false) }
-  
   belongs_to :user
   belongs_to :book
   

@@ -3,15 +3,11 @@ class SongReviewsController < ApplicationController
   before_action :set_song, [:new, :create, :show]
 
   def all
-    @all_song_reviews = SongReview.published.order("cached_votes_score ASC")
-  end
-  
-  def unpublished
-    @all_song_reviews = SongReview.unpublished.order("cached_votes_score ASC")
+    @all_song_reviews = SongReview.order("cached_votes_score ASC")
   end
   
   def index
-    @song_reviews = SongReview.where(song_isrc: params[:id]).published.order("cached_votes_score DESC")
+    @song_reviews = SongReview.where(song_isrc: params[:id]).order("cached_votes_score DESC")
   end
 
   def show
@@ -82,8 +78,8 @@ class SongReviewsController < ApplicationController
     end
 
     def song_review_params
-      params.require(:song_review).permit(:title, :content, :user_id, :song_id, :point, :score, :published,
+      params.require(:song_review).permit(:title, :content, :user_id, :song_id, :point, :score,
         :song_name, :song_artists, :song_album, :song_isrc,
-        review_images_attributes: [:image, :attachable_id, :attachable_type])
+        review_images_attributes: [:id, :image, :attachable_id, :attachable_type])
     end
 end
