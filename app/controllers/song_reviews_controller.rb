@@ -80,6 +80,6 @@ class SongReviewsController < ApplicationController
     def song_review_params
       params.require(:song_review).permit(:title, :content, :user_id, :song_id, :point, :score,
         :song_name, :song_artists, :song_album, :song_isrc,
-        review_images_attributes: [:id, :image, :attachable_id, :attachable_type])
+        review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
 end

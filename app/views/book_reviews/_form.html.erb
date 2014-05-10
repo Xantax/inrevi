@@ -42,14 +42,15 @@
     
       <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
 
-      <%= f.text_field :book_id, :value => @book.id %>
-      <%= f.text_field :book_name, :value => @book.title %>
-      <%= f.text_field :book_authors, :value => @book.authors.first %>
-      <%= f.text_field :book_pages, :value => @book.pageCount %>
-      <%= f.text_field :book_image, :value => @book.imageLinks['thumbnail'] %>
-      <%= f.text_field :book_language, :value => @book.language %>
-      <%= f.text_field :book_isbn_10, :value => @book.isbn_10 %>
-      <%= f.text_field :book_isbn_13, :value => @book.isbn_13 %>
+      <%= f.text_field :book_id, :value => @book.id if @book.id.present? %>
+      <%= f.text_field :book_name, :value => @book.title  if @book.title.present? %>
+      <%= f.text_field :book_authors, :value => @book.authors.first if @book.authors.first.present? %>
+      <%= f.text_field :book_pages, :value => @book.pageCount if @book.pageCount.present? %>
+      <%= f.text_field :book_date, :value => @book.publishedDate if @book.publishedDate.present? %>
+      <%= f.text_field :book_image, :value => @book.imageLinks['thumbnail'] if @book.imageLinks['thumbnail'].present? %>
+      <%= f.text_field :book_language, :value => @book.language if @book.language.present? %>
+      <%= f.text_field :book_isbn_10, :value => @book.isbn_10 if @book.isbn_10.present? %>
+      <%= f.text_field :book_isbn_13, :value => @book.isbn_13 if @book.isbn_13.present? %>
 
 <% end %>
 

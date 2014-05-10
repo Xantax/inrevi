@@ -1,15 +1,19 @@
-%p#notice= notice
+<div class="row">
+ 
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div> 
+    
+  <div class="col-sm-8"> 
+     <div class="allnews">
+        <%= render 'book_review_show_book' %>
+        <%= render 'book_review_show' %>
+     </div>
+  </div>
+  
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
 
-%p
-  %b Title:
-  = @book_review.title
-%p
-  %b Content:
-  = @book_review.content
-%p
-  %b User:
-  = @book_review.user
+</div>
 
-= link_to 'Edit', edit_book_review_path(@book_review)
-\|
-= link_to 'Back', book_reviews_path

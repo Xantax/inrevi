@@ -38,7 +38,7 @@ class MovieReviewsController < ApplicationController
       if @movie_review.save
         @movie_review.create_activity :create, owner: current_user
         
-        format.html { redirect_to @movie_review, notice: 'Movie review was successfully created.' }
+        format.html { redirect_to movie_movie_review_path(@movie.id, @movie_review), notice: 'Movie review was successfully created.' }
         format.json { render action: 'show', status: :created, location: @movie_review }
       else
         format.html { render action: 'new' }
@@ -89,6 +89,6 @@ class MovieReviewsController < ApplicationController
     def movie_review_params
       params.require(:movie_review).permit(:title, :content, :user, :movie, :point, :score, :movie_imdb, 
         :movie_title, :movie_year, :movie_runtime, :movie_ident, :movie_poster,
-        review_images_attributes: [:id, :image, :attachable_id, :attachable_type])
+        review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
 end

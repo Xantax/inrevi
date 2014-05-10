@@ -1,9 +1,9 @@
 class BookReviewsController < ApplicationController
   before_action :set_book_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :set_book, [:new, :create, :show]
+  before_action :set_book, [:new, :create, :show, :all]
 
   def all
-    @all_book_reviews = BookReview.order("cached_votes_score ASC")
+    @all_book_reviews = BookReview.order("cached_votes_score ASC").all
   end
   
   def index
@@ -29,7 +29,7 @@ class BookReviewsController < ApplicationController
       if @book_review.save
         @book_review.create_activity :create, owner: current_user
         
-        format.html { redirect_to @book_review, notice: 'Book review was successfully created.' }
+        format.html { redirect_to book_book_review_path(@book.id, @book_review), notice: 'Book review was successfully created.' }
         format.json { render action: 'show', status: :created, location: @book_review }
       else
         format.html { render action: 'new' }
@@ -78,9 +78,9 @@ class BookReviewsController < ApplicationController
     end
 
     def book_review_params
-      params.require(:book_review).permit(:title, :content, :user_id, :book_id, :point, :score,
-        :book_name, :book_authors, :book_pages, :book_image, :book_language, :book_isbn,
-        review_images_attributes: [:id, :image, :attachable_id, :attachable_type]
+      params.require(:book_review).permit(:title, :content, :user_id, :book_id, :point, :score, :isbn_10, :isbn_13, :book_date,
+        :book_name, :book_authors, :book_pages, :book_image, :book_language,
+        review_images_attributes: [:image, :attachable_id, :attachable_type]
         )
     end
 end

@@ -7,7 +7,7 @@
       <%= image_tag(all_local_review.user.image, width: "80") %>
     </div>
     <div class="col-sm-9">
-      Local business: <%= link_to "Local LINK", "locals/#{all_local_review.local}" %><br>
+      Local business: <%= link_to "Local LINK", "locals/#{all_local_review.local_id}" %><br>
       <%= all_local_review.point %> - <b><%= all_local_review.title %></b><br>
       <%= all_local_review.content %><br>
       <% all_local_review.review_images.each do |pic| %>

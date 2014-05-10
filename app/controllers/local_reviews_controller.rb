@@ -87,7 +87,7 @@ class LocalReviewsController < ApplicationController
       params.require(:local_review).permit(:user_id, :local_id, :title, :content, :point, :score,
         :local_name, :local_address, :local_locality, :local_region, :local_postcode, :local_country, :local_neighborhood, 
         :local_tel, :local_latitude, :local_longitude, :local_category_labels, :local_email,
-        review_images_attributes: [:id, :image, :attachable_id, :attachable_type])
+        review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
   
     def factual_authorize

@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20140507153654) do
     t.string   "book_name"
     t.string   "book_authors"
     t.string   "book_pages"
+    t.string   "book_date"
     t.string   "book_image"
     t.string   "book_language"
     t.string   "book_isbn"

@@ -29,7 +29,7 @@ class TvshowReviewsController < ApplicationController
       if @tvshow_review.save
         @tvshow_review.create_activity :create, owner: current_user
         
-        format.html { redirect_to @tvshow_review, notice: 'Tvshow review was successfully created.' }
+        format.html { redirect_to tvshow_tvshow_review_path(@tvshow.id, @tvshow_review), notice: 'Tvshow review was successfully created.' }
         format.json { render action: 'show', status: :created, location: @tvshow_review }
       else
         format.html { render action: 'new' }
@@ -73,6 +73,6 @@ class TvshowReviewsController < ApplicationController
     def tvshow_review_params
       params.require(:tvshow_review).permit(:title, :content, :user_id, :point, :score,
         :tvshow_id, :tvshow_ident, :tvshow_name, :tvshow_year, :tvshow_poster, 
-        review_images_attributes: [:id, :image, :attachable_id, :attachable_type])
+        review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
 end

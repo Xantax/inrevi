@@ -1,13 +1,5 @@
 Inrevi::Application.routes.draw do
 
-  resources :book_reviews
-#  resources :song_reviews
-#  resources :tech_reviews
-#  resources :podcast_reviews
-  resources :tvshow_reviews
-  resources :movie_reviews
-#  resources :local_reviews
-
   get 'techtags/:tag', to: 'teches#index', as: :ttag
   get 'drugtags/:tag', to: 'drugs#index', as: :dtag
   get 'podtags/:tag', to: 'podcasts#index', as: :tag  
@@ -69,7 +61,6 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   end
   
   match 'local_reviews/all' => "local_reviews#all", via: [:get]
-  match 'local_reviews/unpublished' => "local_reviews#unpublished", via: [:get]
   
 #----------   HEALTH   ----------
   
@@ -93,10 +84,9 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   end
 
   match 'tech_reviews/all' => "tech_reviews#all", via: [:get]
-  match 'tech_reviews/unpublished' => "tech_reviews#unpublished", via: [:get]
  
 #----------   AUTO   ----------  
-#  resources :auto_reviews
+  
   resources :autos do
     member do
       get "additionalinfo" => "autos#additionalinfo"
@@ -110,7 +100,6 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   end
 
   match 'auto_reviews/all' => "auto_reviews#all", via: [:get]
-  match 'auto_reviews/unpublished' => "auto_reviews#unpublished", via: [:get]
 
 #----------   MEDIA   ----------
   
@@ -124,9 +113,8 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   end
 
   match 'song_reviews/all' => "song_reviews#all", via: [:get]
-  match 'song_reviews/unpublished' => "song_reviews#unpublished", via: [:get]
 
-  
+
   resources :books do
     member do
       get "description" => "books#description"
@@ -140,7 +128,6 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   end
 
   match 'book_reviews/all' => "book_reviews#all", via: [:get]
-  match 'book_reviews/unpublished' => "book_reviews#unpublished", via: [:get]
   
   resources :movies do
     resources :movie_reviews do
@@ -152,7 +139,6 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   end
 
   match 'movie_reviews/all' => "movie_reviews#all", via: [:get]
-  match 'movie_reviews/unpublished' => "movie_reviews#unpublished", via: [:get]
   
   resources :tvshows do
     resources :tvshow_reviews do
@@ -164,7 +150,6 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   end
 
   match 'tvshow_reviews/all' => "tvshow_reviews#all", via: [:get]
-  match 'tvshow_reviews/unpublished' => "tvshow_reviews#unpublished", via: [:get]
   
   resources :podcasts do
     resources :podcast_reviews do
@@ -176,7 +161,6 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   end
 
   match 'podcast_reviews/all' => "podcast_reviews#all", via: [:get]
-  match 'podcast_reviews/unpublished' => "podcast_reviews#unpublished", via: [:get]
 
 #----------   END MEDIA   ----------
   

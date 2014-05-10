@@ -84,6 +84,6 @@ class TechReviewsController < ApplicationController
 
     def tech_review_params
       params.require(:tech_review).permit(:title, :content, :user_id, :tech_id, :point, :score,
-        review_images_attributes: [:id, :image, :attachable_id, :attachable_type])
+        review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
 end

@@ -1,0 +1,44 @@
+<% if current_user == @book_review.user %>
+  <p id="notice"><%= notice %></p> <div align="center"><%= social_share_button_tag(@book_review.title) %></div>
+  <hr>
+<% end %>
+
+<div class="row">
+  
+  <div class="col-sm-3"> 
+    <div class="reviewname">     
+      <%= link_to user_path(@book_review.user) do %> 
+        <%= @book_review.user.first_name %>
+        <%= @book_review.user.last_name.truncate(2, omission: '.')%>
+      <% end %>
+    </div>    
+          <%= image_tag(@book_review.user.image, width: "80") %>  
+  </div>
+      
+    <div class="col-sm-9 podreview"> 
+      <div class="separatereview">
+        
+         <div class="numberOne">
+            <%= @book_review.point %>
+         </div>
+        
+            <div class="reviewtitle"><%= @book_review.title %>:</div> <br><br>  
+            <div class="reviewcontent">
+              <%= simple_format(@book_review.content) %>
+            </div><br>
+          
+             <% unless @book_review.review_images.empty? %>
+                <% @book_review.review_images.each do |pic| %>
+                     <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>
+                <% end %>
+                 <% if signed_in? %>
+                   <% unless current_user == @book_review.user %>
+                     <hr>
+                   <% end %>
+                 <% end %>
+             <% end %>
+      
+        </div><br>
+    </div>
+  
+</div>

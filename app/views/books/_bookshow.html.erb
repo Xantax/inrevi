@@ -18,7 +18,7 @@
     
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
     <div class="writeareview">
-       <%= link_to "Write a Review", "#" %>
+       <%= link_to "Write a Review", new_book_book_review_path(@book.id, @book_review) %>
     </div><br>
     
   </div>

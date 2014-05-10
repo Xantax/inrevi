@@ -15,7 +15,7 @@ class TvshowsController < ApplicationController
   def show
     @tvshow = Tmdb::TV.detail(params[:id])
     
-    @tvshow_reviews = TvshowReview.where(tvshow_ident: params[:id]).published.order("cached_votes_score DESC")
+    @tvshow_reviews = TvshowReview.where(tvshow_id: params[:id]).published.order("cached_votes_score DESC")
     
     @avg_score = 0
     @avg_score = @tvshow_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @tvshow_reviews.count if @tvshow_reviews.count > 0
