@@ -84,6 +84,8 @@ ActiveRecord::Schema.define(version: 20140507153654) do
     t.string   "book_isbn"
     t.integer  "user_id"
     t.string   "book_id"
+    t.string   "isbn_10"
+    t.string   "isbn_13"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "cached_votes_total",    default: 0

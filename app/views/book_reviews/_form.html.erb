@@ -48,7 +48,8 @@
       <%= f.text_field :book_pages, :value => @book.pageCount %>
       <%= f.text_field :book_image, :value => @book.imageLinks['thumbnail'] %>
       <%= f.text_field :book_language, :value => @book.language %>
-      <%= f.text_field :book_isbn, :value => @book.isbn %>
+      <%= f.text_field :book_isbn_10, :value => @book.isbn_10 %>
+      <%= f.text_field :book_isbn_13, :value => @book.isbn_13 %>
 
 <% end %>
 

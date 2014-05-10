@@ -1,11 +1,11 @@
 Inrevi::Application.routes.draw do
 
-#  resources :book_reviews
+  resources :book_reviews
 #  resources :song_reviews
 #  resources :tech_reviews
 #  resources :podcast_reviews
-#  resources :tvshow_reviews
-#  resources :movie_reviews
+  resources :tvshow_reviews
+  resources :movie_reviews
 #  resources :local_reviews
 
   get 'techtags/:tag', to: 'teches#index', as: :ttag
