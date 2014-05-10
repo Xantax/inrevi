@@ -7,7 +7,7 @@ class SongReviewsController < ApplicationController
   end
   
   def index
-    @song_reviews = SongReview.where(song_isrc: params[:id]).order("cached_votes_score DESC")
+    @song_reviews = SongReview.order("cached_votes_score ASC").all
   end
 
   def show

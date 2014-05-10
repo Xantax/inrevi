@@ -10,7 +10,7 @@ class CreateMovieReviews < ActiveRecord::Migration
       t.string :movie_year
       t.string :movie_poster
       t.references :user, index: true
-      t.string :movie_id
+      t.string :movie_id, index: true
 
       t.timestamps
     end

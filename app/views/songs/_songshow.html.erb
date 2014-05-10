@@ -1,0 +1,20 @@
+<div class="row">
+         
+         <div class="col-sm-8">
+           <div class="songname"><%= @song.name %></div>
+           <div class="songartistalbum">
+             <b>Artists:</b> <%= @song.artists.map(&:name).join(', ') %><br>
+             <b>Album:</b> <%= @song.album.name %>
+           </div><br>
+            
+            <iframe allowtransparency="true" frameborder="0" height="80" src="https://embed.spotify.com/?uri=<%= @song.uri %>" width="280"></iframe>
+         </div>
+         
+         <div class="col-sm-4">
+            <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+            <div class="writeareview">
+              <%= link_to "Write a Review", new_song_song_review_path(@song.uri) %>
+            </div>
+         </div>
+         
+       </div> <hr>

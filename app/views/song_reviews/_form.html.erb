@@ -43,11 +43,11 @@
       <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
 
 
-      <%= f.text_field :song_id, :value => @song.uri %>
-      <%= f.text_field :song_name, :value => @song.name %>
-      <%= f.text_field :song_artists, :value => @song.artists.map(&:name).join(', ') %>
-      <%= f.text_field :song_album, :value => @song.album.name %>
-      <%= f.text_field :song_isrc, :value => @song.isrc_id %>
+      <%= f.hidden_field :song_id, :value => @song.uri %>
+      <%= f.hidden_field :song_name, :value => @song.name %>
+      <%= f.hidden_field :song_artists, :value => @song.artists.map(&:name).join(', ') %>
+      <%= f.hidden_field :song_album, :value => @song.album.name %>
+      <%= f.hidden_field :song_isrc, :value => @song.isrc_id %>
 
 <% end %>
 

@@ -10,7 +10,6 @@ class CreateBookReviews < ActiveRecord::Migration
       t.string :book_date
       t.string :book_image
       t.string :book_language
-      t.string :book_isbn
       t.references :user, index: true
       t.string :book_id, index: true
       t.string :isbn_10

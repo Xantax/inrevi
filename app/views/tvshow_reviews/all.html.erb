@@ -7,7 +7,7 @@
       <%= image_tag(all_tvshow_review.user.image, width: "80") %>
     </div>
     <div class="col-sm-9">
-      <%= link_to all_tvshow_review.tvshow_name, "tvshows/#{all_tvshow_review.tvshow_id}" %><br>
+      <%= link_to all_tvshow_review.tvshow_name, "/tvshows/#{all_tvshow_review.tvshow_id}" %><br>
       <%= all_tvshow_review.point %> - <b><%= all_tvshow_review.title %></b><br>
       <%= all_tvshow_review.content %><br>
       <% all_tvshow_review.review_images.each do |pic| %>

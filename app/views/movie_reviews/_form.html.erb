@@ -42,12 +42,12 @@
     
       <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
 
-      <%= f.text_field :movie_id, :value => @movie.id %>
-      <%= f.text_field :movie_imdb, :value => @movie.imdb_id %>
-      <%= f.text_field :movie_title, :value => @movie.title %>
-      <%= f.text_field :movie_runtime, :value => @movie.runtime %>
-      <%= f.text_field :movie_poster, :value => @movie.poster_path %>
-      <%= f.text_field :movie_year, :value => @movie.release_date.to_date.try(:year) %>
+      <%= f.hidden_field :movie_id, :value => @movie.id %>
+      <%= f.hidden_field :movie_imdb, :value => @movie.imdb_id %>
+      <%= f.hidden_field :movie_title, :value => @movie.title %>
+      <%= f.hidden_field :movie_runtime, :value => @movie.runtime %>
+      <%= f.hidden_field :movie_poster, :value => @movie.poster_path %>
+      <%= f.hidden_field :movie_year, :value => @movie.release_date.to_date.try(:year) %>
 
 <% end %>
 

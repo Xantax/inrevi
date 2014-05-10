@@ -9,7 +9,7 @@ class CreateSongReviews < ActiveRecord::Migration
       t.string :song_album
       t.string :song_isrc
       t.references :user, index: true
-      t.string :song_id
+      t.string :song_id, index: true
 
       t.timestamps
     end
