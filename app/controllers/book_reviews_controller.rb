@@ -2,10 +2,6 @@ class BookReviewsController < ApplicationController
   before_action :set_book_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :set_book, [:new, :create, :show]
 
-  def all
-    @all_book_reviews = BookReview.order("cached_votes_score ASC").all
-  end
-  
   def index
     @book_reviews = BookReview.order("cached_votes_score ASC").all
   end

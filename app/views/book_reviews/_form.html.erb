@@ -49,8 +49,8 @@
       <%= f.text_field :book_date, :value => @book.publishedDate if @book.publishedDate.present? %>
       <%= f.text_field :book_image, :value => @book.imageLinks['thumbnail'] if @book.imageLinks['thumbnail'].present? %>
       <%= f.text_field :book_language, :value => @book.language if @book.language.present? %>
-      <%= f.text_field :book_isbn_10, :value => @book.isbn_10 if @book.isbn_10.present? %>
-      <%= f.text_field :book_isbn_13, :value => @book.isbn_13 if @book.isbn_13.present? %>
+      <%= f.text_field :isbn_10, :value => @book.isbn_10 if @book.isbn_10.present? %>
+      <%= f.text_field :isbn_13, :value => @book.isbn_13 if @book.isbn_13.present? %>
 
 <% end %>
 
