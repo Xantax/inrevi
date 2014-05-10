@@ -1,13 +1,13 @@
 class BookReviewsController < ApplicationController
   before_action :set_book_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :set_book, [:new, :create, :show, :all]
+  before_action :set_book, [:new, :create, :show]
 
   def all
     @all_book_reviews = BookReview.order("cached_votes_score ASC").all
   end
   
   def index
-    @book_reviews = BookReview.where(book_id: params[:id]).order("cached_votes_score DESC")
+    @book_reviews = BookReview.order("cached_votes_score ASC").all
   end
 
   def show
@@ -53,7 +53,7 @@ class BookReviewsController < ApplicationController
   def destroy
     @book_review.destroy
     respond_to do |format|
-      format.html { redirect_to book_reviews_url }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end

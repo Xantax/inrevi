@@ -1,0 +1,25 @@
+<div class="row">
+  <% @all_song_reviews.each do |all_song_review| %>
+    <div class="col-sm-3">
+      <%= link_to user_path(all_song_review.user) do %> 
+        <%= all_song_review.user.first_name %><br>
+      <% end %>
+      <%= image_tag(all_song_review.user.image, width: "80") %>
+    </div>
+    <div class="col-sm-9">
+      <%= link_to all_song_review.song_name, "songs/#{all_song_review.song_id}" %><br>
+      <%= all_song_review.point %> - <b><%= all_song_review.title %></b><br>
+      <%= all_song_review.content %><br>
+      <% all_song_review.review_images.each do |pic| %>
+         <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>
+      <% end %><br><br>
+      <%= all_song_review.get_upvotes.size %> | <%= all_song_review.get_downvotes.size %>
+      <%= link_to 'Delete', song_song_review_path(all_song_review.song_id, all_song_review),
+               method: :delete,
+               data: { confirm: 'Are you sure?'},
+               class: "btn btn-primary" %>
+
+      <hr>
+    </div>
+  <% end %>
+</div>

@@ -55,7 +55,7 @@ class TvshowReviewsController < ApplicationController
   def destroy
     @tvshow_review.destroy
     respond_to do |format|
-      format.html { redirect_to tvshow_reviews_url }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end
@@ -72,7 +72,7 @@ class TvshowReviewsController < ApplicationController
 
     def tvshow_review_params
       params.require(:tvshow_review).permit(:title, :content, :user_id, :point, :score,
-        :tvshow_id, :tvshow_ident, :tvshow_name, :tvshow_year, :tvshow_poster, 
+        :tvshow_id, :tvshow_name, :tvshow_year, :tvshow_poster, 
         review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
 end

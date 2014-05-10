@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   require 'themoviedb'
 
   before_filter :set_config
-  Tmdb::Api.key("a8ddb278788ceab2a58875b7f172c327")
+  Tmdb::Api.key(Settings.tmdb.key)
 
   def set_config
   	@configuration = Tmdb::Configuration.new
@@ -20,7 +20,7 @@ class MoviesController < ApplicationController
   	@similar_movies = Tmdb::Movie.similar_movies(params[:id])
     @crew = Tmdb::Movie.crew(params[:id])
     
-    @movie_reviews = MovieReview.where(movie_id: params[:id]).published.order("cached_votes_score DESC")
+    @movie_reviews = MovieReview.where(movie_id: params[:id]).order("cached_votes_score DESC")
     
     @avg_score = 0
     @avg_score = @movie_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @movie_reviews.count if @movie_reviews.count > 0

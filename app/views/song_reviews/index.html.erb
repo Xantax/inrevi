@@ -1,25 +1,24 @@
-%h1 Listing song_reviews
+<div class="row">
+  <% @song_reviews.each do |song_review| %>
+    <div class="col-sm-3">
+      <%= link_to user_path(song_review.user) do %> 
+        <%= song_review.user.first_name %><br>
+      <% end %>
+      <%= image_tag(song_review.user.image, width: "80") %>
+    </div>
+    <div class="col-sm-9">
+      <%= song_review.point %> - <b><%= song_review.title %></b><br>
+      <%= song_review.content %><br>
+      <% song_review.review_images.each do |pic| %>
+         <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>
+      <% end %><br><br>
+      <%= song_review.get_upvotes.size %> | <%= song_review.get_downvotes.size %>
+      <%= link_to 'Delete', song_song_review_path(song_review.song_id, song_review),
+               method: :delete,
+               data: { confirm: 'Are you sure?'},
+               class: "btn btn-primary" %>
 
-%table
-  %tr
-    %th Title
-    %th Content
-    %th User
-    %th Song
-    %th
-    %th
-    %th
-
-  - @song_reviews.each do |song_review|
-    %tr
-      %td= song_review.title
-      %td= song_review.content
-      %td= song_review.user
-      %td= song_review.song
-      %td= link_to 'Show', song_review
-      %td= link_to 'Edit', edit_song_review_path(song_review)
-      %td= link_to 'Destroy', song_review, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Song review', new_song_review_path
+      <hr>
+    </div>
+  <% end %>
+</div>

@@ -57,7 +57,7 @@ class TechReviewsController < ApplicationController
   def destroy
     @tech_review.destroy
     respond_to do |format|
-      format.html { redirect_to tech_reviews_url }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end

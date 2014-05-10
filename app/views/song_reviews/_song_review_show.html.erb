@@ -1,0 +1,44 @@
+<% if current_user == @song_review.user %>
+  <p id="notice"><%= notice %></p> <div align="center"><%= social_share_button_tag(@song_review.title, :text => "twipsy") %></div>
+  <hr>
+<% end %>
+
+<div class="row">
+  
+  <div class="col-sm-3"> 
+    <div class="reviewname">     
+      <%= link_to user_path(@song_review.user) do %> 
+        <%= @song_review.user.first_name %>
+        <%= @song_review.user.last_name.truncate(2, omission: '.')%>
+      <% end %>
+    </div>    
+          <%= image_tag(@song_review.user.image, width: "80") %>  
+  </div>
+      
+    <div class="col-sm-9 podreview"> 
+      <div class="separatereview">
+        
+         <div class="numberOne">
+            <%= @song_review.point %>
+         </div>
+        
+            <div class="reviewtitle"><%= @song_review.title %>:</div> <br><br>  
+            <div class="reviewcontent">
+              <%= simple_format(@song_review.content) %>
+            </div><br>
+          
+             <% unless @song_review.review_images.empty? %>
+                <% @song_review.review_images.each do |pic| %>
+                     <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>
+                <% end %>
+                 <% if signed_in? %>
+                   <% unless current_user == @song_review.user %>
+                     <hr>
+                   <% end %>
+                 <% end %>
+             <% end %>
+      
+        </div><br>
+    </div>
+  
+</div>

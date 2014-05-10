@@ -1,10 +1,8 @@
 <div class="row">
 <% if activity.trackable %>
   
-   <% if activity.owner == @user %>
-      
-   <% else %>
-  
+   <% unless activity.owner == @user %>
+
     <div class="col-sm-3 useronactivity">
       <div class="reviewname">  
       <%= link_to user_path(activity.owner) do %> 
@@ -28,7 +26,7 @@
            reviewed
         <% end %>
     
-        <%= link_to activity.trackable.local_name, "/locals/#{activity.trackable.local_factual}" %><br><br>
+        <%= link_to activity.trackable.local_name, "/locals/#{activity.trackable.local_id}" %><br><br>
     
         <div class="numberOne"><%= activity.trackable.point %></div>
         <div class="reviewtitle"><%= activity.trackable.title %></div><br><br>
@@ -66,8 +64,6 @@
         
       </div>
     </div>
-
-<% else %>
 
 <% end %>
 </div><br>

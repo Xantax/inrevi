@@ -58,7 +58,7 @@ class LocalReviewsController < ApplicationController
   def destroy
     @local_review.destroy
     respond_to do |format|
-      format.html { redirect_to local_reviews_url }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end
@@ -91,7 +91,7 @@ class LocalReviewsController < ApplicationController
     end
   
     def factual_authorize
-      @factual = Factual.new("eXMwUZMBIrfW7ORstKjqxoZelkYRMmOwi6C7lRDt", "htInMeU5AXUHdPuErx27W1MIj9MYeYzsG6DhhSV6")
+      @factual = Factual.new(Settings.factual.key, Settings.factual.secret)
     end
   
 end

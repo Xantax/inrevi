@@ -22,7 +22,7 @@ class LocalsController < ApplicationController
     
     other_local @local
     
-    @local_reviews = LocalReview.where(local_id: params[:id]).published.order("cached_votes_score DESC")
+    @local_reviews = LocalReview.where(local_id: params[:id]).order("cached_votes_score DESC")
     
     @avg_score = 0
     @avg_score = @local_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @local_reviews.count if @local_reviews.count > 0
@@ -60,6 +60,6 @@ class LocalsController < ApplicationController
   end
   
     def factual_authorize
-      @factual = Factual.new("eXMwUZMBIrfW7ORstKjqxoZelkYRMmOwi6C7lRDt", "htInMeU5AXUHdPuErx27W1MIj9MYeYzsG6DhhSV6")
+      @factual = Factual.new(Settings.factual.key, Settings.factual.secret)
     end
 end

@@ -12,7 +12,9 @@
   
   <div class="col-sm-5">
     <div class="moviefacts">
-      <div class="movtitle"><%= link_to @movie_review.movie_title, movie_path(@movie_review.movie_ident) %> (<%= @movie_review.movie_year %>)</div><br>
+      <div class="movtitle">
+        <%= link_to @movie_review.movie_title %> (<%= @movie_review.movie_year %>)
+      </div><br>
       
       <% if @movie_review.movie_runtime.nil? %>
       <% else %>
@@ -26,7 +28,7 @@
   <div class="col-sm-4">
     
         <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
-        <div class="writeareview"><%= link_to "Write a Review", new_movie_movie_review_path(@movie_review.movie_ident) %>
+        <div class="writeareview"><%= link_to "Write a Review", new_movie_movie_review_path() %>
       </div><br><br>
     
   </div>  

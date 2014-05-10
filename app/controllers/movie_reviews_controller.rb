@@ -5,7 +5,7 @@ class MovieReviewsController < ApplicationController
   require 'themoviedb'
 
   before_filter :set_config
-  Tmdb::Api.key("a8ddb278788ceab2a58875b7f172c327")
+  Tmdb::Api.key(Settings.tmdb.key)
 
   def set_config
   	@configuration = Tmdb::Configuration.new
@@ -62,7 +62,7 @@ class MovieReviewsController < ApplicationController
   def destroy
     @movie_review.destroy
     respond_to do |format|
-      format.html { redirect_to movie_reviews_url }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end
@@ -87,7 +87,7 @@ class MovieReviewsController < ApplicationController
     end
 
     def movie_review_params
-      params.require(:movie_review).permit(:title, :content, :user, :movie, :point, :score, :movie_imdb, 
+      params.require(:movie_review).permit(:title, :content, :user, :movie_id, :point, :score, :movie_imdb, 
         :movie_title, :movie_year, :movie_runtime, :movie_ident, :movie_poster,
         review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
