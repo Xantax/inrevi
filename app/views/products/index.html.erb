@@ -1,26 +1,44 @@
-<h1>
-  <%= @resource_type.to_s.pluralize.humanize %>
-</h1>
-<div class="search-box">
-  <%= render 'search_form' %>
+<% provide(:title, @resource_type.to_s.pluralize.humanize) %>
+<div class="row">
+
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div>
+  
+  <div class="col-sm-8">
+    <div class="allnews">
+      
+        <div class="search-box">
+          <%= render 'search_form' %>
+        </div>
+      
+      <%= @categories.select { |cat| cat.cat_id.eql?(ProductCategory::ORIGINAL_CATEGORY[@resource_type][:cat_id]) }.first %>
+      
+        <div class="pagination-container">
+          <% if @products %>
+            <%= render 'pagination' %>
+          <% end %>
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Brand</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if @products %>
+              <%= render 'products' %>
+            <% end %>
+          </tbody>
+        </table>
+      
+    </div>
+  </div>
+  
+   <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div> 
 
 </div>
-<div class="pagination-container">
-  <% if @products %>
-    <%= render 'pagination' %>
-  <% end %>
-</div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Brand</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% if @products %>
-      <%= render 'products' %>
-    <% end %>
-  </tbody>
-</table>

@@ -43,6 +43,7 @@ gem 'googlebooks', '~> 0.0.8'
 gem 'simple_form', '~> 3.0.2'
 gem 'omniauth-google-oauth2', '~> 0.2.4'
 gem 'haml-rails', '~> 0.5.3'
+gem 'colorize', '~> 0.7.2'
 gem 'semantics3', '~> 0.04'
 gem 'social-share-button', '~> 0.1.6'
 

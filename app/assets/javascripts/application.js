@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require products
 //= require jquery.ui.all
 //= require jquery.turbolinks
 //= require jquery.raty
