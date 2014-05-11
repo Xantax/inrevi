@@ -1,0 +1,22 @@
+<div class="row autoup"> 
+  <div class="col-sm-3"> 
+    <%= image_tag @drug_review.drug.image_url(:thumb) if @drug_review.drug.image? %> 
+  </div> 
+  
+   <div class="col-sm-5 autoshow"> 
+     <b><%= link_to @drug_review.drug.name, drug_path(@drug_review.drug) %></b> <br><br>
+
+      <%= link_to "additional info", additionalinfo_drug_path %><br><br>
+  
+  </div>
+  
+  <div class="col-sm-4">
+    
+    <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+    <div class="writeareview">
+      <%= link_to "Write a Review", new_drug_drug_review_path(@drug_review.drug) %>
+    </div><br>
+    
+  </div>
+  
+</div> <br>

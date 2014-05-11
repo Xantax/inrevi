@@ -1,24 +1,22 @@
 class DrugsController < ApplicationController
-  before_action :set_drug, only: [:show, :edit, :update, :destroy]
+  before_action :set_drug, only: [:show, :edit, :update, :destroy, :additionalinfo]
   before_action :signed_in_user, only: [:new]
 
   def index
+    @drugs = Drug.all
     @search = Drug.search do
       fulltext params[:search]
     end
-
-    if params[:dtag]
-      @drugs = Drug.tagged_with(params[:dtag])
-    elsif
-      @drugs = @search.results
-    else
-      @drugs = Drug.all
-    end
+    @drugs = @search.results
   end
 
   def show
     @drug_review = DrugReview.new
-    @drug_reviews = Drug.find(params[:id]).drug_reviews.order(created_at: :desc)
+    @drug_reviews = Drug.find(params[:id]).drug_reviews.order("cached_votes_score DESC")
+    
+    @avg_score = 0
+    @avg_score = @drug_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @drug_reviews.count if @drug_reviews.count > 0
+    
   end
 
   def new
@@ -69,6 +67,6 @@ class DrugsController < ApplicationController
     end
 
     def drug_params
-      params.require(:drug).permit(:name, :image, :tag_list, :remote_image_url)
+      params.require(:drug).permit(:name, :image, :additionalinfo, :remote_image_url)
     end
 end

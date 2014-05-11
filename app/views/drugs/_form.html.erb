@@ -1,0 +1,25 @@
+<%= form_for @drug, :html => {:multipart => true} do |f| %>
+  <% if @drug.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@drug.errors.count, "error") %> prohibited this podcast from being saved:</h2>
+
+      <ul>
+      <% @drug.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :placeholder => "Tesla S" , :class => "podcastnew" %><br><br>
+
+    <%= f.label :additionalinfo %><br>
+    <%= f.text_area :additionalinfo, :class => "field podcontent" %><br><br>
+
+    <%= image_tag("othericons/PhotoShow.PNG") %>    <%= f.label :remote_image_url, "Image URL (min. 150x150)" %><br />
+    <%= f.text_field :remote_image_url, :placeholder => "e.g. https://imgur.com/Iks3rd" , :class => "podcastnew" %><br><br>
+
+    <%= submit_tag 'Submit', :class => 'btn btn-primary' %>
+
+<% end %>

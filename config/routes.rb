@@ -1,7 +1,8 @@
 Inrevi::Application.routes.draw do
 
+  resources :drug_reviews
+
   get 'techtags/:tag', to: 'teches#index', as: :ttag
-  get 'drugtags/:tag', to: 'drugs#index', as: :dtag
   get 'podtags/:tag', to: 'podcasts#index', as: :tag  
   
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
@@ -65,12 +66,19 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
 #----------   HEALTH   ----------
   
   resources :drugs do
-
+    member do
+      get "additionalinfo" => "drugs#additionalinfo"
+    end
+    resources :drug_reviews do
+      member do
+        put "like", to: "drug_reviews#upvote"
+        put "dislike", to: "drug_reviews#downvote"
+      end     
+    end
   end
-  
-  resources :supplements do
 
-  end
+  match 'drug_reviews/all' => "drug_reviews#all", via: [:get]
+ 
  
 #----------   TECH   ----------  
   

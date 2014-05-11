@@ -1,7 +1,20 @@
+@import "bootstrap";
+
+/* GENERAL */
+
+#allmobile{
+  min-width : 320px;
+  padding: 0;
+  margin: 0;
+}
+
+.mobilemaincats{
+  font-size: 20pt !important;
+}
+
 /* HEADER */
 
 .mobilelogo{
-  align:center;
   border-bottom: 2px solid #606060;
 }
 
@@ -9,12 +22,10 @@
   background-color:#F8F8F8;
   border-bottom: 1px solid #D8D8D8;
   font-weight:bold;
-  padding-top:5px;
-  padding-bottom:5px;
 }
 
 /* CATEGORIES */
 
 ul.nav.nav-stacked.categorylist.mobile li {
-   border-bottom: 1px solid #E8E8E8;
+
 }

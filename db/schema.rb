@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507153654) do
+ActiveRecord::Schema.define(version: 20140510220716) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 20140507153654) do
     t.string   "book_date"
     t.string   "book_image"
     t.string   "book_language"
-    t.string   "book_isbn"
     t.integer  "user_id"
     t.string   "book_id"
     t.string   "isbn_10"
@@ -118,9 +117,33 @@ ActiveRecord::Schema.define(version: 20140507153654) do
     t.datetime "updated_at"
   end
 
+  create_table "drug_reviews", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "point",                 default: -1
+    t.integer  "user_id"
+    t.integer  "drug_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "cached_votes_total",    default: 0
+    t.integer  "cached_votes_score",    default: 0
+    t.integer  "cached_votes_up",       default: 0
+    t.integer  "cached_votes_down",     default: 0
+    t.integer  "cached_weighted_score", default: 0
+  end
+
+  add_index "drug_reviews", ["cached_votes_down"], name: "index_drug_reviews_on_cached_votes_down"
+  add_index "drug_reviews", ["cached_votes_score"], name: "index_drug_reviews_on_cached_votes_score"
+  add_index "drug_reviews", ["cached_votes_total"], name: "index_drug_reviews_on_cached_votes_total"
+  add_index "drug_reviews", ["cached_votes_up"], name: "index_drug_reviews_on_cached_votes_up"
+  add_index "drug_reviews", ["cached_weighted_score"], name: "index_drug_reviews_on_cached_weighted_score"
+  add_index "drug_reviews", ["drug_id"], name: "index_drug_reviews_on_drug_id"
+  add_index "drug_reviews", ["user_id"], name: "index_drug_reviews_on_user_id"
+
   create_table "drugs", force: true do |t|
     t.string   "name"
     t.string   "image"
+    t.text     "additionalinfo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

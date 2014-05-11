@@ -1,25 +1,66 @@
-<div class="row">
-  <% @book_reviews.each do |book_review| %>
-    <div class="col-sm-3">
-      <%= link_to user_path(book_review.user) do %> 
-        <%= book_review.user.first_name %><br>
-      <% end %>
-      <%= image_tag(book_review.user.image, width: "80") %>
+<% @book_reviews.each do |book_review| %><br>
+    <div class="col-sm-3"> 
+      <div class="reviewname">     
+        <%= link_to user_path(book_review.user) do %> 
+          <%= book_review.user.first_name %>
+          <%= book_review.user.last_name.truncate(2, omission: '.')%>
+        <% end %>
+      </div>    
+        <%= image_tag(book_review.user.image, width: "80") %>  
+      </div>
+        
+      <div class="col-sm-9 podreview"> 
+         <div class="separatereview">
+           
+            <div class="numberOne">
+              <%= book_review.point %>
+            </div>
+          
+          <div class="reviewtitle"><%= book_review.title %></div><br><br>
+          <div class="reviewcontent"><%= simple_format(book_review.content) %></div>
+           
+             <% unless book_review.review_images.empty? %>
+                <% book_review.review_images.each do |pic| %>
+                     <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>
+                <% end %>
+                 <% if signed_in? %>
+                   <% unless current_user == book_review.user %>
+                     <hr>
+                   <% end %>
+                 <% end %>
+             <% end %>
+           
+              <div class="bottomreviewicons">
+                <% if signed_in? %>
+                
+                  <% if current_user == book_review.user %>
+                    
+                  <% elsif current_user.voted_for? book_review %>
+                    Voted!                
+                  <% else %>
+                   <div class="thumbsup">
+                     <%= link_to image_tag('othericons/thumbsup_off.PNG', height: '21', width: '20'),  like_book_book_review_path(book_review.book_id, book_review), method: :put, :remote => true %>
+                   </div>
+                            
+                   <div class="thumbsdown">
+                    <%= link_to image_tag('othericons/thumbsdown_off.PNG', height: '21', width: '20'), dislike_book_book_review_path(book_review.book_id, book_review), method: :put, :remote => true %>
+                   </div>
+               
+                   <% end %>
+                
+                      <% if allow? "book_reviews", "destroy" %>
+                        <hr>
+                            <%= book_review.get_upvotes.size %> | <%= book_review.get_downvotes.size %>
+                            <%= link_to 'Delete', book_book_review_path(book_review.book_id, book_review),
+                                     method: :delete,
+                                     data: { confirm: 'Are you sure?'},
+                                     class: "btn btn-default" %>
+                      <% end %>
+                
+                <% end %>
+                
+              </div>
+          
+      </div><br>
     </div>
-    <div class="col-sm-9">
-       <%= link_to "LINK", "books/#{book_review.book_id}" %><br>
-      <%= book_review.point %> - <b><%= book_review.title %></b><br>
-      <%= book_review.content %><br>
-      <% book_review.review_images.each do |pic| %>
-         <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>
-      <% end %><br><br>
-      <%= book_review.get_upvotes.size %> | <%= book_review.get_downvotes.size %>
-      <%= link_to 'Delete', book_book_review_path(book_review.book_id, book_review),
-               method: :delete,
-               data: { confirm: 'Are you sure?'},
-               class: "btn btn-default" %>
-
-      <hr>
-    </div>
-  <% end %>
-</div>
+<% end %>

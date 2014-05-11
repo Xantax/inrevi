@@ -1,0 +1,19 @@
+<% provide(:title, @drug.name) %>
+
+<div class="row">
+ 
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div> 
+    
+  <div class="col-sm-8"> 
+     <div class="allnews">
+        <%= render 'drugs/drugshow2' %>
+     </div>
+  </div>
+  
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
+
+</div>

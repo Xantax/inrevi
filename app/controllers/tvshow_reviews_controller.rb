@@ -59,6 +59,15 @@ class TvshowReviewsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def upvote
+   @tvshow_review.liked_by current_user
+   render nothing: true
+  end
+
+  def downvote
+    @tvshow_review.downvote_from current_user
+  end
 
   private
   

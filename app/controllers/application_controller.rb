@@ -36,7 +36,8 @@ class ApplicationController < ActionController::Base
     def authorize
       if !current_permission.allow?(params[:controller], params[:action])
         store_location
-        redirect_to root_url, notice: "You need to log in!"
+        redirect_to root_url 
+        flash[:notice] = 'You need to log in'
       end
     end
   

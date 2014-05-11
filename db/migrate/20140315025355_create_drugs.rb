@@ -3,6 +3,7 @@ class CreateDrugs < ActiveRecord::Migration
     create_table :drugs do |t|
       t.string :name
       t.string :image
+      t.text :additionalinfo
 
       t.timestamps
     end
