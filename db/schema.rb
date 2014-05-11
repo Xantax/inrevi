@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140510220716) do
+ActiveRecord::Schema.define(version: 20140511042311) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -286,6 +286,15 @@ ActiveRecord::Schema.define(version: 20140510220716) do
     t.string   "name"
     t.string   "website"
     t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_categories", force: true do |t|
+    t.string   "name"
+    t.integer  "parent_cat_id"
+    t.integer  "cat_id"
+    t.string   "resource_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

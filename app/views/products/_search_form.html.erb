@@ -1,0 +1,43 @@
+<%= form_tag eval("#{@resource_type.to_s.pluralize}_search_path"), method: :get, class: 'form-horizontal', id: 'products_search_path' do %>
+  <div class="form-actions">
+    <%= text_field_tag :query, params[:query], placeholder: 'Product', class: 'form-control', id: 'query-text-field' %>
+    <%= hidden_field_tag :category, params[:category] %>
+    <div class="dropdown" style="position:relative">
+      <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+        <%= params[:category].present? ? params[:category] : 'Choose a category' %>
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <% origin_category = @categories.select { |cat| cat.cat_id.eql?(ProductCategory::ORIGINAL_CATEGORY[@resource_type][:cat_id]) }.first %>
+        <% @categories.select { |cat| cat.parent_cat_id.eql?(origin_category.id) }.each do |category| %>
+          <li>
+            <% sub_categories = @categories.select { |cat| cat.parent_cat_id.eql?(category.id) } %>
+            <%= link_to category.name, "#", class: "#{'trigger' if sub_categories.present?}" %>
+            <% if sub_categories.present? %>
+              <span class="right-caret"></span>
+              <ul class="dropdown-menu sub-menu">
+                <% sub_categories.each do |sub_category| %>
+                  <% sub_categories2 = @categories.select { |cat| cat.parent_cat_id.eql?(sub_category.id) } %>
+                  <li>
+                    <%= link_to sub_category.name, "#", class: "#{'trigger' if sub_categories2.present?}" %>
+                    <% if sub_categories2.present? %>
+                      <span class="right-caret"></span>
+                      <ul class="dropdown-menu sub-menu">
+                        <% sub_categories2.each do |sub_category2| %>
+                          <li>
+                            <%= link_to sub_category2.name, "#" %>
+                          </li>
+                        <% end %>
+                      </ul>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <%= submit_tag 'Go', :class => 'btn btn-default' %>
+  </div>
+<% end %>

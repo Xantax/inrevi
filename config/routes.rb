@@ -1,6 +1,9 @@
 Inrevi::Application.routes.draw do
 
-  resources :drug_reviews
+  get 'cameras/search' => 'products#search'
+  get 'computers/search' => 'products#search'
+  resources :products, path: 'computers', as: :computer
+  resources :products, path: 'cameras', as: :camera
 
   get 'techtags/:tag', to: 'teches#index', as: :ttag
   get 'podtags/:tag', to: 'podcasts#index', as: :tag  

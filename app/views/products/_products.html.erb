@@ -1,0 +1,14 @@
+<% @products['results'].each do |product| %>
+  <tr>
+    <% sem3_id = product['sem3_id'] %>
+    <td>
+      <%= link_to product['name'], eval("#{@resource_type.to_s}_path('#{sem3_id}')") %>
+    </td>
+    <td>
+      <%= product['brand'] %>
+    </td>
+    <td>
+      <%= product['price'] %>
+    </td>
+  </tr>
+<% end %>

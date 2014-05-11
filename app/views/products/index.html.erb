@@ -1,0 +1,26 @@
+<h1>
+  <%= @resource_type.to_s.pluralize.humanize %>
+</h1>
+<div class="search-box">
+  <%= render 'search_form' %>
+
+</div>
+<div class="pagination-container">
+  <% if @products %>
+    <%= render 'pagination' %>
+  <% end %>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Brand</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @products %>
+      <%= render 'products' %>
+    <% end %>
+  </tbody>
+</table>
