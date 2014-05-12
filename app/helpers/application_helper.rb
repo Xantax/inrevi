@@ -10,12 +10,8 @@ module ApplicationHelper
     end
   end
   
-  def avg_score_for auto_resource
-    ((auto_resource.auto_reviews.inject(0) { |sum, e| sum += e.point }).to_f / auto_resource.auto_reviews.count).round(1) rescue 0
-  end
-  
-  def avg_score_for local_resource
-    ((local_resource.local_reviews.inject(0) { |sum, e| sum += e.point }).to_f / local_resource.auto_reviews.count).round(1) rescue 0
+  def avg_score_for resource
+    ((resource.resource_reviews.inject(0) { |sum, e| sum += e.point }).to_f / resource.resource_reviews.count).round(1) rescue 0
   end
   
   def human_number number

@@ -10,9 +10,6 @@ class DrugsController < ApplicationController
       fulltext params[:search]
     end
     @drugs = @search.results
-    
-    @avg_score = 0
-    @avg_score = @drug_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @drug_reviews.count if @drug_reviews.count > 0
   end
   
   def search
@@ -20,9 +17,6 @@ class DrugsController < ApplicationController
       fulltext params[:search]
     end
     @drugs = @search.results
-    
-    @avg_score = 0
-    @avg_score = @drug_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @drug_reviews.count if @drug_reviews.count > 0
   end
 
   def show

@@ -26,11 +26,13 @@
     
                 <div class="podcastsnowindex"><%= link_to drug.name, drug %></div>
                
-                 <div class="rating-total" data-id= "<%= drug.id %>" data-score= "<%= ((drug.drug_reviews.inject(0) { |sum, e| sum += e.point }).to_f / drug.drug_reviews.count).round(1) rescue 0 %>" >
+               <br>
+               <% if drug.drug_reviews.count >= 1 %>
+                 <div class="numberOneindex">
+                   <%= ((drug.drug_reviews.inject(0) { |sum, e| sum += e.point }).to_f / drug.drug_reviews.count).round(1) rescue 0 %>
                  </div>
-               <div class="total-score">
-                 <%= ((drug.drug_reviews.inject(0) { |sum, e| sum += e.point }).to_f / drug.drug_reviews.count).round(1) rescue 0 %>
-               </div>
+               <% end %>
+               
             </div>
            
          </div>

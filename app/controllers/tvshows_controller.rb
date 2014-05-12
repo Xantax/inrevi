@@ -24,11 +24,7 @@ class TvshowsController < ApplicationController
   end
   
   def search
-    @tvshow = Tmdb::TV.find(params[:query])
-    
-    @avg_score = 0
-    @avg_score = @tvshow_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @tvshow_reviews.count if @tvshow_reviews.count > 0
-    
+    @tvshow = Tmdb::TV.find(params[:query])    
   end
   
 end

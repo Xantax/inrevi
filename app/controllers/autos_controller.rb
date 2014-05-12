@@ -12,20 +12,13 @@ class AutosController < ApplicationController
     end
       @autos = @search.results 
     
-    @avg_score = 0
-    @avg_score = @auto_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @auto_reviews.count if @auto_reviews.count > 0
-    
   end
 
   def search
     @search = Auto.search do
       fulltext params[:search]
     end
-      @autos = @search.results 
-    
-    @avg_score = 0
-    @avg_score = @auto_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @auto_reviews.count if @auto_reviews.count > 0
-    
+      @autos = @search.results     
   end
   
   def show

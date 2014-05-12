@@ -30,9 +30,6 @@ class MoviesController < ApplicationController
   
   def search
     @movie = Tmdb::Movie.find(params[:query])
-    
-    @avg_score = 0
-    @avg_score = @movie_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @movie_reviews.count if @movie_reviews.count > 0
   end
   
   def popular

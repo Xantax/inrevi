@@ -14,9 +14,6 @@ class LocalsController < ApplicationController
       format.html { render 'index' }
     end
     
-    @avg_score = 0
-    @avg_score = @local_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @local_reviews.count if @local_reviews.count > 0
-    
   end
 
   def show
