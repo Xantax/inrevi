@@ -1,0 +1,14 @@
+<% provide(:title, 'All Auto') %>
+
+      <% @autos.each do |auto| %>
+          <div class="row">
+            <%= link_to auto.name, auto %><br>
+            <%= image_tag auto.image_url(:thumb) if auto.image? %>  
+            <hr>
+            <%= link_to 'Show', auto_path(auto) %>
+            <%= link_to 'Edit', edit_auto_path(auto) %>
+            <%= link_to 'Destroy', auto_path(auto),
+                            method: :delete, data: { confirm: 'Are you sure?' } %>
+            <hr>
+         </div>
+      <% end %>

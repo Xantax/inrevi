@@ -1,7 +1,10 @@
 class DrugsController < ApplicationController
   before_action :set_drug, only: [:show, :edit, :update, :destroy, :additionalinfo]
-  before_action :signed_in_user, only: [:new]
 
+  def all
+    @drugs = Drug.all.order("created_at DESC")
+  end
+  
   def index
     @drugs = Drug.all
     @search = Drug.search do

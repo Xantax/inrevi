@@ -15,6 +15,7 @@ match 'songs/search' => "songs#search", via: [:get]
 match 'msearch' => "movies#search", via: [:get]
 match 'tvsearch' => "tvshows#search", via: [:get]
 match 'search' => "books#search", via: [:get]
+match 'drugs/search' => "drugs#search", via: [:get]
   
 match 'media' => "static_pages#catmedia", via: [:get]
 match 'home' => "static_pages#cathome", via: [:get]
@@ -79,7 +80,8 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
       end     
     end
   end
-
+  
+  match 'drugz/all' => "drugs#all", via: [:get]
   match 'drug_reviews/all' => "drug_reviews#all", via: [:get]
  
  
@@ -93,7 +95,8 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
       end     
     end
   end
-
+  
+  match 'techez/all' => "teches#all", via: [:get]
   match 'tech_reviews/all' => "tech_reviews#all", via: [:get]
  
 #----------   AUTO   ----------  
@@ -109,7 +112,8 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
       end     
     end
   end
-
+  
+  match 'autoz/all' => "autos#all", via: [:get]
   match 'auto_reviews/all' => "auto_reviews#all", via: [:get]
 
 #----------   MEDIA   ----------
@@ -138,7 +142,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
     end
   end
 
-  match 'book_reviews/all' => "book_reviews#all", via: [:get]
+  match 'book_reviewz/all' => "book_reviews#all", via: [:get]
   
   resources :movies do
     resources :movie_reviews do
@@ -171,6 +175,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
     end
   end
 
+  match 'podcastz/all' => "podcasts#all", via: [:get]
   match 'podcast_reviews/all' => "podcast_reviews#all", via: [:get]
 
 #----------   END MEDIA   ----------

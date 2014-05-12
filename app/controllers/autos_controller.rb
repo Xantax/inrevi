@@ -1,9 +1,12 @@
 class AutosController < ApplicationController
   before_action :set_auto, only: [:show, :edit, :update, :destroy, :additionalinfo]
-  before_action :signed_in_user, only: [:new]
+  
+  def all
+    @autos = Auto.all.order("created_at DESC")
+  end
   
   def index
-    @autos = Auto.all
+#    @autos = Auto.all
     @search = Auto.search do
       fulltext params[:search]
     end
@@ -46,7 +49,7 @@ class AutosController < ApplicationController
 
   def update
     respond_to do |format|
-      if @auto.update(podcast_params)
+      if @auto.update(auto_params)
         format.html { redirect_to @auto, notice: 'Podcast was successfully updated.' }
         format.json { head :no_content }
       else

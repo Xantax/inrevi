@@ -1,7 +1,10 @@
 class TechesController < ApplicationController
   before_action :set_tech, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [:new]
 
+  def all
+    @teches = Tech.all.order("created_at DESC")
+  end
+  
   def index
     @search = Tech.search do
       fulltext params[:search]

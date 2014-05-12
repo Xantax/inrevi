@@ -1,0 +1,14 @@
+<% provide(:title, 'All Tech') %>
+
+      <% @teches.each do |tech| %>
+          <div class="row">
+            <%= link_to tech.name, tech %><br>
+            <%= image_tag tech.image_url(:thumb) if tech.image? %>  
+            <hr>
+            <%= link_to 'Show', tech_path(tech) %>
+            <%= link_to 'Edit', edit_tech_path(tech) %>
+            <%= link_to 'Destroy', tech_path(tech),
+                            method: :delete, data: { confirm: 'Are you sure?' } %>
+            <hr>
+         </div>
+      <% end %>

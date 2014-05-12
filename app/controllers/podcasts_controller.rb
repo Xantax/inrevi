@@ -1,7 +1,10 @@
  class PodcastsController < ApplicationController
   before_action :set_podcast, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [:new]
 
+  def all
+     @podcasts = Podcast.all.order("created_at DESC")
+  end
+   
   def index
 
     @search = Podcast.search do
