@@ -1,0 +1,14 @@
+<% provide(:title, 'All Drugs') %>
+
+      <% @drugs.each do |drug| %>
+          <div class="row">
+            <%= link_to drug.name, drug %><br>
+            <%= image_tag drug.image_url(:thumb) if drug.image? %>  
+            <hr>
+            <%= link_to 'Show', drug_path(drug) %>
+            <%= link_to 'Edit', edit_drug_path(drug) %>
+            <%= link_to 'Destroy', drug_path(drug),
+                            method: :delete, data: { confirm: 'Are you sure?' } %>
+            <hr>
+         </div>
+      <% end %>

@@ -1,11 +1,13 @@
 <%= form_tag search_path, method: :get, :html => { :class => 'form-horizontal' } do %>
-  <div class="form-actions">
 
-    <%= select_tag :category, options_for_select(Book::CATEGORY.map { |key, value| [value, key] }, params[:category] || Book::CATEGORY.keys.first), class: 'btn booksearch'  %>
-    <%= text_field_tag :query, params[:query], placeholder: '', :class => "booksearchbutton" %>
-    <div class="searchstyle"><%= image_submit_tag("searchbutton.PNG", height: '20', width: '20' ) %></div>
-    
-  </div>
+<div class="choosesearch">
+  <%= select_tag :category, options_for_select(Book::CATEGORY.map { |key, value| [value, key] }, params[:category] || Book::CATEGORY.keys.first), class: 'btn booksearch'  %>    
+</div>
+
+<div class="booktotalsearch"> 
+  <div class="searchbox books"><%= text_field_tag :query, params[:query], placeholder: '', :class => "form-control" %></div>
+  <div class="searchgo"><span class="input-group-btn"><%= submit_tag "Go", class: "btn btn-default" %></span></div>
+</div>
 <% end %>
 
 

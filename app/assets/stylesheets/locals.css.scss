@@ -33,15 +33,16 @@ height:500px;
 width:50px;
 }
 
-.qform-control
+.form-control.q
 { 
 padding: 5px; 
 border-radius: 3px; 
 border: 1px solid #CCC; 
 background-image: none; 
 width:220px; 
+display:inline-block;
 } 
- .qform-control:focus { 
+ .form-control.q:focus { 
 outline-color: #0066FF; 
 } 
 
@@ -79,4 +80,8 @@ font-size:85%;
 
 .localaddition{
   font-size:110%;
+}
+
+.searchbox.local{
+  width:200px;
 }
