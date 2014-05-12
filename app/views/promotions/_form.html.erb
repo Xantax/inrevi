@@ -1,15 +1,28 @@
-<%= simple_form_for(@promotion) do |f| %>
-  <%= f.error_notification %>
+<%= form_for(@promotion) do |f| %>
 
   <div class="form-inputs">
-    <%= f.input :text %>
-    <%= f.input :link %>
-    <%= f.input :local, as: :boolean, checked_value: true, unchecked_value: false %>
-    <%= f.input :auto, as: :boolean, checked_value: true, unchecked_value: false %>
-    <%= f.input :tech, as: :boolean, checked_value: true, unchecked_value: false %>
-    <%= f.input :book, as: :boolean, checked_value: true, unchecked_value: false %>
-    <%= f.input :movie, as: :boolean, checked_value: true, unchecked_value: false %>
-    <%= f.input :podcast, as: :boolean, checked_value: true, unchecked_value: false %>
+    <%= f.label :text %>
+    <%= f.text_field :text, :class => "field podtitle" %><br>
+    <%= f.label :link %>
+    <%= f.text_field :link, :class => "field podtitle" %><hr>
+    
+    <%= f.label :local %>
+    <%= f.check_box :local %><br>
+    <%= f.label :auto %>
+    <%= f.check_box :auto %><br>
+    <%= f.label :tech %>
+    <%= f.check_box :tech %><br>
+    <%= f.label :book %>
+    <%= f.check_box :book %><br>
+    <%= f.label :movie %>
+    <%= f.check_box :movie %><br>
+    <%= f.label :podcast %>
+    <%= f.check_box :podcast %><br>
+    <%= f.label :tvshow %>
+    <%= f.check_box :tvshow %><br>
+    <%= f.label :drug %>
+    <%= f.check_box :drug %><br>
+
   </div><br>
 
   <div class="form-actions">

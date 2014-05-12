@@ -20,6 +20,8 @@ before_action :resource_request
 
   def show
     @product = Product.retrieve_product params[:id]
+    
+    @promotion = Promotion.order("RANDOM()").first
   end
 
   private

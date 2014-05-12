@@ -1,5 +1,11 @@
 <%= render 'drugs/drugshow' %>
 
+    <% if @promotion.present? && @promotion.drug %>
+        <div class="row showpromotion">
+          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
+        </div>
+    <% end %>
+
   <div class="row"> 
     <%= render :file => '/drug_reviews/index' %>
   </div>

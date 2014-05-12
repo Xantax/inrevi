@@ -6,6 +6,10 @@ class BooksController < ApplicationController
   def search
     @books = Book.search params
     render 'index'
+    
+    @avg_score = 0
+    @avg_score = @book_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @book_reviews.count if @book_reviews.count > 0
+    
   end
 
   def show
@@ -15,6 +19,8 @@ class BooksController < ApplicationController
     
     @avg_score = 0
     @avg_score = @book_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @book_reviews.count if @book_reviews.count > 0
+    
+    @promotion = Promotion.order("RANDOM()").first
   end
   
   def description

@@ -33,7 +33,10 @@
       @podcasts = @search.results
     else
       @podcasts = Podcast.all
-    end     
+    end
+     
+    @avg_score = 0
+    @avg_score = @podcast_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @podcast_reviews.count if @podcast_reviews.count > 0
      
    end
 

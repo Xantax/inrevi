@@ -13,6 +13,10 @@ class LocalsController < ApplicationController
     respond_to do |format|
       format.html { render 'index' }
     end
+    
+    @avg_score = 0
+    @avg_score = @local_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @local_reviews.count if @local_reviews.count > 0
+    
   end
 
   def show
@@ -27,6 +31,8 @@ class LocalsController < ApplicationController
     @avg_score = 0
     @avg_score = @local_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @local_reviews.count if @local_reviews.count > 0
     
+    @promotion = Promotion.order("RANDOM()").first
+    
   end
   
   def additionalinfo
@@ -36,6 +42,10 @@ class LocalsController < ApplicationController
     other_local @local
     
     render 'additionalinfo'
+    
+    @avg_score = 0
+    @avg_score = @local_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @local_reviews.count if @local_reviews.count > 0
+    
   end
 
   private

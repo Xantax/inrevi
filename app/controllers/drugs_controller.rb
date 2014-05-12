@@ -10,6 +10,9 @@ class DrugsController < ApplicationController
       fulltext params[:search]
     end
     @drugs = @search.results
+    
+    @avg_score = 0
+    @avg_score = @drug_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @drug_reviews.count if @drug_reviews.count > 0
   end
   
   def search
@@ -17,6 +20,9 @@ class DrugsController < ApplicationController
       fulltext params[:search]
     end
     @drugs = @search.results
+    
+    @avg_score = 0
+    @avg_score = @drug_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @drug_reviews.count if @drug_reviews.count > 0
   end
 
   def show
@@ -26,8 +32,19 @@ class DrugsController < ApplicationController
     @avg_score = 0
     @avg_score = @drug_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @drug_reviews.count if @drug_reviews.count > 0
     
+    @promotion = Promotion.order("RANDOM()").first
   end
 
+  def additionalinfo
+    @drug_review = DrugReview.new
+    @drug_reviews = Drug.find(params[:id]).drug_reviews.order("cached_votes_score DESC")
+    
+    @avg_score = 0
+    @avg_score = @drug_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @drug_reviews.count if @drug_reviews.count > 0
+    
+    @promotion = Promotion.order("RANDOM()").first
+  end
+  
   def new
     @drug = Drug.new
   end

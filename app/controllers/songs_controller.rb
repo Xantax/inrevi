@@ -6,6 +6,10 @@ class SongsController < ApplicationController
   def search
     @songs = Song.search params
     render 'index'
+    
+    @avg_score = 0
+    @avg_score = @song_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @song_reviews.count if @song_reviews.count > 0
+    
   end
 
   def show
@@ -15,6 +19,8 @@ class SongsController < ApplicationController
     
     @avg_score = 0
     @avg_score = @song_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @song_reviews.count if @song_reviews.count > 0
+    
+    @promotion = Promotion.order("RANDOM()").first
   end
   
 end

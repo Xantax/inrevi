@@ -1,5 +1,11 @@
 <%= render 'localshow' %>
 
+    <% if @promotion.present? && @promotion.local %>
+        <div class="row showpromotion">
+          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
+        </div>
+    <% end %>
+
   <div class="row"> 
     <%= render :file => "local_reviews/index" %>
   </div>

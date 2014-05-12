@@ -10,6 +10,10 @@ class TechesController < ApplicationController
       fulltext params[:search]
     end
     @teches = @search.results
+    
+    @avg_score = 0
+    @avg_score = @tech_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @tech_reviews.count if @tech_reviews.count > 0
+    
   end
   
   def index
@@ -24,6 +28,8 @@ class TechesController < ApplicationController
     @tech_reviews = Tech.find(params[:id]).tech_reviews.order("cached_votes_score DESC")
     @avg_score = 0
     @avg_score = @tech_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @tech_reviews.count if @tech_reviews.count > 0
+    
+    @promotion = Promotion.order("RANDOM()").first
   end
 
   def new

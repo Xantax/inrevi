@@ -35,8 +35,16 @@
   </div>
   
   <div class="col-sm-4">
+    
         <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
-        <%= link_to "Write a Review", new_tvshow_tvshow_review_path(@tvshow.id) %>
+        <div class="writeareview">
+          <%= link_to "Write a Review", new_tvshow_tvshow_review_path(@tvshow.id) %>
+        </div><br>
+    
+     <div>
+     <%= render 'show_rating' %>
+     </div>
+  
   </div> 
   
 </div>
