@@ -1,0 +1,25 @@
+<div class="row">
+  <% @all_drug_reviews.each do |all_drug_review| %>
+    <div class="col-sm-3">
+      <%= link_to user_path(all_drug_review.user) do %> 
+        <%= all_drug_review.user.first_name %><br>
+      <% end %>
+      <%= image_tag(all_drug_review.user.image, width: "80") %>
+    </div>
+    <div class="col-sm-9">
+      Drug: <%= link_to all_drug_review.drug.name, all_drug_review.drug %><br>
+      <%= all_drug_review.point %> - <b><%= all_drug_review.title %></b><br>
+      <%= all_drug_review.content %><br>
+      <% all_drug_review.review_images.each do |pic| %>
+         <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>
+      <% end %><br><br>
+      <%= all_drug_review.get_upvotes.size %> | <%= all_drug_review.get_downvotes.size %>
+            <%= link_to 'Delete', [all_drug_review.drug, all_drug_review],
+               method: :delete,
+               data: { confirm: 'Are you sure?'},
+               class: "btn btn-primary" %>
+    
+      <hr>
+    </div>
+  <% end %>
+</div>

@@ -32,7 +32,7 @@ class LocalReviewsController < ApplicationController
       if @local_review.save
         @local_review.create_activity :create, owner: current_user
         
-        format.html { redirect_to local_local_review_path(@local['factual_id'], @local_review), notice: 'Local review was successfully created.' }
+        format.html { redirect_to local_local_review_path(@local['factual_id'], @local_review), notice: 'Thank you. Share your review' }
         format.json { render action: 'show', status: :created, location: @local_review }
       else
         format.html { render action: 'new' }

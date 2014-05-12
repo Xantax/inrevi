@@ -13,7 +13,7 @@
     </div>
 
     <hr>
-        <% if @songs %>
+
           <% @songs[:tracks].each do |song| %>
             <div class="row">
               <div class="col-sm-7">
@@ -33,7 +33,7 @@
             </div>
           <% end %>
         <% end %>
-  
+
     <%= render 'indexpaginate' %>
     
   </div>

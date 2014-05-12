@@ -38,7 +38,7 @@ class MovieReviewsController < ApplicationController
       if @movie_review.save
         @movie_review.create_activity :create, owner: current_user
         
-        format.html { redirect_to movie_movie_review_path(@movie.id, @movie_review), notice: 'Movie review was successfully created.' }
+        format.html { redirect_to movie_movie_review_path(@movie.id, @movie_review), notice: 'Thank you. Share your review' }
         format.json { render action: 'show', status: :created, location: @movie_review }
       else
         format.html { render action: 'new' }

@@ -20,6 +20,22 @@
     end
 
   end
+   
+   def search
+     
+    @search = Podcast.search do
+      fulltext params[:search]
+    end
+
+    if params[:tag]
+      @podcasts = Podcast.tagged_with(params[:tag])
+    elsif
+      @podcasts = @search.results
+    else
+      @podcasts = Podcast.all
+    end     
+     
+   end
 
   def show
     @podcast_review = PodcastReview.new

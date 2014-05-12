@@ -1,0 +1,47 @@
+<% provide(:title, 'Cars') %>
+
+<div class="row">
+
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div>
+    
+  <div class="col-sm-8"> 
+    <div class="allnews">
+      
+    <%= form_tag autos_search_path, :method => :get do %>      
+      <div class="searchbox"><%= text_field_tag :search, params[:search], :placeholder => "e.g Tesla S, Honda" , class: "form-control" %></div>
+      <div class="searchgo"><span class="input-group-btn"><%= submit_tag "Go", class: "btn btn-default" %></span></div>
+    <% end %>
+    
+        <hr>
+      
+      <% if @autos.empty? %>
+          No results! Try something else or <b><%= link_to "+ Add new", new_auto_path() %></b>
+       <% else %>
+      <div align="right">Useless results? <b><%= link_to "+ Add new", new_auto_path() %></b></div><br>
+        <% @autos.each do |auto| %>
+          <div class="row">
+             <div class="col-sm-4 podsin"><%= image_tag auto.image_url(:thumb) if auto.image? %></div>
+             <div class="col-sm-8 podsin">
+    
+                <div class="podcastsnowindex"><%= link_to auto.name, auto %></div>
+               
+                 <div class="rating-total" data-id= "<%= auto.id %>" data-score= "<%= ((auto.auto_reviews.inject(0) { |sum, e| sum += e.point }).to_f / auto.auto_reviews.count).round(1) rescue 0 %>" >
+                 </div>
+               <div class="total-score">
+                 <%= ((auto.auto_reviews.inject(0) { |sum, e| sum += e.point }).to_f / auto.auto_reviews.count).round(1) rescue 0 %>
+               </div>
+            </div>           
+         </div>
+        <% end %>
+       <% end %>
+      
+    </div>
+  </div>
+  
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
+ 
+</div>

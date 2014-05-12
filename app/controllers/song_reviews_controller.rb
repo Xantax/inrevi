@@ -29,7 +29,7 @@ class SongReviewsController < ApplicationController
       if @song_review.save
         @song_review.create_activity :create, owner: current_user
         
-        format.html { redirect_to song_song_review_path(@song.uri, @song_review), notice: 'Song review was successfully created.' }
+        format.html { redirect_to song_song_review_path(@song.uri, @song_review), notice: 'Thank you. Share your review' }
         format.json { render action: 'show', status: :created, location: @song_review }
       else
         format.html { render action: 'new' }

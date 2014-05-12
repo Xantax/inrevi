@@ -6,7 +6,7 @@
       <%= render 'search_form' %>
     </div> <hr>
       
-      <div class="col-sm-6 local">
+      <div class="col-sm-6 local">       
         <% @results.first(10).each do |result| %><br><br>
           <div class="localindexname"><%= link_to result['name'], local_path(result['factual_id']) %></div>
           <div class="localcategory"><b>·</b> <%= result['category_labels'].join(', ') unless result['category_labels'].blank? %></div><br>

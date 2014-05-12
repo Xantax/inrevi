@@ -7,32 +7,15 @@
   </div>
     
   <div class="col-sm-8"> 
-    <div class="allnews">
-      
+    <div class="allnews">    
 
-    <%= form_tag drugs_path, :method => :get do %>      
+    <%= form_tag drugs_search_path, :method => :get do %>      
       <div class="searchbox"><%= text_field_tag :search, params[:search], :placeholder => "e.g Heroin, Marijuana" , class: "form-control" %></div>
       <div class="searchgo"><span class="input-group-btn"><%= submit_tag "Go", class: "btn btn-default" %></span></div>
     <% end %>
+  
+      <hr>
 
-      
-      <hr><br>
-        <% @drugs.each do |drug| %>
-          <div class="row">
-             <div class="col-sm-4 podsin"><%= image_tag drug.image_url(:thumb) if drug.image? %></div>
-             <div class="col-sm-8 podsin">
-    
-                <div class="podcastsnowindex"><%= link_to drug.name, drug %></div>
-               
-                 <div class="rating-total" data-id= "<%= drug.id %>" data-score= "<%= ((drug.drug_reviews.inject(0) { |sum, e| sum += e.point }).to_f / drug.drug_reviews.count).round(1) rescue 0 %>" >
-                 </div>
-               <div class="total-score">
-                 <%= ((drug.drug_reviews.inject(0) { |sum, e| sum += e.point }).to_f / drug.drug_reviews.count).round(1) rescue 0 %>
-               </div>
-            </div>
-           
-         </div>
-        <% end %>
     </div>
   </div>
   

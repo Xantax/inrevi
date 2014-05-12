@@ -5,18 +5,18 @@ class TechesController < ApplicationController
     @teches = Tech.all.order("created_at DESC")
   end
   
+  def search
+    @search = Tech.search do
+      fulltext params[:search]
+    end
+    @teches = @search.results
+  end
+  
   def index
     @search = Tech.search do
       fulltext params[:search]
     end
-
-    if params[:ttag]
-      @teches = Tech.tagged_with(params[:ttag])
-    elsif
-      @teches = @search.results
-    else
-      @teches = Tech.all
-    end
+   @teches = @search.results
   end
 
   def show

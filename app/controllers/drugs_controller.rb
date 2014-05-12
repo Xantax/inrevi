@@ -6,7 +6,13 @@ class DrugsController < ApplicationController
   end
   
   def index
-    @drugs = Drug.all
+    @search = Drug.search do
+      fulltext params[:search]
+    end
+    @drugs = @search.results
+  end
+  
+  def search
     @search = Drug.search do
       fulltext params[:search]
     end

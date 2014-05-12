@@ -7,11 +7,14 @@
   </div>
     
   <div class="col-sm-8">
-
       <div class="allnews">
+        
         <%= render 'tvshowsup' %>
         <div class="tvshowsnow">
           <div class="row">
+   <% if @tvshow.empty? %>
+       No results!     
+   <% else %>
     <% @tvshow.first(3).each do |tvshow| %><br><br>
       <% if tvshow %>
           <%= link_to tvshow_path(tvshow.id) do %>
@@ -19,15 +22,21 @@
               <%= image_tag("#{@configuration.base_url}w154#{tvshow.poster_path}") if tvshow.poster_path %></div>
             <div class="col-sm-8 tvshowin">
               <div class="tvshowsnowindex">
-                <%= tvshow.name %> (<%= tvshow.first_air_date.to_date.try(:year) %>) <br />
+                <%= tvshow.name %> <br>
               </div>
           <% end %>
             </div>
       <% end %>
-    <% end %>
+    <% end %> 
+  <% end %>
        </div>
-     </div>
-        
+          
+     </div>       
+    </div>
   </div>
   
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
+    
 </div>

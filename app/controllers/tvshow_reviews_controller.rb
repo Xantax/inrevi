@@ -29,7 +29,7 @@ class TvshowReviewsController < ApplicationController
       if @tvshow_review.save
         @tvshow_review.create_activity :create, owner: current_user
         
-        format.html { redirect_to tvshow_tvshow_review_path(@tvshow.id, @tvshow_review), notice: 'Tvshow review was successfully created.' }
+        format.html { redirect_to tvshow_tvshow_review_path(@tvshow.id, @tvshow_review), notice: 'Thank you. Share your review' }
         format.json { render action: 'show', status: :created, location: @tvshow_review }
       else
         format.html { render action: 'new' }

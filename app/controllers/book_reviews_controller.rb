@@ -25,7 +25,7 @@ class BookReviewsController < ApplicationController
       if @book_review.save
         @book_review.create_activity :create, owner: current_user
         
-        format.html { redirect_to book_book_review_path(@book.id, @book_review), notice: 'Book review was successfully created.' }
+        format.html { redirect_to book_book_review_path(@book.id, @book_review), notice: 'Thank you. Share your review' }
         format.json { render action: 'show', status: :created, location: @book_review }
       else
         format.html { render action: 'new' }

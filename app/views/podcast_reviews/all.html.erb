@@ -14,7 +14,10 @@
          <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>
       <% end %><br><br>
       <%= all_podcast_review.get_upvotes.size %> | <%= all_podcast_review.get_downvotes.size %>
-      <%= link_to "Edit", edit_podcast_podcast_review_path(all_podcast_review.podcast, all_podcast_review), class: "btn btn-primary" %>
+      <%= link_to 'Delete', [all_podcast_review.podcast, all_podcast_review],
+               method: :delete,
+               data: { confirm: 'Are you sure?'},
+               class: "btn btn-default" %>
 
       <hr>
     </div>

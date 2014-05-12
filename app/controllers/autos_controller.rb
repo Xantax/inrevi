@@ -13,6 +13,13 @@ class AutosController < ApplicationController
       @autos = @search.results  
   end
 
+  def search
+    @search = Auto.search do
+      fulltext params[:search]
+    end
+      @autos = @search.results  
+  end
+  
   def show
     @auto_review = AutoReview.new
     @auto_reviews = Auto.find(params[:id]).auto_reviews.order("cached_votes_score DESC")

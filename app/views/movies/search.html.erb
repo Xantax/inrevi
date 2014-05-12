@@ -11,6 +11,9 @@
         <%= render 'moviesup' %>            
         <div class="moviesnow">
           <div class="row">
+    <% if @movie.empty? %>
+       No results!     
+   <% else %>           
     <% @movie.first(3).each do |movie| %><br><br>
       <% if movie %>
           <%= link_to movie_path(movie.id) do %>          
@@ -28,7 +31,8 @@
           <% end %>             
             </div>
       <% end %>
-    <% end %>           
+    <% end %> 
+   <% end %>
        </div>
     </div>
   </div>
