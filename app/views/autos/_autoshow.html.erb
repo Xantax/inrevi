@@ -1,6 +1,6 @@
 <div class="row autoup"> 
   <div class="col-sm-3"> 
-    <%= image_tag @auto.image_url(:thumb) if @auto.image? %> 
+    <%= link_to image_tag(@auto.image_url(:thumb)), @auto.image_url, target: :_blank if @auto.image? %> 
   </div> 
   
    <div class="col-sm-5 autoshow"> 

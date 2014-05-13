@@ -9,16 +9,18 @@ class AutosController < ApplicationController
 #    @autos = Auto.all
     @search = Auto.search do
       fulltext params[:search]
+      paginate(:page => params[:page], :per_page => 10)
     end
-      @autos = @search.results.paginate(:page => params[:page], :per_page => 10)
+      @autos = @search.results
     
   end
 
   def search
     @search = Auto.search do
       fulltext params[:search]
+      paginate(:page => params[:page], :per_page => 10)
     end
-      @autos = @search.results.paginate(:page => params[:page], :per_page => 10)     
+      @autos = @search.results 
   end
   
   def show

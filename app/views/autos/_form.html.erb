@@ -17,8 +17,8 @@
 
     Type: <%= f.select :category, [ 'car', 'motorcycle', 'bicycle' ] %><br><br>
 
-    <%= image_tag("othericons/PhotoShow.PNG") %>    <%= f.label :remote_image_url, "Image URL (min. 150x150)" %><br />
-    <%= f.text_field :remote_image_url, :placeholder => "e.g. https://imgur.com/Iks3rd" , :class => "podcastnew" %><br><br>
+    <%= image_tag("othericons/PhotoShow.PNG") %>
+    <%= f.file_field :image, :placeholder => "e.g. https://imgur.com/Iks3rd" , :class => "podcastnew" %><br><br>
 
     <%= submit_tag 'Submit', :class => 'btn btn-primary' %>
 

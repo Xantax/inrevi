@@ -9,6 +9,7 @@
 
     @search = Podcast.search do
       fulltext params[:search]
+      paginate(:page => params[:page], :per_page => 10)
     end
 
     if params[:tag]
@@ -25,6 +26,7 @@
      
     @search = Podcast.search do
       fulltext params[:search]
+      paginate(:page => params[:page], :per_page => 10)
     end
 
     if params[:tag]
