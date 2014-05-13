@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_merit
 
+#  after_create :follow_fbfriends!
   
   acts_as_voter
   
@@ -46,6 +47,26 @@ class User < ActiveRecord::Base
     logger.info e.to_s
     nil # or consider a custom null object
    end 
+  
+
+    def fbfriends
+     @graph = Koala::Facebook::API.new(oauth_token)
+        begin
+          @fbfriends = @graph.get_connections("me", "friends", fields: "id")
+          @uids = @fbfriends.map{ |v| v.values }.flatten
+        rescue Koala::Facebook::AuthenticationError => e
+          redirect_to '/auth/facebook'
+        end
+          @friends = User.where(uid: @uids)
+    end
+  
+  def fb_user_id
+    self.fbfriends.map{ |v| v.id }
+  end
+  
+  def follow_fbfriends!
+      relationships.create!(followed_id: fb_user_id)
+  end
   
   def smallimage
   "http://graph.facebook.com/#{self.uid}/picture?type=small"

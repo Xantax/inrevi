@@ -24,6 +24,10 @@
   
   <div class="col-sm-2">
     <%= render 'follow_form' if signed_in? %>
+    
+    <%= @user.fb_user_id %>
+    <%= @user.followed_user_ids %>
+
   </div>
   
 </div>
