@@ -3,11 +3,11 @@ class SongReviewsController < ApplicationController
   before_action :set_song, [:new, :create, :show]
 
   def all
-    @all_song_reviews = SongReview.order("cached_votes_score ASC")
+    @all_song_reviews = SongReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")
   end
   
   def index
-    @song_reviews = SongReview.order("cached_votes_score ASC").all
+    @song_reviews = SongReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC").all
   end
 
   def show

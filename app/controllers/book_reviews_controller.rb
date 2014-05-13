@@ -3,7 +3,7 @@ class BookReviewsController < ApplicationController
   before_action :set_book, [:new, :create, :show]
 
   def index
-    @book_reviews = BookReview.order("cached_votes_score ASC").all
+    @book_reviews = BookReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC").all
   end
 
   def show

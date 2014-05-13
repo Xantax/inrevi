@@ -3,11 +3,11 @@ class TvshowReviewsController < ApplicationController
   before_action :set_tvshow
 
   def all
-    @all_tvshow_reviews = TvshowReview.order("cached_votes_score ASC")
+    @all_tvshow_reviews = TvshowReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")
   end
   
   def index
-    @tvshow_reviews = TvshowReview.where(tvshow_id: params[:id]).order("cached_votes_score DESC")
+    @tvshow_reviews = TvshowReview.where(tvshow_id: params[:id]).paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
   end
 
   def show

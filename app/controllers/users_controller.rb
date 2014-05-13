@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     
-    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: @user, owner_type: "User")
+    @activities = PublicActivity::Activity.paginate(:page => params[:page], :per_page => 10).order("created_at desc").where(owner_id: @user, owner_type: "User")
     
   end
   
@@ -31,14 +31,14 @@ class UsersController < ApplicationController
   def following
     @title = "Following"
     @user = User.find(params[:id])
-    @users = @user.followed_users
+    @users = @user.followed_users.paginate(:page => params[:page])
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
     @user = User.find(params[:id])
-    @users = @user.followers
+    @users = @user.followers.paginate(:page => params[:page])
     render 'show_follow'
   end
   

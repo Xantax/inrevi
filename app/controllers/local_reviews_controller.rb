@@ -4,7 +4,7 @@ class LocalReviewsController < ApplicationController
   before_action :set_local, only: [:index, :new, :create, :edit]
 
   def all
-    @all_local_reviews = LocalReview.order("cached_votes_score ASC")
+    @all_local_reviews = LocalReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")
   end
   
   def index

@@ -3,7 +3,7 @@ class DrugReviewsController < ApplicationController
   before_action :set_auto, only: [:index, :show, :new, :create, :edit]
 
   def all
-    @all_drug_reviews = DrugReview.order("cached_votes_score ASC").paginate(:page => params[:page])
+    @all_drug_reviews = DrugReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")
   end
   
   def index

@@ -29,6 +29,10 @@
           Music
           <% elsif promotion.podcast %>
           Podcast
+          <% elsif promotion.tvshow %>
+          TvShow
+          <% elsif promotion.drug %>
+          Drugs
           <% else %>
           Uncategorized
           <% end %>
@@ -40,4 +44,8 @@
   </tbody>
 </table>
 
+<div class="digg_pagination">
+  <%= will_paginate @promotions %>
+</div>  
+  
 <br>

@@ -2,7 +2,7 @@ class PromotionsController < ApplicationController
   before_action :set_promotion, only: [:show, :edit, :update, :destroy]
 
   def index
-    @promotions = Promotion.all
+    @promotions = Promotion.paginate(:page => params[:page], :per_page => 10).order('created_at DESC')
   end
 
   def show

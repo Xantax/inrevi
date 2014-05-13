@@ -2,7 +2,7 @@ class DrugsController < ApplicationController
   before_action :set_drug, only: [:show, :edit, :update, :destroy, :additionalinfo]
 
   def all
-    @drugs = Drug.all.order("created_at DESC")
+    @drugs = Drug.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
   end
   
   def index
@@ -16,7 +16,7 @@ class DrugsController < ApplicationController
     @search = Drug.search do
       fulltext params[:search]
     end
-    @drugs = @search.results
+    @drugs = @search.results.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show

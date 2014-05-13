@@ -3,11 +3,11 @@ class PodcastReviewsController < ApplicationController
   before_action :set_podcast, only: [:index, :show, :new, :create, :edit]
   
   def all
-    @all_podcast_reviews = PodcastReview.order("cached_votes_score ASC")
+    @all_podcast_reviews = PodcastReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")
   end
   
   def index
-    @podcast_reviews = @podcast.podcast_reviews.order("cached_votes_score DESC")
+    @podcast_reviews = @podcast.podcast_reviews.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
     @avg_score = 0
     @avg_score = @podcast_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @podcast_reviews.count if @podcast_reviews.count > 0
   end
