@@ -1,8 +1,6 @@
 <%= form_for @auto, :html => {:multipart => true} do |f| %>
   <% if @auto.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@auto.errors.count, "error") %> prohibited this podcast from being saved:</h2>
-
       <ul>
       <% @auto.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -16,6 +14,8 @@
 
     <%= f.label :additionalinfo %><br>
     <%= f.text_area :additionalinfo, :class => "field podcontent" %><br><br>
+
+    Type: <%= f.select :category, [ 'car', 'motorcycle', 'bicycle' ] %><br><br>
 
     <%= image_tag("othericons/PhotoShow.PNG") %>    <%= f.label :remote_image_url, "Image URL (min. 150x150)" %><br />
     <%= f.text_field :remote_image_url, :placeholder => "e.g. https://imgur.com/Iks3rd" , :class => "podcastnew" %><br><br>

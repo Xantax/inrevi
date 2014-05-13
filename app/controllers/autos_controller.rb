@@ -88,7 +88,7 @@ class AutosController < ApplicationController
     end
 
     def auto_params
-      params.require(:auto).permit(:name, :additionalinfo, :image, :remote_image_url)
+      params.require(:auto).permit(:name, :additionalinfo, :image, :remote_image_url, :category)
     end
   
 end

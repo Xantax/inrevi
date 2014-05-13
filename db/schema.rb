@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20140511042311) do
     t.string   "name"
     t.string   "image"
     t.text     "additionalinfo"
+    t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
