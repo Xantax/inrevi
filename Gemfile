@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'factual-api', '~> 1.3.14'
 gem 'countries'
 gem 'country_select'
-gem 'rails_config', '~> 0.3.3'
+gem 'rails_config'
 gem 'meta-spotify', '~> 0.3.2'
 gem 'progress_bar', '~> 1.0.0'
 gem 'acts-as-taggable-on', '~> 3.0.2'
@@ -46,7 +46,7 @@ gem 'haml-rails', '~> 0.5.3'
 gem 'colorize', '~> 0.7.2'
 gem 'semantics3', '~> 0.04'
 gem 'social-share-button', '~> 0.1.6'
-
+#gem 'pg', '~> 0.17.1'
 
 group :development do
   gem 'brakeman', '~> 2.4.3', :require => false
@@ -59,7 +59,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg', '~> 0.17.1'
   gem 'rails_12factor', '~> 0.0.2'
 end
 

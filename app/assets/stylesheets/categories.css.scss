@@ -9,8 +9,9 @@ left: -25px;
 width: 32px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/hover/catmedia.PNG");
-background-repeat: no-repeat;
+background-image: url("caticons/catmediaALL.PNG");
+    background-repeat: no-repeat;
+    background-position: 0 0px;
   }
 }
 
@@ -21,10 +22,13 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 32px;
-height: 26px;
+height: 22px;
 margin-top: -11px;
-background-image: url("caticons/Cmedia.PNG");
-    background-repeat: no-repeat; }
+background-image: url("caticons/catmediaALL.PNG");
+    background-repeat: no-repeat;
+    background-position: 0 -26px;
+
+  }
 }
 
 .categorylist.electronics {
@@ -36,8 +40,10 @@ left: -25px;
 width: 32px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/hover/catelectronics.PNG");
-background-repeat: no-repeat;  }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -166px;  
+  }
 }
 
 .categorylist.electronics:hover {
@@ -49,8 +55,10 @@ left: -25px;
 width: 32px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/Celectronics.PNG");
-background-repeat: no-repeat;  }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -194px;  
+  }
 }
 
 .categorylist.local {
@@ -62,8 +70,10 @@ left: -25px;
 width: 32px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/hover/catlocal.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -52px;
+  }
 }
 
 .categorylist.local:hover {
@@ -75,8 +85,10 @@ left: -25px;
 width: 32px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/Clocal.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -81px;
+  }
 }
 
 
@@ -89,8 +101,10 @@ left: -25px;
 width: 32px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/hover/catfashion.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -268px; 
+  }
 }
 
 .categorylist.fashion:hover {
@@ -102,8 +116,10 @@ left: -25px;
 width: 32px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/Cfashion.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -296px; 
+  }
 }
 
 .categorylist.tech {
@@ -115,8 +131,10 @@ left: -25px;
 width: 32px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/hover/cattech.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -110px; 
+  }
 }
 
 .categorylist.tech:hover {
@@ -128,8 +146,10 @@ left: -25px;
 width: 32px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/Ctech.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -138px;
+  }
 }
 
 .categorylist.health {
@@ -141,8 +161,10 @@ left: -25px;
 width: 32px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/hover/cathealth.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -324px; 
+  }
 }
 
 .categorylist.health:hover {
@@ -154,8 +176,10 @@ left: -25px;
 width: 32px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/Chealth.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -352px; 
+  }
 }
 
 .categorylist.beauty {
@@ -165,10 +189,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 32px;
-height: 26px;
+height: 22px;
 margin-top: -11px;
-background-image: url("caticons/hover/catbeauty.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -222px; 
+  }
 }
 
 .categorylist.beauty:hover {
@@ -178,10 +204,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 32px;
-height: 26px;
+height: 22px;
 margin-top: -11px;
-background-image: url("caticons/Cbeauty.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -245px;  
+  }
 }
 
 .categorylist.auto {
@@ -193,8 +221,10 @@ left: -25px;
 width: 32px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/hover/catauto.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -546px; 
+  }
 }
 
 .categorylist.auto:hover {
@@ -206,8 +236,10 @@ left: -25px;
 width: 32px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/Cauto.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -572px; 
+  }
 }
 
 .categorylist.sustenance {
@@ -219,8 +251,10 @@ left: -25px;
 width: 32px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/hover/catdrink.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -380px; 
+  }
 }
 
 .categorylist.sustenance:hover {
@@ -232,8 +266,10 @@ left: -25px;
 width: 32px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/Cdrink.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -408px; 
+  }
 }
 
 .categorylist.home {
@@ -245,8 +281,10 @@ left: -25px;
 width: 32px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/hover/cathome.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -436px; 
+  }
 }
 
 .categorylist.home:hover {
@@ -258,8 +296,10 @@ left: -25px;
 width: 32px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/Chome.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -465px; 
+  }
 }
 
 .categorylist.hobbies {
@@ -271,8 +311,10 @@ left: -25px;
 width: 32px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/hover/cathobby.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -494px; 
+  }
 }
 
 .categorylist.hobbies:hover {
@@ -284,8 +326,10 @@ left: -25px;
 width: 32px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/Chobby.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -520px; 
+  }
 }
 
 
@@ -301,8 +345,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/media/Mbooks.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -0px;
+  }
 }
 
 .categorylist.books:hover {
@@ -314,8 +360,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/media/hover/mbooks.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -28px; 
+  }
 }
 
 .categorylist.movies {
@@ -327,8 +375,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/media/Mmovies.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -56px; 
+  }
 }
 
 .categorylist.movies:hover {
@@ -340,8 +390,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/media/hover/mmovies.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -82px; 
+  }
 }
 
 .categorylist.games {
@@ -351,10 +403,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 24px;
+height: 20px;
 margin-top: -11px;
-background-image: url("caticons/media/Mgames.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -108px; 
+  }
 }
 
 .categorylist.games:hover {
@@ -364,10 +418,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 24px;
+height: 20px;
 margin-top: -11px;
-background-image: url("caticons/media/hover/mgames.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -128px; 
+  }
 }
 
 .categorylist.songs {
@@ -379,8 +435,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/media/Msongs.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -148px; 
+  }
 }
 
 .categorylist.songs:hover {
@@ -392,8 +450,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/media/hover/msongs.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -176px; 
+  }
 }
 
 .categorylist.tvshows {
@@ -403,10 +463,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 22px;
 margin-top: -11px;
-background-image: url("caticons/media/Mtv.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -204px; 
+  }
 }
 
 .categorylist.tvshows:hover {
@@ -416,10 +478,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 22px;
 margin-top: -11px;
-background-image: url("caticons/media/hover/mtv.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -228px; 
+  }
 }
 
 .categorylist.podcasts {
@@ -431,8 +495,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/media/Mpodcasts.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -252px; 
+  }
 }
 
 .categorylist.podcasts:hover {
@@ -444,8 +510,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/media/hover/mpodcasts.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -282px; 
+  }
 }
 
 
@@ -460,8 +528,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/home/Happliance.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -0px; 
+  }
 }
 
 .categorylist.appliances:hover {
@@ -473,8 +543,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/home/hover/happliance.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -114px; 
+  }
 }
 
 .categorylist.baby {
@@ -486,8 +558,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/home/Hbaby.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -28px; 
+  }
 }
 
 .categorylist.baby:hover {
@@ -499,8 +573,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/home/hover/hbaby.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -142px; 
+  }
 }
 
 .categorylist.pets {
@@ -512,8 +588,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/home/Hpet.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -57px; 
+  }
 }
 
 .categorylist.pets:hover {
@@ -525,8 +603,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/home/hover/hpet.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -171px; 
+  }
 }
 
 .categorylist.tools {
@@ -538,8 +618,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/home/Htool.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -86px; 
+  }
 }
 
 .categorylist.tools:hover {
@@ -551,8 +633,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/home/hover/htool.PNG");
-background-repeat: no-repeat; }
+background-image: url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -200px; 
+  }
 }
 
 
@@ -565,10 +649,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 25px;
 margin-top: -11px;
-background-image: url("caticons/beauty/Bmakeup.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -0px; 
+  }
 }
 
 .categorylist.makeup:hover {
@@ -578,10 +664,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 25px;
 margin-top: -11px;
-background-image: url("caticons/beauty/hover/bmakeup.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -134px; 
+  }
 }
 
 .categorylist.fragrance {
@@ -593,8 +681,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/beauty/Bfragrance.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -51px; 
+  }
 }
 
 .categorylist.fragrance:hover {
@@ -606,8 +696,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/beauty/hover/bfragrance.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -239px; 
+  }
 }
 
 .categorylist.hair {
@@ -617,10 +709,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 25px;
 margin-top: -11px;
-background-image: url("caticons/beauty/Bhair.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -26px; 
+  }
 }
 
 .categorylist.hair:hover {
@@ -630,10 +724,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 25px;
 margin-top: -11px;
-background-image: url("caticons/beauty/hover/bhair.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -184px; 
+  }
 }
 
 .categorylist.skin {
@@ -643,10 +739,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 25px;
 margin-top: -11px;
-background-image: url("caticons/beauty/Bskin.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -109px; 
+  }
 }
 
 .categorylist.skin:hover {
@@ -656,10 +754,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 25px;
 margin-top: -11px;
-background-image: url("caticons/beauty/hover/bskin.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -159px; 
+  }
 }
 
 .categorylist.bath {
@@ -671,8 +771,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/beauty/Bbath.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -79px; 
+  }
 }
 
 .categorylist.bath:hover {
@@ -684,8 +786,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/beauty/hover/bbath.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -209px; 
+  }
 }
 
 
@@ -700,8 +804,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/hobbies/Hmusic.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/hobbies/hobbyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -0px; 
+  }
 }
 
 .categorylist.music:hover {
@@ -713,8 +819,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/hobbies/hover/hmusic.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/hobbies/hobbyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -78px; 
+  }
 }
 
 .categorylist.sports {
@@ -724,10 +832,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 22px;
 margin-top: -11px;
-background-image: url("caticons/hobbies/Hsport.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/hobbies/hobbyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -27px; 
+  }
 }
 
 .categorylist.sports:hover {
@@ -737,10 +847,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 22px;
 margin-top: -11px;
-background-image: url("caticons/hobbies/hover/hsport.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/hobbies/hobbyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -105px; 
+  }
 }
 
 .categorylist.crafts {
@@ -752,8 +864,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/hobbies/Hart.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/hobbies/hobbyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -51px; 
+  }
 }
 
 .categorylist.crafts:hover {
@@ -765,8 +879,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/hobbies/hover/hart.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/hobbies/hobbyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -130px; 
+  }
 }
 
 /*   ELECTRONICS  SUBCATEGORIES   */
@@ -775,26 +891,30 @@ background-repeat: no-repeat; }
 a::before {
 content: "";
 position: absolute;
-top: 50%;
+top: 60%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 20px;
 margin-top: -11px;
-background-image: url("caticons/electronics/Ecomputers.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -52px;
+  }
 }
 
 .categorylist.ecomputers:hover {
 a::before {
 content: "";
 position: absolute;
-top: 50%;
+top: 60%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 20px;
 margin-top: -11px;
-background-image: url("caticons/electronics/hover/ecomputers.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -240px; 
+  }
 }
 
 .categorylist.emobile {
@@ -806,8 +926,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/electronics/Emobile.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -72px; 
+  }
 }
 
 .categorylist.emobile:hover {
@@ -819,8 +941,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/electronics/hover/emobile.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -260px; 
+  }
 }
 
 .categorylist.ephoto {
@@ -832,8 +956,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/electronics/Ecamera.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -26px; 
+  }
 }
 
 .categorylist.ephoto:hover {
@@ -845,8 +971,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/electronics/hover/ecamera.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -214px; 
+  }
 }
 
 .categorylist.eportable {
@@ -856,10 +984,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 22px;
 margin-top: -11px;
-background-image: url("caticons/electronics/Eportable.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -99px; 
+  }
 }
 
 .categorylist.eportable:hover {
@@ -869,10 +999,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 22px;
 margin-top: -11px;
-background-image: url("caticons/electronics/hover/eportable.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -287px; 
+  }
 }
 
 .categorylist.esecurity {
@@ -882,10 +1014,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 20px;
 margin-top: -11px;
-background-image: url("caticons/electronics/Esecurity.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -123px; 
+  }
 }
 
 .categorylist.esecurity:hover {
@@ -895,10 +1029,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 20px;
 margin-top: -11px;
-background-image: url("caticons/electronics/hover/esecurity.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -311px; 
+  }
 }
 
 .categorylist.eaudio {
@@ -908,10 +1044,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 24px;
 margin-top: -11px;
-background-image: url("caticons/electronics/Eaudio.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -1px; 
+  }
 }
 
 .categorylist.eaudio:hover {
@@ -921,10 +1059,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 24px;
 margin-top: -11px;
-background-image: url("caticons/electronics/hover/eaudio.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -189px; 
+  }
 }
 
 .categorylist.etv {
@@ -936,8 +1076,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/electronics/Etv.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -144px; 
+  }
 }
 
 .categorylist.etv:hover {
@@ -949,34 +1091,40 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/electronics/hover/etv.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -332px; 
+  }
 }
 
 .categorylist.evehicle {
 a::before {
 content: "";
 position: absolute;
-top: 50%;
+top: 60%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 18px;
 margin-top: -11px;
-background-image: url("caticons/electronics/Evehicle.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -170px; 
+  }
 }
 
 .categorylist.evehicle:hover {
 a::before {
 content: "";
 position: absolute;
-top: 50%;
+top: 60%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 18px;
 margin-top: -11px;
-background-image: url("caticons/electronics/hover/evehicle.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -358px; 
+  }
 }
 
 
@@ -991,8 +1139,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/health/Hhealthcare.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -0px; 
+  }
 }
 
 .categorylist.healthcare:hover {
@@ -1004,8 +1154,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/health/hover/hhealthcare.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -125px; 
+  }
 }
 
 .categorylist.supplements {
@@ -1017,8 +1169,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/health/Hsupplements.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -26px; 
+  }
 }
 
 .categorylist.supplements:hover {
@@ -1030,8 +1184,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/health/hover/hsupplements.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -151px; 
+  }
 }
 
 .categorylist.drugs {
@@ -1041,10 +1197,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 20px;
 margin-top: -11px;
-background-image: url("caticons/health/Hdrugs.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -54px; 
+  }
 }
 
 .categorylist.drugs:hover {
@@ -1054,10 +1212,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 20px;
 margin-top: -11px;
-background-image: url("caticons/health/hover/hdrugs.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -179px; 
+  }
 }
 
 .categorylist.sex {
@@ -1069,8 +1229,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/health/Hsex.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -75px; 
+  }
 }
 
 .categorylist.sex:hover {
@@ -1082,8 +1244,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/health/hover/hsex.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -200px; 
+  }
 }
 
 .categorylist.hpersonal {
@@ -1093,10 +1257,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 22px;
 margin-top: -11px;
-background-image: url("caticons/health/Hpersonal.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -102px; 
+  }
 }
 
 .categorylist.hpersonal:hover {
@@ -1106,10 +1272,12 @@ position: absolute;
 top: 50%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 22px;
 margin-top: -11px;
-background-image: url("caticons/health/hover/hpersonal.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -227px; 
+  }
 }
 
 
@@ -1124,8 +1292,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/fashion/Fclothing.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -3px; 
+  }
 }
 
 .categorylist.clothing:hover {
@@ -1137,60 +1307,70 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/fashion/hover/fclothing.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -130px; 
+  }
 }
 
 .categorylist.footwear {
 a::before {
 content: "";
 position: absolute;
-top: 50%;
+top: 60%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 18px;
 margin-top: -11px;
-background-image: url("caticons/fashion/Ffootwear.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -30px; 
+  }
 }
 
 .categorylist.footwear:hover {
 a::before {
 content: "";
 position: absolute;
-top: 50%;
+top: 60%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 18px;
 margin-top: -11px;
-background-image: url("caticons/fashion/hover/ffootwear.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -158px; 
+  }
 }
 
 .categorylist.jewelry {
 a::before {
 content: "";
 position: absolute;
-top: 50%;
+top: 60%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 18px;
 margin-top: -11px;
-background-image: url("caticons/fashion/Fjewelry.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -49px; 
+  }
 }
 
 .categorylist.jewelry:hover {
 a::before {
 content: "";
 position: absolute;
-top: 50%;
+top: 60%;
 left: -25px;
 width: 28px;
-height: 26px;
+height: 18px;
 margin-top: -11px;
-background-image: url("caticons/fashion/hover/fjewelry.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -177px; 
+  }
 }
 
 .categorylist.fmen {
@@ -1202,8 +1382,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/fashion/Fman.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -67px; 
+  }
 }
 
 .categorylist.fmen:hover {
@@ -1215,8 +1397,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/fashion/hover/fman.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -196px; 
+  }
 }
 
 .categorylist.fwomen {
@@ -1228,8 +1412,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/fashion/Fwoman.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -100px; 
+  }
 }
 
 .categorylist.fwomen:hover {
@@ -1241,8 +1427,10 @@ left: -25px;
 width: 28px;
 height: 26px;
 margin-top: -11px;
-background-image: url("caticons/fashion/hover/fwoman.png");
-background-repeat: no-repeat; }
+background-image: url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -228px; 
+  }
 }
 
 .categorylist.fboys {
