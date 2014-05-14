@@ -1,9 +1,36 @@
 class User < ActiveRecord::Base
   has_merit
 
-#  after_create :follow_fbfriends!
+  after_create :follow_fbfriends!
   
   acts_as_voter
+  
+  #---  CUSTOM  ---#
+  
+  has_many :autos do
+    def today
+      where(:created_at => (Time.now.beginning_of_day..Time.now))
+    end
+  end
+
+  has_many :teches do
+    def today
+      where(:created_at => (Time.now.beginning_of_day..Time.now))
+    end
+  end
+
+  has_many :podcasts do
+    def today
+      where(:created_at => (Time.now.beginning_of_day..Time.now))
+    end
+  end
+
+  has_many :drugs do
+    def today
+      where(:created_at => (Time.now.beginning_of_day..Time.now))
+    end
+  end
+
   
   #---  REVIEWS  ---#
   

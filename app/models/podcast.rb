@@ -2,6 +2,9 @@ class Podcast < ActiveRecord::Base
   acts_as_taggable
   
   has_many :podcast_reviews
+  belongs_to :user
+  
+    validate :user_quota, :on => :create
 
   validates :name, presence: true
   validates :website, presence: true
@@ -15,5 +18,12 @@ class Podcast < ActiveRecord::Base
     text :name
     text :tag_list, :boost => 5 
   end
+  
+  def user_quota
+    if user.podcasts.today.count >= 40
+      errors.add(:base, "Exceeds daily limit (40/day)")
+    end
+  end  
+  
  end  
 

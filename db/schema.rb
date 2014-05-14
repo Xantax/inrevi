@@ -58,9 +58,12 @@ ActiveRecord::Schema.define(version: 20140511042311) do
     t.string   "image"
     t.text     "additionalinfo"
     t.string   "category"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "autos", ["user_id"], name: "index_autos_on_user_id"
 
   create_table "badges_sashes", force: true do |t|
     t.integer  "badge_id"
@@ -145,9 +148,12 @@ ActiveRecord::Schema.define(version: 20140511042311) do
     t.string   "name"
     t.string   "image"
     t.text     "additionalinfo"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "drugs", ["user_id"], name: "index_drugs_on_user_id"
 
   create_table "links", force: true do |t|
     t.string   "link"
@@ -287,9 +293,12 @@ ActiveRecord::Schema.define(version: 20140511042311) do
     t.string   "name"
     t.string   "website"
     t.string   "image"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "podcasts", ["user_id"], name: "index_podcasts_on_user_id"
 
   create_table "product_categories", force: true do |t|
     t.string   "name"
@@ -417,11 +426,13 @@ ActiveRecord::Schema.define(version: 20140511042311) do
   create_table "teches", force: true do |t|
     t.string   "name"
     t.string   "website"
-    t.boolean  "published",  default: true
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
   end
+
+  add_index "teches", ["user_id"], name: "index_teches_on_user_id"
 
   create_table "tvshow_reviews", force: true do |t|
     t.string   "title"

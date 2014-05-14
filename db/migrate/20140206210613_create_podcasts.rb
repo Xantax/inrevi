@@ -4,6 +4,7 @@ class CreatePodcasts < ActiveRecord::Migration
       t.string :name
       t.string :website
       t.string :image
+      t.references :user, index: true
 
       t.timestamps
     end

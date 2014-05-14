@@ -49,6 +49,7 @@ class DrugsController < ApplicationController
 
   def create
     @drug = Drug.new(drug_params)
+    @drug.user = current_user
 
     respond_to do |format|
       if @drug.save
@@ -88,6 +89,6 @@ class DrugsController < ApplicationController
     end
 
     def drug_params
-      params.require(:drug).permit(:name, :image, :additionalinfo, :remote_image_url)
+      params.require(:drug).permit(:name, :image, :additionalinfo, :remote_image_url, :user_id)
     end
 end

@@ -60,6 +60,7 @@
 
   def create
     @podcast =  Podcast.new(podcast_params)
+    @podcast.user = current_user
 
     respond_to do |format|
       if @podcast.save
@@ -99,7 +100,7 @@
     end
 
     def podcast_params
-      params.require(:podcast).permit(:name, :podcast_language_id, :website, :image, :tag_list, :remote_image_url)
+      params.require(:podcast).permit(:name, :user_id, :website, :image, :tag_list, :remote_image_url)
     end
 
  end

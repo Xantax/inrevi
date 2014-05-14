@@ -4,6 +4,7 @@ class CreateDrugs < ActiveRecord::Migration
       t.string :name
       t.string :image
       t.text :additionalinfo
+      t.references :user, index: true
 
       t.timestamps
     end

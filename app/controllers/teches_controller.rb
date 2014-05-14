@@ -43,6 +43,7 @@ class TechesController < ApplicationController
 
   def create
     @tech = Tech.new(tech_params)
+    @tech.user = current_user
 
     respond_to do |format|
       if @tech.save
@@ -82,6 +83,6 @@ class TechesController < ApplicationController
     end
 
     def tech_params
-      params.require(:tech).permit(:name, :website, :image, :tag_list, :remote_image_url)
+      params.require(:tech).permit(:name, :website, :image, :tag_list, :remote_image_url, :user_id)
     end
 end

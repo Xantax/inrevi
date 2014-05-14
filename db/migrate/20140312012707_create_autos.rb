@@ -4,7 +4,8 @@ class CreateAutos < ActiveRecord::Migration
       t.string :name
       t.string :image
       t.text :additionalinfo
-      t.string :category  
+      t.string :category
+      t.references :user, index: true
       
       t.timestamps
     end

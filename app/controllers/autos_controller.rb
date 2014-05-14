@@ -51,6 +51,7 @@ class AutosController < ApplicationController
 
   def create
     @auto = Auto.new(auto_params)
+    @auto.user = current_user
 
     respond_to do |format|
       if @auto.save
@@ -90,7 +91,7 @@ class AutosController < ApplicationController
     end
 
     def auto_params
-      params.require(:auto).permit(:name, :additionalinfo, :image, :remote_image_url, :category)
+      params.require(:auto).permit(:name, :additionalinfo, :image, :remote_image_url, :category, :user_id)
     end
   
 end
