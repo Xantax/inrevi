@@ -8,6 +8,8 @@ class TvshowReview < ActiveRecord::Base
   belongs_to :user
   belongs_to :tvshow
   
+    validate :user_quota, :on => :create
+  
   has_many :review_images, :as => :attachable, :dependent => :destroy
   accepts_nested_attributes_for :review_images
   
@@ -17,4 +19,11 @@ class TvshowReview < ActiveRecord::Base
   validates :content, presence: true, length: { maximum: 5000, minimum: 140 }
   
   validates_numericality_of :point, greater_than_or_equal_to: 0
+  
+  def user_quota
+    if user.tvshow_reviews.today.count >= 20
+      errors.add(:base, "Exceeds daily limit. You can only create 20 reviews/day")
+    end
+  end 
+  
 end

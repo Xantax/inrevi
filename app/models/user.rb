@@ -7,14 +7,53 @@ class User < ActiveRecord::Base
   
   #---  REVIEWS  ---#
   
-  has_many :local_reviews
-  has_many :auto_reviews
-  has_many :movie_reviews
-  has_many :tvshow_reviews
-  has_many :podcast_reviews
-  has_many :tech_reviews
-  has_many :song_reviews
-  has_many :book_reviews
+  has_many :local_reviews do
+    def today
+      where(:created_at => (Time.now.beginning_of_day..Time.now))
+    end
+  end
+  
+  has_many :auto_reviews do
+    def today
+      where(:created_at => (Time.now.beginning_of_day..Time.now))
+    end
+  end
+  has_many :movie_reviews do
+    def today
+      where(:created_at => (Time.now.beginning_of_day..Time.now))
+    end
+  end
+  
+  has_many :tvshow_reviews do
+    def today
+      where(:created_at => (Time.now.beginning_of_day..Time.now))
+    end
+  end
+  
+  has_many :podcast_reviews do
+    def today
+      where(:created_at => (Time.now.beginning_of_day..Time.now))
+    end
+  end
+  
+  has_many :tech_reviews do
+    def today
+      where(:created_at => (Time.now.beginning_of_day..Time.now))
+    end
+  end
+  
+  has_many :song_reviews do
+    def today
+      where(:created_at => (Time.now.beginning_of_day..Time.now))
+    end
+  end
+  
+  has_many :book_reviews do
+    def today
+      where(:created_at => (Time.now.beginning_of_day..Time.now))
+    end
+  end
+  
   
   #---  END OF REVIEWS  ---#
   
@@ -24,6 +63,7 @@ class User < ActiveRecord::Base
                                    class_name:  "Relationship",
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
+  
   
   def self.from_omniauth(auth)
       where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
