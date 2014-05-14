@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
   has_merit
-
-  after_create :follow_fbfriends!
   
   acts_as_voter
   
@@ -131,8 +129,8 @@ class User < ActiveRecord::Base
     self.fbfriends.map{ |v| v.id }
   end
   
-  def follow_fbfriends!
-      relationships.create!(followed_id: fb_user_id)
+  def google_friends
+    'https://www.googleapis.com/plus/v1/people/#{self.uid}/people/visible?key=#{Settings.google.key}'
   end
   
   def smallimage
@@ -154,6 +152,10 @@ class User < ActiveRecord::Base
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)
   end
+  
+  def not_following?(other_user)
+    other_user != self && !following?(other_user)
+  end 
 
   def follow!(other_user)
     relationships.create!(followed_id: other_user.id)

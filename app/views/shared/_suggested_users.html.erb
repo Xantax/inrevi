@@ -1,0 +1,25 @@
+<% if current_user.provider == "facebook" %>
+
+    <% current_user.fbfriends.limit(2).each do |fb| %>
+    <% unless current_user.following?(fb) %>
+    <hr> Suggested users:<br><br>
+
+        <%= link_to user_path(fb) do %> 
+          <%= image_tag(fb.image, width: "40") %>
+          <div class="userfollowname">
+            <%= fb.first_name %>
+            <%= fb.last_name.truncate(2, omission: '.')%>
+          </div>
+        <% end %>
+
+      <% end %>
+    <% end %>
+  
+
+ <% elsif current_user.provider == "google_oauth2" %>
+
+      <hr>I'm with G+
+    <%= current_user.google_friends %>
+
+
+<% end %>
