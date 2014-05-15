@@ -11,8 +11,7 @@ class AutosController < ApplicationController
       fulltext params[:search]
       paginate(:page => params[:page], :per_page => 10)
     end
-      @autos = @search.results
-    
+      @autos = @search.results    
   end
 
   def search
@@ -53,34 +52,26 @@ class AutosController < ApplicationController
     @auto = Auto.new(auto_params)
     @auto.user = current_user
 
-    respond_to do |format|
       if @auto.save
-        format.html { redirect_to @auto, notice: 'Podcast was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @auto }
+        redirect_to @auto
       else
-        format.html { render action: 'new' }
-        format.json { render json: @auto.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
     end
   end
 
   def update
-    respond_to do |format|
       if @auto.update(auto_params)
-        format.html { redirect_to @auto, notice: 'Podcast was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to @auto
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @auto.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
     end
   end
 
   def destroy
     @auto.destroy
-    respond_to do |format|
-      format.html { redirect_to autos_url }
-      format.json { head :no_content }
+    redirect_to autos_url
     end
   end
   

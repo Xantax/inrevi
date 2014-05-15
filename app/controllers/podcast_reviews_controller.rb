@@ -27,38 +27,30 @@ class PodcastReviewsController < ApplicationController
     @podcast_review = @podcast.podcast_reviews.build(podcast_review_params)
     @podcast_review.user = current_user
 
-    respond_to do |format|
       if @podcast_review.save
         @podcast_review.create_activity :create, owner: current_user
         
-        format.html { redirect_to [@podcast, @podcast_review], notice: 'Thank you. Share your review' }
-        format.json { render action: 'show', status: :created, location: @podcast_review }
+        redirect_to [@podcast, @podcast_review], notice: 'Share your review'
       else
-        format.html { render action: 'new' }
-        format.json { render json: @podcast_review.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
     end
   end
 
   def update
     @podcast_review.review_images.build if @podcast_review.review_images.empty?
-    
-    respond_to do |format|
+
       if @podcast_review.update(podcast_review_params)
-        format.html { redirect_to root_path, notice: 'Podcast review was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to root_path, notice: 'Review was successfully updated.'
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @podcast_review.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
     end
   end
 
   def destroy
     @podcast_review.destroy
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.json { head :no_content }
+      redirect_to root_path
     end
   end
   
@@ -69,6 +61,7 @@ class PodcastReviewsController < ApplicationController
 
   def downvote
     @podcast_review.downvote_from current_user
+    render nothing: true    
   end
 
   private

@@ -25,36 +25,28 @@ class SongReviewsController < ApplicationController
     @song_review = SongReview.new(song_review_params)
     @song_review.user = current_user
 
-    respond_to do |format|
       if @song_review.save
         @song_review.create_activity :create, owner: current_user
         
-        format.html { redirect_to song_song_review_path(@song.uri, @song_review), notice: 'Thank you. Share your review' }
-        format.json { render action: 'show', status: :created, location: @song_review }
+        redirect_to song_song_review_path(@song.uri, @song_review), notice: 'Share your review'
       else
-        format.html { render action: 'new' }
-        format.json { render json: @song_review.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
     end
   end
 
   def update
-    respond_to do |format|
       if @song_review.update(song_review_params)
-        format.html { redirect_to @song_review, notice: 'Song review was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to @song_review
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @song_review.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
     end
   end
 
   def destroy
     @song_review.destroy
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.json { head :no_content }
+      redirect_to root_path
     end
   end
 
@@ -65,6 +57,7 @@ class SongReviewsController < ApplicationController
 
   def downvote
     @song_review.downvote_from current_user
+    render nothing: true    
   end
   
   private

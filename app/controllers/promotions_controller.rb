@@ -18,34 +18,26 @@ class PromotionsController < ApplicationController
   def create
     @promotion = Promotion.new(promotion_params)
 
-    respond_to do |format|
       if @promotion.save
-        format.html { redirect_to @promotion, notice: 'Promotion was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @promotion }
+        redirect_to @promotion
       else
-        format.html { render action: 'new' }
-        format.json { render json: @promotion.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
     end
   end
 
   def update
-    respond_to do |format|
       if @promotion.update(promotion_params)
-        format.html { redirect_to @promotion, notice: 'Promotion was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to @promotion
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @promotion.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
     end
   end
 
   def destroy
     @promotion.destroy
-    respond_to do |format|
-      format.html { redirect_to promotions_url }
-      format.json { head :no_content }
+      redirect_to promotions_url
     end
   end
 

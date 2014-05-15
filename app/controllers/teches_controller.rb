@@ -45,34 +45,26 @@ class TechesController < ApplicationController
     @tech = Tech.new(tech_params)
     @tech.user = current_user
 
-    respond_to do |format|
       if @tech.save
-        format.html { redirect_to @tech, notice: 'Tech was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @tech }
+        redirect_to @tech
       else
-        format.html { render action: 'new' }
-        format.json { render json: @tech.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
     end
   end
 
   def update
-    respond_to do |format|
       if @tech.update(tech_params)
-        format.html { redirect_to @tech, notice: 'Tech was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to @tech
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @tech.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
     end
   end
 
   def destroy
     @tech.destroy
-    respond_to do |format|
-      format.html { redirect_to teches_url }
-      format.json { head :no_content }
+      redirect_to teches_url
     end
   end
 

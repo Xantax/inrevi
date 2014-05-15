@@ -21,36 +21,27 @@ class BookReviewsController < ApplicationController
     @book_review = BookReview.new(book_review_params)
     @book_review.user = current_user
 
-    respond_to do |format|
       if @book_review.save
         @book_review.create_activity :create, owner: current_user
-        
-        format.html { redirect_to book_book_review_path(@book.id, @book_review), notice: 'Thank you. Share your review' }
-        format.json { render action: 'show', status: :created, location: @book_review }
+        redirect_to book_book_review_path(@book.id, @book_review), notice: 'Share your review'
       else
-        format.html { render action: 'new' }
-        format.json { render json: @book_review.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
     end
   end
 
   def update
-    respond_to do |format|
       if @book_review.update(book_review_params)
-        format.html { redirect_to @book_review, notice: 'Book review was successfully updated.' }
-        format.json { head :no_content }
+        @book_review, notice: 'Book review was successfully updated.'
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @book_review.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
     end
   end
 
   def destroy
     @book_review.destroy
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.json { head :no_content }
+    redirect_to root_path
     end
   end
   
@@ -61,6 +52,7 @@ class BookReviewsController < ApplicationController
 
   def downvote
     @book_review.downvote_from current_user
+    render nothing: true    
   end
 
   private

@@ -28,38 +28,30 @@ class LocalReviewsController < ApplicationController
     @local_review = LocalReview.new(local_review_params)
     @local_review.user = current_user
 
-    respond_to do |format|
       if @local_review.save
         @local_review.create_activity :create, owner: current_user
         
-        format.html { redirect_to local_local_review_path(@local['factual_id'], @local_review), notice: 'Thank you. Share your review' }
-        format.json { render action: 'show', status: :created, location: @local_review }
+        redirect_to local_local_review_path(@local['factual_id'], @local_review), notice: 'Share your review'
       else
-        format.html { render action: 'new' }
-        format.json { render json: @local_review.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
     end
   end
 
   def update
-#    @local_review.review_images.build if @local_review.review_images.empty?
-    
-    respond_to do |format|
+    @local_review.review_images.build if @local_review.review_images.empty?
+
       if @local_review.update(local_review_params)
-        format.html { redirect_to root_path, notice: 'Local review was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to root_path, notice: 'Local review was successfully updated.'
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @local_review.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
     end
   end
 
   def destroy
     @local_review.destroy
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.json { head :no_content }
+      redirect_to root_path
     end
   end
 
@@ -70,6 +62,7 @@ class LocalReviewsController < ApplicationController
 
   def downvote
    @local_review.downvote_from current_user
+   render nothing: true   
   end
   
   private

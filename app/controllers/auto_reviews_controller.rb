@@ -25,38 +25,29 @@ class AutoReviewsController < ApplicationController
     @auto_review = @auto.auto_reviews.build(auto_review_params)
     @auto_review.user = current_user
 
-    respond_to do |format|
       if @auto_review.save
-        @auto_review.create_activity :create, owner: current_user
-        
-        format.html { redirect_to [@auto, @auto_review], notice: 'Thank you. Share your review' }
-        format.json { render action: 'index', status: :created, location: @auto_review }
+        @auto_review.create_activity :create, owner: current_user        
+        redirect_to [@auto, @auto_review], notice: 'Share your review' }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @auto_review.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
     end
   end
 
   def update
     @auto_review.review_images.build if @auto_review.review_images.empty?
-    
-    respond_to do |format|
+
       if @auto_review.update(auto_review_params)
-        format.html { redirect_to root_path, notice: 'Auto review was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to root_path, notice: 'Auto review was successfully updated.'
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @auto_review.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
     end
   end
 
   def destroy
     @auto_review.destroy
-    respond_to do |format|
-      format.html { redirect_to auto_path(@auto_review.auto) }
-      format.json { head :no_content }
+      redirect_to auto_path(@auto_review.auto)
     end
   end
   
@@ -67,6 +58,7 @@ class AutoReviewsController < ApplicationController
 
   def downvote
    @auto_review.downvote_from current_user
+   render nothing: true
   end 
 
   private

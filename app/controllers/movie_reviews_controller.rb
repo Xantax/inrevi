@@ -34,36 +34,28 @@ class MovieReviewsController < ApplicationController
     @movie_review = MovieReview.new(movie_review_params)
     @movie_review.user = current_user
 
-    respond_to do |format|
       if @movie_review.save
         @movie_review.create_activity :create, owner: current_user
         
-        format.html { redirect_to movie_movie_review_path(@movie.id, @movie_review), notice: 'Thank you. Share your review' }
-        format.json { render action: 'show', status: :created, location: @movie_review }
+        redirect_to movie_movie_review_path(@movie.id, @movie_review), notice: 'Share your review'
       else
-        format.html { render action: 'new' }
-        format.json { render json: @movie_review.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
     end
   end
 
   def update
-    respond_to do |format|
       if @movie_review.update(movie_review_params)
-        format.html { redirect_to @movie_review, notice: 'Movie review was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to @movie_review, notice: 'Movie review was successfully updated.'
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @movie_review.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
     end
   end
 
   def destroy
     @movie_review.destroy
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.json { head :no_content }
+      redirect_to root_path
     end
   end
   
@@ -74,6 +66,7 @@ class MovieReviewsController < ApplicationController
 
   def downvote
     @movie_review.downvote_from current_user
+    render nothing: true    
   end
 
   private

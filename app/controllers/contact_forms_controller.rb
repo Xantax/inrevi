@@ -18,34 +18,26 @@ class ContactFormsController < ApplicationController
   def create
     @contact_form = ContactForm.new(contact_form_params)
 
-    respond_to do |format|
       if @contact_form.save
-        format.html { redirect_to root_path, notice: 'Contact form was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @contact_form }
+        redirect_to root_path, notice: 'Thank you. We will contact you soon.'
       else
-        format.html { render action: 'new' }
-        format.json { render json: @contact_form.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
     end
   end
 
   def update
-    respond_to do |format|
       if @contact_form.update(contact_form_params)
-        format.html { redirect_to @contact_form, notice: 'Contact form was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to @contact_form
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @contact_form.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
     end
   end
 
   def destroy
     @contact_form.destroy
-    respond_to do |format|
-      format.html { redirect_to contact_forms_url }
-      format.json { head :no_content }
+    redirect_to contact_forms_url
     end
   end
 

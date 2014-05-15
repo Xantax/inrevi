@@ -29,11 +29,9 @@ class DrugReviewsController < ApplicationController
       if @drug_review.save
         @drug_review.create_activity :create, owner: current_user
         
-        format.html { redirect_to [@drug, @drug_review], notice: 'Thank you. Share your review' }
-        format.json { render action: 'index', status: :created, location: @auto_review }
+        redirect_to [@drug, @drug_review], notice: 'Share your review'
       else
-        format.html { render action: 'new' }
-        format.json { render json: @drug_review.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
     end
   end
@@ -43,20 +41,16 @@ class DrugReviewsController < ApplicationController
     
     respond_to do |format|
       if @drug_review.update(auto_review_params)
-        format.html { redirect_to root_path, notice: 'Auto review was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to root_path, notice: 'Review was successfully updated.'
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @drug_review.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
     end
   end
 
   def destroy
     @auto_review.destroy
-    respond_to do |format|
-      format.html { redirect_to drug_path(@drug_review.drug) }
-      format.json { head :no_content }
+      redirect_to drug_path(@drug_review.drug)
     end
   end
   
@@ -67,6 +61,7 @@ class DrugReviewsController < ApplicationController
 
   def downvote
    @drug_review.downvote_from current_user
+   render nothing: true    
   end 
 
   private

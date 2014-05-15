@@ -27,38 +27,30 @@ class TechReviewsController < ApplicationController
     @tech_review = @tech.tech_reviews.build(tech_review_params)
     @tech_review.user = current_user
 
-    respond_to do |format|
       if @tech_review.save
         @tech_review.create_activity :create, owner: current_user
         
-        format.html { redirect_to [@tech, @tech_review], notice: 'Thank you. Share your review' }
-        format.json { render action: 'show', status: :created, location: @tech_review }
+        redirect_to [@tech, @tech_review], notice: 'Share your review'
       else
-        format.html { render action: 'new' }
-        format.json { render json: @tech_review.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
     end
   end
 
   def update
     @tech_review.review_images.build if @tech_review.review_images.empty?
-    
-    respond_to do |format|
+
       if @tech_review.update(tech_review_params)
-        format.html { redirect_to @tech_review, notice: 'Tech review was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to @tech_review
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @tech_review.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
     end
   end
 
   def destroy
     @tech_review.destroy
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.json { head :no_content }
+      redirect_to root_path
     end
   end
   
@@ -69,6 +61,7 @@ class TechReviewsController < ApplicationController
 
   def downvote
     @tech_review.downvote_from current_user
+    render nothing: true    
   end
 
   private

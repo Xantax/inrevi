@@ -62,34 +62,26 @@
     @podcast =  Podcast.new(podcast_params)
     @podcast.user = current_user
 
-    respond_to do |format|
       if @podcast.save
-        format.html { redirect_to @podcast, notice: 'Podcast was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @podcast }
+        redirect_to @podcast
       else
-        format.html { render action: 'new' }
-        format.json { render json: @podcast.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
     end
   end
 
   def update
-    respond_to do |format|
       if @podcast.update(podcast_params)
-        format.html { redirect_to @podcast, notice: 'Podcast was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to @podcast
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @podcast.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
     end
   end
 
   def destroy
     @podcast.destroy
-    respond_to do |format|
-      format.html { redirect_to podcasts_url }
-      format.json { head :no_content }
+      redirect_to podcasts_url
     end
   end
 

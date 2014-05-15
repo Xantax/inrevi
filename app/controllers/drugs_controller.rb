@@ -53,11 +53,9 @@ class DrugsController < ApplicationController
 
     respond_to do |format|
       if @drug.save
-        format.html { redirect_to @drug, notice: 'Drug was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @drug }
+        redirect_to @drug
       else
-        format.html { render action: 'new' }
-        format.json { render json: @drug.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
     end
   end
@@ -65,20 +63,16 @@ class DrugsController < ApplicationController
   def update
     respond_to do |format|
       if @drug.update(drug_params)
-        format.html { redirect_to @drug, notice: 'Drug was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to @drug
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @drug.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
     end
   end
 
   def destroy
     @drug.destroy
-    respond_to do |format|
-      format.html { redirect_to drugs_url }
-      format.json { head :no_content }
+      redirect_to drugs_url
     end
   end
 

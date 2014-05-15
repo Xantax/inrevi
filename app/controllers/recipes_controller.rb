@@ -1,11 +1,34 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :ingredients, :directions]
 
-  def index
-    @recipes = Recipe.all
+  def all
+    @recipes = Recipe.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
   end
+  
+  def index
+#    @recipes = Recipe.all
+    @search = Auto.search do
+      fulltext params[:search]
+      paginate(:page => params[:page], :per_page => 10)
+    end
+    @recipes = @search.results
+  end
+  
+  def search
+    @search = Auto.search do
+      fulltext params[:search]
+      paginate(:page => params[:page], :per_page => 10)
+    end
+    @recipes = @search.results 
+  end 
 
   def show
+    @recipe_review = RecipeReview.new
+    @recipe_reviews = Recipe.find(params[:id]).recipe_reviews.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
+    @avg_score = 0
+    @avg_score = @recipe_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @recipe_reviews.count if @recipe_reviews.count > 0
+    
+    @promotion = Promotion.order("RANDOM()").first   
   end
 
   def new
@@ -17,35 +40,28 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
 
-    respond_to do |format|
       if @recipe.save
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @recipe }
+        redirect_to @recipe
       else
-        format.html { render action: 'new' }
-        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
     end
   end
 
   def update
-    respond_to do |format|
       if @recipe.update(recipe_params)
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to @recipe
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
     end
   end
 
   def destroy
     @recipe.destroy
-    respond_to do |format|
-      format.html { redirect_to recipes_url }
-      format.json { head :no_content }
+      redirect_to recipes_url
     end
   end
 

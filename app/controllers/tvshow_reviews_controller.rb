@@ -29,34 +29,27 @@ class TvshowReviewsController < ApplicationController
       if @tvshow_review.save
         @tvshow_review.create_activity :create, owner: current_user
         
-        format.html { redirect_to tvshow_tvshow_review_path(@tvshow.id, @tvshow_review), notice: 'Thank you. Share your review' }
-        format.json { render action: 'show', status: :created, location: @tvshow_review }
+        redirect_to tvshow_tvshow_review_path(@tvshow.id, @tvshow_review), notice: 'Share your review'
       else
-        format.html { render action: 'new' }
-        format.json { render json: @tvshow_review.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
     end
   end
 
   def update
     @tvshow_review.review_images.build if @tvshow_review.review_images.empty?
-    
-    respond_to do |format|
+
       if @tvshow_review.update(tvshow_review_params)
-        format.html { redirect_to @tvshow_review, notice: 'Tvshow review was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to @tvshow_review
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @tvshow_review.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
     end
   end
 
   def destroy
     @tvshow_review.destroy
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.json { head :no_content }
+      redirect_to root_path
     end
   end
   
@@ -67,6 +60,7 @@ class TvshowReviewsController < ApplicationController
 
   def downvote
     @tvshow_review.downvote_from current_user
+    render nothing: true    
   end
 
   private

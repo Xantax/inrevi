@@ -1,8 +1,5 @@
 Inrevi::Application.routes.draw do
 
-  resources :recipe_reviews
-
-  resources :recipes
 
   get 'cameras/search' => 'products#search'
   get 'computers/search' => 'products#search'
@@ -188,6 +185,20 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   match 'podcast_reviews/all' => "podcast_reviews#all", via: [:get]
 
 #----------   END MEDIA   ----------
+  
+#----------   RECIPE   ----------#  
+  
+  resources :recipes  do
+    resources :recipe_reviews do
+      member do
+        put "like", to: "recipe_reviews#upvote"
+        put "dislike", to: "recipe_reviews#downvote"
+      end     
+    end
+  end
+
+  match 'recipez/all' => "recipes#all", via: [:get]
+  match 'recipe_reviews/all' => "recipe_reviews#all", via: [:get]
   
   
 root 'static_pages#home'

@@ -18,34 +18,26 @@ class LinksController < ApplicationController
   def create
     @link = Link.new(link_params)
 
-    respond_to do |format|
       if @link.save
-        format.html { redirect_to @link, notice: 'Link was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @link }
+        redirect_to @link
       else
-        format.html { render action: 'new' }
-        format.json { render json: @link.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
     end
   end
 
   def update
-    respond_to do |format|
       if @link.update(link_params)
-        format.html { redirect_to @link, notice: 'Link was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to @link
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @link.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
     end
   end
 
   def destroy
     @link.destroy
-    respond_to do |format|
-      format.html { redirect_to links_url }
-      format.json { head :no_content }
+      redirect_to links_url
     end
   end
 
