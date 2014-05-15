@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140511042311) do
+ActiveRecord::Schema.define(version: 20140515022705) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -324,6 +324,41 @@ ActiveRecord::Schema.define(version: 20140511042311) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "recipe_reviews", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "point",                 default: -1
+    t.integer  "user_id"
+    t.integer  "recipe_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "cached_votes_total",    default: 0
+    t.integer  "cached_votes_score",    default: 0
+    t.integer  "cached_votes_up",       default: 0
+    t.integer  "cached_votes_down",     default: 0
+    t.integer  "cached_weighted_score", default: 0
+  end
+
+  add_index "recipe_reviews", ["cached_votes_down"], name: "index_recipe_reviews_on_cached_votes_down"
+  add_index "recipe_reviews", ["cached_votes_score"], name: "index_recipe_reviews_on_cached_votes_score"
+  add_index "recipe_reviews", ["cached_votes_total"], name: "index_recipe_reviews_on_cached_votes_total"
+  add_index "recipe_reviews", ["cached_votes_up"], name: "index_recipe_reviews_on_cached_votes_up"
+  add_index "recipe_reviews", ["cached_weighted_score"], name: "index_recipe_reviews_on_cached_weighted_score"
+  add_index "recipe_reviews", ["recipe_id"], name: "index_recipe_reviews_on_recipe_id"
+  add_index "recipe_reviews", ["user_id"], name: "index_recipe_reviews_on_user_id"
+
+  create_table "recipes", force: true do |t|
+    t.string   "name"
+    t.string   "image"
+    t.integer  "user_id"
+    t.text     "ingredients"
+    t.text     "directions"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id"
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"

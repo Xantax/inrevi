@@ -1,5 +1,9 @@
 Inrevi::Application.routes.draw do
 
+  resources :recipe_reviews
+
+  resources :recipes
+
   get 'cameras/search' => 'products#search'
   get 'computers/search' => 'products#search'
   resources :products, path: 'computers', as: :computer
