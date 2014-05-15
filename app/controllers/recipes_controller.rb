@@ -7,15 +7,13 @@ class RecipesController < ApplicationController
   
   def index
 #    @recipes = Recipe.all
-    @search = Auto.search do
-      fulltext params[:search]
-      paginate(:page => params[:page], :per_page => 10)
+    if params[:rtag]
+      @recipes = Recipe.tagged_with(params[:rtag])
     end
-    @recipes = @search.results
   end
   
   def search
-    @search = Auto.search do
+    @search = Recipe.search do
       fulltext params[:search]
       paginate(:page => params[:page], :per_page => 10)
     end
@@ -47,7 +45,6 @@ class RecipesController < ApplicationController
       else
         render action: 'new'
       end
-    end
   end
 
   def update
@@ -56,13 +53,11 @@ class RecipesController < ApplicationController
       else
         render action: 'edit'
       end
-    end
   end
 
   def destroy
     @recipe.destroy
       redirect_to recipes_url
-    end
   end
 
   private

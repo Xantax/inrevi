@@ -23,7 +23,6 @@ class LinksController < ApplicationController
       else
         render action: 'new'
       end
-    end
   end
 
   def update
@@ -32,13 +31,11 @@ class LinksController < ApplicationController
       else
         render action: 'edit'
       end
-    end
   end
 
   def destroy
     @link.destroy
       redirect_to links_url
-    end
   end
 
   private

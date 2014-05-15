@@ -8,6 +8,7 @@ Inrevi::Application.routes.draw do
 
   get 'techtags/:tag', to: 'teches#index', as: :ttag
   get 'podtags/:tag', to: 'podcasts#index', as: :tag  
+  get 'recipetags/:tag', to: 'pecipes#index', as: :rtag
   
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 match 'auth/failure', to: redirect('/'), via: [:get, :post]
@@ -20,7 +21,7 @@ match 'drugs/search' => "drugs#search", via: [:get]
 match 'autos/search' => "autos#search", via: [:get]
 match 'teches/search' => "teches#search", via: [:get]
 match 'podcasts/search' => "podcasts#search", via: [:get]
-match 'drugs/search' => "drugs#search", via: [:get]
+match 'recipes/search' => "recipes#search", via: [:get]
   
 match 'media' => "static_pages#catmedia", via: [:get]
 match 'home' => "static_pages#cathome", via: [:get]

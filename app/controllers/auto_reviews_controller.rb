@@ -31,7 +31,6 @@ class AutoReviewsController < ApplicationController
       else
         render action: 'new'
       end
-    end
   end
 
   def update
@@ -42,13 +41,11 @@ class AutoReviewsController < ApplicationController
       else
         render action: 'edit'
       end
-    end
   end
 
   def destroy
     @auto_review.destroy
       redirect_to auto_path(@auto_review.auto)
-    end
   end
   
   def upvote

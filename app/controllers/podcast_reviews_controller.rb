@@ -34,7 +34,6 @@ class PodcastReviewsController < ApplicationController
       else
         render action: 'new'
       end
-    end
   end
 
   def update
@@ -45,13 +44,11 @@ class PodcastReviewsController < ApplicationController
       else
         render action: 'edit'
       end
-    end
   end
 
   def destroy
     @podcast_review.destroy
       redirect_to root_path
-    end
   end
   
   def upvote

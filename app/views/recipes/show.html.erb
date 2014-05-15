@@ -1,29 +1,23 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @recipe.name) %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @recipe.name %>
-</p>
+<div class="row">
+ 
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div> 
+    
+  <div class="col-sm-8"> 
+     <div class="allnews">
+       <%= render 'recipes/recipeshow2' %>
+     </div>
+  </div>
+  
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
 
-<p>
-  <strong>Image:</strong>
-  <%= @recipe.image %>
-</p>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @recipe.user %>
-</p>
-
-<p>
-  <strong>Ingredients:</strong>
-  <%= @recipe.ingredients %>
-</p>
-
-<p>
-  <strong>Directions:</strong>
-  <%= @recipe.directions %>
-</p>
-
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+<div class="digg_pagination">
+  <%= will_paginate @recipe_reviews %>
+</div>

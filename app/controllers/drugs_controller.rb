@@ -57,7 +57,6 @@ class DrugsController < ApplicationController
       else
         render action: 'new'
       end
-    end
   end
 
   def update
@@ -67,13 +66,11 @@ class DrugsController < ApplicationController
       else
         render action: 'edit'
       end
-    end
   end
 
   def destroy
     @drug.destroy
       redirect_to drugs_url
-    end
   end
 
   private

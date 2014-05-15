@@ -321,6 +321,8 @@ ActiveRecord::Schema.define(version: 20140515022705) do
     t.boolean  "podcast"
     t.boolean  "tvshow"
     t.boolean  "drug"
+    t.boolean  "recipe"
+    t.boolean  "art"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

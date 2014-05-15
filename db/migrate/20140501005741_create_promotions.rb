@@ -12,6 +12,8 @@ class CreatePromotions < ActiveRecord::Migration
       t.boolean  :podcast
       t.boolean  :tvshow
       t.boolean  :drug
+      t.boolean  :recipe
+      t.boolean  :art
 
       t.timestamps
     end

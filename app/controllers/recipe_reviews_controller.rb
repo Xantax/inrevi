@@ -32,7 +32,6 @@ class RecipeReviewsController < ApplicationController
       else
         render action: 'new'
       end
-    end
   end
 
   def update
@@ -43,13 +42,11 @@ class RecipeReviewsController < ApplicationController
       else
         render action: 'edit'
       end
-    end
   end
 
   def destroy
     @recipe_review.destroy
       redirect_to recipe_reviews_url
-    end
   end
   
   def upvote

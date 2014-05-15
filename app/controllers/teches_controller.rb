@@ -23,6 +23,11 @@ class TechesController < ApplicationController
       paginate(:page => params[:page], :per_page => 10)
     end
    @teches = @search.results
+    
+    if params[:ttag]
+      @teches = Tech.tagged_with(params[:ttag])
+    end
+    
   end
 
   def show
@@ -50,7 +55,6 @@ class TechesController < ApplicationController
       else
         render action: 'new'
       end
-    end
   end
 
   def update
@@ -59,7 +63,6 @@ class TechesController < ApplicationController
       else
         render action: 'edit'
       end
-    end
   end
 
   def destroy

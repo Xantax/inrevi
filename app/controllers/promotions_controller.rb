@@ -23,7 +23,6 @@ class PromotionsController < ApplicationController
       else
         render action: 'new'
       end
-    end
   end
 
   def update
@@ -32,13 +31,11 @@ class PromotionsController < ApplicationController
       else
         render action: 'edit'
       end
-    end
   end
 
   def destroy
     @promotion.destroy
       redirect_to promotions_url
-    end
   end
 
   private

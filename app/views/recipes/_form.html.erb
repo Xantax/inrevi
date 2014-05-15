@@ -1,15 +1,20 @@
-<%= simple_form_for(@recipe) do |f| %>
-  <%= f.error_notification %>
+<%= form_for @recipe, :html => {:multipart => true} do |f| %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :image %>
-    <%= f.association :user %>
-    <%= f.input :ingredients %>
-    <%= f.input :directions %>
-  </div>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :class => "podcastnew" %><br><br>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+    <%= f.label :tag_list, "keywords - separate by commas" %><br>
+    <%= f.text_field :tag_list, :placeholder => "e.g desert, pancakes" , :class => "podcastnew" %><br><br>
+
+    <%= f.label :ingredients, "Ingredients" %><br>
+    <%= f.text_area :ingredients, :class => "", :placeholder => "2 eggs..." %><br><br>
+
+    <%= f.label :directions, "Directions" %><br>
+    <%= f.text_area :directions, :class => "", :placeholder => "First put it in the somewhere" %><br><br>
+
+    <%= image_tag("othericons/PhotoShow.PNG") %>    <%= f.label :remote_image_url, "Image URL (min. 150x150)" %><br />
+    <%= f.file_field :image %><br><br>
+
+    <%= f.submit 'Submit', :class => 'btn btn-default' %>
+
 <% end %>

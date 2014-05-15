@@ -8,6 +8,7 @@ class Permission < Struct.new(:user)
     return true if controller == "movies"
     return true if controller == "tvshows"
     return true if controller == "autos" && action.in?(%w[index show])
+    return true if controller == "recipes" && action.in?(%w[index show search])
     return true if controller == "users" && action.in?(%w[show following followers])
     return true if controller == "contact_forms" && action.in?(%w[new create])
     return true if controller == "auto_reviews" && action.in?(%w[show])

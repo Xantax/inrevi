@@ -35,7 +35,6 @@ class LocalReviewsController < ApplicationController
       else
         render action: 'new'
       end
-    end
   end
 
   def update
@@ -46,13 +45,11 @@ class LocalReviewsController < ApplicationController
       else
         render action: 'edit'
       end
-    end
   end
 
   def destroy
     @local_review.destroy
       redirect_to root_path
-    end
   end
 
   def upvote

@@ -1,5 +1,19 @@
-<h1>New recipe</h1>
+<% provide(:title, '+ Add new') %>
 
-<%= render 'form' %>
+<div class="row">
 
-<%= link_to 'Back', recipes_path %>
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div>
+    
+  <div class="col-sm-8">     
+    <div class="allnews">
+        <%= render 'form' %>
+    </div>
+  </div>
+   
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
+
+</div>

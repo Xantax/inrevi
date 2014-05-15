@@ -41,7 +41,6 @@ class MovieReviewsController < ApplicationController
       else
         render action: 'new'
       end
-    end
   end
 
   def update
@@ -50,13 +49,11 @@ class MovieReviewsController < ApplicationController
       else
         render action: 'edit'
       end
-    end
   end
 
   def destroy
     @movie_review.destroy
       redirect_to root_path
-    end
   end
   
   def upvote

@@ -33,7 +33,6 @@ class DrugReviewsController < ApplicationController
       else
         render action: 'new'
       end
-    end
   end
 
   def update
@@ -45,13 +44,11 @@ class DrugReviewsController < ApplicationController
       else
         render action: 'edit'
       end
-    end
   end
 
   def destroy
     @auto_review.destroy
       redirect_to drug_path(@drug_review.drug)
-    end
   end
   
   def upvote

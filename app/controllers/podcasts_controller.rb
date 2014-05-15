@@ -14,10 +14,6 @@
 
     if params[:tag]
       @podcasts = Podcast.tagged_with(params[:tag])
-    elsif
-      @podcasts = @search.results.paginate(:page => params[:page], :per_page => 10)
-    else
-      @podcasts = Podcast.all
     end
 
   end
@@ -67,7 +63,6 @@
       else
         render action: 'new'
       end
-    end
   end
 
   def update
@@ -76,13 +71,11 @@
       else
         render action: 'edit'
       end
-    end
   end
 
   def destroy
     @podcast.destroy
       redirect_to podcasts_url
-    end
   end
 
   private

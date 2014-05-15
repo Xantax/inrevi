@@ -23,7 +23,6 @@ class ContactFormsController < ApplicationController
       else
         render action: 'new'
       end
-    end
   end
 
   def update
@@ -32,13 +31,11 @@ class ContactFormsController < ApplicationController
       else
         render action: 'edit'
       end
-    end
   end
 
   def destroy
     @contact_form.destroy
     redirect_to contact_forms_url
-    end
   end
 
   private
