@@ -1,33 +1,65 @@
-<h1>Listing recipe_reviews</h1>
+<% if @avg_score == 0.0 %>
+<div class="noreviewsonindex">No reviews. Be the first to write it!</div>
+<% else %>
+<% @recipe_reviews.each do |recipe_review| %><br>
+    <div class="col-sm-3"> 
+      <div class="reviewname">     
+        <%= link_to user_path(recipe_review.user) do %> 
+          <%= recipe_review.user.first_name %>
+          <%= recipe_review.user.last_name.truncate(2, omission: '.')%>
+        <% end %>
+      </div>    
+        <%= image_tag(recipe_review.user.image, width: "80") %>  
+     </div>
+        
+      <div class="col-sm-9 podreview"> 
+         <div class="separatereview">
+           
+            <div class="numberOne">
+              <%= recipe_review.point %>
+            </div>
+          
+          <div class="reviewtitle"><%= recipe_review.title %></div><br><br>
+          <div class="reviewcontent"><%= simple_format(recipe_review.content) %></div>
+           
+             <% unless recipe_review.review_images.empty? %>
+                <% recipe_review.review_images.each do |pic| %>
+                     <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>
+                <% end %>
+                 <% if signed_in? %>
+                   <% unless current_user == recipe_review.user %>
+                     <hr>
+                   <% end %>
+                 <% end %>
+             <% end %>
+           
+              <div class="bottomreviewicons">
+                <% if signed_in? %>
+                
+                  <% if current_user == recipe_review.user %>
+                    
+                  <% elsif current_user.voted_for? recipe_review %>
+                    Voted!
+                  <% else %>
+                   <div class="thumbsup">
+                     <%= link_to image_tag('othericons/thumbsup_off.PNG', height: '21', width: '20'),  like_recipe_recipe_review_path(recipe_review.recipe_id, recipe_review), method: :put, :remote => true %>
+                   </div>
+                            
+                   <div class="thumbsdown">
+                    <%= link_to image_tag('othericons/thumbsdown_off.PNG', height: '21', width: '20'), dislike_recipe_recipe_review_path(recipe_review.recipe_id, recipe_review), method: :put, :remote => true %>
+                   </div>
+                
+                  <% end %>
+                
+                <% end %>
+                
+              </div>
+          
+      </div><br>
+    </div>
+  <% end %>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>User</th>
-      <th>Recipe</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @recipe_reviews.each do |recipe_review| %>
-      <tr>
-        <td><%= recipe_review.title %></td>
-        <td><%= recipe_review.content %></td>
-        <td><%= recipe_review.user %></td>
-        <td><%= recipe_review.recipe %></td>
-        <td><%= link_to 'Show', recipe_review %></td>
-        <td><%= link_to 'Edit', edit_recipe_review_path(recipe_review) %></td>
-        <td><%= link_to 'Destroy', recipe_review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Recipe review', new_recipe_review_path %>
+<div class="digg_pagination">
+  <%= will_paginate @recipe_reviews %>
+</div>

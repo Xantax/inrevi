@@ -1,14 +1,62 @@
-<%= simple_form_for(@recipe_review) do |f| %>
-  <%= f.error_notification %>
+<%= nested_form_for([@recipe, @recipe_review], validate: true, html: {multipart: true}, 'data-update-target' => 'comments', class: 'comments') do  |f| %>
+  <% if @recipe_review.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @recipe_review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <%= f.hidden_field :point %>
+  <div class="rating-comments"></div>
+  <br>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :content %>
-    <%= f.association :user %>
-    <%= f.association :recipe %>
-  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, :class => "field podtitle", :placeholder => "max. 40 characters", :onfocus => "this.placeholder = ''" %>
+  </div><br>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <div class="field">
+    <%= f.label :content %><div class="contentcharacters">(minimum 140 characters)</div><br>
+    <%= f.text_area :content, :class => "field podcontent", :placeholder => "Tell the world what you like or dislike, give tips and suggestions... ", :onfocus => "this.placeholder = ''" %>
+  </div><br>
+
+  <div class="optionalreview">Optional (images):</div>
+
+      <%= f.fields_for :review_images do |p| %>
+      <%= image_tag('othericons/PhotoShow.PNG') %>
+        <div class="browseimage"><%= p.file_field :image %></div>  
+        <div class="removeicon"><%= p.link_to_remove image_tag('othericons/removeicon.PNG') %></div><br><br>
+      <% end %>
+      <%= f.link_to_add "+ Add another image", :review_images %>
+
+
+  <br><br><br>
+    
+      <div class="actions">
+        <%= f.submit " Submit ", :class => "btn btn-default", :id => "submit" %>
+      </div><br>
+    
+      <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
+
 <% end %>
+
+<script type="text/javascript">
+        $('.rating-comments').raty({
+  click: function(score, evt) {
+    $("#recipe_review_point").val(score);
+    return console.log(score);
+  }
+});
+</script>
+
+<script type="text/javascript">
+(function (d) {
+  d.getElementById('new_recipe_review').onsubmit = function () {
+    d.getElementById('submit').style.display = 'block';
+    d.getElementById('loading2').style.display = 'block';
+  };
+}(document));
+</script>
