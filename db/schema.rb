@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20140515022705) do
   add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
 
   create_table "auto_reviews", force: true do |t|
-    t.string   "title"
     t.text     "content"
     t.integer  "point",                 default: -1
     t.integer  "user_id"
@@ -77,7 +76,6 @@ ActiveRecord::Schema.define(version: 20140515022705) do
   add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id"
 
   create_table "book_reviews", force: true do |t|
-    t.string   "title"
     t.text     "content"
     t.integer  "point",                 default: -1
     t.string   "book_name"
@@ -122,7 +120,6 @@ ActiveRecord::Schema.define(version: 20140515022705) do
   end
 
   create_table "drug_reviews", force: true do |t|
-    t.string   "title"
     t.text     "content"
     t.integer  "point",                 default: -1
     t.integer  "user_id"
@@ -165,7 +162,6 @@ ActiveRecord::Schema.define(version: 20140515022705) do
   create_table "local_reviews", force: true do |t|
     t.integer  "user_id"
     t.string   "local_id"
-    t.string   "title"
     t.text     "content"
     t.integer  "point",                 default: -1
     t.string   "local_name"
@@ -235,7 +231,6 @@ ActiveRecord::Schema.define(version: 20140515022705) do
   end
 
   create_table "movie_reviews", force: true do |t|
-    t.string   "title"
     t.text     "content"
     t.integer  "point",                 default: -1
     t.string   "movie_imdb"
@@ -267,7 +262,6 @@ ActiveRecord::Schema.define(version: 20140515022705) do
   end
 
   create_table "podcast_reviews", force: true do |t|
-    t.string   "title"
     t.text     "content"
     t.integer  "point",                 default: -1
     t.integer  "user_id"
@@ -328,7 +322,6 @@ ActiveRecord::Schema.define(version: 20140515022705) do
   end
 
   create_table "recipe_reviews", force: true do |t|
-    t.string   "title"
     t.text     "content"
     t.integer  "point",                 default: -1
     t.integer  "user_id"
@@ -389,7 +382,6 @@ ActiveRecord::Schema.define(version: 20140515022705) do
   end
 
   create_table "song_reviews", force: true do |t|
-    t.string   "title"
     t.text     "content"
     t.integer  "point",                 default: -1
     t.string   "song_name"
@@ -438,7 +430,6 @@ ActiveRecord::Schema.define(version: 20140515022705) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
   create_table "tech_reviews", force: true do |t|
-    t.string   "title"
     t.text     "content"
     t.integer  "point",                 default: -1
     t.integer  "user_id"
@@ -472,7 +463,6 @@ ActiveRecord::Schema.define(version: 20140515022705) do
   add_index "teches", ["user_id"], name: "index_teches_on_user_id"
 
   create_table "tvshow_reviews", force: true do |t|
-    t.string   "title"
     t.text     "content"
     t.integer  "point",                 default: -1
     t.string   "tvshow_name"
