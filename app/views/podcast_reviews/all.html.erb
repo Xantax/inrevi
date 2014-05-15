@@ -8,7 +8,7 @@
     </div>
     <div class="col-sm-9">
       Auto: <%= link_to all_podcast_review.podcast.name, all_podcast_review.podcast %><br>
-      <%= all_podcast_review.point %> - <b><%= all_podcast_review.title %></b><br>
+      <%= all_podcast_review.point %><br>
       <%= all_podcast_review.content %><br>
       <% all_podcast_review.review_images.each do |pic| %>
          <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>

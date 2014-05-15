@@ -7,9 +7,9 @@ class Recipe < ActiveRecord::Base
     validate :user_quota, :on => :create
 
   validates :name, presence: true
-  validates :tag_list, presence: true
+#  validates :tag_list, presence: true
   validates :image, presence: true
-  validates :remote_image_url, presence: true
+#  validates :remote_image_url, presence: true
   
   mount_uploader :image, ImageUploader
   

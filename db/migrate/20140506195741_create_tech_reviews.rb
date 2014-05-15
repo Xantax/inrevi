@@ -1,7 +1,6 @@
 class CreateTechReviews < ActiveRecord::Migration
   def change
     create_table :tech_reviews do |t|
-      t.string :title
       t.text :content
       t.integer :point, default: -1
       t.references :user, index: true

@@ -71,7 +71,7 @@ class TvshowReviewsController < ApplicationController
     end
 
     def tvshow_review_params
-      params.require(:tvshow_review).permit(:title, :content, :user_id, :point, :score,
+      params.require(:tvshow_review).permit(:content, :user_id, :point, :score,
         :tvshow_id, :tvshow_name, :tvshow_year, :tvshow_poster, 
         review_images_attributes: [:image, :attachable_id, :attachable_type])
     end

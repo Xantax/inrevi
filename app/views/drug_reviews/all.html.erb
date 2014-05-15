@@ -8,7 +8,7 @@
     </div>
     <div class="col-sm-9">
       Drug: <%= link_to all_drug_review.drug.name, all_drug_review.drug %><br>
-      <%= all_drug_review.point %> - <b><%= all_drug_review.title %></b><br>
+      <%= all_drug_review.point %><br>
       <%= all_drug_review.content %><br>
       <% all_drug_review.review_images.each do |pic| %>
          <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>

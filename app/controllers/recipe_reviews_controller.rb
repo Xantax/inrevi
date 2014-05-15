@@ -71,7 +71,7 @@ class RecipeReviewsController < ApplicationController
     end
 
     def recipe_review_params
-      params.require(:recipe_review).permit(:title, :content, :user_id, :recipe_id, :point, :score,
+      params.require(:recipe_review).permit(:content, :user_id, :recipe_id, :point, :score,
         review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
 end

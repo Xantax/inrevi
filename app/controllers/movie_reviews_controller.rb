@@ -77,7 +77,7 @@ class MovieReviewsController < ApplicationController
     end
 
     def movie_review_params
-      params.require(:movie_review).permit(:title, :content, :user, :movie_id, :point, :score, :movie_imdb, 
+      params.require(:movie_review).permit(:content, :user, :movie_id, :point, :score, :movie_imdb, 
         :movie_title, :movie_year, :movie_runtime, :movie_ident, :movie_poster,
         review_images_attributes: [:image, :attachable_id, :attachable_type])
     end

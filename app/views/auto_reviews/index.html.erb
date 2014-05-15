@@ -17,9 +17,8 @@
            
             <div class="numberOne">
               <%= auto_review.point %>
-            </div>
-          
-          <div class="reviewtitle"><%= auto_review.title %></div><br><br>
+            </div><br><br>
+           
           <div class="reviewcontent"><%= simple_format(auto_review.content) %></div>
            
              <% unless auto_review.review_images.empty? %>

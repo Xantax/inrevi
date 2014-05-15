@@ -73,7 +73,7 @@ class DrugReviewsController < ApplicationController
     end
 
     def drug_review_params
-      params.require(:drug_review).permit(:title, :content, :drug_id, :user_id, :point, :score,
+      params.require(:drug_review).permit(:content, :drug_id, :user_id, :point, :score,
         review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
   

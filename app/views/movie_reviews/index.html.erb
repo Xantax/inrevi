@@ -14,9 +14,8 @@
            
             <div class="numberOne">
               <%= movie_review.point %>
-            </div>
-          
-          <div class="reviewtitle"><%= movie_review.title %></div><br><br>
+            </div><br><br>
+           
           <div class="reviewcontent"><%= simple_format(movie_review.content) %></div>
            
              <% unless movie_review.review_images.empty? %>

@@ -14,9 +14,8 @@
            
             <div class="numberOne">
               <%= song_review.point %>
-            </div>
-          
-          <div class="reviewtitle"><%= song_review.title %></div><br><br>
+            </div><br><br>
+           
           <div class="reviewcontent"><%= simple_format(song_review.content) %></div>
            
              <% unless song_review.review_images.empty? %>

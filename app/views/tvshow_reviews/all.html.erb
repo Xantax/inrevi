@@ -8,7 +8,7 @@
     </div>
     <div class="col-sm-9">
       <%= link_to all_tvshow_review.tvshow_name, "/tvshows/#{all_tvshow_review.tvshow_id}" %><br>
-      <%= all_tvshow_review.point %> - <b><%= all_tvshow_review.title %></b><br>
+      <%= all_tvshow_review.point %><br>
       <%= all_tvshow_review.content %><br>
       <% all_tvshow_review.review_images.each do |pic| %>
          <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>

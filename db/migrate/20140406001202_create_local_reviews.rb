@@ -3,7 +3,6 @@ class CreateLocalReviews < ActiveRecord::Migration
     create_table :local_reviews do |t|
       t.references :user, index: true
       t.string :local_id, index: true
-      t.string :title
       t.text :content
       t.integer :point, default: -1
       t.string :local_name

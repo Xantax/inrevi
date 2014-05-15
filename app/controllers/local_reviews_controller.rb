@@ -74,7 +74,7 @@ class LocalReviewsController < ApplicationController
     end
 
     def local_review_params
-      params.require(:local_review).permit(:user_id, :local_id, :title, :content, :point, :score,
+      params.require(:local_review).permit(:user_id, :local_id, :content, :point, :score,
         :local_name, :local_address, :local_locality, :local_region, :local_postcode, :local_country, :local_neighborhood, 
         :local_tel, :local_latitude, :local_longitude, :local_category_labels, :local_email,
         review_images_attributes: [:image, :attachable_id, :attachable_type])

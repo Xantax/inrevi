@@ -1,7 +1,6 @@
 class CreateMovieReviews < ActiveRecord::Migration
   def change
     create_table :movie_reviews do |t|
-      t.string :title
       t.text :content
       t.integer :point, default: -1
       t.string :movie_imdb

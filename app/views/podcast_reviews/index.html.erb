@@ -17,9 +17,8 @@
            
             <div class="numberOne">
               <%= podcast_review.point %>
-            </div>
-          
-          <div class="reviewtitle"><%= podcast_review.title %></div><br><br>
+            </div><br><br>
+           
           <div class="reviewcontent"><%= simple_format(podcast_review.content) %></div>
            
              <% unless podcast_review.review_images.empty? %>

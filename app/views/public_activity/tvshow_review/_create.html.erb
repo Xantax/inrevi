@@ -28,8 +28,7 @@
     
         <%= link_to activity.trackable.tvshow_name, "/tvshows/#{activity.trackable.tvshow_id}" %><br><br>
     
-        <div class="numberOne"><%= activity.trackable.point %></div>
-        <div class="reviewtitle"><%= activity.trackable.title %></div><br><br>
+        <div class="numberOne"><%= activity.trackable.point %></div><br><br>
         <div class="reviewcontent"><%= simple_format(activity.trackable.content) %></div>
         
              <% activity.trackable.review_images.each do |pic| %>

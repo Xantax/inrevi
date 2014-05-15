@@ -14,9 +14,8 @@
            
             <div class="numberOne">
               <%= tvshow_review.point %>
-            </div>
-          
-          <div class="reviewtitle"><%= tvshow_review.title %></div><br><br>
+            </div><br><br>
+           
           <div class="reviewcontent"><%= simple_format(tvshow_review.content) %></div>
            
              <% unless tvshow_review.review_images.empty? %>

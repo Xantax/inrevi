@@ -28,6 +28,12 @@ class User < ActiveRecord::Base
       where(:created_at => (Time.now.beginning_of_day..Time.now))
     end
   end
+  
+  has_many :recipes do
+    def today
+      where(:created_at => (Time.now.beginning_of_day..Time.now))
+    end
+  end
 
   
   #---  REVIEWS  ---#
@@ -78,6 +84,12 @@ class User < ActiveRecord::Base
       where(:created_at => (Time.now.beginning_of_day..Time.now))
     end
   end
+  
+  has_many :recipe_reviews do
+    def today
+      where(:created_at => (Time.now.beginning_of_day..Time.now))
+    end
+  end  
   
   
   #---  END OF REVIEWS  ---#

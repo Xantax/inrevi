@@ -1,7 +1,6 @@
 class CreateTvshowReviews < ActiveRecord::Migration
   def change
     create_table :tvshow_reviews do |t|
-      t.string :title
       t.text :content
       t.integer :point, default: -1
       t.string :tvshow_name 

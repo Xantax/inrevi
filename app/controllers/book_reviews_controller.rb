@@ -63,7 +63,7 @@ class BookReviewsController < ApplicationController
     end
 
     def book_review_params
-      params.require(:book_review).permit(:title, :content, :user_id, :book_id, :point, :score, :isbn_10, :isbn_13, :book_date,
+      params.require(:book_review).permit(:content, :user_id, :book_id, :point, :score, :isbn_10, :isbn_13, :book_date,
         :book_name, :book_authors, :book_pages, :book_image, :book_language,
         review_images_attributes: [:image, :attachable_id, :attachable_type]
         )

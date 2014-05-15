@@ -14,9 +14,8 @@
            
             <div class="numberOne">
               <%= local_review.point %>
-            </div>
-          
-          <div class="reviewtitle"><%= local_review.title %></div><br><br>
+            </div><br><br>
+           
           <div class="reviewcontent"><%= simple_format(local_review.content) %></div>
            
              <% unless local_review.review_images.empty? %>

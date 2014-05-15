@@ -73,7 +73,7 @@ class PodcastReviewsController < ApplicationController
     end
 
     def podcast_review_params
-      params.require(:podcast_review).permit(:title, :content, :user_id, :podcast_id, :point, :score,
+      params.require(:podcast_review).permit(:content, :user_id, :podcast_id, :point, :score,
         review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
 end
