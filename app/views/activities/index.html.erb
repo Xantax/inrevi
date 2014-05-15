@@ -1,8 +1,6 @@
-<% if @activities.count < 5 %>
+<% if @activities.count < 8 %>
 
-   <% if current_user.followed_users.empty? %>
-        <div class="noreviews home">No reviews. Follow someone!</div>
-    <% elsif @activities.empty? %>
+   <% if @activities.empty? %>
         <div class="noreviews home">No reviews from people you follow.</div>
    <% end %>
 
@@ -12,12 +10,8 @@
            </div>
         <% end %>
 
-        <% if @activities.present? %>
-          <% else %>
-            <div class="popularactivitiesname"></div>
-        <% end %>
+          <hr><br>
 
-          <br>
           <% @popular_activities.each do |activity| %>
             <div class="activity">
               <%= render_activity activity %>

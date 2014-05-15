@@ -516,6 +516,36 @@ background-image: url("caticons/media/mediaALL.PNG");
   }
 }
 
+.categorylist.art_media {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -312px; 
+  }
+}
+
+.categorylist.art_media:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -336px; 
+  }
+}
+
 
 /*   HOME SUBCATEGORIES  */
 
@@ -1483,4 +1513,66 @@ height: 26px;
 margin-top: -11px;
 background-image: url("caticons/fashion/hover/fgirl.png");
 background-repeat: no-repeat; }
+}
+
+/* SUSTENANCE */
+
+.categorylist.food_drinks {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/sustenance/foodALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -0px; 
+  }
+}
+
+.categorylist.food_drinks:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/sustenance/foodALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -28px;
+  }
+}
+
+.categorylist.recipes {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/sustenance/foodALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -57px; 
+  }
+}
+
+.categorylist.recipes:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/sustenance/foodALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -87px;
+  }
 }
