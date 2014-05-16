@@ -68,7 +68,6 @@ class TechesController < ApplicationController
   def destroy
     @tech.destroy
       redirect_to teches_url
-    end
   end
 
   private

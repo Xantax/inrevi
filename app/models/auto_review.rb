@@ -20,8 +20,8 @@ include PublicActivity::Common
   validates_numericality_of :point, greater_than_or_equal_to: 0
  
   def user_quota
-    if user.auto_reviews.today.count >= 20
-      errors.add(:base, "Exceeds daily limit. You can only create 20 reviews/day")
+    if user.auto_reviews.today.count >= 15
+      errors.add(:base, "Exceeds daily limit. You can only create 15 reviews/day")
     end
   end
   

@@ -8,8 +8,9 @@
     
   <div class="col-sm-8"> 
      <div class="allnews">
-        <%= render 'autos/autoshow' %>
-       <%= @auto.additionalinfo %>
+       <%= render 'autos/autoshow' %>
+       <%= simple_format(@auto.additionalinfo) %>
+       <div class="row dumb500"></div>
      </div>
   </div>
   

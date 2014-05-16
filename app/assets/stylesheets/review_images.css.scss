@@ -1,3 +1,21 @@
 // Place all the styles related to the ReviewImages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+    .r-image{
+      height: 25px;
+      width: 200px;
+      cursor: pointer;
+      background-repeat: no-repeat;
+        background-image: url("otherbigimages/AddImagesOptional1.PNG");
+    }
+
+  .r-rightside{
+    display: none;
+    &:after{
+      clear: both;
+      content: '';
+      display: block;
+    }
+  }

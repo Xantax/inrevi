@@ -15,7 +15,7 @@ class AutoReviewsController < ApplicationController
 
   def new
     @auto_review = AutoReview.new
-    @auto_review.review_images.build  
+    @auto_review.review_images.build
   end
 
   def edit
@@ -27,7 +27,7 @@ class AutoReviewsController < ApplicationController
 
       if @auto_review.save
         @auto_review.create_activity :create, owner: current_user        
-        redirect_to [@auto, @auto_review], notice: 'Share your review' }
+        redirect_to [@auto, @auto_review], notice: 'Share your review'
       else
         render action: 'new'
       end

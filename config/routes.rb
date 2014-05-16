@@ -23,6 +23,7 @@ match 'autos/search' => "autos#search", via: [:get]
 match 'teches/search' => "teches#search", via: [:get]
 match 'podcasts/search' => "podcasts#search", via: [:get]
 match 'recipes/search' => "recipes#search", via: [:get]
+match 'finearts/search' => "finearts#search", via: [:get]
   
 match 'media' => "static_pages#catmedia", via: [:get]
 match 'home' => "static_pages#cathome", via: [:get]

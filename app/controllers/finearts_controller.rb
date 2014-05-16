@@ -68,7 +68,6 @@ class FineartsController < ApplicationController
   def destroy
     @fineart.destroy
       redirect_to finearts_url
-    end
   end
 
   private
