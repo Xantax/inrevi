@@ -1,19 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+ 
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div> 
+    
+  <div class="col-sm-8"> 
+     <div class="allnews">
+       <%= render 'finearts/fineartshow' %>
+       <%= render 'fineart_review_show' %>
+     </div>
+  </div>
+  
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @fineart_review.content %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @fineart_review.user %>
-</p>
-
-<p>
-  <strong>Fineart:</strong>
-  <%= @fineart_review.fineart %>
-</p>
-
-<%= link_to 'Edit', edit_fineart_review_path(@fineart_review) %> |
-<%= link_to 'Back', fineart_reviews_path %>
+</div>

@@ -1,6 +1,21 @@
-<h1>Editing fineart_review</h1>
+<% provide(:title, 'Edit it') %>
 
-<%= render 'form' %>
+<div class="row">
 
-<%= link_to 'Show', @fineart_review %> |
-<%= link_to 'Back', fineart_reviews_path %>
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div>
+  
+  <div class="col-sm-8 categories">
+    <div class="allnews">     
+      <div class="row">
+      <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+    
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
+  
+</div>
