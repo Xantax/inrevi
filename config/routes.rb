@@ -1,10 +1,6 @@
 Inrevi::Application.routes.draw do
 
 
-  resources :fineart_reviews
-
-  resources :finearts
-
   get 'cameras/search' => 'products#search'
   get 'computers/search' => 'products#search'
   resources :products, path: 'computers', as: :computer
@@ -13,6 +9,7 @@ Inrevi::Application.routes.draw do
   get 'tags/:tag', to: 'teches#index', as: :ttag
   get 'tags/:tag', to: 'podcasts#index', as: :tag  
   get 'tags/:tag', to: 'recipes#index', as: :rtag
+  get 'tags/:tag', to: 'finearts#index', as: :atag
   
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 match 'auth/failure', to: redirect('/'), via: [:get, :post]
@@ -188,6 +185,19 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
 
   match 'podcastz/all' => "podcasts#all", via: [:get]
   match 'podcast_reviews/all' => "podcast_reviews#all", via: [:get]
+  
+  
+  resources :finearts do
+    resources :fineart_reviews do
+      member do
+        put "like", to: "fineart_reviews#upvote"
+        put "dislike", to: "fineart_reviews#downvote"
+      end     
+    end
+  end
+
+  match 'fineartz/all' => "finearts#all", via: [:get]
+  match 'fineart_reviews/all' => "fineart_reviews#all", via: [:get]  
 
 #----------   END MEDIA   ----------
   

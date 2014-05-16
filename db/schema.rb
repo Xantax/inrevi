@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515022705) do
+ActiveRecord::Schema.define(version: 20140516013729) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -151,6 +151,37 @@ ActiveRecord::Schema.define(version: 20140515022705) do
   end
 
   add_index "drugs", ["user_id"], name: "index_drugs_on_user_id"
+
+  create_table "fineart_reviews", force: true do |t|
+    t.text     "content"
+    t.integer  "point",                 default: -1
+    t.integer  "user_id"
+    t.integer  "fineart_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "cached_votes_total",    default: 0
+    t.integer  "cached_votes_score",    default: 0
+    t.integer  "cached_votes_up",       default: 0
+    t.integer  "cached_votes_down",     default: 0
+    t.integer  "cached_weighted_score", default: 0
+  end
+
+  add_index "fineart_reviews", ["cached_votes_down"], name: "index_fineart_reviews_on_cached_votes_down"
+  add_index "fineart_reviews", ["cached_votes_score"], name: "index_fineart_reviews_on_cached_votes_score"
+  add_index "fineart_reviews", ["cached_votes_total"], name: "index_fineart_reviews_on_cached_votes_total"
+  add_index "fineart_reviews", ["cached_votes_up"], name: "index_fineart_reviews_on_cached_votes_up"
+  add_index "fineart_reviews", ["cached_weighted_score"], name: "index_fineart_reviews_on_cached_weighted_score"
+  add_index "fineart_reviews", ["fineart_id"], name: "index_fineart_reviews_on_fineart_id"
+  add_index "fineart_reviews", ["user_id"], name: "index_fineart_reviews_on_user_id"
+
+  create_table "finearts", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "finearts", ["user_id"], name: "index_finearts_on_user_id"
 
   create_table "links", force: true do |t|
     t.string   "link"

@@ -1,0 +1,24 @@
+<div class="row autoup"> 
+  <div class="col-sm-3"> 
+    <%= link_to image_tag(@fineart.image_url(:thumb)), @fineart.image_url, target: :_blank if @fineart.image? %> 
+  </div> 
+  
+   <div class="col-sm-5 autoshow"> 
+     <b><%= link_to @fineart.name, fineart_path(@fineart) %></b> <br><br> 
+     keywords: <%= raw @fineart.tags.map(&:name).map { |t| link_to t, atag_path(t) }.join(', ') %>
+  </div>
+  
+  <div class="col-sm-4">
+    
+    <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+    <div class="writeareview">
+      <%= link_to "Write a Review", new_fineart_fineart_review_path(@fineart) %>
+    </div><br>
+    
+     <div>
+     <%= render 'show_rating' %>
+     </div>
+    
+  </div>
+  
+</div> <br>

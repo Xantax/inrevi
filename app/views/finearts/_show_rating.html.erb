@@ -1,0 +1,13 @@
+ <% unless @avg_score == 0.0 %>
+
+  <div class="total_score">   
+        <div class="reviewnumberscore">
+           <%= @avg_score ? @avg_score.round(1) : 0 %>
+         </div>
+  </div>
+
+  <div class="reviewslashfive">
+          / <div class="reviewtotalfive">5</div>
+  </div>
+
+<% end %>

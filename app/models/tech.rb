@@ -19,8 +19,8 @@ class Tech < ActiveRecord::Base
   end
   
   def user_quota
-    if user.teches.today.count >= 40
-      errors.add(:base, "Exceeds daily limit (40/day)")
+    if user.teches.today.count >= 30
+      errors.add(:base, "Exceeds daily limit (30/day)")
     end
   end  
   

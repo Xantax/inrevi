@@ -1,74 +1,79 @@
 class FineartReviewsController < ApplicationController
-  before_action :set_fineart_review, only: [:show, :edit, :update, :destroy]
-
-  # GET /fineart_reviews
-  # GET /fineart_reviews.json
+  before_action :set_fineart_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :set_fineart, only: [:index, :show, :new, :create, :edit]
+  
+  def all
+    @all_fineart_reviews = FineartReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")
+  end
+  
   def index
-    @fineart_reviews = FineartReview.all
+    @fineart_reviews = @fineart.fineart_reviews.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
+    @avg_score = 0
+    @avg_score = @fineart_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @fineart_reviews.count if @fineart_reviews.count > 0
   end
 
-  # GET /fineart_reviews/1
-  # GET /fineart_reviews/1.json
   def show
   end
 
-  # GET /fineart_reviews/new
   def new
     @fineart_review = FineartReview.new
+    @fineart_review.review_images.build 
   end
 
-  # GET /fineart_reviews/1/edit
   def edit
   end
 
-  # POST /fineart_reviews
-  # POST /fineart_reviews.json
   def create
-    @fineart_review = FineartReview.new(fineart_review_params)
+    @fineart_review = @fineart.fineart_reviews.build(fineart_review_params)
+    @fineart_review.user = current_user
 
-    respond_to do |format|
       if @fineart_review.save
-        format.html { redirect_to @fineart_review, notice: 'Fineart review was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @fineart_review }
+        @fineart_review.create_activity :create, owner: current_user
+        
+        redirect_to [@fineart, @fineart_review], notice: 'Share your review'
       else
-        format.html { render action: 'new' }
-        format.json { render json: @fineart_review.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
-    end
   end
 
-  # PATCH/PUT /fineart_reviews/1
-  # PATCH/PUT /fineart_reviews/1.json
   def update
-    respond_to do |format|
+    @fineart_review.review_images.build if @fineart_review.review_images.empty?
+
       if @fineart_review.update(fineart_review_params)
-        format.html { redirect_to @fineart_review, notice: 'Fineart review was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to @fineart_review
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @fineart_review.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
-    end
   end
 
-  # DELETE /fineart_reviews/1
-  # DELETE /fineart_reviews/1.json
   def destroy
     @fineart_review.destroy
-    respond_to do |format|
-      format.html { redirect_to fineart_reviews_url }
-      format.json { head :no_content }
-    end
+      redirect_to root_path
+  end
+  
+  def upvote
+    @fineart_review.liked_by current_user
+   render nothing: true
+  end
+
+  def downvote
+    @fineart_review.downvote_from current_user
+    render nothing: true    
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_fineart_review
-      @fineart_review = FineartReview.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+  def set_fineart
+    @fineart = Fineart.find(params[:fineart_id])
+    end
+  
+  def set_fineart_review
+    @fineart = Fineart.find(params[:fineart_id])
+    @fineart_review = @fineart.fineart_reviews.find(params[:id])
+  end
+
     def fineart_review_params
-      params.require(:fineart_review).permit(:content, :user_id, :fineart_id)
+      params.require(:fineart_review).permit(:content, :user_id, :fineart_id, :point, :score,
+        review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
 end

@@ -18,7 +18,7 @@
     <div class="col-sm-9 podreview indexreview"> 
       <div class="separatereview">
         
-        <%= image_tag('caticons/sustenance/recipe.png', height: '16', width: '14') %>
+        <%= image_tag('caticons/media/Mart.png', height: '16', width: '14') %>
         
         <% if activity.owner == @user %>
           
@@ -26,7 +26,7 @@
            reviewed
         <% end %>
     
-        <%= link_to activity.trackable.recipe.name, activity.trackable.recipe %><br><br>
+        <%= link_to activity.trackable.fineart.name, activity.trackable.fineart %><br><br>
     
         <div class="numberOne"><%= activity.trackable.point %></div><br><br>
         <div class="reviewcontent"><%= simple_format(activity.trackable.content) %></div>
@@ -49,11 +49,11 @@
                   Voted!
                 <% else %>
                  <div class="thumbsup">
-                   <%= link_to image_tag('othericons/thumbsup_off.PNG', height: '20', width: '20'),  like_recipe_recipe_review_path(activity.trackable.recipe_id, activity.trackable), method: :put, :remote => true %>
+                   <%= link_to image_tag('othericons/thumbsup_off.PNG', height: '20', width: '20'),  like_fineart_fineart_review_path(activity.trackable.fineart_id, activity.trackable), method: :put, :remote => true %>
                  </div>
                           
                  <div class="thumbsdown">
-                  <%= link_to image_tag('othericons/thumbsdown_off.PNG', height: '20', width: '20'), dislike_recipe_recipe_review_path(activity.trackable.recipe_id, activity.trackable), method: :put, :remote => true %>
+                  <%= link_to image_tag('othericons/thumbsdown_off.PNG', height: '20', width: '20'), dislike_fineart_fineart_review_path(activity.trackable.fineart_id, activity.trackable), method: :put, :remote => true %>
                  </div>
                           
                 <% end %> 

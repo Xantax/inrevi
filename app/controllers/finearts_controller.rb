@@ -1,74 +1,84 @@
 class FineartsController < ApplicationController
   before_action :set_fineart, only: [:show, :edit, :update, :destroy]
 
-  # GET /finearts
-  # GET /finearts.json
+  def all
+    @finearts = Fineart.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
+  end
+  
+  def search
+    @search = Fineart.search do
+      fulltext params[:search]
+      paginate(:page => params[:page], :per_page => 10)
+    end
+    @finearts = @search.results
+    
+    @avg_score = 0
+    @avg_score = @fineart_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @fineart_reviews.count if @fineart_reviews.count > 0
+    
+  end
+  
   def index
-    @finearts = Fineart.all
+    @search = Fineart.search do
+      fulltext params[:search]
+      paginate(:page => params[:page], :per_page => 10)
+    end
+   @finearts = @search.results
+    
+    if params[:ttag]
+      @finearts = Fineart.tagged_with(params[:ttag])
+    end
+    
   end
 
-  # GET /finearts/1
-  # GET /finearts/1.json
   def show
+    @fineart_review = FineartReview.new
+    @fineart_reviews = Fineart.find(params[:id]).fineart_reviews.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
+    @avg_score = 0
+    @avg_score = @fineart_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @fineart_reviews.count if @fineart_reviews.count > 0
+    
+    @promotion = Promotion.order("RANDOM()").first
   end
 
-  # GET /finearts/new
   def new
     @fineart = Fineart.new
   end
 
-  # GET /finearts/1/edit
   def edit
   end
 
-  # POST /finearts
-  # POST /finearts.json
   def create
     @fineart = Fineart.new(fineart_params)
+    @fineart.user = current_user
 
-    respond_to do |format|
       if @fineart.save
-        format.html { redirect_to @fineart, notice: 'Fineart was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @fineart }
+        redirect_to @fineart
       else
-        format.html { render action: 'new' }
-        format.json { render json: @fineart.errors, status: :unprocessable_entity }
+        render action: 'new'
       end
-    end
   end
 
-  # PATCH/PUT /finearts/1
-  # PATCH/PUT /finearts/1.json
   def update
-    respond_to do |format|
       if @fineart.update(fineart_params)
-        format.html { redirect_to @fineart, notice: 'Fineart was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to @fineart
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @fineart.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
-    end
   end
 
-  # DELETE /finearts/1
-  # DELETE /finearts/1.json
   def destroy
     @fineart.destroy
-    respond_to do |format|
-      format.html { redirect_to finearts_url }
-      format.json { head :no_content }
+      redirect_to finearts_url
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_fineart
       @fineart = Fineart.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def fineart_params
-      params.require(:fineart).permit(:name, :user_id)
+      params.require(:fineart).permit(:name, :image, :tag_list, :remote_image_url, :user_id)
     end
+
 end
