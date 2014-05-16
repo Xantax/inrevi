@@ -1,0 +1,13 @@
+<%= simple_form_for(@fineart_review) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :content %>
+    <%= f.association :user %>
+    <%= f.association :fineart %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

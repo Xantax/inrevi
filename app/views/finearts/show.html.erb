@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @fineart.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @fineart.user %>
+</p>
+
+<%= link_to 'Edit', edit_fineart_path(@fineart) %> |
+<%= link_to 'Back', finearts_path %>

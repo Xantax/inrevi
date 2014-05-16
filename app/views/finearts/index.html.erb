@@ -1,0 +1,29 @@
+<h1>Listing finearts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @finearts.each do |fineart| %>
+      <tr>
+        <td><%= fineart.name %></td>
+        <td><%= fineart.user %></td>
+        <td><%= link_to 'Show', fineart %></td>
+        <td><%= link_to 'Edit', edit_fineart_path(fineart) %></td>
+        <td><%= link_to 'Destroy', fineart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fineart', new_fineart_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @fineart_review.content %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @fineart_review.user %>
+</p>
+
+<p>
+  <strong>Fineart:</strong>
+  <%= @fineart_review.fineart %>
+</p>
+
+<%= link_to 'Edit', edit_fineart_review_path(@fineart_review) %> |
+<%= link_to 'Back', fineart_reviews_path %>

@@ -1,14 +1,18 @@
 Inrevi::Application.routes.draw do
 
 
+  resources :fineart_reviews
+
+  resources :finearts
+
   get 'cameras/search' => 'products#search'
   get 'computers/search' => 'products#search'
   resources :products, path: 'computers', as: :computer
   resources :products, path: 'cameras', as: :camera
 
-  get 'techtags/:tag', to: 'teches#index', as: :ttag
-  get 'podtags/:tag', to: 'podcasts#index', as: :tag  
-  get 'recipetags/:tag', to: 'pecipes#index', as: :rtag
+  get 'tags/:tag', to: 'teches#index', as: :ttag
+  get 'tags/:tag', to: 'podcasts#index', as: :tag  
+  get 'tags/:tag', to: 'recipes#index', as: :rtag
   
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 match 'auth/failure', to: redirect('/'), via: [:get, :post]
