@@ -20,8 +20,8 @@ class Auto < ActiveRecord::Base
   end
   
   def user_quota
-    if user.autos.today.count >= 40
-      errors.add(:base, "Exceeds daily limit (40/day)")
+    if user.autos.today.count >= 10
+      errors.add(:base, "Exceeds daily limit. You can't create more today (SPAM prevention)")
     end
   end  
   

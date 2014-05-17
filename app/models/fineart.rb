@@ -19,8 +19,8 @@ acts_as_taggable
   end
   
   def user_quota
-    if user.finearts.today.count >= 30
-      errors.add(:base, "Exceeds daily limit (30/day)")
+    if user.finearts.today.count >= 10
+      errors.add(:base, "Exceeds daily limit. You can't create more today (SPAM prevention)")
     end
   end 
   

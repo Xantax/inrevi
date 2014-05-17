@@ -21,8 +21,8 @@ class MovieReview < ActiveRecord::Base
   validates_numericality_of :point, greater_than_or_equal_to: 0
   
   def user_quota
-    if user.movie_reviews.today.count >= 20
-      errors.add(:base, "Exceeds daily limit. You can only create 20 reviews/day")
+    if user.movie_reviews.today.count >= 10
+      errors.add(:base, "Exceeded daily limit. You can't create more reviews today!")
     end
   end  
   
