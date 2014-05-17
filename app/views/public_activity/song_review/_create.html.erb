@@ -26,7 +26,7 @@
            reviewed
         <% end %>
     
-        <%= link_to activity.trackable.song_name, "/songs/#{activity.trackable.song_id}" %><br><br>
+        <%= link_to activity.trackable.song_name.truncate(30, omission: '...'), "/songs/#{activity.trackable.song_id}" %><br><br>
     
         <div class="numberOne"><%= activity.trackable.point %></div><br><br>
         <div class="reviewcontent"><%= simple_format(activity.trackable.content) %></div>

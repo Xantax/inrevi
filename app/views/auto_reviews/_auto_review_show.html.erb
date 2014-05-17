@@ -1,6 +1,12 @@
 <% if current_user == @auto_review.user %>
   <p id="notice"><%= notice %></p> <div align="center"><%= social_share_button_tag(@auto_review.content) %></div>
   <hr>
+<% else %>
+    <% if @promotion.present? && @promotion.auto %>
+        <div class="row showpromotion">
+          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
+        </div>
+    <% end %>
 <% end %>
 
 <div class="row">
@@ -28,7 +34,7 @@
           
              <% unless @auto_review.review_images.empty? %>
                 <% @auto_review.review_images.each do |pic| %>
-                     <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>
+            <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>
                 <% end %>
                  <% if signed_in? %>
                    <% unless current_user == @auto_review.user %>

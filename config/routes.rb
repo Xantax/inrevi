@@ -216,6 +216,10 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   match 'recipez/all' => "recipes#all", via: [:get]
   match 'recipe_reviews/all' => "recipe_reviews#all", via: [:get]
   
+#----------   MOBILE  ----------#
+ 
+  match 'mobile_newsfeed' => "static_pages#mobile_newsfeed", via: [:get]  
+  
   
 root 'static_pages#home'
   

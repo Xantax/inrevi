@@ -12,4 +12,16 @@
   <% end %>
 
   <%= render 'follow_form' if signed_in? %><br>
-  <%= image_tag(current_user.image, width: "110")%><br><br>
+  <%= image_tag(current_user.image, width: "110")%><br><hr>
+
+<% if @activities.empty? %>
+    <div class="noreviews usershow">No reviews :(</div>    
+ <% else %>
+    
+      <% @activities.each do |activity| %>
+        <div class="activity">
+          <%= render_activity activity %>
+        </div>
+      <% end %>
+    
+<% end %>

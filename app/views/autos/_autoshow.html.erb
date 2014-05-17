@@ -4,7 +4,7 @@
   </div> 
   
    <div class="col-sm-5 autoshow"> 
-     <b><%= link_to @auto.name, auto_path(@auto) %></b> <br><br>
+     <b><%= link_to @auto.name.truncate(100, omission: '...'), auto_path(@auto) %></b> <br><br>
 
       <%= link_to "additional info", additionalinfo_auto_path %><br><br>
   

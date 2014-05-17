@@ -35,7 +35,7 @@
              <div class="col-sm-8 podsin">
     
                 <div class="podcastsnowindex">
-                  <%= link_to auto.name, auto %>
+                  <%= link_to auto.name.truncate(50, omission: '...'), auto %>
                 </div><br>
 
               <% if auto.auto_reviews.count >= 1 %>
@@ -47,6 +47,12 @@
             </div>           
          </div>
         <% end %>
+      
+          <div class="digg_pagination">
+            <%= will_paginate @autos %>
+          </div>      
+      
+          <div class="row dumb300"></div>
        <% end %>
       
     </div>
@@ -56,8 +62,4 @@
     <%= render 'shared/user_mainprofile' %>
   </div>
  
-</div>
-
-<div class="digg_pagination">
-  <%= will_paginate @autos %>
 </div>

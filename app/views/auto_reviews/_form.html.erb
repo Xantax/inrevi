@@ -1,8 +1,6 @@
 <%= nested_form_for([@auto, @auto_review], validate: true, html: {multipart: true}, 'data-update-target' => 'comments', class: 'comments') do  |f| %>
   <% if @auto_review.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@auto_review.errors.count, "error") %> prohibited this auto_review from being saved:</h2>
-
       <ul>
       <% @auto_review.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

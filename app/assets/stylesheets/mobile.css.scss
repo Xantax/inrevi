@@ -22,10 +22,18 @@
   background-color:#F8F8F8;
   border-bottom: 1px solid #D8D8D8;
   font-weight:bold;
+  height:30px;
 }
 
 /* CATEGORIES */
 
 ul.nav.nav-stacked.categorylist.mobile li {
 
+}
+
+/*  NEWSFEED  */
+
+.noreviewsmobile{
+  padding-bottom:5px;
+  color:#808080;
 }

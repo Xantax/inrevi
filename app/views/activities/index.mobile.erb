@@ -1,0 +1,33 @@
+<% if @activities.count < 8 %>
+
+   <% if @activities.empty? %>
+        <div class="noreviewsmobile">No reviews from people you follow.</div>
+   <% end %>
+
+        <% @activities.each do |activity| %>
+           <div class="activity">
+             <%= render_activity activity %>
+           </div>
+        <% end %>
+
+          <hr><br>
+
+          <% @popular_activities.each do |activity| %>
+            <div class="activity">
+              <%= render_activity activity %>
+            </div>
+          <% end %>
+
+  <% else %>
+
+    <% @activities.each do |activity| %>
+      <div class="activity">
+        <%= render_activity activity %>
+      </div>
+    <% end %>
+
+<% end %>
+
+<div class="digg_pagination">
+  <%= will_paginate @activities %>
+</div>

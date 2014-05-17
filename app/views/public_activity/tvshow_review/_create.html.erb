@@ -26,7 +26,7 @@
            reviewed
         <% end %>
     
-        <%= link_to activity.trackable.tvshow_name, "/tvshows/#{activity.trackable.tvshow_id}" %><br><br>
+        <%= link_to activity.trackable.tvshow_name.truncate(30, omission: '...'), "/tvshows/#{activity.trackable.tvshow_id}" %><br><br>
     
         <div class="numberOne"><%= activity.trackable.point %></div><br><br>
         <div class="reviewcontent"><%= simple_format(activity.trackable.content) %></div>

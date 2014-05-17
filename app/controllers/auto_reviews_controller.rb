@@ -10,11 +10,14 @@ class AutoReviewsController < ApplicationController
     @auto_reviews = @auto.auto_reviews.order("cached_votes_score DESC").paginate(:page => params[:page], :per_page => 10)
   end
 
-  def show    
+  def show 
+    @promotion = Promotion.order("RANDOM()").first
   end
 
   def new
     @auto_review = AutoReview.new
+    @auto_review.review_images.build
+    @auto_review.review_images.build
     @auto_review.review_images.build
   end
 

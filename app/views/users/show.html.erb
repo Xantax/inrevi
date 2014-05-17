@@ -9,7 +9,8 @@
   <div class="col-sm-7 usershow"> 
    
     <% if @activities.empty? %>
-    <div class="noreviews usershow">No reviews here :(</div>    
+    <div class="noreviews usershow">No reviews :(</div>
+    <div class="row.dumb500">
     <% else %>
     
       <% @activities.each do |activity| %>
@@ -17,7 +18,7 @@
           <%= render_activity activity %>
         </div>
       <% end %>
-    
+    <div class="row.dumb300">
     <% end %>
     
   </div>

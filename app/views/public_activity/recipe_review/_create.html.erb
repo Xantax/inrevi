@@ -26,7 +26,7 @@
            reviewed
         <% end %>
     
-        <%= link_to activity.trackable.recipe.name, activity.trackable.recipe %><br><br>
+        <%= link_to activity.trackable.recipe.name.truncate(30, omission: '...'), activity.trackable.recipe %><br><br>
     
         <div class="numberOne"><%= activity.trackable.point %></div><br><br>
         <div class="reviewcontent"><%= simple_format(activity.trackable.content) %></div>
