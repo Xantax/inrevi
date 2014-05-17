@@ -20,9 +20,7 @@
         
         <%= image_tag('caticons/hover/catauto.PNG', height: '16', width: '14') %>
         
-        <% if activity.owner == @user %>
-          
-        <% else %>
+        <% unless activity.owner == @user %>
            reviewed
         <% end %>
     
