@@ -153,10 +153,6 @@ class User < ActiveRecord::Base
     self.fbfriends.map{ |v| v.id }
   end
   
-  def google_friends
-    'https://www.googleapis.com/plus/v1/people/#{self.uid}/people/visible?key=#{Settings.google.key}'
-  end
-  
   def smallimage
   "http://graph.facebook.com/#{self.uid}/picture?type=small"
   end

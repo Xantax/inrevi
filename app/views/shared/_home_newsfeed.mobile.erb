@@ -11,7 +11,6 @@
             <%= render :file => '/activities/index' %>
 
         <% else %>
-            <%= link_to image_tag("otherbigimages/FBlogins.png", alt: "FB Login"), "/auth/facebook", id: "sign_in" %>
-                  <div class="loginversus">or</div>
+            <%= link_to image_tag("otherbigimages/FBlogins.png", alt: "FB Login"), "/auth/facebook", id: "sign_in" %><br><br>
             <%= link_to image_tag("otherbigimages/Glogin.PNG"), "/auth/google_oauth2" %>
 	      <% end %>
