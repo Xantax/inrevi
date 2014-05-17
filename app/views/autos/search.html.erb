@@ -32,19 +32,21 @@
              <div class="col-sm-4 podsin">
                <%= image_tag auto.image_url(:thumb) if auto.image? %>
              </div>
-             <div class="col-sm-8 podsin">
+             <div class="col-sm-6 podsin">
     
                 <div class="podcastsnowindex">
                   <%= link_to auto.name.truncate(50, omission: '...'), auto %>
                 </div><br>
-
+             </div>
+            
+            <div class="col-sm-1">
               <% if auto.auto_reviews.count >= 1 %>
                <div class="numberOneindex">
                 <%= ((auto.auto_reviews.inject(0) { |sum, e| sum += e.point }).to_f / auto.auto_reviews.count).round(1) rescue 0 %>
                </div>
               <% end %>
-
-            </div>           
+            </div>
+           
          </div>
         <% end %>
       
