@@ -59,6 +59,18 @@ class RecipesController < ApplicationController
     @recipe.destroy
       redirect_to recipes_url
   end
+  
+  def ingredients
+    @recipe_reviews = Recipe.find(params[:id]).recipe_reviews.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
+    @avg_score = 0
+        @avg_score = @recipe_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @recipe_reviews.count if @recipe_reviews.count > 0
+  end
+  
+  def directions
+        @recipe_reviews = Recipe.find(params[:id]).recipe_reviews.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
+    @avg_score = 0
+        @avg_score = @recipe_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @recipe_reviews.count if @recipe_reviews.count > 0
+  end
 
   private
 

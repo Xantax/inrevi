@@ -1,15 +1,25 @@
 <div class="row podup"> 
-  <div class="col-sm-3"> <%= image_tag @recipe.image_url(:thumb) if @recipe.image? %></div> 
+  <div class="col-sm-3"> 
+    <%= image_tag @recipe.image_url(:thumb) if @recipe.image? %>
+  </div> 
   
   <div class="col-sm-5"> 
-    <div class="technameshow"><%= link_to @recipe.name, recipe_path(@recipe) %></div>
-
+    <div class="technameshow">
+      <%= link_to @recipe.name, recipe_path(@recipe) %>
+    </div>
+    
+    <div class="recipe-id">
+      <%= link_to "ingredients", ingredients_recipe_path %><br>
+      <%= link_to "directions", directions_recipe_path %><br>
+    </div>
+    
    <div class="podinfo">
-     ADD INGREDIETS & DIRECTIONS!
-      Categories: <%= raw @recipe.tags.map(&:name).map { |t| link_to t, rtag_path(t) }.join(', ') %>
+     <b>Categories:</b> <%= raw @recipe.tags.map(&:name).map { |t| t }.join(', ') %>
    </div>
   </div>
+  
   <div class="col-sm-4">
+    
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
     <div class="writeareview">
       <%= link_to "Write a Review", new_recipe_recipe_review_path(@recipe) %>

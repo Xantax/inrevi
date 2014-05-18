@@ -15,7 +15,9 @@ class RecipeReviewsController < ApplicationController
 
   def new
     @recipe_review = RecipeReview.new
-    @recipe_review.review_images.build  
+    @recipe_review.review_images.build 
+    @recipe_review.review_images.build 
+    @recipe_review.review_images.build 
   end
 
   def edit
@@ -71,7 +73,7 @@ class RecipeReviewsController < ApplicationController
     end
 
     def recipe_review_params
-      params.require(:recipe_review).permit(:content, :user_id, :recipe_id, :point, :score,
+      params.require(:recipe_review).permit(:content, :user_id, :recipe_id, :point, :score, :ingredients, :directions,
         review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
 end

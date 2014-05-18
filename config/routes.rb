@@ -205,6 +205,10 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
 #----------   RECIPE   ----------#  
   
   resources :recipes  do
+    member do
+      get "ingredients" => "recipes#ingredients"
+      get "directions" => "recipes#directions"
+    end
     resources :recipe_reviews do
       member do
         put "like", to: "recipe_reviews#upvote"

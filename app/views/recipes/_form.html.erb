@@ -10,20 +10,21 @@
   <% end %>
 
     <%= f.label :name %><br>
-    <%= f.text_field :name, :class => "podcastnew" %><br><br>
-
-    <%= f.label :tag_list, "keywords - separate by commas" %><br>
-    <%= f.text_field :tag_list, :placeholder => "e.g desert, pancakes" , :class => "podcastnew" %><br><br>
+    <%= f.text_field :name, :class => "form-control autotitle" %><br><br>
 
     <%= f.label :ingredients, "Ingredients" %><br>
-    <%= f.text_area :ingredients, :class => "", :placeholder => "2 eggs..." %><br><br>
+    <%= f.text_area :ingredients, :class => "form-control autocontent", :placeholder => "each ingredient in a new line" %><br><br>
 
     <%= f.label :directions, "Directions" %><br>
-    <%= f.text_area :directions, :class => "", :placeholder => "First put it in the somewhere" %><br><br>
+    <%= f.text_area :directions, :class => "form-control autocontent", :placeholder => "Basic steps..." %><br><br>
 
-    <%= image_tag("othericons/PhotoShow.PNG") %>    <%= f.label :remote_image_url, "Image URL (min. 150x150)" %><br />
+    <%= f.label :tag_list, "keywords - separate by commas" %><br>
+    <%= f.text_field :tag_list, :placeholder => "e.g desert, pancakes" , :class => "form-control autotitle" %><br><br>
+
+    <%= image_tag("othericons/PhotoShow.PNG") %>
     <%= f.file_field :image %><br><br>
 
     <%= f.submit 'Submit', :class => 'btn btn-default' %>
 
 <% end %>
+<br><br>

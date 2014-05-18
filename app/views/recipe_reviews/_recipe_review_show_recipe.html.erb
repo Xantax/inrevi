@@ -4,7 +4,17 @@
   </div> 
   
    <div class="col-sm-5 autoshow"> 
-     <b><%= link_to @recipe_review.recipe.name, recipe_path(@recipe_review.recipe) %></b> <br><br>  
+     <b><%= link_to @recipe_review.recipe.name, recipe_path(@recipe_review.recipe) %></b> <br><br> 
+     
+     <div class="recipe-id">
+      <%= link_to "ingredients", ingredients_recipe_path %><br>
+      <%= link_to "directions", directions_recipe_path %><br>
+    </div>
+    
+   <div class="podinfo">
+     <b>Categories:</b> <%= raw @recipe.tags.map(&:name).map { |t| t }.join(', ') %>
+   </div>
+     
   </div>
   
   <div class="col-sm-4">
