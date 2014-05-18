@@ -1,6 +1,6 @@
 class DrugReviewsController < ApplicationController
-  before_action :set_auto_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :set_auto, only: [:index, :show, :new, :create, :edit]
+  before_action :set_drug_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :set_drug, only: [:index, :show, :new, :create, :edit]
 
   def all
     @all_drug_reviews = DrugReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")
@@ -15,6 +15,8 @@ class DrugReviewsController < ApplicationController
 
   def new
     @drug_review = DrugReview.new
+    @drug_review.review_images.build 
+    @drug_review.review_images.build  
     @drug_review.review_images.build  
   end
 
@@ -25,7 +27,6 @@ class DrugReviewsController < ApplicationController
     @drug_review = @drug.drug_reviews.build(drug_review_params)
     @drug_review.user = current_user
 
-    respond_to do |format|
       if @drug_review.save
         @drug_review.create_activity :create, owner: current_user
         
@@ -38,7 +39,6 @@ class DrugReviewsController < ApplicationController
   def update
     @drug_review.review_images.build if @drug_review.review_images.empty?
     
-    respond_to do |format|
       if @drug_review.update(auto_review_params)
         redirect_to root_path, notice: 'Review was successfully updated.'
       else

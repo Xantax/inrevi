@@ -1,4 +1,4 @@
-<% provide(:title, 'Drugs - Heroin, Marijuana...') %>
+<% provide(:title, 'Results...') %>
 
 <div class="row">
 
@@ -8,35 +8,56 @@
     
   <div class="col-sm-8"> 
     <div class="allnews">
-
-    <%= form_tag drugs_search_path, :method => :get do %>      
-      <div class="searchbox"><%= text_field_tag :search, params[:search], :placeholder => "e.g Heroin, Marijuana" , class: "form-control" %></div>
-      <div class="searchgo"><span class="input-group-btn"><%= submit_tag "Go", class: "btn btn-default" %></span></div>
-    <% end %>
-     
-      <hr>
-       <% if @drugs.empty? %>
+      
+      <%= form_tag drugs_search_path, :method => :get do %>      
+      <div class="searchbox">
+        <%= text_field_tag :search, params[:search], :placeholder => "e.g Heroin, Marijuana..." , 
+        class: "form-control" %>
+      </div>
+      <div class="searchgo">
+        <span class="input-group-btn">
+          <%= submit_tag "Go", class: "btn btn-default" %>
+        </span>
+      </div>
+     <% end %>
+    
+        <hr>
+      
+      <% if @drugs.empty? %>
           No results! Try something else or <b><%= link_to "+ Add new", new_drug_path() %></b>
+          <div class="row dumb500"></div>
        <% else %>
-        <div align="right">Useless results? <b><%= link_to "+ Add new", new_drug_path() %></b></div>
+      <div class="uselessresults">Useless results? <b><%= link_to "+ Add new", new_drug_path() %></b></div><br>
         <% @drugs.each do |drug| %>
           <div class="row">
-             <div class="col-sm-4 podsin"><%= image_tag drug.image_url(:thumb) if drug.image? %></div>
-             <div class="col-sm-8 podsin">
+             <div class="col-sm-4 podsin">
+               <%= image_tag drug.image_url(:thumb) if drug.image? %>
+             </div>
+             <div class="col-sm-6 podsin">
     
-                <div class="podcastsnowindex"><%= link_to drug.name, drug %></div>
-               
-               <br>
-               <% if drug.drug_reviews.count >= 1 %>
-                 <div class="numberOneindex">
-                   <%= ((drug.drug_reviews.inject(0) { |sum, e| sum += e.point }).to_f / drug.drug_reviews.count).round(1) rescue 0 %>
-                 </div>
-               <% end %>
-               
+                <div class="podcastsnowindex">
+                  <%= link_to drug.name.truncate(50, omission: '...'), drug %>
+                </div><br>
+             </div>
+            
+            <div class="col-sm-1">
+              <% if drug.drug_reviews.count >= 1 %>
+               <div class="numberOneindex">
+                <%= ((drug.drug_reviews.inject(0) { |sum, e| sum += e.point }).to_f / drug.drug_reviews.count).round(1) rescue 0 %>
+               </div>
+              <% end %>
             </div>
            
          </div>
         <% end %>
+      
+          <div class="digg_pagination">
+            <%= will_paginate @drugs %>
+          </div>      
+      
+          <div class="row dumb300"></div>
+       <% end %>
+      
     </div>
   </div>
   
@@ -44,8 +65,4 @@
     <%= render 'shared/user_mainprofile' %>
   </div>
  
-</div>
-
-<div class="digg_pagination">
-  <%= will_paginate @drugs %>
 </div>

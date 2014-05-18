@@ -3,7 +3,7 @@ class Drug < ActiveRecord::Base
   validates :name, presence: true
   validates :additionalinfo, presence: true
   validates :image, presence: true
-  validates :remote_image_url, presence: true
+#  validates :remote_image_url, presence: true
   
   has_many :drug_reviews
   belongs_to :user

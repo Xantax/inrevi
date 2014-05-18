@@ -13,7 +13,8 @@ module Merit
         'song_reviews#create',
         'book_reviews#create',
         'recipe_reviews#create',
-        'fineart_reviews#create'
+        'fineart_reviews#create',
+        'drug_reviews#create'
         
         ], category: 'gold_points'
       
@@ -27,7 +28,8 @@ module Merit
         'song_reviews#upvote',
         'book_reviews#upvote',
         'recipe_reviews#upvote',
-        'fineart_reviews#upvote'
+        'fineart_reviews#upvote',
+        'drug_reviews#upvote'
         
         ], to: :user, category: 'gold_points'
       
@@ -41,7 +43,8 @@ module Merit
         'song_reviews#upvote', 'song_reviews#downvote',
         'book_reviews#upvote', 'book_reviews#downvote',
         'recipe_reviews#upvote', 'recipe_reviews#downvote',
-        'fineart_reviews#upvote', 'fineart_reviews#downvote'
+        'fineart_reviews#upvote', 'fineart_reviews#downvote',
+        'drug_reviews#upvote', 'drug_reviews#downvote'
         
         ], category: 'gold_points'
       
@@ -56,7 +59,8 @@ module Merit
         'song_reviews#create',
         'book_reviews#create',
         'recipe_reviews#create',
-        'fineart_reviews#create'
+        'fineart_reviews#create',
+        'drugs_reviews#create'
         
         ], to: :user, category: 'just_reviews'
 
