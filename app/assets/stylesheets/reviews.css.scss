@@ -118,6 +118,8 @@
   padding-bottom:50px;
 }
 
+/* INPUT */
+
 .field.podcontent{
 padding: 6px;
 border-radius: 3px;
@@ -145,6 +147,17 @@ width:450px;
   outline-color: none; 
   box-shadow: 0 0 3px 0px #0066FF;
 }
+
+.form-control.autotitle{
+  width:450px; 
+}
+
+.form-control.autocontent{
+  width:450px;
+  height:250px;
+}
+
+/* END INPUT */
 
 .form-control.reviewcontent{
   width:500px;

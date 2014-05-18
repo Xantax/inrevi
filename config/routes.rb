@@ -6,10 +6,10 @@ Inrevi::Application.routes.draw do
   resources :products, path: 'computers', as: :computer
   resources :products, path: 'cameras', as: :camera
 
-  get 'tags/:tag', to: 'teches#index', as: :ttag
-  get 'tags/:tag', to: 'podcasts#index', as: :tag  
-  get 'tags/:tag', to: 'recipes#index', as: :rtag
-  get 'tags/:tag', to: 'finearts#index', as: :atag
+#  get 'tags/:tag', to: 'teches#index', as: :ttag
+#  get 'tags/:tag', to: 'podcasts#index', as: :tag  
+#  get 'tags/:tag', to: 'recipes#index', as: :rtag
+#  get 'tags/:tag', to: 'finearts#index', as: :atag
   
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 match 'auth/failure', to: redirect('/'), via: [:get, :post]

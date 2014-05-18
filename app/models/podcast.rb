@@ -10,7 +10,7 @@ class Podcast < ActiveRecord::Base
   validates :website, presence: true
   validates :tag_list, presence: true
   validates :image, presence: true
-  validates :remote_image_url, presence: true
+#  validates :remote_image_url, presence: true
 
   mount_uploader :image, ImageUploader
   

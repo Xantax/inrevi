@@ -1,5 +1,5 @@
 class PodcastReviewsController < ApplicationController
-  before_action :set_podcast_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_podcast_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :set_podcast, only: [:index, :show, :new, :create, :edit]
   
   def all
@@ -17,6 +17,8 @@ class PodcastReviewsController < ApplicationController
 
   def new
     @podcast_review = PodcastReview.new
+    @podcast_review.review_images.build
+    @podcast_review.review_images.build  
     @podcast_review.review_images.build  
   end
 

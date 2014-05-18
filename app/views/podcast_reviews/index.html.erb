@@ -1,5 +1,6 @@
 <% if @avg_score == 0.0 %>
-<div class="noreviewsonindex">No reviews. Be the first to write it!</div>
+<div class="noreviewsonindex">No reviews :( </div>
+<div class="row dumb500"></div>
 <% else %>
   <% @podcast_reviews.each do |podcast_review| %><br>
     <div class="col-sm-3"> 

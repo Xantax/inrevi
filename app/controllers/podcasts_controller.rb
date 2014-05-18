@@ -6,36 +6,25 @@
   end
    
   def index
-
     @search = Podcast.search do
       fulltext params[:search]
       paginate(:page => params[:page], :per_page => 10)
-    end
-
-    if params[:tag]
-      @podcasts = Podcast.tagged_with(params[:tag])
-    end
-
+    end    
   end
    
-   def search
-     
-    @search = Podcast.search do
-      fulltext params[:search]
-      paginate(:page => params[:page], :per_page => 10)
-    end
+   def search     
+      @search = Podcast.search do
+        fulltext params[:search]
+        paginate(:page => params[:page], :per_page => 10)
+      end
 
-    if params[:tag]
-      @podcasts = Podcast.tagged_with(params[:tag])
-    elsif
-      @podcasts = @search.results.paginate(:page => params[:page], :per_page => 10)
-    else
-      @podcasts = Podcast.all
-    end
-     
-    @avg_score = 0
-    @avg_score = @podcast_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @podcast_reviews.count if @podcast_reviews.count > 0
-     
+      if params[:tag]
+        @podcasts = Podcast.tagged_with(params[:tag])
+      elsif
+        @podcasts = @search.results
+      else
+        @podcasts = Podcast.all
+      end     
    end
 
   def show

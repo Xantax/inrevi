@@ -5,8 +5,8 @@
     <div class="podcastnameshow"><%= link_to @podcast.name, podcast_path(@podcast) %></div><br>
 
    <div class="podinfo">
-      <%= link_to "Website", @podcast.website %><br >
-      Subjects: <%= raw @podcast.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
+      <%= link_to "Website", @podcast.website, :target => "_blank" %><br >
+      <b>Subjects:</b> <%= raw @podcast.tags.map(&:name).map { |t| t }.join(', ') %>
    </div>
   </div>
   <div class="col-sm-4">

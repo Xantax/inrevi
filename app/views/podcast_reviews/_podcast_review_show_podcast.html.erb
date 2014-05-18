@@ -8,7 +8,7 @@
      
    <div class="podinfo">
       <%= link_to "Website", @podcast_review.podcast.website %><br >
-      Subjects: <%= raw @podcast_review.podcast.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
+      <b>Subjects:</b> <%= raw @podcast_review.podcast.tags.map(&:name).map { |t| t }.join(', ') %>
    </div>
      
   </div>
