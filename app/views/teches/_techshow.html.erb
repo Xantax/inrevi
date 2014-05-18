@@ -1,14 +1,21 @@
 <div class="row podup"> 
-  <div class="col-sm-3"> <%= image_tag @tech.image_url(:thumb) if @tech.image? %></div> 
+  
+  <div class="col-sm-3"> 
+    <%= image_tag @tech.image_url(:thumb) if @tech.image? %>
+  </div> 
   
   <div class="col-sm-5"> 
-    <div class="technameshow"><%= link_to @tech.name, tech_path(@tech) %></div>
+    <div class="technameshow">
+      <%= link_to @tech.name, tech_path(@tech) %>
+    </div>
 
    <div class="podinfo">
-     <%= image_tag('localicons/newtabicon.PNG', height: '10', width: '10') %>  <%= link_to "Website", @tech.website, :target => "_blank" %><br >
-      Categories: <%= raw @tech.tags.map(&:name).map { |t| link_to t, ttag_path(t) }.join(', ') %>
+     <%= link_to "Website", @tech.website, :target => "_blank" %><br >
+     <b>Categories:</b> <%= raw @tech.tags.map(&:name).map { |t| t }.join(', ') %>
    </div>
+    
   </div>
+  
   <div class="col-sm-4">
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
     <div class="writeareview">
@@ -20,4 +27,5 @@
        </div>
     
   </div>
+  
 </div> <br>

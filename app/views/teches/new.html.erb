@@ -1,4 +1,4 @@
-<% provide(:title, '+ Add new') %>
+<% provide(:title, 'Add new') %>
 
 <div class="row">
 
@@ -6,12 +6,9 @@
     <%= render 'shared/categories' %>
   </div>
     
-  <div class="col-sm-8"> 
-    
-  <div class="allnews">
-      <h3>Add a new tech app or service</h3><br>
-        <%= render 'form' %> <br>
-        <%= link_to 'Back', teches_path %>
+  <div class="col-sm-8">     
+    <div class="allnews">
+        <%= render 'form' %>
     </div>
   </div>
    

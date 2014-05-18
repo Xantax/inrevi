@@ -1,0 +1,28 @@
+<div class="row podup"> 
+  
+  <div class="col-sm-3"> 
+    <%= image_tag @tech_review.tech.image_url(:thumb) if @tech_review.tech.image? %> 
+  </div> 
+  
+   <div class="col-sm-5"> 
+     <div class="podcastnameshow">
+       <%= link_to @tech_review.tech.name, tech_path(@tech_review.tech) %>
+     </div> <br>
+     
+   <div class="podinfo">
+      <%= link_to "Website", @tech_review.tech.website %><br >
+      <b>Subjects:</b> <%= raw @tech_review.tech.tags.map(&:name).map { |t| t }.join(', ') %>
+   </div>
+     
+  </div>
+  
+  <div class="col-sm-4">
+    
+    <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+    <div class="writeareview">
+      <%= link_to "Write a Review", new_tech_tech_review_path(@tech_review.tech) %>
+    </div><br>
+    
+  </div>
+  
+</div> <br>

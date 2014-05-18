@@ -4,7 +4,9 @@
   </div> 
   
    <div class="col-sm-5"> 
-     <div class="podcastnameshow"><%= link_to @podcast_review.podcast.name, podcast_path(@podcast_review.podcast) %></div> <br>
+     <div class="podcastnameshow">
+       <%= link_to @podcast_review.podcast.name, podcast_path(@podcast_review.podcast) %>
+     </div> <br>
      
    <div class="podinfo">
       <%= link_to "Website", @podcast_review.podcast.website %><br >

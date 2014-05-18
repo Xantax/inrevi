@@ -10,11 +10,7 @@ class TechesController < ApplicationController
       fulltext params[:search]
       paginate(:page => params[:page], :per_page => 10)
     end
-    @teches = @search.results
-    
-    @avg_score = 0
-    @avg_score = @tech_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @tech_reviews.count if @tech_reviews.count > 0
-    
+    @teches = @search.results    
   end
   
   def index

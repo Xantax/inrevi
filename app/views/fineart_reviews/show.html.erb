@@ -1,3 +1,5 @@
+<% provide(:title, @fineart_review.fineart.name) %>
+
 <div class="row">
  
   <div class="col-sm-2 categories">
@@ -6,7 +8,7 @@
     
   <div class="col-sm-8"> 
      <div class="allnews">
-       <%= render 'finearts/fineartshow' %>
+       <%= render 'fineart_review_show_fineart' %>
        <%= render 'fineart_review_show' %>
      </div>
   </div>

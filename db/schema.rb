@@ -176,6 +176,7 @@ ActiveRecord::Schema.define(version: 20140516013729) do
 
   create_table "finearts", force: true do |t|
     t.string   "name"
+    t.string   "image"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

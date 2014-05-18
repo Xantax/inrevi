@@ -1,4 +1,4 @@
-<% provide(:title, 'Podcasts') %>
+<% provide(:title, 'Results...') %>
 
 <div class="row">
 
@@ -6,22 +6,23 @@
     <%= render 'shared/categories' %>
   </div>
     
- <div class="col-sm-8">   
-  <div class="allnews">
-
-       <%= form_tag podcasts_search_path, :method => :get do %>
-          <div class="searchbox">
-            <%= text_field_tag :search, params[:search], :placeholder => "by subject or title" , :class => "form-control" %>
-          </div>
-              <div class="searchgo">
-                <span class="input-group-btn">
-                  <%= submit_tag "Go", class: "btn btn-default" %>
-                </span>
-              </div>
-          <% end %>
+  <div class="col-sm-8"> 
+    <div class="allnews">
+      
+      <%= form_tag podcasts_search_path, :method => :get do %>      
+      <div class="searchbox">
+        <%= text_field_tag :search, params[:search], :placeholder => "by subject or name" , 
+        class: "form-control" %>
+      </div>
+      <div class="searchgo">
+        <span class="input-group-btn">
+          <%= submit_tag "Go", class: "btn btn-default" %>
+        </span>
+      </div>
+     <% end %>
     
         <hr>
-    
+      
       <% if @podcasts.empty? %>
           No results! Try something else or <b><%= link_to "+ Add new", new_podcast_path() %></b>
           <div class="row dumb500"></div>
@@ -32,19 +33,20 @@
              <div class="col-sm-4 podsin">
                <%= image_tag podcast.image_url(:thumb) if podcast.image? %>
              </div>
-             <div class="col-sm-6 podsin">    
+             <div class="col-sm-6 podsin">
+    
                 <div class="podcastsnowindex">
                   <%= link_to podcast.name.truncate(50, omission: '...'), podcast %>
                 </div><br>
              </div>
             
-              <div class="col-sm-1">
-                <% if podcast.podcast_reviews.count >= 1 %>
-                 <div class="numberOneindex">
-                     <%= ((podcast.podcast_reviews.inject(0) { |sum, e| sum += e.point }).to_f / podcast.podcast_reviews.count).round(1) rescue 0 %>
-                 </div>
-                <% end %>
-              </div>
+            <div class="col-sm-1">
+              <% if podcast.podcast_reviews.count >= 1 %>
+               <div class="numberOneindex">
+                <%= ((podcast.podcast_reviews.inject(0) { |sum, e| sum += e.point }).to_f / podcast.podcast_reviews.count).round(1) rescue 0 %>
+               </div>
+              <% end %>
+            </div>
            
          </div>
         <% end %>

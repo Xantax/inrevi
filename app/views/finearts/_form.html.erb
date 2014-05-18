@@ -3,14 +3,15 @@
 <%= render 'shared/main_error_messages', object: f.object %>
 
     <%= f.label :name %><br>
-    <%= f.text_field :name, :class => "podcastnew" %><br><br>
+    <%= f.text_field :name, :class => "form-control autotitle" %><br><br>
 
     <%= f.label :tag_list, "keywords - separate by commas" %><br>
-    <%= f.text_field :tag_list, :placeholder => "e.g hosting, accounting" , :class => "podcastnew" %><br><br>
+<%= f.text_field :tag_list, :placeholder => "e.g michelangelo, japanese art" , :class => "form-control autotitle" %><br><br>
 
-    <%= image_tag("othericons/PhotoShow.PNG") %>    <%= f.label :remote_image_url, "Image URL (min. 150x150)" %><br />
+    <%= image_tag("othericons/PhotoShow.PNG") %>
     <%= f.file_field :image, :placeholder => "e.g. https://imgur.com/Iks3rd" , :class => "podcastnew" %><br><br>
 
     <%= submit_tag 'Submit', :class => 'btn btn-default' %>
 
 <% end %>
+<div class="row dumb300"></div>

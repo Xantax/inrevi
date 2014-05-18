@@ -6,27 +6,22 @@ class FineartsController < ApplicationController
   end
   
   def search
+    
     @search = Fineart.search do
       fulltext params[:search]
       paginate(:page => params[:page], :per_page => 10)
     end
     @finearts = @search.results
     
-    @avg_score = 0
-    @avg_score = @fineart_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @fineart_reviews.count if @fineart_reviews.count > 0
-    
   end
   
   def index
+    
     @search = Fineart.search do
       fulltext params[:search]
       paginate(:page => params[:page], :per_page => 10)
     end
    @finearts = @search.results
-    
-    if params[:ttag]
-      @finearts = Fineart.tagged_with(params[:ttag])
-    end
     
   end
 

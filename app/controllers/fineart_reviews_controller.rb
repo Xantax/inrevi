@@ -18,6 +18,8 @@ class FineartReviewsController < ApplicationController
   def new
     @fineart_review = FineartReview.new
     @fineart_review.review_images.build 
+    @fineart_review.review_images.build 
+    @fineart_review.review_images.build     
   end
 
   def edit

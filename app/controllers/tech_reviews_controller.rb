@@ -17,6 +17,8 @@ class TechReviewsController < ApplicationController
 
   def new
     @tech_review = TechReview.new
+    @tech_review.review_images.build
+    @tech_review.review_images.build 
     @tech_review.review_images.build 
   end
 
