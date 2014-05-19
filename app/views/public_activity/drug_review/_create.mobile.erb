@@ -36,13 +36,13 @@
                   Voted!
                 <% else %>
                  <div class="thumbsup">
-                   <%= link_to image_tag('othericons/thumbsup_off.PNG', height: '20', width: '20'),
+                   <%= link_to image_tag('othericons/thumbsup_off.PNG'),
                         like_drug_drug_review_path(activity.trackable.drug_id, activity.trackable), 
                         method: :put, :remote => true %>
                  </div>
                           
                  <div class="thumbsdown">
-                  <%= link_to image_tag('othericons/thumbsdown_off.PNG', height: '20', width: '20'),
+                  <%= link_to image_tag('othericons/thumbsdown_off.PNG'),
                         dislike_drug_drug_review_path(activity.trackable.drug_id, activity.trackable), 
                         method: :put, :remote => true %>
                  </div>
