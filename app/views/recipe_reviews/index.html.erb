@@ -42,11 +42,11 @@
                     Voted!
                   <% else %>
                    <div class="thumbsup">
-                     <%= link_to image_tag('othericons/thumbsup_off.PNG', height: '21', width: '20'),  like_recipe_recipe_review_path(recipe_review.recipe_id, recipe_review), method: :put, :remote => true %>
+                     <%= link_to image_tag('othericons/thumbsup_off.PNG'),  like_recipe_recipe_review_path(recipe_review.recipe_id, recipe_review), method: :put, :remote => true %>
                    </div>
                             
                    <div class="thumbsdown">
-                    <%= link_to image_tag('othericons/thumbsdown_off.PNG', height: '21', width: '20'), dislike_recipe_recipe_review_path(recipe_review.recipe_id, recipe_review), method: :put, :remote => true %>
+                    <%= link_to image_tag('othericons/thumbsdown_off.PNG'), dislike_recipe_recipe_review_path(recipe_review.recipe_id, recipe_review), method: :put, :remote => true %>
                    </div>
                 
                   <% end %>
