@@ -27,15 +27,19 @@
               </div>
               
               <div class="col-sm-5">
-                rating
+                <% if song.comments.count >= 1 %>
+                   <div class="numberOneindex" align="right">
+                     <%= ((song.comments.inject(0) { |sum, e| sum += e.point }).to_f / song.comments.count).round(1) rescue 0 %>
+                   </div>
+                <% end %>
               </div>
               
             </div>
           <% end %>
-        <% end %>
 
     <%= render 'indexpaginate' %>
     
+     <div class="row dumb500"></div>   
   </div>
 </div>
 

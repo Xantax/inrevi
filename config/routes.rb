@@ -136,7 +136,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
     end
   end
 
-  match 'song_reviews/all' => "song_reviews#all", via: [:get]
+  match 'song_reviewz/all' => "static_pages#admin_dashboard", via: [:get]
 
 
   resources :books do

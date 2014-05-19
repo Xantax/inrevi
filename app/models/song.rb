@@ -13,3 +13,11 @@ class Song < ActiveRecord::Base
     end
   end
 end
+
+module MetaSpotify
+  class Track
+    def comments
+      SongReview.find_all_by_song_id(uri)
+    end
+  end
+end

@@ -2,12 +2,9 @@ class SongReviewsController < ApplicationController
   before_action :set_song_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :set_song, [:new, :create, :show]
 
-  def all
-    @all_song_reviews = SongReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")
-  end
   
   def index
-    @song_reviews = SongReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC").all
+    @song_reviews = SongReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")
   end
 
   def show
@@ -15,6 +12,8 @@ class SongReviewsController < ApplicationController
 
   def new
     @song_review = SongReview.new
+    @song_review.review_images.build 
+    @song_review.review_images.build  
     @song_review.review_images.build  
   end
 
