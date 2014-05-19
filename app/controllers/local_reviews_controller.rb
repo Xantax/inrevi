@@ -19,6 +19,8 @@ class LocalReviewsController < ApplicationController
   def new
     @local_review = LocalReview.new
     @local_review.review_images.build 
+    @local_review.review_images.build 
+    @local_review.review_images.build 
   end
 
   def edit
