@@ -1,3 +1,7 @@
+<% if @avg_score == 0.0 %>
+<div class="noreviewsonindex">No reviews :( </div>
+<div class="row dumb500"></div>
+<% else %>
 <% @book_reviews.each do |book_review| %><br>
     <div class="col-sm-3"> 
       <div class="reviewname">     
@@ -62,6 +66,7 @@
           
       </div><br>
     </div>
+  <% end %>
 <% end %>
 
 <div class="digg_pagination">

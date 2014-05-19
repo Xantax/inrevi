@@ -18,7 +18,7 @@
             <div class="row">
               <div class="col-sm-7">
                 
-                <div class="songname"><%= link_to song.name, song_path(song.uri) %></div>
+                <div class="songname"><%= link_to song.name.truncate(50, omission: '...'), song_path(song.uri) %></div>
                 <div class="songartistalbum">
                   <b>Artist:</b> <%= song.artists.map(&:name).join(', ') %><br>
                   <b>Album:</b> <%= song.album.name %>
@@ -28,7 +28,7 @@
               
               <div class="col-sm-5">
                 <% if song.comments.count >= 1 %>
-                   <div class="numberOneindex" align="right">
+                   <div class="numberOneindex">
                      <%= ((song.comments.inject(0) { |sum, e| sum += e.point }).to_f / song.comments.count).round(1) rescue 0 %>
                    </div>
                 <% end %>
@@ -39,7 +39,8 @@
 
     <%= render 'indexpaginate' %>
     
-     <div class="row dumb500"></div>   
+     <div class="row dumb500"></div>  
+    
   </div>
 </div>
 

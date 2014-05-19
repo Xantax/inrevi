@@ -1,4 +1,10 @@
 module GoogleBooks
+  module Comment
+    def comments
+      BookReview.find_all_by_book_id id
+    end
+  end
+  
   class << self
     def retrieve(id)
       RetrieveResponse.new get(retrieve_url(id).to_s)
@@ -11,9 +17,14 @@ module GoogleBooks
                       )
     end
   end
+  
+  class Item
+    include GoogleBooks::Comment
+  end
 
-  class RetrieveResponse
+class RetrieveResponse
     include Enumerable
+    include Comment
     attr_reader :isbn, :id, :isbn_13, :isbn_10
 
     def initialize(response)
@@ -24,17 +35,21 @@ module GoogleBooks
 
     def retrieve_identifier
       @id = @response['id']
-      @response['volumeInfo']['industryIdentifiers'].each do |identifier_hash|
-        identifier = identifier_hash["identifier"]
+      begin
+        @response['volumeInfo']['industryIdentifiers'].each do |identifier_hash|
+          identifier = identifier_hash["identifier"]
 
-        case identifier_hash['type']
-        when "ISBN_13"
-          @isbn_13 = identifier
-        when "ISBN_10"
-          @isbn_10 = identifier
-        when "OTHER"
-          @other_identifier = identifier
+          case identifier_hash['type']
+          when "ISBN_13"
+            @isbn_13 = identifier
+          when "ISBN_10"
+            @isbn_10 = identifier
+          when "OTHER"
+            @other_identifier = identifier
+          end
         end
+      rescue
+        nil
       end
 
       if defined? @isbn_10

@@ -12,6 +12,8 @@ class BookReviewsController < ApplicationController
   def new
     @book_review = BookReview.new
     @book_review.review_images.build
+    @book_review.review_images.build
+    @book_review.review_images.build
   end
 
   def edit
@@ -31,7 +33,7 @@ class BookReviewsController < ApplicationController
 
   def update
       if @book_review.update(book_review_params)
-        @book_review, notice: 'Book review was successfully updated.'
+        redirect_to book_book_review_path(@book.id, @book_review), notice: 'Book review was successfully updated.'
       else
         render action: 'edit'
       end

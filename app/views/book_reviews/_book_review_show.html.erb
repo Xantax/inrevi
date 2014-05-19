@@ -1,6 +1,12 @@
 <% if current_user == @book_review.user %>
-  <p id="notice"><%= notice %></p> <div align="center"><%= social_share_button_tag(@book_review.title) %></div>
+  <p id="notice"><%= notice %></p> <div align="center"><%= social_share_button_tag(@book_review.content) %></div>
   <hr>
+<% else %>
+    <% if @promotion.present? && @promotion.book %>
+        <div class="row showpromotion">
+          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
+        </div>
+    <% end %>
 <% end %>
 
 <div class="row">

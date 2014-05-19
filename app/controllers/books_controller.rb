@@ -23,4 +23,9 @@ class BooksController < ApplicationController
     @book = GoogleBooks.retrieve(params[:id])
   end
   
+  def all_reviews
+    @book_reviews = BookReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")
+    render 'book_reviews/index'
+  end
+  
 end

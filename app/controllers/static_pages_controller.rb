@@ -26,9 +26,6 @@ class StaticPagesController < ApplicationController
   def admin_dashboard
     @users = User.all
     @points = Merit::Score::Point.sum("num_points")
-    
-    @song_reviews = SongReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")
-    render 'song_reviews/index'
   end
   
   def catmedia
