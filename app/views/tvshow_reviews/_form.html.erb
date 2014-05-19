@@ -1,8 +1,6 @@
 <%= nested_form_for(@tvshow_review, url: tvshow_tvshow_reviews_path, validate: true, html: {multipart: true}, 'data-update-target' => 'comments', class: 'comments') do |f| %>
   <% if @tvshow_review.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@tvshow_review.errors.count, "error") %> prohibited this review from being saved:</h2>
-
       <ul>
       <% @tvshow_review.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -11,30 +9,32 @@
     </div>
   <% end %>
 
-    <%= f.hidden_field :point %>
-    <div class="rating-comments"></div>
-    <br>
-  
-    <div class="field">
-      <%= f.text_area :content, :class => "field podcontent", :placeholder => "Tell the world what you like or dislike, give tips and suggestions... ", :onfocus => "this.placeholder = ''" %>
-    </div><br>
+  <%= f.hidden_field :point %>
+  <div class="rating-comments"></div>
+  <br>
 
-  <div class="optionalreview">Optional (images):</div>
+  <div class="field">
+    <%= f.text_area :content, :class => "form-control reviewcontent", 
+    :placeholder => "Tell the world what you like or dislike, give tips and suggestions... ", 
+    :onfocus => "this.placeholder = ''" %>
+  </div><br>
 
-      <%= f.fields_for :review_images do |p| %>
-      <%= image_tag('othericons/PhotoShow.PNG') %>
-        <div class="browseimage"><%= p.file_field :image %></div>  
-        <div class="removeicon"><%= p.link_to_remove image_tag('othericons/removeicon.PNG') %></div><br><br>
-      <% end %>
-      <%= f.link_to_add "+ Add another image", :review_images %>
+      <div class="r-image"></div>
 
-  <br><br><br>
+      <div class="r-rightside">
+        <%= f.fields_for :review_images do |p| %>
+            <%= p.file_field :image %>
+        <% end %>
+      </div>
+
+      <br>
     
       <div class="actions">
-        <%= f.submit " Submit ", :class => "btn btn-primary", :id => "submit" %>
+        <%= f.submit " Submit ", :class => "btn btn-default", :id => "submit" %>
       </div><br>
     
       <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
+      <div class="row dumb300"></div>
 
       <%= f.hidden_field :tvshow_id, :value => @tvshow.id %>
       <%= f.hidden_field :tvshow_name, :value => @tvshow.name %>
@@ -61,3 +61,8 @@
 }(document));
 </script>
 
+<script type="text/javascript">
+  $('.r-image').on('click', function(e) {
+  return $(".r-rightside").slideToggle();
+});
+</script>

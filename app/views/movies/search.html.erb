@@ -17,19 +17,26 @@
     <% @movie.first(10).each do |movie| %><br><br>
       <% if movie %>
           <%= link_to movie_path(movie.id) do %>          
-            <div class="col-sm-4 moviesin">
+            <div class="col-sm-4 podsin">
               <% if movie.poster_path.blank? %>
                 <%= image_tag("no-image.png") %>
               <% else %>
-              <%= image_tag("#{@configuration.base_url}w154#{movie.poster_path}", height: "200") %>
+              <%= image_tag("#{@configuration.base_url}w154#{movie.poster_path}", height: "150") %>
               <% end %>
             </div>
-            <div class="col-sm-8 moviesin">
+            <div class="col-sm-7 podsin">
               <div class="moviesnowindex">
-                <%= movie.title %> (<%= movie.release_date.to_date.try(:year) %>) <br /> 
+                <%= movie.title.truncate(50, omission: '...') %> (<%= movie.release_date.to_date.try(:year) %>) <br /> 
               </div>
           <% end %>             
             </div>
+              <div class="col-sm-1">
+                <% if movie.comments.count >= 1 %>
+                     <div class="numberOneindex">
+                       <%= ((movie.comments.inject(0) { |sum, e| sum += e.point }).to_f / movie.comments.count).round(1) rescue 0 %>
+                     </div>
+                <% end %>
+              </div>
       <% end %> 
             
     <% end %> 

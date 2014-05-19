@@ -13,7 +13,7 @@
   <div class="col-sm-5">
     <div class="moviefacts">
       <div class="movtitle">
-        <%= link_to @movie_review.movie_title %> (<%= @movie_review.movie_year %>)
+        <%= link_to @movie_review.movie_title, movie_path(@movie_review.movie_id) %> (<%= @movie_review.movie_year %>)
       </div><br>
       
       <% if @movie_review.movie_runtime.nil? %>

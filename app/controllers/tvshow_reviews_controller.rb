@@ -15,7 +15,9 @@ class TvshowReviewsController < ApplicationController
 
   def new
     @tvshow_review = TvshowReview.new
-    @tvshow_review.review_images.build  
+    @tvshow_review.review_images.build 
+    @tvshow_review.review_images.build
+    @tvshow_review.review_images.build
   end
 
   def edit
@@ -25,7 +27,6 @@ class TvshowReviewsController < ApplicationController
     @tvshow_review = TvshowReview.new(tvshow_review_params)
     @tvshow_review.user = current_user
 
-    respond_to do |format|
       if @tvshow_review.save
         @tvshow_review.create_activity :create, owner: current_user
         

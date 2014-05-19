@@ -20,10 +20,13 @@ class MovieReviewsController < ApplicationController
   end
 
   def show
+    
   end
 
   def new
     @movie_review = MovieReview.new
+    @movie_review.review_images.build
+    @movie_review.review_images.build  
     @movie_review.review_images.build  
   end
 

@@ -1,6 +1,12 @@
 <% if current_user == @tvshow_review.user %>
-  <p id="notice"><%= notice %></p> <div align="center"><%= social_share_button_tag(@tvshow_review.title, :text => "twipsy") %></div>
+  <p id="notice"><%= notice %></p> <div align="center"><%= social_share_button_tag(@tvshow_review.content) %></div>
   <hr>
+<% else %>
+    <% if @promotion.present? && @promotion.tvshow %>
+        <div class="row showpromotion">
+          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
+        </div>
+    <% end %>
 <% end %>
 
 <div class="row">

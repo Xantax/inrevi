@@ -5,7 +5,7 @@ class Local < ActiveRecord::Base
   
   require 'open-uri'
   require 'json'
-
+  
   class << self
     def factual_results query, params
       
