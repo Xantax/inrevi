@@ -71,3 +71,18 @@ table {
     }
   }
 }
+
+/* toggle features */
+
+.r-clickfeature{
+
+    }
+
+  .r-productfeature{
+    display: none;
+    &:after{
+      clear: both;
+      content: '';
+      display: block;
+    }
+  }

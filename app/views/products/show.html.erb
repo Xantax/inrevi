@@ -1,52 +1,19 @@
-<h1>
-  <%= @product['name'] %>
-</h1>
-<ul>
-  <li>
-    Cat ID:
-    <%= @product['cat_id'] %>
-  </li>
-  <li>
-    Model:
-    <%= @product['model'] %>
-  </li>
-  <li>
-    Created At:
-    <%= Time.at @product['created_at'] %>
-  </li>
-  <li>
-    Brand:
-    <%= @product['brand'] %>
-  </li>
-  <li>
-    Color:
-    <%= @product['color'] %>
-  </li>
-  <li>
-    Category:
-    <%= @product['category'] %>
-  </li>
-  <li>
-    UPC:
-    <%= @product['upc'] %>
-  </li>
-  <li>
-    EAN:
-    <%= @product['ean'] %>
-  </li>
-  <li>
-    Features:
-    <table border="1">
-      <% @product['features'].each do |key, value| %>
-        <tr>
-          <td width="30%">
-            <%= key %>
-          </td>
-          <td>
-            <%= value %>
-          </td>
-        </tr>
-      <% end %>
-    </table>
-  </li>
-</ul>
+<% provide(:title, @product['name']) %>
+
+<div class="row">
+ 
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div> 
+    
+  <div class="col-sm-8"> 
+     <div class="allnews">
+       <%= render "productshow" %>       
+     </div>
+  </div>
+  
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
+
+</div>

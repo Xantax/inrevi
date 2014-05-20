@@ -1,0 +1,63 @@
+<div class="row podup">
+  
+  <div class="col-sm-8">
+    
+    <div class="row">
+       <%= @product['name'] %><hr>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-6"> IMAGE </div>
+      
+      <div class="col-sm-6">        
+          <div class="r-clickfeature">
+            <b><%= link_to "+ features", "#" %></b>
+          </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="col-sm-4">
+    
+    <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+    <div class="writeareview">
+      <%= link_to "Write a Review", "#" %>
+    </div><br>
+    
+     <div>
+     <%= render 'show_rating' %>
+     </div>
+    
+  </div>
+  
+
+</div>
+  
+  
+  
+  <div class="row">
+    
+            <div class="r-productfeature">
+            <table border="1" class="table table-striped table-hover" >
+              <% @product['features'].each do |key, value| %>
+                <tr>
+                  <td width="25%">
+                    <%= key %>
+                  </td>
+                  <td>
+                    <%= value %>
+                  </td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+    
+  </div>
+  
+  
+<script type="text/javascript">
+  $('.r-clickfeature').on('click', function(e) {
+  return $(".r-productfeature").slideToggle();
+});
+</script>
