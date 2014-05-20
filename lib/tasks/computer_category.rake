@@ -1,4 +1,36 @@
 task :load_categories => :environment do
   ProductCategory.init_categories :computer
   ProductCategory.init_categories :camera
+  ProductCategory.init_categories :security
+  ProductCategory.init_categories :television
+  ProductCategory.init_categories :carelectro
+  ProductCategory.init_categories :homeaudio
+  ProductCategory.init_categories :eportable
+  ProductCategory.init_categories :emobile
+  ProductCategory.init_categories :videogame
+  ProductCategory.init_categories :makeup
+  ProductCategory.init_categories :fragrance
+  ProductCategory.init_categories :haircare
+  ProductCategory.init_categories :skincare
+  ProductCategory.init_categories :bodybath
+  ProductCategory.init_categories :grocery
+  ProductCategory.init_categories :jewelry
+  ProductCategory.init_categories :menclothing
+  ProductCategory.init_categories :womenclothing
+  ProductCategory.init_categories :menfootwear
+  ProductCategory.init_categories :womenfootwear
+  ProductCategory.init_categories :healthcare
+  ProductCategory.init_categories :supplement
+  ProductCategory.init_categories :sexual
+  ProductCategory.init_categories :personal
+  ProductCategory.init_categories :musical
+  ProductCategory.init_categories :sport
+  ProductCategory.init_categories :craft
+  ProductCategory.init_categories :toy
+  ProductCategory.init_categories :appliance
+  ProductCategory.init_categories :baby
+  ProductCategory.init_categories :pet
+  ProductCategory.init_categories :tool
+  ProductCategory.init_categories :indoor
+  ProductCategory.init_categories :outdoor
 end

@@ -1,9 +1,11 @@
 <ul class="nav nav-stacked categorylist">
   <li><%= link_to image_tag('othericons/backarrow.PNG'), root_path %></li>
-  <li class="categorylist appliances"><%= link_to "appliances", root_path %></li> 
-  <li class="categorylist baby"><%= link_to "baby", root_path %></li>
-  <li class="categorylist pets"><%= link_to "pets", root_path %></li>
-  <li class="categorylist tools"><%= link_to "tools", root_path %></li>  
+  <li class="categorylist appliances"><%= link_to "appliances", appliance_index_path %></li> 
+  <li class="categorylist baby"><%= link_to "baby", baby_index_path %></li>
+  <li class="categorylist pets"><%= link_to "pets", pet_index_path %></li>
+  <li class="categorylist tools"><%= link_to "tools", tool_index_path %></li>
+  <li class="categorylist indoors"><%= link_to "indoor", indoor_index_path %></li> 
+  <li class="categorylist outdoors"><%= link_to "outdoor", outdoor_index_path %></li> 
 </ul>
 
 <%= render 'shared/aboutus' %>

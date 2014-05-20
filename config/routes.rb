@@ -3,8 +3,72 @@ Inrevi::Application.routes.draw do
 
   get 'cameras/search' => 'products#search'
   get 'computers/search' => 'products#search'
+  get 'securities/search' => 'products#search'
+  get 'televisions/search' => 'products#search'
+  get 'carelectros/search' => 'products#search'
+  get 'homeaudios/search' => 'products#search'
+  get 'eportables/search' => 'products#search'
+  get 'emobiles/search' => 'products#search'
+  get 'videogames/search' => 'products#search'
+  get 'makeups/search' => 'products#search'
+  get 'fragrances/search' => 'products#search'
+  get 'haircares/search' => 'products#search'
+  get 'skincares/search' => 'products#search'
+  get 'bodybaths/search' => 'products#search'
+  get 'groceries/search' => 'products#search'
+  get 'jewelries/search' => 'products#search'
+  get 'menclothings/search' => 'products#search'
+  get 'womenclothings/search' => 'products#search'
+  get 'menfootwears/search' => 'products#search'
+  get 'womenfootwears/search' => 'products#search'
+  get 'healthcares/search' => 'products#search'
+  get 'supplements/search' => 'products#search'
+  get 'sexuals/search' => 'products#search'
+  get 'personals/search' => 'products#search'
+  get 'musicals/search' => 'products#search'
+  get 'sports/search' => 'products#search'
+  get 'crafts/search' => 'products#search'
+  get 'toys/search' => 'products#search'
+  get 'appliances/search' => 'products#search'
+  get 'babies/search' => 'products#search'
+  get 'pets/search' => 'products#search'
+  get 'tools/search' => 'products#search'
+  get 'indoors/search' => 'products#search'
+  get 'outdoors/search' => 'products#search'
   resources :products, path: 'computers', as: :computer
   resources :products, path: 'cameras', as: :camera
+  resources :products, path: 'securities', as: :security
+  resources :products, path: 'televisions', as: :television
+  resources :products, path: 'carelectros', as: :carelectro
+  resources :products, path: 'homeaudios', as: :homeaudio
+  resources :products, path: 'eportables', as: :eportable
+  resources :products, path: 'emobiles', as: :emobile
+  resources :products, path: 'videogames', as: :videogame
+  resources :products, path: 'makeups', as: :makeup
+  resources :products, path: 'fragrances', as: :fragrance
+  resources :products, path: 'haircares', as: :haircare
+  resources :products, path: 'skincares', as: :skincare
+  resources :products, path: 'bodybaths', as: :bodybath
+  resources :products, path: 'groceries', as: :grocery
+  resources :products, path: 'jewelries', as: :jewelry
+  resources :products, path: 'menclothings', as: :menclothing
+  resources :products, path: 'womenclothings', as: :womenclothing
+  resources :products, path: 'menfootwears', as: :menfootwear
+  resources :products, path: 'womenfootwears', as: :womenfootwear
+  resources :products, path: 'healthcares', as: :healthcare
+  resources :products, path: 'supplements', as: :supplement
+  resources :products, path: 'sexuals', as: :sexual
+  resources :products, path: 'personals', as: :personal
+  resources :products, path: 'musicals', as: :musical
+  resources :products, path: 'sports', as: :sport
+  resources :products, path: 'crafts', as: :craft
+  resources :products, path: 'toys', as: :toy
+  resources :products, path: 'appliances', as: :appliance
+  resources :products, path: 'babies', as: :baby
+  resources :products, path: 'pets', as: :pet
+  resources :products, path: 'tools', as: :tool
+  resources :products, path: 'indoors', as: :indoor
+  resources :products, path: 'outdoors', as: :outdoor
 
 #  get 'tags/:tag', to: 'teches#index', as: :ttag
 #  get 'tags/:tag', to: 'podcasts#index', as: :tag  

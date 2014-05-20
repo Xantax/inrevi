@@ -669,6 +669,66 @@ background-image: url("caticons/home/homeALL.PNG");
   }
 }
 
+.categorylist.indoors {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -233px; 
+  }
+}
+
+.categorylist.indoors:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -259px; 
+  }
+}
+
+.categorylist.outdoors {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -285px; 
+  }
+}
+
+.categorylist.outdoors:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -311px; 
+  }
+}
+
 
 /*  BEAUTY SUBCATEGORIES  */
 
@@ -912,6 +972,36 @@ margin-top: -11px;
 background-image: url("caticons/hobbies/hobbyALL.PNG");
   background-repeat: no-repeat;
     background-position: 0 -130px; 
+  }
+}
+
+.categorylist.toys {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/hobbies/hobbyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -156px; 
+  }
+}
+
+.categorylist.toys:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: url("caticons/hobbies/hobbyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -180px; 
   }
 }
 

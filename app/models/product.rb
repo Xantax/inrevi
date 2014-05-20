@@ -1,6 +1,9 @@
 class Product < ActiveRecord::Base
   PER_PAGE = 10
-  RESOURCE_FOR = [:computer, :camera]
+  RESOURCE_FOR = [:computer, :camera, :security, :television, :carelectro, :homeaudio, :eportable, :emobile, :videogame,
+    :makeup, :fragrance, :haircare, :skincare, :bodybath, :grocery, :jewelry, :menclothing, :womenclothing,
+    :menfootwear, :womenfootwear, :healthcare, :supplement, :sexual, :personal, :musical, :sport, :craft,
+    :toy, :appliance, :baby, :pet, :tool, :indoor, :outdoor]
 
   class << self
     def search(params)

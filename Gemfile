@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 4.0.0'
+gem 'rake', '~> 10.3.2'
 gem 'bootstrap-sass', '3.0.3'
 gem 'omniauth-facebook', '~> 1.6.0'
 gem 'sprockets', '~> 2.11.0'

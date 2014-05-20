@@ -3,9 +3,9 @@
 <div align="left" class="mobile-activity-home">
         <% if signed_in? %>
            <div class="qupdate">
-               <div class="texty">
+               <div class="">
                  <% if @link.present? %>
-                   <a href="<%= @link.link if @link.link.present? %>"><%= @link.text %></a>
+                   <a href="<%= @link.link if @link.link.present? %>"><%= @link.text %></a><hr>
                  <% end %>
                </div>
            </div>

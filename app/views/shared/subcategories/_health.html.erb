@@ -1,10 +1,10 @@
 <ul class="nav nav-stacked categorylist">
   <li><%= link_to image_tag('othericons/backarrow.PNG'), root_path %></li>
-  <li class="categorylist healthcare"><%= link_to "health care", root_path %></li> 
-  <li class="categorylist supplements"><%= link_to "supplements", root_path %></li>
+  <li class="categorylist healthcare"><%= link_to "health care", healthcare_index_path %></li> 
+  <li class="categorylist supplements"><%= link_to "supplements", supplement_index_path %></li>
   <li class="categorylist drugs"><%= link_to "drugs", drugs_path %></li>
-  <li class="categorylist sex"><%= link_to "sex", root_path %></li> 
-  <li class="categorylist hpersonal"><%= link_to "personal", root_path %></li>
+  <li class="categorylist sex"><%= link_to "sex", sexual_index_path %></li> 
+  <li class="categorylist hpersonal"><%= link_to "personal", personal_index_path %></li>
 </ul>
 
 <%= render 'shared/aboutus' %>
