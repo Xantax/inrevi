@@ -24,7 +24,7 @@ product_ready = ->
       data:
         category: $(this).text()
       success: (data, status, response) ->
-        $('table').html(data.products_html)
+        $('.showproducts').html(data.products_html)
         $('.pagination-container').html(data.pagination_html)
     return false
 

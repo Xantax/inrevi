@@ -1,14 +1,18 @@
 <% @products['results'].each do |product| %>
-  <tr>
-    <% sem3_id = product['sem3_id'] %>
-    <td>
-      <%= link_to product['name'], eval("#{@resource_type.to_s}_path('#{sem3_id}')") %>
-    </td>
-    <td>
-      <%= product['brand'] %>
-    </td>
-    <td>
-      <%= product['price'] %>
-    </td>
-  </tr>
+  <div class="row">
+    
+    <div class="col-sm-4 podsin">
+      IMAGE
+    </div>
+    
+    <div class="col-sm-7 podsin">
+      <% sem3_id = product['sem3_id'] %>
+      <%= link_to product['name'].truncate(100, omission: '...'), eval("#{@resource_type.to_s}_path('#{sem3_id}')") %>
+    </div>
+    
+    <div class="col-sm-1">
+      RAT
+    </div>
+    
+  </div>
 <% end %>

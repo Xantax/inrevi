@@ -11,28 +11,20 @@
         <div class="search-box">
           <%= render 'search_form' %>
         </div>
-      
-      <%= @categories.select { |cat| cat.cat_id.eql?(ProductCategory::ORIGINAL_CATEGORY[@resource_type][:cat_id]) }.first %>
-      
+
+        <div class="showproducts">
+            <% if @products %>
+              <%= render 'products' %>
+            <% else %>
+              <div class="row dumb500"></div>
+            <% end %>
+        </div>
+
         <div class="pagination-container">
           <% if @products %>
             <%= render 'pagination' %>
           <% end %>
-        </div>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Brand</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% if @products %>
-              <%= render 'products' %>
-            <% end %>
-          </tbody>
-        </table>
+        </div>      
       
     </div>
   </div>
