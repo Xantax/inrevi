@@ -197,9 +197,6 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   match 'lsearch' => "locals#lsearch", via: [:get]
   
   resources :locals do
-    member do
-      get "additionalinfo" => "locals#additionalinfo"
-    end
     resources :local_reviews do
       member do
         put "like", to: "local_reviews#upvote"
