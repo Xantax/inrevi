@@ -17,4 +17,7 @@
   
  <% elsif current_user.provider == "google_oauth2" %>
 
+    <% current_user.google_friends.each do |goog| %>
+    <% end %>
+
 <% end %>

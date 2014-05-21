@@ -10,13 +10,7 @@ class ProductReviewsController < ApplicationController
   end
 
   def create
-    @product_comment = ProductReview.new(
-      content: params[:content],
-      cat_id: @product['cat_id'],
-      productable_id: @product['sem3_id'],
-      productable_type: @resource_type,
-      review_images_attributes: [:image, :attachable_id, :attachable_type]
-    )
+    @product_comment = ProductReview.new(product_review_params)
     @product_comment.user = current_user
 
     if @product_comment.save
@@ -47,4 +41,9 @@ class ProductReviewsController < ApplicationController
   def product_retrieve
     @product = Product.retrieve_product eval("params[:#{@resource_type}_id]")
   end
+  
+    def product_review_params
+      params.require(:product_review).permit(:content, :user_id, {product_id: @product['sem3_id']}, {product_type: @resource_type}, {cat_id: @product['cat_id']}, :point, :score,
+        {review_images_attributes: [:image, :attachable_id, :attachable_type]})
+    end
 end

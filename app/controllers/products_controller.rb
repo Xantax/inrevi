@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-before_action :resource_request
+  before_action :resource_request
   before_action :categories_list
 
   def index

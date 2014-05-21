@@ -47,6 +47,8 @@ gem 'haml-rails', '~> 0.5.3'
 gem 'colorize', '~> 0.7.2'
 gem 'semantics3', '~> 0.04'
 gem 'social-share-button', '~> 0.1.6'
+gem 'rest_client'
+gem "google-api-client"
 #gem 'pg', '~> 0.17.1'
 
 group :development do
