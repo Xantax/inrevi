@@ -39,7 +39,7 @@
       <div class="row dumb300"></div>
 
       <%= f.hidden_field :book_id, :value => @book.id if @book.id.present? %>
-      <%= f.hidden_field :book_name, :value => @book.title  if @book.title.present? %>
+      <%= f.hidden_field :book_name, :value => @book.title if @book.title.present? %>
       <%= f.hidden_field :book_authors, :value => @book.authors.first if @book.authors.first.present? %>
       <%= f.hidden_field :book_pages, :value => @book.pageCount if @book.pageCount.present? %>
       <%= f.hidden_field :book_date, :value => @book.publishedDate if @book.publishedDate.present? %>
