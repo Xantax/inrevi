@@ -239,9 +239,6 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
 #----------   AUTO   ----------  
   
   resources :autos do
-    member do
-      get "additionalinfo" => "autos#additionalinfo"
-    end
     resources :auto_reviews do
       member do
         put "like", to: "auto_reviews#upvote"
