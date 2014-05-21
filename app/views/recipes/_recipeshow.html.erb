@@ -8,18 +8,19 @@
       <%= link_to @recipe.name, recipe_path(@recipe) %>
     </div>
     
-    <div class="recipe-id">
-      <%= link_to "ingredients", ingredients_recipe_path %><br>
-      <%= link_to "directions", directions_recipe_path %><br>
+    <div class="r-clickfeature">
+      <div class="recipe-id">
+        <%= link_to "ingredients", "#" %><br>
+        <%= link_to "directions", "#" %><br>
+      </div>
     </div>
     
-   <div class="podinfo">
-     <b>Categories:</b> <%= raw @recipe.tags.map(&:name).map { |t| t }.join(', ') %>
-   </div>
+     <div class="podinfo">
+       <b>Categories:</b> <%= raw @recipe.tags.map(&:name).map { |t| t }.join(', ') %>
+     </div>
   </div>
   
-  <div class="col-sm-4">
-    
+  <div class="col-sm-4">    
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
     <div class="writeareview">
       <%= link_to "Write a Review", new_recipe_recipe_review_path(@recipe) %>
@@ -27,7 +28,24 @@
     
        <div>
          <%= render 'show_rating' %>
-       </div>
-    
+       </div>    
   </div>
+  
 </div> <br>
+
+<div class="r-productfeature">
+  <div class="row">
+    <div class="col-sm-6"> 
+      <%= simple_format(@recipe.ingredients) if @recipe.ingredients.present? %>
+    </div>
+    <div class="col-sm-6"> 
+      <%= simple_format(@recipe.directions) if @recipe.directions.present? %> 
+    </div>
+  </div><hr>
+</div>
+
+<script type="text/javascript">
+  $('.r-clickfeature').on('click', function(e) {
+  return $(".r-productfeature").slideToggle();
+});
+</script>
