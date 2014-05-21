@@ -1,0 +1,30 @@
+<% object_id = "#{@resource_type}_id" %>
+<%= form_tag eval("#{@resource_type}_product_comments_path(#{params[:object_id]})") do |f| %>
+
+  <%= f.hidden_field :point %>
+  <div class="rating-comments"></div>
+  <br>
+
+  <div class="field">
+    <%= f.text_area :content, :class => "form-control reviewcontent", 
+    :placeholder => "Tell the world what you like or dislike, give tips and suggestions... ", 
+    :onfocus => "this.placeholder = ''" %>
+  </div><br>
+
+      <div class="r-image"></div>
+
+      <div class="r-rightside">
+        <%= f.fields_for :review_images do |p| %>
+            <%= p.file_field :image %>
+        <% end %>
+      </div>
+
+      <br>
+    
+      <div class="actions">
+        <%= f.submit " Submit ", :class => "btn btn-default", :id => "submit" %>
+      </div><br>
+    
+      <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
+      <div class="row dumb300"></div>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140516013729) do
+ActiveRecord::Schema.define(version: 20140521001106) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -334,6 +334,29 @@ ActiveRecord::Schema.define(version: 20140516013729) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "product_reviews", force: true do |t|
+    t.text     "content"
+    t.integer  "point",                 default: -1
+    t.integer  "user_id"
+    t.integer  "cat_id"
+    t.integer  "productable_id"
+    t.string   "productable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "cached_votes_total",    default: 0
+    t.integer  "cached_votes_score",    default: 0
+    t.integer  "cached_votes_up",       default: 0
+    t.integer  "cached_votes_down",     default: 0
+    t.integer  "cached_weighted_score", default: 0
+  end
+
+  add_index "product_reviews", ["cached_votes_down"], name: "index_product_reviews_on_cached_votes_down"
+  add_index "product_reviews", ["cached_votes_score"], name: "index_product_reviews_on_cached_votes_score"
+  add_index "product_reviews", ["cached_votes_total"], name: "index_product_reviews_on_cached_votes_total"
+  add_index "product_reviews", ["cached_votes_up"], name: "index_product_reviews_on_cached_votes_up"
+  add_index "product_reviews", ["cached_weighted_score"], name: "index_product_reviews_on_cached_weighted_score"
+  add_index "product_reviews", ["user_id"], name: "index_product_reviews_on_user_id"
 
   create_table "promotions", force: true do |t|
     t.string   "text"

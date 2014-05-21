@@ -1,6 +1,8 @@
 Inrevi::Application.routes.draw do
 
 
+  resources :product_reviews
+
   get 'cameras/search' => 'products#search'
   get 'computers/search' => 'products#search'
   get 'securities/search' => 'products#search'
@@ -35,40 +37,108 @@ Inrevi::Application.routes.draw do
   get 'tools/search' => 'products#search'
   get 'indoors/search' => 'products#search'
   get 'outdoors/search' => 'products#search'
-  resources :products, path: 'computers', as: :computer
-  resources :products, path: 'cameras', as: :camera
-  resources :products, path: 'securities', as: :security
-  resources :products, path: 'televisions', as: :television
-  resources :products, path: 'carelectros', as: :carelectro
-  resources :products, path: 'homeaudios', as: :homeaudio
-  resources :products, path: 'eportables', as: :eportable
-  resources :products, path: 'emobiles', as: :emobile
-  resources :products, path: 'videogames', as: :videogame
-  resources :products, path: 'makeups', as: :makeup
-  resources :products, path: 'fragrances', as: :fragrance
-  resources :products, path: 'haircares', as: :haircare
-  resources :products, path: 'skincares', as: :skincare
-  resources :products, path: 'bodybaths', as: :bodybath
-  resources :products, path: 'groceries', as: :grocery
-  resources :products, path: 'jewelries', as: :jewelry
-  resources :products, path: 'menclothings', as: :menclothing
-  resources :products, path: 'womenclothings', as: :womenclothing
-  resources :products, path: 'menfootwears', as: :menfootwear
-  resources :products, path: 'womenfootwears', as: :womenfootwear
-  resources :products, path: 'healthcares', as: :healthcare
-  resources :products, path: 'supplements', as: :supplement
-  resources :products, path: 'sexuals', as: :sexual
-  resources :products, path: 'personals', as: :personal
-  resources :products, path: 'musicals', as: :musical
-  resources :products, path: 'sports', as: :sport
-  resources :products, path: 'crafts', as: :craft
-  resources :products, path: 'toys', as: :toy
-  resources :products, path: 'appliances', as: :appliance
-  resources :products, path: 'babies', as: :baby
-  resources :products, path: 'pets', as: :pet
-  resources :products, path: 'tools', as: :tool
-  resources :products, path: 'indoors', as: :indoor
-  resources :products, path: 'outdoors', as: :outdoor
+  resources :products, path: 'computers', as: :computer do
+    resources :product_reviews
+  end
+  resources :products, path: 'cameras', as: :camera do
+    resources :product_reviews
+  end
+  resources :products, path: 'securities', as: :security do
+    resources :product_reviews
+  end
+  resources :products, path: 'televisions', as: :television do
+    resources :product_reviews
+  end
+  resources :products, path: 'carelectros', as: :carelectro do
+    resources :product_reviews
+  end
+  resources :products, path: 'homeaudios', as: :homeaudio do
+    resources :product_reviews
+  end
+  resources :products, path: 'eportables', as: :eportable do
+    resources :product_reviews
+  end
+  resources :products, path: 'emobiles', as: :emobile do
+    resources :product_reviews
+  end
+  resources :products, path: 'videogames', as: :videogame do
+    resources :product_reviews
+  end
+  resources :products, path: 'makeups', as: :makeup do
+    resources :product_reviews
+  end
+  resources :products, path: 'fragrances', as: :fragrance do
+    resources :product_reviews
+  end
+  resources :products, path: 'haircares', as: :haircare do
+    resources :product_reviews
+  end
+  resources :products, path: 'skincares', as: :skincare do
+    resources :product_reviews
+  end
+  resources :products, path: 'bodybaths', as: :bodybath do
+    resources :product_reviews
+  end
+  resources :products, path: 'groceries', as: :grocery do
+    resources :product_reviews
+  end
+  resources :products, path: 'jewelries', as: :jewelry do
+    resources :product_reviews
+  end
+  resources :products, path: 'menclothings', as: :menclothing do
+    resources :product_reviews
+  end
+  resources :products, path: 'womenclothings', as: :womenclothing do
+    resources :product_reviews
+  end
+  resources :products, path: 'menfootwears', as: :menfootwear do
+    resources :product_reviews
+  end
+  resources :products, path: 'womenfootwears', as: :womenfootwear do
+    resources :product_reviews
+  end
+  resources :products, path: 'healthcares', as: :healthcare do
+    resources :product_reviews
+  end
+  resources :products, path: 'supplements', as: :supplement do
+    resources :product_reviews
+  end
+  resources :products, path: 'sexuals', as: :sexual do
+    resources :product_reviews
+  end
+  resources :products, path: 'personals', as: :personal do
+    resources :product_reviews
+  end
+  resources :products, path: 'musicals', as: :musical do
+    resources :product_reviews
+  end
+  resources :products, path: 'sports', as: :sport do
+    resources :product_reviews
+  end
+  resources :products, path: 'crafts', as: :craft do
+    resources :product_reviews
+  end
+  resources :products, path: 'toys', as: :toy do
+    resources :product_reviews
+  end
+  resources :products, path: 'appliances', as: :appliance do
+    resources :product_reviews
+  end
+  resources :products, path: 'babies', as: :baby do
+    resources :product_reviews
+  end
+  resources :products, path: 'pets', as: :pet do
+    resources :product_reviews
+  end
+  resources :products, path: 'tools', as: :tool do
+    resources :product_reviews
+  end
+  resources :products, path: 'indoors', as: :indoor do
+    resources :product_reviews
+  end
+  resources :products, path: 'outdoors', as: :outdoor do
+    resources :product_reviews
+  end
 
 #  get 'tags/:tag', to: 'teches#index', as: :ttag
 #  get 'tags/:tag', to: 'podcasts#index', as: :tag  

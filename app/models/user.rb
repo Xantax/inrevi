@@ -109,6 +109,12 @@ class User < ActiveRecord::Base
     end
   end
   
+  has_many :product_reviews do
+    def today
+      where(:created_at => (Time.now.beginning_of_day..Time.now))
+    end
+  end
+  
   
   #---  END OF REVIEWS  ---#
   

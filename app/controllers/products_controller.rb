@@ -20,6 +20,7 @@ before_action :resource_request
 
   def show
     @product = Product.retrieve_product params[:id]
+    @comments = ProductReview.find_all_by_productable_id params[:id]
     
     @promotion = Promotion.order("RANDOM()").first
   end
