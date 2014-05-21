@@ -210,9 +210,6 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
 #----------   HEALTH   ----------
   
   resources :drugs do
-    member do
-      get "additionalinfo" => "drugs#additionalinfo"
-    end
     resources :drug_reviews do
       member do
         put "like", to: "drug_reviews#upvote"
@@ -271,9 +268,6 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
 
 
   resources :books do
-    member do
-      get "description" => "books#description"
-    end
     resources :book_reviews do
       member do
         put "like", to: "book_reviews#upvote"

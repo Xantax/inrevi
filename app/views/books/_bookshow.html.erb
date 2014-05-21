@@ -10,12 +10,12 @@
      Year: <%= @book.publishedDate if @book.publishedDate.present? %> <br>
      Language: <%= @book.language if @book.language.present? %> <br><br>     
      <%= link_to "Preview", @book.previewLink, :target => "_blank" if @book.previewLink.present? %> <br>
-     <%= link_to "Description", description_book_path() %>
-  
+     <div class="r-clickfeature">
+       <%= link_to "Description", "#" %>  
+     </div>
    </div>
   
-  <div class="col-sm-4">
-    
+  <div class="col-sm-4">    
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
     <div class="writeareview">
        <%= link_to "Write a Review", new_book_book_review_path(@book.id, @book_review) %>
@@ -23,8 +23,19 @@
     
        <div>
          <%= render 'show_rating' %>
-       </div>    
-    
+       </div>        
   </div>
   
 </div> <br>
+
+<div class="r-productfeature">
+  <div id="book-description">
+    <%= simple_format(@book.description) if @book.description.present? %>
+  </div><hr>
+</div>
+
+<script type="text/javascript">
+  $('.r-clickfeature').on('click', function(e) {
+  return $(".r-productfeature").slideToggle();
+});
+</script>
