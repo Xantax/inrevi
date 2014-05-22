@@ -62,6 +62,20 @@ ul.nav.nav-stacked.categorylist.mobile li {
   display:inline-block;
 }
 
+/* login buttons */
+
+.fblogin-mobile{
+  float:left;
+  padding-left:10%;
+  padding-top:10%;
+}
+
+.glogin-mobile{
+  float:right;
+  padding-right:10%;
+  padding-top:10%;
+}
+
 /* USER PROFILE */
 
 .mobileshowprofile{
@@ -73,6 +87,10 @@ ul.nav.nav-stacked.categorylist.mobile li {
 .searchbox.mobile{
   width:80%;
   padding-left:2px;
+}
+
+.searchbox.books.mobile{
+  width:80%;
 }
 
 .uselessresults.mobile{

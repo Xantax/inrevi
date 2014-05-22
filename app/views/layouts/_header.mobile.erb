@@ -13,7 +13,7 @@
     <% if signed_in? %>
       <%= link_to "profile", user_path(current_user) %>
     <% else %>
-      <%= link_to "log in", root_path %>
+      <%= link_to "log in", mobile_newsfeed_path %>
     <% end %>
   </div>
 </div>

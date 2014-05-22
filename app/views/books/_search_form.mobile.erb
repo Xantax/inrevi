@@ -1,0 +1,15 @@
+<hr>
+<%= form_tag search_path, method: :get, :html => { :class => 'form-horizontal' } do %>
+
+  <div class="searchbox mobile">
+    <%= text_field_tag :query, params[:query], placeholder: 'by title', :class => "form-control" %>
+  </div>
+  <div class="searchgo">
+    <span class="input-group-btn">
+      <%= submit_tag "Go", class: "btn btn-default" %>
+    </span>
+  </div>
+
+  <% select_tag :category, options_for_select(Book::CATEGORY.map { |key, value| [value, key] }, params[:category] || Book::CATEGORY.keys.first), class: 'btn booksearch'  %>    
+
+<% end %>

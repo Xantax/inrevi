@@ -2,6 +2,7 @@
 
       <% @autos.each do |auto| %>
           <div class="row">
+            <hr>
             <%= link_to auto.name, auto %><br>
             <%= image_tag auto.image_url(:thumb) if auto.image? %>  
             <hr>

@@ -1,0 +1,25 @@
+  <% if @books %>
+        <% @books.each do |book| %><br>
+<hr>          <div>
+                <%= link_to book.titles_array.first.truncate(50, omission: '...'), book_path(book.id) %><br>
+                by <%= book.authors_array.first %> 
+              </div>
+
+              <% if book.comments.count >= 1 %>
+                 <div class="numberOneindex">
+                   <%= ((book.comments.inject(0) { |sum, e| sum += e.point }).to_f / book.comments.count).round(1) rescue 0 %>
+                 </div><br>
+              <% end %>
+
+              <% if book.image_link.present? %>
+                <%= image_tag book.image_link, height: "160" %>
+              <% else %>
+               <%= image_tag('noimage.PNG') %>
+              <% end %>
+
+        <% end %>
+  <% end %>
+<hr>
+<%= render 'paginate' %>
+
+<br>
