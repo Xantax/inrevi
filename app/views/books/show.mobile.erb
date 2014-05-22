@@ -1,0 +1,39 @@
+<% provide(:title, @book.title) %>
+    <br>
+    <div class="item-name-mobile">
+       <%= link_to @book.title.truncate(80, omission: '...'), book_path() if @book.title.present? %>
+    </div>
+    <%= render 'show_rating' %>
+    <%= image_tag @book.imageLinks['thumbnail'] %><br>
+
+     by <%= @book.authors.first if @book.authors.present? %> <br><br>
+     Pages: <%= @book.pageCount if @book.pageCount.present? %> <br>
+     Year: <%= @book.publishedDate if @book.publishedDate.present? %> <br>
+     Language: <%= @book.language if @book.language.present? %> <br><br>     
+     <%= link_to "Preview", @book.previewLink, :target => "_blank" if @book.previewLink.present? %> <br>
+     <div class="r-clickfeature">
+       <%= link_to "Description", "#" %>  
+     </div><br>
+     
+    <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+    <div class="writeareview mobile">
+       <%= link_to "Write a Review", new_book_book_review_path(@book.id, @book_review) %>
+    </div> <hr>     
+
+<div class="r-productfeature">
+  <div id="book-description">
+    <%= simple_format(@book.description) if @book.description.present? %>
+  </div><hr>
+</div>
+
+    <% if @promotion.present? && @promotion.book %>
+        <div class="row showpromotion">
+          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
+        </div>
+    <% end %>
+
+<script type="text/javascript">
+  $('.r-clickfeature').on('click', function(e) {
+  return $(".r-productfeature").slideToggle();
+});
+</script>
