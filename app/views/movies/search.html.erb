@@ -12,7 +12,7 @@
         <div class="moviesnow">
           <div class="row">
     <% if @movie.empty? %>
-       No results!     
+       No results! Try again.    
    <% else %>           
     <% @movie.first(10).each do |movie| %><br><br>
       <% if movie %>
