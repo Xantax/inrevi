@@ -1,0 +1,28 @@
+<%=form_for @podcast,:url => podcasts_path(),:html=>{:class=>"form-horizontal", :multipart => true} do |f|%>
+
+<% if @podcast.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @podcast.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :class => "form-control mobiletitle" %><br><br>
+
+    <%= f.label :tag_list, "Subject(s) - separate by commas" %><br>
+    <%= f.text_field :tag_list, :placeholder => "e.g comedy, technology" , :class => "form-control mobiletitle" %><br><br>
+
+    <%= f.label :website, "Website (or iTunes link)" %><br>
+    <%= f.text_field :website, :class => "form-control mobiletitle", :placeholder => "include https://..." %><br><br>
+
+    <%= image_tag("othericons/PhotoShow.PNG") %>
+    <%= f.file_field :image, :placeholder => "e.g. https://imgur.com/Iks3rd" , :class => "podcastnew" %><br><br>
+
+    <%= submit_tag 'Submit', :class => 'btn btn-primary' %>
+
+<% end %>

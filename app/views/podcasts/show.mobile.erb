@@ -1,0 +1,19 @@
+<% provide(:title, @podcast.name) %>
+<hr>
+    <div class="item-name-mobile">
+      <%= link_to @podcast.name.truncate(80, omission: '...'), podcast_path(@podcast) %>
+    </div>
+      <%= render 'show_rating' %>
+    <%= link_to image_tag(@podcast.image_url(:thumb)), @podcast.image_url, target: :_blank if @podcast.image? %> <br>
+    <%= link_to "Website", @podcast.website, :target => "_blank" %><br>
+    <b>keywords:</b> <%= raw @podcast.tags.map(&:name).map { |t| t }.join(', ') %><br>
+    <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+    <div class="writeareview mobile">
+      <%= link_to "Write a Review", new_podcast_podcast_review_path(@podcast) %>
+    </div><hr>
+
+    <% if @promotion.present? && @promotion.podcast %>
+        <div class="row showpromotion">
+          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
+        </div>
+    <% end %>
