@@ -67,3 +67,48 @@ ul.nav.nav-stacked.categorylist.mobile li {
 .mobileshowprofile{
   padding-left:10px;
 }
+
+/* SEARCH */
+
+.searchbox.mobile{
+  width:80%;
+  padding-left:2px;
+}
+
+.uselessresults.mobile{
+  float:left;
+}
+
+/* FORM */
+
+.form-control.mobiletitle{
+  width:100%;
+}
+
+.form-control.mobilecontent{
+  width:100%;
+  height:200px;
+}
+
+/* ITEM SHOW */
+
+.reviewnumberscore.mobile{
+  font-size:150%;
+  font-weight:bold;
+  color:#808080;
+}
+
+.item-name-mobile{
+  font-size:130%;
+  padding-bottom:5px;
+  font-weight:bold;
+}
+
+.writeareview.mobile{
+  font-size:130%;
+}
+
+#additional-mobile{
+  font-size:120%;
+  padding-top:10px;
+}
