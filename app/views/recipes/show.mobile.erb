@@ -1,0 +1,45 @@
+<% provide(:title, @recipe.name) %>
+<hr>
+    <div class="technameshow">
+      <%= link_to @recipe.name, recipe_path(@recipe) %>
+    </div>
+    <%= render 'show_rating' %><br>
+
+    <%= image_tag @recipe.image_url(:thumb) if @recipe.image? %>
+    
+    <div class="r-clickfeature">
+      <div class="recipe-id">
+        <%= link_to "ingredients", "#" %><br>
+        <%= link_to "directions", "#" %><br>
+      </div>
+    </div>
+
+       <b>Categories:</b> <%= raw @recipe.tags.map(&:name).map { |t| t }.join(', ') %>
+  
+    <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+    <div class="writeareview">
+      <%= link_to "Write a Review", new_recipe_recipe_review_path(@recipe) %>
+    </div><hr>
+
+<div class="r-productfeature">
+  <div class="row">
+    <div class="col-sm-6"> 
+      <%= simple_format(@recipe.ingredients) if @recipe.ingredients.present? %>
+    </div>
+    <div class="col-sm-6"> 
+      <%= simple_format(@recipe.directions) if @recipe.directions.present? %> 
+    </div>
+  </div><hr>
+</div>
+
+<script type="text/javascript">
+  $('.r-clickfeature').on('click', function(e) {
+  return $(".r-productfeature").slideToggle();
+});
+</script>
+
+    <% if @promotion.present? && @promotion.recipe %>
+        <div class="row showpromotion">
+          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
+        </div>
+    <% end %>

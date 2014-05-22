@@ -1,0 +1,41 @@
+<% provide(:title, 'Results...') %>
+<hr>
+        <%= form_tag recipes_search_path, :method => :get do %>
+      
+              <div class="searchbox mobile">
+                <%= text_field_tag :search, params[:search], :placeholder => "e.g Cheesecake, Japanese...",
+                :class => "form-control" %>
+              </div>
+      
+              <div class="searchgo">
+                <span class="input-group-btn">
+                  <%= submit_tag "Go", class: "btn btn-default" %>
+                </span>
+              </div>
+      
+          <% end %>
+<hr>
+
+<% if @recipes.empty? %>
+          No results! Try something else or <b><%= link_to "+ Add new", new_recipe_path() %></b>
+   <% else %>
+      <div class="uselessresults">Useless results? <b><%= link_to "+ Add new", new_recipe_path() %></b></div><br>
+        <% @recipes.each do |recipe| %>
+            <hr>
+                <%= link_to recipe.name.truncate(50, omission: '...'), recipe %><br>
+
+                <% if recipe.recipe_reviews.count >= 1 %>
+                 <div class="numberOneindex">
+                     <%= ((recipe.recipe_reviews.inject(0) { |sum, e| sum += e.point }).to_f / recipe.recipe_reviews.count).round(1) rescue 0 %>
+                 </div>
+                <% end %><br>
+
+               <%= image_tag recipe.image_url(:thumb) if recipe.image? %>
+
+        <% end %>
+      
+          <div class="digg_pagination">
+            <%= will_paginate @recipes %>
+          </div>      
+
+   <% end %>

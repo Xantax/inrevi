@@ -1,0 +1,19 @@
+<% provide(:title, 'All Recpe') %>
+
+      <% @recipes.each do |recipe| %>
+          <div class="row">
+            <%= link_to recipe.name, recipe %><br>
+            <%= image_tag recipe.image_url(:thumb) if recipe.image? %>  
+            <hr>
+            Author: <%= link_to recipe.user.first_name, recipe.user %> |
+            <%= link_to 'Show', recipe_path(recipe) %>
+            <%= link_to 'Edit', edit_recipe_path(recipe) %>
+            <%= link_to 'Destroy', recipe_path(recipe),
+                            method: :delete, data: { confirm: 'Are you sure?' } %>
+            <hr>
+         </div>
+      <% end %>
+
+<div class="digg_pagination">
+  <%= will_paginate @recipes %>
+</div>

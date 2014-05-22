@@ -1,0 +1,29 @@
+<%= form_for @recipe, :html => {:multipart => true} do |f| %>
+  <% if @recipe.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @recipe.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.label :name %><br>
+<%= f.text_field :name, :class => "form-control mobiletitle" %><br><br>
+
+    <%= f.label :ingredients, "Ingredients" %><br>
+<%= f.text_area :ingredients, :class => "form-control mobilecontent", :placeholder => "each ingredient in a new line" %><br><br>
+
+    <%= f.label :directions, "Directions" %><br>
+<%= f.text_area :directions, :class => "form-control mobilecontent", :placeholder => "Basic steps..." %><br><br>
+
+    <%= f.label :tag_list, "keywords - separate by commas" %><br>
+    <%= f.text_field :tag_list, :placeholder => "e.g desert, pancakes" , :class => "form-control mobiletitle" %><br><br>
+
+    <%= image_tag("othericons/PhotoShow.PNG") %>
+    <%= f.file_field :image %><br><br>
+
+    <%= f.submit 'Submit', :class => 'btn btn-default' %>
+
+<% end %>
