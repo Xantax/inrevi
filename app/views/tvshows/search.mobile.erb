@@ -1,0 +1,31 @@
+<% provide(:title, 'Results...') %>
+<hr>
+<%= form_tag tvsearch_path, :method => :get do %>
+    <div class="searchbox mobile">
+      <%= text_field_tag(:query, nil, :placeholder => "e.g. Game of Trones" , :class => "form-control") %>
+    </div>
+    <div class="searchgo">
+      <span class="input-group-btn">
+        <%= submit_tag "Go", class: "btn btn-default" %>
+      </span>
+    </div>
+<% end %>
+<hr>
+
+   <% if @tvshow.empty? %>
+       No results! Try again.
+   <% else %>
+    <% @tvshow.first(10).each do |tvshow| %><br><br>
+
+          <%= link_to tvshow_path(tvshow.id) do %>
+              <%= tvshow.name.truncate(50, omission: '...') %> <br>
+                <% if tvshow.comments.count >= 1 %>
+                   <div class="numberOneindex">
+                     <%= ((tvshow.comments.inject(0) { |sum, e| sum += e.point }).to_f / tvshow.comments.count).round(1) rescue 0 %>
+                   </div>
+                <% end %><br>
+              <%= image_tag("#{@configuration.base_url}w154#{tvshow.poster_path}", height: "150") if tvshow.poster_path %>
+
+      <% end %>
+    <% end %>
+  <% end %>
