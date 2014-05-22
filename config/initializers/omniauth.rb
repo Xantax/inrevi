@@ -6,6 +6,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     }
   provider :google_oauth2, '459957410335-233cfn4j6cbkqisf8r86fcmcigarp75l.apps.googleusercontent.com', 'UTMdeEFQbIGInkmjOqcAWgVM',{
       :image_aspect_ratio => "original",
-      :image_size => 200
+      :image_size => 200,
+    :scope => 'https://www.googleapis.com/auth/plus.login'
     }
 end
