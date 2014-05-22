@@ -1,0 +1,36 @@
+<% provide(:title, 'Results...') %>
+<hr>
+    <%= form_tag drugs_search_path, :method => :get do %>      
+      <div class="searchbox mobile">
+        <%= text_field_tag :search, params[:search], :placeholder => "e.g Heroin, Marijuana" , class: "form-control" %>
+      </div>
+      <div class="searchgo">
+        <span class="input-group-btn">
+          <%= submit_tag "Go", class: "btn btn-default" %>
+        </span>
+      </div>
+    <% end %>
+<hr>
+
+  <% if @drugs.empty? %>
+          No results! Try something else or <b><%= link_to "+ Add new", new_drug_path() %></b>
+   <% else %>
+     <div class="uselessresults mobile">Useless results? <b><%= link_to "+ Add new", new_drug_path() %></b></div><br>
+      <% @drugs.each do |drug| %>
+          <hr>
+          <%= link_to drug.name.truncate(50, omission: '...'), drug %><br>
+
+         <% if drug.drug_reviews.count >= 1 %>
+           <div class="numberOneindex">
+             <%= ((drug.drug_reviews.inject(0) { |sum, e| sum += e.point }).to_f / drug.drug_reviews.count).round(1) rescue 0 %>
+          </div>
+        <% end %><br>
+
+          <%= image_tag drug.image_url(:thumb) if drug.image? %>           
+       <% end %>
+      
+          <div class="digg_pagination">
+            <%= will_paginate @drugs %>
+          </div>      
+
+     <% end %>

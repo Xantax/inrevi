@@ -1,0 +1,17 @@
+<% provide(:title, 'Fine Art') %>
+
+      <% @finearts.each do |fineart| %>
+          <div class="row">
+            <%= link_to fineart.name, fineart %><br>
+            <%= image_tag fineart.image_url(:thumb) if fineart.image? %>  
+            <hr>
+            Author: <%= link_to fineart.user.first_name, fineart.user %> |
+            <%= link_to 'Destroy', fineart_path(fineart),
+                            method: :delete, data: { confirm: 'Are you sure?' } %>
+            <hr>
+         </div>
+      <% end %>
+
+<div class="digg_pagination">
+  <%= will_paginate @finearts %>
+</div>

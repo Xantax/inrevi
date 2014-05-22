@@ -1,0 +1,20 @@
+<% provide(:title, @fineart.name) %>
+    <hr>
+    <div class="item-name-mobile">
+      <%= link_to @fineart.name.truncate(80, omission: '...'), fineart_path(@fineart) %>
+    </div>
+      <%= render 'show_rating' %>
+    <%= link_to image_tag(@fineart.image_url(:thumb)), @fineart.image_url, target: :_blank if @fineart.image? %> <br>
+
+    <b>keywords:</b> <%= raw @fineart.tags.map(&:name).map { |t| t }.join(', ') %><br>
+
+    <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+    <div class="writeareview mobile">
+      <%= link_to "Write a Review", new_fineart_fineart_review_path(@fineart) %>
+    </div><hr>
+
+    <% if @promotion.present? && @promotion.fineart %>
+        <div class="row showpromotion">
+          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
+        </div>
+    <% end %>

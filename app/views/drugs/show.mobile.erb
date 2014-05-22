@@ -1,0 +1,32 @@
+<% provide(:title, @drug.name) %>
+    <hr>
+    <div class="item-name-mobile">
+      <%= link_to @drug.name.truncate(80, omission: '...'), drug_path(@drug) %>
+    </div>
+      <%= render 'show_rating' %>
+    <%= link_to image_tag(@drug.image_url(:thumb)), @drug.image_url, target: :_blank if @drug.image? %> <br>
+
+      <div class="r-clickfeature" id="additional-mobile">
+        <%= link_to "additional info", "#" %><br><br>
+      </div>
+    
+    <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+    <div class="writeareview mobile">
+      <%= link_to "Write a Review", new_drug_drug_review_path(@drug) %>
+    </div><hr>
+    
+<div class="r-productfeature">
+  <%= simple_format(@drug.additionalinfo) if @drug.additionalinfo.present? %><hr>
+</div>
+
+    <% if @promotion.present? && @promotion.drug %>
+        <div class="row showpromotion">
+          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
+        </div>
+    <% end %>
+
+<script type="text/javascript">
+  $('.r-clickfeature').on('click', function(e) {
+  return $(".r-productfeature").slideToggle();
+});
+</script>

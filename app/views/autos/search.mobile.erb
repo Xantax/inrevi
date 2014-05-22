@@ -30,4 +30,9 @@
       <%= image_tag auto.image_url(:thumb) if auto.image? %>
       
   <% end %>
+
+          <div class="digg_pagination">
+            <%= will_paginate @autos %>
+          </div>
+
 <% end %>
