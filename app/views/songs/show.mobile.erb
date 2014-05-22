@@ -1,0 +1,21 @@
+<% provide(:title, @song.name) %>
+<hr>
+           <div class="songname"><%= @song.name %></div>
+           <%= render 'show_rating' %><br>
+           <div class="songartistalbum">
+             <b>Artists:</b> <%= @song.artists.map(&:name).join(', ') %><br>
+             <b>Album:</b> <%= @song.album.name %>
+           </div><br>
+            
+            <iframe allowtransparency="true" frameborder="0" height="80" src="https://embed.spotify.com/?uri=<%= @song.uri %>" width="250"></iframe><br>
+
+            <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+            <div class="writeareview mobile">
+              <%= link_to "Write a Review", new_song_song_review_path(@song.uri) %>
+            </div><hr>
+
+    <% if @promotion.present? && @promotion.music %>
+        <div class="row showpromotion">
+          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
+        </div>
+    <% end %>

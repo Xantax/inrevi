@@ -1,0 +1,15 @@
+            <% if @songs %>
+              <div class="paginate pull-right">
+                <% page = params[:page] || 1 %>
+                <% next_page = page.to_i + 1 %>
+                <% previous_page = page.to_i - 1 %>
+                <% total_pages = (@songs[:total_results].to_f / @songs[:items_per_page].to_i).ceil %>
+                <% if previous_page > 0 %>
+                  <%= link_to "Previous Page", songs_search_path(params.merge(page: page.to_i - 1)) %>
+                <% end %>
+                <%= "Page #{page}/#{total_pages}" %>
+                <% if next_page <= total_pages %>
+                  <%= link_to "Next Page", songs_search_path(params.merge(page: page.to_i + 1)) %>
+                <% end %>
+              </div>
+            <% end %>

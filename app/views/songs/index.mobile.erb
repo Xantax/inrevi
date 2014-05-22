@@ -1,0 +1,22 @@
+<% provide(:title, 'Songs') %>
+
+      <%= render :file => 'songs/songsearch' %>
+
+          <% @songs[:tracks].each do |song| %>
+                
+                <div class="songname">
+                  <%= link_to song.name.truncate(50, omission: '...'), song_path(song.uri) %>
+                </div>
+                <% if song.comments.count >= 1 %>
+                   <div class="numberOneindex">
+                     <%= ((song.comments.inject(0) { |sum, e| sum += e.point }).to_f / song.comments.count).round(1) rescue 0 %>
+                   </div>
+                <% end %><br>
+                <div class="songartistalbum">
+                  <b>Artist:</b> <%= song.artists.map(&:name).join(', ') %><br>
+                  <b>Album:</b> <%= song.album.name %>
+                </div><br>
+
+          <% end %>
+
+    <%= render 'indexpaginate' %><br>
