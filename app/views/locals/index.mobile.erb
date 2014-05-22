@@ -1,0 +1,33 @@
+<% provide(:title, '') %>
+
+  <% model_class = Local %>
+
+<%= render 'search_form' %>
+
+<% @results.first(10).each do |result| %>
+          <div class="localindexname">
+            <%= link_to result['name'].truncate(50, omission: '...'), local_path(result['factual_id']) %>
+          </div>
+          <div class="localcategory"><b>·</b> 
+            <%= result['category_labels'].join(', ') unless result['category_labels'].blank? %>
+          </div>
+        
+                <% if result.local_comments_count >= 1 %>
+                   <div class="numberOneindex">
+                     <%= ((result.local_comments.inject(0) { |sum, e| sum += e.point }).to_f / result.local_comments_count).round(1) rescue 0 %>
+                   </div><br>
+                <% end %><br>
+        
+              <%= result['address'] %><br>
+              <%= result['locality'] %>,
+              <%= result['region'] %><br>
+        
+              <% if result['tel'].blank? %>
+              <% else %>
+                <%= image_tag("localicons/phoneicon.PNG", height: '12', width: '12') %>
+                <b><%= result['tel'] %></b>
+              <% end %><br>
+
+          <div class="localbottom"></div>
+        <% end %>
+<br><%= render 'nextpage' %><br>

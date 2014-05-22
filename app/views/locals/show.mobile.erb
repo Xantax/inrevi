@@ -1,0 +1,68 @@
+<% provide(:title, @local['name']) %>
+
+<% model_class = Local %>
+<hr>
+      <div class="local name">
+        <%= link_to @local['name'], local_path if @local['name'].present? %>
+      </div><br>
+          <%= render 'show_rating' %><br>
+
+            <div class="localcategory"><%= @local['category_labels'].join(', ').split.last(1).join('') if @local['category_labels'].present? %></div>
+            <%= link_to image_tag("http://maps.googleapis.com/maps/api/staticmap?center=#{@local['latitude']},#{@local['longitude']}&zoom=14&size=140x130&markers=color:black%7Xlabel:C%7C#{@local['latitude']},#{@local['longitude']}&sensor=false&key=#{Settings.google.key}"), "http://maps.google.com/maps?daddr=#{@local['latitude']},#{@local['longitude']}", :target => "_blank" %><br>
+
+                <%= @local['address'] if @local['address'].present? %><br>
+                <%= @local['locality'] if @local['locality'].present? %>,
+                <%= @local['region'] if @local['region'].present? %><br>
+            
+                <% unless @local['tel'].blank? %>
+                <%= image_tag("localicons/phoneicon.PNG", height: '12', width: '12') %>
+                <b><%= @local['tel'] %></b>
+                <% end %><br><br>
+            
+                <%= image_tag("localicons/directionicon.PNG", height: '12', width: '12') %>
+                <%= link_to "Get directions", "http://maps.google.com/maps?daddr=#{@local['latitude']},#{@local['longitude']}", :target => "_blank" %><br><br>
+            
+                <% unless @local['website'].blank? %>
+                  <%= link_to "website", @local['website'], :target => "_blank" %>
+                <% end %><br>
+               <div class="r-clickfeature" id="additional-mobile">
+                  <% unless @addition_info.blank? %>
+                    <%= link_to "additional info", "#" %>
+                  <% end %><br><br>
+               </div>
+
+        <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+        <div class="writeareview mobile">
+          <%= link_to "Write a Review", new_local_local_review_path(@local['factual_id']) %>
+        </div><hr>
+
+        <div class="r-productfeature">
+          <table border="1" class="table table-striped table-hover table-condensed" >
+            <% if @addition_info.present? %>
+              <% @addition_info[1].first.select {|key, value| select_params.include?(key)}.each do |key, value| %>
+                  <tr>
+                  <td width="40%">
+                  <b><%= "#{key.humanize}: " %></b>
+                  </td>
+                  <td>                    
+                  <%= value.is_a?(Array) ? value.join(', ') : value %>
+                  </td>
+                </tr>
+              <% end %>
+            <% else %>
+            No additional information.
+            <% end %>
+          </table> <hr>
+        </div>
+
+<script type="text/javascript">
+  $('.r-clickfeature').on('click', function(e) {
+  return $(".r-productfeature").slideToggle();
+});
+</script>
+
+    <% if @promotion.present? && @promotion.local %>
+        <div class="row showpromotion">
+          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
+        </div>
+    <% end %>

@@ -9,11 +9,7 @@ class LocalsController < ApplicationController
   def lsearch
     query = @factual.table('places')
     @results, @total_results = Local.factual_results(query, params)
-    
-    respond_to do |format|
-      format.html { render 'index' }
-    end
-    
+    render 'index'    
   end
 
   def show
