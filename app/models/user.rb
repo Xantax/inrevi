@@ -165,48 +165,6 @@ class User < ActiveRecord::Base
   def fb_user_id
     self.fbfriends.map{ |v| v.id }
   end
-
-  def gplusf
-    require 'google/api_client'
-    
-    client = Google::APIClient.new(
-      :application_name => 'inrevi',
-      :application_version => '2.0.0')
-    
-    client.authorization = nil
-    
-    plus = client.discovered_api('plus')
-    
-    people_result = client.execute(
-      :api_method => plus.people.list,
-      :parameters => {userId: 'me', collection: 'visible'})
-
-    people_parsed = people_result.data
-    people_ids = people_parsed['items'].map{ |x| x['id'] }
-    
-    return people_ids
-  end
-  
-  def gfriends
-    puts User.where(uid: gplusf)
-  end
-  
-  
-  def smallimage
-  "http://graph.facebook.com/#{self.uid}/picture?type=small"
-  end
-  
-  def largeimage
-    "http://graph.facebook.com/#{self.uid}/picture?width=130"
-  end
-  
-  def normalimage
-    "http://graph.facebook.com/#{self.uid}/picture?width=100"
-  end
-  
-  def reviewimage
-    "https://graph.facebook.com/#{self.uid}/picture?width=70"
-  end
   
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)
