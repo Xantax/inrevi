@@ -340,8 +340,8 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.integer  "point",                 default: -1
     t.integer  "user_id"
     t.integer  "cat_id"
-    t.integer  "productable_id"
-    t.string   "productable_type"
+    t.string   "productable_id"
+    t.integer  "upc_code"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "cached_votes_total",    default: 0

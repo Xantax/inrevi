@@ -1,7 +1,7 @@
 Inrevi::Application.routes.draw do
 
 
-#  resources :product_reviews
+  resources :product_reviews
 
   get 'cameras/search' => 'products#search'
   get 'computers/search' => 'products#search'

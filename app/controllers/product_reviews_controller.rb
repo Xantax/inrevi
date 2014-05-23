@@ -3,20 +3,20 @@ class ProductReviewsController < ApplicationController
   before_action :product_retrieve
 
   def new
-    @product_comment = ProductReview.new
-    @product_comment.review_images.build
-    @product_comment.review_images.build  
-    @product_comment.review_images.build
+    @product_review = ProductReview.new
+    @product_review.review_images.build
+    @product_review.review_images.build  
+    @product_review.review_images.build
   end
 
   def create
-    @product_comment = ProductReview.new(product_review_params)
-    @product_comment.user = current_user
+    @product_review = ProductReview.new(product_review_params)
+    @product_review.user = current_user
 
-    if @product_comment.save
-      @product_comment.create_activity :create, owner: current_user
+    if @product_review.save
+      @product_review.create_activity :create, owner: current_user
       
-      redirect_to eval("#{@resource_type}_path(@product['sem3_id'])")
+      redirect_to root_path
     else
       render 'new'
     end
@@ -42,8 +42,9 @@ class ProductReviewsController < ApplicationController
     @product = Product.retrieve_product eval("params[:#{@resource_type}_id]")
   end
   
-    def product_review_params
-      params.require(:product_review).permit(:content, :user_id, {product_id: @product['sem3_id']}, {product_type: @resource_type}, {cat_id: @product['cat_id']}, :point, :score,
-        {review_images_attributes: [:image, :attachable_id, :attachable_type]})
+      def product_review_params
+        params.require(:product_review).permit(:content, :user_id, :productable_id, :cat_id, :point, :score, :upc_code,
+        review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
+
 end

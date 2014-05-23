@@ -5,8 +5,8 @@ class CreateProductReviews < ActiveRecord::Migration
       t.integer :point, default: -1
       t.references :user, index: true
       t.integer :cat_id
-      t.integer :productable_id
-      t.string :productable_type
+      t.string :productable_id
+      t.integer :upc_code
 
       t.timestamps
     end

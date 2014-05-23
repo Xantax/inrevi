@@ -1,32 +1,48 @@
-<% object_id = "#{@resource_type}_id" %>
-<%= form_tag eval("#{@resource_type}_product_reviews_path(#{params[:object_id]})") do |f| %>
+<%= nested_form_for(:product_review, :url => {:action => :create}, validate: true, html: {multipart: true, :method => :post}, 'data-update-target' => 'comments', class: 'comments') do |f| %>
+  <% if @product_review.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @product_review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <%= hidden_field_tag :point %>
+  <%= f.hidden_field :point %>
   <div class="rating-comments"></div>
   <br>
 
   <div class="field">
-    <%= text_area_tag 'content', :class => 'form-control reviewcontent' %>
+    <%= f.text_area 'content', :class => 'form-control reviewcontent' %>
   </div><br>
 
       <div class="r-image"></div>
 
-      <div class="r-rightside">
-        <%= fields_for :review_images do |p| %>
-            <%= p.file_field :image %>
-        <% end %>
-      </div>
+<div class="r-rightside">
+        <div class="fields">
+            <input id="product_review_review_images_attributes_0_image" name="product_review[review_images_attributes][0][image]" type="file" />
+</div><div class="fields">
+            <input id="product_review_review_images_attributes_1_image" name="product_review[review_images_attributes][1][image]" type="file" />
+</div><div class="fields">
+            <input id="product_review_review_images_attributes_2_image" name="product_review[review_images_attributes][2][image]" type="file" />
+</div>      </div>
 
       <br>
     
       <div class="actions">
-        <%= submit_tag " Submit ", :class => "btn btn-default", :id => "submit" %>
+        <%= f.submit " Submit ", :class => "btn btn-default", :id => "submit-me" %>
       </div><br>
     
       <div id="loading2" class="loadinggif" style="display:none;">
         <img src="/assets/othericons/uploading.gif" alt="" />
       </div>
       <div class="row dumb300"></div>
+
+<%= f.text_field :productable_id, :value => @product['sem3_id'] %>
+<%= f.text_field :cat_id, :value => @product['cat_id'] %>
+<%= f.text_field :upc_code, :value => @product['upc'] %>
+
 <% end %>
 
 <script type="text/javascript">
@@ -41,7 +57,7 @@
 <script type="text/javascript">
 (function (d) {
   d.getElementById('new_product_review').onsubmit = function () {
-    d.getElementById('submit').style.display = 'block';
+    d.getElementById('submit-me').style.display = 'block';
     d.getElementById('loading2').style.display = 'block';
   };
 }(document));
