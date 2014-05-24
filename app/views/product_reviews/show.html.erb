@@ -1,12 +1,19 @@
-%p#notice= notice
+<div class="row">
+ 
+  <div class="col-sm-2 categories">
+    <%= render 'shared/categories' %>
+  </div> 
+    
+  <div class="col-sm-8"> 
+     <div class="allnews">
+       <%= render 'product_review_show_product' %>
+       <%= render 'product_review_show' %>
+       <div class="row dumb500"></div>
+     </div>
+  </div>
+  
+  <div class="col-sm-2">
+    <%= render 'shared/user_mainprofile' %>
+  </div>
 
-%p
-  %b Content:
-  = @product_review.content
-%p
-  %b User:
-  = @product_review.user
-
-= link_to 'Edit', edit_product_review_path(@product_review)
-\|
-= link_to 'Back', product_reviews_path
+</div>

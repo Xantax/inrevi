@@ -37,11 +37,15 @@
       <div id="loading2" class="loadinggif" style="display:none;">
         <img src="/assets/othericons/uploading.gif" alt="" />
       </div>
+
       <div class="row dumb300"></div>
 
 <%= f.text_field :productable_id, :value => @product['sem3_id'] %>
 <%= f.text_field :cat_id, :value => @product['cat_id'] %>
 <%= f.text_field :upc_code, :value => @product['upc'] %>
+<%= f.text_field :product_name, :value => @product['name'] %>
+<%= f.text_field :gtins, :value => @product['gtins'] %>
+<%= f.text_field :productable_type, :value => @resource_type %>
 
 <% end %>
 

@@ -26,6 +26,7 @@ class Permission < Struct.new(:user)
     return true if controller == "drug_reviews" && action.in?(%w[show])
     return true if controller == "recipe_reviews" && action.in?(%w[show])
     return true if controller == "fineart_reviews" && action.in?(%w[show])
+    return true if controller == "product_reviews" && action.in?(%w[show])
     if user
       return true if user.admin?
       return false if user.banned?
@@ -55,6 +56,7 @@ class Permission < Struct.new(:user)
       return true if controller == "drug_reviews" && action.in?(%w[new create upvote downvote])
       return true if controller == "recipe_reviews" && action.in?(%w[new create upvote downvote])
       return true if controller == "fineart_reviews" && action.in?(%w[new create upvote downvote])
+      return true if controller == "product_reviews" && action.in?(%w[new create upvote downvote])
     end
     false
   end

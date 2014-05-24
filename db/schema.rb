@@ -341,7 +341,10 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.integer  "user_id"
     t.integer  "cat_id"
     t.string   "productable_id"
+    t.string   "productable_type"
     t.integer  "upc_code"
+    t.string   "product_name"
+    t.string   "gtins"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "cached_votes_total",    default: 0

@@ -20,7 +20,10 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.retrieve_product params[:id]
-    @comments = ProductReview.find_all_by_productable_id params[:id]
+    @product_reviews = ProductReview.where(productable_id: params[:id]).paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
+    
+    @avg_score = 0
+    @avg_score = @product_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @product_reviews.count if @product_reviews.count > 0
     
     @promotion = Promotion.order("RANDOM()").first
   end

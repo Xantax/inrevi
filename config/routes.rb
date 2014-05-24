@@ -1,7 +1,13 @@
 Inrevi::Application.routes.draw do
 
 
-  resources :product_reviews
+  resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end
+  end
+  match 'product_reviewz/all' => "product_reviews#all", via: [:get]
 
   get 'cameras/search' => 'products#search'
   get 'computers/search' => 'products#search'
@@ -38,106 +44,276 @@ Inrevi::Application.routes.draw do
   get 'indoors/search' => 'products#search'
   get 'outdoors/search' => 'products#search'
   resources :products, path: 'computers', as: :computer do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'cameras', as: :camera do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'securities', as: :security do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'televisions', as: :television do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'carelectros', as: :carelectro do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'homeaudios', as: :homeaudio do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'eportables', as: :eportable do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'emobiles', as: :emobile do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'videogames', as: :videogame do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'makeups', as: :makeup do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'fragrances', as: :fragrance do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'haircares', as: :haircare do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'skincares', as: :skincare do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'bodybaths', as: :bodybath do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'groceries', as: :grocery do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'jewelries', as: :jewelry do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'menclothings', as: :menclothing do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'womenclothings', as: :womenclothing do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'menfootwears', as: :menfootwear do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'womenfootwears', as: :womenfootwear do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'healthcares', as: :healthcare do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'supplements', as: :supplement do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'sexuals', as: :sexual do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'personals', as: :personal do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'musicals', as: :musical do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'sports', as: :sport do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'crafts', as: :craft do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'toys', as: :toy do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'appliances', as: :appliance do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'babies', as: :baby do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'pets', as: :pet do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'tools', as: :tool do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'indoors', as: :indoor do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
   resources :products, path: 'outdoors', as: :outdoor do
-    resources :product_reviews
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
   end
 
 #  get 'tags/:tag', to: 'teches#index', as: :ttag
@@ -205,7 +381,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
     end
   end
   
-  match 'local_reviews/all' => "local_reviews#all", via: [:get]
+  match 'local_reviewz/all' => "local_reviews#all", via: [:get]
   
 #----------   HEALTH   ----------
   

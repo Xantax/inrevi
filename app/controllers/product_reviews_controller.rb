@@ -1,7 +1,11 @@
 class ProductReviewsController < ApplicationController
-  before_action :resource_request
-  before_action :product_retrieve
+  before_action :resource_request, except: [:all_product_comments]
+  before_action :product_retrieve, except: [:all_product_comments, :destroy]
 
+  def all
+    @all_product_reviews = ProductReview.all
+  end
+  
   def new
     @product_review = ProductReview.new
     @product_review.review_images.build
@@ -21,16 +25,25 @@ class ProductReviewsController < ApplicationController
       render 'new'
     end
   end
+  
+  def destroy
+    @product_review = ProductReview.find(params[:id])
+    @product_review.destroy
 
-#def upvote
-#    @product_comment.liked_by current_user
-#    render nothing: true
-#  end
+    redirect_to product_reviewz_all_path
+  end
 
-#  def downvote
-#    @product_comment.downvote_from current_user
-#    render nothing: true    
-#  end
+  def upvote
+    @product_review = ProductReview.find(params[:id])
+    @product_review.liked_by current_user
+    render nothing: true
+  end
+
+  def downvote
+    @product_review = ProductReview.find(params[:id])
+    @product_review.downvote_from current_user
+    render nothing: true    
+  end
 
   private
 
@@ -43,7 +56,7 @@ class ProductReviewsController < ApplicationController
   end
   
       def product_review_params
-        params.require(:product_review).permit(:content, :user_id, :productable_id, :cat_id, :point, :score, :upc_code,
+        params.require(:product_review).permit(:content, :user_id, :productable_id, :cat_id, :point, :score, :upc_code, :product_name, :productable_type, :gtins,
         review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
 
