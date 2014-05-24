@@ -1,6 +1,7 @@
 class ProductReviewsController < ApplicationController
-  before_action :resource_request, except: [:all_product_comments]
-  before_action :product_retrieve, except: [:all_product_comments, :destroy]
+  before_action :resource_request, except: [:all_product_comments, :show]
+  before_action :product_retrieve, except: [:all_product_comments, :destroy, :show]
+  before_action :set_product_review, only: [:show, :destroy, :upvote, :downvote]
 
   def all
     @all_product_reviews = ProductReview.all
@@ -12,6 +13,9 @@ class ProductReviewsController < ApplicationController
     @product_review.review_images.build  
     @product_review.review_images.build
   end
+  
+  def show
+  end
 
   def create
     @product_review = ProductReview.new(product_review_params)
@@ -19,33 +23,34 @@ class ProductReviewsController < ApplicationController
 
     if @product_review.save
       @product_review.create_activity :create, owner: current_user
-      
-      redirect_to root_path
+
+      redirect_to eval("#{@resource_type}_product_review_path(@product['sem3_id'], @product_review.id)")
     else
       render 'new'
     end
   end
   
   def destroy
-    @product_review = ProductReview.find(params[:id])
     @product_review.destroy
 
     redirect_to product_reviewz_all_path
   end
 
   def upvote
-    @product_review = ProductReview.find(params[:id])
     @product_review.liked_by current_user
     render nothing: true
   end
 
   def downvote
-    @product_review = ProductReview.find(params[:id])
     @product_review.downvote_from current_user
     render nothing: true    
   end
 
   private
+  
+  def set_product_review
+    @product_review = ProductReview.find(params[:id])
+  end
 
   def resource_request
     @resource_type = request.path_info[1..-1].split('/').first.singularize.to_sym

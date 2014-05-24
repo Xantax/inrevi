@@ -36,5 +36,6 @@ class Product < ActiveRecord::Base
 
       sem3.get_products['results'].first rescue nil
     end
+    
   end
 end
