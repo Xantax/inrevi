@@ -1,0 +1,54 @@
+<div class="row" align="left">
+<% if activity.trackable %>
+  
+   <% unless activity.owner == @user %>
+      <div class="mobile-activity-photo"><%= image_tag(activity.owner.image, width: "50") %></div>  
+      <div class="reviewname mobile">  
+      <%= link_to user_path(activity.owner) do %> 
+         <%= activity.owner.first_name %>
+         <%= activity.owner.last_name.truncate(2, omission: '.')%>
+      <% end %>
+      </div>
+   <% end %><br><br>
+
+      <div class="separatereview">
+        
+        <%= image_tag('caticons/hover/catlocal.PNG') %>    
+        <%= link_to activity.trackable.product_name.truncate(30, omission: '...'), "/#{activity.trackable.productable_type}s/#{activity.trackable.productable_id}" %><br><br>
+        
+        <div class="numberOne"><%= activity.trackable.point %></div><br><br>
+        <div class="reviewcontent"><%= simple_format(activity.trackable.content) %></div>
+             <% activity.trackable.review_images.each do |pic| %>
+             <%= link_to image_tag(pic.image_url(:review_thumb), width: "50"), pic.image_url, target: :_blank if pic.image? %>
+            <% end %> 
+              <% if signed_in? %>
+                <% unless current_user == activity.owner %>
+                  <hr>
+                <% end %>
+              <% end %>
+    
+          <div class="bottomreviewicons">
+            <% if signed_in? %>
+            
+                <% if current_user == activity.owner %>
+                  
+                <% elsif current_user.voted_for? activity.trackable %>
+                  Voted!
+                <% else %>
+                 <div class="thumbsup">
+                   <%= link_to image_tag('othericons/thumbsup_off.PNG'),  "/#{activity.trackable.productable_type}s/#{activity.trackable.productable_id}/product_reviews/#{activity.trackable.id}/like", method: :put, :remote => true %>
+                 </div>
+                          
+                 <div class="thumbsdown">
+                  <%= link_to image_tag('othericons/thumbsdown_off.PNG'), "/#{activity.trackable.productable_type}s/#{activity.trackable.productable_id}/product_reviews/#{activity.trackable.id}/dislike", method: :put, :remote => true %>
+                 </div>
+                          
+                <% end %> 
+            
+            <% end %>
+          </div>
+        
+      </div>
+
+<% end %>
+</div><br>

@@ -1,46 +1,17 @@
-<div class="row podup">
-  
-  <div class="col-sm-8">
-    
-    <div class="row">
-       <%= @product['name'] %><hr>
-    </div>
-    
-    <div class="row">
-      
-      <div class="col-sm-6"> IMAGE </div>
-      
-      <div class="col-sm-6"> 
-        
+<%= @product['name'] %><br><br>
+
+<%= render 'show_rating' %><br>
+
 <a target="_blank" href="http://www.amazon.com/gp/search?ie=UTF8&camp=1789&creative=9325&index=aps&keywords=<%= @product['name'] %>&linkCode=ur2&tag=movtop0c-20&linkId=OIHB2WQO2XH64F3N">Buy it</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=movtop0c-20&l=ur2&o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />  <br><br>
         
           <div class="r-clickfeature">
             <b><%= link_to "+ features", "#" %></b>
           </div> 
-        
-      </div>
-      
-  </div>
-    
-  </div>
-  
-  <div class="col-sm-4">
     
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
-    <div class="writeareview">
+    <div class="writeareview mobile">
       <%= link_to "Write a Review", eval("new_#{@resource_type}_product_review_path(@product['sem3_id'])") %>
     </div><br>
-    
-     <div>
-     <%= render 'show_rating' %>
-     </div>
-    
-  </div>
-  
-
-</div>
-  
-  
   
   <div class="row">
     

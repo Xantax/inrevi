@@ -1,0 +1,16 @@
+<hr>
+
+<%= form_tag eval("#{@resource_type.to_s.pluralize}_search_path"), method: :get, class: 'form-horizontal', id: 'products_search_path' do %>
+
+    <div class="searchbox mobile">
+      <%= text_field_tag :query, params[:query], placeholder: 'Search', class: 'form-control', id: 'query-text-field' %>
+    </div>
+    <%= hidden_field_tag :category, params[:category] %>
+              <div class="searchgo">
+                <span class="input-group-btn">
+                  <%= submit_tag "Go", class: "btn btn-default" %>
+                </span>
+              </div>
+<% end %>
+
+<hr>
