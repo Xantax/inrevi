@@ -21,7 +21,7 @@
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
     <div class="writeareview">
       <%= link_to "Write a Review", 
-eval("new_#{@resource_type}_product_review_path(@product_review.prodictable_id)") %>
+eval("new#{@resource_type}_product_review_path(@product_review.productable_id)") %>
     </div><br>
     
   </div>
