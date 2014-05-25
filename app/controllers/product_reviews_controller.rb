@@ -24,7 +24,7 @@ class ProductReviewsController < ApplicationController
     if @product_review.save
       @product_review.create_activity :create, owner: current_user
 
-      redirect_to eval("#{@resource_type}_product_review_path(@product['sem3_id'], @product_review.id)")
+      redirect_to current_user
     else
       render 'new'
     end

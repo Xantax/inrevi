@@ -29,8 +29,9 @@ class AutoReviewsController < ApplicationController
     @auto_review.user = current_user
 
       if @auto_review.save
-        @auto_review.create_activity :create, owner: current_user        
-        redirect_to [@auto, @auto_review], notice: 'Share your review'
+        @auto_review.create_activity :create, owner: current_user  
+        
+        redirect_to current_user
       else
         render action: 'new'
       end

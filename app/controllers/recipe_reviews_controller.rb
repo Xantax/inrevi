@@ -30,7 +30,7 @@ class RecipeReviewsController < ApplicationController
       if @recipe_review.save
         @recipe_review.create_activity :create, owner: current_user
         
-        redirect_to [@recipe, @recipe_review], notice: 'Share your review'
+        redirect_to current_user
       else
         render action: 'new'
       end

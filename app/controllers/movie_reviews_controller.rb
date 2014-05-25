@@ -40,7 +40,7 @@ class MovieReviewsController < ApplicationController
       if @movie_review.save
         @movie_review.create_activity :create, owner: current_user
         
-        redirect_to movie_movie_review_path(@movie.id, @movie_review), notice: 'Share your review'
+        redirect_to current_user
       else
         render action: 'new'
       end

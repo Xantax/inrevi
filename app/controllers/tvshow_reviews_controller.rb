@@ -30,7 +30,7 @@ class TvshowReviewsController < ApplicationController
       if @tvshow_review.save
         @tvshow_review.create_activity :create, owner: current_user
         
-        redirect_to tvshow_tvshow_review_path(@tvshow.id, @tvshow_review), notice: 'Share your review'
+        redirect_to current_user
       else
         render action: 'new'
       end

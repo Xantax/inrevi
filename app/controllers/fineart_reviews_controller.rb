@@ -32,7 +32,7 @@ class FineartReviewsController < ApplicationController
       if @fineart_review.save
         @fineart_review.create_activity :create, owner: current_user
         
-        redirect_to [@fineart, @fineart_review], notice: 'Share your review'
+        redirect_to current_user
       else
         render action: 'new'
       end

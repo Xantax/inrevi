@@ -25,7 +25,8 @@ class BookReviewsController < ApplicationController
 
       if @book_review.save
         @book_review.create_activity :create, owner: current_user
-        redirect_to book_book_review_path(@book.id, @book_review), notice: 'Share your review'
+        
+        redirect_to current_user
       else
         render action: 'new'
       end

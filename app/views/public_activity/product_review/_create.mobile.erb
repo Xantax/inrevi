@@ -13,8 +13,123 @@
 
       <div class="separatereview">
         
-        <%= image_tag('caticons/hover/catlocal.PNG') %>    
-        <%= link_to activity.trackable.product_name.truncate(30, omission: '...'), "/#{activity.trackable.productable_type}s/#{activity.trackable.productable_id}" %><br><br>
+        <% if activity.trackable.cat_id == 13658 %>
+          <%= image_tag('caticons/hover/catelectronics.PNG') %> 
+        
+        <% elsif activity.trackable.productable_type == "homeaudio" %>
+          <%= image_tag('caticons/electronics/Eaudio.png') %> 
+        
+        <% elsif activity.trackable.productable_type == "computer" %>
+        <%= image_tag('caticons/electronics/Ecomputers.png') %>
+        
+        <% elsif activity.trackable.productable_type == "security" %>
+        <%= image_tag('caticons/electronics/Esecurity.png') %>
+        
+        <% elsif activity.trackable.productable_type == "camera" %>
+        <%= image_tag('caticons/electronics/Ecamera.png') %>
+        
+        <% elsif activity.trackable.productable_type == "television" %>
+        <%= image_tag('caticons/electronics/Etv.png') %>
+        
+        <% elsif activity.trackable.productable_type == "eportable" %>
+        <%= image_tag('caticons/electronics/Eportable.png') %>
+        
+        <% elsif activity.trackable.productable_type == "carelectro" %>
+        <%= image_tag('caticons/electronics/Evehicle.png') %>
+        
+        <% elsif activity.trackable.productable_type == "emobile" %>
+        <%= image_tag('caticons/electronics/Emobile.png') %>
+        
+        <% elsif activity.trackable.cat_id == 13157 %>
+        <%= image_tag('caticons/hover/Cbeauty.PNG') %> 
+        
+        <% elsif activity.trackable.productable_type == "bodybath" %>
+        <%= image_tag('caticons/beauty/Bbath.png') %>
+        
+        <% elsif activity.trackable.productable_type == "fragrance" %>
+        <%= image_tag('caticons/beauty/Bfragrance.png') %>
+        
+        <% elsif activity.trackable.productable_type == "haircare" %>
+        <%= image_tag('caticons/beauty/Bhair.png') %>
+        
+        <% elsif activity.trackable.productable_type == "makeup" %>
+        <%= image_tag('caticons/beauty/Bmakeup.png') %>
+        
+        <% elsif activity.trackable.productable_type == "skincare" %>
+        <%= image_tag('caticons/beauty/Bskin.png') %>  
+        
+        <% elsif activity.trackable.cat_id == 17366 %>
+        <%= image_tag('caticons/hover/Cfashion.PNG') %> 
+        
+        <% elsif activity.trackable.cat_id == 8551 %>
+        <%= image_tag('caticons/hover/Cfashion.PNG') %>
+        
+        <% elsif activity.trackable.productable_type == "jewelry" %>
+        <%= image_tag('caticons/fashion/Fjewelry.png') %>
+        
+        <% elsif activity.trackable.productable_type == "menclothing" %>
+        <%= image_tag('caticons/fashion/Fclothing.png') %>
+        
+        <% elsif activity.trackable.productable_type == "womenclothing" %>
+        <%= image_tag('caticons/fashion/Fclothing.png') %>
+        
+        <% elsif activity.trackable.productable_type == "menfootwear" %>
+        <%= image_tag('caticons/fashion/Ffootwear.png') %>
+        
+        <% elsif activity.trackable.productable_type == "womenfootwear" %>
+        <%= image_tag('caticons/fashion/Ffootwear.png') %>  
+        
+        <% elsif activity.trackable.cat_id == 17534 %>
+        <%= image_tag('caticons/hover/Chealth.PNG') %>
+        
+        <% elsif activity.trackable.productable_type == "healthcare" %>
+        <%= image_tag('caticons/health/Hhealthcare.png') %>
+        
+        <% elsif activity.trackable.productable_type == "personal" %>
+        <%= image_tag('caticons/health/Hpersonal.png') %>
+        
+        <% elsif activity.trackable.productable_type == "sexual" %>
+        <%= image_tag('caticons/health/Hsex.png') %>
+        
+        <% elsif activity.trackable.productable_type == "supplement" %>
+        <%= image_tag('caticons/health/Hsupplements.png') %>
+        
+        <% elsif activity.trackable.productable_type == "grocery" %>
+        <%= image_tag('caticons/hover/catdrink.PNG') %>
+        
+        <% elsif activity.trackable.productable_type == "appliance" %>
+        <%= image_tag('caticons/home/Happliance.PNG') %>
+        
+        <% elsif activity.trackable.productable_type == "baby" %>
+        <%= image_tag('caticons/home/Hbaby.PNG') %>
+        
+        <% elsif activity.trackable.productable_type == "pet" %>
+        <%= image_tag('caticons/home/Hpet.PNG') %>
+        
+        <% elsif activity.trackable.productable_type == "tool" %>
+        <%= image_tag('caticons/home/Htool.PNG') %>
+        
+        <% elsif activity.trackable.productable_type == "indoor" %>
+        <%= image_tag('caticons/home/indoor1.png') %>
+        
+        <% elsif activity.trackable.productable_type == "outdoor" %>
+        <%= image_tag('caticons/home/outdoor1.png') %>
+        
+        <% elsif activity.trackable.productable_type == "musical" %>
+        <%= image_tag('caticons/hobbies/Hmusic.PNG') %>
+        
+        <% elsif activity.trackable.productable_type == "sport" %>
+        <%= image_tag('caticons/hobbies/Hsport.PNG') %>
+        
+        <% elsif activity.trackable.productable_type == "craft" %>
+        <%= image_tag('caticons/hobbies/Hart.png') %>
+        
+        <% elsif activity.trackable.productable_type == "toy" %>
+        <%= image_tag('caticons/hobbies/toys1.png') %>
+        
+        <% end %>
+        
+        <%= link_to activity.trackable.product_name.truncate(25, omission: '...'), "/#{activity.trackable.productable_type}s/#{activity.trackable.productable_id}" %><br><br>
         
         <div class="numberOne"><%= activity.trackable.point %></div><br><br>
         <div class="reviewcontent"><%= simple_format(activity.trackable.content) %></div>
@@ -31,7 +146,7 @@
             <% if signed_in? %>
             
                 <% if current_user == activity.owner %>
-                  
+                  <hr><%= social_share_button_tag(activity.trackable.content) %>
                 <% elsif current_user.voted_for? activity.trackable %>
                   Voted!
                 <% else %>

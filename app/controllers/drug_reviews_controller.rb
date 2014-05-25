@@ -30,7 +30,7 @@ class DrugReviewsController < ApplicationController
       if @drug_review.save
         @drug_review.create_activity :create, owner: current_user
         
-        redirect_to [@drug, @drug_review], notice: 'Share your review'
+        redirect_to current_user
       else
         render action: 'new'
       end

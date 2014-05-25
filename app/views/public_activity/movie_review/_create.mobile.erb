@@ -14,7 +14,7 @@
       <div class="separatereview">
         
         <%= image_tag('caticons/media/Mmovies.PNG') %>    
-        <%= link_to activity.trackable.movie_title.truncate(30, omission: '...'), "/movies/#{activity.trackable.movie_id}" %><br><br>
+        <%= link_to activity.trackable.movie_title.truncate(25, omission: '...'), "/movies/#{activity.trackable.movie_id}" %><br><br>
         
         <div class="numberOne"><%= activity.trackable.point %></div><br><br>
         <div class="reviewcontent"><%= simple_format(activity.trackable.content) %></div>
@@ -31,7 +31,7 @@
             <% if signed_in? %>
             
                 <% if current_user == activity.owner %>
-                  
+                  <hr><%= social_share_button_tag(activity.trackable.content) %>
                 <% elsif current_user.voted_for? activity.trackable %>
                   Voted!
                 <% else %>

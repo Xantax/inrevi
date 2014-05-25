@@ -11,7 +11,7 @@ Inrevi::Application.routes.draw do
 
   get 'cameras/search' => 'products#search'
   get 'computers/search' => 'products#search'
-  get 'securities/search' => 'products#search'
+  get 'securitys/search' => 'products#search'
   get 'televisions/search' => 'products#search'
   get 'carelectros/search' => 'products#search'
   get 'homeaudios/search' => 'products#search'
@@ -23,8 +23,8 @@ Inrevi::Application.routes.draw do
   get 'haircares/search' => 'products#search'
   get 'skincares/search' => 'products#search'
   get 'bodybaths/search' => 'products#search'
-  get 'groceries/search' => 'products#search'
-  get 'jewelries/search' => 'products#search'
+  get 'grocerys/search' => 'products#search'
+  get 'jewelrys/search' => 'products#search'
   get 'menclothings/search' => 'products#search'
   get 'womenclothings/search' => 'products#search'
   get 'menfootwears/search' => 'products#search'
@@ -38,7 +38,7 @@ Inrevi::Application.routes.draw do
   get 'crafts/search' => 'products#search'
   get 'toys/search' => 'products#search'
   get 'appliances/search' => 'products#search'
-  get 'babies/search' => 'products#search'
+  get 'babys/search' => 'products#search'
   get 'pets/search' => 'products#search'
   get 'tools/search' => 'products#search'
   get 'indoors/search' => 'products#search'
@@ -59,7 +59,7 @@ Inrevi::Application.routes.draw do
       end      
     end
   end
-  resources :products, path: 'securities', as: :security do
+  resources :products, path: 'securitys', as: :security do
     resources :product_reviews do
        member do
          put "like", to: "product_reviews#upvote"
@@ -155,7 +155,7 @@ Inrevi::Application.routes.draw do
       end      
     end
   end
-  resources :products, path: 'groceries', as: :grocery do
+  resources :products, path: 'grocerys', as: :grocery do
     resources :product_reviews do
        member do
          put "like", to: "product_reviews#upvote"
@@ -163,7 +163,7 @@ Inrevi::Application.routes.draw do
       end      
     end
   end
-  resources :products, path: 'jewelries', as: :jewelry do
+  resources :products, path: 'jewelrys', as: :jewelry do
     resources :product_reviews do
        member do
          put "like", to: "product_reviews#upvote"
@@ -275,7 +275,7 @@ Inrevi::Application.routes.draw do
       end      
     end
   end
-  resources :products, path: 'babies', as: :baby do
+  resources :products, path: 'babys', as: :baby do
     resources :product_reviews do
        member do
          put "like", to: "product_reviews#upvote"

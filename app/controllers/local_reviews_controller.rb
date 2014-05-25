@@ -33,7 +33,7 @@ class LocalReviewsController < ApplicationController
       if @local_review.save
         @local_review.create_activity :create, owner: current_user
         
-        redirect_to local_local_review_path(@local['factual_id'], @local_review), notice: 'Share your review'
+        redirect_to current_user
       else
         render action: 'new'
       end

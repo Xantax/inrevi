@@ -32,7 +32,7 @@ class TechReviewsController < ApplicationController
       if @tech_review.save
         @tech_review.create_activity :create, owner: current_user
         
-        redirect_to [@tech, @tech_review], notice: 'Share your review'
+        redirect_to current_user
       else
         render action: 'new'
       end
