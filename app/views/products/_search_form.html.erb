@@ -1,5 +1,4 @@
 <%= form_tag eval("#{@resource_type.to_s.pluralize}_search_path"), method: :get, class: 'form-horizontal', id: 'products_search_path' do %>
-  <div class="form-actions">
     <div class="searchbox">
       <%= text_field_tag :query, params[:query], placeholder: 'Search', class: 'form-control', id: 'query-text-field' %>
     </div>
@@ -9,7 +8,6 @@
                   <%= submit_tag "Go", class: "btn btn-default" %>
                 </span>
               </div>
-    </div>
 <% end %>
 
 <hr>
