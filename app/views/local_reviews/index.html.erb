@@ -51,6 +51,15 @@
                 
                   <% end %>
                 
+                      <% if allow? "local_reviews", "destroy" %>
+                        <hr>
+                            <%= local_review.get_upvotes.size %> | <%= local_review.get_downvotes.size %>
+                            <%= link_to 'Delete', local_local_review_path(local_review.local_id, local_review),
+                                   method: :delete,
+                                   data: { confirm: 'Are you sure?'},
+                                   class: "btn btn-default" %>
+                      <% end %>
+                
                 <% end %>
                 
               </div>

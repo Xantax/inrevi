@@ -58,6 +58,15 @@
                           
                 <% end %> 
             
+                      <% if allow? "song_reviews", "destroy" %>
+                        <hr>
+                            <%= activity.trackable.get_upvotes.size %> | <%= activity.trackable.get_downvotes.size %>
+                            <%= link_to 'Delete', song_song_review_path(activity.trackable.song_id, activity.trackable),
+                                     method: :delete,
+                                     data: { confirm: 'Are you sure?'},
+                                     class: "btn btn-default" %>
+                      <% end %>            
+            
             <% end %>
           </div>
         

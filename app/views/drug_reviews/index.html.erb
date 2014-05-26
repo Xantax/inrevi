@@ -51,6 +51,15 @@
                 
                   <% end %>
                 
+                      <% if allow? "drug_reviews", "destroy" %>
+                        <hr>
+                            <%= drug_review.get_upvotes.size %> | <%= drug_review.get_downvotes.size %>
+                            <%= link_to 'Delete', [drug_review.drug, drug_review],
+                               method: :delete,
+                               data: { confirm: 'Are you sure?'},
+                               class: "btn btn-primary" %>
+                      <% end %>
+                
                 <% end %>
                 
               </div>

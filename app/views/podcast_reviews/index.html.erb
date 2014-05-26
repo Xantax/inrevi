@@ -51,6 +51,15 @@
                 
                   <% end %>
                 
+                      <% if allow? "podcast_reviews", "destroy" %>
+                        <hr>
+                            <%= podcast_review.get_upvotes.size %> | <%= podcast_review.get_downvotes.size %>
+                            <%= link_to 'Delete', [podcast_review.podcast, podcast_review],
+                                       method: :delete,
+                                       data: { confirm: 'Are you sure?'},
+                                       class: "btn btn-default" %>
+                      <% end %>
+                
                 <% end %>
                 
               </div>

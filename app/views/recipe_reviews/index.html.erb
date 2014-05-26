@@ -51,6 +51,15 @@
                 
                   <% end %>
                 
+                      <% if allow? "recipe_reviews", "destroy" %>
+                        <hr>
+                            <%= recipe_review.get_upvotes.size %> | <%= recipe_review.get_downvotes.size %>
+                            <%= link_to 'Delete', [recipe_review.recipe, recipe_review],
+                               method: :delete,
+                               data: { confirm: 'Are you sure?'},
+                               class: "btn btn-primary" %>
+                      <% end %>
+                
                 <% end %>
                 
               </div>

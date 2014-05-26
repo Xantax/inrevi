@@ -47,14 +47,18 @@
   <%= simple_format(@movie.overview) if @movie.overview.present? %><hr>
 </div>
 
-<script type="text/javascript">
-  $('.r-clickfeature').on('click', function(e) {
-  return $(".r-productfeature").slideToggle();
-});
-</script>
-
     <% if @promotion.present? && @promotion.movie %>
         <div class="row showpromotion">
           <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
         </div>
     <% end %>
+
+  <div class="row"> 
+    <%= render :file => '/movie_reviews/index' %>
+  </div>
+
+<script type="text/javascript">
+  $('.r-clickfeature').on('click', function(e) {
+  return $(".r-productfeature").slideToggle();
+});
+</script>

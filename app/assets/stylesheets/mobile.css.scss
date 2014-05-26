@@ -36,6 +36,11 @@
   height:40px;
 }
 
+#login-center{
+  text-align:center;
+
+}
+
 /* CATEGORIES */
 
 ul.nav.nav-stacked.categorylist.mobile li {
@@ -50,7 +55,8 @@ ul.nav.nav-stacked.categorylist.mobile li {
 }
 
 .mobile-activity-home{
-  padding-left:30px;
+  padding-left:5%;
+  padding-right:5%;
 }
 
 .mobile-activity-photo{
@@ -114,14 +120,13 @@ ul.nav.nav-stacked.categorylist.mobile li {
 }
 
 .form-control.mobile-review-content{
-  width:95%;
   height:200px;
 }
 
 /* ITEM SHOW */
 
 .reviewnumberscore.mobile{
-  font-size:150%;
+  font-size:250%;
   font-weight:bold;
   color:#808080;
 }
@@ -139,4 +144,11 @@ ul.nav.nav-stacked.categorylist.mobile li {
 #additional-mobile{
   font-size:120%;
   padding-top:10px;
+}
+
+/* REVIEW */
+
+.mobile-paddings{
+  padding-left:5%;
+  padding-right:5%;
 }

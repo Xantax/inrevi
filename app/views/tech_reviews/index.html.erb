@@ -51,6 +51,15 @@
                 
                   <% end %>
                 
+                      <% if allow? "tech_reviews", "destroy" %>
+                        <hr>
+                            <%= tech_review.get_upvotes.size %> | <%= tech_review.get_downvotes.size %>
+                            <%= link_to 'Delete', [tech_review.tech, tech_review],
+                                     method: :delete,
+                                     data: { confirm: 'Are you sure?'},
+                                     class: "btn btn-default" %>
+                      <% end %>
+                
                 <% end %>
                 
               </div>

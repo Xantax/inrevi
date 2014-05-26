@@ -51,6 +51,15 @@
                 
                   <% end %>
                 
+                      <% if allow? "fineart_reviews", "destroy" %>
+                        <hr>
+                            <%= fineart_review.get_upvotes.size %> | <%= fineart_review.get_downvotes.size %>
+                            <%= link_to 'Delete', [fineart_review.fineart, fineart_review],
+                                     method: :delete,
+                                     data: { confirm: 'Are you sure?'},
+                                     class: "btn btn-default" %>
+                      <% end %>
+                
                 <% end %>
                 
               </div>

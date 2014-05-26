@@ -51,6 +51,15 @@
                 
                   <% end %>
                 
+                     <% if allow? "movie_reviews", "destroy" %>
+                        <hr>
+                            <%= movie_review.get_upvotes.size %> | <%= movie_review.get_downvotes.size %>
+                            <%= link_to 'Delete', movie_movie_review_path(movie_review.movie_id, movie_review),
+                                       method: :delete,
+                                       data: { confirm: 'Are you sure?'},
+                                       class: "btn btn-default" %>
+                      <% end %>
+                
                 <% end %>
                 
               </div>

@@ -381,7 +381,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
     end
   end
   
-  match 'local_reviewz/all' => "local_reviews#all", via: [:get]
+  match 'all_local_reviews' => "local_reviews#all", via: [:get]
   
 #----------   HEALTH   ----------
   
@@ -395,7 +395,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   end
   
   match 'drugz/all' => "drugs#all", via: [:get]
-  match 'drug_reviews/all' => "drug_reviews#all", via: [:get]
+  match 'all_drug_reviews' => "drug_reviews#all", via: [:get]
  
  
 #----------   TECH   ----------  
@@ -410,7 +410,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   end
   
   match 'techez/all' => "teches#all", via: [:get]
-  match 'tech_reviews/all' => "tech_reviews#all", via: [:get]
+  match 'all_tech_reviews' => "tech_reviews#all", via: [:get]
  
 #----------   AUTO   ----------  
   
@@ -424,7 +424,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   end
   
   match 'autoz/all' => "autos#all", via: [:get]
-  match 'auto_reviews/all' => "auto_reviews#all", via: [:get]
+  match 'all_auto_reviews' => "auto_reviews#all", via: [:get]
 
 #----------   MEDIA   ----------
   
@@ -437,7 +437,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
     end
   end
 
-  match 'song_reviewz/all' => "songs#all_reviews", via: [:get]
+  match 'all_song_reviews' => "song_reviews#all", via: [:get]
 
 
   resources :books do
@@ -449,7 +449,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
     end
   end
 
-  match 'book_reviewz/all' => "books#all_reviews", via: [:get]
+  match 'all_book_reviews' => "book_reviews#all", via: [:get]
   
   resources :movies do
     resources :movie_reviews do
@@ -460,7 +460,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
     end
   end
 
-  match 'movie_reviews/all' => "movie_reviews#all", via: [:get]
+  match 'all_movie_reviews' => "movie_reviews#all", via: [:get]
   
   resources :tvshows do
     resources :tvshow_reviews do
@@ -471,7 +471,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
     end
   end
 
-  match 'tvshow_reviews/all' => "tvshow_reviews#all", via: [:get]
+  match 'all_tvshow_reviews' => "tvshow_reviews#all", via: [:get]
   
   resources :podcasts do
     resources :podcast_reviews do
@@ -483,7 +483,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   end
 
   match 'podcastz/all' => "podcasts#all", via: [:get]
-  match 'podcast_reviews/all' => "podcast_reviews#all", via: [:get]
+  match 'all_podcast_reviews' => "podcast_reviews#all", via: [:get]
   
   
   resources :finearts do
@@ -496,7 +496,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   end
 
   match 'fineartz/all' => "finearts#all", via: [:get]
-  match 'fineart_reviews/all' => "fineart_reviews#all", via: [:get]  
+  match 'all_fineart_reviews' => "fineart_reviews#all", via: [:get]  
 
 #----------   END MEDIA   ----------
   
@@ -512,7 +512,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   end
 
   match 'recipez/all' => "recipes#all", via: [:get]
-  match 'recipe_reviews/all' => "recipe_reviews#all", via: [:get]
+  match 'all_recipe_reviews' => "recipe_reviews#all", via: [:get]
   
 #----------   MOBILE  ----------#
  

@@ -3,13 +3,12 @@ class TechReviewsController < ApplicationController
   before_action :set_tech, only: [:index, :new, :create]
   
   def all
-    @all_tech_reviews = TechReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")
+    @tech_reviews = TechReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")
+    render 'index'
   end
   
   def index
     @tech_reviews = @tech.tech_reviews.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
-    @avg_score = 0
-    @avg_score = @tech_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @tech_reviews.count if @tech_reviews.count > 0
   end
 
   def show

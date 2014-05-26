@@ -33,6 +33,10 @@
         </div>
     <% end %>
 
+  <div class="row"> 
+    <%= render :file => '/book_reviews/index' %>
+  </div>
+
 <script type="text/javascript">
   $('.r-clickfeature').on('click', function(e) {
   return $(".r-productfeature").slideToggle();

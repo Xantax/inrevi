@@ -51,6 +51,15 @@
                 
                   <% end %>
                 
+                      <% if allow? "auto_reviews", "destroy" %>
+                        <hr>
+                            <%= auto_review.get_upvotes.size %> | <%= auto_review.get_downvotes.size %>
+                            <%= link_to 'Delete', [auto_review.auto, auto_review],
+                                     method: :delete,
+                                     data: { confirm: 'Are you sure?'},
+                                     class: "btn btn-default" %>
+                      <% end %>
+                
                 <% end %>
                 
               </div>
