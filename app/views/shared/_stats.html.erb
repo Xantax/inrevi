@@ -2,24 +2,24 @@
 <div class="stats">
     
     <div class="points" title="5 points - Write a review &#13;2 points - Get an upvote &#13;1 point - Vote on a review">
-      <%= image_tag("othericons/pointicon.PNG", height: '12', width: '12') %> <%= render "shared/pointcounter" %> <div class="pointz">points</div> <br >
+      <%= image_tag("othericons/pointicon.png") %> <%= render "shared/pointcounter" %> <div class="pointz">points</div> <br >
     </div>
   
-    <%= image_tag("othericons/writeRev.png", height: '12', width: '12') %> <a href="<%= user_path(@user) %>">
+    <%= image_tag("othericons/writerevicon.png") %> <a href="<%= user_path(@user) %>">
       <strong id="following">
         <%= render "shared/reviewcounter" %>
       </strong>
     reviews
   </a><br>
   
-  <%= image_tag("othericons/Ufollowing.PNG", height: '12', width: '12') %> <a href="<%= following_user_path(@user) %>">
+  <%= image_tag("othericons/following.png") %> <a href="<%= following_user_path(@user) %>">
       <strong id="following">
         <%= human_number @user.followed_users.count %>
       </strong>
     following
     </a> 
   <br>
-  <%= image_tag("othericons/Ufollowers.PNG", height: '12', width: '12') %> <a href="<%= followers_user_path(@user) %>">
+  <%= image_tag("othericons/followers.png") %> <a href="<%= followers_user_path(@user) %>">
       <strong id="followers">
         <%= human_number @user.followers.count %>
       </strong>
