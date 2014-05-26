@@ -1,7 +1,7 @@
 class ProductReviewsController < ApplicationController
   before_action :resource_request, except: [:all_product_comments, :show]
   before_action :product_retrieve, except: [:all_product_comments, :destroy, :show]
-  before_action :set_product_review, only: [:show, :destroy, :upvote, :downvote]
+  before_action :set_product_review, only: [:destroy, :upvote, :downvote]
 
   def all
     @all_product_reviews = ProductReview.all
@@ -12,9 +12,6 @@ class ProductReviewsController < ApplicationController
     @product_review.review_images.build
     @product_review.review_images.build  
     @product_review.review_images.build
-  end
-  
-  def show
   end
 
   def create

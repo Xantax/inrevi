@@ -1,6 +1,6 @@
 class AutoReviewsController < ApplicationController
-  before_action :set_auto_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :set_auto, only: [:index, :show, :new, :create, :edit]
+  before_action :set_auto_review, only: [:show, :destroy, :upvote, :downvote]
+  before_action :set_auto, only: [:index, :new, :create]
 
   def all
     @all_auto_reviews = AutoReview.order("cached_votes_score ASC").paginate(:page => params[:page], :per_page => 10)
@@ -10,18 +10,11 @@ class AutoReviewsController < ApplicationController
     @auto_reviews = @auto.auto_reviews.order("cached_votes_score DESC").paginate(:page => params[:page], :per_page => 10)
   end
 
-  def show 
-    @promotion = Promotion.order("RANDOM()").first
-  end
-
   def new
     @auto_review = AutoReview.new
     @auto_review.review_images.build
     @auto_review.review_images.build
     @auto_review.review_images.build
-  end
-
-  def edit
   end
 
   def create

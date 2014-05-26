@@ -1,6 +1,6 @@
 class TvshowReviewsController < ApplicationController
-  before_action :set_tvshow_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :set_tvshow
+  before_action :set_tvshow_review, only: [:destroy, :upvote, :downvote]
+  before_action :set_tvshow, [:new, :create]
 
   def all
     @all_tvshow_reviews = TvshowReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")

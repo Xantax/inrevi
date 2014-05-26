@@ -1,6 +1,6 @@
 class SongReviewsController < ApplicationController
-  before_action :set_song_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :set_song, [:new, :create, :show]
+  before_action :set_song_review, only: [:show, :destroy, :upvote, :downvote]
+  before_action :set_song, [:new, :create]
 
   
   def index

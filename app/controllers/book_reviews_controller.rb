@@ -1,12 +1,9 @@
 class BookReviewsController < ApplicationController
-  before_action :set_book_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :set_book, [:new, :create, :show]
+  before_action :set_book_review, only: [:show, :destroy, :upvote, :downvote]
+  before_action :set_book, [:new, :create]
 
   def index
     @book_reviews = BookReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC").all
-  end
-
-  def show
   end
 
   def new
@@ -14,9 +11,6 @@ class BookReviewsController < ApplicationController
     @book_review.review_images.build
     @book_review.review_images.build
     @book_review.review_images.build
-  end
-
-  def edit
   end
 
   def create

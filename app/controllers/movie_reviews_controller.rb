@@ -1,6 +1,6 @@
 class MovieReviewsController < ApplicationController
-  before_action :set_movie_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :set_movie, [:new, :create, :show]
+  before_action :set_movie_review, only: [:destroy, :upvote, :downvote]
+  before_action :set_movie, [:new, :create]
   
   require 'themoviedb'
 

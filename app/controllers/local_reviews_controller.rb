@@ -1,7 +1,7 @@
 class LocalReviewsController < ApplicationController
   before_action :factual_authorize
-  before_action :set_local_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote, :index]
-  before_action :set_local, only: [:index, :new, :create, :edit]
+  before_action :set_local_review, only: [:show, :destroy, :upvote, :downvote, :index]
+  before_action :set_local, only: [:index, :new, :create]
 
   def all
     @all_local_reviews = LocalReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")

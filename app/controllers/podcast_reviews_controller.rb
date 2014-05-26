@@ -1,6 +1,6 @@
 class PodcastReviewsController < ApplicationController
-  before_action :set_podcast_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :set_podcast, only: [:index, :show, :new, :create, :edit]
+  before_action :set_podcast_review, only: [:show, :destroy, :upvote, :downvote]
+  before_action :set_podcast, only: [:index, :new, :create]
   
   def all
     @all_podcast_reviews = PodcastReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")

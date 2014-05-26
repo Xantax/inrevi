@@ -1,6 +1,6 @@
 class TechReviewsController < ApplicationController
-  before_action :set_tech_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :set_tech, only: [:index, :show, :new, :create, :edit]
+  before_action :set_tech_review, only: [:show, :destroy, :upvote, :downvote]
+  before_action :set_tech, only: [:index, :new, :create]
   
   def all
     @all_tech_reviews = TechReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")
