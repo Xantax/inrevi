@@ -4,7 +4,11 @@ class ProductReviewsController < ApplicationController
   before_action :set_product_review, only: [:destroy, :upvote, :downvote]
 
   def all
-    @all_product_reviews = ProductReview.all
+    @product_reviews = ProductReview.all
+    render 'index'
+  end
+  
+  def index
   end
   
   def new

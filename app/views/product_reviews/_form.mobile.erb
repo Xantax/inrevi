@@ -1,0 +1,73 @@
+<%= nested_form_for(:product_review, :url => {:action => :create}, validate: true, html: {multipart: true, :method => :post}, 'data-update-target' => 'comments', class: 'comments') do |f| %>
+  <% if @product_review.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @product_review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :point %>
+  <div class="rating-comments"></div>
+  <br>
+
+  <div class="field">
+      <%= f.text_area :content, :class => "form-control mobile-review-content", 
+      :placeholder => "Write a review... ", 
+      :onfocus => "this.placeholder = ''" %>
+  </div><br>
+
+      <div class="r-image"></div>
+
+<div class="r-rightside">
+        <div class="fields">
+            <input id="product_review_review_images_attributes_0_image" name="product_review[review_images_attributes][0][image]" type="file" />
+</div><div class="fields">
+            <input id="product_review_review_images_attributes_1_image" name="product_review[review_images_attributes][1][image]" type="file" />
+</div><div class="fields">
+            <input id="product_review_review_images_attributes_2_image" name="product_review[review_images_attributes][2][image]" type="file" />
+</div>      </div>
+
+      <br>
+    
+      <div class="actions">
+        <%= f.submit " Submit ", :class => "btn btn-default", :id => "submit-me" %>
+      </div><br>
+    
+      <div id="loading2" class="loadinggif" style="display:none;">
+        <img src="/assets/othericons/uploading.gif" alt="" />
+      </div>
+
+      <div class="row dumb300"></div>
+
+<%= f.hidden_field :productable_id, :value => @product['sem3_id'] %>
+<%= f.hidden_field :cat_id, :value => @product['cat_id'] %>
+<%= f.hidden_field :upc_code, :value => @product['upc'] %>
+<%= f.hidden_field :product_name, :value => @product['name'] %>
+<%= f.hidden_field :gtins, :value => @product['gtins'] %>
+<%= f.hidden_field :productable_type, :value => @resource_type %>
+
+<% end %>
+
+<script type="text/javascript">
+        $('.rating-comments').raty({
+  click: function(score, evt) {
+    $("#product_review_point").val(score);
+    return console.log(score);
+  }
+});
+</script>
+
+<script type="text/javascript">
+  $('#submit-me').on('click', function(e) {
+  return $("#loading2").slideToggle();
+});
+</script>
+
+<script type="text/javascript">
+  $('.r-image').on('click', function(e) {
+  return $(".r-rightside").slideToggle();
+});
+</script>

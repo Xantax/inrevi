@@ -17,3 +17,22 @@
       display: block;
     }
   }
+
+/* Loading gif */
+
+#submit-me{
+      height: 35px;
+      width: 60px;
+      cursor: pointer;
+      background-repeat: no-repeat;
+        background-image: url("");
+    }
+
+  #loading2{
+    display: none;
+    &:after{
+      clear: both;
+      content: '';
+      display: block;
+    }
+  }

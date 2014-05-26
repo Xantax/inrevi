@@ -1,0 +1,77 @@
+<%= nested_form_for(@local_review, url: local_local_reviews_path, validate: true, html: {multipart: true, :method => :post}, 'data-update-target' => 'comments', class: 'comments') do |f| %>
+  <% if @local_review.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @local_review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :point %>
+  <div class="rating-comments"></div>
+  <br>
+
+  <div class="field">
+      <%= f.text_area :content, :class => "form-control mobile-review-content", 
+      :placeholder => "Write a review... ", 
+      :onfocus => "this.placeholder = ''" %>
+  </div><br>
+
+      <div class="r-image"></div>
+
+      <div class="r-rightside">
+        <%= f.fields_for :review_images do |p| %>
+            <%= p.file_field :image %>
+        <% end %>
+      </div>
+
+      <br>
+    
+      <div class="actions">
+        <%= f.submit " Submit ", :class => "btn btn-default", :id => "submit" %>
+      </div><br>
+    
+      <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
+      <div class="row dumb300"></div>
+
+      <%= f.hidden_field :local_id, :value => @local['factual_id'] %>
+      <%= f.hidden_field :local_name, :value => @local['name'] %>
+      <%= f.hidden_field :local_address, :value => @local['address'] %>
+      <%= f.hidden_field :local_locality, :value => @local['locality'] %>
+      <%= f.hidden_field :local_region, :value => @local['region'] %>
+      <%= f.hidden_field :local_postcode, :value => @local['postcode'] %>
+      <%= f.hidden_field :local_country, :value => @local['country'] %>
+      <%= f.hidden_field :local_neighborhood , :value => @local['neighborhood'] %>
+      <%= f.hidden_field :local_tel, :value => @local['tel'] %>
+      <%= f.hidden_field :local_latitude, :value => @local['latitude'] %>
+      <%= f.hidden_field :local_longitude, :value => @local['longitude'] %>
+      <%= f.hidden_field :local_category_labels, :value => @local['category_labels'] %>
+      <%= f.hidden_field :local_email, :value => @local['email'] %>
+
+<% end %>
+
+<script type="text/javascript">
+        $('.rating-comments').raty({
+  click: function(score, evt) {
+    $("#local_review_point").val(score);
+    return console.log(score);
+  }
+});
+</script>
+
+<script type="text/javascript">
+(function (d) {
+  d.getElementById('new_local_review').onsubmit = function () {
+    d.getElementById('submit').style.display = 'block';
+    d.getElementById('loading2').style.display = 'block';
+  };
+}(document));
+</script>
+
+<script type="text/javascript">
+  $('.r-image').on('click', function(e) {
+  return $(".r-rightside").slideToggle();
+});
+</script>

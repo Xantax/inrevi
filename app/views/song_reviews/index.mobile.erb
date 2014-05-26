@@ -1,0 +1,61 @@
+<% if @avg_score == 0.0 %>
+  <div class="noreviewsonindex">No reviews :( </div>
+<% else %>
+  <% @song_reviews.each do |song_review| %><br>
+    <div class="mobile-activity-photo"><%= image_tag(song_review.user.image, width: "50") %></div> 
+      <div class="reviewname mobile">     
+        <%= link_to user_path(song_review.user) do %> 
+          <%= song_review.user.first_name %>
+          <%= song_review.user.last_name.truncate(2, omission: '.')%>
+        <% end %>
+      </div>  
+       <br><br>
+         <div class="separatereview">
+           
+            <div class="numberOne">
+              <%= song_review.point %>
+            </div><br><br>
+           
+          <div class="reviewcontent"><%= simple_format(song_review.content) %></div>
+           
+             <% unless song_review.review_images.empty? %>
+                <% song_review.review_images.each do |pic| %>
+                     <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>
+                <% end %>
+                 <% if signed_in? %>
+                   <% unless current_user == song_review.user %>
+                     <hr>
+                   <% end %>
+                 <% end %>
+             <% end %>
+           
+              <div class="bottomreviewicons">
+                <% if signed_in? %>
+                
+                  <% if current_user == song_review.user %>
+                    
+                  <% elsif current_user.voted_for? song_review %>
+                    Voted!
+                  <% else %>
+                   <div class="thumbsup">
+                     <%= link_to image_tag('othericons/thumbsup_off.PNG'),  like_song_song_review_path(song_review.song_id, song_review), method: :put, :remote => true %>
+                   </div>
+                            
+                   <div class="thumbsdown">
+                    <%= link_to image_tag('othericons/thumbsdown_off.PNG'), dislike_song_song_review_path(song_review.song_id, song_review), method: :put, :remote => true %>
+                   </div>
+                
+                  <% end %>                
+                
+                <% end %>
+                
+              </div>
+          
+      </div><br>
+
+  <% end %>
+<% end %>
+
+<div class="digg_pagination">
+  <%= will_paginate @song_reviews %>
+</div>

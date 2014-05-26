@@ -1,0 +1,62 @@
+<%= nested_form_for([@podcast, @podcast_review], validate: true, html: {multipart: true}, 'data-update-target' => 'comments', class: 'comments') do  |f| %>
+  <% if @podcast_review.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @podcast_review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <%= f.hidden_field :point %>
+  <div class="rating-comments"></div>
+  <br>
+
+  <div class="field">
+      <%= f.text_area :content, :class => "form-control mobile-review-content", 
+      :placeholder => "Write a review... ", 
+      :onfocus => "this.placeholder = ''" %>
+  </div><br>
+
+      <div class="r-image"></div>
+
+      <div class="r-rightside">
+        <%= f.fields_for :review_images do |p| %>
+            <%= p.file_field :image %>
+        <% end %>
+      </div>
+
+      <br>
+    
+      <div class="actions">
+        <%= f.submit " Submit ", :class => "btn btn-default", :id => "submit" %>
+      </div><br>
+    
+      <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
+      <div class="row dumb300"></div>
+<% end %>
+
+<script type="text/javascript">
+        $('.rating-comments').raty({
+  click: function(score, evt) {
+    $("#podcast_review_point").val(score);
+    return console.log(score);
+  }
+});
+</script>
+
+<script type="text/javascript">
+(function (d) {
+  d.getElementById('new_podcast_review').onsubmit = function () {
+    d.getElementById('submit').style.display = 'block';
+    d.getElementById('loading2').style.display = 'block';
+  };
+}(document));
+</script>
+
+<script type="text/javascript">
+  $('.r-image').on('click', function(e) {
+  return $(".r-rightside").slideToggle();
+});
+</script>

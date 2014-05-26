@@ -1,0 +1,61 @@
+<% if @avg_score == 0.0 %>
+  <div class="noreviewsonindex">No reviews :( </div>
+<% else %>
+<% @recipe_reviews.each do |recipe_review| %><br>
+    <div class="mobile-activity-photo"><%= image_tag(recipe_review.user.image, width: "50") %></div> 
+      <div class="reviewname mobile">     
+        <%= link_to user_path(recipe_review.user) do %> 
+          <%= recipe_review.user.first_name %>
+          <%= recipe_review.user.last_name.truncate(2, omission: '.')%>
+        <% end %>
+      </div>  
+       <br><br>
+         <div class="separatereview">
+           
+            <div class="numberOne">
+              <%= recipe_review.point %>
+            </div><br><br>
+           
+          <div class="reviewcontent"><%= simple_format(recipe_review.content) %></div>
+           
+             <% unless recipe_review.review_images.empty? %>
+                <% recipe_review.review_images.each do |pic| %>
+                     <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>
+                <% end %>
+                 <% if signed_in? %>
+                   <% unless current_user == recipe_review.user %>
+                     <hr>
+                   <% end %>
+                 <% end %>
+             <% end %>
+           
+              <div class="bottomreviewicons">
+                <% if signed_in? %>
+                
+                  <% if current_user == recipe_review.user %>
+                    
+                  <% elsif current_user.voted_for? recipe_review %>
+                    Voted!
+                  <% else %>
+                   <div class="thumbsup">
+                     <%= link_to image_tag('othericons/thumbsup_off.PNG'),  like_recipe_recipe_review_path(recipe_review.recipe_id, recipe_review), method: :put, :remote => true %>
+                   </div>
+                            
+                   <div class="thumbsdown">
+                    <%= link_to image_tag('othericons/thumbsdown_off.PNG'), dislike_recipe_recipe_review_path(recipe_review.recipe_id, recipe_review), method: :put, :remote => true %>
+                   </div>
+                
+                  <% end %>                
+                
+                <% end %>
+                
+              </div>
+          
+      </div><br>
+
+  <% end %>
+<% end %>
+
+<div class="digg_pagination">
+  <%= will_paginate @recipe_reviews %>
+</div>

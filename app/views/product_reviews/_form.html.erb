@@ -59,12 +59,9 @@
 </script>
 
 <script type="text/javascript">
-(function (d) {
-  d.getElementById('new_product_review').onsubmit = function () {
-    d.getElementById('submit-me').style.display = 'block';
-    d.getElementById('loading2').style.display = 'block';
-  };
-}(document));
+  $('#submit-me').on('click', function(e) {
+  return $("#loading2").slideToggle();
+});
 </script>
 
 <script type="text/javascript">

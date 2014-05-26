@@ -1,0 +1,75 @@
+<%= nested_form_for(@book_review, url: book_book_reviews_path, validate: true, html: {multipart: true}, 'data-update-target' => 'comments', class: 'comments') do |f| %>
+  <% if @book_review.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @book_review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :point %>
+  <div class="rating-comments"></div>
+  <br>
+
+  <div class="field">
+      <%= f.text_area :content, :class => "form-control mobile-review-content", 
+      :placeholder => "Write a review... ", 
+      :onfocus => "this.placeholder = ''" %>
+  </div><br>
+
+
+      <div class="r-image"></div>
+
+      <div class="r-rightside">
+        <%= f.fields_for :review_images do |p| %>
+            <%= p.file_field :image %>
+        <% end %>
+      </div>
+
+      <br>
+    
+      <div class="actions">
+        <%= f.submit " Submit ", :class => "btn btn-default", :id => "submit" %>
+      </div><br>
+    
+      <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
+      
+      <div class="row dumb300"></div>
+
+      <%= f.hidden_field :book_id, :value => @book.id if @book.id.present? %>
+      <%= f.hidden_field :book_name, :value => @book.title if @book.title.present? %>
+      <%= f.hidden_field :book_authors, :value => @book.authors.first if @book.authors.first.present? %>
+      <%= f.hidden_field :book_pages, :value => @book.pageCount if @book.pageCount.present? %>
+      <%= f.hidden_field :book_date, :value => @book.publishedDate if @book.publishedDate.present? %>
+      <%= f.hidden_field :book_image, :value => @book.imageLinks['thumbnail'] if @book.imageLinks['thumbnail'].present? %>
+      <%= f.hidden_field :book_language, :value => @book.language if @book.language.present? %>
+      <%= f.hidden_field :isbn_10, :value => @book.isbn_10 if @book.isbn_10.present? %>
+      <%= f.hidden_field :isbn_13, :value => @book.isbn_13 if @book.isbn_13.present? %>
+
+<% end %>
+
+<script type="text/javascript">
+        $('.rating-comments').raty({
+  click: function(score, evt) {
+    $("#book_review_point").val(score);
+    return console.log(score);
+  }
+});
+</script>
+
+<script type="text/javascript">
+(function (d) {
+  d.getElementById('new_book_review').onsubmit = function () {
+    d.getElementById('submit').style.display = 'block';
+    d.getElementById('loading2').style.display = 'block';
+  };
+}(document));
+</script>
+
+<script type="text/javascript">
+  $('.r-image').on('click', function(e) {
+  return $(".r-rightside").slideToggle();
+});
+</script>

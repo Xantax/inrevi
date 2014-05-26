@@ -7,7 +7,7 @@ Inrevi::Application.routes.draw do
          put "dislike", to: "product_reviews#downvote"
       end
   end
-  match 'product_reviewz/all' => "product_reviews#all", via: [:get]
+  match 'all_product_reviews' => "product_reviews#all", via: [:get]
 
   get 'cameras/search' => 'products#search'
   get 'computers/search' => 'products#search'
@@ -394,7 +394,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
     end
   end
   
-  match 'drugz/all' => "drugs#all", via: [:get]
+  match 'all_drugs' => "drugs#all", via: [:get]
   match 'all_drug_reviews' => "drug_reviews#all", via: [:get]
  
  
@@ -409,7 +409,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
     end
   end
   
-  match 'techez/all' => "teches#all", via: [:get]
+  match 'all_tech' => "teches#all", via: [:get]
   match 'all_tech_reviews' => "tech_reviews#all", via: [:get]
  
 #----------   AUTO   ----------  
@@ -423,7 +423,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
     end
   end
   
-  match 'autoz/all' => "autos#all", via: [:get]
+  match 'all_vehicle' => "autos#all", via: [:get]
   match 'all_auto_reviews' => "auto_reviews#all", via: [:get]
 
 #----------   MEDIA   ----------
@@ -482,7 +482,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
     end
   end
 
-  match 'podcastz/all' => "podcasts#all", via: [:get]
+  match 'all_podcasts' => "podcasts#all", via: [:get]
   match 'all_podcast_reviews' => "podcast_reviews#all", via: [:get]
   
   
@@ -495,7 +495,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
     end
   end
 
-  match 'fineartz/all' => "finearts#all", via: [:get]
+  match 'all_finearts' => "finearts#all", via: [:get]
   match 'all_fineart_reviews' => "fineart_reviews#all", via: [:get]  
 
 #----------   END MEDIA   ----------
@@ -511,7 +511,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
     end
   end
 
-  match 'recipez/all' => "recipes#all", via: [:get]
+  match 'all_recipes' => "recipes#all", via: [:get]
   match 'all_recipe_reviews' => "recipe_reviews#all", via: [:get]
   
 #----------   MOBILE  ----------#
