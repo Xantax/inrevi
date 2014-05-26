@@ -14,8 +14,8 @@
 
   <%= simple_format(@contact_form.message) %><hr>
  
-  <%= link_to 'Back', contact_forms_path %>
-  <%= link_to 'Edit', edit_contact_form_path(@contact_form) %>
-  <%= link_to 'Destroy', contact_form_path(@contact_form),
+  <%= link_to 'Back', contact_forms_path, class: "btn btn-default" %>
+  <%= link_to 'Edit', edit_contact_form_path(@contact_form), class: "btn btn-default" %>
+  <%= link_to 'Destroy', contact_form_path(@contact_form), class: "btn btn-default",
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %>
