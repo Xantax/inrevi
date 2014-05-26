@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.search params
+    @products = Product.search params, @resource_type
 
     if request.xhr?
       render json: {

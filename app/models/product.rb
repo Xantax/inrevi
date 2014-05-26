@@ -1,18 +1,15 @@
 class Product < ActiveRecord::Base
   PER_PAGE = 10
-  RESOURCE_FOR = [:computer, :camera, :security, :television, :carelectro, :homeaudio, :eportable, :emobile, :videogame,
-    :makeup, :fragrance, :haircare, :skincare, :bodybath, :grocery, :jewelry, :menclothing, :womenclothing,
+  RESOURCE_FOR = [:computer, :camera, :securit, :television, :carelectro, :homeaudio, :eportable, :emobile, :videogame,
+    :makeup, :fragrance, :haircare, :skincare, :bodybath, :grocer, :jewelr, :menclothing, :womenclothing,
     :menfootwear, :womenfootwear, :healthcare, :supplement, :sexual, :personal, :musical, :sport, :craft,
     :toy, :appliance, :baby, :pet, :tool, :indoor, :outdoor]
 
   class << self
-    def search(params)
+    def search(params, resource_type = :computer)
       sem3 = Semantics3::Products.new(Settings.semantics3.key, Settings.semantics3.secret)
 
-      if params[:category].present?
-        category = ProductCategory.find_by_name params[:category]
-        sem3.products_field('cat_id', category.cat_id)
-      end
+      sem3.products_field('cat_id', ProductCategory::ORIGINAL_CATEGORY[resource_type][:cat_id])
 
       if params[:query].present?
         sem3.products_field('name', params[:query])
@@ -36,6 +33,13 @@ class Product < ActiveRecord::Base
 
       sem3.get_products['results'].first rescue nil
     end
-    
+
+    def retrieve_price(id)
+      sem3 = Semantics3::Products.new(Settings.semantics3.key, Settings.semantics3.secret)
+      sem3.add("offers", "sem3_id", id)
+      results = sem3.get_offers
+
+      results
+    end
   end
 end

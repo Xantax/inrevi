@@ -14,7 +14,7 @@ class ProductCategory < ActiveRecord::Base
       name: 'Computers & Accessories',
       cat_id: 4992
     },
-    security:
+    securit:
     {
       name: 'Security',
       cat_id: 1124
@@ -74,12 +74,12 @@ class ProductCategory < ActiveRecord::Base
       name: 'Body & Bath',
       cat_id: 4581
     },
-    grocery:
+    grocer:
     {
       name: 'Groceries',
       cat_id: 18203
     },
-    jewelry:
+    jewelr:
     {
       name: 'Jewelry',
       cat_id: 4798
