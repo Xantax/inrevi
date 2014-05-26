@@ -3,12 +3,12 @@ class PodcastReviewsController < ApplicationController
   before_action :set_podcast, only: [:index, :new, :create]
   
   def all
-    @podcast_reviews = PodcastReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")
+    @podcast_reviews = PodcastReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
     render 'index'
   end
   
   def index
-    @podcast_reviews = @podcast.podcast_reviews.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
+    @podcast_reviews = @podcast.podcast_reviews.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
   end
 
   def show

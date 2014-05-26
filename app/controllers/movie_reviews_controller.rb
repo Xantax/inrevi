@@ -12,12 +12,12 @@ class MovieReviewsController < ApplicationController
   end
 
   def all
-    @movie_reviews = MovieReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")
+    @movie_reviews = MovieReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
     render 'index'
   end
   
   def index
-    @movie_reviews = MovieReview.where(movie_id: params[:id]).paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
+    @movie_reviews = MovieReview.where(movie_id: params[:id]).paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
   end
 
   def show

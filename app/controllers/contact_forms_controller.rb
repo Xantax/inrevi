@@ -2,7 +2,7 @@ class ContactFormsController < ApplicationController
   before_action :set_contact_form, only: [:show, :edit, :update, :destroy]
 
   def index
-    @contact_forms = ContactForm.paginate(:page => params[:page], :per_page => 10).order('created_at DESC')
+    @contact_forms = ContactForm.paginate(:page => params[:page], :per_page => 15).order('created_at DESC')
   end
 
   def show

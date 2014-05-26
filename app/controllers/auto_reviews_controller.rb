@@ -3,12 +3,12 @@ class AutoReviewsController < ApplicationController
   before_action :set_auto, only: [:index, :new, :create]
 
   def all
-    @auto_reviews = AutoReview.order("cached_votes_score ASC").paginate(:page => params[:page], :per_page => 10)
+    @auto_reviews = AutoReview.order("cached_votes_score ASC").paginate(:page => params[:page], :per_page => 15)
     render 'index'
   end
   
   def index
-    @auto_reviews = @auto.auto_reviews.order("cached_votes_score DESC").paginate(:page => params[:page], :per_page => 10)
+    @auto_reviews = @auto.auto_reviews.order("cached_votes_score DESC").paginate(:page => params[:page], :per_page => 15)
   end
 
   def new

@@ -4,7 +4,7 @@ class ProductReviewsController < ApplicationController
   before_action :set_product_review, only: [:destroy, :upvote, :downvote]
 
   def all
-    @product_reviews = ProductReview.all
+    @product_reviews = ProductReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
     render 'index'
   end
   
@@ -34,7 +34,7 @@ class ProductReviewsController < ApplicationController
   def destroy
     @product_review.destroy
 
-    redirect_to product_reviewz_all_path
+    redirect_to root_path
   end
 
   def upvote

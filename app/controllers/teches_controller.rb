@@ -2,13 +2,13 @@ class TechesController < ApplicationController
   before_action :set_tech, only: [:show, :edit, :update, :destroy]
 
   def all
-    @teches = Tech.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
+    @teches = Tech.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
   end
   
   def search
     @search = Tech.search do
       fulltext params[:search]
-      paginate(:page => params[:page], :per_page => 10)
+      paginate(:page => params[:page], :per_page => 15)
     end
     @teches = @search.results    
   end
@@ -16,7 +16,7 @@ class TechesController < ApplicationController
   def index
     @search = Tech.search do
       fulltext params[:search]
-      paginate(:page => params[:page], :per_page => 10)
+      paginate(:page => params[:page], :per_page => 15)
     end
    @teches = @search.results
     
@@ -28,7 +28,7 @@ class TechesController < ApplicationController
 
   def show
     @tech_review = TechReview.new
-    @tech_reviews = Tech.find(params[:id]).tech_reviews.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
+    @tech_reviews = Tech.find(params[:id]).tech_reviews.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
     @avg_score = 0
     @avg_score = @tech_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @tech_reviews.count if @tech_reviews.count > 0
     

@@ -3,12 +3,12 @@ class RecipeReviewsController < ApplicationController
   before_action :set_recipe, only: [:index, :new, :create]
 
   def all
-    @recipe_reviews = RecipeReview.order("cached_votes_score ASC").paginate(:page => params[:page], :per_page => 10)
+    @recipe_reviews = RecipeReview.order("cached_votes_score ASC").paginate(:page => params[:page], :per_page => 15)
     render 'index'
   end  
   
   def index
-    @recipe_reviews = @recipe.recipe_reviews.order("cached_votes_score DESC").paginate(:page => params[:page], :per_page => 10)
+    @recipe_reviews = @recipe.recipe_reviews.order("cached_votes_score DESC").paginate(:page => params[:page], :per_page => 15)
   end
 
   def show

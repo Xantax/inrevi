@@ -2,14 +2,14 @@ class FineartsController < ApplicationController
   before_action :set_fineart, only: [:show, :edit, :update, :destroy]
 
   def all
-    @finearts = Fineart.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
+    @finearts = Fineart.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
   end
   
   def search
     
     @search = Fineart.search do
       fulltext params[:search]
-      paginate(:page => params[:page], :per_page => 10)
+      paginate(:page => params[:page], :per_page => 15)
     end
     @finearts = @search.results
     
@@ -19,7 +19,7 @@ class FineartsController < ApplicationController
     
     @search = Fineart.search do
       fulltext params[:search]
-      paginate(:page => params[:page], :per_page => 10)
+      paginate(:page => params[:page], :per_page => 15)
     end
    @finearts = @search.results
     
@@ -27,7 +27,7 @@ class FineartsController < ApplicationController
 
   def show
     @fineart_review = FineartReview.new
-    @fineart_reviews = Fineart.find(params[:id]).fineart_reviews.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
+    @fineart_reviews = Fineart.find(params[:id]).fineart_reviews.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
     @avg_score = 0
     @avg_score = @fineart_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @fineart_reviews.count if @fineart_reviews.count > 0
     

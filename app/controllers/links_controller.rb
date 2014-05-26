@@ -2,7 +2,7 @@ class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
 
   def index
-    @links = Link.paginate(:page => params[:page], :per_page => 10).order('created_at DESC')
+    @links = Link.paginate(:page => params[:page], :per_page => 15).order('created_at DESC')
   end
 
   def show

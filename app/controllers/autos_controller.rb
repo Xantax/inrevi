@@ -2,11 +2,10 @@ class AutosController < ApplicationController
   before_action :set_auto, only: [:show, :edit, :update, :destroy, :additionalinfo]
   
   def all
-    @autos = Auto.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
+    @autos = Auto.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
   end
   
   def index
-#    @autos = Auto.all
     @search = Auto.search do
       fulltext params[:search]
       paginate(:page => params[:page], :per_page => 10)

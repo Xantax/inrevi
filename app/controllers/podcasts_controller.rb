@@ -2,34 +2,28 @@
   before_action :set_podcast, only: [:show, :edit, :update, :destroy]
 
   def all
-     @podcasts = Podcast.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
+     @podcasts = Podcast.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
   end
    
   def index
-    @search = Podcast.search do
-      fulltext params[:search]
-      paginate(:page => params[:page], :per_page => 10)
-    end    
+      @search = Podcast.search do
+        fulltext params[:search]
+        paginate(:page => params[:page], :per_page => 15)
+      end
+        @podcasts = @search.results   
   end
    
    def search     
       @search = Podcast.search do
         fulltext params[:search]
-        paginate(:page => params[:page], :per_page => 10)
+        paginate(:page => params[:page], :per_page => 15)
       end
-
-      if params[:tag]
-        @podcasts = Podcast.tagged_with(params[:tag])
-      elsif
-        @podcasts = @search.results
-      else
-        @podcasts = Podcast.all
-      end     
+        @podcasts = @search.results   
    end
 
   def show
     @podcast_review = PodcastReview.new
-    @podcast_reviews = Podcast.find(params[:id]).podcast_reviews.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
+    @podcast_reviews = Podcast.find(params[:id]).podcast_reviews.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
     @avg_score = 0
     @avg_score = @podcast_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @podcast_reviews.count if @podcast_reviews.count > 0
     

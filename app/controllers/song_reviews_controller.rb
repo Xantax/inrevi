@@ -2,12 +2,12 @@ class SongReviewsController < ApplicationController
   before_action :set_song_review, only: [:show, :destroy, :upvote, :downvote]
 
   def all
-    @song_reviews = SongReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")
+    @song_reviews = SongReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
     render 'index'
   end
   
   def index
-    @song_reviews = SongReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
+    @song_reviews = SongReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
   end
 
   def show
@@ -32,7 +32,7 @@ class SongReviewsController < ApplicationController
       if @song_review.save
         @song_review.create_activity :create, owner: current_user
         
-        redirect_to song_song_review_path(@song.uri, @song_review), notice: 'Share your review'
+        redirect_to current_user
       else
         render action: 'new'
       end

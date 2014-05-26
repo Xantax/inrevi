@@ -2,7 +2,7 @@ class DrugsController < ApplicationController
   before_action :set_drug, only: [:show, :edit, :update, :destroy, :additionalinfo]
 
   def all
-    @drugs = Drug.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
+    @drugs = Drug.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
   end
   
   def index
@@ -15,24 +15,17 @@ class DrugsController < ApplicationController
   def search
     @search = Drug.search do
       fulltext params[:search]
-      paginate(:page => params[:page], :per_page => 10)
+      paginate(:page => params[:page], :per_page => 15)
     end
     @drugs = @search.results
   end
 
   def show
     @drug_review = DrugReview.new
-    @drug_reviews = Drug.find(params[:id]).drug_reviews.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
+    @drug_reviews = Drug.find(params[:id]).drug_reviews.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
     
     @avg_score = 0
     @avg_score = @drug_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @drug_reviews.count if @drug_reviews.count > 0
-    
-    @promotion = Promotion.order("RANDOM()").first
-  end
-
-  def additionalinfo
-    @drug_review = DrugReview.new
-    @drug_reviews = Drug.find(params[:id]).drug_reviews.order("cached_votes_score DESC")
     
     @promotion = Promotion.order("RANDOM()").first
   end

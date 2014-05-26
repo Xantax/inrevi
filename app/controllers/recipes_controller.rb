@@ -2,27 +2,28 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy, :ingredients, :directions]
 
   def all
-    @recipes = Recipe.paginate(:page => params[:page], :per_page => 10).order("created_at DESC")
+    @recipes = Recipe.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
   end
   
   def index
-#    @recipes = Recipe.all
-    if params[:rtag]
-      @recipes = Recipe.tagged_with(params[:rtag])
+    @search = Recipe.search do
+      fulltext params[:search]
+      paginate(:page => params[:page], :per_page => 15)
     end
+    @recipes = @search.results 
   end
   
   def search
     @search = Recipe.search do
       fulltext params[:search]
-      paginate(:page => params[:page], :per_page => 10)
+      paginate(:page => params[:page], :per_page => 15)
     end
     @recipes = @search.results 
   end 
 
   def show
     @recipe_review = RecipeReview.new
-    @recipe_reviews = Recipe.find(params[:id]).recipe_reviews.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
+    @recipe_reviews = Recipe.find(params[:id]).recipe_reviews.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
     @avg_score = 0
     @avg_score = @recipe_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @recipe_reviews.count if @recipe_reviews.count > 0
     
@@ -58,18 +59,6 @@ class RecipesController < ApplicationController
   def destroy
     @recipe.destroy
       redirect_to recipes_url
-  end
-  
-  def ingredients
-    @recipe_reviews = Recipe.find(params[:id]).recipe_reviews.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
-    @avg_score = 0
-        @avg_score = @recipe_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @recipe_reviews.count if @recipe_reviews.count > 0
-  end
-  
-  def directions
-        @recipe_reviews = Recipe.find(params[:id]).recipe_reviews.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
-    @avg_score = 0
-        @avg_score = @recipe_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @recipe_reviews.count if @recipe_reviews.count > 0
   end
 
   private

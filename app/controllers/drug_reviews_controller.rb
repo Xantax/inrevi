@@ -3,12 +3,12 @@ class DrugReviewsController < ApplicationController
   before_action :set_drug, only: [:index, :new, :create]
 
   def all
-    @drug_reviews = DrugReview.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score ASC")
+    @drug_reviews = DrugReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
     render 'index'
   end
   
   def index
-    @drug_reviews = @drug.drug_reviews.paginate(:page => params[:page], :per_page => 10).order("cached_votes_score DESC")
+    @drug_reviews = @drug.drug_reviews.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
   end
 
   def new
