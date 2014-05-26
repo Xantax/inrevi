@@ -9,6 +9,9 @@
   <strong>Title:</strong>
   <%= @contact_form.category %><hr>
 
+  <strong>User:</strong>
+  <%= link_to @contact_form.user.first_name, user_path(@contact_form.user) %><hr>
+
   <%= simple_format(@contact_form.message) %><hr>
  
   <%= link_to 'Back', contact_forms_path %>

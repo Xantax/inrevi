@@ -115,9 +115,12 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.string   "category"
     t.text     "message"
     t.boolean  "read"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "contact_forms", ["user_id"], name: "index_contact_forms_on_user_id"
 
   create_table "drug_reviews", force: true do |t|
     t.text     "content"

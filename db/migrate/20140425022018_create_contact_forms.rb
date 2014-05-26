@@ -6,6 +6,7 @@ class CreateContactForms < ActiveRecord::Migration
       t.string :category
       t.text :message
       t.boolean :read
+      t.references :user, index: true
 
       t.timestamps
     end

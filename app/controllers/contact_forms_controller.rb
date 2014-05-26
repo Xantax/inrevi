@@ -17,6 +17,7 @@ class ContactFormsController < ApplicationController
 
   def create
     @contact_form = ContactForm.new(contact_form_params)
+    @contact_form.user = current_user
 
       if @contact_form.save
         redirect_to root_path, notice: 'Thank you. We will contact you soon.'
@@ -45,6 +46,6 @@ class ContactFormsController < ApplicationController
     end
 
     def contact_form_params
-      params.require(:contact_form).permit(:name, :email, :category, :message, :read)
+      params.require(:contact_form).permit(:name, :email, :category, :message, :read, :user_id)
     end
 end
