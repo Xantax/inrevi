@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
 
   class << self
     def search(params, resource_type = :computer)
-      sem3 = Semantics3::Products.new(Settings.semantics3.key, Settings.semantics3.secret)
+      sem3 = Semantics3::Products.new(ENV["SEMANTICS3_KEY"], ENV["SEMANTICS3_SECRET"])
 
       sem3.products_field('cat_id', ProductCategory::ORIGINAL_CATEGORY[resource_type][:cat_id])
 
@@ -28,14 +28,14 @@ class Product < ActiveRecord::Base
     end
 
     def retrieve_product(id)
-      sem3 = Semantics3::Products.new(Settings.semantics3.key, Settings.semantics3.secret)
+      sem3 = Semantics3::Products.new(ENV["SEMANTICS3_KEY"], ENV["SEMANTICS3_SECRET"])
       sem3.products_field('sem3_id', id)
 
       sem3.get_products['results'].first rescue nil
     end
 
     def retrieve_price(id)
-      sem3 = Semantics3::Products.new(Settings.semantics3.key, Settings.semantics3.secret)
+      sem3 = Semantics3::Products.new(ENV["SEMANTICS3_KEY"], ENV["SEMANTICS3_SECRET"])
       sem3.add("offers", "sem3_id", id)
       results = sem3.get_offers
 

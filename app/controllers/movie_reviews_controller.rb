@@ -1,15 +1,6 @@
 class MovieReviewsController < ApplicationController
   before_action :set_movie_review, only: [:destroy, :upvote, :downvote]
   before_action :set_movie, [:new, :create]
-  
-  require 'themoviedb'
-
-  before_filter :set_config
-  Tmdb::Api.key(Settings.tmdb.key)
-
-  def set_config
-  	@configuration = Tmdb::Configuration.new
-  end
 
   def all
     @movie_reviews = MovieReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")

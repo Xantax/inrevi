@@ -5,7 +5,7 @@ class Places
 
   attr_accessor :places, :neighborhoods
   def initialize
-    factual = Factual.new("eXMwUZMBIrfW7ORstKjqxoZelkYRMmOwi6C7lRDt", "htInMeU5AXUHdPuErx27W1MIj9MYeYzsG6DhhSV6")
+    factual = Factual.new(ENV["FACTUAL_KEY"], ENV["FACTUAL_SECRET"])
 
     localities = results factual.table('places').select('locality'), 'locality'
     neighborhoods = results factual.table('places').select('neighborhood'), 'neighborhood'

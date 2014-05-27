@@ -6,7 +6,7 @@ class Book < ActiveRecord::Base
 
   class << self
     def search(params)
-      GoogleBooks.search(search_param(params[:category], params[:query]), {:count => PER_PAGE, :page => page(params), :api_key => Settings.google.api, :country => "ca" })
+      GoogleBooks.search(search_param(params[:category], params[:query]), {:count => PER_PAGE, :page => page(params), :api_key => ENV["GOOGLE_KEY"], :country => "ca" })
     end
 
     def page(params)

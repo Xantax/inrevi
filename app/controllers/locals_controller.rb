@@ -50,6 +50,6 @@ class LocalsController < ApplicationController
   end
   
     def factual_authorize
-      @factual = Factual.new(Settings.factual.key, Settings.factual.secret)
+      @factual = Factual.new(ENV["FACTUAL_KEY"], ENV["FACTUAL_SECRET"])
     end
 end

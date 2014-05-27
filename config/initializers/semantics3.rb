@@ -1,3 +1,3 @@
-SEM3 = Semantics3::Products.new(Settings.semantics3.key, Settings.semantics3.secret)
+SEM3 = Semantics3::Products.new(ENV["SEMANTICS3_KEY"], ENV["SEMANTICS3_SECRET"])
 
 CategoryStruct = Struct.new(:name, :cat_id, :parent_cat_id)

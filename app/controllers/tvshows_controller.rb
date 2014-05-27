@@ -2,7 +2,7 @@ class TvshowsController < ApplicationController
   require 'themoviedb'
 
   before_filter :set_config
-  Tmdb::Api.key("a8ddb278788ceab2a58875b7f172c327")
+  Tmdb::Api.key(ENV["TMDB_KEY"])
 
   def set_config
   	@configuration = Tmdb::Configuration.new

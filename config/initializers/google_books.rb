@@ -13,7 +13,7 @@ module GoogleBooks
     def retrieve_url(id)
       URI::HTTPS.build(:host => 'www.googleapis.com',
                        :path => "/books/v1/volumes/#{id}",
-                       :query => "country=ca&key=AIzaSyDxG-6sGqo6mwxmtKa2JAkxECAwCJVLE_M"
+                       :query => "country=ca&key=#{ENV["GOOGLE_KEY"]}"
                       )
     end
   end
