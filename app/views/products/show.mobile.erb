@@ -1,4 +1,5 @@
-<%= @product['name'] %><br><br>
+<hr>
+<%= @product['name'] %><br>
 
 <%= render 'show_rating' %><br>
 
@@ -6,7 +7,7 @@
         
           <div class="r-clickfeature">
             <b><%= link_to "+ features", "#" %></b>
-          </div> 
+          </div> <br>
     
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
     <div class="writeareview mobile">
@@ -27,11 +28,11 @@
                   </td>
                 </tr>
               <% end %>
-            </table><hr>
+            </table>
           </div>
     
   </div>
-  
+<hr>  
   
 <script type="text/javascript">
   $('.r-clickfeature').on('click', function(e) {
