@@ -1,5 +1,15 @@
 <%= form_for(current_user.relationships.build(followed_id: @user.id),
              remote: true) do |f| %>
   <div><%= f.hidden_field :followed_id %></div>
-  <%= f.submit "Follow", class: "btn btn-large btn-primary" %>
+<div align="left"><%= f.submit "Follow", class: "btn btn-large btn-primary", :id => "submit-me" %></div>
 <% end %>
+
+      <div id="loading2" class="loadinggif-check" style="display:none;">
+        <img src="/assets/othericons/checkbox_blue.PNG" alt="" />
+      </div>
+
+<script type="text/javascript">
+  $('#submit-me').on('click', function(e) {
+  return $("#loading2").slideToggle();
+});
+</script>
