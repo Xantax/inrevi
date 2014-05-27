@@ -8,8 +8,8 @@
          <%= activity.owner.first_name %>
          <%= activity.owner.last_name.truncate(2, omission: '.')%>
       <% end %>
-      </div>
-   <% end %><br><br>
+      </div><br><br>
+   <% end %><br>
 
       <div class="separatereview">
         
@@ -22,7 +22,7 @@
         <% elsif activity.trackable.productable_type == "computer" %>
         <%= image_tag('caticons/electronics/Ecomputers.png') %>
         
-        <% elsif activity.trackable.productable_type == "security" %>
+        <% elsif activity.trackable.productable_type == "securit" %>
         <%= image_tag('caticons/electronics/Esecurity.png') %>
         
         <% elsif activity.trackable.productable_type == "camera" %>
@@ -64,7 +64,7 @@
         <% elsif activity.trackable.cat_id == 8551 %>
         <%= image_tag('caticons/hover/Cfashion.PNG') %>
         
-        <% elsif activity.trackable.productable_type == "jewelry" %>
+        <% elsif activity.trackable.productable_type == "jewelr" %>
         <%= image_tag('caticons/fashion/Fjewelry.png') %>
         
         <% elsif activity.trackable.productable_type == "menclothing" %>
@@ -94,13 +94,13 @@
         <% elsif activity.trackable.productable_type == "supplement" %>
         <%= image_tag('caticons/health/Hsupplements.png') %>
         
-        <% elsif activity.trackable.productable_type == "grocery" %>
+        <% elsif activity.trackable.productable_type == "grocer" %>
         <%= image_tag('caticons/hover/catdrink.PNG') %>
         
         <% elsif activity.trackable.productable_type == "appliance" %>
         <%= image_tag('caticons/home/Happliance.PNG') %>
         
-        <% elsif activity.trackable.productable_type == "baby" %>
+        <% elsif activity.trackable.productable_type == "kid" %>
         <%= image_tag('caticons/home/Hbaby.PNG') %>
         
         <% elsif activity.trackable.productable_type == "pet" %>
@@ -116,7 +116,7 @@
         <%= image_tag('caticons/home/outdoor1.png') %>
         
         <% elsif activity.trackable.productable_type == "musical" %>
-        <%= image_tag('caticons/hobbies/Hmusic.PNG') %>
+        <%= image_tag('caticons/hobbies/Hmusic.png') %>
         
         <% elsif activity.trackable.productable_type == "sport" %>
         <%= image_tag('caticons/hobbies/Hsport.PNG') %>
@@ -126,6 +126,9 @@
         
         <% elsif activity.trackable.productable_type == "toy" %>
         <%= image_tag('caticons/hobbies/toys1.png') %>
+        
+        <% elsif activity.trackable.productable_type == "videogame" %>
+        <%= image_tag('caticons/media/Mgames.PNG') %>
         
         <% end %>
         

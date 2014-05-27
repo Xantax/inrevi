@@ -12,6 +12,11 @@
   font-size: 15pt;
 }
 
+.aboutbottom.mobile{
+  padding-top:90%;
+  font-size:80%;
+}
+
 /* HEADER */
 
 .mobilelogo{
@@ -21,8 +26,8 @@
 .row.mobilecatheader{
   background-color:#404040;
   border-bottom: 1px solid #D8D8D8;
-  font-weight:bold;
-  font-size:140%;
+
+  font-size:130%;
   padding-top:5px;
   padding-left:5px;
   a{
