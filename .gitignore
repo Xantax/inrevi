@@ -17,7 +17,6 @@
 /secret
 
 # Ignore other unneeded files.
-/config/database.yml
 doc/
 *.swp
 *~
@@ -28,3 +27,4 @@ doc/
 
 # Ignore application configuration
 /config/application.yml
+/config/database.yml
