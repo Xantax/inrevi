@@ -186,6 +186,7 @@ GEM
       daemon_controller (>= 1.2.0)
       rack
       rake (>= 0.8.1)
+    pg (0.17.1)
     polyglot (0.3.4)
     pr_geohash (1.0.0)
     progress_bar (1.0.0)
@@ -340,6 +341,7 @@ DEPENDENCIES
   omniauth-facebook (~> 1.6.0)
   omniauth-google-oauth2 (~> 0.2.4)
   passenger
+  pg (~> 0.17.1)
   progress_bar (~> 1.0.0)
   public_activity (~> 1.4.1)
   rails (~> 4.0.0)

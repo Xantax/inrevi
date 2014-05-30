@@ -52,8 +52,6 @@ gem 'aws-sdk'
 gem 'eb_deployer'
 gem 'elastic-beanstalk'
 
-#gem 'pg', '~> 0.17.1'
-
 group :development do
   gem 'brakeman', '~> 2.4.3', :require => false
   gem 'sqlite3', '~> 1.3.9'
@@ -66,6 +64,7 @@ end
 
 group :production do
   gem 'rails_12factor', '~> 0.0.2'
+  gem 'pg', '~> 0.17.1'
 end
 
 group :doc do
