@@ -14,10 +14,6 @@ class Podcast < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
   
-  searchable do
-    text :name
-    text :tag_list, :boost => 5 
-  end
   
   def user_quota
     if user.podcasts.today.count >= 10

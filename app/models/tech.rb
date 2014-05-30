@@ -13,10 +13,6 @@ class Tech < ActiveRecord::Base
   
   mount_uploader :image, ImageUploader
   
-  searchable do
-    text :name
-    text :tag_list, :boost => 5
-  end
   
   def user_quota
     if user.teches.today.count >= 10

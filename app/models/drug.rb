@@ -12,10 +12,6 @@ class Drug < ActiveRecord::Base
   
   mount_uploader :image, ImageUploader
   
-  searchable do
-    text :name, :boost => 10
-    text :additionalinfo
-  end
   
   def user_quota
     if user.drugs.today.count >= 10

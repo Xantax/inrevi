@@ -13,10 +13,6 @@ acts_as_taggable
   
   mount_uploader :image, ImageUploader
   
-  searchable do
-    text :name
-    text :tag_list, :boost => 5
-  end
   
   def user_quota
     if user.finearts.today.count >= 10
