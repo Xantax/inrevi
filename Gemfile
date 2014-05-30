@@ -35,7 +35,6 @@ gem 'newrelic_rpm', '~> 3.7.3.199'
 gem 'nokogiri', '~> 1.6.1'
 gem 'passenger'
 gem 'public_activity', '~> 1.4.1'
-gem 'sunspot_rails', '~> 2.1.0'
 gem 'acts_as_votable', '~> 0.9.0'
 gem 'will_paginate', '~> 3.0'
 gem 'nested_form', '~> 0.3.2'
@@ -48,9 +47,9 @@ gem 'colorize', '~> 0.7.2'
 gem 'semantics3', '~> 0.04'
 gem 'social-share-button', '~> 0.1.6'
 gem "figaro"
-gem 'aws-sdk'
-gem 'eb_deployer'
-gem 'elastic-beanstalk'
+gem 'pg_search'
+
+#gem 'sunspot_rails', '~> 2.1.0'
 
 group :development do
   gem 'brakeman', '~> 2.4.3', :require => false
