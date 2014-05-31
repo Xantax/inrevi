@@ -34,7 +34,9 @@
         <%= f.submit " Submit ", :class => "btn btn-default", :id => "submit" %>
       </div><br>
     
-      <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
+        <div id="loading2" class="loadinggif" style="display:none;">
+          <%= image_tag("othericons/uploading.gif", alt: "") %>
+        </div>
       
       <div class="row dumb300"></div>
 
