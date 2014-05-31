@@ -22,7 +22,6 @@
            
           <div class="reviewcontent"><%= simple_format(song_review.content) %></div>
            
-             <% unless song_review.review_images.empty? %>
                 <% song_review.review_images.each do |pic| %>
                      <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>
                 <% end %>
@@ -31,7 +30,6 @@
                      <hr>
                    <% end %>
                  <% end %>
-             <% end %>
            
               <div class="bottomreviewicons">
                 <% if signed_in? %>
