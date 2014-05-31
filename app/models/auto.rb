@@ -1,6 +1,12 @@
 class Auto < ActiveRecord::Base
 include PgSearch
-  multisearchable against: [:name]
+  pg_search_scope :search_by_name, :against => [:name], :using => {
+                    :tsearch => {:prefix => true}
+                  }
+  
+  def self.search(search)
+   Auto.search_by_name(search)
+  end
   
   validates :name, presence: true
   validates :additionalinfo, presence: true
