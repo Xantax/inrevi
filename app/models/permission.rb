@@ -10,6 +10,7 @@ class Permission < Struct.new(:user)
     return true if controller == "products"
     return true if controller == "autos" && action.in?(%w[index show])
     return true if controller == "recipes" && action.in?(%w[index show search])
+    return true if controller == "podcasts" && action.in?(%w[index show search])
     return true if controller == "autos" && action.in?(%w[index show search])
     return true if controller == "finearts" && action.in?(%w[index show search])
     return true if controller == "drugs" && action.in?(%w[index show search])
