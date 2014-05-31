@@ -1,4 +1,6 @@
 class Auto < ActiveRecord::Base
+include PgSearch
+  multisearchable against: [:name]
   
   validates :name, presence: true
   validates :additionalinfo, presence: true

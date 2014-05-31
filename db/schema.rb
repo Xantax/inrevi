@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521001106) do
+ActiveRecord::Schema.define(version: 20140531001036) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -26,9 +29,9 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.datetime "updated_at"
   end
 
-  add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type"
-  add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type"
-  add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
+  add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type", using: :btree
+  add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
+  add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
   create_table "auto_reviews", force: true do |t|
     t.text     "content"
@@ -44,13 +47,13 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.integer  "cached_weighted_score", default: 0
   end
 
-  add_index "auto_reviews", ["auto_id"], name: "index_auto_reviews_on_auto_id"
-  add_index "auto_reviews", ["cached_votes_down"], name: "index_auto_reviews_on_cached_votes_down"
-  add_index "auto_reviews", ["cached_votes_score"], name: "index_auto_reviews_on_cached_votes_score"
-  add_index "auto_reviews", ["cached_votes_total"], name: "index_auto_reviews_on_cached_votes_total"
-  add_index "auto_reviews", ["cached_votes_up"], name: "index_auto_reviews_on_cached_votes_up"
-  add_index "auto_reviews", ["cached_weighted_score"], name: "index_auto_reviews_on_cached_weighted_score"
-  add_index "auto_reviews", ["user_id"], name: "index_auto_reviews_on_user_id"
+  add_index "auto_reviews", ["auto_id"], name: "index_auto_reviews_on_auto_id", using: :btree
+  add_index "auto_reviews", ["cached_votes_down"], name: "index_auto_reviews_on_cached_votes_down", using: :btree
+  add_index "auto_reviews", ["cached_votes_score"], name: "index_auto_reviews_on_cached_votes_score", using: :btree
+  add_index "auto_reviews", ["cached_votes_total"], name: "index_auto_reviews_on_cached_votes_total", using: :btree
+  add_index "auto_reviews", ["cached_votes_up"], name: "index_auto_reviews_on_cached_votes_up", using: :btree
+  add_index "auto_reviews", ["cached_weighted_score"], name: "index_auto_reviews_on_cached_weighted_score", using: :btree
+  add_index "auto_reviews", ["user_id"], name: "index_auto_reviews_on_user_id", using: :btree
 
   create_table "autos", force: true do |t|
     t.string   "name"
@@ -62,7 +65,7 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.datetime "updated_at"
   end
 
-  add_index "autos", ["user_id"], name: "index_autos_on_user_id"
+  add_index "autos", ["user_id"], name: "index_autos_on_user_id", using: :btree
 
   create_table "badges_sashes", force: true do |t|
     t.integer  "badge_id"
@@ -71,9 +74,9 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.datetime "created_at"
   end
 
-  add_index "badges_sashes", ["badge_id", "sash_id"], name: "index_badges_sashes_on_badge_id_and_sash_id"
-  add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id"
-  add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id"
+  add_index "badges_sashes", ["badge_id", "sash_id"], name: "index_badges_sashes_on_badge_id_and_sash_id", using: :btree
+  add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id", using: :btree
+  add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id", using: :btree
 
   create_table "book_reviews", force: true do |t|
     t.text     "content"
@@ -97,12 +100,12 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.integer  "cached_weighted_score", default: 0
   end
 
-  add_index "book_reviews", ["cached_votes_down"], name: "index_book_reviews_on_cached_votes_down"
-  add_index "book_reviews", ["cached_votes_score"], name: "index_book_reviews_on_cached_votes_score"
-  add_index "book_reviews", ["cached_votes_total"], name: "index_book_reviews_on_cached_votes_total"
-  add_index "book_reviews", ["cached_votes_up"], name: "index_book_reviews_on_cached_votes_up"
-  add_index "book_reviews", ["cached_weighted_score"], name: "index_book_reviews_on_cached_weighted_score"
-  add_index "book_reviews", ["user_id"], name: "index_book_reviews_on_user_id"
+  add_index "book_reviews", ["cached_votes_down"], name: "index_book_reviews_on_cached_votes_down", using: :btree
+  add_index "book_reviews", ["cached_votes_score"], name: "index_book_reviews_on_cached_votes_score", using: :btree
+  add_index "book_reviews", ["cached_votes_total"], name: "index_book_reviews_on_cached_votes_total", using: :btree
+  add_index "book_reviews", ["cached_votes_up"], name: "index_book_reviews_on_cached_votes_up", using: :btree
+  add_index "book_reviews", ["cached_weighted_score"], name: "index_book_reviews_on_cached_weighted_score", using: :btree
+  add_index "book_reviews", ["user_id"], name: "index_book_reviews_on_user_id", using: :btree
 
   create_table "books", force: true do |t|
     t.datetime "created_at"
@@ -120,7 +123,7 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.datetime "updated_at"
   end
 
-  add_index "contact_forms", ["user_id"], name: "index_contact_forms_on_user_id"
+  add_index "contact_forms", ["user_id"], name: "index_contact_forms_on_user_id", using: :btree
 
   create_table "drug_reviews", force: true do |t|
     t.text     "content"
@@ -136,13 +139,13 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.integer  "cached_weighted_score", default: 0
   end
 
-  add_index "drug_reviews", ["cached_votes_down"], name: "index_drug_reviews_on_cached_votes_down"
-  add_index "drug_reviews", ["cached_votes_score"], name: "index_drug_reviews_on_cached_votes_score"
-  add_index "drug_reviews", ["cached_votes_total"], name: "index_drug_reviews_on_cached_votes_total"
-  add_index "drug_reviews", ["cached_votes_up"], name: "index_drug_reviews_on_cached_votes_up"
-  add_index "drug_reviews", ["cached_weighted_score"], name: "index_drug_reviews_on_cached_weighted_score"
-  add_index "drug_reviews", ["drug_id"], name: "index_drug_reviews_on_drug_id"
-  add_index "drug_reviews", ["user_id"], name: "index_drug_reviews_on_user_id"
+  add_index "drug_reviews", ["cached_votes_down"], name: "index_drug_reviews_on_cached_votes_down", using: :btree
+  add_index "drug_reviews", ["cached_votes_score"], name: "index_drug_reviews_on_cached_votes_score", using: :btree
+  add_index "drug_reviews", ["cached_votes_total"], name: "index_drug_reviews_on_cached_votes_total", using: :btree
+  add_index "drug_reviews", ["cached_votes_up"], name: "index_drug_reviews_on_cached_votes_up", using: :btree
+  add_index "drug_reviews", ["cached_weighted_score"], name: "index_drug_reviews_on_cached_weighted_score", using: :btree
+  add_index "drug_reviews", ["drug_id"], name: "index_drug_reviews_on_drug_id", using: :btree
+  add_index "drug_reviews", ["user_id"], name: "index_drug_reviews_on_user_id", using: :btree
 
   create_table "drugs", force: true do |t|
     t.string   "name"
@@ -153,7 +156,7 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.datetime "updated_at"
   end
 
-  add_index "drugs", ["user_id"], name: "index_drugs_on_user_id"
+  add_index "drugs", ["user_id"], name: "index_drugs_on_user_id", using: :btree
 
   create_table "fineart_reviews", force: true do |t|
     t.text     "content"
@@ -169,13 +172,13 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.integer  "cached_weighted_score", default: 0
   end
 
-  add_index "fineart_reviews", ["cached_votes_down"], name: "index_fineart_reviews_on_cached_votes_down"
-  add_index "fineart_reviews", ["cached_votes_score"], name: "index_fineart_reviews_on_cached_votes_score"
-  add_index "fineart_reviews", ["cached_votes_total"], name: "index_fineart_reviews_on_cached_votes_total"
-  add_index "fineart_reviews", ["cached_votes_up"], name: "index_fineart_reviews_on_cached_votes_up"
-  add_index "fineart_reviews", ["cached_weighted_score"], name: "index_fineart_reviews_on_cached_weighted_score"
-  add_index "fineart_reviews", ["fineart_id"], name: "index_fineart_reviews_on_fineart_id"
-  add_index "fineart_reviews", ["user_id"], name: "index_fineart_reviews_on_user_id"
+  add_index "fineart_reviews", ["cached_votes_down"], name: "index_fineart_reviews_on_cached_votes_down", using: :btree
+  add_index "fineart_reviews", ["cached_votes_score"], name: "index_fineart_reviews_on_cached_votes_score", using: :btree
+  add_index "fineart_reviews", ["cached_votes_total"], name: "index_fineart_reviews_on_cached_votes_total", using: :btree
+  add_index "fineart_reviews", ["cached_votes_up"], name: "index_fineart_reviews_on_cached_votes_up", using: :btree
+  add_index "fineart_reviews", ["cached_weighted_score"], name: "index_fineart_reviews_on_cached_weighted_score", using: :btree
+  add_index "fineart_reviews", ["fineart_id"], name: "index_fineart_reviews_on_fineart_id", using: :btree
+  add_index "fineart_reviews", ["user_id"], name: "index_fineart_reviews_on_user_id", using: :btree
 
   create_table "finearts", force: true do |t|
     t.string   "name"
@@ -185,7 +188,7 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.datetime "updated_at"
   end
 
-  add_index "finearts", ["user_id"], name: "index_finearts_on_user_id"
+  add_index "finearts", ["user_id"], name: "index_finearts_on_user_id", using: :btree
 
   create_table "links", force: true do |t|
     t.string   "link"
@@ -220,12 +223,12 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.integer  "cached_weighted_score", default: 0
   end
 
-  add_index "local_reviews", ["cached_votes_down"], name: "index_local_reviews_on_cached_votes_down"
-  add_index "local_reviews", ["cached_votes_score"], name: "index_local_reviews_on_cached_votes_score"
-  add_index "local_reviews", ["cached_votes_total"], name: "index_local_reviews_on_cached_votes_total"
-  add_index "local_reviews", ["cached_votes_up"], name: "index_local_reviews_on_cached_votes_up"
-  add_index "local_reviews", ["cached_weighted_score"], name: "index_local_reviews_on_cached_weighted_score"
-  add_index "local_reviews", ["user_id"], name: "index_local_reviews_on_user_id"
+  add_index "local_reviews", ["cached_votes_down"], name: "index_local_reviews_on_cached_votes_down", using: :btree
+  add_index "local_reviews", ["cached_votes_score"], name: "index_local_reviews_on_cached_votes_score", using: :btree
+  add_index "local_reviews", ["cached_votes_total"], name: "index_local_reviews_on_cached_votes_total", using: :btree
+  add_index "local_reviews", ["cached_votes_up"], name: "index_local_reviews_on_cached_votes_up", using: :btree
+  add_index "local_reviews", ["cached_weighted_score"], name: "index_local_reviews_on_cached_weighted_score", using: :btree
+  add_index "local_reviews", ["user_id"], name: "index_local_reviews_on_user_id", using: :btree
 
   create_table "locals", force: true do |t|
     t.integer  "factual_id"
@@ -284,14 +287,22 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.integer  "cached_weighted_score", default: 0
   end
 
-  add_index "movie_reviews", ["cached_votes_down"], name: "index_movie_reviews_on_cached_votes_down"
-  add_index "movie_reviews", ["cached_votes_score"], name: "index_movie_reviews_on_cached_votes_score"
-  add_index "movie_reviews", ["cached_votes_total"], name: "index_movie_reviews_on_cached_votes_total"
-  add_index "movie_reviews", ["cached_votes_up"], name: "index_movie_reviews_on_cached_votes_up"
-  add_index "movie_reviews", ["cached_weighted_score"], name: "index_movie_reviews_on_cached_weighted_score"
-  add_index "movie_reviews", ["user_id"], name: "index_movie_reviews_on_user_id"
+  add_index "movie_reviews", ["cached_votes_down"], name: "index_movie_reviews_on_cached_votes_down", using: :btree
+  add_index "movie_reviews", ["cached_votes_score"], name: "index_movie_reviews_on_cached_votes_score", using: :btree
+  add_index "movie_reviews", ["cached_votes_total"], name: "index_movie_reviews_on_cached_votes_total", using: :btree
+  add_index "movie_reviews", ["cached_votes_up"], name: "index_movie_reviews_on_cached_votes_up", using: :btree
+  add_index "movie_reviews", ["cached_weighted_score"], name: "index_movie_reviews_on_cached_weighted_score", using: :btree
+  add_index "movie_reviews", ["user_id"], name: "index_movie_reviews_on_user_id", using: :btree
 
   create_table "movies", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pg_search_documents", force: true do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -310,13 +321,13 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.integer  "cached_weighted_score", default: 0
   end
 
-  add_index "podcast_reviews", ["cached_votes_down"], name: "index_podcast_reviews_on_cached_votes_down"
-  add_index "podcast_reviews", ["cached_votes_score"], name: "index_podcast_reviews_on_cached_votes_score"
-  add_index "podcast_reviews", ["cached_votes_total"], name: "index_podcast_reviews_on_cached_votes_total"
-  add_index "podcast_reviews", ["cached_votes_up"], name: "index_podcast_reviews_on_cached_votes_up"
-  add_index "podcast_reviews", ["cached_weighted_score"], name: "index_podcast_reviews_on_cached_weighted_score"
-  add_index "podcast_reviews", ["podcast_id"], name: "index_podcast_reviews_on_podcast_id"
-  add_index "podcast_reviews", ["user_id"], name: "index_podcast_reviews_on_user_id"
+  add_index "podcast_reviews", ["cached_votes_down"], name: "index_podcast_reviews_on_cached_votes_down", using: :btree
+  add_index "podcast_reviews", ["cached_votes_score"], name: "index_podcast_reviews_on_cached_votes_score", using: :btree
+  add_index "podcast_reviews", ["cached_votes_total"], name: "index_podcast_reviews_on_cached_votes_total", using: :btree
+  add_index "podcast_reviews", ["cached_votes_up"], name: "index_podcast_reviews_on_cached_votes_up", using: :btree
+  add_index "podcast_reviews", ["cached_weighted_score"], name: "index_podcast_reviews_on_cached_weighted_score", using: :btree
+  add_index "podcast_reviews", ["podcast_id"], name: "index_podcast_reviews_on_podcast_id", using: :btree
+  add_index "podcast_reviews", ["user_id"], name: "index_podcast_reviews_on_user_id", using: :btree
 
   create_table "podcasts", force: true do |t|
     t.string   "name"
@@ -327,7 +338,7 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.datetime "updated_at"
   end
 
-  add_index "podcasts", ["user_id"], name: "index_podcasts_on_user_id"
+  add_index "podcasts", ["user_id"], name: "index_podcasts_on_user_id", using: :btree
 
   create_table "product_categories", force: true do |t|
     t.string   "name"
@@ -357,12 +368,12 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.integer  "cached_weighted_score", default: 0
   end
 
-  add_index "product_reviews", ["cached_votes_down"], name: "index_product_reviews_on_cached_votes_down"
-  add_index "product_reviews", ["cached_votes_score"], name: "index_product_reviews_on_cached_votes_score"
-  add_index "product_reviews", ["cached_votes_total"], name: "index_product_reviews_on_cached_votes_total"
-  add_index "product_reviews", ["cached_votes_up"], name: "index_product_reviews_on_cached_votes_up"
-  add_index "product_reviews", ["cached_weighted_score"], name: "index_product_reviews_on_cached_weighted_score"
-  add_index "product_reviews", ["user_id"], name: "index_product_reviews_on_user_id"
+  add_index "product_reviews", ["cached_votes_down"], name: "index_product_reviews_on_cached_votes_down", using: :btree
+  add_index "product_reviews", ["cached_votes_score"], name: "index_product_reviews_on_cached_votes_score", using: :btree
+  add_index "product_reviews", ["cached_votes_total"], name: "index_product_reviews_on_cached_votes_total", using: :btree
+  add_index "product_reviews", ["cached_votes_up"], name: "index_product_reviews_on_cached_votes_up", using: :btree
+  add_index "product_reviews", ["cached_weighted_score"], name: "index_product_reviews_on_cached_weighted_score", using: :btree
+  add_index "product_reviews", ["user_id"], name: "index_product_reviews_on_user_id", using: :btree
 
   create_table "promotions", force: true do |t|
     t.string   "text"
@@ -396,13 +407,13 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.integer  "cached_weighted_score", default: 0
   end
 
-  add_index "recipe_reviews", ["cached_votes_down"], name: "index_recipe_reviews_on_cached_votes_down"
-  add_index "recipe_reviews", ["cached_votes_score"], name: "index_recipe_reviews_on_cached_votes_score"
-  add_index "recipe_reviews", ["cached_votes_total"], name: "index_recipe_reviews_on_cached_votes_total"
-  add_index "recipe_reviews", ["cached_votes_up"], name: "index_recipe_reviews_on_cached_votes_up"
-  add_index "recipe_reviews", ["cached_weighted_score"], name: "index_recipe_reviews_on_cached_weighted_score"
-  add_index "recipe_reviews", ["recipe_id"], name: "index_recipe_reviews_on_recipe_id"
-  add_index "recipe_reviews", ["user_id"], name: "index_recipe_reviews_on_user_id"
+  add_index "recipe_reviews", ["cached_votes_down"], name: "index_recipe_reviews_on_cached_votes_down", using: :btree
+  add_index "recipe_reviews", ["cached_votes_score"], name: "index_recipe_reviews_on_cached_votes_score", using: :btree
+  add_index "recipe_reviews", ["cached_votes_total"], name: "index_recipe_reviews_on_cached_votes_total", using: :btree
+  add_index "recipe_reviews", ["cached_votes_up"], name: "index_recipe_reviews_on_cached_votes_up", using: :btree
+  add_index "recipe_reviews", ["cached_weighted_score"], name: "index_recipe_reviews_on_cached_weighted_score", using: :btree
+  add_index "recipe_reviews", ["recipe_id"], name: "index_recipe_reviews_on_recipe_id", using: :btree
+  add_index "recipe_reviews", ["user_id"], name: "index_recipe_reviews_on_user_id", using: :btree
 
   create_table "recipes", force: true do |t|
     t.string   "name"
@@ -414,7 +425,7 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.datetime "updated_at"
   end
 
-  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id"
+  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
@@ -423,9 +434,9 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.datetime "updated_at"
   end
 
-  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
-  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
-  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
   create_table "review_images", force: true do |t|
     t.integer  "attachable_id"
@@ -435,7 +446,7 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.datetime "updated_at"
   end
 
-  add_index "review_images", ["attachable_id", "attachable_type"], name: "index_review_images_on_attachable_id_and_attachable_type"
+  add_index "review_images", ["attachable_id", "attachable_type"], name: "index_review_images_on_attachable_id_and_attachable_type", using: :btree
 
   create_table "sashes", force: true do |t|
     t.datetime "created_at"
@@ -460,12 +471,12 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.integer  "cached_weighted_score", default: 0
   end
 
-  add_index "song_reviews", ["cached_votes_down"], name: "index_song_reviews_on_cached_votes_down"
-  add_index "song_reviews", ["cached_votes_score"], name: "index_song_reviews_on_cached_votes_score"
-  add_index "song_reviews", ["cached_votes_total"], name: "index_song_reviews_on_cached_votes_total"
-  add_index "song_reviews", ["cached_votes_up"], name: "index_song_reviews_on_cached_votes_up"
-  add_index "song_reviews", ["cached_weighted_score"], name: "index_song_reviews_on_cached_weighted_score"
-  add_index "song_reviews", ["user_id"], name: "index_song_reviews_on_user_id"
+  add_index "song_reviews", ["cached_votes_down"], name: "index_song_reviews_on_cached_votes_down", using: :btree
+  add_index "song_reviews", ["cached_votes_score"], name: "index_song_reviews_on_cached_votes_score", using: :btree
+  add_index "song_reviews", ["cached_votes_total"], name: "index_song_reviews_on_cached_votes_total", using: :btree
+  add_index "song_reviews", ["cached_votes_up"], name: "index_song_reviews_on_cached_votes_up", using: :btree
+  add_index "song_reviews", ["cached_weighted_score"], name: "index_song_reviews_on_cached_weighted_score", using: :btree
+  add_index "song_reviews", ["user_id"], name: "index_song_reviews_on_user_id", using: :btree
 
   create_table "songs", force: true do |t|
     t.datetime "created_at"
@@ -482,13 +493,13 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
 
   create_table "tags", force: true do |t|
     t.string "name"
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "tech_reviews", force: true do |t|
     t.text     "content"
@@ -504,13 +515,13 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.integer  "cached_weighted_score", default: 0
   end
 
-  add_index "tech_reviews", ["cached_votes_down"], name: "index_tech_reviews_on_cached_votes_down"
-  add_index "tech_reviews", ["cached_votes_score"], name: "index_tech_reviews_on_cached_votes_score"
-  add_index "tech_reviews", ["cached_votes_total"], name: "index_tech_reviews_on_cached_votes_total"
-  add_index "tech_reviews", ["cached_votes_up"], name: "index_tech_reviews_on_cached_votes_up"
-  add_index "tech_reviews", ["cached_weighted_score"], name: "index_tech_reviews_on_cached_weighted_score"
-  add_index "tech_reviews", ["tech_id"], name: "index_tech_reviews_on_tech_id"
-  add_index "tech_reviews", ["user_id"], name: "index_tech_reviews_on_user_id"
+  add_index "tech_reviews", ["cached_votes_down"], name: "index_tech_reviews_on_cached_votes_down", using: :btree
+  add_index "tech_reviews", ["cached_votes_score"], name: "index_tech_reviews_on_cached_votes_score", using: :btree
+  add_index "tech_reviews", ["cached_votes_total"], name: "index_tech_reviews_on_cached_votes_total", using: :btree
+  add_index "tech_reviews", ["cached_votes_up"], name: "index_tech_reviews_on_cached_votes_up", using: :btree
+  add_index "tech_reviews", ["cached_weighted_score"], name: "index_tech_reviews_on_cached_weighted_score", using: :btree
+  add_index "tech_reviews", ["tech_id"], name: "index_tech_reviews_on_tech_id", using: :btree
+  add_index "tech_reviews", ["user_id"], name: "index_tech_reviews_on_user_id", using: :btree
 
   create_table "teches", force: true do |t|
     t.string   "name"
@@ -521,7 +532,7 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.string   "image"
   end
 
-  add_index "teches", ["user_id"], name: "index_teches_on_user_id"
+  add_index "teches", ["user_id"], name: "index_teches_on_user_id", using: :btree
 
   create_table "tvshow_reviews", force: true do |t|
     t.text     "content"
@@ -540,12 +551,12 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.integer  "cached_weighted_score", default: 0
   end
 
-  add_index "tvshow_reviews", ["cached_votes_down"], name: "index_tvshow_reviews_on_cached_votes_down"
-  add_index "tvshow_reviews", ["cached_votes_score"], name: "index_tvshow_reviews_on_cached_votes_score"
-  add_index "tvshow_reviews", ["cached_votes_total"], name: "index_tvshow_reviews_on_cached_votes_total"
-  add_index "tvshow_reviews", ["cached_votes_up"], name: "index_tvshow_reviews_on_cached_votes_up"
-  add_index "tvshow_reviews", ["cached_weighted_score"], name: "index_tvshow_reviews_on_cached_weighted_score"
-  add_index "tvshow_reviews", ["user_id"], name: "index_tvshow_reviews_on_user_id"
+  add_index "tvshow_reviews", ["cached_votes_down"], name: "index_tvshow_reviews_on_cached_votes_down", using: :btree
+  add_index "tvshow_reviews", ["cached_votes_score"], name: "index_tvshow_reviews_on_cached_votes_score", using: :btree
+  add_index "tvshow_reviews", ["cached_votes_total"], name: "index_tvshow_reviews_on_cached_votes_total", using: :btree
+  add_index "tvshow_reviews", ["cached_votes_up"], name: "index_tvshow_reviews_on_cached_votes_up", using: :btree
+  add_index "tvshow_reviews", ["cached_weighted_score"], name: "index_tvshow_reviews_on_cached_weighted_score", using: :btree
+  add_index "tvshow_reviews", ["user_id"], name: "index_tvshow_reviews_on_user_id", using: :btree
 
   create_table "tvshows", force: true do |t|
     t.datetime "created_at"
@@ -584,7 +595,7 @@ ActiveRecord::Schema.define(version: 20140521001106) do
     t.datetime "updated_at"
   end
 
-  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
-  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
 end

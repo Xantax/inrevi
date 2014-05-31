@@ -49,14 +49,15 @@ gem 'semantics3', '~> 0.04'
 gem 'social-share-button', '~> 0.1.6'
 gem "figaro"
 gem 'pg_search'
+gem 'pg', '~> 0.17.1'
 
 #gem 'sunspot_rails', '~> 2.1.0'
 
 group :development do
   gem 'brakeman', '~> 2.4.3', :require => false
-  gem 'sqlite3', '~> 1.3.9'
+#  gem 'sqlite3', '~> 1.3.9'
   gem 'debugger', '~> 1.6.6'
-  gem 'sunspot_solr', '~> 2.1.0'
+#  gem 'sunspot_solr', '~> 2.1.0'
   gem 'better_errors', '~> 1.1.0'
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'meta_request', '~> 0.2.0'
@@ -64,7 +65,6 @@ end
 
 group :production do
   gem 'rails_12factor', '~> 0.0.2'
-  gem 'pg', '~> 0.17.1'
 end
 
 group :doc do
