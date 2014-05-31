@@ -1,4 +1,13 @@
 class Recipe < ActiveRecord::Base
+include PgSearch
+  pg_search_scope :search_by_name, :against => [:name], :using => {
+                    :tsearch => {:prefix => true}
+                  }
+  
+  def self.search(search)
+    Recipe.search_by_name(search)
+  end
+  
   acts_as_taggable
   
   has_many :recipe_reviews

@@ -5,20 +5,11 @@
      @podcasts = Podcast.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
   end
    
-  def index
-      @search = Podcast.search do
-        fulltext params[:search]
-        paginate(:page => params[:page], :per_page => 15)
-      end
-        @podcasts = @search.results   
+  def index   
   end
    
    def search     
-      @search = Podcast.search do
-        fulltext params[:search]
-        paginate(:page => params[:page], :per_page => 15)
-      end
-        @podcasts = @search.results   
+     @podcasts = Podcast.search(params[:search]).paginate(:page => params[:page], :per_page => 15)
    end
 
   def show

@@ -1,5 +1,14 @@
 class Fineart < ActiveRecord::Base
-acts_as_taggable
+include PgSearch
+  pg_search_scope :search_by_name, :against => [:name, :tag_list], :using => {
+                    :tsearch => {:prefix => true}
+                  }
+  
+  def self.search(search)
+    Fineart.search_by_name(search)
+  end
+  
+  acts_as_taggable
   
   has_many :fineart_reviews
   belongs_to :user

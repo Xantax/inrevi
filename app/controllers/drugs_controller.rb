@@ -6,18 +6,10 @@ class DrugsController < ApplicationController
   end
   
   def index
-    @search = Drug.search do
-      fulltext params[:search]
-    end
-    @drugs = @search.results
   end
   
   def search
-    @search = Drug.search do
-      fulltext params[:search]
-      paginate(:page => params[:page], :per_page => 15)
-    end
-    @drugs = @search.results
+    @drugs = Drug.search(params[:search]).paginate(:page => params[:page], :per_page => 15)
   end
 
   def show

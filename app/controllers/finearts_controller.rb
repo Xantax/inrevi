@@ -6,23 +6,10 @@ class FineartsController < ApplicationController
   end
   
   def search
-    
-    @search = Fineart.search do
-      fulltext params[:search]
-      paginate(:page => params[:page], :per_page => 15)
-    end
-    @finearts = @search.results
-    
+    @finearts = Fineart.search(params[:search]).paginate(:page => params[:page], :per_page => 15)
   end
   
   def index
-    
-    @search = Fineart.search do
-      fulltext params[:search]
-      paginate(:page => params[:page], :per_page => 15)
-    end
-   @finearts = @search.results
-    
   end
 
   def show

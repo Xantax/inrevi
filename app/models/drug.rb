@@ -1,4 +1,12 @@
 class Drug < ActiveRecord::Base
+include PgSearch
+  pg_search_scope :search_by_name, :against => [:name], :using => {
+                    :tsearch => {:prefix => true}
+                  }
+  
+  def self.search(search)
+   Drug.search_by_name(search)
+  end
   
   validates :name, presence: true
   validates :additionalinfo, presence: true

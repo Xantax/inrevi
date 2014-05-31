@@ -6,12 +6,6 @@ class AutosController < ApplicationController
   end
   
   def index
-#    @search = Auto.search do
-#      fulltext params[:search]
-#      paginate(:page => params[:page], :per_page => 10)
-#    end
-#      @autos = @search.results 
-    @autos = Auto.search(params[:search]).paginate(:page => params[:page], :per_page => 15)
   end
 
   def search    

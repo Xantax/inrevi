@@ -6,24 +6,10 @@ class TechesController < ApplicationController
   end
   
   def search
-    @search = Tech.search do
-      fulltext params[:search]
-      paginate(:page => params[:page], :per_page => 15)
-    end
-    @teches = @search.results    
+    @teches = Tech.search(params[:search]).paginate(:page => params[:page], :per_page => 15)
   end
   
   def index
-    @search = Tech.search do
-      fulltext params[:search]
-      paginate(:page => params[:page], :per_page => 15)
-    end
-   @teches = @search.results
-    
-    if params[:ttag]
-      @teches = Tech.tagged_with(params[:ttag])
-    end
-    
   end
 
   def show

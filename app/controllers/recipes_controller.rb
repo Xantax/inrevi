@@ -6,19 +6,10 @@ class RecipesController < ApplicationController
   end
   
   def index
-    @search = Recipe.search do
-      fulltext params[:search]
-      paginate(:page => params[:page], :per_page => 15)
-    end
-    @recipes = @search.results 
   end
   
   def search
-    @search = Recipe.search do
-      fulltext params[:search]
-      paginate(:page => params[:page], :per_page => 15)
-    end
-    @recipes = @search.results 
+    @recipes = Recipe.search(params[:search]).paginate(:page => params[:page], :per_page => 15)
   end 
 
   def show
