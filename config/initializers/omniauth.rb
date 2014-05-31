@@ -1,10 +1,10 @@
 OmniAuth.config.logger = Rails.logger
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :facebook, '204839183038354', 'd3680e6cd20d4b3ff4b4694a9085ea60',{
+  provider :facebook, 'ENV["FB_KEY"]', 'ENV["FB_SECRET"]',{
     :image_size => 'large'
     }
-  provider :google_oauth2, '459957410335-233cfn4j6cbkqisf8r86fcmcigarp75l.apps.googleusercontent.com', 'UTMdeEFQbIGInkmjOqcAWgVM',{
+  provider :google_oauth2, 'ENV["GPLUS_KEY"]', 'ENV["GPLUS_SECRET"]',{
       :image_aspect_ratio => "original",
       :image_size => 200
     }
