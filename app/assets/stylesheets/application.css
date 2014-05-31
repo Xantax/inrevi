@@ -10,6 +10,5 @@
  *
  *= require_self
  *= require 'products'
- *= require social-share-button
  *= require_tree .
  */

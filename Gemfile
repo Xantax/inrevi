@@ -11,7 +11,7 @@ gem 'oauth2', '~> 0.9.3'
 gem 'themoviedb', '~> 0.0.20'
 gem 'httparty', '~> 0.13.0'
 gem 'json', '~> 1.8.1'
-gem "carrierwave", '~> 0.10.0'
+gem 'carrierwave', '~> 0.10.0'
 gem "rmagick", '~> 2.13.2'
 gem "tilt", '~> 1.4.1'
 gem 'sass-rails', '~> 4.0.0'
@@ -50,6 +50,7 @@ gem 'figaro', '~> 0.7.0'
 gem 'pg_search', '~> 0.7.4'
 gem 'pg', '~> 0.17.1'
 gem 'fog', '~> 1.22.1'
+gem 'aws-sdk'
 
 group :development do
   gem 'brakeman', '~> 2.4.3', :require => false
