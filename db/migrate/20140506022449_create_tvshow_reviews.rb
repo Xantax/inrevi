@@ -7,7 +7,7 @@ class CreateTvshowReviews < ActiveRecord::Migration
       t.string :tvshow_year
       t.string :tvshow_poster
       t.references :user, index: true
-      t.string :tvshow_id, index: true
+      t.integer :tvshow_id, index: true
 
       t.timestamps
     end
