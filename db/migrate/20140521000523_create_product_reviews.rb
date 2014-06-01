@@ -7,7 +7,7 @@ class CreateProductReviews < ActiveRecord::Migration
       t.integer :cat_id
       t.string :productable_id
       t.string :productable_type
-      t.integer :upc_code
+      t.integer :upc_code, :limit => 8
       t.string :product_name
       t.string :gtins
 
