@@ -6,6 +6,7 @@
             <%= image_tag fineart.image_url(:thumb) if fineart.image? %>  
             <hr>
             Author: <%= link_to fineart.user.first_name, fineart.user %> |
+            <%= link_to 'Edit', edit_fineart_path(fineart) %>
             <%= link_to 'Destroy', fineart_path(fineart),
                             method: :delete, data: { confirm: 'Are you sure?' } %>
             <hr>
