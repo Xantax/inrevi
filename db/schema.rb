@@ -343,21 +343,21 @@ ActiveRecord::Schema.define(version: 20140521001106) do
 
   create_table "product_reviews", force: true do |t|
     t.text     "content"
-    t.integer  "point",                           default: -1
+    t.integer  "point",                 default: -1
     t.integer  "user_id"
     t.integer  "cat_id"
     t.string   "productable_id"
     t.string   "productable_type"
-    t.integer  "upc_code",              limit: 8
+    t.string   "upc_code"
     t.string   "product_name"
     t.string   "gtins"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "cached_votes_total",              default: 0
-    t.integer  "cached_votes_score",              default: 0
-    t.integer  "cached_votes_up",                 default: 0
-    t.integer  "cached_votes_down",               default: 0
-    t.integer  "cached_weighted_score",           default: 0
+    t.integer  "cached_votes_total",    default: 0
+    t.integer  "cached_votes_score",    default: 0
+    t.integer  "cached_votes_up",       default: 0
+    t.integer  "cached_votes_down",     default: 0
+    t.integer  "cached_weighted_score", default: 0
   end
 
   add_index "product_reviews", ["cached_votes_down"], name: "index_product_reviews_on_cached_votes_down", using: :btree
