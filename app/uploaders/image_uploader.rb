@@ -35,11 +35,7 @@ include CarrierWave::RMagick
   # Create different versions of your uploaded files:
  version :thumb do
    process :resize_to_limit => [140, 150]
- end
-    
- version :review_thumb do
-   process :resize_to_limit => [100, 130]
- end   
+ end  
     
     # VERSON :podindex etc... 
 

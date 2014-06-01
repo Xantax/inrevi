@@ -19,7 +19,7 @@
           <div class="reviewcontent"><%= simple_format(auto_review.content) %></div>
            
                 <% auto_review.review_images.each do |pic| %>
-                     <%= link_to image_tag(pic.image_url(:review_thumb)), pic.image_url, target: :_blank if pic.image?  %>
+                     <%= link_to image_tag(pic.image_url(:thumb), width: 50), pic.image_url, target: :_blank if pic.image?  %>
                 <% end %>
                  <% if signed_in? %>
                    <% unless current_user == auto_review.user %>
