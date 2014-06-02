@@ -2,7 +2,8 @@
   <div class="row">
     
     <div class="col-sm-4 podsin">
-      IMAGE
+        <% image_url = product['images'].first %>        
+        <%= image_tag(image_url, width: 150) %>
     </div>
     
     <div class="col-sm-7 podsin">
