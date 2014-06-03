@@ -20,7 +20,7 @@ class RecipeReview < ActiveRecord::Base
   validates_numericality_of :point, greater_than_or_equal_to: 0
  
   def user_quota
-    if user.recipe_reviews.today.count >= 5
+    if user.recipe_reviews.today.count >= 25
       errors.add(:base, "Exceeded daily limit. You can't create more reviews today!")
     end
   end 
