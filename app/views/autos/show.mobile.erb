@@ -1,4 +1,5 @@
-<% provide(:title, @auto.name) %>
+<% provide(:title, "#{@auto.name} Reviews") %>
+
     <hr>
     <div class="item-name-mobile">
       <%= link_to @auto.name.truncate(80, omission: '...'), auto_path(@auto) %>

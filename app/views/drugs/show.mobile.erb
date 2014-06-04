@@ -1,4 +1,4 @@
-<% provide(:title, @drug.name) %>
+<% provide(:title, "#{@drug.name} Reviews") %>
     <hr>
     <div class="item-name-mobile">
       <%= link_to @drug.name.truncate(80, omission: '...'), drug_path(@drug) %>

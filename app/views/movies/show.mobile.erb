@@ -1,4 +1,4 @@
-<% provide(:title, @movie.title) %>
+<% provide(:title, "#{@movie.title} Reviews") %>
 <hr>
       <div class="movtitle">
         <%= link_to @movie.title, movie_path(@movie.id) %> (<%= @movie.release_date.to_date.try(:year) %>)

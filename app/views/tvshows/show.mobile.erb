@@ -1,4 +1,4 @@
-<% provide(:title, @tvshow.name) %>
+<% provide(:title, "#{@tvshow.name} Reviews") %>
 
       <%= link_to @tvshow.name, tvshow_path(@tvshow.id) %> (<%= @tvshow.first_air_date.to_date.strftime("%Y") %>)<br>
       <%= render 'show_rating' %><br>

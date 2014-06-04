@@ -1,4 +1,5 @@
-<% provide(:title, @fineart.name) %>
+<% provide(:title, "#{@fineart.name} Reviews") %>
+
     <hr>
     <div class="item-name-mobile">
       <%= link_to @fineart.name.truncate(80, omission: '...'), fineart_path(@fineart) %>

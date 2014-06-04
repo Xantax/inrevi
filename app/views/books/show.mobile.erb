@@ -1,5 +1,6 @@
-<% provide(:title, @book.title) %>
-    <br>
+<% provide(:title, "#{@book.title} Reviews") %>
+
+    <hr>
     <div class="item-name-mobile">
        <%= link_to @book.title.truncate(80, omission: '...'), book_path() if @book.title.present? %>
     </div>
