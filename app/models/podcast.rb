@@ -2,7 +2,10 @@ class Podcast < ActiveRecord::Base
 include PgSearch
   pg_search_scope :search_by_name, :against => [:name], :using => {
                     :tsearch => {:prefix => true}
-                  }
+                  },
+  :associated_against => {
+    :tags => [:name]    
+   }
   
   def self.search(search)
     Podcast.search_by_name(search)
