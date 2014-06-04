@@ -24,7 +24,7 @@ include PgSearch
   
   
   def user_quota
-    if user.autos.today.count >= 40
+    if user.autos.today.count >= 150
       errors.add(:base, "Exceeds daily limit. You can't create more today (SPAM prevention)")
     end
   end  
