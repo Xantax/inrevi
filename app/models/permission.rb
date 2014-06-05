@@ -2,37 +2,38 @@ class Permission < Struct.new(:user)
   def allow?(controller, action)
     return true if controller == "sessions"
     return true if controller == "static_pages" && action != "admin_dashboard"
-    return true if controller == "books"
-    return true if controller == "songs"
-    return true if controller == "locals"
-    return true if controller == "movies"
-    return true if controller == "tvshows"
-    return true if controller == "products"
+    return true if controller == "books" && action.in?(%w[index show])
+    return true if controller == "songs" && action.in?(%w[index show])
+    return true if controller == "locals" && action.in?(%w[index show])
+    return true if controller == "movies" && action.in?(%w[index show])
+    return true if controller == "tvshows" && action.in?(%w[index show])
+    return true if controller == "products" && action.in?(%w[index show])
+    return true if controller == "recipes" && action.in?(%w[index show])
+    return true if controller == "podcasts" && action.in?(%w[index show])
     return true if controller == "autos" && action.in?(%w[index show])
-    return true if controller == "recipes" && action.in?(%w[index show search])
-    return true if controller == "podcasts" && action.in?(%w[index show search])
-    return true if controller == "autos" && action.in?(%w[index show search])
-    return true if controller == "finearts" && action.in?(%w[index show search])
-    return true if controller == "drugs" && action.in?(%w[index show search])
-    return true if controller == "teches" && action.in?(%w[index show search])
+    return true if controller == "finearts" && action.in?(%w[index show])
+    return true if controller == "drugs" && action.in?(%w[index show])
+    return true if controller == "teches" && action.in?(%w[index show])
     return true if controller == "users" && action.in?(%w[show])
     if user
       return true if user.admin?
       return false if user.banned?
-      if user.moderator?
-        return true if controller == "autos" && action.in?(%w[edit update destroy all]) 
-        return true if controller == "recipes" && action.in?(%w[edit update destroy all])
-        return true if controller == "podcasts" && action.in?(%w[edit update destroy all])
-        return true if controller == "finearts" && action.in?(%w[edit update destroy all])
-        return true if controller == "drugs" && action.in?(%w[edit update destroy all]) 
-        return true if controller == "teches" && action.in?(%w[edit update destroy all])  
-      end
+        if user.moderator?
+          #Insert moderator's permissions 
+        end
       return true if controller == "autos" && action.in?(%w[new create search])
       return true if controller == "podcasts" && action.in?(%w[new create search])
       return true if controller == "drugs" && action.in?(%w[new create search])
       return true if controller == "recipes" && action.in?(%w[new create search])
       return true if controller == "finearts" && action.in?(%w[new create search])
       return true if controller == "teches" && action.in?(%w[new create search])
+      return true if controller == "books"
+      return true if controller == "songs"
+      return true if controller == "locals"
+      return true if controller == "movies"
+      return true if controller == "tvshows"
+      return true if controller == "products"
+      
       return true if controller == "relationships" && action.in?(%w[create destroy])
       return true if controller == "contact_forms" && action.in?(%w[new create])
       return true if controller == "users" && action.in?(%w[following followers])
