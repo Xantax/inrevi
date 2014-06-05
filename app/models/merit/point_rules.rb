@@ -17,8 +17,8 @@ module Merit
         'drug_reviews#create',
         'product_reviews#create'
         
-        ], category: 'gold_points'
-      
+        ], to: :action_user, category: 'gold_points'
+           
       
       score 2, :on => ['auto_reviews#upvote',
         'local_reviews#upvote',
@@ -49,9 +49,8 @@ module Merit
         'drug_reviews#upvote', 'drug_reviews#downvote',
         'product_reviews#upvote', 'product_reviews#downvote'
         
-        ], category: 'gold_points'
-      
-      
+        ], to: :action_user, category: 'gold_points'
+            
       
       score 1, :on => ['auto_reviews#create',
         'local_reviews#create',

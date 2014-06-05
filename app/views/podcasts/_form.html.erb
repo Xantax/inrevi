@@ -1,4 +1,4 @@
-<%=form_for @podcast, :html=>{:class=>"form-horizontal", :multipart => true} do |f|%>
+<%=form_for @podcast, validate: true, html: {multipart: true}, 'data-update-target' => 'comments', class: 'comments' do |f| %>
 
 <% if @podcast.errors.any? %>
   <div id="error_explanation">
@@ -23,6 +23,22 @@
     <%= image_tag("othericons/PhotoShow.PNG") %>
     <%= f.file_field :image, :placeholder => "e.g. https://imgur.com/Iks3rd" , :class => "podcastnew" %><br><br>
 
-    <%= submit_tag 'Submit', :class => 'btn btn-primary' %>
+    <%= submit_tag 'Submit', :class => 'btn btn-primary', :id => "submit" %> <br>
+
+      <div id="loading2" class="loadinggif" style="display:none;">
+          <%= image_tag("othericons/uploading.gif", alt: "") %><br>
+          Uploading...
+      </div>
 
 <% end %>
+
+<script type="text/javascript">
+(function (d) {
+  d.getElementById('new_podcast').onsubmit = function () {
+    d.getElementById('submit').style.display = 'block';
+    d.getElementById('loading2').style.display = 'block';
+  };
+}(document));
+</script>
+
+<div class="row dumb300"></div>
