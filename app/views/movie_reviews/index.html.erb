@@ -42,11 +42,11 @@
                     Voted!
                   <% else %>
                    <div class="thumbsup">
-                     <%= link_to image_tag('othericons/thumbsup_off.PNG'),  like_movie_movie_review_path(movie_review.movie_id, movie_review), method: :put, :remote => true %>
+                     <%= link_to "",  like_movie_movie_review_path(movie_review.movie_id, movie_review), method: :put, :remote => true %>
                    </div>
                             
                    <div class="thumbsdown">
-                    <%= link_to image_tag('othericons/thumbsdown_off.PNG'), dislike_movie_movie_review_path(movie_review.movie_id, movie_review), method: :put, :remote => true %>
+                    <%= link_to "", dislike_movie_movie_review_path(movie_review.movie_id, movie_review), method: :put, :remote => true %>
                    </div>
                 
                   <% end %>

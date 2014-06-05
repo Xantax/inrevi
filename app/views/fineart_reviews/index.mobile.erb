@@ -38,11 +38,11 @@
                     Voted!
                   <% else %>
                    <div class="thumbsup">
-                     <%= link_to image_tag('othericons/thumbsup_off.PNG'),  like_fineart_fineart_review_path(fineart_review.fineart_id, fineart_review), method: :put, :remote => true %>
+                     <%= link_to "",  like_fineart_fineart_review_path(fineart_review.fineart_id, fineart_review), method: :put, :remote => true %>
                    </div>
                             
                    <div class="thumbsdown">
-                    <%= link_to image_tag('othericons/thumbsdown_off.PNG'), dislike_fineart_fineart_review_path(fineart_review.fineart_id, fineart_review), method: :put, :remote => true %>
+                    <%= link_to "", dislike_fineart_fineart_review_path(fineart_review.fineart_id, fineart_review), method: :put, :remote => true %>
                    </div>
                 
                   <% end %>                

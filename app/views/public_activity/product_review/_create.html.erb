@@ -165,11 +165,11 @@
                   Voted!
                 <% else %>
                  <div class="thumbsup">
-                   <%= link_to image_tag('othericons/thumbsup_off.PNG'),  "/#{activity.trackable.productable_type}s/#{activity.trackable.productable_id}/product_reviews/#{activity.trackable.id}/like", method: :put, :remote => true %>
+                   <%= link_to "",  "/#{activity.trackable.productable_type}s/#{activity.trackable.productable_id}/product_reviews/#{activity.trackable.id}/like", method: :put, :remote => true %>
                  </div>
                           
                  <div class="thumbsdown">
-                  <%= link_to image_tag('othericons/thumbsdown_off.PNG'), "/#{activity.trackable.productable_type}s/#{activity.trackable.productable_id}/product_reviews/#{activity.trackable.id}/dislike", method: :put, :remote => true %>
+                  <%= link_to "", "/#{activity.trackable.productable_type}s/#{activity.trackable.productable_id}/product_reviews/#{activity.trackable.id}/dislike", method: :put, :remote => true %>
                  </div>
                           
                 <% end %> 

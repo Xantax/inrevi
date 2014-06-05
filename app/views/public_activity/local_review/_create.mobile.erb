@@ -36,13 +36,13 @@
                   Voted!
                 <% else %>
                  <div class="thumbsup">
-                   <%= link_to image_tag('othericons/thumbsup_off.PNG'),
+                   <%= link_to "",
 like_local_local_review_path(activity.trackable.local_id, activity.trackable), 
                         method: :put, :remote => true %>
                  </div>
                           
                  <div class="thumbsdown">
-                  <%= link_to image_tag('othericons/thumbsdown_off.PNG'),
+                  <%= link_to "",
 dislike_local_local_review_path(activity.trackable.local_id, activity.trackable), 
                         method: :put, :remote => true %>
                  </div>
