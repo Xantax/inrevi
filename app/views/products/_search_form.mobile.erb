@@ -3,7 +3,77 @@
 <%= form_tag eval("#{@resource_type.to_s.pluralize}_search_path"), method: :get, class: 'form-horizontal', id: 'products_search_path' do %>
 
     <div class="searchbox mobile">
-      <%= text_field_tag :query, params[:query], placeholder: 'Search', class: 'form-control', id: 'query-text-field' %>
+      
+      <% if @resource_type.to_s == "computer" %>
+          <%= text_field_tag :query, params[:query], placeholder: 'Laptops, Computer Accessories, External, Monitors...', class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "camera" %>
+          <%= text_field_tag :query, params[:query], placeholder: 'Camcorders, Lenses, Telescopes, Digital Cameras...', class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "securit" %>
+          <%= text_field_tag :query, params[:query], placeholder: 'Security Systems, Video Equipment, Sensors, Alarms...', class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "television" %>
+          <%= text_field_tag :query, params[:query], placeholder: 'TVs, Home Theater Systems, Blu-ray/DVD players...', class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "carelectro" %>
+          <%= text_field_tag :query, params[:query], placeholder: 'Car Electronics, Motorcycle Electronics...', class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "homeaudio" %>
+          <%= text_field_tag :query, params[:query], placeholder: 'Stereos, Home Audio Accessories, Radios...', class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "eportable" %>
+          <%= text_field_tag :query, params[:query], placeholder: 'MP3 Players & Accessories...', class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "emobile" %>
+          <%= text_field_tag :query, params[:query], placeholder: 'Phones, Accessories...', class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "videogame" %>
+          <%= text_field_tag :query, params[:query], placeholder: 'Call of Duty, BioShock, Halo...', class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "makeup" %>
+          <%= text_field_tag :query, params[:query], placeholder: 'Face, Lips, Nails, Eyes, Makeup Removers...', class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "fragrance" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Men's, Women's, Sets...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "haircare" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Hair Loss, Shampoos, Conditioners, Relaxers...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "skincare" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Sun Care, Hands & Nails, Maternity, Face...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "bodybath" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Cleansers, Bath, Scrubs & Body Treatments...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "grocer" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Beverages, Seafood, Candy, Sauces & Dips...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "jewelr" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Rings, Earrings, Bracelets, Men's...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "menclothing" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Pants, Active, Sunglasses, Cold Weather...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "womenclothing" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Pants, Active, Sunglasses, Cold Weather, Handbags...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "menfootwear" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Boots, Sneakers, Athletic & Outdoor...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "womenfootwear" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Sandals, Pumps, Boots, Sneakers, Athletic & Outdoor...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "healthcare" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Cough & Cold, Allergy, Pain Relievers, Alternative Medicine...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "supplement" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Vitamins, Supplements, Weight Loss...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "sexual" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Safer Sex, Adult Toys...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "personal" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Hair Removal, Feminine Hygiene, Body Art, Oral Hygiene...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "musical" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Guitars, Drums, DJ, Accessories...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "sport" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Equipment - Action Sports, Hunting, Snow Sports...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "craft" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Art & Craft Supplies, Sewing, Fabric...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "toy" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Remote-Control, Puzzles, Outdoor Play...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "appliance" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Refrigerators, Wall Ovens, Dishwashers...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "baby" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Strollers, Feeding, Car Seats, Diapering...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "pet" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Cats, Dogs, Fish, Reptiles, Birds...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "tool" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Home Improvement - Electrical, Fixtures, Building...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "indoor" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Furniture, Home Decor, Floor Care, Kitchen...", class: 'form-control', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "outdoor" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Gardening, Patio Furniture, Grills...", class: 'form-control', id: 'query-text-field' %>
+          <% end %>
+      
     </div>
     <%= hidden_field_tag :category, params[:category] %>
               <div class="searchgo">

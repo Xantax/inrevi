@@ -50,7 +50,8 @@ gem 'figaro', '~> 0.7.0'
 gem 'pg_search', '~> 0.7.4'
 gem 'pg', '~> 0.17.1'
 gem 'fog', '~> 1.22.1'
-gem 'aws-sdk'
+gem 'aws-sdk', '~> 1.42.0'
+gem 'social-share-button', '~> 0.1.6'
 
 group :development do
   gem 'brakeman', '~> 2.4.3', :require => false
