@@ -12,6 +12,10 @@
 
           <hr><br>
 
+   <% if @activities.empty? %>
+        <div class="row dumb500"></div>
+   <% end %>
+
           <% @popular_activities.each do |activity| %>
             <div class="activity">
               <%= render_activity activity %>
