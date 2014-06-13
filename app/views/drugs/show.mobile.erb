@@ -7,7 +7,7 @@
     <%= link_to image_tag(@drug.image_url(:thumb)), @drug.image_url, target: :_blank if @drug.image? %> <br>
 
       <div class="r-clickfeature" id="additional-mobile">
-        <%= link_to "additional info", "#" %><br><br>
+        <%= link_to "additional info", "#" if @drug.additionalinfo.present? %><br><br>
       </div>
     
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
