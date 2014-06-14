@@ -4,11 +4,12 @@
     <% next_page = page.to_i + 1 %>
     <% previous_page = page.to_i - 1 %>
     <% if previous_page > 0 %>
-      <%= link_to "Previous Page", search_path(params.merge(page: page.to_i - 1)) %>
+      <%= link_to image_tag("othericons/backarrow.PNG"), search_path(params.merge(page: page.to_i - 1)) %>
     <% end %>
     <%= "Page #{page}/#{(@books.total_items.to_f/ Book::PER_PAGE).ceil}" %>
     <% if next_page <= (@books.total_items.to_f/ Book::PER_PAGE).ceil %>
-      <%= link_to "Next Page", search_path(params.merge(page: page.to_i + 1)) %>
+      <%= link_to image_tag("othericons/nextarrow.PNG"), search_path(params.merge(page: page.to_i + 1)) %>
     <% end %>
   </div>
 <% end %>
+<br>

@@ -1,8 +1,12 @@
 <div class="row podup"> 
-  <div class="col-sm-3"> <%= image_tag @podcast.image_url(:thumb) if @podcast.image? %></div> 
+  <div class="col-sm-3"> 
+    <%= link_to image_tag(@podcast.image_url(:thumb)), @podcast.image_url, target: :_blank if @podcast.image? %> 
+  </div> 
   
   <div class="col-sm-5"> 
-    <div class="podcastnameshow"><%= link_to @podcast.name.truncate(80, omission: '...'), podcast_path(@podcast) %></div><br>
+    <div class="podcastnameshow">
+      <%= link_to @podcast.name.truncate(80, omission: '...'), podcast_path(@podcast) %>
+    </div><br>
 
    <div class="podinfo">
       <%= link_to "Website", @podcast.website, :target => "_blank" %><br >
