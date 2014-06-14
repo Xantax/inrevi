@@ -14,7 +14,8 @@ class Permission < Struct.new(:user)
     return true if controller == "finearts" && action.in?(%w[index show])
     return true if controller == "drugs" && action.in?(%w[index show])
     return true if controller == "teches" && action.in?(%w[index show])
-    return true if controller == "users" && action.in?(%w[show])
+    return true if controller == "users" && action.in?(%w[show new create])
+    return true if controller == "email_logins" && action.in?(%w[new create])
     if user
       return true if user.admin?
       return false if user.banned?

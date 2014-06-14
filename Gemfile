@@ -52,6 +52,8 @@ gem 'pg', '~> 0.17.1'
 gem 'fog', '~> 1.22.1'
 gem 'aws-sdk', '~> 1.42.0'
 gem 'social-share-button', '~> 0.1.6'
+gem 'bcrypt-ruby', '3.1.2'
+gem 'devise'
 
 group :development do
   gem 'brakeman', '~> 2.4.3', :require => false

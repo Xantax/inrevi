@@ -1,0 +1,2 @@
+module EmailLoginHelper
+end

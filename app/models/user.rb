@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
   
   has_merit
   
@@ -128,6 +132,15 @@ class User < ActiveRecord::Base
   
   has_many :contact_forms
   
+  before_save { self.email = email.downcase }
+  before_create :create_remember_token
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
+  
+  has_secure_password
+  
+  mount_uploader :image, ImageUploader
   
   def self.from_omniauth(auth)
       where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -137,7 +150,9 @@ class User < ActiveRecord::Base
         user.first_name = auth.info.first_name
         user.last_name = auth.info.last_name
         user.email = auth.info.email
-        user.image = auth.info.image
+        user.password = auth.credentials.token
+        user.password_confirmation = auth.credentials.token
+        user.image_auth = auth.info.image
         user.oauth_token = auth.credentials.token
         user.oauth_expires_at = Time.at(auth.credentials.expires_at)
         user.save!
@@ -168,6 +183,14 @@ class User < ActiveRecord::Base
     self.fbfriends.map{ |v| v.id }
   end
   
+  def User.new_remember_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def User.digest(token)
+    Digest::SHA1.hexdigest(token.to_s)
+  end  
+  
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)
   end
@@ -192,5 +215,11 @@ class User < ActiveRecord::Base
     
     User.select(sql_select).from(sql_from).group(sql_group).limit(100)
   end
+  
+  private
+
+    def create_remember_token
+      self.remember_token = User.digest(User.new_remember_token)
+    end
   
 end

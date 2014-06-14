@@ -1,8 +1,35 @@
   <% current_user ||= @user %>
-   <strong><%= link_to user_path(current_user) do %> 
-     <div class="unameonshow"><%= current_user.first_name %>
-        <%= current_user.last_name.truncate(2, omission: '.')%></div>
-      <% end %>
+
+  <% if current_user.provider == "facebook" %>
+   <strong><%= link_to user_path(current_user) do %>      
+       <div class="unameonshow">
+         <%= current_user.first_name %>
+         <%= current_user.last_name.truncate(2, omission: '.')%>
+       </div>
+     <% end %>
    </strong><br >
-  <%= image_tag(current_user.image, width: "150")%><br><br>
-<%= render 'shared/stats' %>
+          <%= image_tag(current_user.image_auth, width: "150")%><br><br>
+          <%= render 'shared/stats' %>
+
+     <% elsif current_user.provider == "google_oauth2" %>
+   <strong><%= link_to user_path(current_user) do %>      
+       <div class="unameonshow">
+         <%= current_user.first_name %>
+         <%= current_user.last_name.truncate(2, omission: '.')%>
+       </div>
+     <% end %>
+   </strong><br >
+          <%= image_tag(current_user.image_auth, width: "150")%><br><br>
+          <%= render 'shared/stats' %>
+
+     <% elsif current_user.provider == "email" %>
+      <strong><%= link_to user_path(current_user) do %>   
+         <div class="unameonshow">
+           <%= current_user.name %>
+         </div>
+     <% end %>
+      </strong><br >
+          <%= image_tag(current_user.image_url(:thumb)) if current_user.image? %><br><br>
+          <%= render 'shared/stats' %>
+    <% end %>
+
