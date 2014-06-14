@@ -1,7 +1,6 @@
 Inrevi::Application.routes.draw do
 
 
-  devise_for :users
   resources :product_reviews do
        member do
          put "like", to: "product_reviews#upvote"
@@ -325,7 +324,7 @@ Inrevi::Application.routes.draw do
 match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 match 'auth/failure', to: redirect('/'), via: [:get, :post]
 match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
-  match 'email_signout', to: 'email_logins#destroy', as: 'email_signout', via: [:get, :post]
+
 match '/signup', to: 'users#new', via: 'get'
 match '/signin', to: 'email_logins#new', via: 'get'
   
@@ -363,7 +362,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   resources :contact_forms 
   resources :activities
   
-  resources :users do
+  devise_for :users do
     member do
       get :following 
       get :followers
@@ -371,7 +370,6 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   end
   
   resources :sessions,      only: [:new, :create, :destroy]
-  resources :email_logins,      only: [:new, :create, :destroy]
   resources :relationships, only: [:create, :destroy] 
   
 #----------   LOCAL   ----------  

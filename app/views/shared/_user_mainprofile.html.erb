@@ -22,7 +22,7 @@
            <strong><%= current_user.name %></strong><br >
            <%= image_tag('othericons/logout.PNG') %>
             <div class="logoutlink">
-              <%= link_to "logout", email_signout_path%><br>
+              <%= link_to "logout", signout_path%><br>
             </div>
            <%= image_tag(current_user.image_url(:thumb), width: "110") if current_user.image? %>
        <% end %> 
