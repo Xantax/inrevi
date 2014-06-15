@@ -234,7 +234,10 @@ Devise.setup do |config|
     }
   
   require "omniauth-google-oauth2"
-  config.omniauth :google_oauth2, ENV["GPLUS_KEY"], ENV["GPLUS_SECRET"]
+  config.omniauth :google_oauth2, ENV["GPLUS_KEY"], ENV["GPLUS_SECRET"], {
+      :image_aspect_ratio => "square",
+      :image_size => 200
+    }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

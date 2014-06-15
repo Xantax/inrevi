@@ -174,6 +174,8 @@ end
     nil # or consider a custom null object
    end 
   
+=begin
+#FB friends
 
     def fbfriends
      graph = Koala::Facebook::API.new(oauth_token)
@@ -189,6 +191,7 @@ end
   def fb_user_id
     self.fbfriends.map{ |v| v.id }
   end  
+=end
   
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)
