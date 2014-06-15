@@ -321,12 +321,8 @@ Inrevi::Application.routes.draw do
 #  get 'tags/:tag', to: 'recipes#index', as: :rtag
 #  get 'tags/:tag', to: 'finearts#index', as: :atag
   
-match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
-match 'auth/failure', to: redirect('/'), via: [:get, :post]
-match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
-
-match '/signup', to: 'users#new', via: 'get'
-match '/signin', to: 'email_logins#new', via: 'get'
+#match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+#match 'auth/failure', to: redirect('/'), via: [:get, :post]
   
 match 'songs/search' => "songs#search", via: [:get]
 match 'msearch' => "movies#search", via: [:get]
@@ -362,14 +358,15 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   resources :contact_forms 
   resources :activities
   
-  devise_for :users do
-    member do
-      get :following 
-      get :followers
-    end
-  end
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   
-  resources :sessions,      only: [:new, :create, :destroy]
+  match '/users/:id', :to => 'users#show', :as => :user, via: [:get]
+  resources :users, only: [:edit, :update]
+  match 'users/:id/followers', :to => "users#followers", :as => "followers", via: [:get]
+  match 'users/:id/following', :to => "users#following", :as => "following", via: [:get]
+  
+  get 'sign_in', :to => 'users/sessions#new', :as => :new_session
+  
   resources :relationships, only: [:create, :destroy] 
   
 #----------   LOCAL   ----------  

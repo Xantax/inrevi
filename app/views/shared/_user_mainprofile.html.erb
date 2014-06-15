@@ -1,33 +1,35 @@
 <% if signed_in? %>
 
-     <%= link_to user_path(current_user) do %> 
-     
        <% if current_user.provider == "facebook" %>
-           <strong><%= current_user.first_name %>
-           <%= current_user.last_name.truncate(2, omission: '.')%></strong><br >
+          <%= link_to user_path(current_user) do %> 
+             <strong><%= current_user.first_name %>
+             <%= current_user.last_name.truncate(2, omission: '.')%></strong><br >
+          <% end %>
            <%= image_tag('othericons/logout.PNG') %>
           <div class="logoutlink">
-            <%= link_to "logout", signout_path%><br>
+            <%= link_to "logout", destroy_user_session_path, :method => :delete %><br>
           </div>
            <%= image_tag(current_user.image_auth, width: "110") %>
        <% elsif current_user.provider == "google_oauth2" %>
-           <strong><%= current_user.first_name %>
-           <%= current_user.last_name.truncate(2, omission: '.')%></strong><br >
+          <%= link_to user_path(current_user) do %> 
+             <strong><%= current_user.first_name %>
+             <%= current_user.last_name.truncate(2, omission: '.')%></strong><br >
+          <% end %>
            <%= image_tag('othericons/logout.PNG') %>
           <div class="logoutlink">
-            <%= link_to "logout", signout_path%><br>
+            <%= link_to "logout", destroy_user_session_path, :method => :delete %><br>
           </div>
            <%= image_tag(current_user.image_auth, width: "110") %>    
-       <% elsif current_user.provider == "email" %>
-           <strong><%= current_user.name %></strong><br >
+        <% elsif current_user.provider == "email" %>
+          <%= link_to user_path(current_user) do %> 
+             <strong><%= current_user.name %></strong><br >
+          <% end %>
            <%= image_tag('othericons/logout.PNG') %>
             <div class="logoutlink">
-              <%= link_to "logout", signout_path%><br>
+              <%= link_to "logout", destroy_user_session_path, :method => :delete %><br>
             </div>
            <%= image_tag(current_user.image_url(:thumb), width: "110") if current_user.image? %>
        <% end %> 
-     
-     <% end %>
 
       <div class="inreviews">
       </div>
@@ -37,7 +39,8 @@
 
   <% else %>
   <br>
-  <%= link_to image_tag("otherbigimages/FBlogins.png", alt: "FB Login"), "/auth/facebook", id: "sign_in" %>
+  <%= link_to image_tag("otherbigimages/FBlogins.png", alt: "FB Login"), user_omniauth_authorize_path(:facebook), id: "sign_in" %>
         <div class="loginversus">or</div>
-  <%= link_to image_tag("otherbigimages/Glogin.PNG"), "/auth/google_oauth2" %>
+  <%= link_to image_tag("otherbigimages/Glogin.PNG"), user_omniauth_authorize_path(:google_oauth2) %>
+
 <% end %>

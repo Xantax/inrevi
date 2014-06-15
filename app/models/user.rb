@@ -2,7 +2,11 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
+  
+  attr_accessible :admin, :banned, :moderator, :company, :name, :email, :password, :password_confirmation, :remember_me, :image, :provider, :remote_image_url
+  
+  validates_presence_of :name
   
   has_merit
   
@@ -130,15 +134,7 @@ class User < ActiveRecord::Base
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
   
-  has_many :contact_forms
-  
-  before_save { self.email = email.downcase }
-  before_create :create_remember_token
-
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
-  
-  has_secure_password
+  has_many :contact_forms  
   
   mount_uploader :image, ImageUploader
   
@@ -150,14 +146,25 @@ class User < ActiveRecord::Base
         user.first_name = auth.info.first_name
         user.last_name = auth.info.last_name
         user.email = auth.info.email
-        user.password = auth.credentials.token
-        user.password_confirmation = auth.credentials.token
+        user.password = auth.uid
+        user.password_confirmation = auth.uid
         user.image_auth = auth.info.image
         user.oauth_token = auth.credentials.token
         user.oauth_expires_at = Time.at(auth.credentials.expires_at)
         user.save!
        end
   end
+  
+def self.new_with_session(params, session)
+  if session["devise.user_attributes"]
+    new(session["devise.user_attributes"], without_protection: true) do |user|
+      user.attributes = params
+      user.valid?
+    end
+  else
+    super
+  end
+end
   
    def facebook
     @facebook ||= Koala::Facebook::API.new(oauth_token)
@@ -181,14 +188,6 @@ class User < ActiveRecord::Base
   
   def fb_user_id
     self.fbfriends.map{ |v| v.id }
-  end
-  
-  def User.new_remember_token
-    SecureRandom.urlsafe_base64
-  end
-
-  def User.digest(token)
-    Digest::SHA1.hexdigest(token.to_s)
   end  
   
   def following?(other_user)
@@ -215,11 +214,5 @@ class User < ActiveRecord::Base
     
     User.select(sql_select).from(sql_from).group(sql_group).limit(100)
   end
-  
-  private
-
-    def create_remember_token
-      self.remember_token = User.digest(User.new_remember_token)
-    end
   
 end
