@@ -1,22 +1,49 @@
 <hr>
 <div class="mobileshowprofile" align="left">
 <% current_user ||= @user %>
-   <strong><%= link_to user_path(current_user) do %> 
+  <% if current_user.provider == "facebook" %> 
+   <strong>
+     <%= link_to user_path(current_user) do %> 
          <div class="unameonshow">
            <%= current_user.first_name %>
            <%= current_user.last_name.truncate(2, omission: '.')%>
          </div>
       <% end %>
    </strong>
+  <% elsif current_user.provider == "google_oauth2" %> 
+   <strong>
+     <%= link_to user_path(current_user) do %> 
+         <div class="unameonshow">
+           <%= current_user.first_name %>
+           <%= current_user.last_name.truncate(2, omission: '.')%>
+         </div>
+      <% end %>
+   </strong>
+  <% elsif current_user.provider == "email" %> 
+   <strong>
+     <%= link_to user_path(current_user) do %> 
+         <div class="unameonshow">
+           <%= current_user.name %>
+         </div>
+      <% end %>
+   </strong>
+  <% end %>
 
   <% if signed_in? %>
     <% if current_user?(@user) %>
-      <%= image_tag('othericons/logout.PNG') %><div class="logoutlink"><%= link_to "logout", signout_path%><br></div>
+      <%= image_tag('othericons/logout.PNG') %><div class="logoutlink"><%= link_to "logout", destroy_user_session_path %><br></div>
     <% end %>
   <% end %>
 
   <%= render 'follow_form' if signed_in? %><br>
-  <%= image_tag(current_user.image, width: "110")%><br>
+  <% if current_user.provider == "facebook" %>
+    <%= image_tag(current_user.image_auth, width: "110")%><br>
+  <% elsif current_user.provider == "google_oauth2" %>
+    <%= image_tag(current_user.image_auth, width: "110")%><br>
+  <% elsif current_user.provider == "email" %>
+    <%= image_tag(current_user.image, width: "110")%><br>
+  <% end %>
+  
   <%= render 'shared/stats' %><hr>
 
 <% if @activities.empty? %>

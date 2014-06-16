@@ -4,13 +4,30 @@
 <% else %>
 <% @fineart_reviews.each do |fineart_review| %><br>
     <div class="col-sm-3"> 
-      <div class="reviewname">     
-        <%= link_to user_path(fineart_review.user) do %> 
-          <%= fineart_review.user.first_name %>
-          <%= fineart_review.user.last_name.truncate(2, omission: '.')%>
-        <% end %>
-      </div>    
-        <%= image_tag(fineart_review.user.image, width: "80") %>  
+      <% if fineart_review.user.provider == "facebook" %>
+          <div class="reviewname">  
+            <%= link_to user_path(fineart_review.user) do %> 
+               <%= fineart_review.user.first_name %>
+               <%= fineart_review.user.last_name.truncate(2, omission: '.')%>
+            <% end %>
+          </div>
+          <%= image_tag(fineart_review.user.image_auth, width: "80") %>  
+        
+        <% elsif fineart_review.user.provider == "google_oauth2" %>
+          <div class="reviewname">  
+            <%= link_to user_path(fineart_review.user) do %> 
+               <%= fineart_review.user.first_name %>
+               <%= fineart_review.user.last_name.truncate(2, omission: '.')%>
+            <% end %>
+          </div>
+          <%= image_tag(fineart_review.user.image_auth, width: "80") %>
+        
+        <% elsif fineart_review.user.provider == "email" %>
+            <%= link_to user_path(fineart_review.user) do %> 
+               <div class="reviewname"><%= fineart_review.user.name %></div>
+            <% end %>
+          <%= image_tag(fineart_review.user.image, width: "80") %>
+        <% end %>   
      </div>
         
       <div class="col-sm-9 podreview"> 

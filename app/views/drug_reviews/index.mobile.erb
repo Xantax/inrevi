@@ -2,14 +2,42 @@
   <div class="noreviewsonindex">No reviews :( </div>
 <% else %>
 <% @drug_reviews.each do |drug_review| %><br>
-    <div class="mobile-activity-photo"><%= image_tag(drug_review.user.image, width: "50") %></div> 
-      <div class="reviewname mobile">     
-        <%= link_to user_path(drug_review.user) do %> 
-          <%= drug_review.user.first_name %>
-          <%= drug_review.user.last_name.truncate(2, omission: '.')%>
-        <% end %>
-      </div>  
-       <br><br>
+      <% if drug_review.user.provider == "facebook" %>
+          <div class="mobile-activity-photo">
+            <%= image_tag(drug_review.user.image_auth, width: "50") %>
+          </div> 
+            <div class="reviewname mobile">     
+              <%= link_to user_path(drug_review.user) do %> 
+                <%= drug_review.user.first_name %>
+                <%= drug_review.user.last_name.truncate(2, omission: '.')%>
+              <% end %>
+            </div>
+
+      <% elsif drug_review.user.provider == "google_oauth2" %>
+          <div class="mobile-activity-photo">
+            <%= image_tag(drug_review.user.image_auth, width: "50") %>
+          </div> 
+            <div class="reviewname mobile">     
+              <%= link_to user_path(drug_review.user) do %> 
+                <%= drug_review.user.first_name %>
+                <%= drug_review.user.last_name.truncate(2, omission: '.')%>
+              <% end %>
+            </div>
+
+      <% elsif drug_review.user.provider == "email" %>
+          <div class="mobile-activity-photo">
+            <%= image_tag(drug_review.user.image, width: "50") %>
+          </div> 
+            <div class="reviewname mobile">     
+              <%= link_to user_path(drug_review.user) do %> 
+                <%= drug_review.user.name %>
+              <% end %>
+            </div> 
+
+      <% end %>
+
+
+       <br>
          <div class="separatereview">
            
             <div class="numberOne">

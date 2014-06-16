@@ -1,6 +1,7 @@
 <% if signed_in? %>
 
        <% if current_user.provider == "facebook" %>
+
           <%= link_to user_path(current_user) do %> 
              <strong><%= current_user.first_name %>
              <%= current_user.last_name.truncate(2, omission: '.')%></strong><br >
@@ -10,7 +11,9 @@
             <%= link_to "logout", destroy_user_session_path, :method => :delete %><br>
           </div>
            <%= image_tag(current_user.image_auth, width: "110") %>
+
        <% elsif current_user.provider == "google_oauth2" %>
+
           <%= link_to user_path(current_user) do %> 
              <strong><%= current_user.first_name %>
              <%= current_user.last_name.truncate(2, omission: '.')%></strong><br >
@@ -20,7 +23,9 @@
             <%= link_to "logout", destroy_user_session_path, :method => :delete %><br>
           </div>
            <%= image_tag(current_user.image_auth, width: "110") %>    
+
         <% elsif current_user.provider == "email" %>
+
           <%= link_to user_path(current_user) do %> 
              <strong><%= current_user.name %></strong><br >
           <% end %>
@@ -29,6 +34,7 @@
               <%= link_to "logout", destroy_user_session_path, :method => :delete %><br>
             </div>
            <%= image_tag(current_user.image_url(:thumb), width: "110") if current_user.image? %>
+
        <% end %> 
 
       <div class="inreviews">

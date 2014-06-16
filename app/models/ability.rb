@@ -6,12 +6,9 @@ class Ability
     #
        user ||= User.new # guest user (not logged in)
        if user.admin?
-         can [:update], [User]
-         can [:destroy, :all], [AutoReview, BookReview, DrugReview, FineartReview, LocalReview, MovieReview, PodcastReview, ProductReview, RecipeReview, SongReview, TechReview, TvshowReview]
-         can [:update, :all, :edit, :destroy], [Auto, Drug, Fineart, Podcast, Recipe, Tech]
-         can [:update, :edit, :destroy, :index], [ContactForm, Promotion, Link]
+         can :manage, :all
        elsif user.company?
-         #...
+         can :update, AutoReview
        end
     #
     # The first argument to `can` is the action you are giving the user

@@ -2,14 +2,41 @@
   <div class="noreviewsonindex">No reviews :( </div>
 <% else %>
 <% @fineart_reviews.each do |fineart_review| %><br>
-    <div class="mobile-activity-photo"><%= image_tag(fineart_review.user.image, width: "50") %></div> 
-      <div class="reviewname mobile">     
-        <%= link_to user_path(fineart_review.user) do %> 
-          <%= fineart_review.user.first_name %>
-          <%= fineart_review.user.last_name.truncate(2, omission: '.')%>
-        <% end %>
-      </div>  
-       <br><br>
+      <% if fineart_review.user.provider == "facebook" %>
+          <div class="mobile-activity-photo">
+            <%= image_tag(fineart_review.user.image_auth, width: "50") %>
+          </div> 
+            <div class="reviewname mobile">     
+              <%= link_to user_path(fineart_review.user) do %> 
+                <%= fineart_review.user.first_name %>
+                <%= fineart_review.user.last_name.truncate(2, omission: '.')%>
+              <% end %>
+            </div>
+
+      <% elsif fineart_review.user.provider == "google_oauth2" %>
+          <div class="mobile-activity-photo">
+            <%= image_tag(fineart_review.user.image_auth, width: "50") %>
+          </div> 
+            <div class="reviewname mobile">     
+              <%= link_to user_path(fineart_review.user) do %> 
+                <%= fineart_review.user.first_name %>
+                <%= fineart_review.user.last_name.truncate(2, omission: '.')%>
+              <% end %>
+            </div>
+
+      <% elsif fineart_review.user.provider == "email" %>
+          <div class="mobile-activity-photo">
+            <%= image_tag(fineart_review.user.image, width: "50") %>
+          </div> 
+            <div class="reviewname mobile">     
+              <%= link_to user_path(fineart_review.user) do %> 
+                <%= fineart_review.user.name %>
+              <% end %>
+            </div> 
+
+      <% end %>  
+
+       <br>
          <div class="separatereview">
            
             <div class="numberOne">

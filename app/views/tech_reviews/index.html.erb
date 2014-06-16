@@ -4,13 +4,30 @@
 <% else %>
 <% @tech_reviews.each do |tech_review| %><br>
     <div class="col-sm-3"> 
-      <div class="reviewname">     
-        <%= link_to user_path(tech_review.user) do %> 
-          <%= tech_review.user.first_name %>
-          <%= tech_review.user.last_name.truncate(2, omission: '.')%>
-        <% end %>
-      </div>    
-        <%= image_tag(tech_review.user.image, width: "80") %>  
+      <% if tech_review.user.provider == "facebook" %>
+          <div class="reviewname">  
+            <%= link_to user_path(tech_review.user) do %> 
+               <%= tech_review.user.first_name %>
+               <%= tech_review.user.last_name.truncate(2, omission: '.')%>
+            <% end %>
+          </div>
+          <%= image_tag(tech_review.user.image_auth, width: "80") %>  
+        
+        <% elsif tech_review.user.provider == "google_oauth2" %>
+          <div class="reviewname">  
+            <%= link_to user_path(tech_review.user) do %> 
+               <%= tech_review.user.first_name %>
+               <%= tech_review.user.last_name.truncate(2, omission: '.')%>
+            <% end %>
+          </div>
+          <%= image_tag(tech_review.user.image_auth, width: "80") %>
+        
+        <% elsif tech_review.user.provider == "email" %>
+            <%= link_to user_path(tech_review.user) do %> 
+               <div class="reviewname"><%= tech_review.user.name %></div>
+            <% end %>
+          <%= image_tag(tech_review.user.image, width: "80") %>
+        <% end %>  
      </div>
         
       <div class="col-sm-9 podreview"> 

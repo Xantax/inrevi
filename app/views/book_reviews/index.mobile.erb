@@ -2,14 +2,42 @@
   <div class="noreviewsonindex">No reviews :( </div>
 <% else %>
   <% @book_reviews.each do |book_review| %><br>
-    <div class="mobile-activity-photo"><%= image_tag(book_review.user.image, width: "50") %></div> 
-      <div class="reviewname mobile">     
-        <%= link_to user_path(book_review.user) do %> 
-          <%= book_review.user.first_name %>
-          <%= book_review.user.last_name.truncate(2, omission: '.')%>
-        <% end %>
-      </div>  
-       <br><br>
+      <% if book_review.user.provider == "facebook" %>
+          <div class="mobile-activity-photo">
+            <%= image_tag(book_review.user.image_auth, width: "50") %>
+          </div> 
+            <div class="reviewname mobile">     
+              <%= link_to user_path(book_review.user) do %> 
+                <%= book_review.user.first_name %>
+                <%= book_review.user.last_name.truncate(2, omission: '.')%>
+              <% end %>
+            </div>
+
+      <% elsif book_review.user.provider == "google_oauth2" %>
+          <div class="mobile-activity-photo">
+            <%= image_tag(book_review.user.image_auth, width: "50") %>
+          </div> 
+            <div class="reviewname mobile">     
+              <%= link_to user_path(book_review.user) do %> 
+                <%= book_review.user.first_name %>
+                <%= book_review.user.last_name.truncate(2, omission: '.')%>
+              <% end %>
+            </div>
+
+      <% elsif book_review.user.provider == "email" %>
+          <div class="mobile-activity-photo">
+            <%= image_tag(book_review.user.image, width: "50") %>
+          </div> 
+            <div class="reviewname mobile">     
+              <%= link_to user_path(book_review.user) do %> 
+                <%= book_review.user.name %>
+              <% end %>
+            </div> 
+
+      <% end %>
+
+
+       <br>
          <div class="separatereview">
            
             <div class="numberOne">
