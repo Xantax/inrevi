@@ -5,7 +5,7 @@ include PublicActivity::Common
   
   acts_as_votable
     
-  belongs_to :user
+  belongs_to :user, :counter_cache => true
   belongs_to :fineart
   
     validate :user_quota, :on => :create

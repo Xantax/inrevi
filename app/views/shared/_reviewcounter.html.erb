@@ -1,1 +1,1 @@
-<%= human_number @user.points(category: 'just_reviews') %>
+<%= human_number (@user.auto_reviews_count + @user.book_reviews_count + @user.drug_reviews_count + @user.fineart_reviews_count + @user.local_reviews_count + @user.movie_reviews_count + @user.podcast_reviews_count + @user.product_reviews_count + @user.recipe_reviews_count + @user.song_reviews_count + @user.tech_reviews_count + @user.tvshow_reviews_count ) %>

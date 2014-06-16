@@ -5,7 +5,7 @@ class RecipeReview < ActiveRecord::Base
   
   acts_as_votable
     
-  belongs_to :user
+  belongs_to :user, :counter_cache => true
   belongs_to :recipe
   
   validate :user_quota, :on => :create  

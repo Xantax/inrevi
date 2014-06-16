@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614181137) do
+ActiveRecord::Schema.define(version: 20140616030521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -586,6 +586,18 @@ ActiveRecord::Schema.define(version: 20140614181137) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "auto_reviews_count",     default: 0
+    t.integer  "book_reviews_count",     default: 0
+    t.integer  "drug_reviews_count",     default: 0
+    t.integer  "fineart_reviews_count",  default: 0
+    t.integer  "local_reviews_count",    default: 0
+    t.integer  "movie_reviews_count",    default: 0
+    t.integer  "podcast_reviews_count",  default: 0
+    t.integer  "product_reviews_count",  default: 0
+    t.integer  "recipe_reviews_count",   default: 0
+    t.integer  "song_reviews_count",     default: 0
+    t.integer  "tech_reviews_count",     default: 0
+    t.integer  "tvshow_reviews_count",   default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
