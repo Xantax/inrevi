@@ -58,7 +58,7 @@
                           
                 <% end %> 
             
-                      <% if can? :destroy, @song_review %>
+                      <% if can? :destroy, SongReview %>
                         <hr>
                             <%= activity.trackable.get_upvotes.size %> | <%= activity.trackable.get_downvotes.size %>
                             <%= link_to 'Delete', song_song_review_path(activity.trackable.song_id, activity.trackable),

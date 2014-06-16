@@ -58,7 +58,7 @@
                           
                 <% end %> 
             
-                      <% if can? :destroy, @local_review %>
+                      <% if can? :destroy, LocalReview %>
                         <hr>
                             <%= activity.trackable.get_upvotes.size %> | <%= activity.trackable.get_downvotes.size %>
                             <%= link_to 'Delete', local_local_review_path(activity.trackable.local_id, activity.trackable),

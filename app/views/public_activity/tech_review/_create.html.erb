@@ -58,7 +58,7 @@
                           
                 <% end %> 
             
-                      <% if can? :destroy, @tech_review %>
+                      <% if can? :destroy, TechReview %>
                         <hr>
                             <%= activity.trackable.get_upvotes.size %> | <%= activity.trackable.get_downvotes.size %>
                             <%= link_to 'Delete', [activity.trackable.tech, activity.trackable],

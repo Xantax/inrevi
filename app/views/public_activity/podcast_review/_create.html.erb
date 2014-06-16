@@ -58,7 +58,7 @@
                           
                 <% end %> 
             
-                      <% if can? :destroy, @podcast_review %>
+                      <% if can? :destroy, PodcastReview %>
                         <hr>
                             <%= activity.trackable.get_upvotes.size %> | <%= activity.trackable.get_downvotes.size %>
                             <%= link_to 'Delete', [activity.trackable.podcast, activity.trackable],

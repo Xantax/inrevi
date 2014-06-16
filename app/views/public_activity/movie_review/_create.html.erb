@@ -58,7 +58,7 @@
                           
                 <% end %> 
             
-                      <% if can? :destroy, @movie_review %>
+                      <% if can? :destroy, MovieReview %>
                         <hr>
                             <%= activity.trackable.get_upvotes.size %> | <%= activity.trackable.get_downvotes.size %>
                             <%= link_to 'Delete', movie_movie_review_path(activity.trackable.movie_id, activity.trackable),

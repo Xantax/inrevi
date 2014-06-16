@@ -174,7 +174,7 @@
                           
                 <% end %> 
             
-                      <% if can? :destroy, @product_review %>
+                      <% if can? :destroy, ProductReview %>
                         <hr>
                             <%= activity.trackable.get_upvotes.size %> | <%= activity.trackable.get_downvotes.size %>
                             <% delete_path = "#{activity.trackable.productable_type}_product_review_path('#{activity.trackable.productable_id}', activity.trackable.id)" %>
