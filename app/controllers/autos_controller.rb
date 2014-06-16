@@ -1,5 +1,6 @@
 class AutosController < ApplicationController
   before_action :set_auto, only: [:show, :edit, :update, :destroy, :additionalinfo]
+  before_action :signed_in_user, except: [:show]
   
   def all
     @autos = Auto.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")

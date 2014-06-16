@@ -1,6 +1,7 @@
 class RecipeReviewsController < ApplicationController
   before_action :set_recipe_review, only: [:show, :destroy, :upvote, :downvote]
   before_action :set_recipe, only: [:index, :new, :create]
+  before_action :signed_in_user
 
   def all
     @recipe_reviews = RecipeReview.order("cached_votes_score ASC").paginate(:page => params[:page], :per_page => 15)

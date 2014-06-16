@@ -1,5 +1,6 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, except: [:show]
 
   def index
     @links = Link.paginate(:page => params[:page], :per_page => 15).order('created_at DESC')

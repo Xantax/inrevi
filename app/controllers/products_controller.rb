@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :resource_request
   before_action :categories_list
+  before_action :signed_in_user, except: [:show]
 
   def index
   end

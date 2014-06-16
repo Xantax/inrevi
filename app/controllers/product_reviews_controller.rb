@@ -2,6 +2,7 @@ class ProductReviewsController < ApplicationController
   before_action :resource_request, except: [:all_product_comments, :show]
   before_action :product_retrieve, except: [:all_product_comments, :destroy, :show]
   before_action :set_product_review, only: [:destroy, :upvote, :downvote]
+  before_action :signed_in_user
 
   def all
     @product_reviews = ProductReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")

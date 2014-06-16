@@ -49,7 +49,7 @@
                 
                   <% end %>
                 
-                      <% if allow? "drug_reviews", "destroy" %>
+                      <% if can? :destroy, @drug_review %>
                         <hr>
                             <%= drug_review.get_upvotes.size %> | <%= drug_review.get_downvotes.size %>
                             <%= link_to 'Delete', [drug_review.drug, drug_review],

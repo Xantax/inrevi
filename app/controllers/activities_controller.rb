@@ -1,4 +1,6 @@
 class ActivitiesController < ApplicationController
+  before_action :signed_in_user
+  
   def index
 
      @popular_users = User.popular_users.map(&:id)

@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   include SessionsHelper
-  before_action :signed_in_user,
-                only: [:index, :edit, :update, :destroy, :following, :followers]
+  before_action :signed_in_user, except: [:show]
   
   def show
   	@user = User.find(params[:id])

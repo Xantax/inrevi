@@ -1,5 +1,6 @@
 class ContactFormsController < ApplicationController
   before_action :set_contact_form, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user
 
   def index
     @contact_forms = ContactForm.paginate(:page => params[:page], :per_page => 15).order('created_at DESC')

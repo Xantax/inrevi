@@ -49,7 +49,7 @@
                 
                   <% end %>
                 
-                      <% if allow? "tech_reviews", "destroy" %>
+                <% if can? :destroy, @tech_review %>
                         <hr>
                             <%= tech_review.get_upvotes.size %> | <%= tech_review.get_downvotes.size %>
                             <%= link_to 'Delete', [tech_review.tech, tech_review],

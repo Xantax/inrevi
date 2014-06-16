@@ -1,6 +1,6 @@
 class RelationshipsController < ApplicationController
   include SessionsHelper
-  before_action :signed_in_user
+  before_action :signed_in_user, except: [:show]
 
   def create
     @user = User.find(params[:relationship][:followed_id])

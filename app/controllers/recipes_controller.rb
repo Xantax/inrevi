@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy, :ingredients, :directions]
+  before_action :signed_in_user, except: [:show]
 
   def all
     @recipes = Recipe.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")

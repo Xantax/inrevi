@@ -49,7 +49,7 @@
                
                    <% end %>
                 
-                      <% if allow? "book_reviews", "destroy" %>
+                      <% if can? :destroy, @book_review %>
                         <hr>
                             <%= book_review.get_upvotes.size %> | <%= book_review.get_downvotes.size %>
                             <%= link_to 'Delete', book_book_review_path(book_review.book_id, book_review),

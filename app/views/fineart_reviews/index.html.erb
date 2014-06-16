@@ -49,7 +49,7 @@
                 
                   <% end %>
                 
-                      <% if allow? "fineart_reviews", "destroy" %>
+                      <% if can? :destroy, @fineart_review %>
                         <hr>
                             <%= fineart_review.get_upvotes.size %> | <%= fineart_review.get_downvotes.size %>
                             <%= link_to 'Delete', [fineart_review.fineart, fineart_review],

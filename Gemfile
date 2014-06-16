@@ -53,8 +53,9 @@ gem 'fog', '~> 1.22.1'
 gem 'aws-sdk', '~> 1.42.0'
 gem 'social-share-button', '~> 0.1.6'
 gem 'bcrypt-ruby', '3.1.2'
-gem 'devise'
-gem 'protected_attributes'
+gem 'devise', '~> 3.2.4'
+gem 'protected_attributes', '~> 1.0.7'
+gem 'cancancan', '~> 1.8'
 
 group :development do
   gem 'brakeman', '~> 2.4.3', :require => false

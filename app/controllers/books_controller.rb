@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :signed_in_user, except: [:show]
   
   def index
   end

@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
- 
+ before_action :signed_in_user, except: [:show]
+   
   def index
     @songs = Song.search params
   end

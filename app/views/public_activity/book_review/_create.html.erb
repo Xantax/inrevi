@@ -58,7 +58,7 @@
                           
                 <% end %> 
             
-                      <% if allow? "book_reviews", "destroy" %>
+                      <% if can? :destroy, @book_review %>
                         <hr>
                             <%= activity.trackable.get_upvotes.size %> | <%= activity.trackable.get_downvotes.size %>
                             <%= link_to 'Delete', book_book_review_path(activity.trackable.book_id, activity.trackable),

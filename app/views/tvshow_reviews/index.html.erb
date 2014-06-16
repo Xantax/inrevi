@@ -49,7 +49,7 @@
                 
                   <% end %>
                 
-                      <% if allow? "tvshow_reviews", "destroy" %>
+                      <% if can? :destroy, @tvshow_review %>
                         <hr>
                             <%= tvshow_review.get_upvotes.size %> | <%= tvshow_review.get_downvotes.size %>
                             <%= link_to 'Delete', tvshow_tvshow_review_path(tvshow_review.tvshow_id, tvshow_review),

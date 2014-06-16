@@ -49,7 +49,7 @@
                 
                   <% end %>
                 
-                      <% if allow? "product_reviews", "destroy" %>
+                <% if can? :destroy, @product_review %>
                         <hr>
                             <%= product_review.get_upvotes.size %> | <%= product_review.get_downvotes.size %>
                             <% delete_path = "#{product_review.productable_type}_product_review_path('#{product_review.productable_id}', product_review.id)" %>

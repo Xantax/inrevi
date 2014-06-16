@@ -49,7 +49,7 @@
                
                    <% end %>
                 
-                      <% if allow? "song_reviews", "destroy" %>
+                      <% if can? :destroy, @song_review %>
                         <hr>
                             <%= song_review.get_upvotes.size %> | <%= song_review.get_downvotes.size %>
                             <%= link_to 'Delete', song_song_review_path(song_review.song_id, song_review),

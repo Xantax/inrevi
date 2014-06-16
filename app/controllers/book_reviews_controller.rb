@@ -1,6 +1,7 @@
 class BookReviewsController < ApplicationController
   before_action :set_book_review, only: [:show, :destroy, :upvote, :downvote]
   before_action :set_book, [:new, :create]
+  before_action :signed_in_user
 
   def all
     @book_reviews = BookReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")

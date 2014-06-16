@@ -1,4 +1,6 @@
 class ReviewImagesController < ApplicationController
+  before_action :signed_in_user
+  
   def create
     ReviewImage.create(review_image_params)
   end

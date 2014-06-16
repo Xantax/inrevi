@@ -51,7 +51,7 @@
                 
                   <% end %>
                 
-                     <% if allow? "movie_reviews", "destroy" %>
+                      <% if can? :destroy, @movie_review %>
                         <hr>
                             <%= movie_review.get_upvotes.size %> | <%= movie_review.get_downvotes.size %>
                             <%= link_to 'Delete', movie_movie_review_path(movie_review.movie_id, movie_review),

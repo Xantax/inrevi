@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  before_action :signed_in_user, except: [:show]
+  
   require 'themoviedb'
 
   before_filter :set_config

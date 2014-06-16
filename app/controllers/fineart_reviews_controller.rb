@@ -1,6 +1,7 @@
 class FineartReviewsController < ApplicationController
   before_action :set_fineart_review, only: [:show, :destroy, :upvote, :downvote]
   before_action :set_fineart, only: [:index, :new, :create]
+  before_action :signed_in_user
   
   def all
     @fineart_reviews = FineartReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")

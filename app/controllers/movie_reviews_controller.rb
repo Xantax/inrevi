@@ -1,6 +1,7 @@
 class MovieReviewsController < ApplicationController
   before_action :set_movie_review, only: [:destroy, :upvote, :downvote]
   before_action :set_movie, [:new, :create]
+  before_action :signed_in_user
 
   def all
     @movie_reviews = MovieReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")

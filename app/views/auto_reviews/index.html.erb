@@ -49,7 +49,7 @@
                 
                   <% end %>
                 
-                      <% if allow? "auto_reviews", "destroy" %>
+                      <% if can? :destroy, @auto_review %>
                         <hr>
                             <%= auto_review.get_upvotes.size %> | <%= auto_review.get_downvotes.size %>
                             <%= link_to 'Delete', [auto_review.auto, auto_review],

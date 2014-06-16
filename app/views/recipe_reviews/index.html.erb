@@ -49,7 +49,7 @@
                 
                   <% end %>
                 
-                      <% if allow? "recipe_reviews", "destroy" %>
+                <% if can? :destroy, @recipe_review %>
                         <hr>
                             <%= recipe_review.get_upvotes.size %> | <%= recipe_review.get_downvotes.size %>
                             <%= link_to 'Delete', [recipe_review.recipe, recipe_review],
