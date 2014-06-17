@@ -9,22 +9,29 @@
   <div class="col-sm-7 usershow"> 
    
     <% if @activities.empty? %>
-    <div class="noreviews usershow">No reviews :(</div>
-    <div class="row.dumb500"></div>
-    <% else %>
     
-      <% @activities.each do |activity| %>
-        <div class="activity">
-          <%= render_activity activity %>
-        </div>
-      <% end %>
-      <div class="row.dumb300"></div>
+        <div class="noreviews usershow">No activity :(</div>
+        <div class="row dumb500"></div>
+    
+      <% else %>
+    
+        <% @activities.each do |activity| %>
+          <div class="activity">
+            <%= render_activity activity %>
+          </div>
+        <% end %>
+
     <% end %>
     
   </div>
   
   <div class="col-sm-2">
     <%= render 'follow_form' if signed_in? %>
+    <% unless signed_in? %>
+        <%= link_to image_tag("otherbigimages/FBlogins.png", alt: "FB Login"), user_omniauth_authorize_path(:facebook) %>
+          <div class="loginversus">or</div>
+        <%= link_to image_tag("otherbigimages/Glogin.PNG"), user_omniauth_authorize_path(:google_oauth2) %>    
+    <% end %>
   </div>
   
 </div>

@@ -41,6 +41,11 @@
       </div>
     <%= render 'shared/stats' %>  <br>
 
+  <% if current_user.provider == "email" && !current_user.company %>
+    Not verified!
+  <% elsif current_user.company %>
+    BUTTON
+  <% end %>
 
   <% else %>
   <br>
