@@ -3,7 +3,9 @@ class TechesController < ApplicationController
   before_action :signed_in_user, except: [:show]
 
   def all
-    @teches = Tech.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
+    if current_user.admin?
+      @teches = Tech.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
+    end
   end
   
   def search
@@ -27,6 +29,9 @@ class TechesController < ApplicationController
   end
 
   def edit
+    unless current_user.admin?
+      redirect_to root_path
+    end
   end
 
   def create

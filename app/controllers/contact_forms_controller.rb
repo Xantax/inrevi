@@ -3,10 +3,15 @@ class ContactFormsController < ApplicationController
   before_action :signed_in_user
 
   def index
-    @contact_forms = ContactForm.paginate(:page => params[:page], :per_page => 15).order('created_at DESC')
+    if current_user.admin?
+      @contact_forms = ContactForm.paginate(:page => params[:page], :per_page => 15).order('created_at DESC')
+    end
   end
 
   def show
+    unless current_user.admin?
+      redirect_to root_path
+    end
   end
 
   def new
@@ -14,6 +19,9 @@ class ContactFormsController < ApplicationController
   end
 
   def edit
+    unless current_user.admin?
+      redirect_to root_path
+    end
   end
 
   def create
@@ -28,16 +36,20 @@ class ContactFormsController < ApplicationController
   end
 
   def update
-      if @contact_form.update(contact_form_params)
-        redirect_to @contact_form
-      else
-        render action: 'edit'
-      end
+    if current_user.admin?
+        if @contact_form.update(contact_form_params)
+          redirect_to @contact_form
+        else
+          render action: 'edit'
+        end
+    end
   end
 
   def destroy
-    @contact_form.destroy
-    redirect_to contact_forms_url
+    if current_user.admin?
+      @contact_form.destroy
+      redirect_to contact_forms_url
+    end
   end
 
   private

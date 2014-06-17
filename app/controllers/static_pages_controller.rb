@@ -25,8 +25,10 @@ class StaticPagesController < ApplicationController
   end
   
   def admin_dashboard
-    @users = User.all
-    @points = Merit::Score::Point.sum("num_points")
+    if current_user.admin?
+      @users = User.all
+      @points = Merit::Score::Point.sum("num_points")
+    end
   end
   
   def catmedia

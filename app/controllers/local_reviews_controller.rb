@@ -5,8 +5,10 @@ class LocalReviewsController < ApplicationController
   before_action :signed_in_user
 
   def all
-    @local_reviews = LocalReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
-    render 'index'
+    if current_user.admin?
+      @local_reviews = LocalReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
+      render 'index'
+    end
   end
   
   def index

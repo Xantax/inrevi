@@ -3,7 +3,9 @@
    before_action :signed_in_user, except: [:show]
 
   def all
-     @podcasts = Podcast.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
+    if current_user.admin?
+       @podcasts = Podcast.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
+    end
   end
    
   def index   
@@ -27,6 +29,9 @@
   end
 
   def edit
+    unless current_user.admin?
+      redirect_to root_path
+    end
   end
 
   def create
@@ -49,8 +54,10 @@
   end
 
   def destroy
-    @podcast.destroy
-      redirect_to podcasts_url
+    if current_user.admin?
+      @podcast.destroy
+        redirect_to podcasts_url
+    end
   end
 
   private

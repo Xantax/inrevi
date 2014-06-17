@@ -4,8 +4,10 @@ class TvshowReviewsController < ApplicationController
   before_action :signed_in_user
 
   def all
-    @tvshow_reviews = TvshowReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
-    render 'index'
+    if current_user.admin?
+      @tvshow_reviews = TvshowReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
+      render 'index'
+    end
   end
   
   def index

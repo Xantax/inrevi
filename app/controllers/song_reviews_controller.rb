@@ -3,8 +3,10 @@ class SongReviewsController < ApplicationController
   before_action :signed_in_user
 
   def all
-    @song_reviews = SongReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
-    render 'index'
+    if current_user.admin?
+      @song_reviews = SongReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
+      render 'index'
+    end
   end
   
   def index

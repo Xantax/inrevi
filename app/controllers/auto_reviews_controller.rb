@@ -4,8 +4,10 @@ class AutoReviewsController < ApplicationController
   before_action :signed_in_user
 
   def all
-    @auto_reviews = AutoReview.order("cached_votes_score ASC").paginate(:page => params[:page], :per_page => 15)
-    render 'index'
+    if current_user.admin?
+      @auto_reviews = AutoReview.order("cached_votes_score ASC").paginate(:page => params[:page], :per_page => 15)
+      render 'index'
+    end
   end
   
   def index
@@ -33,18 +35,20 @@ class AutoReviewsController < ApplicationController
   end
 
   def update
-    @auto_review.review_images.build if @auto_review.review_images.empty?
+    if current_user.admin?
+      @auto_review.review_images.build if @auto_review.review_images.empty?
 
-      if @auto_review.update(auto_review_params)
-        redirect_to root_path, notice: 'Auto review was successfully updated.'
-      else
-        render action: 'edit'
-      end
+        if @auto_review.update(auto_review_params)
+          redirect_to root_path, notice: 'Auto review was successfully updated.'
+        else
+          render action: 'edit'
+        end
+    end
   end
 
   def destroy
-    @auto_review.destroy
-      redirect_to auto_path(@auto_review.auto)
+      @auto_review.destroy
+        redirect_to auto_path(@auto_review.auto)
   end
   
   def upvote

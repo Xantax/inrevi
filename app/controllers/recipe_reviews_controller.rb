@@ -4,8 +4,10 @@ class RecipeReviewsController < ApplicationController
   before_action :signed_in_user
 
   def all
-    @recipe_reviews = RecipeReview.order("cached_votes_score ASC").paginate(:page => params[:page], :per_page => 15)
-    render 'index'
+    if current_user.admin?
+      @recipe_reviews = RecipeReview.order("cached_votes_score ASC").paginate(:page => params[:page], :per_page => 15)
+      render 'index'
+    end
   end  
   
   def index

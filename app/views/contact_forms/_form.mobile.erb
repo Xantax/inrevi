@@ -22,7 +22,7 @@
     <%= f.label :message %><br>
     <%= f.text_area :message, :class => "form-control mobilecontent" %><br><br>
 
-    <% if allow? "contact_forms", "index" %>
+    <% if can? :destroy, ContactForm %>
       <%= f.label :read %><br>
       <%= f.check_box :read %><br><br>
     <% end %>

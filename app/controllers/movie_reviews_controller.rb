@@ -4,8 +4,10 @@ class MovieReviewsController < ApplicationController
   before_action :signed_in_user
 
   def all
-    @movie_reviews = MovieReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
-    render 'index'
+    if current_user.admin?
+      @movie_reviews = MovieReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
+      render 'index'
+    end
   end
   
   def index

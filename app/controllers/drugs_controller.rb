@@ -3,7 +3,9 @@ class DrugsController < ApplicationController
   before_action :signed_in_user, except: [:show]
 
   def all
-    @drugs = Drug.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
+    if current_user.admin?
+      @drugs = Drug.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
+    end
   end
   
   def index
@@ -28,6 +30,9 @@ class DrugsController < ApplicationController
   end
 
   def edit
+    unless current_user.admin?
+      redirect_to root_path
+    end
   end
 
   def create
@@ -50,8 +55,10 @@ class DrugsController < ApplicationController
   end
 
   def destroy
-    @drug.destroy
-      redirect_to drugs_url
+    if current_user.admin?
+      @drug.destroy
+        redirect_to drugs_url
+    end
   end
 
   private

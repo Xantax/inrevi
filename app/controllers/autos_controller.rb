@@ -3,7 +3,9 @@ class AutosController < ApplicationController
   before_action :signed_in_user, except: [:show]
   
   def all
-    @autos = Auto.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
+    if current_user.admin?
+      @autos = Auto.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
+    end
   end
   
   def index
@@ -37,6 +39,9 @@ class AutosController < ApplicationController
   end
   
   def edit
+    unless current_user.admin?
+      redirect_to root_path
+    end
   end
 
   def create
@@ -51,16 +56,20 @@ class AutosController < ApplicationController
   end
 
   def update
-      if @auto.update(auto_params)
-        redirect_to @auto
-      else
-        render action: 'edit'
-      end
+    if current_user.admin?
+        if @auto.update(auto_params)
+          redirect_to @auto
+        else
+          render action: 'edit'
+        end
+    end
   end
 
   def destroy
-    @auto.destroy
-    redirect_to autos_url
+    if current_user.admin?
+      @auto.destroy
+      redirect_to autos_url
+    end
   end
   
   private
