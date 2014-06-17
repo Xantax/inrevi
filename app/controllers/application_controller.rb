@@ -17,6 +17,15 @@ class ApplicationController < ActionController::Base
 
   before_filter :prepare_for_mobile
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :banned?
+  
+  def banned?
+    if current_user.present? && current_user.banned?
+      sign_out current_user
+      flash[:notice] = "BLOCKED!"
+      root_path
+    end
+  end
   
   protected
 

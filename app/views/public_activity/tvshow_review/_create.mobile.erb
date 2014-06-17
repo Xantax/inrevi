@@ -58,6 +58,11 @@
             
                 <% if current_user == activity.owner %>
                   <hr><%= social_share_button_tag(activity.trackable.content) %>
+                  <div class="user-activity-delete">
+                      <%= link_to image_tag('othericons/rsz_close.png'), tvshow_tvshow_review_path(activity.trackable.tvshow_id, activity.trackable),
+                                     method: :delete,
+                                     data: { confirm: 'Delete. Are you sure?'} %>
+                  </div>            
                 <% elsif current_user.voted_for? activity.trackable %>
                   Voted!
                 <% else %>
