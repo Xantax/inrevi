@@ -39,8 +39,8 @@
         
         <%= image_tag('othericons/company_alert.png') %><br><br>
         
-        <%= simple_format(activity.trackable.content) %>
-    
+        <%= auto_link(simple_format(activity.trackable.content), :html => { :target => '_blank'}) %>
+
           <div class="bottomreviewicons">
             <% if signed_in? %>
             

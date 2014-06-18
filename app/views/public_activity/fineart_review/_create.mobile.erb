@@ -43,7 +43,9 @@
         <%= link_to activity.trackable.fineart.name.truncate(25, omission: '...'), activity.trackable.fineart %><br><br>
         
         <div class="numberOne"><%= activity.trackable.point %></div><br><br>
-        <div class="reviewcontent"><%= simple_format(activity.trackable.content) %></div>
+        <div class="reviewcontent">
+          <%= auto_link(simple_format(activity.trackable.content), :html => { :target => '_blank'}) %>
+        </div>
              <% activity.trackable.review_images.each do |pic| %>
              <%= link_to image_tag(pic.image_url(:thumb), width: 50)), pic.image_url, target: :_blank if pic.image? %>
             <% end %> 
