@@ -12,5 +12,6 @@ class AddReviewCountersToUser < ActiveRecord::Migration
     add_column :users, :song_reviews_count, :integer, :default => 0
     add_column :users, :tech_reviews_count, :integer, :default => 0
     add_column :users, :tvshow_reviews_count, :integer, :default => 0
+    add_column :users, :alerts_count, :integer, :default => 0
   end
 end

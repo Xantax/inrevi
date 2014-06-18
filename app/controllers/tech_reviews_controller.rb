@@ -52,7 +52,7 @@ class TechReviewsController < ApplicationController
 
   def destroy
     @tech_review.destroy
-      redirect_to root_path
+      redirect_to current_user
   end
   
   def upvote

@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
   before_action :signed_in_user, only: [:admin_dashboard]
   
   def home
+    @alert = Alert.new
   end
 
   def advertising
@@ -27,7 +28,6 @@ class StaticPagesController < ApplicationController
   def admin_dashboard
     if current_user.admin?
       @users = User.all
-      @points = Merit::Score::Point.sum("num_points")
     end
   end
   

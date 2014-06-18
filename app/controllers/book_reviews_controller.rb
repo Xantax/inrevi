@@ -44,7 +44,7 @@ class BookReviewsController < ApplicationController
 
   def destroy
     @book_review.destroy
-    redirect_to root_path
+    redirect_to current_user
   end
   
   def upvote

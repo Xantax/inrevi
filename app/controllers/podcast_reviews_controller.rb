@@ -52,7 +52,7 @@ class PodcastReviewsController < ApplicationController
 
   def destroy
     @podcast_review.destroy
-      redirect_to root_path
+      redirect_to current_user
   end
   
   def upvote

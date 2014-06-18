@@ -132,7 +132,13 @@ class User < ActiveRecord::Base
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
   
-  has_many :contact_forms  
+  has_many :contact_forms 
+  
+  has_many :alerts do
+    def today
+      where(:created_at => (Time.now.beginning_of_day..Time.now))
+    end
+  end
   
   mount_uploader :image, ImageUploader
   

@@ -48,7 +48,7 @@ class AutoReviewsController < ApplicationController
 
   def destroy
       @auto_review.destroy
-        redirect_to auto_path(@auto_review.auto)
+        redirect_to current_user
   end
   
   def upvote

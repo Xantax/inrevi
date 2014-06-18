@@ -52,7 +52,7 @@ class RecipeReviewsController < ApplicationController
 
   def destroy
     @recipe_review.destroy
-      redirect_to recipe_reviews_url
+      redirect_to current_user
   end
   
   def upvote

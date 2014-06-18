@@ -1,0 +1,69 @@
+<div class="row">
+<% if activity.trackable %>
+  
+   <% unless activity.owner == @user %>
+  
+      <div class="col-sm-3 useronactivity">
+        
+        <% if activity.owner.provider == "facebook" %>
+          <div class="reviewname">  
+            <%= link_to user_path(activity.owner) do %> 
+               <%= activity.owner.first_name %>
+               <%= activity.owner.last_name.truncate(2, omission: '.')%>
+            <% end %>
+          </div>
+          <%= image_tag(activity.owner.image_auth, width: "80") %>  
+        
+        <% elsif activity.owner.provider == "google_oauth2" %>
+          <div class="reviewname">  
+            <%= link_to user_path(activity.owner) do %> 
+               <%= activity.owner.first_name %>
+               <%= activity.owner.last_name.truncate(2, omission: '.')%>
+            <% end %>
+          </div>
+          <%= image_tag(activity.owner.image_auth, width: "80") %>
+        
+        <% elsif activity.owner.provider == "email" %>
+            <%= link_to user_path(activity.owner) do %> 
+               <div class="reviewname"><%= activity.owner.name %></div>
+            <% end %>
+          <%= image_tag(activity.owner.image, width: "80") %>
+        <% end %>
+  
+      </div>
+  
+   <% end %>
+
+    <div class="col-sm-9 podreview indexreview"> 
+      <div class="separatereview">
+        
+        <%= image_tag('othericons/company_alert.png') %><br><br>
+        
+        <%= simple_format(activity.trackable.content) %>
+    
+          <div class="bottomreviewicons">
+            <% if signed_in? %>
+            
+                <% if current_user == activity.owner %>
+                    <hr>
+                    <%= link_to image_tag('othericons/rsz_close.png'), [activity.trackable],
+                                     method: :delete,
+                                     data: { confirm: 'Delete. Are you sure?'} %>                          
+                <% end %> 
+            
+                      <% if can? :destroy, Alert %>
+                        <hr>
+                            <%= link_to 'Delete', [activity.trackable],
+                                     method: :delete,
+                                     data: { confirm: 'Are you sure?'},
+                                     class: "btn btn-default" %>
+                      <% end %>            
+            
+            <% end %>
+          </div>
+        
+      </div>
+    </div>
+
+<% end %>
+</div><br>

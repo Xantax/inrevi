@@ -46,7 +46,7 @@ class DrugReviewsController < ApplicationController
 
   def destroy
     @auto_review.destroy
-      redirect_to drug_path(@drug_review.drug)
+      redirect_to current_user
   end
   
   def upvote

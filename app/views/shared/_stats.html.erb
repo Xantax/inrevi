@@ -5,7 +5,7 @@
   
      <%= image_tag("othericons/rsz_status_g.png") %> <a href="<%= user_path(@user) %>">
         <strong id="following">
-          <%= render "shared/reviewcounter" %>
+          <%= human_number @user.alerts_count %>
         </strong>
       updates
     </a><br>  

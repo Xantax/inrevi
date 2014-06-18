@@ -1,5 +1,7 @@
 Inrevi::Application.routes.draw do
 
+  resources :alerts
+
   resources :product_reviews do
        member do
          put "like", to: "product_reviews#upvote"
