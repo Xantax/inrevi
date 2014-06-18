@@ -12,9 +12,19 @@
   <br><br>
     <div class="searchstyle">
       <span class="input-group-btn">
-        <%= submit_tag "Go", class: "btn btn-default" %>
+        <%= submit_tag "Go", class: "btn btn-default", :id => "submit-me" %>
       </span>
     </div>
 
 <% end %>
 <hr>
+
+        <div id="loading2" class="loadinggif" style="display:none;" align="center">
+          <%= image_tag("othericons/uploading.gif", alt: "") %><br>
+        </div>
+
+<script type="text/javascript">
+  $('#submit-me').on('click', function(e) {
+  return $("#loading2").slideToggle();
+});
+</script>
