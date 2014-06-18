@@ -3,7 +3,7 @@
            <div class="qupdate">
                <div class="texty">
                  <% if @link.present? %>
-                 <a href="<%= @link.link if @link.link.present? %>"><%= @link.text %></a>
+                 <b><a href="<%= @link.link if @link.link.present? %>"><%= @link.text %></a></b>
                  <% end %>
                </div>
            </div>
