@@ -44,7 +44,9 @@
     <%= image_tag(current_user.image, width: "110")%><br>
   <% end %>
   
-  <%= render 'shared/stats' %><hr>
+  <%= render 'shared/stats' %>
+  
+  <hr>
 
 <% if @activities.empty? %>
     <div class="noreviews usershow">No activity :(</div>    
