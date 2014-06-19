@@ -1,14 +1,14 @@
       <p id="notice"><%= notice %></p>
 
-<div align="left" class="mobile-activity-home">
-        <% if signed_in? %>
+        <div align="left" class="mobile-activity-home">
+            <% if signed_in? %>
            <div class="qupdate">
                <div class="">
                  <% if @link.present? %>
-                   <a href="<%= @link.link if @link.link.present? %>"><%= @link.text %></a><hr>
+                   <b><a href="<%= @link.link if @link.link.present? %>"><%= @link.text %></a></b><hr>
                  <% end %>
                </div>
-           </div>
+        </div>
 
             <%= render :file => '/activities/index' %>
 </div>

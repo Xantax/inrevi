@@ -36,6 +36,7 @@
   <% end %>
 
   <%= render 'follow_form' if signed_in? %><br>
+  
   <% if current_user.provider == "facebook" %>
     <%= image_tag(current_user.image_auth, width: "110")%><br>
   <% elsif current_user.provider == "google_oauth2" %>
@@ -45,7 +46,6 @@
   <% end %>
   
   <%= render 'shared/stats' %>
-  
   <hr>
 
 <% if @activities.empty? %>
