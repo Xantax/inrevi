@@ -30,6 +30,7 @@ Inrevi::Application.configure do
   config.assets.compile = false
   
   config.assets.precompile += %w( vendor.js vendor.css )
+  
 
   # Generate digests for assets URLs.
   config.assets.digest = true
