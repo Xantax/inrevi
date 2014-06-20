@@ -22,7 +22,7 @@ module Inrevi
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.serve_static_assets = true
-    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif vendor.js vendor.css)
     config.autoload_paths += %W(#{config.root}/lib #{config.root}/app/uploaders)
     config.autoload_paths += %W(#{config.root}/queries)
     
