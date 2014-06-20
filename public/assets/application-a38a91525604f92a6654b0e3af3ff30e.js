@@ -1,8 +1,4 @@
 (function() {
-
-
-}).call(this);
-(function() {
   window.SocialShareButton = {
     openUrl: function(url) {
       window.open(url);
@@ -711,10 +707,6 @@ $(function() {
   
 ;
 (function() {
-
-
-}).call(this);
-(function() {
   var ready;
 
   ready = function() {
@@ -747,15 +739,6 @@ $(document).on('click', '.thumbsdown a, .thumbsup a', function()
     $('.thumbsdown, .thumbsup', parent).remove();
 })
 ;
-(function() {
-
-
-}).call(this);
-
-  $(function() {
-    $( "#tabs" ).tabs();
-  });
-
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -767,6 +750,5 @@ $(document).on('click', '.thumbsdown a, .thumbsup a', function()
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-//
 
 ;
