@@ -10,12 +10,4 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require jquery.ui.all
-//= require jquery.turbolinks
-//= require jquery.raty
-//= require jquery_nested_form
-//= require bootstrap
-//= require products
 //= require_tree .
