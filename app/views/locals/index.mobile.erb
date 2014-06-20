@@ -1,4 +1,5 @@
 <% provide(:title, '') %>
+<%= javascript_include_tag 'http://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_KEY"]}&sensor=false' %>
 
   <% model_class = Local %>
 
