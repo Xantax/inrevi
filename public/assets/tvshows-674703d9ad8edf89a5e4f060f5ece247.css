@@ -1,0 +1,72 @@
+/* line 5, /home/action/inrevi/app/assets/stylesheets/tvshows.css.scss */
+.tvshowsnow {
+  padding-top: 20px;
+}
+/* line 7, /home/action/inrevi/app/assets/stylesheets/tvshows.css.scss */
+.tvshowsnow a {
+  color: #707070;
+}
+/* line 8, /home/action/inrevi/app/assets/stylesheets/tvshows.css.scss */
+.tvshowsnow a:hover {
+  color: #202020;
+  text-decoration: none;
+}
+
+/* line 14, /home/action/inrevi/app/assets/stylesheets/tvshows.css.scss */
+.col-sm-8.tvshowsin {
+  min-height: 250px;
+}
+
+/* line 18, /home/action/inrevi/app/assets/stylesheets/tvshows.css.scss */
+.tvshowsnowindex {
+  font-size: 130%;
+}
+/* line 20, /home/action/inrevi/app/assets/stylesheets/tvshows.css.scss */
+.tvshowsnowindex a {
+  color: #707070;
+}
+/* line 21, /home/action/inrevi/app/assets/stylesheets/tvshows.css.scss */
+.tvshowsnowindex a:hover {
+  color: #202020;
+  text-decoration: none;
+}
+
+/* line 24, /home/action/inrevi/app/assets/stylesheets/tvshows.css.scss */
+.tvshowfacts {
+  border-right: 1px solid #F0F0F0;
+}
+
+/* line 28, /home/action/inrevi/app/assets/stylesheets/tvshows.css.scss */
+.tvshowsearchbutton {
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #CCC;
+  background-image: none;
+  width: 460px;
+}
+
+/* line 36, /home/action/inrevi/app/assets/stylesheets/tvshows.css.scss */
+.tvshowsearchbutton:focus {
+  outline-color: #0066FF;
+}
+
+/* line 40, /home/action/inrevi/app/assets/stylesheets/tvshows.css.scss */
+.tvshowfirst {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+/* line 45, /home/action/inrevi/app/assets/stylesheets/tvshows.css.scss */
+.tvtitle {
+  font-weight: bold;
+  font-size: 115%;
+}
+/* line 46, /home/action/inrevi/app/assets/stylesheets/tvshows.css.scss */
+.tvtitle a {
+  color: #707070;
+}
+/* line 47, /home/action/inrevi/app/assets/stylesheets/tvshows.css.scss */
+.tvtitle a:hover {
+  color: #202020;
+  text-decoration: none;
+}

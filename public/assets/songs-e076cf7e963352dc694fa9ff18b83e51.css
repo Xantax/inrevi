@@ -1,0 +1,12 @@
+/* line 5, /home/action/inrevi/app/assets/stylesheets/songs.css.scss */
+.songname {
+  font-size: 120%;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+/* line 11, /home/action/inrevi/app/assets/stylesheets/songs.css.scss */
+.songartistalbum {
+  font-size: 90%;
+  padding-bottom: 5px;
+}

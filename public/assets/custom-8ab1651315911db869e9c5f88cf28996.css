@@ -1,0 +1,240 @@
+/* universal */
+/* line 5, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+html {
+  overflow-y: scroll;
+}
+
+/* line 9, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+body {
+  margin: 50px 0px;
+  padding: 0px;
+  text-align: center;
+}
+
+/* line 14, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+#Content {
+  width: 900px;
+  margin: 0px auto;
+  text-align: left;
+}
+
+/* line 20, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+section {
+  overflow: auto;
+}
+
+/* line 24, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+textarea {
+  resize: vertical;
+}
+
+/* line 28, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.center {
+  text-align: center;
+}
+
+/* line 32, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.center h1 {
+  margin-bottom: 10px;
+}
+
+/* line 36, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.collapse.navbar-collapse {
+  border-bottom: 1px solid #E8E8E8;
+}
+
+/* line 40, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.bodypages {
+  padding-top: 30px;
+}
+
+/* line 44, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.aboutbottom {
+  padding-top: 570px;
+}
+/* line 46, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.aboutbottom a {
+  border-top: 1px solid #E8E8E8;
+  padding-top: 10px;
+  color: #888888;
+  font-size: 90%;
+  width: 50px;
+}
+/* line 47, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.aboutbottom a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+/* line 50, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.searchstyle {
+  display: inline-block;
+  padding-left: 10px;
+  vertical-align: bottom;
+}
+
+/* line 56, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+#notice {
+  color: #E95656;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* typography */
+/* line 65, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+/* line 69, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* line 76, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #999;
+}
+
+/* line 85, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* Navigation */
+/* line 92, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.nav.navbar-nav.navbar-center {
+  padding-left: 400px;
+}
+/* line 93, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.nav.navbar-nav.navbar-center a {
+  background-color: #F8F8F8;
+  color: #282828;
+  font-weight: bold;
+}
+/* line 94, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.nav.navbar-nav.navbar-center a:hover {
+  background-color: #F0F0F0;
+}
+
+/* line 98, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.nav.nav-navbar.navbar-right.nav-tabs {
+  border-bottom: 0px;
+}
+/* line 101, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.nav.nav-navbar.navbar-right.nav-tabs a:hover {
+  background-color: #FFFFFF;
+  border-bottom: 0px;
+}
+
+/* line 108, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.navbar-form.navbar-left {
+  margin-left: 50px;
+}
+
+/* Categories */
+/* line 115, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.categorylist {
+  height: 50px;
+  width: 220px;
+  position: relative;
+  font-size: 120%;
+  padding-left: 25px;
+}
+/* line 122, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.categorylist a {
+  color: #888888;
+}
+/* line 125, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.categorylist a:hover {
+  color: #404040;
+}
+
+/* line 130, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.nav.nav-stacked {
+  text-align: justify;
+  padding-left: 5px;
+}
+/* line 134, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.nav.nav-stacked a:hover {
+  background-color: #FFFFFF;
+}
+
+/* Users */
+/* line 142, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.full_profile {
+  font-size: 0.75em;
+  padding-top: 5px;
+  padding-left: 5px;
+  display: inline-block;
+  vertical-align: top;
+}
+/* line 146, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.full_profile a {
+  color: #000000;
+}
+/* line 147, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.full_profile a:hover {
+  color: #000000;
+  background-color: #FFFFFF;
+}
+
+/* line 153, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.stats {
+  padding-top: 40px;
+}
+
+/* line 157, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.logoutlink {
+  display: inline-block;
+  padding-left: 5px;
+  padding-bottom: 10px;
+}
+/* line 160, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.logoutlink a {
+  font-size: 85%;
+  color: #808080;
+}
+/* line 161, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.logoutlink a:hover {
+  text-decoration: none;
+  color: #000000;
+}
+
+/* line 165, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.searchbox {
+  float: left;
+  width: 450px;
+}
+
+/* line 170, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.searchgo {
+  display: inline-block;
+}
+
+/* DUMB SPACE */
+/* line 177, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.row.dumb500 {
+  min-height: 500px;
+}
+
+/* line 181, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.row.dumb300 {
+  min-height: 300px;
+}
+
+/* SEARCH */
+/* line 188, /home/action/inrevi/app/assets/stylesheets/custom.css.scss */
+.uselessresults {
+  text-align: right;
+  font-size: 80%;
+}

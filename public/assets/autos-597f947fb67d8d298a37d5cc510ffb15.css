@@ -1,0 +1,48 @@
+/* line 6, /home/action/inrevi/app/assets/stylesheets/autos.css.scss */
+.autosearchup {
+  border-bottom: 1px solid #E8E8E8;
+  padding-bottom: 20px;
+}
+
+/* line 11, /home/action/inrevi/app/assets/stylesheets/autos.css.scss */
+.autosearchbutton {
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #CCC;
+  background-image: none;
+  width: 460px;
+}
+
+/* line 19, /home/action/inrevi/app/assets/stylesheets/autos.css.scss */
+.autosearchbutton:focus {
+  outline-color: none;
+  box-shadow: 0 0 3px 0px #0066FF;
+}
+
+/* line 24, /home/action/inrevi/app/assets/stylesheets/autos.css.scss */
+.row.autoup {
+  border-bottom: 2px solid #E8E8E8;
+  padding-bottom: 15px;
+}
+
+/* line 30, /home/action/inrevi/app/assets/stylesheets/autos.css.scss */
+.autosmallinfo {
+  font-size: 0.75em;
+  padding-left: 15px;
+}
+
+/* line 35, /home/action/inrevi/app/assets/stylesheets/autos.css.scss */
+.col-sm-5.autoshow {
+  padding-left: 30px;
+}
+
+/* line 39, /home/action/inrevi/app/assets/stylesheets/autos.css.scss */
+.form-control.autotitle {
+  width: 300px;
+}
+
+/* line 43, /home/action/inrevi/app/assets/stylesheets/autos.css.scss */
+.form-control.autocontent {
+  width: 300px;
+  height: 300px;
+}

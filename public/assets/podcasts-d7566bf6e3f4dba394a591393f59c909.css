@@ -1,0 +1,119 @@
+/* line 5, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.col-sm-9.podreview {
+  min-height: 150px;
+}
+
+/* line 9, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.podinfo {
+  font-size: 0.78em;
+  padding-left: 10px;
+}
+
+/* line 14, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.row.podup {
+  border-bottom: 2px solid #E8E8E8;
+  padding-bottom: 5px;
+}
+
+/* line 19, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.podcastreviews.body {
+  padding-left: 50px;
+  width: 550px;
+  height: 150px;
+  vertical-align: text-top;
+  float: right;
+}
+
+/* line 27, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.podcastreviews.image {
+  float: left;
+  width: 100px;
+  height: 200px;
+}
+
+/* line 33, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.inreviews {
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 10px;
+}
+
+/* line 39, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.row.podcast {
+  padding-top: 30px;
+}
+
+/* line 43, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.col-sm-1.linkup {
+  float: left;
+}
+/* line 44, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.col-sm-1.linkup a {
+  color: #707070;
+}
+/* line 45, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.col-sm-1.linkup a:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
+/* line 53, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.col-sm-7.podsin {
+  min-height: 200px;
+}
+
+/* line 57, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.podcastsnowindex {
+  font-size: 130%;
+}
+/* line 60, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.podcastsnowindex a {
+  color: #707070;
+}
+/* line 61, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.podcastsnowindex a:hover {
+  color: #202020;
+  text-decoration: none;
+}
+
+/* line 64, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.podcastsearchbutton {
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #CCC;
+  background-image: none;
+  width: 400px;
+}
+
+/* line 72, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.podcastsearchbutton:focus {
+  outline-color: none;
+  box-shadow: 0 0 3px 0px #0066FF;
+}
+
+/* line 77, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.podcastnew {
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #CCC;
+  background-image: none;
+  width: 300px;
+}
+
+/* line 85, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.podcastnew:focus {
+  outline-color: #0066FF;
+}
+
+/* line 89, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.podcastnewadd {
+  font-size: 130%;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* line 95, /home/action/inrevi/app/assets/stylesheets/podcasts.css.scss */
+.podcastnameshow {
+  padding-left: 10px;
+  font-weight: bold;
+}

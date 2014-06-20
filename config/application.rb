@@ -23,7 +23,6 @@ module Inrevi
     # config.i18n.default_locale = :de
     config.serve_static_assets = true
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-    config.assets.precompile = ['*.js', '*.css', '*.css.erb', '*.coffee', '*.css.scss']
     config.autoload_paths += %W(#{config.root}/lib #{config.root}/app/uploaders)
     config.autoload_paths += %W(#{config.root}/queries)
     

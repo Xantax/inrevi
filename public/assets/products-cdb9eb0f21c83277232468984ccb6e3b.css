@@ -1,0 +1,84 @@
+/* line 2, /home/action/inrevi/app/assets/stylesheets/products.css.scss */
+.dropdown-menu > li {
+  position: relative;
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+ */
+  /* Rules below not implemented in browsers yet */
+  -o-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* line 12, /home/action/inrevi/app/assets/stylesheets/products.css.scss */
+.dropdown-menu .sub-menu {
+  left: 100%;
+  position: absolute;
+  top: 0;
+  display: none;
+  margin-top: -1px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left-color: #fff;
+  box-shadow: none;
+}
+
+/* line 27, /home/action/inrevi/app/assets/stylesheets/products.css.scss */
+form#products_search_path .form-actions .dropdown a.dropdown-toggle {
+  min-width: 250px;
+}
+/* line 32, /home/action/inrevi/app/assets/stylesheets/products.css.scss */
+form#products_search_path .form-actions ul.dropdown-menu, form#products_search_path .form-actions .sub-menu {
+  width: 300px;
+}
+/* line 35, /home/action/inrevi/app/assets/stylesheets/products.css.scss */
+form#products_search_path .form-actions ul.dropdown-menu li a, form#products_search_path .form-actions .sub-menu li a {
+  display: inline-block;
+  padding-right: 3px;
+  min-width: 250px;
+}
+
+/* line 45, /home/action/inrevi/app/assets/stylesheets/products.css.scss */
+.right-caret, .left-caret {
+  padding: 10px;
+}
+
+/* line 49, /home/action/inrevi/app/assets/stylesheets/products.css.scss */
+.right-caret:after, .left-caret:after {
+  content: "";
+  border-bottom: 5px solid transparent;
+  border-top: 5px solid transparent;
+  display: inline-block;
+  height: 0;
+  width: 0;
+}
+
+/* line 58, /home/action/inrevi/app/assets/stylesheets/products.css.scss */
+.right-caret:after {
+  border-left: 5px solid green;
+}
+
+/* line 62, /home/action/inrevi/app/assets/stylesheets/products.css.scss */
+.left-caret:after {
+  border-right: 5px solid green;
+}
+
+/* line 68, /home/action/inrevi/app/assets/stylesheets/products.css.scss */
+table tr td {
+  padding: 0 3px;
+}
+
+/* toggle features */
+/* line 80, /home/action/inrevi/app/assets/stylesheets/products.css.scss */
+.r-productfeature {
+  display: none;
+}
+/* line 82, /home/action/inrevi/app/assets/stylesheets/products.css.scss */
+.r-productfeature:after {
+  clear: both;
+  content: '';
+  display: block;
+}

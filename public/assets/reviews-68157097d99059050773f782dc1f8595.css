@@ -1,0 +1,388 @@
+/* line 2, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.numberOne {
+  float: left;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding: 1px;
+  background: #fff;
+  border: 2px solid #666;
+  color: #666;
+  text-align: center;
+  font: 18px Arial, sans-serif;
+}
+
+/* line 18, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.numberOneindex {
+  float: left;
+  border-radius: 30%;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  background: #fff;
+  border: 2px solid #666;
+  color: #666;
+  text-align: center;
+  font: 18px Arial, sans-serif;
+}
+
+/* line 34, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.reviewtitle {
+  font-weight: bold;
+  display: inline-block;
+  padding-left: 10px;
+}
+
+/* line 40, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.rating-comments {
+  margin-bottom: 5px;
+}
+
+/* line 44, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.reviewcontent {
+  font-size: 85%;
+}
+
+/* line 48, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.contentcharacters {
+  display: inline-block;
+  padding-left: 245px;
+  font-size: 85%;
+}
+
+/* line 54, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.user-activity-delete {
+  float: right;
+  display: inline-block;
+}
+
+/* THUMBS */
+/* line 61, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.thumbsup {
+  float: left;
+  padding-bottom: 20px;
+  padding-right: 5px;
+}
+/* line 65, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.thumbsup a::before {
+  content: "";
+  position: absolute;
+  width: 32px;
+  height: 22px;
+  background-image: url(data:application/octet-stream;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAABmCAIAAABePcYeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAohJREFUWEftmD1uwkAQhZ0j5AicJPegipSaE0SKUtJR0JOWQ1BSU6SghJYTpCUvmWgYZnZnxmshEQRyg737ef6f7Yfj8di5v%2F1%2BP5vNPr8eserj9Xk0GpWXA%2BT%2Fnl7e5FFb3PmU9XoNynQ6xTLCNYImkwk2b7fbQaDNZiOtaLeIdsI7cqcRtFwu5U541wJipw6HgzTHC7ZNLTbTydVqxTlSRaD%2B7na7zoKQbJycz%2Bcy05Q%2B5yiA%2FFjYOqL1twfiqA1yTVbJIJAs%2FXYQUbhKGkEcGq6GKoiWLhaL4gCiq4iRB%2BJ25duiAyTOmvMzr50JiY4fj8e1tlAbg1GL1dR6tkt7gyJx%2BLseW3TDIOSep5qqA%2Bl1HCOVr0aBJKW149jiAovsqG6xiMfNUIuKzdHbItu6vrqUY1R0KgBZ%2F1lpfUWUVz2lzVMCgbyDYqXtFSMkOpCjDI4eMoeCYqXN2II1WaX1cb2VNqORd6WN5TaWo5jxu%2BJiIMy6965TB71B%2Bj9tkaXQGTxx0XtkSkWYIldbGyEwtEDe9WQR6p0uFO%2BJp1K5zQMVzbFQebOCRZgGjjkS54EwmZIUjkvBNUxJosiZ4GSnalEyNIwOQFG5na7%2FO1CtM%2FDoJ72mKuHWO6ujYpfaIgYO3xPoPH%2BeKLeIirfKZlgl1XlEIO54%2BsvtarMcgGhDpvRToEzpxyB4B5BKX4trSDZA%2FF0rNSHtuMh3YtU1ri845bxd8b0vJkf5MaBWXr9F16q0tfGkWrc8RlhpfUogkErIQ1ZVsllpQ0RKaZMULPOUNk8pg3rtV8PgLGt3kIxAo9LaIDYqrQLVnscCOVKUdqVVIGcQ97DIf8jMgoYqLbt2V9pmfT1t%2FAbW2h%2BpZVwqEAAAAABJRU5ErkJggg%3D%3D);
+  background-repeat: no-repeat;
+  background-position: 0 0px;
+}
+
+/* line 76, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.thumbsup:hover {
+  float: left;
+  padding-bottom: 20px;
+  padding-right: 5px;
+}
+/* line 80, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.thumbsup:hover a::before {
+  content: "";
+  position: absolute;
+  width: 32px;
+  height: 22px;
+  background-image: url(data:application/octet-stream;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAABmCAIAAABePcYeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAohJREFUWEftmD1uwkAQhZ0j5AicJPegipSaE0SKUtJR0JOWQ1BSU6SghJYTpCUvmWgYZnZnxmshEQRyg737ef6f7Yfj8di5v%2F1%2BP5vNPr8eserj9Xk0GpWXA%2BT%2Fnl7e5FFb3PmU9XoNynQ6xTLCNYImkwk2b7fbQaDNZiOtaLeIdsI7cqcRtFwu5U541wJipw6HgzTHC7ZNLTbTydVqxTlSRaD%2B7na7zoKQbJycz%2Bcy05Q%2B5yiA%2FFjYOqL1twfiqA1yTVbJIJAs%2FXYQUbhKGkEcGq6GKoiWLhaL4gCiq4iRB%2BJ25duiAyTOmvMzr50JiY4fj8e1tlAbg1GL1dR6tkt7gyJx%2BLseW3TDIOSep5qqA%2Bl1HCOVr0aBJKW149jiAovsqG6xiMfNUIuKzdHbItu6vrqUY1R0KgBZ%2F1lpfUWUVz2lzVMCgbyDYqXtFSMkOpCjDI4eMoeCYqXN2II1WaX1cb2VNqORd6WN5TaWo5jxu%2BJiIMy6965TB71B%2Bj9tkaXQGTxx0XtkSkWYIldbGyEwtEDe9WQR6p0uFO%2BJp1K5zQMVzbFQebOCRZgGjjkS54EwmZIUjkvBNUxJosiZ4GSnalEyNIwOQFG5na7%2FO1CtM%2FDoJ72mKuHWO6ujYpfaIgYO3xPoPH%2BeKLeIirfKZlgl1XlEIO54%2BsvtarMcgGhDpvRToEzpxyB4B5BKX4trSDZA%2FF0rNSHtuMh3YtU1ri845bxd8b0vJkf5MaBWXr9F16q0tfGkWrc8RlhpfUogkErIQ1ZVsllpQ0RKaZMULPOUNk8pg3rtV8PgLGt3kIxAo9LaIDYqrQLVnscCOVKUdqVVIGcQ97DIf8jMgoYqLbt2V9pmfT1t%2FAbW2h%2BpZVwqEAAAAABJRU5ErkJggg%3D%3D);
+  background-repeat: no-repeat;
+  background-position: 0 -26px;
+}
+
+/* line 92, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.thumbsdown {
+  padding-bottom: 20px;
+  display: block;
+  padding-left: 40px;
+}
+/* line 96, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.thumbsdown a::before {
+  content: "";
+  position: absolute;
+  width: 32px;
+  height: 22px;
+  background-image: url(data:application/octet-stream;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAABmCAIAAABePcYeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAohJREFUWEftmD1uwkAQhZ0j5AicJPegipSaE0SKUtJR0JOWQ1BSU6SghJYTpCUvmWgYZnZnxmshEQRyg737ef6f7Yfj8di5v%2F1%2BP5vNPr8eserj9Xk0GpWXA%2BT%2Fnl7e5FFb3PmU9XoNynQ6xTLCNYImkwk2b7fbQaDNZiOtaLeIdsI7cqcRtFwu5U541wJipw6HgzTHC7ZNLTbTydVqxTlSRaD%2B7na7zoKQbJycz%2Bcy05Q%2B5yiA%2FFjYOqL1twfiqA1yTVbJIJAs%2FXYQUbhKGkEcGq6GKoiWLhaL4gCiq4iRB%2BJ25duiAyTOmvMzr50JiY4fj8e1tlAbg1GL1dR6tkt7gyJx%2BLseW3TDIOSep5qqA%2Bl1HCOVr0aBJKW149jiAovsqG6xiMfNUIuKzdHbItu6vrqUY1R0KgBZ%2F1lpfUWUVz2lzVMCgbyDYqXtFSMkOpCjDI4eMoeCYqXN2II1WaX1cb2VNqORd6WN5TaWo5jxu%2BJiIMy6965TB71B%2Bj9tkaXQGTxx0XtkSkWYIldbGyEwtEDe9WQR6p0uFO%2BJp1K5zQMVzbFQebOCRZgGjjkS54EwmZIUjkvBNUxJosiZ4GSnalEyNIwOQFG5na7%2FO1CtM%2FDoJ72mKuHWO6ujYpfaIgYO3xPoPH%2BeKLeIirfKZlgl1XlEIO54%2BsvtarMcgGhDpvRToEzpxyB4B5BKX4trSDZA%2FF0rNSHtuMh3YtU1ri845bxd8b0vJkf5MaBWXr9F16q0tfGkWrc8RlhpfUogkErIQ1ZVsllpQ0RKaZMULPOUNk8pg3rtV8PgLGt3kIxAo9LaIDYqrQLVnscCOVKUdqVVIGcQ97DIf8jMgoYqLbt2V9pmfT1t%2FAbW2h%2BpZVwqEAAAAABJRU5ErkJggg%3D%3D);
+  background-repeat: no-repeat;
+  background-position: 0 -52px;
+}
+
+/* line 107, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.thumbsdown:hover {
+  padding-bottom: 20px;
+  display: block;
+  padding-left: 40px;
+}
+/* line 111, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.thumbsdown:hover a::before {
+  content: "";
+  position: absolute;
+  width: 32px;
+  height: 22px;
+  background-image: url(data:application/octet-stream;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAABmCAIAAABePcYeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAohJREFUWEftmD1uwkAQhZ0j5AicJPegipSaE0SKUtJR0JOWQ1BSU6SghJYTpCUvmWgYZnZnxmshEQRyg737ef6f7Yfj8di5v%2F1%2BP5vNPr8eserj9Xk0GpWXA%2BT%2Fnl7e5FFb3PmU9XoNynQ6xTLCNYImkwk2b7fbQaDNZiOtaLeIdsI7cqcRtFwu5U541wJipw6HgzTHC7ZNLTbTydVqxTlSRaD%2B7na7zoKQbJycz%2Bcy05Q%2B5yiA%2FFjYOqL1twfiqA1yTVbJIJAs%2FXYQUbhKGkEcGq6GKoiWLhaL4gCiq4iRB%2BJ25duiAyTOmvMzr50JiY4fj8e1tlAbg1GL1dR6tkt7gyJx%2BLseW3TDIOSep5qqA%2Bl1HCOVr0aBJKW149jiAovsqG6xiMfNUIuKzdHbItu6vrqUY1R0KgBZ%2F1lpfUWUVz2lzVMCgbyDYqXtFSMkOpCjDI4eMoeCYqXN2II1WaX1cb2VNqORd6WN5TaWo5jxu%2BJiIMy6965TB71B%2Bj9tkaXQGTxx0XtkSkWYIldbGyEwtEDe9WQR6p0uFO%2BJp1K5zQMVzbFQebOCRZgGjjkS54EwmZIUjkvBNUxJosiZ4GSnalEyNIwOQFG5na7%2FO1CtM%2FDoJ72mKuHWO6ujYpfaIgYO3xPoPH%2BeKLeIirfKZlgl1XlEIO54%2BsvtarMcgGhDpvRToEzpxyB4B5BKX4trSDZA%2FF0rNSHtuMh3YtU1ri845bxd8b0vJkf5MaBWXr9F16q0tfGkWrc8RlhpfUogkErIQ1ZVsllpQ0RKaZMULPOUNk8pg3rtV8PgLGt3kIxAo9LaIDYqrQLVnscCOVKUdqVVIGcQ97DIf8jMgoYqLbt2V9pmfT1t%2FAbW2h%2BpZVwqEAAAAABJRU5ErkJggg%3D%3D);
+  background-repeat: no-repeat;
+  background-position: 0 -78px;
+}
+
+/* END THUMBS */
+/* line 125, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.thumbsup-local {
+  float: left;
+  padding-right: 5px;
+}
+
+/* line 130, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.thumbsdown-local {
+  display: inline-block;
+  padding-left: 10px;
+}
+
+/* line 135, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.bottomreviewicons {
+  padding-bottom: 10px;
+}
+
+/* line 139, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.reviewname {
+  font-weight: bold;
+  padding-bottom: 10px;
+  font-size: 95%;
+}
+
+/* line 145, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.writeareview {
+  display: inline-block;
+  padding-bottom: 20px;
+  padding-left: 5px;
+  font-weight: bold;
+}
+
+/* line 152, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.noreviewshome {
+  font-size: 200%;
+  text-align: center;
+  color: #B8B8B8;
+  padding-top: 20px;
+}
+
+/* line 159, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.noreviewshomebottom {
+  font-size: 110%;
+  text-align: center;
+  color: #C8C8C8;
+}
+
+/* line 165, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.optionalreview {
+  font-size: 120%;
+  font-weight: bold;
+  color: #A8A8A8;
+  padding-bottom: 10px;
+}
+
+/* line 172, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.row.reviewbottom {
+  padding-bottom: 50px;
+}
+
+/* INPUT */
+/* line 178, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.field.podcontent {
+  padding: 6px;
+  border-radius: 3px;
+  border: 1px solid #CCC;
+  background-image: none;
+  width: 450px;
+  height: 300px;
+  white-space: pre-wrap;
+}
+
+/* line 188, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.field.podcontent:focus {
+  outline-color: none;
+  box-shadow: 0 0 3px 0px #0066FF;
+}
+
+/* line 193, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.field.podtitle {
+  padding: 6px;
+  border-radius: 3px;
+  border: 1px solid #CCC;
+  background-image: none;
+  width: 450px;
+}
+
+/* line 201, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.field.podtitle:focus {
+  outline-color: none;
+  box-shadow: 0 0 3px 0px #0066FF;
+}
+
+/* line 206, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.form-control.autotitle {
+  width: 450px;
+}
+
+/* line 210, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.form-control.autocontent {
+  width: 450px;
+  height: 250px;
+}
+
+/* END INPUT */
+/* line 217, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.form-control.reviewcontent {
+  width: 500px;
+  height: 200px;
+}
+
+/* line 222, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.separatereview {
+  border-bottom: 1px solid #D0D0D0;
+}
+
+/* line 226, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.reviewslashfive {
+  display: inline-block;
+  padding-left: 5px;
+  padding-top: 20px;
+}
+
+/* line 232, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.total_score {
+  float: left;
+}
+
+/* line 236, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.noreviewsonindex {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 140%;
+  color: #B2ADAC;
+}
+
+/* line 243, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.noreviews {
+  text-align: center;
+  color: #B2ADAC;
+  padding-bottom: 20px;
+}
+
+/* line 249, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.noreviews.home {
+  padding-top: 10px;
+  font-size: 120%;
+}
+
+/* line 254, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.noreviews.usershow {
+  padding-top: 50px;
+  font-size: 200%;
+}
+
+/* line 259, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.popularactivitiesname {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid #E8E8E8;
+}
+
+/* line 265, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.col-sm-3.useronactivity {
+  padding-left: 30px;
+}
+
+/* line 269, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.col-sm-9.podreview.indexreview {
+  padding-right: 20px;
+}
+
+/* line 273, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.removeicon {
+  display: inline-block;
+}
+
+/* line 277, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.browseimage {
+  display: inline-block;
+  padding-left: 10px;
+}
+
+/* COLORS */
+/* line 284, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.reviewtotalfive {
+  font-size: 140%;
+  font-weight: bold;
+  color: #303030;
+  display: inline-block;
+}
+
+/* line 291, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.reviewnumberscore {
+  font-size: 250%;
+  font-weight: bold;
+  color: #808080;
+}
+
+/* line 297, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.loadinggif {
+  display: inline-block;
+  padding-left: 20px;
+  float: left;
+}
+
+/* line 302, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.loadinggif-check {
+  display: inline-block;
+}
+
+/* Drop photos */
+/* line 308, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+label.filebutton {
+  width: 211px;
+  height: 71px;
+  overflow: hidden;
+  position: relative;
+  background-color: white;
+  background-image: url("otherbigimages/DropPhotos4.PNG");
+  background-repeat: no-repeat;
+}
+
+/* line 318, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+label span fieldset ol input {
+  z-index: 999;
+  line-height: 0;
+  font-size: 50px;
+  position: absolute;
+  top: -2px;
+  left: -630px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -ms-filter: "alpha(opacity=0)";
+  cursor: pointer;
+  _cursor: hand;
+  margin: 0;
+  padding: 0;
+}
+
+/* Image upload */
+/* line 336, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.upload {
+  border-bottom: solid 1px #CCC;
+  width: 300px;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+/* line 342, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.upload .progress {
+  margin-top: 8px;
+  border: solid 1px #555;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+/* line 347, /home/action/inrevi/app/assets/stylesheets/reviews.css.scss */
+.upload .progress .bar {
+  height: 10px;
+  background: #3e91c1;
+}
