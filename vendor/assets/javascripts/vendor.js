@@ -4,4 +4,3 @@
 //= require jquery.raty
 //= require jquery_nested_form
 //= require reviews_icon
-//= require bootstrap
