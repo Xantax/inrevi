@@ -21,6 +21,8 @@
             <% end %>
                 <%= render 'layouts/header' %>
                 <div class="mobile-activity-home">
+                    <%= stylesheet_link_tag "application", media: "all" %>
+                    <%= javascript_include_tag "vendor", :debug => false %>
                   <%= yield %>
                 </div>
           </div>
