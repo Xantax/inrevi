@@ -3,11 +3,11 @@
 
     <%= text_field_tag :tags, nil, data: {category: Factual_Taxonomy.taxonomies, place: ZIP_CODE.all_cities}, id: 'tags' %>
 <div class="searchbox mobile local">
-    <%= text_field_tag :query, params[:query], placeholder: "e.g. bars, Starbucks...", class: 'form-control', id: 'query-text-field' %> 
+    <%= text_field_tag :query, params[:query], placeholder: "e.g. bars, Starbucks...", class: 'form-control mobile-search', id: 'query-text-field' %> 
 </div>
   <br><br>
 <div class="searchbox mobile local">
-    <%= text_field_tag :place, params[:place], placeholder: " 'City' or 'Neighborhood City' ", class: 'form-control', id: 'place-text-field' %>
+    <%= text_field_tag :place, params[:place], placeholder: " 'City' or 'Neighborhood City' ", class: 'form-control mobile-search', id: 'place-text-field' %>
 </div>
   <br><br>
     <div class="searchstyle">

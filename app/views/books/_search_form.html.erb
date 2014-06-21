@@ -5,8 +5,17 @@
 </div>
 
 <div class="booktotalsearch"> 
-  <div class="searchbox books"><%= text_field_tag :query, params[:query], placeholder: '', :class => "form-control" %></div>
-  <div class="searchgo"><span class="input-group-btn"><%= submit_tag "Go", class: "btn btn-default" %></span></div>
+  
+  <div class="searchbox books">
+    <%= text_field_tag :query, params[:query], placeholder: '', :class => "form-control book-search" %>
+  </div>
+  
+  <div class="searchgo">
+    <span class="input-group-btn">
+      <%= submit_tag "Go", class: "btn btn-default" %>
+    </span>
+  </div>
+  
 </div>
 <% end %>
 
