@@ -31,7 +31,11 @@
 
   <% if signed_in? %>
     <% if current_user?(@user) %>
-      <%= image_tag('othericons/logout.PNG') %><div class="logoutlink"><%= link_to "logout", destroy_user_session_path %><br></div>
+      <%= image_tag('othericons/logout.PNG') %>
+  <div class="logoutlink">
+    <%= link_to "logout", destroy_user_session_path, :method => :delete %>
+    <br>
+  </div>
     <% end %>
   <% end %>
 
