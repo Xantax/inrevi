@@ -58,6 +58,17 @@ textarea {
   text-align:center
 }
 
+.r-clickfeature{
+}
+
+.r-productfeature{
+   display: none;
+   &:after{
+   clear: both;
+   content: '';
+   display: block;
+ }
+}
 
 /* Navigation */
 
