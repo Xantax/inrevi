@@ -2,12 +2,13 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
   <head>
-    <title><%= h(yield(:title) || "Untitled") %></title>
-    <%= stylesheet_link_tag "vendor", :media => "all", :debug => false %>
+    <title><%= full_title(yield(:title)) %></title>
     <%= stylesheet_link_tag "application", media: "all" %>
-    <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "vendor", :debug => false %>
     <%= csrf_meta_tags %>
+    
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    
     <%= yield(:head) %>
   </head>
   <body>
@@ -21,8 +22,6 @@
             <% end %>
                 <%= render 'layouts/header' %>
                 <div class="mobile-activity-home">
-                    <%= stylesheet_link_tag "application", media: "all" %>
-                    <%= javascript_include_tag "vendor", :debug => false %>
                   <%= yield %>
                 </div>
           </div>
