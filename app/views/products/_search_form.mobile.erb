@@ -2,8 +2,6 @@
 
 <%= form_tag eval("#{@resource_type.to_s.pluralize}_search_path"), method: :get, class: 'form-horizontal', id: 'products_search_path' do %>
 
-    <div class="searchbox mobile">
-      
       <% if @resource_type.to_s == "computer" %>
           <%= text_field_tag :query, params[:query], placeholder: 'Laptops, Computer Accessories, External, Monitors...', class: 'form-control mobile-search', id: 'query-text-field' %>
           <% elsif @resource_type.to_s == "camera" %>
@@ -73,9 +71,8 @@
           <% elsif @resource_type.to_s == "outdoor" %>
           <%= text_field_tag :query, params[:query], placeholder: "Gardening, Patio Furniture, Grills...", class: 'form-control mobile-search', id: 'query-text-field' %>
           <% end %>
-      
-    </div>
-    <%= hidden_field_tag :category, params[:category] %>
+
+    <%= hidden_field_tag :category, params[:category] %><br>
               <div class="searchgo">
                 <span class="input-group-btn">
                   <%= submit_tag "Go", class: "btn btn-default" %>

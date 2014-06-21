@@ -1,9 +1,8 @@
 <% provide(:title, 'Results...') %>
 <hr>
 <%= form_tag tvsearch_path, :method => :get do %>
-    <div class="searchbox mobile">
       <%= text_field_tag(:query, nil, :placeholder => "e.g. Game of Trones" , :class => "form-control mobile-search") %>
-    </div>
+    <br>
     <div class="searchgo">
       <span class="input-group-btn">
         <%= submit_tag "Go", class: "btn btn-default" %>
