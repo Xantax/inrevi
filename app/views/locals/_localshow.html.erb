@@ -74,7 +74,9 @@
         </div>
 
 <script type="text/javascript">
-  $('.r-clickfeature').on('click', function(e) {
-  return $(".r-productfeature").slideToggle();
-});
+   $(document).ready(function () {
+      $('.r-clickfeature').click(function(e) {
+          $('r-productfeature').slideToggle();
+      });
+   });
 </script>
