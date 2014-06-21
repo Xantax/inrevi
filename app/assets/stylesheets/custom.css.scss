@@ -59,33 +59,6 @@ textarea {
 }
 
 
-/* typography */
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-}
-
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: #999;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
-
 /* Navigation */
 
 .nav.navbar-nav.navbar-center {
@@ -203,9 +176,6 @@ a:hover{color:#000000;
 
 /* ABOUT */
 
-.col-sm-3.about {
-border-right: 1px solid #E8E8E8;
-}
 
 ul.aboutlist{
 list-style-type: none;
@@ -219,33 +189,10 @@ padding-bottom:15px;
 
 /* AUTO */
 
-.autosearchup{
-  border-bottom: 1px solid #E8E8E8;
-  padding-bottom:20px;
-}
-
-.autosearchbutton{
-  padding: 5px; 
-  border-radius: 3px; 
-  border: 1px solid #CCC; 
-  background-image: none; 
-  width:460px; 
-}
-
-.autosearchbutton:focus{
-  outline-color: none; 
-  box-shadow: 0 0 3px 0px #0066FF; 
-}
-
 .row.autoup {
   border-bottom: 2px solid #E8E8E8;
   padding-bottom: 15px;
 
-}
-
-.autosmallinfo{
-    font-size: 0.75em;
-    padding-left:15px;
 }
 
 .col-sm-5.autoshow{
@@ -262,30 +209,6 @@ padding-bottom:15px;
 }
 
 /* BOOKS */
-
-.booksearchbutton{ 
-  padding: 5px; 
-  border-radius: 3px; 
-  border: 1px solid #CCC; 
-  background-image: none; 
-  width:320px; 
-}
-
-.booksearchbutton:focus{ 
-  outline-color: none; 
-  box-shadow: 0 0 3px 0px #0066FF;
-}
-
-.booksearchbox{
-  border-bottom: 1px solid #E8E8E8;
-  padding-bottom:20px;
-}
-
-.btn.booksearch{
-  height:32px;
-  width:140px;
-  border: 1px solid #CCC; 
-}
 
 .col-sm-4.booksin{
   max-height:150px;
@@ -1982,43 +1905,6 @@ background-image: asset-data-url("caticons/sustenance/foodALL.PNG");
   }
 }
 
-/* DRUGS */
-
-.drugup{
-  padding-bottom: 58px;
-  border-bottom: 1px solid #E8E8E8;
-}
-
-.drugsearchbutton{
-  padding: 5px; 
-  border-radius: 3px; 
-  border: 1px solid #CCC; 
-  background-image: none; 
-  width:400px; 
-}
-
-.drugsearchbutton:focus { 
-  outline-color: #0066FF; 
-}
-
-.row.drug {
-  padding-top:30px;
-}
-
-.col-sm-4.drugin{
-}
-
-.col-sm-8.drugin{
-  min-height: 200px;
-}
-
-.drugsnowindex{
-  font-size: 130%;
-  a{color: #707070;}
-  a:hover{color: #202020; text-decoration:none;}
-}
-
-
 /* DRUGS - CATEGORIES */
 
 .healthcat {
@@ -2414,18 +2300,6 @@ display: inline-block;
   min-height: 250px;
 }
 
-.moviesearchbutton{ 
-  padding: 5px; 
-  border-radius: 3px; 
-  border: 1px solid #CCC; 
-  background-image: none; 
-  width:460px;
-}
-
-.moviesearchbutton:focus{ 
-  outline-color: #0066FF; 
-}
-
 .movieitem{
   padding-top:10px;
   padding-right:15px;
@@ -2626,19 +2500,6 @@ float:left;
   a:hover{color: #202020; text-decoration:none;}
 }
 
-.podcastsearchbutton{
-  padding: 5px; 
-  border-radius: 3px; 
-  border: 1px solid #CCC; 
-  background-image: none; 
-  width:400px; 
-}
-
-.podcastsearchbutton:focus { 
-  outline-color: none; 
-  box-shadow: 0 0 3px 0px #0066FF; 
-} 
-
 .podcastnew{
   padding: 5px; 
   border-radius: 3px; 
@@ -2651,106 +2512,10 @@ float:left;
   outline-color: #0066FF; 
 } 
 
-.podcastnewadd{
-  font-size:130%;
-  font-weight:bold;
-  display:inline-block;
-}
-
 .podcastnameshow{
   padding-left:10px;
   font-weight:bold;
 }
-
-/* PRODUCTS */
-
-
-.dropdown-menu>li {
-  position:relative;
-	-webkit-user-select: none; /* Chrome/Safari */
-	-moz-user-select: none; /* Firefox */
-	-ms-user-select: none; /* IE10+ */
-	/* Rules below not implemented in browsers yet */
-	-o-user-select: none;
-	user-select: none;
-	cursor:pointer;
-}
-.dropdown-menu .sub-menu {
-  left: 100%;
-  position: absolute;
-  top: 0;
-  display:none;
-  margin-top: -1px;
-	border-top-left-radius:0;
-	border-bottom-left-radius:0;
-	border-left-color:#fff;
-	box-shadow:none;
-}
-
-form#products_search_path {
-  .form-actions {
-    .dropdown {
-      a.dropdown-toggle {
-        min-width: 250px;
-      }
-    }
-
-    ul.dropdown-menu, .sub-menu {
-      width: 300px;
-      li {
-        a {
-          display: inline-block;
-          padding-right: 3px;
-          min-width: 250px;
-        }
-      }
-    }
-  }
-}
-
-.right-caret, .left-caret {
-  padding: 10px;
-}
-
-.right-caret:after, .left-caret:after {
-  content:"";
-  border-bottom: 5px solid transparent;
-  border-top: 5px solid transparent;
-  display: inline-block;
-  height: 0;
-  width: 0;
-}
-
-.right-caret:after {
-  border-left: 5px solid green;
-}
-
-.left-caret:after {
-  border-right: 5px solid green;
-}
-
-table {
-  tr {
-    td {
-      padding: 0 3px;
-    }
-  }
-}
-
-/* toggle features */
-
-.r-clickfeature{
-
-    }
-
-  .r-productfeature{
-    display: none;
-    &:after{
-      clear: both;
-      content: '';
-      display: block;
-    }
-  }
 
 /* PROMOTIONS */
 
@@ -2985,34 +2750,6 @@ table {
 
 /* REVIEW - INPUT */
 
-.field.podcontent{
-padding: 6px;
-border-radius: 3px;
-border: 1px solid #CCC;
-background-image: none;
-width:450px;
-height:300px;
-white-space: pre-wrap;
-}
-
-.field.podcontent:focus {
-  outline-color: none; 
-  box-shadow: 0 0 3px 0px #0066FF;
-}
-
-.field.podtitle{
-padding: 6px;
-border-radius: 3px;
-border: 1px solid #CCC;
-background-image: none;
-width:450px;
-}
-
-.field.podtitle:focus {
-  outline-color: none; 
-  box-shadow: 0 0 3px 0px #0066FF;
-}
-
 .form-control.autotitle{
   width:450px; 
 }
@@ -3113,55 +2850,6 @@ width:450px;
   display:inline-block; 
 }
 
-/* REVIEW - Drop photos */
-
-label.filebutton {
-    width:211px;
-    height:71px;
-    overflow:hidden;
-    position:relative;
-    background-color:white;
-    background-image: url("otherbigimages/DropPhotos4.PNG");
-    background-repeat: no-repeat;
-}
-
-label span fieldset ol input {
-    z-index: 999;
-    line-height: 0;
-    font-size: 50px;
-    position: absolute;
-    top: -2px;
-    left: -630px;
-    opacity: 0;
-    filter: alpha(opacity = 0);
-    -ms-filter: "alpha(opacity=0)";
-    cursor: pointer;
-    _cursor: hand;
-    margin: 0;
-    padding:0;
-}
-
-/* REVIEW - Image upload */
-
-.upload {
-  border-bottom: solid 1px #CCC;
-  width: 300px;
-  padding-top: 10px;
-  margin-top: 10px;
-
-  .progress {
-    margin-top: 8px;
-    border: solid 1px #555;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    .bar {
-      height: 10px;
-      background: #3e91c1;
-    }
-  }
-}
-
-
 /* SONGS */
 
 .songname{
@@ -3185,72 +2873,6 @@ label span fieldset ol input {
   padding-bottom:280px;
 }
 
-.aboutslogan{
-  font-size:150%;
-  color:#383838;
-  font-weight:bold;
-  padding-left:40px;
-}
-
-.row.advertisinglist{
-  border-top: 1px solid #E8E8E8;
-  padding-top:30px;
-}
-
-.adtitle{
-  font-size:150%;
-  padding-left:5px;
-  display:inline-block;
-  a{color:#383838;}
-  a:hover{color:black; text-decoration:none;}
-}
-
-.addescription{
-  font-weight:bold;
-  font-size:110%;
-  color:#707070;
-  padding-botom:40px;
-}
-
-.seeplans{
-  display:inline-block;
-  font-weight:bold;
-  font-size:130%;
-  padding-left:15px;
-}
-
-.col-sm-12.plan1{
-  background-color:#FAFAFA;
-}
-
-.col-sm-12.plan2{
-  background-color:#FAFAFA;
-}
-
-.col-sm-12.plan3{
-  background-color:#F8E0E0;
-}
-
-.selectplan{
-  font-weight:bold;
-  font-size:150%;
-  padding-top:50px;
-  text-align:center;
-}
-
-.titleplan{
-  font-size:130%;
-  font-weight:bold;
-  text-align:center;
-  padding-top:10px;
-}
-
-.adslogan{
-  font-size:130%;
-  padding-bottom:50px;
-  color:#505050;
-  text-align:center;
-}
 
 .loginversus{
   padding-left:45px;
@@ -3271,19 +2893,6 @@ ul.admin{
 .techup{
   padding-bottom: 58px;
   border-bottom: 1px solid #E8E8E8;
-}
-
-.techsearchbutton{
-  padding: 5px; 
-  border-radius: 3px; 
-  border: 1px solid #CCC; 
-  background-image: none; 
-  width:400px; 
-}
-
-.techsearchbutton:focus { 
-  outline-color: none; 
-  box-shadow: 0 0 3px 0px #0066FF; 
 }
 
 .row.tech {
@@ -3333,18 +2942,6 @@ ul.admin{
 
 .tvshowfacts {
   border-right: 1px solid #F0F0F0;
-}
-
-.tvshowsearchbutton{ 
-  padding: 5px; 
-  border-radius: 3px; 
-  border: 1px solid #CCC; 
-  background-image: none; 
-  width:460px;
-}
-
-.tvshowsearchbutton:focus{ 
-  outline-color: #0066FF; 
 }
 
 .tvshowfirst{

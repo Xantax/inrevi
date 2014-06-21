@@ -1,8 +1,7 @@
 <%= nested_form_for(@song_review, url: song_song_reviews_path, validate: true, html: {multipart: true}, 'data-update-target' => 'comments', class: 'comments') do |f| %>
   <% if @song_review.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@song_review.errors.count, "error") %> prohibited this review from being saved:</h2>
-
+      <%= pluralize(@song_review.errors.count, "error") %> prohibited this review from being saved:
       <ul>
       <% @song_review.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

@@ -11,16 +11,16 @@
   <% end %>
 
     <b>Name / Company</b><br>
-    <%= f.text_field :name, :class => "field podtitle" %><br><br>
+    <%= f.text_field :name, :class => "form-control autotitle" %><br><br>
 
     <%= f.label :email %><br>
-    <%= f.text_field :email, :class => "field podtitle" %><br><br>
+    <%= f.text_field :email, :class => "form-control autotitle" %><br><br>
 
     <%= f.label :category %><br>
-    <%= f.text_field :category, :class => "field podtitle", :placeholder => "e.g advertising, reporting a bug" %><br><br><br>
+    <%= f.text_field :category, :class => "form-control autotitle", :placeholder => "e.g advertising, reporting a bug" %><br><br><br>
 
     <%= f.label :message %><br>
-    <%= f.text_area :message, :class => "field podcontent" %><br><br>
+    <%= f.text_area :message, :class => "form-control reviewcontent" %><br><br>
 
     <% if can? :destroy, ContactForm %>
       <%= f.label :read %><br>
