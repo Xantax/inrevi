@@ -1,4 +1,4 @@
-
+@import "bootstrap";
 /* universal */
 
 html {
@@ -187,4 +187,3225 @@ a:hover{color:#000000;
 .uselessresults{
   text-align:right;
   font-size:80%;
+}
+
+/* ABOUT */
+
+.col-sm-3.about {
+border-right: 1px solid #E8E8E8;
+}
+
+ul.aboutlist{
+list-style-type: none;
+}
+
+li.aboutitem{
+padding-bottom:15px;
+  font-size:120%;
+  font-weight:bold;
+}
+
+/* AUTO */
+
+.autosearchup{
+  border-bottom: 1px solid #E8E8E8;
+  padding-bottom:20px;
+}
+
+.autosearchbutton{
+  padding: 5px; 
+  border-radius: 3px; 
+  border: 1px solid #CCC; 
+  background-image: none; 
+  width:460px; 
+}
+
+.autosearchbutton:focus{
+  outline-color: none; 
+  box-shadow: 0 0 3px 0px #0066FF; 
+}
+
+.row.autoup {
+  border-bottom: 2px solid #E8E8E8;
+  padding-bottom: 15px;
+
+}
+
+.autosmallinfo{
+    font-size: 0.75em;
+    padding-left:15px;
+}
+
+.col-sm-5.autoshow{
+  padding-left:30px;
+}
+
+.form-control.autotitle{
+  width:300px; 
+}
+
+.form-control.autocontent{
+  width:300px;
+  height:300px;
+}
+
+/* BOOKS */
+
+.booksearchbutton{ 
+  padding: 5px; 
+  border-radius: 3px; 
+  border: 1px solid #CCC; 
+  background-image: none; 
+  width:320px; 
+}
+
+.booksearchbutton:focus{ 
+  outline-color: none; 
+  box-shadow: 0 0 3px 0px #0066FF;
+}
+
+.booksearchbox{
+  border-bottom: 1px solid #E8E8E8;
+  padding-bottom:20px;
+}
+
+.btn.booksearch{
+  height:32px;
+  width:140px;
+  border: 1px solid #CCC; 
+}
+
+.col-sm-4.booksin{
+  max-height:150px;
+}
+
+.col-sm-8.booksin{
+  min-height:220px;
+}
+
+.searchbox.books{
+  width:300px;
+}
+
+.booktotalsearch{
+  display:inline-block;
+}
+
+.choosesearch{
+  float:left;
+  padding-bottom:10px;
+}
+
+#book-description{
+  font-size:80%;
+}
+
+/* CATEGORIES */
+
+
+.categorylist.media {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+    background-repeat: no-repeat;
+    background-position: 0 0px;
+  }
+}
+
+.categorylist.media:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+    background-repeat: no-repeat;
+    background-position: 0 -26px;
+
+  }
+}
+
+.categorylist.electronics {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -166px;  
+  }
+}
+
+.categorylist.electronics:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -194px;  
+  }
+}
+
+.categorylist.local {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -52px;
+  }
+}
+
+.categorylist.local:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -81px;
+  }
+}
+
+
+.categorylist.fashion {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -268px; 
+  }
+}
+
+.categorylist.fashion:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -296px; 
+  }
+}
+
+.categorylist.tech {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -110px; 
+  }
+}
+
+.categorylist.tech:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -138px;
+  }
+}
+
+.categorylist.health {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -324px; 
+  }
+}
+
+.categorylist.health:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -352px; 
+  }
+}
+
+.categorylist.beauty {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -222px; 
+  }
+}
+
+.categorylist.beauty:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -245px;  
+  }
+}
+
+.categorylist.auto {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -546px; 
+  }
+}
+
+.categorylist.auto:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -572px; 
+  }
+}
+
+.categorylist.sustenance {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -380px; 
+  }
+}
+
+.categorylist.sustenance:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -408px; 
+  }
+}
+
+.categorylist.home {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -436px; 
+  }
+}
+
+.categorylist.home:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -465px; 
+  }
+}
+
+.categorylist.hobbies {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -494px; 
+  }
+}
+
+.categorylist.hobbies:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 32px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/catmediaALL.PNG");
+background-repeat: no-repeat; 
+  background-position: 0 -520px; 
+  }
+}
+
+
+/*  MEDIA SUBCATEGORIES  */
+
+
+.categorylist.books {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -0px;
+  }
+}
+
+.categorylist.books:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -28px; 
+  }
+}
+
+.categorylist.movies {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -56px; 
+  }
+}
+
+.categorylist.movies:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -82px; 
+  }
+}
+
+.categorylist.games {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 20px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -108px; 
+  }
+}
+
+.categorylist.games:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 20px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -128px; 
+  }
+}
+
+.categorylist.songs {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -148px; 
+  }
+}
+
+.categorylist.songs:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -176px; 
+  }
+}
+
+.categorylist.tvshows {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -204px; 
+  }
+}
+
+.categorylist.tvshows:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -228px; 
+  }
+}
+
+.categorylist.podcasts {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -252px; 
+  }
+}
+
+.categorylist.podcasts:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -282px; 
+  }
+}
+
+.categorylist.art_media {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 24px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -312px; 
+  }
+}
+
+.categorylist.art_media:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 24px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/media/mediaALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -336px; 
+  }
+}
+
+
+/*   HOME SUBCATEGORIES  */
+
+.categorylist.appliances {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -0px; 
+  }
+}
+
+.categorylist.appliances:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -114px; 
+  }
+}
+
+.categorylist.baby {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -28px; 
+  }
+}
+
+.categorylist.baby:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -142px; 
+  }
+}
+
+.categorylist.pets {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -57px; 
+  }
+}
+
+.categorylist.pets:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -171px; 
+  }
+}
+
+.categorylist.tools {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -86px; 
+  }
+}
+
+.categorylist.tools:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -200px; 
+  }
+}
+
+.categorylist.indoors {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -233px; 
+  }
+}
+
+.categorylist.indoors:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -259px; 
+  }
+}
+
+.categorylist.outdoors {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -285px; 
+  }
+}
+
+.categorylist.outdoors:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/home/homeALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -311px; 
+  }
+}
+
+
+/*  BEAUTY SUBCATEGORIES  */
+
+.categorylist.makeup {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 25px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -0px; 
+  }
+}
+
+.categorylist.makeup:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 25px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -134px; 
+  }
+}
+
+.categorylist.fragrance {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -51px; 
+  }
+}
+
+.categorylist.fragrance:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -239px; 
+  }
+}
+
+.categorylist.hair {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 25px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -26px; 
+  }
+}
+
+.categorylist.hair:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 25px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -184px; 
+  }
+}
+
+.categorylist.skin {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 25px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -109px; 
+  }
+}
+
+.categorylist.skin:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 25px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -159px; 
+  }
+}
+
+.categorylist.bath {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -79px; 
+  }
+}
+
+.categorylist.bath:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -209px; 
+  }
+}
+
+
+/*   HOBBIES SUBCATEGORIES   */
+
+.categorylist.music {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/hobbies/hobbyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -0px; 
+  }
+}
+
+.categorylist.music:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/hobbies/hobbyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -78px; 
+  }
+}
+
+.categorylist.sports {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/hobbies/hobbyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -27px; 
+  }
+}
+
+.categorylist.sports:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/hobbies/hobbyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -105px; 
+  }
+}
+
+.categorylist.crafts {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/hobbies/hobbyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -51px; 
+  }
+}
+
+.categorylist.crafts:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/hobbies/hobbyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -130px; 
+  }
+}
+
+.categorylist.toys {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/hobbies/hobbyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -156px; 
+  }
+}
+
+.categorylist.toys:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/hobbies/hobbyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -180px; 
+  }
+}
+
+/*   ELECTRONICS  SUBCATEGORIES   */
+
+.categorylist.ecomputers {
+a::before {
+content: "";
+position: absolute;
+top: 60%;
+left: -25px;
+width: 28px;
+height: 20px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -52px;
+  }
+}
+
+.categorylist.ecomputers:hover {
+a::before {
+content: "";
+position: absolute;
+top: 60%;
+left: -25px;
+width: 28px;
+height: 20px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -240px; 
+  }
+}
+
+.categorylist.emobile {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -72px; 
+  }
+}
+
+.categorylist.emobile:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -260px; 
+  }
+}
+
+.categorylist.ephoto {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -26px; 
+  }
+}
+
+.categorylist.ephoto:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -214px; 
+  }
+}
+
+.categorylist.eportable {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -99px; 
+  }
+}
+
+.categorylist.eportable:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -287px; 
+  }
+}
+
+.categorylist.esecurity {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 20px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -123px; 
+  }
+}
+
+.categorylist.esecurity:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 20px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -311px; 
+  }
+}
+
+.categorylist.eaudio {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 24px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -1px; 
+  }
+}
+
+.categorylist.eaudio:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 24px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -189px; 
+  }
+}
+
+.categorylist.etv {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -144px; 
+  }
+}
+
+.categorylist.etv:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -332px; 
+  }
+}
+
+.categorylist.evehicle {
+a::before {
+content: "";
+position: absolute;
+top: 60%;
+left: -25px;
+width: 28px;
+height: 18px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -170px; 
+  }
+}
+
+.categorylist.evehicle:hover {
+a::before {
+content: "";
+position: absolute;
+top: 60%;
+left: -25px;
+width: 28px;
+height: 18px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -358px; 
+  }
+}
+
+
+/*   HEALTH SUBCATEGORIES   */
+
+.categorylist.healthcare {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -0px; 
+  }
+}
+
+.categorylist.healthcare:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -125px; 
+  }
+}
+
+.categorylist.supplements {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -26px; 
+  }
+}
+
+.categorylist.supplements:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -151px; 
+  }
+}
+
+.categorylist.drugs {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 20px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -54px; 
+  }
+}
+
+.categorylist.drugs:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 20px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -179px; 
+  }
+}
+
+.categorylist.sex {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -75px; 
+  }
+}
+
+.categorylist.sex:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -200px; 
+  }
+}
+
+.categorylist.hpersonal {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -102px; 
+  }
+}
+
+.categorylist.hpersonal:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -227px; 
+  }
+}
+
+
+/*  FASHION   SUBCATEGORIES   */
+
+.categorylist.clothing {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -3px; 
+  }
+}
+
+.categorylist.clothing:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -130px; 
+  }
+}
+
+.categorylist.footwear {
+a::before {
+content: "";
+position: absolute;
+top: 60%;
+left: -25px;
+width: 28px;
+height: 18px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -30px; 
+  }
+}
+
+.categorylist.footwear:hover {
+a::before {
+content: "";
+position: absolute;
+top: 60%;
+left: -25px;
+width: 28px;
+height: 18px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -158px; 
+  }
+}
+
+.categorylist.jewelry {
+a::before {
+content: "";
+position: absolute;
+top: 60%;
+left: -25px;
+width: 28px;
+height: 18px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -49px; 
+  }
+}
+
+.categorylist.jewelry:hover {
+a::before {
+content: "";
+position: absolute;
+top: 60%;
+left: -25px;
+width: 28px;
+height: 18px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -177px; 
+  }
+}
+
+.categorylist.fmen {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -67px; 
+  }
+}
+
+.categorylist.fmen:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -196px; 
+  }
+}
+
+.categorylist.fwomen {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -100px; 
+  }
+}
+
+.categorylist.fwomen:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/fashion/fashionALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -228px; 
+  }
+}
+
+.categorylist.fboys {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/fashion/Fboy.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.fboys:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/fashion/hover/fboy.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.fgirls {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/fashion/Fgirl.png");
+background-repeat: no-repeat; }
+}
+
+.categorylist.fgirls:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/fashion/hover/fgirl.png");
+background-repeat: no-repeat; }
+}
+
+/* SUSTENANCE */
+
+.categorylist.food_drinks {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/sustenance/foodALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -0px; 
+  }
+}
+
+.categorylist.food_drinks:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/sustenance/foodALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -28px;
+  }
+}
+
+.categorylist.recipes {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/sustenance/foodALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -57px; 
+  }
+}
+
+.categorylist.recipes:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 26px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/sustenance/foodALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -87px;
+  }
+}
+
+/* DRUGS */
+
+.drugup{
+  padding-bottom: 58px;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.drugsearchbutton{
+  padding: 5px; 
+  border-radius: 3px; 
+  border: 1px solid #CCC; 
+  background-image: none; 
+  width:400px; 
+}
+
+.drugsearchbutton:focus { 
+  outline-color: #0066FF; 
+}
+
+.row.drug {
+  padding-top:30px;
+}
+
+.col-sm-4.drugin{
+}
+
+.col-sm-8.drugin{
+  min-height: 200px;
+}
+
+.drugsnowindex{
+  font-size: 130%;
+  a{color: #707070;}
+  a:hover{color: #202020; text-decoration:none;}
+}
+
+
+/* DRUGS - CATEGORIES */
+
+.healthcat {
+  border-bottom: 0px solid #E8E8E8;
+  padding-bottom:5px;
+  padding-left:30px;
+}
+
+.healthcat ul
+{
+margin: 0;
+padding: 0;
+list-style-type: none;
+text-align: center;
+}
+
+.healthcat ul li { display: inline; font-size:120%; }
+
+.healthcat ul li a
+{
+color: #808080;  
+text-decoration: none;
+font-size:1em;
+  padding: .5em 5.5em 0.5em 0.6em;
+}
+
+.healthcat ul li a:hover
+{
+background-color: #FFFFFF;
+color:#000000;
+}
+
+/* LOCAL */
+
+#tags {
+  display: none;
+}
+
+#map-canvas {
+  height: 300px;
+}
+
+.ui-helper-hidden-accessible {
+  display:none;
+}
+
+ul.ui-autocomplete {
+  z-index: 1001;
+  border: 2px solid #EEE;
+  list-style-type: none;
+  background: #FFF;
+  width: 15%;
+  padding: 10px;
+  a:hover{text-decoration:none;}
+}
+
+.col-sm-4.localmap{
+height:500px;
+}
+
+.form-control{
+width:50px;
+}
+
+.form-control.q
+{ 
+padding: 5px; 
+border-radius: 3px; 
+border: 1px solid #CCC; 
+background-image: none; 
+width:220px; 
+display:inline-block;
+} 
+ .form-control.q:focus { 
+outline-color: #0066FF; 
+} 
+
+.localcategory{
+font-size:80%;
+  padding-bottom:5px;
+}
+
+.localindexname{
+font-size:105%;
+font-weight:bold;
+}
+
+.localbottom{
+  padding-bottom:15px;
+border-bottom: 1px solid #D0D0D0;
+}
+
+.local.name{
+  font-weight:bold;
+  font-size:110%;
+  padding-bottom:0px;
+  a{color: #606060;}
+  a:hover{text-decoration:none;
+  color:black;}
+}
+
+.emaillink{
+  font-size: 70%;
+}
+
+.localhours{
+font-size:85%;
+}
+
+.localaddition{
+  font-size:110%;
+}
+
+.searchbox.local{
+  width:200px;
+}
+
+/* MEDIA */
+
+.quickreview{
+font-style:italic;
+  font-size:90%;
+}
+
+.listcat {
+  a{background-color: #F0F0F0;}
+}
+
+.mediasubcategories{
+padding-left:50px;
+  padding-top:20px;
+}
+
+.mediasubcategories ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.mediasubcategories ul li
+  {
+  padding-bottom:20px;
+}
+
+.mediasubcategories ul li a
+  {
+  padding-left:20px;
+  font-size:130%;
+  text-decoration:none;
+  color: #888888;
+}
+
+.mediasubcategories ul li a:hover
+  {
+  color: #404040;
+}
+
+/* MOBILE */
+
+#allmobile{
+  width:100%;
+  padding: 0;
+  margin: 0;
+}
+
+.mobilemaincats{
+  font-size: 15pt;
+}
+
+.aboutbottom.mobile{
+  padding-top:90%;
+  font-size:80%;
+}
+
+/* MOBILE - HEADER */
+
+.mobilelogo{
+  border-bottom: 2px solid #000000;
+}
+
+.row.mobilecatheader{
+  background-color:#404040;
+  border-bottom: 1px solid #D8D8D8;
+
+  font-size:130%;
+  padding-top:5px;
+  padding-left:5px;
+  a{
+    color:#FFFFFF;
+    text-decoration:none;
+  }
+  a:hover{
+    color:#FFFFFF;
+    text-decoration:none;
+  }
+  height:40px;
+}
+
+#login-center{
+  text-align:center;
+
+}
+
+/* MOBILE - CATEGORIES */
+
+ul.nav.nav-stacked.categorylist.mobile li {
+
+}
+
+/*  MOBILE - NEWSFEED  */
+
+.noreviewsmobile{
+  padding-bottom:5px;
+  color:#808080;
+}
+
+.mobile-activity-home{
+  padding-left:5%;
+  padding-right:5%;
+}
+
+.mobile-activity-photo{
+  float:left;
+  padding-right:5px;
+}
+
+.reviewname.mobile{
+  display:inline-block;
+  height:70px;
+}
+
+/* MOBILE - login buttons */
+
+.fblogin-mobile{
+  float:left;
+  padding-left:10%;
+  padding-top:10%;
+}
+
+.glogin-mobile{
+  float:right;
+  padding-right:10%;
+  padding-top:10%;
+}
+
+/* MOBILE - USER PROFILE */
+
+.mobileshowprofile{
+  padding-left:10px;
+}
+
+/* MOBILE - SEARCH */
+
+.searchbox.mobile{
+  width:80%;
+  padding-left:2px;
+}
+
+.searchbox.books.mobile{
+  width:80%;
+}
+
+.uselessresults.mobile{
+  float:left;
+}
+
+.searchbox.mobile.local{
+  width:95%;
+  padding-left:2px;
+}
+
+/* MOBILE - FORM */
+
+.form-control.mobiletitle{
+  width:100%;
+}
+
+.form-control.mobilecontent{
+  width:100%;
+  height:200px;
+}
+
+.form-control.mobile-review-content{
+  height:200px;
+}
+
+/* MOBILE - ITEM SHOW */
+
+.reviewnumberscore.mobile{
+  font-size:250%;
+  font-weight:bold;
+  color:#808080;
+}
+
+.item-name-mobile{
+  font-size:130%;
+  padding-bottom:5px;
+  font-weight:bold;
+}
+
+.writeareview.mobile{
+  font-size:130%;
+}
+
+#additional-mobile{
+  font-size:120%;
+  padding-top:10px;
+}
+
+/* MOBILE - REVIEW */
+
+.mobile-paddings{
+  padding-left:5%;
+  padding-right:5%;
+}
+
+/* MOVIES */
+
+.moviesfirst{
+padding-bottom: 20px;
+border-bottom: 1px solid #E8E8E8;
+}
+
+.moviesfirstlist{
+  display: inline-block;
+  padding-left:50px;
+}
+
+.moviesfirstlist ul
+{
+margin: 0;
+padding: 0;
+list-style-type: none;
+text-align: center;  
+}
+
+.moviesfirstlist ul li { display: inline; }
+
+.moviesfirstlist ul li a
+{
+color: #808080;  
+text-decoration: none;
+padding: .5em 0.85em;
+
+}
+
+.moviesfirstlist ul li a:hover
+{
+border-bottom: 0px solid #E8E8E8;
+  background-color:#FFFFFF;
+  color: #000000;
+}
+
+#watchmovie {
+font-weight:bold;
+}
+
+.moviessecond{
+padding-bottom: 20px;
+padding-top: 20px;
+border-bottom: 1px solid #D0D0D0;
+}
+
+#movieyears {
+display: inline-block;
+}
+
+#movieratings {
+display: inline-block;
+}
+
+.moviesnow{
+  padding-top: 20px;
+  a{color: #707070;}
+  a:hover{color: #202020; text-decoration:none;}
+}
+
+.moviesresult{
+  padding-top: 40px;
+}
+
+.moviesnowindex{
+
+  font-size: 130%;
+  a{color: #707070;}
+  a:hover{color: #202020; text-decoration:none;}
+}
+
+.col-sm-4.moviesin{
+}
+
+.col-sm-8.moviesin{
+  min-height: 250px;
+}
+
+.moviesearchbutton{ 
+  padding: 5px; 
+  border-radius: 3px; 
+  border: 1px solid #CCC; 
+  background-image: none; 
+  width:460px;
+}
+
+.moviesearchbutton:focus{ 
+  outline-color: #0066FF; 
+}
+
+.movieitem{
+  padding-top:10px;
+  padding-right:15px;
+  border-right: 1px solid #E8E8E8;
+  border-top: 1px solid #E8E8E8;  
+}
+
+.moviefacts {
+  border-right: 1px solid #F0F0F0;
+}
+
+.specreview{
+  float:right;
+  border-bottom: 2px solid #E0E0E0; 
+}
+
+.row.movie2{
+  border-bottom: 1px solid #F0F0F0;
+  border-top: 1px solid #F0F0F0; 
+  padding-top:10px;
+  text-align:center;
+}
+
+.row.movieup{
+  border-bottom: 1px solid #F0F0F0;
+  padding-bottom: 15px;
+}
+
+.moviereviewcontent{
+  font-size:90%;
+  white-space: pre-wrap;
+}
+
+.movtitle{
+  a{color: #707070;}
+  a:hover{color: #202020; text-decoration:none;}
+  font-weight:bold;
+  font-size:105%;
+}
+
+.moviegenres{
+  display: inline-block;
+  font-size:90%;
+}
+
+/* NEWSFEED */
+
+.qupdate{
+  border-bottom: 0px solid #E8E8E8;
+  padding-bottom:5px;
+}
+.texty {
+  padding-left:30px;
+  border-bottom: 0px;
+}
+
+.safelogin{
+  font-size:90%;
+  text-align:center;
+
+}
+
+.qupdate.ud{
+float:right;
+border-right: 1px solid #E8E8E8;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+.allnews {
+padding-top:30px;
+border-right: 1px solid #E8E8E8;
+border-top: 1px solid #E8E8E8;
+border-left: 1px solid #E8E8E8;  
+padding-left:40px;
+padding-right:40px;
+}
+
+.homenews {
+padding-top:30px;
+border-right: 1px solid #E8E8E8;
+border-top: 1px solid #E8E8E8;
+border-left: 1px solid #E8E8E8;  
+padding-left:20px;
+padding-right:20px;
+}
+
+
+/* PAGINATION */
+
+.digg_pagination {
+  text-align:center;
+  background: white;
+  cursor: default;
+  /* self-clearing method: */ }
+  .digg_pagination a, .digg_pagination span, .digg_pagination em {
+    padding: 0.25em 0.70em;
+    display: block;
+    float: left;
+    margin-right: 1px; }
+  .digg_pagination .disabled {
+    color: #999999;
+    border: 1px solid #dddddd; }
+  .digg_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background: #2e6ab1;
+    color: white;
+    border: 1px solid #2e6ab1; }
+  .digg_pagination a {
+    text-decoration: none;
+    color: #105cb6;
+    border: 1px solid #9aafe5; }
+    .digg_pagination a:hover, .digg_pagination a:focus {
+      color: #000033;
+      border-color: #000033; }
+  .digg_pagination .page_info {
+    background: #2e6ab1;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center; }
+    .digg_pagination .page_info b {
+      color: #000033;
+      background: #6aa6ed;
+      padding: 0.1em 0.25em; }
+  .digg_pagination:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .digg_pagination {
+    height: 1%; }
+  *:first-child + html .digg_pagination {
+    overflow: hidden; }
+
+
+/* PODCASTS */
+
+.col-sm-9.podreview {
+  min-height:150px;
+}
+
+.podinfo{
+  font-size: 0.78em;
+  padding-left:10px;
+}
+
+.row.podup {
+  border-bottom: 2px solid #E8E8E8;
+  padding-bottom: 5px;
+}
+
+.podcastreviews.body {
+  padding-left:50px;
+  width:550px;
+  height:150px;
+  vertical-align:text-top;
+  float:right;
+}
+
+.podcastreviews.image {
+  float:left;
+  width:100px;
+  height:200px;
+}
+
+.inreviews{
+  display:inline-block;
+  vertical-align:top;
+  padding-left:10px;
+}
+
+.row.podcast {
+  padding-top:30px;
+}
+
+.col-sm-1.linkup{
+  a{color: #707070;}
+  a:hover{color: #000000;
+text-decoration:none;}
+float:left;
+}
+
+.col-sm-4.podsin{
+}
+
+.col-sm-7.podsin{
+  min-height: 200px;
+}
+
+.podcastsnowindex{
+
+  font-size: 130%;
+  a{color: #707070;}
+  a:hover{color: #202020; text-decoration:none;}
+}
+
+.podcastsearchbutton{
+  padding: 5px; 
+  border-radius: 3px; 
+  border: 1px solid #CCC; 
+  background-image: none; 
+  width:400px; 
+}
+
+.podcastsearchbutton:focus { 
+  outline-color: none; 
+  box-shadow: 0 0 3px 0px #0066FF; 
+} 
+
+.podcastnew{
+  padding: 5px; 
+  border-radius: 3px; 
+  border: 1px solid #CCC; 
+  background-image: none; 
+  width:300px; 
+}
+
+.podcastnew:focus { 
+  outline-color: #0066FF; 
+} 
+
+.podcastnewadd{
+  font-size:130%;
+  font-weight:bold;
+  display:inline-block;
+}
+
+.podcastnameshow{
+  padding-left:10px;
+  font-weight:bold;
+}
+
+/* PRODUCTS */
+
+
+.dropdown-menu>li {
+  position:relative;
+	-webkit-user-select: none; /* Chrome/Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	/* Rules below not implemented in browsers yet */
+	-o-user-select: none;
+	user-select: none;
+	cursor:pointer;
+}
+.dropdown-menu .sub-menu {
+  left: 100%;
+  position: absolute;
+  top: 0;
+  display:none;
+  margin-top: -1px;
+	border-top-left-radius:0;
+	border-bottom-left-radius:0;
+	border-left-color:#fff;
+	box-shadow:none;
+}
+
+form#products_search_path {
+  .form-actions {
+    .dropdown {
+      a.dropdown-toggle {
+        min-width: 250px;
+      }
+    }
+
+    ul.dropdown-menu, .sub-menu {
+      width: 300px;
+      li {
+        a {
+          display: inline-block;
+          padding-right: 3px;
+          min-width: 250px;
+        }
+      }
+    }
+  }
+}
+
+.right-caret, .left-caret {
+  padding: 10px;
+}
+
+.right-caret:after, .left-caret:after {
+  content:"";
+  border-bottom: 5px solid transparent;
+  border-top: 5px solid transparent;
+  display: inline-block;
+  height: 0;
+  width: 0;
+}
+
+.right-caret:after {
+  border-left: 5px solid green;
+}
+
+.left-caret:after {
+  border-right: 5px solid green;
+}
+
+table {
+  tr {
+    td {
+      padding: 0 3px;
+    }
+  }
+}
+
+/* toggle features */
+
+.r-clickfeature{
+
+    }
+
+  .r-productfeature{
+    display: none;
+    &:after{
+      clear: both;
+      content: '';
+      display: block;
+    }
+  }
+
+/* PROMOTIONS */
+
+.row.showpromotion{
+  border: 2px dashed #F6CECE;
+  padding: 2px 2px;
+  text-align:center;
+}
+
+
+/* RECIPE */
+
+.recipe-id{
+  padding-left:10px;
+}
+
+/* REVIEW_IMAGES */
+
+.r-image{
+      height: 25px;
+      width: 200px;
+      cursor: pointer;
+      background-repeat: no-repeat;
+        background-image: asset-data-url("otherbigimages/AddImagesOptional1.PNG");
+    }
+
+  .r-rightside{
+    display: none;
+    &:after{
+      clear: both;
+      content: '';
+      display: block;
+    }
+  }
+
+/* Loading gif */
+
+#submit-me{
+      height: 35px;
+      width: 60px;
+      cursor: pointer;
+      background-repeat: no-repeat;
+        background-image: url("");
+    }
+
+  #loading2{
+    display: none;
+    &:after{
+      clear: both;
+      content: '';
+      display: block;
+    }
+  }
+
+
+/* REVIEWS */
+
+
+.numberOne {
+  float:left;
+    border-radius: 50%;
+
+    width: 30px;
+    height: 30px;
+    padding: 1px;
+
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+
+    font: 18px Arial, sans-serif;
+}
+
+.numberOneindex {
+  float:left;
+    border-radius: 30%;
+
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+
+    font: 18px Arial, sans-serif;
+}
+
+.reviewtitle{
+  font-weight:bold;
+  display:inline-block;
+  padding-left:10px;
+}
+
+.rating-comments {
+  margin-bottom: 5px;
+}
+
+.reviewcontent{
+  font-size:85%;
+}
+
+.contentcharacters{
+  display:inline-block;
+  padding-left:245px;
+  font-size:85%;
+}
+
+.user-activity-delete{
+  float:right;
+  display:inline-block;
+}
+
+/* REVIEW - THUMBS */
+
+.thumbsup {
+  float:left;
+  padding-bottom:20px;
+  padding-right: 5px;
+  a::before {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 22px;
+    background-image: asset-data-url("othericons/thumbzz.PNG");
+        background-repeat: no-repeat;
+        background-position: 0 0px;
+  }
+}
+
+.thumbsup:hover {
+  float:left;
+  padding-bottom:20px;
+  padding-right: 5px;
+  a::before {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 22px;
+    background-image: asset-data-url("othericons/thumbzz.PNG");
+        background-repeat: no-repeat;
+        background-position: 0 -26px;
+
+  }
+}
+
+.thumbsdown{
+  padding-bottom:20px;
+  display:block;
+  padding-left:40px;
+  a::before {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 22px;
+    background-image: asset-data-url("othericons/thumbzz.PNG");
+        background-repeat: no-repeat;
+        background-position: 0 -52px;
+  }
+}
+
+.thumbsdown:hover{
+  padding-bottom:20px;
+  display:block;
+  padding-left:40px;
+  a::before {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 22px;
+    background-image: asset-data-url("othericons/thumbzz.PNG");
+        background-repeat: no-repeat;
+        background-position: 0 -78px;
+  }
+}
+
+
+/* REVIEW - END THUMBS */
+
+.thumbsup-local {
+  float:left;
+  padding-right: 5px;
+}
+
+.thumbsdown-local{
+  display:inline-block;
+  padding-left:10px;
+}
+
+.bottomreviewicons{
+  padding-bottom:10px;
+}
+
+.reviewname {
+  font-weight:bold;
+  padding-bottom:10px;
+  font-size:95%;
+}
+
+.writeareview{
+  display:inline-block;
+  padding-bottom:20px;
+  padding-left:5px;
+  font-weight:bold;
+}
+
+.noreviewshome{
+  font-size:200%;
+  text-align:center;
+  color:#B8B8B8;
+  padding-top:20px;
+}
+
+.noreviewshomebottom{
+  font-size:110%;
+  text-align:center;
+  color:#C8C8C8;
+}
+
+.optionalreview{
+  font-size:120%;
+  font-weight:bold;
+  color:#A8A8A8;
+  padding-bottom:10px;
+}
+
+.row.reviewbottom{
+  padding-bottom:50px;
+}
+
+/* REVIEW - INPUT */
+
+.field.podcontent{
+padding: 6px;
+border-radius: 3px;
+border: 1px solid #CCC;
+background-image: none;
+width:450px;
+height:300px;
+white-space: pre-wrap;
+}
+
+.field.podcontent:focus {
+  outline-color: none; 
+  box-shadow: 0 0 3px 0px #0066FF;
+}
+
+.field.podtitle{
+padding: 6px;
+border-radius: 3px;
+border: 1px solid #CCC;
+background-image: none;
+width:450px;
+}
+
+.field.podtitle:focus {
+  outline-color: none; 
+  box-shadow: 0 0 3px 0px #0066FF;
+}
+
+.form-control.autotitle{
+  width:450px; 
+}
+
+.form-control.autocontent{
+  width:450px;
+  height:250px;
+}
+
+/* REVIEW - END INPUT */
+
+.form-control.reviewcontent{
+  width:500px;
+  height:200px;
+}
+
+.separatereview{
+  border-bottom: 1px solid #D0D0D0;
+}
+
+.reviewslashfive{
+  display:inline-block;
+  padding-left:5px;
+  padding-top:20px;
+}
+
+.total_score{
+  float:left;
+}
+
+.noreviewsonindex{
+  text-align:center;
+  padding-top:20px;
+  font-size:140%;
+  color:#B2ADAC;
+}
+
+.noreviews{
+  text-align:center;
+  color:#B2ADAC;
+  padding-bottom:20px;
+}
+
+.noreviews.home{
+  padding-top:10px;
+  font-size:120%;
+}
+
+.noreviews.usershow{
+  padding-top:50px;
+  font-size:200%;
+}
+
+.popularactivitiesname{
+  padding-top:10px;
+  padding-bottom:10px;
+  border-top: 1px solid #E8E8E8;
+}
+
+.col-sm-3.useronactivity{
+  padding-left:30px;
+}
+
+.col-sm-9.podreview.indexreview{
+  padding-right:20px;
+}
+
+.removeicon{
+  display:inline-block; 
+}
+
+.browseimage{
+  display:inline-block; 
+  padding-left:10px;
+}
+
+/* REVIEW - COLORS */
+
+.reviewtotalfive{
+  font-size:140%;
+  font-weight:bold;
+  color:#303030;
+  display:inline-block; 
+}
+
+.reviewnumberscore{
+  font-size:250%;
+  font-weight:bold;
+  color:#808080;
+}
+
+.loadinggif{
+  display:inline-block; 
+  padding-left:20px;
+  float:left;
+}
+.loadinggif-check{
+  display:inline-block; 
+}
+
+/* REVIEW - Drop photos */
+
+label.filebutton {
+    width:211px;
+    height:71px;
+    overflow:hidden;
+    position:relative;
+    background-color:white;
+    background-image: url("otherbigimages/DropPhotos4.PNG");
+    background-repeat: no-repeat;
+}
+
+label span fieldset ol input {
+    z-index: 999;
+    line-height: 0;
+    font-size: 50px;
+    position: absolute;
+    top: -2px;
+    left: -630px;
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    -ms-filter: "alpha(opacity=0)";
+    cursor: pointer;
+    _cursor: hand;
+    margin: 0;
+    padding:0;
+}
+
+/* REVIEW - Image upload */
+
+.upload {
+  border-bottom: solid 1px #CCC;
+  width: 300px;
+  padding-top: 10px;
+  margin-top: 10px;
+
+  .progress {
+    margin-top: 8px;
+    border: solid 1px #555;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    .bar {
+      height: 10px;
+      background: #3e91c1;
+    }
+  }
+}
+
+
+/* SONGS */
+
+.songname{
+  font-size:120%;
+  font-weight:bold;
+  padding-bottom:5px;
+}
+
+.songartistalbum{
+  font-size:90%;
+  padding-bottom:5px;
+}
+
+/* STATIC_PAGES */
+
+.col-sm-2.categories{
+}
+
+.col-sm-3.homefblogo{
+  padding-top:10px;
+  padding-bottom:280px;
+}
+
+.aboutslogan{
+  font-size:150%;
+  color:#383838;
+  font-weight:bold;
+  padding-left:40px;
+}
+
+.row.advertisinglist{
+  border-top: 1px solid #E8E8E8;
+  padding-top:30px;
+}
+
+.adtitle{
+  font-size:150%;
+  padding-left:5px;
+  display:inline-block;
+  a{color:#383838;}
+  a:hover{color:black; text-decoration:none;}
+}
+
+.addescription{
+  font-weight:bold;
+  font-size:110%;
+  color:#707070;
+  padding-botom:40px;
+}
+
+.seeplans{
+  display:inline-block;
+  font-weight:bold;
+  font-size:130%;
+  padding-left:15px;
+}
+
+.col-sm-12.plan1{
+  background-color:#FAFAFA;
+}
+
+.col-sm-12.plan2{
+  background-color:#FAFAFA;
+}
+
+.col-sm-12.plan3{
+  background-color:#F8E0E0;
+}
+
+.selectplan{
+  font-weight:bold;
+  font-size:150%;
+  padding-top:50px;
+  text-align:center;
+}
+
+.titleplan{
+  font-size:130%;
+  font-weight:bold;
+  text-align:center;
+  padding-top:10px;
+}
+
+.adslogan{
+  font-size:130%;
+  padding-bottom:50px;
+  color:#505050;
+  text-align:center;
+}
+
+.loginversus{
+  padding-left:45px;
+}
+
+ul.admin{
+  list-style-type: none;
+}
+
+.homephoto{
+  border-right: 1px solid #E8E8E8;
+  border-top: 1px solid #E8E8E8;
+  border-left: 1px solid #E8E8E8;
+}
+
+/* TECH */
+
+.techup{
+  padding-bottom: 58px;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.techsearchbutton{
+  padding: 5px; 
+  border-radius: 3px; 
+  border: 1px solid #CCC; 
+  background-image: none; 
+  width:400px; 
+}
+
+.techsearchbutton:focus { 
+  outline-color: none; 
+  box-shadow: 0 0 3px 0px #0066FF; 
+}
+
+.row.tech {
+  padding-top:30px;
+}
+
+.col-sm-4.techin{
+}
+
+.col-sm-8.techin{
+  min-height: 200px;
+}
+
+.techsnowindex{
+  font-size: 130%;
+  a{color: #707070;}
+  a:hover{color: #202020; text-decoration:none;}
+}
+
+.technameshow{
+  padding-left:10px;
+  padding-bottom:20px;
+  font-weight:bold;
+  font-size:110%;
+}
+
+/* TVSHOWS */
+
+.tvshowsnow{
+  padding-top: 20px;
+  a{color: #707070;}
+  a:hover{color: #202020; text-decoration:none;}
+}
+
+.col-sm-4.tvshowsin{
+}
+
+.col-sm-8.tvshowsin{
+  min-height: 250px;
+}
+
+.tvshowsnowindex{
+  font-size: 130%;
+  a{color: #707070;}
+  a:hover{color: #202020; text-decoration:none;}
+}
+
+.tvshowfacts {
+  border-right: 1px solid #F0F0F0;
+}
+
+.tvshowsearchbutton{ 
+  padding: 5px; 
+  border-radius: 3px; 
+  border: 1px solid #CCC; 
+  background-image: none; 
+  width:460px;
+}
+
+.tvshowsearchbutton:focus{ 
+  outline-color: #0066FF; 
+}
+
+.tvshowfirst{
+  padding-bottom: 20px;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.tvtitle{
+  a{color: #707070;}
+  a:hover{color: #202020; text-decoration:none;}
+  font-weight:bold;
+  font-size:115%;
+}
+
+/* USER */
+
+
+#sign_in {
+  padding-top:10px;
+}
+
+.col-sm-7.usershow{
+  border-left: 1px solid #E8E8E8;
+  border-right: 1px solid #E8E8E8;
+  border-top: 1px solid #E8E8E8;
+  padding-top:20px;
+}
+
+.points{
+  color:#707070;
+  font-weight:bold;
+}
+
+.pointz {
+  font-weight:normal;
+  display:inline-block;
+}
+
+.stats {
+  padding-top:10px;
+  a{color:#707070;}
+  a:hover{text-decoration:none; color:#000000;}
+}
+
+.namefollow{
+  vertical-align:top;
+  display:inline-block;
+  a{color:#707070;}
+  a:hover{text-decoration:none; color:#000000;} 
+}
+
+.podcastusershow{
+  font-size:120%;
+  font-weight:bold;
+  padding-bottom:5px;
+}
+
+.podcastusercontent{
+  padding-left:20px;
+  padding-top:5px;
+}
+
+.unameonshow{
+  font-size:130%;
+  padding-bottom:10px;
+}
+
+.userfollowname{
+  font-size:90%;
+  display:inline-block;
+  vertical-align:top;
+}
+
+.stats.mobile{
+  text-justify:inter-word;
 }
