@@ -15,7 +15,6 @@
 <% if @autos.empty? %>
     No results! Try something else or <b><%= link_to "+ Add new", new_auto_path() %></b>
    <% else %>
-      <div class="uselessresults mobile">-Useless results? <b><%= link_to "+ Add new", new_auto_path() %></b></div><br>
   <% @autos.each do |auto| %>
       <hr>           
       <%= link_to auto.name.truncate(50, omission: '...'), auto %><br>

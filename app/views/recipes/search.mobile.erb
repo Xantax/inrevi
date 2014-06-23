@@ -15,8 +15,7 @@
 <% if @recipes.empty? %>
           No results! Try something else or <b><%= link_to "+ Add new", new_recipe_path() %></b>
    <% else %>
-      <div class="uselessresults">Useless results? <b><%= link_to "+ Add new", new_recipe_path() %></b></div><br>
-        <% @recipes.each do |recipe| %>
+      <% @recipes.each do |recipe| %>
             <hr>
                 <%= link_to recipe.name.truncate(50, omission: '...'), recipe %><br>
 

@@ -14,8 +14,7 @@
   <% if @drugs.empty? %>
           No results! Try something else or <b><%= link_to "+ Add new", new_drug_path() %></b>
    <% else %>
-     <div class="uselessresults mobile">Useless results? <b><%= link_to "+ Add new", new_drug_path() %></b></div><br>
-      <% @drugs.each do |drug| %>
+     <% @drugs.each do |drug| %>
           <hr>
           <%= link_to drug.name.truncate(50, omission: '...'), drug %><br>
 
