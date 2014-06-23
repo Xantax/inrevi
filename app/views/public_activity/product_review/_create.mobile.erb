@@ -165,7 +165,7 @@
           <%= auto_link(simple_format(activity.trackable.content), :html => { :target => '_blank'}) %>
         </div>
              <% activity.trackable.review_images.each do |pic| %>
-             <%= link_to image_tag(pic.image_url(:thumb), width: 50)), pic.image_url, target: :_blank if pic.image? %>
+             <%= link_to image_tag(pic.image_url(:thumb), width: 80), pic.image_url, target: :_blank if pic.image? %>
             <% end %> 
               <% if signed_in? %>
                 <% unless current_user == activity.owner %>
