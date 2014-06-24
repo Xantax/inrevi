@@ -27,9 +27,9 @@ include PgSearch
   
   
   def user_quota
-    if user.finearts.today.count >= 20
-      errors.add(:base, "You can't create more today (SPAM prevention)")
-    end
+      if user.finearts.today.count >= 300
+        errors.add(:base, "You can't create more today (SPAM prevention)")
+      end
   end 
   
 end
