@@ -1,89 +1,96 @@
-<% if @avg_score == 0.0 %>
-<div class="noreviewsonindex">No reviews :( </div>
-<div class="row dumb500"></div>
+<% unless signed_in? %>
+    <div class="noreviewsonindex"><%= image_tag('othericons/lock_icon.png') %> Log in to read reviews </div>
+    <div class="row dumb500"></div>  
 <% else %>
-<% @movie_reviews.each do |movie_review| %><br>
-    <div class="col-sm-3"> 
-      <% if movie_review.user.provider == "facebook" %>
-          <div class="reviewname">  
-            <%= link_to user_path(movie_review.user) do %> 
-               <%= movie_review.user.first_name %>
-               <%= movie_review.user.last_name.truncate(2, omission: '.')%>
-            <% end %>
-          </div>
-          <%= image_tag(movie_review.user.image_auth, width: "80") %>  
-        
-        <% elsif movie_review.user.provider == "google_oauth2" %>
-          <div class="reviewname">  
-            <%= link_to user_path(movie_review.user) do %> 
-               <%= movie_review.user.first_name %>
-               <%= movie_review.user.last_name.truncate(2, omission: '.')%>
-            <% end %>
-          </div>
-          <%= image_tag(movie_review.user.image_auth, width: "80") %>
-        
-        <% elsif movie_review.user.provider == "email" %>
-            <%= link_to user_path(movie_review.user) do %> 
-               <div class="reviewname"><%= movie_review.user.name %></div>
-            <% end %>
-          <%= image_tag(movie_review.user.image, width: "80") %>
-        <% end %>  
-      </div>
-        
-      <div class="col-sm-9 podreview"> 
-         <div class="separatereview">
-           
-            <div class="numberOne">
-              <%= movie_review.point %>
-            </div><br><br>
-           
-          <div class="reviewcontent"><%= simple_format(movie_review.content) %></div>
-           
 
-                <% movie_review.review_images.each do |pic| %>
-                     <%= link_to image_tag(pic.image_url(:thumb), width: 100), pic.image_url, target: :_blank if pic.image?  %>
-                <% end %>
-                 <% if signed_in? %>
-                   <% unless current_user == movie_review.user %>
-                     <hr>
-                   <% end %>
-                 <% end %>
+  <% if @avg_score == 0.0 %>
+    <div class="noreviewsonindex">No reviews :( </div>
+    <div class="row dumb500"></div>
+  <% else %>
+  <% @movie_reviews.each do |movie_review| %><br>
+      <div class="col-sm-3"> 
+        <% if movie_review.user.provider == "facebook" %>
+            <div class="reviewname">  
+              <%= link_to user_path(movie_review.user) do %> 
+                 <%= movie_review.user.first_name %>
+                 <%= movie_review.user.last_name.truncate(2, omission: '.')%>
+              <% end %>
+            </div>
+            <%= image_tag(movie_review.user.image_auth, width: "80") %>  
 
-           
-              <div class="bottomreviewicons">
-                <% if signed_in? %>
-                
-                  <% if current_user == movie_review.user %>
-                    
-                  <% elsif current_user.voted_for? movie_review %>
-                    Voted!
-                  <% else %>
-                   <div class="thumbsup">
-                     <%= link_to "",  like_movie_movie_review_path(movie_review.movie_id, movie_review), method: :put, :remote => true %>
-                   </div>
-                            
-                   <div class="thumbsdown">
-                    <%= link_to "", dislike_movie_movie_review_path(movie_review.movie_id, movie_review), method: :put, :remote => true %>
-                   </div>
-                
+          <% elsif movie_review.user.provider == "google_oauth2" %>
+            <div class="reviewname">  
+              <%= link_to user_path(movie_review.user) do %> 
+                 <%= movie_review.user.first_name %>
+                 <%= movie_review.user.last_name.truncate(2, omission: '.')%>
+              <% end %>
+            </div>
+            <%= image_tag(movie_review.user.image_auth, width: "80") %>
+
+          <% elsif movie_review.user.provider == "email" %>
+              <%= link_to user_path(movie_review.user) do %> 
+                 <div class="reviewname"><%= movie_review.user.name %></div>
+              <% end %>
+            <%= image_tag(movie_review.user.image, width: "80") %>
+          <% end %>  
+        </div>
+
+        <div class="col-sm-9 podreview"> 
+           <div class="separatereview">
+
+              <div class="numberOne">
+                <%= movie_review.point %>
+              </div><br><br>
+
+            <div class="reviewcontent"><%= simple_format(movie_review.content) %></div>
+
+
+                  <% movie_review.review_images.each do |pic| %>
+                       <%= link_to image_tag(pic.image_url(:thumb), width: 100), pic.image_url, target: :_blank if pic.image?  %>
                   <% end %>
-                
-                      <% if can? :destroy, MovieReview %>
-                        <hr>
-                            <%= movie_review.get_upvotes.size %> | <%= movie_review.get_downvotes.size %>
-                            <%= link_to 'Delete', movie_movie_review_path(movie_review.movie_id, movie_review),
-                                       method: :delete,
-                                       data: { confirm: 'Are you sure?'},
-                                       class: "btn btn-default" %>
-                      <% end %>
-                
-                <% end %>
-                
-              </div>
-          
-      </div><br>
-    </div>
+                   <% if signed_in? %>
+                     <% unless current_user == movie_review.user %>
+                       <hr>
+                     <% end %>
+                   <% end %>
+
+
+                <div class="bottomreviewicons">
+                  <% if signed_in? %>
+
+                    <% if current_user == movie_review.user %>
+
+                    <% elsif current_user.voted_for? movie_review %>
+                      Voted!
+                    <% else %>
+                     <div class="thumbsup">
+                       <%= link_to "",  like_movie_movie_review_path(movie_review.movie_id, movie_review), method: :put, :remote => true %>
+                     </div>
+
+                     <div class="thumbsdown">
+                      <%= link_to "", dislike_movie_movie_review_path(movie_review.movie_id, movie_review), method: :put, :remote => true %>
+                     </div>
+
+                    <% end %>
+
+                        <% if can? :destroy, MovieReview %>
+                          <hr>
+                              <%= movie_review.get_upvotes.size %> | <%= movie_review.get_downvotes.size %>
+                              <%= link_to 'Delete', movie_movie_review_path(movie_review.movie_id, movie_review),
+                                         method: :delete,
+                                         data: { confirm: 'Are you sure?'},
+                                         class: "btn btn-default" %>
+                        <% end %>
+
+                  <% end %>
+
+                </div>
+
+        </div><br>
+      </div>
+    <% end %>
   <% end %>
+
 <% end %>
 
 <div class="digg_pagination">

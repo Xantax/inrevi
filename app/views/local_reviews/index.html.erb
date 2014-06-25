@@ -1,6 +1,11 @@
+<% unless signed_in? %>
+    <div class="noreviewsonindex"><%= image_tag('othericons/lock_icon.png') %> Log in to read reviews </div>
+    <div class="row dumb500"></div>  
+<% else %>
+
 <% if @avg_score == 0.0 %>
-<div class="noreviewsonindex">No reviews :( </div>
-<div class="row dumb500"></div>
+  <div class="noreviewsonindex">No reviews :( </div>
+  <div class="row dumb500"></div>
 <% else %>
 <% @local_reviews.each do |local_review| %><br>
     <div class="col-sm-3"> 
@@ -83,3 +88,9 @@
     </div>
   <% end %>
 <% end %>
+
+<% end %>
+
+<div class="digg_pagination">
+  <%= will_paginate @local_reviews %>
+</div>

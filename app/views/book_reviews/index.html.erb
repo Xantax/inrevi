@@ -1,8 +1,13 @@
-<% if @avg_score == 0.0 %>
-<div class="noreviewsonindex">No reviews :( </div>
-<div class="row dumb500"></div>
+<% unless signed_in? %>
+    <div class="noreviewsonindex"><%= image_tag('othericons/lock_icon.png') %> Log in to read reviews </div>
+    <div class="row dumb500"></div>  
 <% else %>
-<% @book_reviews.each do |book_review| %><br>
+
+  <% if @avg_score == 0.0 %>
+    <div class="noreviewsonindex">No reviews :( </div>
+    <div class="row dumb500"></div>
+  <% else %>
+  <% @book_reviews.each do |book_review| %><br>
     <div class="col-sm-3"> 
         <% if book_review.user.provider == "facebook" %>
           <div class="reviewname">  
@@ -79,9 +84,11 @@
                 
               </div>
           
-      </div><br>
-    </div>
+        </div><br>
+      </div>
+    <% end %>
   <% end %>
+
 <% end %>
 
 <div class="digg_pagination">

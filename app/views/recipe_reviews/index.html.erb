@@ -1,87 +1,94 @@
-<% if @avg_score == 0.0 %>
-<div class="noreviewsonindex">No reviews :( </div>
-<div class="row dumb500"></div>
+<% unless signed_in? %>
+    <div class="noreviewsonindex"><%= image_tag('othericons/lock_icon.png') %> Log in to read reviews </div>
+    <div class="row dumb500"></div>  
 <% else %>
-<% @recipe_reviews.each do |recipe_review| %><br>
-    <div class="col-sm-3"> 
-      <% if recipe_review.user.provider == "facebook" %>
-          <div class="reviewname">  
-            <%= link_to user_path(recipe_review.user) do %> 
-               <%= recipe_review.user.first_name %>
-               <%= recipe_review.user.last_name.truncate(2, omission: '.')%>
-            <% end %>
-          </div>
-          <%= image_tag(recipe_review.user.image_auth, width: "80") %>  
-        
-        <% elsif recipe_review.user.provider == "google_oauth2" %>
-          <div class="reviewname">  
-            <%= link_to user_path(recipe_review.user) do %> 
-               <%= recipe_review.user.first_name %>
-               <%= recipe_review.user.last_name.truncate(2, omission: '.')%>
-            <% end %>
-          </div>
-          <%= image_tag(recipe_review.user.image_auth, width: "80") %>
-        
-        <% elsif recipe_review.user.provider == "email" %>
-            <%= link_to user_path(recipe_review.user) do %> 
-               <div class="reviewname"><%= recipe_review.user.name %></div>
-            <% end %>
-          <%= image_tag(recipe_review.user.image, width: "80") %>
-        <% end %>   
-     </div>
-        
-      <div class="col-sm-9 podreview"> 
-         <div class="separatereview">
-           
-            <div class="numberOne">
-              <%= recipe_review.point %>
-            </div><br><br>
-           
-          <div class="reviewcontent"><%= simple_format(recipe_review.content) %></div>
-           
-                <% recipe_review.review_images.each do |pic| %>
-                     <%= link_to image_tag(pic.image_url(:thumb), width: 100), pic.image_url, target: :_blank if pic.image?  %>
-                <% end %>
-                 <% if signed_in? %>
-                   <% unless current_user == recipe_review.user %>
-                     <hr>
-                   <% end %>
-                 <% end %>
-           
-              <div class="bottomreviewicons">
-                <% if signed_in? %>
-                
-                  <% if current_user == recipe_review.user %>
-                    
-                  <% elsif current_user.voted_for? recipe_review %>
-                    Voted!
-                  <% else %>
-                   <div class="thumbsup">
-                     <%= link_to "",  like_recipe_recipe_review_path(recipe_review.recipe_id, recipe_review), method: :put, :remote => true %>
-                   </div>
-                            
-                   <div class="thumbsdown">
-                    <%= link_to "", dislike_recipe_recipe_review_path(recipe_review.recipe_id, recipe_review), method: :put, :remote => true %>
-                   </div>
-                
+
+  <% if @avg_score == 0.0 %>
+    <div class="noreviewsonindex">No reviews :( </div>
+    <div class="row dumb500"></div>
+  <% else %>
+  <% @recipe_reviews.each do |recipe_review| %><br>
+      <div class="col-sm-3"> 
+        <% if recipe_review.user.provider == "facebook" %>
+            <div class="reviewname">  
+              <%= link_to user_path(recipe_review.user) do %> 
+                 <%= recipe_review.user.first_name %>
+                 <%= recipe_review.user.last_name.truncate(2, omission: '.')%>
+              <% end %>
+            </div>
+            <%= image_tag(recipe_review.user.image_auth, width: "80") %>  
+
+          <% elsif recipe_review.user.provider == "google_oauth2" %>
+            <div class="reviewname">  
+              <%= link_to user_path(recipe_review.user) do %> 
+                 <%= recipe_review.user.first_name %>
+                 <%= recipe_review.user.last_name.truncate(2, omission: '.')%>
+              <% end %>
+            </div>
+            <%= image_tag(recipe_review.user.image_auth, width: "80") %>
+
+          <% elsif recipe_review.user.provider == "email" %>
+              <%= link_to user_path(recipe_review.user) do %> 
+                 <div class="reviewname"><%= recipe_review.user.name %></div>
+              <% end %>
+            <%= image_tag(recipe_review.user.image, width: "80") %>
+          <% end %>   
+       </div>
+
+        <div class="col-sm-9 podreview"> 
+           <div class="separatereview">
+
+              <div class="numberOne">
+                <%= recipe_review.point %>
+              </div><br><br>
+
+            <div class="reviewcontent"><%= simple_format(recipe_review.content) %></div>
+
+                  <% recipe_review.review_images.each do |pic| %>
+                       <%= link_to image_tag(pic.image_url(:thumb), width: 100), pic.image_url, target: :_blank if pic.image?  %>
                   <% end %>
-                
-                <% if can? :destroy, RecipeReview %>
-                        <hr>
-                            <%= recipe_review.get_upvotes.size %> | <%= recipe_review.get_downvotes.size %>
-                            <%= link_to 'Delete', [recipe_review.recipe, recipe_review],
-                               method: :delete,
-                               data: { confirm: 'Are you sure?'},
-                               class: "btn btn-primary" %>
-                      <% end %>
-                
-                <% end %>
-                
-              </div>
-          
-      </div><br>
-    </div>
+                   <% if signed_in? %>
+                     <% unless current_user == recipe_review.user %>
+                       <hr>
+                     <% end %>
+                   <% end %>
+
+                <div class="bottomreviewicons">
+                  <% if signed_in? %>
+
+                    <% if current_user == recipe_review.user %>
+
+                    <% elsif current_user.voted_for? recipe_review %>
+                      Voted!
+                    <% else %>
+                     <div class="thumbsup">
+                       <%= link_to "",  like_recipe_recipe_review_path(recipe_review.recipe_id, recipe_review), method: :put, :remote => true %>
+                     </div>
+
+                     <div class="thumbsdown">
+                      <%= link_to "", dislike_recipe_recipe_review_path(recipe_review.recipe_id, recipe_review), method: :put, :remote => true %>
+                     </div>
+
+                    <% end %>
+
+                  <% if can? :destroy, RecipeReview %>
+                          <hr>
+                              <%= recipe_review.get_upvotes.size %> | <%= recipe_review.get_downvotes.size %>
+                              <%= link_to 'Delete', [recipe_review.recipe, recipe_review],
+                                 method: :delete,
+                                 data: { confirm: 'Are you sure?'},
+                                 class: "btn btn-primary" %>
+                        <% end %>
+
+                  <% end %>
+
+                </div>
+
+        </div><br>
+      </div>
+    <% end %>
   <% end %>
+
 <% end %>
 
 <div class="digg_pagination">

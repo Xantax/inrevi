@@ -1,87 +1,94 @@
-<% if @avg_score == 0.0 %>
-<div class="noreviewsonindex">No reviews :( </div>
-<div class="row dumb500"></div>
+<% unless signed_in? %>
+    <div class="noreviewsonindex"><%= image_tag('othericons/lock_icon.png') %> Log in to read reviews </div>
+    <div class="row dumb500"></div>  
 <% else %>
-<% @tech_reviews.each do |tech_review| %><br>
-    <div class="col-sm-3"> 
-      <% if tech_review.user.provider == "facebook" %>
-          <div class="reviewname">  
-            <%= link_to user_path(tech_review.user) do %> 
-               <%= tech_review.user.first_name %>
-               <%= tech_review.user.last_name.truncate(2, omission: '.')%>
-            <% end %>
-          </div>
-          <%= image_tag(tech_review.user.image_auth, width: "80") %>  
-        
-        <% elsif tech_review.user.provider == "google_oauth2" %>
-          <div class="reviewname">  
-            <%= link_to user_path(tech_review.user) do %> 
-               <%= tech_review.user.first_name %>
-               <%= tech_review.user.last_name.truncate(2, omission: '.')%>
-            <% end %>
-          </div>
-          <%= image_tag(tech_review.user.image_auth, width: "80") %>
-        
-        <% elsif tech_review.user.provider == "email" %>
-            <%= link_to user_path(tech_review.user) do %> 
-               <div class="reviewname"><%= tech_review.user.name %></div>
-            <% end %>
-          <%= image_tag(tech_review.user.image, width: "80") %>
-        <% end %>  
-     </div>
-        
-      <div class="col-sm-9 podreview"> 
-         <div class="separatereview">
-           
-            <div class="numberOne">
-              <%= tech_review.point %>
-            </div><br><br>
-           
-          <div class="reviewcontent"><%= simple_format(tech_review.content) %></div>
-           
-                <% tech_review.review_images.each do |pic| %>
-                     <%= link_to image_tag(pic.image_url(:thumb), width: 100), pic.image_url, target: :_blank if pic.image?  %>
-                <% end %>
-                 <% if signed_in? %>
-                   <% unless current_user == tech_review.user %>
-                     <hr>
-                   <% end %>
-                 <% end %>
-           
-              <div class="bottomreviewicons">
-                <% if signed_in? %>
-                
-                  <% if current_user == tech_review.user %>
-                    
-                  <% elsif current_user.voted_for? tech_review %>
-                    Voted!
-                  <% else %>
-                   <div class="thumbsup">
-                     <%= link_to "",  like_tech_tech_review_path(tech_review.tech_id, tech_review), method: :put, :remote => true %>
-                   </div>
-                            
-                   <div class="thumbsdown">
-                    <%= link_to "", dislike_tech_tech_review_path(tech_review.tech_id, tech_review), method: :put, :remote => true %>
-                   </div>
-                
+
+  <% if @avg_score == 0.0 %>
+    <div class="noreviewsonindex">No reviews :( </div>
+    <div class="row dumb500"></div>
+  <% else %>
+  <% @tech_reviews.each do |tech_review| %><br>
+      <div class="col-sm-3"> 
+        <% if tech_review.user.provider == "facebook" %>
+            <div class="reviewname">  
+              <%= link_to user_path(tech_review.user) do %> 
+                 <%= tech_review.user.first_name %>
+                 <%= tech_review.user.last_name.truncate(2, omission: '.')%>
+              <% end %>
+            </div>
+            <%= image_tag(tech_review.user.image_auth, width: "80") %>  
+
+          <% elsif tech_review.user.provider == "google_oauth2" %>
+            <div class="reviewname">  
+              <%= link_to user_path(tech_review.user) do %> 
+                 <%= tech_review.user.first_name %>
+                 <%= tech_review.user.last_name.truncate(2, omission: '.')%>
+              <% end %>
+            </div>
+            <%= image_tag(tech_review.user.image_auth, width: "80") %>
+
+          <% elsif tech_review.user.provider == "email" %>
+              <%= link_to user_path(tech_review.user) do %> 
+                 <div class="reviewname"><%= tech_review.user.name %></div>
+              <% end %>
+            <%= image_tag(tech_review.user.image, width: "80") %>
+          <% end %>  
+       </div>
+
+        <div class="col-sm-9 podreview"> 
+           <div class="separatereview">
+
+              <div class="numberOne">
+                <%= tech_review.point %>
+              </div><br><br>
+
+            <div class="reviewcontent"><%= simple_format(tech_review.content) %></div>
+
+                  <% tech_review.review_images.each do |pic| %>
+                       <%= link_to image_tag(pic.image_url(:thumb), width: 100), pic.image_url, target: :_blank if pic.image?  %>
                   <% end %>
-                
-                <% if can? :destroy, TechReview %>
-                        <hr>
-                            <%= tech_review.get_upvotes.size %> | <%= tech_review.get_downvotes.size %>
-                            <%= link_to 'Delete', [tech_review.tech, tech_review],
-                                     method: :delete,
-                                     data: { confirm: 'Are you sure?'},
-                                     class: "btn btn-default" %>
-                      <% end %>
-                
-                <% end %>
-                
-              </div>
-          
-      </div><br>
-    </div>
+                   <% if signed_in? %>
+                     <% unless current_user == tech_review.user %>
+                       <hr>
+                     <% end %>
+                   <% end %>
+
+                <div class="bottomreviewicons">
+                  <% if signed_in? %>
+
+                    <% if current_user == tech_review.user %>
+
+                    <% elsif current_user.voted_for? tech_review %>
+                      Voted!
+                    <% else %>
+                     <div class="thumbsup">
+                       <%= link_to "",  like_tech_tech_review_path(tech_review.tech_id, tech_review), method: :put, :remote => true %>
+                     </div>
+
+                     <div class="thumbsdown">
+                      <%= link_to "", dislike_tech_tech_review_path(tech_review.tech_id, tech_review), method: :put, :remote => true %>
+                     </div>
+
+                    <% end %>
+
+                  <% if can? :destroy, TechReview %>
+                          <hr>
+                              <%= tech_review.get_upvotes.size %> | <%= tech_review.get_downvotes.size %>
+                              <%= link_to 'Delete', [tech_review.tech, tech_review],
+                                       method: :delete,
+                                       data: { confirm: 'Are you sure?'},
+                                       class: "btn btn-default" %>
+                        <% end %>
+
+                  <% end %>
+
+                </div>
+
+        </div><br>
+      </div>
+    <% end %>
   <% end %>
+
 <% end %>
 
 <div class="digg_pagination">
