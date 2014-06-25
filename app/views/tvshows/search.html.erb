@@ -20,7 +20,7 @@
       <% if tvshow %>
           <%= link_to tvshow_path(tvshow.id) do %>
             <div class="col-sm-4 podsin">
-              <% if movie.poster_path.blank? %>
+              <% if tvshow.poster_path.blank? %>
                 <%= image_tag("no-image.png") %>
               <% else %>              
                 <%= image_tag("#{@configuration.base_url}w154#{tvshow.poster_path}", height: "150") %></div>
