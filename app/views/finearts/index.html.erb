@@ -11,7 +11,7 @@
 
           <%= form_tag finearts_search_path, :method => :get do %>
               <div class="searchbox">
-                <%= text_field_tag :search, params[:search], :placeholder => "e.g. Mona Lisa" , :class => "form-control search" %>
+                <%= text_field_tag :search, params[:search], :placeholder => "e.g. The Persistence of Memory" , :class => "form-control search" %>
               </div>
               <div class="searchgo"><span class="input-group-btn"><%= submit_tag "Go", class: "btn btn-default" %></span></div>
           <% end %>
