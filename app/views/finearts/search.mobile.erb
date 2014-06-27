@@ -20,7 +20,7 @@
 
                 <% if fineart.fineart_reviews.count >= 1 %>
                  <div class="numberOneindex">
-                     <%= ((fineart.fineart_reviews.inject(0) { |sum, e| sum += e.point }).to_f / fineart.fineart_reviews.count).round(1) rescue 0 %>
+                     <%= ((fineart.fineart_reviews.inject(0) { |sum, e| sum += e.point }).to_f / fineart.fineart_reviews_count).round(1) rescue 0 %>
                  </div>
                 <% end %><br>
 

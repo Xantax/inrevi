@@ -10,13 +10,18 @@
   <% end %>
 
     <%= f.label :name %><br>
-<%= f.text_field :name, :class => "form-control mobiletitle" %><br><br>
+    <%= f.text_field :name, :class => "form-control mobiletitle" %><br><br>
+
+    <%= image_tag("localicons/clockicon.PNG", height: '16', width: '16') %>
+    <%= f.label :ready_time %> (minutes)<br>
+    <%= f.text_field :ready_time, :class => "form-control autominutes", :placeholder => "60", 
+    :onfocus => "this.placeholder = ''" %><br><br>
 
     <%= f.label :ingredients, "Ingredients" %><br>
-<%= f.text_area :ingredients, :class => "form-control mobilecontent", :placeholder => "each ingredient in a new line" %><br><br>
+    <%= f.text_area :ingredients, :class => "form-control mobilecontent", :placeholder => "each ingredient in a new line" %><br><br>
 
     <%= f.label :directions, "Directions" %><br>
-<%= f.text_area :directions, :class => "form-control mobilecontent", :placeholder => "Basic steps..." %><br><br>
+    <%= f.text_area :directions, :class => "form-control mobilecontent", :placeholder => "Basic steps..." %><br><br>
 
     <%= f.label :tag_list, "keywords - separate by commas" %><br>
     <%= f.text_field :tag_list, :placeholder => "e.g desert, pancakes" , :class => "form-control mobiletitle" %><br><br>

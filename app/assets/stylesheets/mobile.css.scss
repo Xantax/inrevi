@@ -1,0 +1,154 @@
+@import "bootstrap";
+
+#allmobile{
+  width:100%;
+  padding: 0;
+  margin: 0;
+}
+
+.mobilemaincats{
+  font-size: 15pt;
+}
+
+.aboutbottom.mobile{
+  padding-top:90%;
+  font-size:80%;
+}
+
+/* MOBILE - HEADER */
+
+.mobilelogo{
+  border-bottom: 2px solid #000000;
+}
+
+.row.mobilecatheader{
+  background-color:#404040;
+  border-bottom: 1px solid #D8D8D8;
+
+  font-size:130%;
+  padding-top:5px;
+  padding-left:5px;
+  a{
+    color:#FFFFFF;
+    text-decoration:none;
+  }
+  a:hover{
+    color:#FFFFFF;
+    text-decoration:none;
+  }
+  height:40px;
+}
+
+#login-center{
+  text-align:center;
+
+}
+
+/* MOBILE - CATEGORIES */
+
+ul.nav.nav-stacked.categorylist.mobile li {
+
+}
+
+/*  MOBILE - NEWSFEED  */
+
+.noreviewsmobile{
+  padding-bottom:5px;
+  color:#808080;
+}
+
+.mobile-activity-home{
+  padding-left:5%;
+  padding-right:5%;
+}
+
+.mobile-activity-photo{
+  float:left;
+  padding-right:5px;
+}
+
+.reviewname.mobile{
+  display:inline-block;
+  height:70px;
+}
+
+/* MOBILE - login buttons */
+
+.fblogin-mobile{
+  float:left;
+  padding-left:10%;
+  padding-top:10%;
+}
+
+.glogin-mobile{
+  float:right;
+  padding-right:10%;
+  padding-top:10%;
+}
+
+/* MOBILE - USER PROFILE */
+
+.mobileshowprofile{
+  padding-left:10px;
+}
+
+/* MOBILE - SEARCH */
+
+.searchbox.mobile{
+  width:80%;
+  padding-left:2px;
+}
+
+.searchbox.books.mobile{
+  width:80%;
+}
+
+.uselessresults.mobile{
+  float:left;
+}
+
+.searchbox.mobile.local{
+  width:95%;
+  padding-left:2px;
+}
+
+/* MOBILE - FORM */
+
+.form-control.mobiletitle{
+  width:100%;
+}
+
+.form-control.mobilecontent{
+  width:100%;
+  height:200px;
+}
+
+/* MOBILE - ITEM SHOW */
+
+.reviewnumberscore.mobile{
+  font-size:250%;
+  font-weight:bold;
+  color:#808080;
+}
+
+.item-name-mobile{
+  font-size:130%;
+  padding-bottom:5px;
+  font-weight:bold;
+}
+
+.writeareview.mobile{
+  font-size:130%;
+}
+
+#additional-mobile{
+  font-size:120%;
+  padding-top:10px;
+}
+
+/* MOBILE - REVIEW */
+
+.mobile-paddings{
+  padding-left:5%;
+  padding-right:5%;
+}

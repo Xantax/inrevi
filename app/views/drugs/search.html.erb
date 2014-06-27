@@ -43,7 +43,7 @@
             <div class="col-sm-1">
               <% if drug.drug_reviews.count >= 1 %>
                <div class="numberOneindex">
-                <%= ((drug.drug_reviews.inject(0) { |sum, e| sum += e.point }).to_f / drug.drug_reviews.count).round(1) rescue 0 %>
+                <%= ((drug.drug_reviews.inject(0) { |sum, e| sum += e.point }).to_f / drug.drug_reviews_count).round(1) rescue 0 %>
                </div>
               <% end %>
             </div>

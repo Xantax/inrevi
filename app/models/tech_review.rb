@@ -6,7 +6,7 @@ include PublicActivity::Common
   acts_as_votable
     
   belongs_to :user, :counter_cache => true
-  belongs_to :tech
+  belongs_to :tech, :counter_cache => true
   
     validate :user_quota, :on => :create
   

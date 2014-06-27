@@ -12,6 +12,11 @@
     <%= f.label :name %><br>
     <%= f.text_field :name, :class => "form-control autotitle" %><br><br>
 
+    <%= image_tag("localicons/clockicon.PNG", height: '20', width: '20') %>
+    <%= f.label :ready_time %> (minutes)<br>
+    <%= f.text_field :ready_time, :class => "form-control autominutes", :placeholder => "60", 
+    :onfocus => "this.placeholder = ''" %><br><br>
+
     <%= f.label :ingredients, "Ingredients" %><br>
     <%= f.text_area :ingredients, :class => "form-control autocontent", :placeholder => "each ingredient in a new line" %><br><br>
 
@@ -31,7 +36,7 @@
           Uploading...
       </div>
 
-<% end %>
+<% end %><hr>
 
 <script type="text/javascript">
 (function (d) {

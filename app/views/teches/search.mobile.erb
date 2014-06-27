@@ -21,7 +21,7 @@
 
               <% if tech.tech_reviews.count >= 1 %>
                <div class="numberOneindex">
-                 <%= ((tech.tech_reviews.inject(0) { |sum, e| sum += e.point }).to_f / tech.tech_reviews.count).round(1) rescue 0 %>
+                 <%= ((tech.tech_reviews.inject(0) { |sum, e| sum += e.point }).to_f / tech.tech_reviews_count).round(1) rescue 0 %>
                </div>
               <% end %><br>
 

@@ -13,14 +13,14 @@
               by <%= book.authors_array.first %>              
             </div>
   
-              <div class="col-sm-1">
+            <div class="col-sm-1">
                 <% if book.comments.count >= 1 %>
                <div class="numberOneindex">
                  <%= ((book.comments.inject(0) { |sum, e| sum += e.point }).to_f / book.comments.count).round(1) rescue 0 %>
                </div>
               <% end %>
             </div>
-  
+          
         <% end %>
   <% else %>
     <div class="row dumb500"></div>

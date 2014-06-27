@@ -1,9 +1,11 @@
 <div class="row podup"> 
+  
   <div class="col-sm-3"> 
     <%= link_to image_tag(@podcast.image_url(:thumb)), @podcast.image_url, target: :_blank if @podcast.image? %> 
   </div> 
   
-  <div class="col-sm-5"> 
+  <div class="col-sm-5 autoshow"> 
+    
     <div class="podcastnameshow">
       <%= link_to @podcast.name.truncate(80, omission: '...'), podcast_path(@podcast) %>
     </div><br>
@@ -12,8 +14,11 @@
       <%= link_to "Website", @podcast.website, :target => "_blank" %><br >
       <b>Subjects:</b> <%= raw @podcast.tags.map(&:name).map { |t| t }.join(', ') %>
    </div>
+    
   </div>
+  
   <div class="col-sm-4">
+    
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
       <div class="writeareview">
         <%= link_to "Write a Review", new_podcast_podcast_review_path(@podcast) %>
@@ -24,4 +29,5 @@
      </div>
     
   </div>
+  
 </div> <br>

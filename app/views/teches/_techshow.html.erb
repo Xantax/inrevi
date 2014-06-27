@@ -4,7 +4,8 @@
     <%= link_to (image_tag @tech.image_url(:thumb)), @tech.image_url, target: :_blank if @tech.image? %>
   </div> 
   
-  <div class="col-sm-5"> 
+  <div class="col-sm-5 autoshow"> 
+    
     <div class="technameshow">
       <%= link_to @tech.name, tech_path(@tech) %>
     </div>
@@ -17,6 +18,7 @@
   </div>
   
   <div class="col-sm-4">
+    
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
     <div class="writeareview">
       <%= link_to "Write a Review", new_tech_tech_review_path(@tech) %>

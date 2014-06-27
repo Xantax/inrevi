@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617224940) do
+ActiveRecord::Schema.define(version: 20140627200241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20140617224940) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "auto_reviews_count", default: 0
   end
 
   add_index "autos", ["user_id"], name: "index_autos_on_user_id", using: :btree
@@ -163,6 +164,7 @@ ActiveRecord::Schema.define(version: 20140617224940) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "drug_reviews_count", default: 0
   end
 
   add_index "drugs", ["user_id"], name: "index_drugs_on_user_id", using: :btree
@@ -195,6 +197,7 @@ ActiveRecord::Schema.define(version: 20140617224940) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "fineart_reviews_count", default: 0
   end
 
   add_index "finearts", ["user_id"], name: "index_finearts_on_user_id", using: :btree
@@ -337,6 +340,7 @@ ActiveRecord::Schema.define(version: 20140617224940) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "podcast_reviews_count", default: 0
   end
 
   add_index "podcasts", ["user_id"], name: "index_podcasts_on_user_id", using: :btree
@@ -424,6 +428,8 @@ ActiveRecord::Schema.define(version: 20140617224940) do
     t.text     "directions"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "recipe_reviews_count", default: 0
+    t.integer  "ready_time"
   end
 
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
@@ -531,6 +537,7 @@ ActiveRecord::Schema.define(version: 20140617224940) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
+    t.integer  "tech_reviews_count", default: 0
   end
 
   add_index "teches", ["user_id"], name: "index_teches_on_user_id", using: :btree
@@ -573,7 +580,6 @@ ActiveRecord::Schema.define(version: 20140617224940) do
     t.string   "name"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "friends"
     t.string   "image"
     t.string   "email"
     t.string   "oauth_token"
