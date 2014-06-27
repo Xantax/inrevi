@@ -220,4 +220,12 @@ end
     User.select(sql_select).from(sql_from).group(sql_group).limit(100)
   end
   
+  def to_param
+    if self.company
+      "#{id} #{name}".parameterize
+    else
+      "#{id} #{first_name}".parameterize
+    end
+  end
+  
 end
