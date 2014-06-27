@@ -56,6 +56,7 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'devise', '~> 3.2.4'
 gem 'cancancan', '~> 1.8'
 gem "rails_autolink"
+gem 'meta-tags'
 
 group :development do
   gem 'brakeman', '~> 2.4.3', :require => false

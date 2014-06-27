@@ -1,4 +1,6 @@
 <% provide(:title, "#{@song.name} Reviews") %>
+<% set_meta_tags :noindex => true %>
+
 <hr>
            <div class="songname"><%= @song.name %></div>
            <%= render 'show_rating' %><br>

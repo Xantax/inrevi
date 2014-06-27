@@ -1,4 +1,5 @@
 <% provide(:title, "#{@podcast.name} Reviews") %>
+
 <hr>
     <div class="item-name-mobile">
       <%= link_to @podcast.name.truncate(80, omission: '...'), podcast_path(@podcast) %>
