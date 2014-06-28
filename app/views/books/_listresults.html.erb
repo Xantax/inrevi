@@ -9,7 +9,7 @@
               <% end %>
             </div>
             <div class="col-sm-7 podsin">
-              <%= link_to book.titles_array.first.truncate(50, omission: '...'), book_path(book.id) %><br>
+              <b><%= link_to book.titles_array.first.truncate(50, omission: '...'), book_path(book.id) %></b><br>
               by <%= book.authors_array.first %>              
             </div>
   

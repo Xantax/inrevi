@@ -5,10 +5,7 @@
   </div> 
   
   <div class="col-sm-5 autoshow"> 
-    
-    <div class="podcastnameshow">
-      <%= link_to @podcast.name.truncate(80, omission: '...'), podcast_path(@podcast) %>
-    </div><br>
+    <b><%= @podcast.name.truncate(80, omission: '...') %></b><br>
 
    <div class="podinfo">
       <%= link_to "Website", @podcast.website, :target => "_blank" %><br >

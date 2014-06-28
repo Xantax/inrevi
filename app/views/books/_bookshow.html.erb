@@ -4,7 +4,7 @@
   </div> 
   
    <div class="col-sm-5 autoshow"> 
-     <b><%= link_to @book.title, book_path() if @book.title.present? %></b> <br>
+     <b><%= @book.title if @book.title.present? %></b> <br>
      by <%= @book.authors.first if @book.authors.present? %> <br><br>
      Pages: <%= @book.pageCount if @book.pageCount.present? %> <br>
      Year: <%= @book.publishedDate if @book.publishedDate.present? %> <br>

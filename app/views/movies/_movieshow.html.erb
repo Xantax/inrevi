@@ -13,9 +13,7 @@
   
   <div class="col-sm-5">
     <div class="moviefacts">
-      <div class="movtitle">
-        <%= link_to @movie.title, movie_path(@movie.id) %> (<%= @movie.release_date.to_date.try(:year) %>)
-      </div><br>
+      <b><%= @movie.title %> (<%= @movie.release_date.to_date.try(:year) %>)</b><br>
       
       <% unless @trailers['youtube'].blank? %>
         <%= image_tag("othericons/playicon.PNG", height: '14', width: '14') %>

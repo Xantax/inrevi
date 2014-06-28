@@ -33,9 +33,7 @@
                <%= image_tag fineart.image_url(:thumb) if fineart.image? %>
              </div>
              <div class="col-sm-7 podsin">    
-                <div class="podcastsnowindex">
-                  <%= link_to fineart.name.truncate(50, omission: '...'), fineart %>
-                </div><br>
+                <b><%= link_to fineart.name.truncate(50, omission: '...'), fineart %></b><br>
              </div>
             
               <div class="col-sm-1">

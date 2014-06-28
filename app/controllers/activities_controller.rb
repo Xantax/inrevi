@@ -9,4 +9,5 @@ class ActivitiesController < ApplicationController
      @activities = PublicActivity::Activity.paginate(:page => params[:page], :per_page => 15).order("created_at desc").where(owner_id: current_user.followed_user_ids, owner_type: "User")
     
   end
+  
 end

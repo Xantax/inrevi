@@ -4,7 +4,7 @@
   </div> 
   
    <div class="col-sm-5 autoshow"> 
-     <b><%= link_to @fineart.name.truncate(80, omission: '...'), fineart_path(@fineart) %></b> <br><br> 
+     <b><%= @fineart.name.truncate(80, omission: '...') %></b> <br><br> 
      <div class="podinfo">
        <b>keywords:</b> <%= raw @fineart.tags.map(&:name).map { |t| t }.join(', ') %>
      </div>

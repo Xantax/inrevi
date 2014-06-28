@@ -25,9 +25,7 @@
               <% end %>
             </div>
             <div class="col-sm-7 podsin">
-              <div class="moviesnowindex">
-                <%= movie.title.truncate(50, omission: '...') %> (<%= movie.release_date.to_date.try(:year) %>) <br /> 
-              </div>
+              <b><%= movie.title.truncate(50, omission: '...') %> (<%= movie.release_date.to_date.try(:year) %>) </b><br>
           <% end %>             
             </div>
               <div class="col-sm-1">

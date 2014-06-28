@@ -4,7 +4,7 @@
   </div> 
   
    <div class="col-sm-5 autoshow"> 
-     <b><%= link_to @auto.name.truncate(80, omission: '...'), auto_path(@auto) %></b> <br><br>
+     <b><%= @auto.name.truncate(80, omission: '...') %></b> <br><br>
       <div class="r-clickfeature">
         <%= link_to "additional info", "#" %><br><br>
       </div>

@@ -4,9 +4,7 @@
   </div> 
   
   <div class="col-sm-5 autoshow"> 
-    <div class="technameshow">
-      <%= link_to @recipe.name, recipe_path(@recipe) %>
-    </div>
+    <b><%= @recipe.name %></b><br>
     
     <%= image_tag("localicons/clockicon.PNG", height: '20', width: '20') %>
     <%= @recipe.ready_time %> min.

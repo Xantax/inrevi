@@ -33,11 +33,8 @@
              <div class="col-sm-4 podsin">
                <%= image_tag tech.image_url(:thumb) if tech.image? %>
              </div>
-             <div class="col-sm-7 podsin">
-    
-                <div class="podcastsnowindex">
-                  <%= link_to tech.name.truncate(50, omission: '...'), tech %>
-                </div><br>
+             <div class="col-sm-7 podsin">   
+                <b><%= link_to tech.name.truncate(50, omission: '...'), tech %></b><br>
              </div>
             
             <div class="col-sm-1">

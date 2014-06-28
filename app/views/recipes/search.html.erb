@@ -34,9 +34,7 @@
                <%= image_tag recipe.image_url(:thumb) if recipe.image? %>
              </div>
              <div class="col-sm-7 podsin">    
-                <div class="podcastsnowindex">
-                  <%= link_to recipe.name.truncate(50, omission: '...'), recipe %>
-                </div><br>
+                <b><%= link_to recipe.name.truncate(50, omission: '...'), recipe %></b><br>
              </div>
             
             <div class="col-sm-1">
