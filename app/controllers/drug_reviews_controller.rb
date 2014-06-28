@@ -45,7 +45,7 @@ class DrugReviewsController < ApplicationController
   end
 
   def destroy
-    @auto_review.destroy
+    @drug_review.destroy
       redirect_to current_user
   end
   
