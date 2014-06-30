@@ -34,6 +34,16 @@
               <% end %>
             </div> 
 
+      <% elsif recipe_review.user.provider == "twitter" %>
+          <div class="mobile-activity-photo">
+            <%= image_tag(recipe_review.user.image_auth, width: "50") %>
+          </div> 
+            <div class="reviewname mobile">     
+              <%= link_to user_path(recipe_review.user) do %> 
+                <%= recipe_review.user.name %>
+              <% end %>
+            </div>
+
       <% end %>  
 
 

@@ -32,6 +32,12 @@
                  <div class="reviewname"><%= recipe_review.user.name %></div>
               <% end %>
             <%= image_tag(recipe_review.user.image, width: "80") %>
+        
+          <% elsif recipe_review.user.provider == "twitter" %>
+              <%= link_to user_path(recipe_review.user) do %> 
+                 <div class="reviewname"><%= recipe_review.user.name %></div>
+              <% end %>
+            <%= image_tag(recipe_review.user.image_auth, width: "80") %>        
           <% end %>   
        </div>
 

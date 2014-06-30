@@ -34,6 +34,16 @@
               <% end %>
             </div> 
 
+      <% elsif song_review.user.provider == "twitter" %>
+          <div class="mobile-activity-photo">
+            <%= image_tag(song_review.user.image_auth, width: "50") %>
+          </div> 
+            <div class="reviewname mobile">     
+              <%= link_to user_path(song_review.user) do %> 
+                <%= song_review.user.name %>
+              <% end %>
+            </div>
+
       <% end %>  
 
 

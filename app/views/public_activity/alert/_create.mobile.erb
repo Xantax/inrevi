@@ -34,6 +34,16 @@
                 <%= activity.owner.name %>
               <% end %>
             </div> 
+  
+      <% elsif activity.owner.provider == "twitter" %>
+          <div class="mobile-activity-photo">
+            <%= image_tag(activity.owner.image_auth, width: "50") %>
+          </div> 
+            <div class="reviewname mobile">     
+              <%= link_to user_path(activity.owner) do %> 
+                <%= activity.owner.name %>
+              <% end %>
+            </div>   
 
       <% end %>
   

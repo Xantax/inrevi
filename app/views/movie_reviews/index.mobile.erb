@@ -34,6 +34,16 @@
               <% end %>
             </div> 
 
+      <% elsif movie_review.user.provider == "twitter" %>
+          <div class="mobile-activity-photo">
+            <%= image_tag(movie_review.user.image_auth, width: "50") %>
+          </div> 
+            <div class="reviewname mobile">     
+              <%= link_to user_path(movie_review.user) do %> 
+                <%= movie_review.user.name %>
+              <% end %>
+            </div>
+
       <% end %>  
 
 

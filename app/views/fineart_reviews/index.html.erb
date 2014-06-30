@@ -32,6 +32,12 @@
                  <div class="reviewname"><%= fineart_review.user.name %></div>
               <% end %>
             <%= image_tag(fineart_review.user.image, width: "80") %>
+        
+          <% elsif fineart_review.user.provider == "twitter" %>
+              <%= link_to user_path(fineart_review.user) do %> 
+                 <div class="reviewname"><%= fineart_review.user.name %></div>
+              <% end %>
+            <%= image_tag(fineart_review.user.image_auth, width: "80") %>        
           <% end %>   
        </div>
 

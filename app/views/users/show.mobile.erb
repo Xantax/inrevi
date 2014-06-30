@@ -27,6 +27,14 @@
          </div>
       <% end %>
    </strong>
+  <% elsif current_user.provider == "twitter" %> 
+   <strong>
+     <%= link_to user_path(current_user) do %> 
+         <div class="unameonshow">
+           <%= current_user.name %>
+         </div>
+      <% end %>
+   </strong>  
   <% end %>
 
   <% if signed_in? %>
@@ -44,6 +52,8 @@
   <% if current_user.provider == "facebook" %>
     <%= image_tag(current_user.image_auth, width: "110")%><br>
   <% elsif current_user.provider == "google_oauth2" %>
+    <%= image_tag(current_user.image_auth, width: "110")%><br>
+  <% elsif current_user.provider == "twitter" %>
     <%= image_tag(current_user.image_auth, width: "110")%><br>
   <% elsif current_user.provider == "email" %>
     <%= image_tag(current_user.image, width: "110")%><br>

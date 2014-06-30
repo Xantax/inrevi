@@ -28,9 +28,10 @@
   <div class="col-sm-2">
     <%= render 'follow_form' if signed_in? %>
     <% unless signed_in? %>
-        <%= link_to image_tag("otherbigimages/FBlogins.png", alt: "FB Login"), user_omniauth_authorize_path(:facebook) %>
-          <div class="loginversus">or</div>
-        <%= link_to image_tag("otherbigimages/Glogin.PNG"), user_omniauth_authorize_path(:google_oauth2) %>    
+        <%= link_to image_tag("otherbigimages/FBlogins.png", alt: "FB Login"), user_omniauth_authorize_path(:facebook), id: "sign_in" %><br><br>
+        <%= link_to image_tag("otherbigimages/Glogin.PNG"), user_omniauth_authorize_path(:google_oauth2) %><br><br>
+        <%= link_to image_tag("otherbigimages/Tlogin.PNG"), user_omniauth_authorize_path(:twitter) %>
+        <hr> 
     <% end %>
   </div>
   

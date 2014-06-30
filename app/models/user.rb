@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :google_oauth2, :twitter]
   
   has_merit
   
@@ -140,6 +140,7 @@ class User < ActiveRecord::Base
   
   mount_uploader :image, ImageUploader
   
+  
   def self.from_omniauth(auth)
       where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
         user.provider = auth.provider
@@ -152,7 +153,7 @@ class User < ActiveRecord::Base
         user.password_confirmation = auth.uid
         user.image_auth = auth.info.image
         user.oauth_token = auth.credentials.token
-        user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+        user.oauth_expires_at = Time.at(auth.credentials.expires_at) unless auth.credentials.expires_at.nil?
         user.save!
        end
   end
@@ -226,6 +227,18 @@ end
     else
       "#{id} #{first_name}".parameterize
     end
+  end
+  
+  def email_required?
+    false
+  end
+
+  def email_changed?
+    false
+  end
+
+  def password_required?
+    super && provider.blank?
   end
   
 end

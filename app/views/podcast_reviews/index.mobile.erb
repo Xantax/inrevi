@@ -34,6 +34,16 @@
               <% end %>
             </div> 
 
+      <% elsif podcast_review.user.provider == "twitter" %>
+          <div class="mobile-activity-photo">
+            <%= image_tag(podcast_review.user.image_auth, width: "50") %>
+          </div> 
+            <div class="reviewname mobile">     
+              <%= link_to user_path(podcast_review.user) do %> 
+                <%= podcast_review.user.name %>
+              <% end %>
+            </div>
+
       <% end %>  
 
 
