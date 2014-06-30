@@ -222,7 +222,9 @@ end
   end
   
   def to_param
-    if self.company
+    if self.provider == "email"
+      "#{id} #{name}".parameterize
+    elsif self.provider == "twitter"
       "#{id} #{name}".parameterize
     else
       "#{id} #{first_name}".parameterize
