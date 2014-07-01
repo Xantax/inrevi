@@ -1,5 +1,5 @@
 <% if @avg_score == 0.0 %>
-  <div class="noreviewsonindex">No reviews :( </div>
+  <div class="noreviewsonindex">No reviews yet :( </div>
 <% else %>
 <% @drug_reviews.each do |drug_review| %><br>
       <% if drug_review.user.provider == "facebook" %>
