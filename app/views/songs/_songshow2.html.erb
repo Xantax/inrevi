@@ -1,10 +1,8 @@
 <%= render 'songshow' %>  
 
-    <% if @promotion.present? && @promotion.music %>
-        <div class="row showpromotion">
-          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
-        </div>
-    <% end %>
+<%= render 'shared/ad_on_item' %>
+
+<hr>
 
   <div class="row"> 
     <%= render :file => "song_reviews/index" %>

@@ -1,10 +1,8 @@
 <%= render 'teches/techshow' %>
 
-    <% if @promotion.present? && @promotion.tech %>
-        <div class="row showpromotion">
-          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
-        </div>
-    <% end %>
+<%= render 'shared/ad_on_item' %>
+
+<hr>
 
   <div class="row"> 
     <%= render :file => "tech_reviews/index" %>

@@ -1,10 +1,8 @@
 <%= render "movieshow" %><br>
 
-    <% if @promotion.present? && @promotion.movie %>
-        <div class="row showpromotion">
-          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
-        </div>
-    <% end %>
+<%= render 'shared/ad_on_item' %>
+
+<hr>
 
   <div class="row"> 
     <%= render :file => "movie_reviews/index" %>
