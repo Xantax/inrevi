@@ -6,50 +6,45 @@
     <%= render 'shared/categories' %>
   </div>
     
-  <div class="col-sm-8">
+  <div class="col-sm-8">   
       <div class="allnews">
-        
-        <%= render 'tvshowsup' %>
-        <div class="tvshowsnow">
+        <%= render 'tvshowsup' %>            
+        <div class="moviesnow">
           <div class="row">
-   <% if @tvshow.empty? %>
-       No results! Try again.
-       <div class="row dumb500"></div> 
-   <% else %>
+    <% if @tvshow.empty? %>
+       No results! Try again.    
+   <% else %>           
     <% @tvshow.first(10).each do |tvshow| %><br><br>
       <% if tvshow %>
-          <%= link_to tvshow_path(tvshow.id) do %>
+          <%= link_to tvshow_path(tvshow.id) do %>          
             <div class="col-sm-4 podsin">
               <% if tvshow.poster_path.blank? %>
                 <%= image_tag("no-image.png") %>
-              <% else %>              
-                <%= image_tag("#{@configuration.base_url}w154#{tvshow.poster_path}", height: "150") %></div>
+              <% else %>
+              <%= image_tag("#{@configuration.base_url}w154#{tvshow.poster_path}", height: "150") %>
               <% end %>
-            <div class="col-sm-7 podsin">
-              <div class="tvshowsnowindex">
-                <%= tvshow.name.truncate(50, omission: '...') %> <br>
-              </div>
-          <% end %>
             </div>
-               <div class="col-sm-1">
+            <div class="col-sm-7 podsin">
+              <b><%= tvshow.name.truncate(50, omission: '...') %></b> <br>
+          <% end %>             
+            </div>
+              <div class="col-sm-1">
                 <% if tvshow.comments.count >= 1 %>
-                     <div class="numberOneindex">
-                       <%= ((tvshow.comments.inject(0) { |sum, e| sum += e.point }).to_f / tvshow.comments.count).round(1) rescue 0 %>
-                     </div>
-                <% end %>
+                       <div class="numberOneindex">
+                         <%= ((tvshow.comments.inject(0) { |sum, e| sum += e.point }).to_f / tvshow.comments.count).round(1) rescue 0 %>
+                       </div>
+                  <% end %>
               </div>
-      <% end %><hr>
-    <% end %>
-            
-  <% end %>
+      <% end %>             
+    <% end %> 
+   <% end %>
        </div>
-          
-     </div>       
     </div>
+   </div>
   </div>
-  
+    
   <div class="col-sm-2">
     <%= render 'shared/user_mainprofile' %>
   </div>
-    
+  
 </div>

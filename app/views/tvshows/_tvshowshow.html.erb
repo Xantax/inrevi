@@ -13,7 +13,7 @@
   
   <div class="col-sm-5">
     <div class="tvshowfacts">
-      <div class="tvtitle"><%= link_to @tvshow.name, tvshow_path(@tvshow.id) %> (<%= @tvshow.first_air_date.to_date.strftime("%Y") %>)</div><br>
+      <b><%= @tvshow.name %> </b><br><br>
       
       <% if @tvshow.episode_run_time.blank? %>
       <% else %>

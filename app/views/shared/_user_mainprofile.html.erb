@@ -58,11 +58,14 @@
     <%= link_to "+ Add update", new_alert_path(), class: "btn btn-default" %>
   <% end %>
 
+  <hr><br>
+
+  <%= render 'shared/ad_on_user_mainprofile' %>
+
   <% else %>
   <br>
     <%= link_to image_tag("otherbigimages/FBlogins.png", alt: "FB Login"), user_omniauth_authorize_path(:facebook), id: "sign_in" %><br><br>
     <%= link_to image_tag("otherbigimages/Glogin.PNG"), user_omniauth_authorize_path(:google_oauth2) %><br><br>
     <%= link_to image_tag("otherbigimages/Tlogin.PNG"), user_omniauth_authorize_path(:twitter) %>
     <hr>
-
 <% end %>

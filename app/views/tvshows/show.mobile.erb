@@ -1,7 +1,6 @@
 <% provide(:title, "#{@tvshow.name} Reviews") %>
-<% set_meta_tags :noindex => true %>
 
-      <%= link_to @tvshow.name, tvshow_path(@tvshow.id) %> (<%= @tvshow.first_air_date.to_date.strftime("%Y") %>)<br>
+      <%= link_to @tvshow.name, tvshow_path(@tvshow.id) %><br>
       <%= render 'show_rating' %><br>
 
       <% if @tvshow.poster_path.blank? %>

@@ -13,12 +13,12 @@
   
   <div class="col-sm-5">
     <div class="moviefacts">
-      <b><%= @movie.title %> (<%= @movie.release_date.to_date.try(:year) %>)</b><br>
+      <b><%= @movie.title %> (<%= @movie.release_date.to_date.try(:year) %>)</b><br><br>
       
       <% unless @trailers['youtube'].blank? %>
         <%= image_tag("othericons/playicon.PNG", height: '14', width: '14') %>
         <% @trailers['youtube'].first(1).each do |trailer| %>
-          <%= link_to "Trailer", "http://www.youtube.com/watch?v=#{trailer['source']}", :target => "_blank" %><br />
+          <%= link_to "Trailer", "http://www.youtube.com/watch?v=#{trailer['source']}", :target => "_blank" %><br>
         <% end %>
       <% end %>
       

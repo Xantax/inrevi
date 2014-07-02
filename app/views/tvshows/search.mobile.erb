@@ -23,8 +23,13 @@
                      <%= ((tvshow.comments.inject(0) { |sum, e| sum += e.point }).to_f / tvshow.comments.count).round(1) rescue 0 %>
                    </div>
                 <% end %><br>
-              <%= image_tag("#{@configuration.base_url}w154#{tvshow.poster_path}", height: "150") if tvshow.poster_path %>
 
+                    <% if tvshow.poster_path.blank? %>
+                      <%= image_tag("no-image.png") %>
+                    <% else %>
+                      <%= image_tag("#{@configuration.base_url}w154#{tvshow.poster_path}", height: "150") %>
+                    <% end %>
+          <hr>
       <% end %>
     <% end %>
   <% end %>
