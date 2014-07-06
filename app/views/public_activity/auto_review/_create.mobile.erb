@@ -79,7 +79,7 @@
                   <hr>
                       <%= link_to image_tag('othericons/rsz_close.png'), [activity.trackable.auto, activity.trackable],
                                      method: :delete,
-                                     data: { confirm: 'Delete. Are you sure?'} %>            
+                                     data: { confirm: 'Delete. Are you sure?'} %>  
                 <% elsif current_user.voted_for? activity.trackable %>
                   Voted!
                 <% else %>
