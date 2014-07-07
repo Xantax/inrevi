@@ -50,13 +50,13 @@
   <%= render 'follow_form' if signed_in? %><br>
   
   <% if current_user.provider == "facebook" %>
-    <%= image_tag(current_user.image_auth, width: "110")%><br>
+    <%= image_tag(current_user.image_auth, width: "110", class: 'img-thumbnail')%><br>
   <% elsif current_user.provider == "google_oauth2" %>
-    <%= image_tag(current_user.image_auth, width: "110")%><br>
+    <%= image_tag(current_user.image_auth, width: "110", class: 'img-thumbnail')%><br>
   <% elsif current_user.provider == "twitter" %>
-    <%= image_tag(current_user.image_auth, width: "110")%><br>
+    <%= image_tag(current_user.image_auth, width: "110", class: 'img-thumbnail')%><br>
   <% elsif current_user.provider == "email" %>
-    <%= image_tag(current_user.image, width: "110")%><br>
+    <%= image_tag(current_user.image, width: "110", class: 'img-thumbnail')%><br>
   <% end %>
   
   <%= render 'shared/stats' %>

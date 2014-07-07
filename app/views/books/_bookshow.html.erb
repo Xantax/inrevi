@@ -9,6 +9,7 @@
      Pages: <%= @book.pageCount if @book.pageCount.present? %> <br>
      Year: <%= @book.publishedDate if @book.publishedDate.present? %> <br>
      Language: <%= @book.language if @book.language.present? %> <br><br>
+     <%= image_tag('othericons/cart_icon.png') %>   
      <%= link_to "Buy it", "https://www.amazon.com/dp/#{@book.isbn_10}/?tag=movtop0c-20", :target => "_blank" if @book.isbn_10.present? %><br>
      <%= link_to "Preview", @book.previewLink, :target => "_blank" if @book.previewLink.present? %> <br>
      <div class="r-clickfeature">

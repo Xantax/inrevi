@@ -16,7 +16,7 @@
                  <%= song_review.user.last_name.truncate(2, omission: '.')%>
               <% end %>
             </div>
-            <%= image_tag(song_review.user.image_auth, width: "80") %>  
+            <%= image_tag(song_review.user.image_auth, width: "90", class: 'img-thumbnail') %>  
 
           <% elsif song_review.user.provider == "google_oauth2" %>
             <div class="reviewname">  
@@ -25,19 +25,19 @@
                  <%= song_review.user.last_name.truncate(2, omission: '.')%>
               <% end %>
             </div>
-            <%= image_tag(song_review.user.image_auth, width: "80") %>
+            <%= image_tag(song_review.user.image_auth, width: "90", class: 'img-thumbnail') %>
 
           <% elsif song_review.user.provider == "email" %>
               <%= link_to user_path(song_review.user) do %> 
                  <div class="reviewname"><%= song_review.user.name %></div>
               <% end %>
-            <%= image_tag(song_review.user.image, width: "80") %>
+            <%= image_tag(song_review.user.image, width: "90", class: 'img-thumbnail') %>
         
           <% elsif song_review.user.provider == "twitter" %>
               <%= link_to user_path(song_review.user) do %> 
                  <div class="reviewname"><%= song_review.user.name %></div>
               <% end %>
-            <%= image_tag(song_review.user.image_auth, width: "80") %>        
+            <%= image_tag(song_review.user.image_auth, width: "90", class: 'img-thumbnail') %>        
           <% end %>  
         </div>
 

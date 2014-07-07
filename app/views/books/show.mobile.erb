@@ -11,11 +11,22 @@
      Pages: <%= @book.pageCount if @book.pageCount.present? %> <br>
      Year: <%= @book.publishedDate if @book.publishedDate.present? %> <br>
      Language: <%= @book.language if @book.language.present? %> <br><br> 
-      <%= link_to "Buy it", "https://www.amazon.com/dp/#{@book.isbn_10}/?tag=movtop0c-20", :target => "_blank" if @book.isbn_10.present? %><br>
-     <%= link_to "Preview", @book.previewLink, :target => "_blank" if @book.previewLink.present? %> <br>
-     <div class="r-clickfeature">
-       <%= link_to "Description", "#" %>  
-     </div><br>
+
+    <div class="row">
+      <div class="col-xs-4">
+        <%= image_tag('othericons/cart_icon.png') %>   
+        <%= link_to "Buy it", "https://www.amazon.com/dp/#{@book.isbn_10}/?tag=movtop0c-20", :target => "_blank" if @book.isbn_10.present? %>
+      </div>
+      <div class="col-xs-4">
+        <%= link_to "Preview", @book.previewLink, :target => "_blank" if @book.previewLink.present? %>
+      </div>
+      <div class="col-xs-4">
+         <div class="r-clickfeature">
+           <%= link_to "Description", "#" %>  
+         </div>
+      </div>
+    </div><hr>
+
      
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
     <div class="writeareview mobile">

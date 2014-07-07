@@ -8,7 +8,7 @@
        </div>
      <% end %>
    </strong><br >
-          <%= image_tag(current_user.image_auth, width: "150")%><br><br>
+          <%= image_tag(current_user.image_auth, width: "150", class: 'img-thumbnail')%><br><br>
           <%= render 'shared/stats' %>
 
      <% elsif current_user.provider == "google_oauth2" %>
@@ -19,7 +19,7 @@
        </div>
      <% end %>
    </strong><br >
-          <%= image_tag(current_user.image_auth, width: "150")%><br><br>
+          <%= image_tag(current_user.image_auth, width: "150", class: 'img-thumbnail')%><br><br>
           <%= render 'shared/stats' %>
 
      <% elsif current_user.provider == "email" %>
@@ -29,7 +29,11 @@
          </div>
      <% end %>
       </strong><br >
-          <%= image_tag(current_user.image_url(:thumb)) if current_user.image? %><br><br>
+           <% if current_user.image.blank? %>
+             <%= image_tag("no-image.png", class: 'img-thumbnail') %>
+          <% else %>
+            <%= image_tag(current_user.image_url(:thumb), class: 'img-thumbnail') %><br><br>
+          <% end %>
           <%= render 'shared/stats' %>
     <% elsif current_user.provider == "twitter" %>
       <strong><%= link_to user_path(current_user) do %>   
@@ -38,7 +42,7 @@
          </div>
      <% end %>
       </strong><br >
-          <%= image_tag(current_user.image_auth, width: "150") %><br><br>
+          <%= image_tag(current_user.image_auth, width: "150", class: 'img-thumbnail') %><br><br>
           <%= render 'shared/stats' %>
     <% end %>
 

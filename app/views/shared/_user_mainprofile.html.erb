@@ -10,7 +10,7 @@
           <div class="logoutlink">
             <%= link_to "logout", destroy_user_session_path, :method => :delete %><br>
           </div>
-           <%= image_tag(current_user.image_auth, width: "110") %>
+           <%= image_tag(current_user.image_auth, width: "110", class: 'img-thumbnail') %>
 
        <% elsif current_user.provider == "google_oauth2" %>
 
@@ -22,7 +22,7 @@
           <div class="logoutlink">
             <%= link_to "logout", destroy_user_session_path, :method => :delete %><br>
           </div>
-           <%= image_tag(current_user.image_auth, width: "110") %>    
+           <%= image_tag(current_user.image_auth, width: "110", class: 'img-thumbnail') %>    
 
         <% elsif current_user.provider == "email" %>
 
@@ -33,7 +33,11 @@
             <div class="logoutlink">
               <%= link_to "logout", destroy_user_session_path, :method => :delete %><br>
             </div>
-           <%= image_tag(current_user.image_url(:thumb), width: "110") if current_user.image? %>
+           <% if current_user.image.blank? %>
+             <%= image_tag("no-image.png", width: "110", class: 'img-thumbnail') %>
+          <% else %>
+             <%= image_tag(current_user.image_url(:thumb), width: "110", class: 'img-thumbnail') %>
+          <% end %>
 
         <% elsif current_user.provider == "twitter" %>
 
@@ -44,7 +48,7 @@
             <div class="logoutlink">
               <%= link_to "logout", destroy_user_session_path, :method => :delete %><br>
             </div>
-           <%= image_tag(current_user.image_auth, width: "110") %> 
+           <%= image_tag(current_user.image_auth, width: "110", class: 'img-thumbnail') %> 
 
        <% end %> 
 
