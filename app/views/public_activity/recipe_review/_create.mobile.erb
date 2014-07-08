@@ -69,19 +69,9 @@
             <% if signed_in? %>
             
                 <% if current_user == activity.owner %>
-                  <hr><div class="row">
-  
-                          <div class="col-xs-6">
-                            <div class="addthis_sharing_toolbox"></div>
-                          </div>
-
-                          <div class="col-xs-6" align="right"> 
-                            <%= link_to image_tag('othericons/rsz_close.png'), [activity.trackable.recipe, activity.trackable],
+                  <hr><%= link_to image_tag('othericons/rsz_close.png'), [activity.trackable.recipe, activity.trackable],
                                      method: :delete,
-                                     data: { confirm: 'Delete. Are you sure?'} %>   
-                          </div>
-
-                      </div>
+                                     data: { confirm: 'Delete. Are you sure?'} %>
                 <% elsif current_user.voted_for? activity.trackable %>
                   Voted!
                 <% else %>
