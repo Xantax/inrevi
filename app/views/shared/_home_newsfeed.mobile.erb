@@ -14,7 +14,14 @@
 </div>
 
         <% else %>
-          <%= link_to image_tag("otherbigimages/FBlogins.png", alt: "FB Login"), user_omniauth_authorize_path(:facebook) %><hr>
-          <%= link_to image_tag("otherbigimages/Glogin.PNG"), user_omniauth_authorize_path(:google_oauth2) %><hr>
-          <%= link_to image_tag("otherbigimages/Tlogin.PNG"), user_omniauth_authorize_path(:twitter) %><hr>
+          <hr>
+          <div align="center">
+            <%= link_to image_tag("otherbigimages/FBlogins.png", alt: "FB Login"), user_omniauth_authorize_path(:facebook) %>
+          </div><hr>
+          <div align="center">
+            <%= link_to image_tag("otherbigimages/Glogin.PNG"), user_omniauth_authorize_path(:google_oauth2) %>
+          </div><hr>
+          <div align="center">
+            <%= link_to image_tag("otherbigimages/Tlogin.PNG"), user_omniauth_authorize_path(:twitter) %>
+          </div><hr>
 	      <% end %>

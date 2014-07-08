@@ -3,20 +3,19 @@
 </div>
 
 <div class="row mobilecatheader">
+  
   <% if signed_in? %>
-    <div class="col-xs-4">
-      <%= link_to "categories", root_path %>
-    </div>
-    <div class="col-xs-4">
-      <%= link_to "newsfeed", mobile_newsfeed_path %>
-    </div>
-    <div class="col-xs-4">
-      <%= link_to "profile", user_path(current_user) %>
-    </div>
-    <% else %>
-    <div id="login-center">
-      <%= link_to "log in", mobile_newsfeed_path %>
-    </div>
+      <div class="col-xs-4">
+        <%= link_to "categories", root_path %>
+      </div>
+      <div class="col-xs-4">
+        <%= link_to "newsfeed", mobile_newsfeed_path %>
+      </div>
+      <div class="col-xs-4">
+        <%= link_to "profile", user_path(current_user) %>
+      </div>
+  <% else %>
+    <div class="slogan-mobile">Just reviews</div>
   <% end %>
 
 </div>
