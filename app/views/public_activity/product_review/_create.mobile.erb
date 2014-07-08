@@ -187,10 +187,20 @@
             <% if signed_in? %>
             
                 <% if current_user == activity.owner %>
-                  <hr><% delete_path = "#{activity.trackable.productable_type}_product_review_path('#{activity.trackable.productable_id}', activity.trackable.id)" %>
+                  <hr><div class="row">
+  
+                          <div class="col-xs-6">
+                            <div class="addthis_sharing_toolbox"></div>
+                          </div>
+
+                          <div class="col-xs-6" align="right"> 
+                            <% delete_path = "#{activity.trackable.productable_type}_product_review_path('#{activity.trackable.productable_id}', activity.trackable.id)" %>
                       <%= link_to image_tag('othericons/rsz_close.png'), eval(delete_path),
                                      method: :delete,
-                                     data: { confirm: 'Delete. Are you sure?'} %>           
+                                     data: { confirm: 'Delete. Are you sure?'} %>  
+                          </div>
+
+                      </div> 
                 <% elsif current_user.voted_for? activity.trackable %>
                   Voted!
                 <% else %>
@@ -205,7 +215,7 @@
                 <% end %> 
             
             <% end %>
-          </div> <br>     
+          </div>  
       </div>
 
 <% end %>

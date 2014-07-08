@@ -76,10 +76,19 @@
             <% if signed_in? %>
             
                 <% if current_user == activity.owner %>
-                  <hr>
-                      <%= link_to image_tag('othericons/rsz_close.png'), [activity.trackable.auto, activity.trackable],
+                  <hr><div class="row">
+  
+                          <div class="col-xs-6">
+                            <div class="addthis_sharing_toolbox"></div>
+                          </div>
+
+                          <div class="col-xs-6" align="right"> 
+                            <%= link_to image_tag('othericons/rsz_close.png'), [activity.trackable.auto, activity.trackable],
                                      method: :delete,
-                                     data: { confirm: 'Delete. Are you sure?'} %>  
+                                     data: { confirm: 'Delete. Are you sure?'} %> 
+                          </div>
+
+                      </div>
                 <% elsif current_user.voted_for? activity.trackable %>
                   Voted!
                 <% else %>
@@ -98,7 +107,7 @@
                 <% end %>             
             
             <% end %>
-          </div> <br>       
+          </div>     
       </div>
 
 <% end %>

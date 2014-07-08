@@ -71,12 +71,19 @@
             <% if signed_in? %>
             
                 <% if current_user == activity.owner %>
-                  <hr><div class="addthis_sharing_toolbox"></div>
-                  <div class="user-activity-delete">
-                      <%= link_to image_tag('othericons/rsz_close.png'), local_local_review_path(activity.trackable.local_id, activity.trackable),
+                  <hr><div class="row">
+  
+                          <div class="col-xs-6">
+                            <div class="addthis_sharing_toolbox"></div>
+                          </div>
+
+                          <div class="col-xs-6" align="right"> 
+                            <%= link_to image_tag('othericons/rsz_close.png'), local_local_review_path(activity.trackable.local_id, activity.trackable),
                                      method: :delete,
                                      data: { confirm: 'Delete. Are you sure?'} %>
-                  </div>
+                          </div>
+
+                        </div>
                 <% elsif current_user.voted_for? activity.trackable %>
                   Voted!
                 <% else %>
