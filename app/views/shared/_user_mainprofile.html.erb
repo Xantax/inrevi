@@ -62,9 +62,11 @@
     <%= link_to "+ Add update", new_alert_path(), class: "btn btn-default" %>
   <% end %>
 
-  <hr><br><br><br><br><hr>
-    <%= render 'shared/ad_on_user_mainprofile' %>
-  <hr>
+    <% if Rails.env.production? %>
+      <hr><br><br><br><br><hr>
+        <%= render 'shared/ad_on_user_mainprofile' %>
+      <hr>
+    <% end %>
 
   <% else %>
   <br>

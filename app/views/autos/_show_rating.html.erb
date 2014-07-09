@@ -1,4 +1,4 @@
- <% unless @avg_score == 0.0 %>
+<% unless @avg_score == 0.0 %>
 
   <div class="total_score">   
         <div class="reviewnumberscore">
@@ -7,7 +7,7 @@
   </div>
 
   <div class="reviewslashfive">
-          / <div class="reviewtotalfive">5</div>
+          (<%= @auto.auto_reviews_count %>)
   </div>
 
 <% end %>

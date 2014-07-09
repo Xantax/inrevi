@@ -16,10 +16,11 @@
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
     <div class="writeareview">
       <%= link_to "Write a Review", new_drug_drug_review_path(@drug) %>
-    </div><br>
+    </div>
     
      <div>
-     <%= render 'show_rating' %>
+       <hr>
+       <%= render 'show_rating' %>
      </div>
     
   </div>
