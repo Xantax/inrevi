@@ -520,7 +520,9 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
  
   match 'mobile_newsfeed' => "static_pages#mobile_newsfeed", via: [:get]  
   
+  match '*path' => redirect('/'), via: :get
   
 root 'static_pages#home'
+  
   
 end

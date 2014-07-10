@@ -62,7 +62,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:admin, :banned, :moderator, :company, :name, :email, :password, :password_confirmation, :remember_me, :image, :provider, :remote_image_url)
+      params.require(:user).permit(:admin, :banned, :moderator, :company, :name, :email, :password, :password_confirmation, :remember_me, :image, :provider, :remote_image_url, :unverified_company )
     end
 
     # Before filters

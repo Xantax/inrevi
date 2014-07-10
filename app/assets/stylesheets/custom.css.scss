@@ -74,6 +74,26 @@ textarea {
   width:50px;
 }
 
+.col-xs-3.sign-up-signin{
+  border-left: 1px solid #E8E8E8;
+  border-top: 1px solid #E8E8E8;
+  border-bottom: 1px solid #E8E8E8;
+  text-align:center;
+  padding-bottom:20px;
+  padding-top:20px;
+}
+
+.email-login{
+  display:inline-block;
+  font-size:110%;
+  padding-left:10px;
+  a:hover{text-decoration:none;}
+}
+
+.form-control.login{
+  width:250px;
+}
+
 
 /* Navigation */
 

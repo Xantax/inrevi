@@ -71,6 +71,21 @@ Inrevi::Application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
+    
+  config.action_mailer.raise_delivery_errors = true
+  
+  config.action_mailer.default_url_options = { :host => 'inrevi.com' }
+  
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+  :authentication => :plain,
+  :address => "smtp.mailgun.org",
+  :port => 587,
+  :domain => "sandboxd079854dfa1b4f558805a1b6f580f47e.mailgun.org",
+  :user_name => "postmaster@sandboxd079854dfa1b4f558805a1b6f580f47e.mailgun.org",
+  :password => "1dhiceyykgt4"
+}
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false

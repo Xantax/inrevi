@@ -56,7 +56,7 @@
       </div>
     <%= render 'shared/stats' %>  <br>
 
-  <% if !current_user.company && current_user.provider == "email" %>
+  <% if !current_user.company && current_user.unverified_company %>
     Not verified!
   <% elsif current_user.company %>
     <%= link_to "+ Add update", new_alert_path(), class: "btn btn-default" %>
@@ -70,8 +70,9 @@
 
   <% else %>
   <br>
-    <%= link_to image_tag("otherbigimages/FBlogins.png", alt: "FB Login"), user_omniauth_authorize_path(:facebook) %><br><br>
+    <%= link_to image_tag("otherbigimages/FBlogins.png"), user_omniauth_authorize_path(:facebook) %><br><br>
     <%= link_to image_tag("otherbigimages/Glogin.PNG"), user_omniauth_authorize_path(:google_oauth2) %><br><br>
-    <%= link_to image_tag("otherbigimages/Tlogin.PNG"), user_omniauth_authorize_path(:twitter) %>
+    or
+    <div class="email-login"><b><%= link_to "email", "/users/sign_in" %></b></div>
     <hr>
 <% end %>

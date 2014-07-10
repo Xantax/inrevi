@@ -14,7 +14,20 @@ Inrevi::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  
+  config.action_mailer.default_url_options = { :host => 'dragonstone-rails-69622.euw1.nitrousbox.com' }
+  
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+  :authentication => :plain,
+  :address => "smtp.mailgun.org",
+  :port => 587,
+  :domain => "sandboxd079854dfa1b4f558805a1b6f580f47e.mailgun.org",
+  :user_name => "postmaster@sandboxd079854dfa1b4f558805a1b6f580f47e.mailgun.org",
+  :password => "1dhiceyykgt4"
+}
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

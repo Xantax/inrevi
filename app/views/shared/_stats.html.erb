@@ -1,7 +1,7 @@
 <% @user ||= current_user %>
 <div class="stats">
   
-  <% if @user.company || @user.provider == "email" %>
+  <% if @user.company || @user.unverified_company %>
   
      <%= image_tag("othericons/rsz_status_g.png") %> <a href="<%= user_path(@user) %>">
         <strong id="following">

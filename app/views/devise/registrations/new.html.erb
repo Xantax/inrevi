@@ -1,23 +1,41 @@
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<% provide(:title, 'Sign up') %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name, :class => "form-control autotitle" %><br><br>
+<div class="row">
+  
+  <div class="col-xs-2 categories">
+    <%= render 'shared/categories' %><br><br>
+  </div>
 
-      <%= f.label :email %>
-      <%= f.text_field :email, :class => "form-control autotitle" %><br><br>
+  <div class="col-xs-8">
+    <div class="homenews">
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, :class => "form-control autotitle" %><br><br>
+            <%= f.label :name %>
+            <%= f.text_field :name, :class => "form-control autotitle", :required => true %><br><br>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, :class => "form-control autotitle" %><br><br>
-    
-    <%= image_tag("othericons/PhotoShow.PNG") %>
-    <%= f.file_field :image, :class => "podcastnew" %><br><br>
+            <%= f.label :email %>
+            <%= f.text_field :email, :class => "form-control autotitle", :required => true %><br><br>
 
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary", :onclick => "this.disabled = true" %> 
+            <%= f.label :password %>
+            <%= f.password_field :password, placeholder: "minimum 8 characters", :class => "form-control autotitle", :required => true %><br><br>
 
-    <%= f.hidden_field :provider, :value => "email" %>
+            <%= f.label :password_confirmation, "Confirmation" %>
+            <%= f.password_field :password_confirmation, placeholder: "minimum 8 characters", :class => "form-control autotitle", :required => true %><br><br>
 
-<% end %>
+            <%= image_tag("othericons/PhotoShow.PNG") %> (profile photo)
+            <%= f.file_field :image, :class => "podcastnew" %><br><br>
+      
+            <%= f.submit "Create my account", class: "btn btn-large btn-default", :onclick => "this.disabled = true" %> 
+
+          <%= f.hidden_field :provider, :value => "email" %>
+
+      <% end %><hr>
+    </div>
+  </div>
+
+  <div class="col-xs-2"> 
+    <%= render 'shared/user_mainprofile' %> 
+  </div>
+
+</div>
