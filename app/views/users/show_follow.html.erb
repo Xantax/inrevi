@@ -1,13 +1,26 @@
-<div class="col-sm-3">
+<div class="col-sm-3 usershow">
   <%= render 'user_info' %>
 </div>
 
-<div class="col-sm-7"> 
-  <% if @users.any? %>
+<div class="col-sm-7 usershow"> 
+    <% if @users.any? %>
         <div class="user_avatars">
           <% @users.each do |user| %>
-          <%= link_to image_tag(user.image, width: "80"), user%>
-          <div class="namefollow"><%= link_to user.name, user %></div>
+            
+              <% if user.provider == "facebook" %>
+                <%= link_to image_tag(user.image_auth, width: "80", class: 'img-thumbnail'), user %>
+              <% elsif user.provider == "google_oauth2" %>
+                <%= link_to image_tag(user.image_auth, width: "80", class: 'img-thumbnail'), user %>
+              <% elsif user.provider == "twitter" %>
+                <%= link_to image_tag(user.image_auth, width: "80", class: 'img-thumbnail'), user %>
+              <% elsif user.provider == "email" %>
+                    <% if user.image.blank? %>
+                       <%= link_to image_tag("no-image.png", width: "80", class: 'img-thumbnail'), user %>
+                    <% else %>
+                      <%= link_to image_tag(user.image, width: "80", class: 'img-thumbnail'), user %>
+                    <% end %>
+              <% end %>
+            <hr>
           <% end %>
         </div>
      <% end %>
@@ -16,4 +29,6 @@
 <div class="col-sm-2">
 </div>
 
-<%= will_paginate @users %>
+<div class="digg_pagination">
+  <%= will_paginate @users %>
+</div>

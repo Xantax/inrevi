@@ -3,28 +3,14 @@
 <%= render 'shared/main_error_messages', object: f.object %>
 
     <%= f.label :name %><br>
-<%= f.text_field :name, :class => "form-control mobiletitle" %><br><br>
+    <%= f.text_field :name, :class => "form-control mobiletitle" %><br><br>
 
     <%= f.label :tag_list, "keywords - separate by commas" %><br>
-<%= f.text_field :tag_list, :placeholder => "e.g michelangelo, japanese art" , :class => "form-control mobiletitle" %><br><br>
+    <%= f.text_field :tag_list, :placeholder => "e.g michelangelo, japanese art" , :class => "form-control mobiletitle" %><br><br>
 
     <%= image_tag("othericons/PhotoShow.PNG") %>
     <%= f.file_field :image, :placeholder => "e.g. https://imgur.com/Iks3rd" , :class => "podcastnew" %><br><br>
 
-    <%= submit_tag 'Submit', :class => 'btn btn-default', :id => "submit" %> <br>
-
-      <div id="loading2" class="loadinggif" style="display:none;">
-          <%= image_tag("othericons/uploading.gif", alt: "") %><br>
-          Uploading...
-      </div>
+    <%= submit_tag 'Submit', :class => 'btn btn-default', :id => "submit", data: { disable_with: "Uploading..." } %> <br>
 
 <% end %>
-
-<script type="text/javascript">
-(function (d) {
-  d.getElementById('new_fineart').onsubmit = function () {
-    d.getElementById('submit').style.display = 'block';
-    d.getElementById('loading2').style.display = 'block';
-  };
-}(document));
-</script>

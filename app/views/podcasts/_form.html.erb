@@ -1,14 +1,14 @@
 <%=form_for @podcast, validate: true, html: {multipart: true}, 'data-update-target' => 'comments', class: 'comments' do |f| %>
 
-<% if @podcast.errors.any? %>
-  <div id="error_explanation">
-    <ul>
-    <% @podcast.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+    <% if @podcast.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+        <% @podcast.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     <% end %>
-    </ul>
-  </div>
-<% end %>
 
 
     <%= f.label :name %><br>
@@ -23,22 +23,8 @@
     <%= image_tag("othericons/PhotoShow.PNG") %>
     <%= f.file_field :image, :placeholder => "e.g. https://imgur.com/Iks3rd" , :class => "podcastnew" %><br><br>
 
-    <%= submit_tag 'Submit', :class => 'btn btn-primary', :id => "submit", :onclick => "this.disabled = true" %> <br>
-
-      <div id="loading2" class="loadinggif" style="display:none;">
-          <%= image_tag("othericons/uploading.gif", alt: "") %><br>
-          Uploading...
-      </div>
+    <%= submit_tag 'Submit', :class => 'btn btn-primary', :id => "submit", data: { disable_with: "Uploading..." } %> <br>
 
 <% end %>
-
-<script type="text/javascript">
-(function (d) {
-  d.getElementById('new_podcast').onsubmit = function () {
-    d.getElementById('submit').style.display = 'block';
-    d.getElementById('loading2').style.display = 'block';
-  };
-}(document));
-</script>
 
 <div class="row dumb300"></div>

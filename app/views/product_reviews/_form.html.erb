@@ -30,14 +30,9 @@
 
       <br>
     
-      <div class="actions">
-        <%= f.submit " Submit ", :class => "btn btn-default", :id => "submit-me", :onclick => "this.disabled = true" %>
-      </div><br>
-    
-        <div id="loading2" class="loadinggif" style="display:none;">
-          <%= image_tag("othericons/uploading.gif", alt: "") %><br>
-          Uploading...
-        </div>
+    <div class="actions">
+      <%= f.submit " Submit ", :class => "btn btn-default", :id => "submit-me", data: { disable_with: "..." } %>
+    </div><br>
 
       <div class="row dumb300"></div>
 
@@ -56,12 +51,6 @@
     $("#product_review_point").val(score);
     return console.log(score);
   }
-});
-</script>
-
-<script type="text/javascript">
-  $('#submit-me').on('click', function(e) {
-  return $("#loading2").slideToggle();
 });
 </script>
 

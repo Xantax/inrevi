@@ -17,7 +17,7 @@
             <div><%= f.label :password %><br />
               <%= f.password_field :password, :class => "form-control login", autocomplete: "off", :required => true %></div><br>
 
-            <%= f.submit "Sign in", class: "btn btn-large btn-default", :onclick => "this.disabled = true" %><br><br>
+            <%= f.submit "Sign in", class: "btn btn-large btn-default", data: { disable_with: "Signing in..." }" %><br><br>
 
             <% if devise_mapping.rememberable? %>
               <%= f.check_box :remember_me, :checked => true %> <%= f.label :remember_me %>

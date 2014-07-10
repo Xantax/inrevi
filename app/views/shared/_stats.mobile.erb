@@ -1,44 +1,73 @@
 <% @user ||= current_user %>
-<div class="stats">
+
+<div class="stats user-mobile">
   
-  <% if @user.company || @user.provider == "email" %>
-  
-     <%= image_tag("othericons/rsz_status_g.png") %> <a href="<%= user_path(@user) %>">
+<% if @user.company %>
+  <hr>
+  <div class="row">
+
+    <div class="col-xs-6">
+      <%= image_tag("othericons/rsz_status_g.png") %> <a href="<%= user_path(@user) %>">
         <strong id="following">
           <%= human_number @user.alerts_count %>
         </strong>
       updates
-    </a><br>  
-  
-  <% else %>
-  
-     <%= image_tag("othericons/writerevicon.png") %> <a href="<%= user_path(@user) %>">
-        <strong id="following">
-          <%= render "shared/reviewcounter" %>
-        </strong>
-      reviews
-    </a><br>
+      </a>
+    </div>
 
-      <div class="points">
-        <%= image_tag("othericons/rsz_pcount.png") %> <%= render "shared/pointcounter" %> <div class="pointz">votes</div> <br >
-      </div>  
+    <div class="col-xs-6">
+      <%= image_tag("othericons/followers.png") %> <a href="<%= followers_path(@user) %>">
+          <strong id="followers">
+            <%= human_number @user.followers.count %>
+          </strong>
+        followers
+      </a>
+    </div>
 
-    <%= image_tag("othericons/following.png") %> <a href="<%= following_path(@user) %>">
+  </div>  
+<% else %>
+  <hr>
+  <div class="row">
+
+    <div class="col-xs-6">
+      <%= image_tag("othericons/writerevicon.png") %> <a href="<%= user_path(@user) %>">
+          <strong id="following">
+            <%= render "shared/reviewcounter" %>
+          </strong>
+        reviews
+      </a>
+    </div>
+
+    <div class="col-xs-6">
+        <div class="points">
+          <%= image_tag("othericons/rsz_pcount.png") %> <%= render "shared/pointcounter" %> <div class="pointz">votes</div> <br >
+        </div>
+    </div>
+
+  </div>
+  
+  <hr>
+  <div class="row">
+
+    <div class="col-xs-6">
+      <%= image_tag("othericons/following.png") %> <a href="<%= following_path(@user) %>">
         <strong id="following">
           <%= human_number @user.followed_users.count %>
         </strong>
       following
-      </a> 
-    <br>
-  
-  <% end %>
-  
-  <%= image_tag("othericons/followers.png") %> <a href="<%= followers_path(@user) %>">
-      <strong id="followers">
-        <%= human_number @user.followers.count %>
-      </strong>
-    followers
-  </a>
-  <br>
+      </a>
+    </div>
+
+    <div class="col-xs-6">
+      <%= image_tag("othericons/followers.png") %> <a href="<%= followers_path(@user) %>">
+          <strong id="followers">
+            <%= human_number @user.followers.count %>
+          </strong>
+        followers
+      </a>
+    </div>
+
+  </div>  
+<% end %>
   
 </div>

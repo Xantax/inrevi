@@ -26,7 +26,7 @@
             <%= image_tag("othericons/PhotoShow.PNG") %> (profile photo)
             <%= f.file_field :image, :class => "podcastnew" %><br><br>
       
-            <%= f.submit "Create my account", class: "btn btn-large btn-default", :onclick => "this.disabled = true" %> 
+            <%= f.submit "Create my account", class: "btn btn-large btn-default", data: { disable_with: "Creating..." } %> 
 
           <%= f.hidden_field :provider, :value => "email" %>
 

@@ -31,12 +31,8 @@
       <br>
     
       <div class="actions">
-        <%= f.submit " Submit ", :class => "btn btn-default", :id => "submit" %>
+        <%= f.submit " Submit ", :class => "btn btn-default", :id => "submit", data: { disable_with: "Uploading..." } %>
       </div><br>
-    
-      <div id="loading2" class="loadinggif" style="display:none;"><img src="/assets/othericons/uploading.gif" alt="" /></div>
-      
-      <div class="row dumb300"></div>
 
       <%= f.hidden_field :book_id, :value => @book.id if @book.id.present? %>
       <%= f.hidden_field :book_name, :value => @book.title if @book.title.present? %>
@@ -57,15 +53,6 @@
     return console.log(score);
   }
 });
-</script>
-
-<script type="text/javascript">
-(function (d) {
-  d.getElementById('new_book_review').onsubmit = function () {
-    d.getElementById('submit').style.display = 'block';
-    d.getElementById('loading2').style.display = 'block';
-  };
-}(document));
 </script>
 
 <script type="text/javascript">
