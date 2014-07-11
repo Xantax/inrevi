@@ -20,15 +20,15 @@
             <%= movie.title.truncate(50, omission: '...') %> (<%= movie.release_date.to_date.try(:year) %>) <br>
 
               <% if movie.comments.count >= 1 %>
-                <div class="numberOneindex">
-                  <%= ((movie.comments.inject(0) { |sum, e| sum += e.point }).to_f / movie.comments.count).round(1) rescue 0 %>
-                </div><br>
+                <hr>
+                  <b><%= ((movie.comments.inject(0) { |sum, e| sum += e.point }).to_f / movie.comments.count).round(1) rescue 0 %></b>
+                <hr>
               <% end %><br>
 
               <% if movie.poster_path.blank? %>
                 <%= image_tag("no-image.png") %>
               <% else %>
-              <%= image_tag("#{@configuration.base_url}w154#{movie.poster_path}", height: "150") %>
+                <%= image_tag("#{@configuration.base_url}w154#{movie.poster_path}", height: "150") %>
               <% end %>
 
           <% end %> 

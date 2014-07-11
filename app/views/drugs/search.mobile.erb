@@ -15,17 +15,17 @@
           No results! Try something else or <b><%= link_to "+ Add new", new_drug_path() %></b>
    <% else %>
      <% @drugs.each do |drug| %>
-          <hr>
+
           <%= link_to drug.name.truncate(50, omission: '...'), drug %><br>
 
          <% if drug.drug_reviews.count >= 1 %>
-           <div class="numberOneindex">
-             <%= ((drug.drug_reviews.inject(0) { |sum, e| sum += e.point }).to_f / drug.drug_reviews_count).round(1) rescue 0 %>
-          </div>
+           <hr>
+             <b><%= ((drug.drug_reviews.inject(0) { |sum, e| sum += e.point }).to_f / drug.drug_reviews_count).round(1) rescue 0 %></b>
+           <hr>
         <% end %><br>
-
-          <%= image_tag drug.image_url(:thumb) if drug.image? %>           
+          <%= link_to image_tag(drug.image_url(:thumb)), drug if drug.image? %>           
        <% end %>
+      <hr>
       
           <div class="digg_pagination">
             <%= will_paginate @drugs %>

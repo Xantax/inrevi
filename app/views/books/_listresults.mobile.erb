@@ -6,20 +6,20 @@
               </div>
 
               <% if book.comments.count >= 1 %>
-                 <div class="numberOneindex">
-                   <%= ((book.comments.inject(0) { |sum, e| sum += e.point }).to_f / book.comments.count).round(1) rescue 0 %>
-                 </div><br>
+                 <hr>
+                   <b><%= ((book.comments.inject(0) { |sum, e| sum += e.point }).to_f / book.comments.count).round(1) rescue 0 %></b>
+                 <hr>
               <% end %>
 
               <% if book.image_link.present? %>
-                <%= image_tag book.image_link, height: "160" %>
+                <%= link_to image_tag(book.image_link, height: "160"), book_path(book.id) %>
               <% else %>
                <%= image_tag('noimage.PNG') %>
               <% end %>
 
         <% end %>
   <% end %>
+
 <hr>
 <%= render 'paginate' %>
-
-<br>
+<br><br>

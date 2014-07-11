@@ -15,17 +15,17 @@
           No results! Try something else or <b><%= link_to "+ Add new", new_fineart_path() %></b>
    <% else %>
       <% @finearts.each do |fineart| %>
-            <hr>
+            
                 <%= link_to fineart.name.truncate(50, omission: '...'), fineart %><br>
 
                 <% if fineart.fineart_reviews.count >= 1 %>
-                 <div class="numberOneindex">
-                     <%= ((fineart.fineart_reviews.inject(0) { |sum, e| sum += e.point }).to_f / fineart.fineart_reviews_count).round(1) rescue 0 %>
-                 </div>
+                 <hr>
+                     <b><%= ((fineart.fineart_reviews.inject(0) { |sum, e| sum += e.point }).to_f / fineart.fineart_reviews_count).round(1) rescue 0 %></b>
+                 <hr>
                 <% end %><br>
 
-               <%= image_tag fineart.image_url(:thumb) if fineart.image? %>
-
+               <%= link_to image_tag(fineart.image_url(:thumb)), fineart if fineart.image? %>
+          <hr>
         <% end %>
       
           <div class="digg_pagination">

@@ -16,17 +16,16 @@
           No results! Try something else or <b><%= link_to "+ Add new", new_tech_path() %></b>
    <% else %>
       <% @teches.each do |tech| %>
-            <hr>
-                <%= link_to tech.name.truncate(50, omission: '...'), tech %><br>
+            
+                <%= link_to tech.name.truncate(50, omission: '...'), tech %><hr>
 
               <% if tech.tech_reviews.count >= 1 %>
-               <div class="numberOneindex">
-                 <%= ((tech.tech_reviews.inject(0) { |sum, e| sum += e.point }).to_f / tech.tech_reviews_count).round(1) rescue 0 %>
-               </div>
-              <% end %><br>
+                 <b><%= ((tech.tech_reviews.inject(0) { |sum, e| sum += e.point }).to_f / tech.tech_reviews_count).round(1) rescue 0 %></b>
+               <hr>
+              <% end %>
 
-               <%= image_tag tech.image_url(:thumb) if tech.image? %>
-
+               <%= link_to image_tag(tech.image_url(:thumb)), tech if tech.image? %>
+           <hr>
         <% end %>
       
           <div class="digg_pagination">

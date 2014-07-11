@@ -16,17 +16,16 @@
           No results! Try something else or <b><%= link_to "+ Add new", new_recipe_path() %></b>
    <% else %>
       <% @recipes.each do |recipe| %>
-            <hr>
-                <%= link_to recipe.name.truncate(50, omission: '...'), recipe %><br>
+            
+                <%= link_to recipe.name.truncate(50, omission: '...'), recipe %><hr>
 
                 <% if recipe.recipe_reviews.count >= 1 %>
-                 <div class="numberOneindex">
-                     <%= ((recipe.recipe_reviews.inject(0) { |sum, e| sum += e.point }).to_f / recipe.recipe_reviews_count).round(1) rescue 0 %>
-                 </div>
-                <% end %><br>
+                     <b><%= ((recipe.recipe_reviews.inject(0) { |sum, e| sum += e.point }).to_f / recipe.recipe_reviews_count).round(1) rescue 0 %></b>
+                 <hr>
+                <% end %>
 
-               <%= image_tag recipe.image_url(:thumb) if recipe.image? %>
-
+               <%= link_to image_tag(recipe.image_url(:thumb)), recipe if recipe.image? %>
+          <hr>
         <% end %>
       
           <div class="digg_pagination">

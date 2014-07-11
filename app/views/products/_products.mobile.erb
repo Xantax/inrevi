@@ -3,12 +3,12 @@
       <% sem3_id = product['sem3_id'] %>
       <%= link_to product['name'].truncate(100, omission: '...'), eval("#{@resource_type.to_s}_path('#{sem3_id}')") %><br><br>
 
-      <% if product.product_comments_count >= 1 %>
-       <div class="numberOneindex">
-         <%= ((product.product_comments.inject(0) { |sum, e| sum += e.point }).to_f / product.product_comments_count).round(1) rescue 0 %>
-       </div><br>
-      <% end %>
+  <% if product.product_comments_count >= 1 %>
+   <hr>
+     <b><%= ((product.product_comments.inject(0) { |sum, e| sum += e.point }).to_f / product.product_comments_count).round(1) rescue 0 %></b>
+   <hr>
+  <% end %>
         <% image_url = product['images'].first %>        
-        <%= image_tag(image_url, width: 150) %><hr>
+        <%= link_to image_tag(image_url, width: 150), eval("#{@resource_type.to_s}_path('#{sem3_id}')") %><hr>
    
 <% end %>

@@ -16,17 +16,17 @@
     No results! Try something else or <b><%= link_to "+ Add new", new_auto_path() %></b>
    <% else %>
   <% @autos.each do |auto| %>
-      <hr>           
-      <%= link_to auto.name.truncate(50, omission: '...'), auto %><br>
+           
+      <%= link_to auto.name.truncate(50, omission: '...'), auto %><hr>
 
      <% if auto.auto_reviews.count >= 1 %>
-        <div class="numberOneindex">
-          <%= ((auto.auto_reviews.inject(0) { |sum, e| sum += e.point }).to_f / auto.auto_reviews_count).round(1) rescue 0 %>
+        <div align="center">
+          <b><%= ((auto.auto_reviews.inject(0) { |sum, e| sum += e.point }).to_f / auto.auto_reviews_count).round(1) rescue 0 %></b>
         </div>
-     <% end %>
+     <% end %><hr>
 
       <%= image_tag auto.image_url(:thumb) if auto.image? %>
-      
+      <hr>
   <% end %>
 
           <div class="digg_pagination">

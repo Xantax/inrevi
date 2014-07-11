@@ -4,10 +4,11 @@
   <% previous_page = page.to_i - 1 %>
   <% total_page = (@products['total_results_count'].to_f/ Product::PER_PAGE).ceil %>
   <% if previous_page > 0 %>
-    <%= link_to "Previous Page", eval("#{@resource_type.to_s.pluralize}_search_path(#{params.merge(page: page.to_i - 1)})") %>
+    <%= link_to image_tag("othericons/backarrow.PNG"), eval("#{@resource_type.to_s.pluralize}_search_path(#{params.merge(page: page.to_i - 1)})") %>
   <% end %>
   <%= "Page #{page}/#{total_page}" %>
   <% if next_page <= total_page %>
-    <%= link_to "Next Page", eval("#{@resource_type.to_s.pluralize}_search_path(#{params.merge(page: page.to_i + 1)})") %>
+    <%= link_to image_tag("othericons/nextarrow.PNG"), eval("#{@resource_type.to_s.pluralize}_search_path(#{params.merge(page: page.to_i + 1)})") %>
   <% end %>
 </div>
+<br><br>
