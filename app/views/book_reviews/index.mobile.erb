@@ -2,59 +2,65 @@
   <div class="noreviewsonindex">No reviews yet :( </div>
 <% else %>
   <% @book_reviews.each do |book_review| %><br>
+
+<div class="row">
+
       <% if book_review.user.provider == "facebook" %>
-          <div class="mobile-activity-photo">
+          <div class="col-xs-3">
             <%= image_tag(book_review.user.image_auth, width: "50") %>
-          </div> 
-            <div class="reviewname mobile">     
+          </div>
+          <div class="col-xs-6" align="left">    
               <%= link_to user_path(book_review.user) do %> 
                 <%= book_review.user.first_name %>
                 <%= book_review.user.last_name.truncate(2, omission: '.')%>
               <% end %>
-            </div>
+          </div>
 
       <% elsif book_review.user.provider == "google_oauth2" %>
-          <div class="mobile-activity-photo">
+          <div class="col-xs-3">
             <%= image_tag(book_review.user.image_auth, width: "50") %>
-          </div> 
-            <div class="reviewname mobile">     
+          </div>
+          <div class="col-xs-6" align="left">    
               <%= link_to user_path(book_review.user) do %> 
                 <%= book_review.user.first_name %>
                 <%= book_review.user.last_name.truncate(2, omission: '.')%>
               <% end %>
-            </div>
-
+          </div>
+            
       <% elsif book_review.user.provider == "email" %>
-          <div class="mobile-activity-photo">
+          <div class="col-xs-3">
             <%= image_tag(book_review.user.image, width: "50") %>
-          </div> 
-            <div class="reviewname mobile">     
+          </div>
+          <div class="col-xs-6" align="left">    
               <%= link_to user_path(book_review.user) do %> 
                 <%= book_review.user.name %>
               <% end %>
-            </div> 
-
+          </div>
+            
       <% elsif book_review.user.provider == "twitter" %>
-          <div class="mobile-activity-photo">
+          <div class="col-xs-3">
             <%= image_tag(book_review.user.image_auth, width: "50") %>
-          </div> 
-            <div class="reviewname mobile">     
+          </div>
+          <div class="col-xs-6" align="left">    
               <%= link_to user_path(book_review.user) do %> 
                 <%= book_review.user.name %>
               <% end %>
-            </div>
-
+          </div>
+            
       <% end %>
 
-
-       <br>
-         <div class="separatereview">
-           
+          <div class="col-xs-3">
             <div class="numberOne">
               <%= book_review.point %>
-            </div><br><br>
+            </div>
+          </div>
+  
+</div>  
+
+         <br>
+         <div class="separatereview">
            
-          <div class="reviewcontent"><%= simple_format(book_review.content) %></div>
+          <div class="reviewcontent mobile" align="left"><%= simple_format(book_review.content) %></div>
            
                 <% book_review.review_images.each do |pic| %>
                      <%= link_to image_tag(pic.image_url(:thumb), width: 50), pic.image_url, target: :_blank if pic.image?  %>

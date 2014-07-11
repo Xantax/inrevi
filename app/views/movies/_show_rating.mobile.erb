@@ -1,8 +1,5 @@
  <% unless @avg_score == 0.0 %>  
-<hr>
-        <div class="reviewnumberscore mobile">
-           <%= @avg_score ? @avg_score.round(1) : 0 %>
-         </div>
-          (<%= @movie.comments.count %>)
+    <b><%= @avg_score ? @avg_score.round(1) : 0 %></b>
+    (<%= @movie.comments.count %>)
 <hr>
   <% end %>

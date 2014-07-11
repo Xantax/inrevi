@@ -1,8 +1,5 @@
- <% unless @avg_score == 0.0 %>  
+<% unless @avg_score == 0.0 %>  
 <hr>
-        <div class="reviewnumberscore mobile">
-           <%= @avg_score ? @avg_score.round(1) : 0 %>
-         </div>
-        (<%= @book.comments.count %>)
-<hr>
-  <% end %>
+  <b><%= @avg_score ? @avg_score.round(1) : 0 %></b>
+  (<%= @book.comments.count %>)
+<% end %>

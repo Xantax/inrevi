@@ -2,11 +2,14 @@
   <div class="noreviewsonindex">No reviews yet :( </div>
 <% else %>
 <% @tech_reviews.each do |tech_review| %><br>
+
+<div class="row">
+
       <% if tech_review.user.provider == "facebook" %>
-          <div class="mobile-activity-photo">
+          <div class="col-xs-3">          
             <%= image_tag(tech_review.user.image_auth, width: "50") %>
           </div> 
-            <div class="reviewname mobile">     
+            <div class="col-xs-6" align="left">            
               <%= link_to user_path(tech_review.user) do %> 
                 <%= tech_review.user.first_name %>
                 <%= tech_review.user.last_name.truncate(2, omission: '.')%>
@@ -14,10 +17,10 @@
             </div>
 
       <% elsif tech_review.user.provider == "google_oauth2" %>
-          <div class="mobile-activity-photo">
+          <div class="col-xs-3">          
             <%= image_tag(tech_review.user.image_auth, width: "50") %>
           </div> 
-            <div class="reviewname mobile">     
+            <div class="col-xs-6" align="left">               
               <%= link_to user_path(tech_review.user) do %> 
                 <%= tech_review.user.first_name %>
                 <%= tech_review.user.last_name.truncate(2, omission: '.')%>
@@ -25,20 +28,20 @@
             </div>
 
       <% elsif tech_review.user.provider == "email" %>
-          <div class="mobile-activity-photo">
+          <div class="col-xs-3">          
             <%= image_tag(tech_review.user.image, width: "50") %>
           </div> 
-            <div class="reviewname mobile">     
+            <div class="col-xs-6" align="left">              
               <%= link_to user_path(tech_review.user) do %> 
                 <%= tech_review.user.name %>
               <% end %>
             </div> 
 
       <% elsif tech_review.user.provider == "twitter" %>
-          <div class="mobile-activity-photo">
+          <div class="col-xs-3">          
             <%= image_tag(tech_review.user.image_auth, width: "50") %>
           </div> 
-            <div class="reviewname mobile">     
+            <div class="col-xs-6" align="left">              
               <%= link_to user_path(tech_review.user) do %> 
                 <%= tech_review.user.name %>
               <% end %>
@@ -46,15 +49,18 @@
 
       <% end %>
 
-
-       <br>
-         <div class="separatereview">
-           
+          <div class="col-xs-3">
             <div class="numberOne">
               <%= tech_review.point %>
-            </div><br><br>
+            </div>
+          </div>
+  
+</div>
+
+         <br>
+         <div class="separatereview">
            
-          <div class="reviewcontent"><%= simple_format(tech_review.content) %></div>
+          <div class="reviewcontent mobile" align="left"><%= simple_format(tech_review.content) %></div>
            
                 <% tech_review.review_images.each do |pic| %>
                      <%= link_to image_tag(pic.image_url(:thumb), width: 50), pic.image_url, target: :_blank if pic.image?  %>

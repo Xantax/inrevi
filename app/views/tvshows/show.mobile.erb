@@ -1,15 +1,19 @@
 <% provide(:title, "#{@tvshow.name} Reviews") %>
 <hr>
-      <div class="movtitle">
-        <%= link_to @tvshow.name, tvshow_path(@tvshow.id) %>
-      </div>
-      <%= render 'show_rating' %><br>
+    <b><%= link_to @tvshow.name, tvshow_path(@tvshow.id) %></b><br><br>
 
+  <div class="row">
+    
+    <div class="col-xs-6">
       <% if @tvshow.poster_path.blank? %>
         <%= image_tag("no-image.png") %>
       <% else %>
         <%= image_tag("#{@configuration.base_url}w92#{@tvshow.poster_path}") %>
-      <% end %><br>
+      <% end %>
+    </div>
+
+    <div class="col-xs-6" align="left"> 
+      <%= render 'show_rating' %>
 
       <% unless @tvshow.episode_run_time.blank? %>
         <%= image_tag("localicons/clockicon.PNG", height: '14', width: '14') %>
@@ -18,30 +22,28 @@
         <% end %><br>
       <% end %>
       
-      <% if @tvshow.genres.blank? %>
-      <% else %>
+      <% unless @tvshow.genres.blank? %>
         <b>Genres:</b>
         <% @tvshow.genres.each do |genre| %>
           <%= genre['name'] %>.
-        <% end %><br>
+        <% end %><hr>
       <% end %>
-
+      
           <%= image_tag('othericons/cart_icon.png') %>   
-            <a target="_blank" href="http://www.amazon.com/gp/search?ie=UTF8&camp=1789&creative=9325&index=dvd&keywords=<%= @tvshow.name %>&linkCode=ur2&tag=movtop0c-20&linkId=F6RC34QQ6YU2Y7AW">Buy it</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=movtop0c-20&l=ur2&o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
-<br><br>
+          <a target="_blank" href="http://www.amazon.com/gp/search?ie=UTF8&camp=1789&creative=9325&index=dvd&keywords=<%= @tvshow.name %>&linkCode=ur2&tag=movtop0c-20&linkId=F6RC34QQ6YU2Y7AW">Buy it</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=movtop0c-20&l=ur2&o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />      
+      
+    </div>
 
-        <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
-        <div class="writeareview mobile">
-          <%= link_to "Write a Review", new_tvshow_tvshow_review_path(@tvshow.id) %>
-        </div><hr>
-
-
-    <% if @promotion.present? && @promotion.tvshow %>
-        <div class="row showpromotion">
-          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
-        </div>
-    <% end %>
-
-  <div class="row"> 
-    <%= render :file => '/tvshow_reviews/index' %>
   </div>
+
+<hr>
+
+        <div class="writeareview mobile">
+          <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+          <%= link_to "Write a Review", new_tvshow_tvshow_review_path(@tvshow.id) %>
+        </div>
+
+
+    <div class="row"> 
+      <%= render :file => '/tvshow_reviews/index' %>
+    </div>

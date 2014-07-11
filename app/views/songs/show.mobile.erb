@@ -10,16 +10,10 @@
             
             <iframe allowtransparency="true" frameborder="0" height="80" src="https://embed.spotify.com/?uri=<%= @song.uri %>" width="250"></iframe><br><br>
 
-            <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
             <div class="writeareview mobile">
+              <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
               <%= link_to "Write a Review", new_song_song_review_path(@song.uri) %>
-            </div><hr>
-
-    <% if @promotion.present? && @promotion.music %>
-        <div class="row showpromotion">
-          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
-        </div>
-    <% end %>
+            </div>
 
   <div class="row"> 
     <%= render :file => '/song_reviews/index' %>

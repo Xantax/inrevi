@@ -1,23 +1,30 @@
 <% provide(:title, "#{@tech.name} Reviews") %>
 
 <hr>
-    <div class="item-name-mobile">
-      <%= link_to @tech.name.truncate(80, omission: '...'), tech_path(@tech) %>
+
+  <%= link_to @tech.name.truncate(80, omission: '...'), tech_path(@tech) %><br><br>
+
+  <div class="row">
+    
+    <div class="col-xs-6">
+      <%= link_to image_tag(@tech.image_url(:thumb)), @tech.image_url, target: :_blank if @tech.image? %>
     </div>
+
+    <div class="col-xs-6" align="left"> 
       <%= render 'show_rating' %>
-    <%= link_to image_tag(@tech.image_url(:thumb)), @tech.image_url, target: :_blank if @tech.image? %> <br>
-    <b>categories:</b> <%= raw @tech.tags.map(&:name).map { |t| t }.join(', ') %><br>
+      <div class="podinfo">
+        <b>categories:</b> <%= raw @tech.tags.map(&:name).map { |t| t }.join(', ') %>  
+      </div>
+    </div>
 
-    <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+  </div>
+
+<hr>
+
     <div class="writeareview mobile">
+      <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
       <%= link_to "Write a Review", new_tech_tech_review_path(@tech) %>
-    </div><hr>
-
-    <% if @promotion.present? && @promotion.tech %>
-        <div class="row showpromotion">
-          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
-        </div>
-    <% end %>
+    </div>
 
   <div class="row"> 
     <%= render :file => '/tech_reviews/index' %>

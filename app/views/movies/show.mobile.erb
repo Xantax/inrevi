@@ -1,38 +1,44 @@
 <% provide(:title, "#{@movie.title} Reviews") %>
 
 <hr>
-      <div class="movtitle">
-        <%= link_to @movie.title, movie_path(@movie.id) %> (<%= @movie.release_date.to_date.try(:year) %>)
+    <b><%= link_to @movie.title, movie_path(@movie.id) %></b> (<%= @movie.release_date.to_date.try(:year) %>)<br><br>
+
+  <div class="row">
+
+    <div class="col-xs-6">
+      <div class="movieposter">      
+          <% if @movie.poster_path.blank? %>
+            <%= image_tag("no-image.png") %>
+          <% else %>
+            <%= image_tag("#{@configuration.base_url}w92#{@movie.poster_path}") %>
+          <% end %>      
       </div>
+    </div>
 
-    <%= render 'show_rating' %>
+    <div class="col-xs-6" align="left"> 
+      <%= render 'show_rating' %>
 
-    <div class="movieposter">      
-        <% if @movie.poster_path.blank? %>
-          <%= image_tag("no-image.png") %>
-        <% else %>
-          <%= image_tag("#{@configuration.base_url}w92#{@movie.poster_path}") %>
-        <% end %>      
-     </div>
-      
-      <% unless @trailers['youtube'].blank? %>
-        <%= image_tag("othericons/playicon.PNG", height: '14', width: '14') %>
-        <% @trailers['youtube'].first(1).each do |trailer| %>
-          <%= link_to "Trailer", "http://www.youtube.com/watch?v=#{trailer['source']}", :target => "_blank" %><br />
+        <% unless @trailers['youtube'].blank? %>
+          <%= image_tag("othericons/playicon.PNG", height: '14', width: '14') %>
+          <% @trailers['youtube'].first(1).each do |trailer| %>
+            <%= link_to "Trailer", "http://www.youtube.com/watch?v=#{trailer['source']}", :target => "_blank" %><br />
+          <% end %>
         <% end %>
-      <% end %>
-      
-      <% unless @movie.runtime.nil? %>
-        <%= image_tag("localicons/clockicon.PNG", height: '14', width: '14') %>
-        <%= @movie.runtime %> min. <br>
-      <% end %>
-      
-      <% unless @movie.genres.blank? %>
-        <b>Genres:</b>
-        <% @movie.genres.each do |genre| %>
-        <div class="moviegenres"><%= genre['name'] %>.</div>
-        <% end %><br>
-      <% end %><br>
+
+          <%= image_tag("localicons/clockicon.PNG", height: '14', width: '14') %>
+          <%= @movie.runtime unless @movie.runtime.nil? %> min. <br>
+
+        <% unless @movie.genres.blank? %>
+          <b>Genres:</b>
+          <% @movie.genres.each do |genre| %>
+          <div class="moviegenres"><%= genre['name'] %>.</div>
+          <% end %>
+        <% end %>
+    </div>
+
+  </div>
+
+<hr>
 
     <div class="row">
       <div class="col-xs-6">
@@ -41,29 +47,23 @@
       </div>
       <div class="col-xs-6">
         <div class="r-clickfeature">
-          <%= link_to "Overview", "#" %><br><br>
+          <%= link_to "Overview", "#" %>
         </div>
       </div>
     </div><hr>
 
-        <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
         <div class="writeareview mobile">
+          <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
           <%= link_to "Write a Review", new_movie_movie_review_path(@movie.id) %>
-        </div><hr>
-
-<div class="r-productfeature">
-  <%= simple_format(@movie.overview) if @movie.overview.present? %><hr>
-</div>
-
-    <% if @promotion.present? && @promotion.movie %>
-        <div class="row showpromotion">
-          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
         </div>
-    <% end %>
 
-  <div class="row"> 
-    <%= render :file => '/movie_reviews/index' %>
-  </div>
+    <div class="r-productfeature">
+      <%= simple_format(@movie.overview) if @movie.overview.present? %><hr>
+    </div>
+
+    <div class="row"> 
+      <%= render :file => '/movie_reviews/index' %>
+    </div>
 
 <script type="text/javascript">
   $('.r-clickfeature').on('click', function(e) {

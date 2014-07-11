@@ -1,34 +1,45 @@
 <% provide(:title, "#{@auto.name} Reviews") %>
 
-    <hr>
-    <div class="item-name-mobile">
-      <%= link_to @auto.name.truncate(80, omission: '...'), auto_path(@auto) %>
+<hr>
+
+  <div class="row">
+    
+    <div class="col-xs-7">
+      <%= link_to image_tag(@auto.image_url(:thumb)), @auto.image_url, target: :_blank if @auto.image? %>
     </div>
-      <%= render 'show_rating' %>
-    <%= link_to image_tag(@auto.image_url(:thumb)), @auto.image_url, target: :_blank if @auto.image? %> <br>
 
-      <div class="r-clickfeature" id="additional-mobile">
-        <%= link_to "additional info", "#" %><br><br>
-      </div>
-    
-    <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
-    <div class="writeareview mobile">
-      <%= link_to "Write a Review", new_auto_auto_review_path(@auto) %>
-    </div><hr>
-    
-<div class="r-productfeature">
-  <%= simple_format(@auto.additionalinfo) if @auto.additionalinfo.present? %><hr>
-</div>
-
-    <% if @promotion.present? && @promotion.auto %>
-        <div class="row showpromotion">
-          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
+    <div class="col-xs-5"> 
+      <b><%= link_to @auto.name.truncate(80, omission: '...'), auto_path(@auto) %></b><hr>
+      
+        <div class="row">
+          <div class="col-xs-6"> 
+            <%= render 'show_rating' %>
+          </div> 
+          <div class="col-xs-6">
+            <div class="r-clickfeature" id="additional-mobile">
+                <%= link_to "info", "#" %>
+            </div>
+          </div>
         </div>
-    <% end %>
+      
+    </div>
 
-  <div class="row"> 
-    <%= render :file => '/auto_reviews/index' %>
   </div>
+
+<hr> 
+   
+    <div class="writeareview mobile">
+      <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+      <%= link_to "Write a Review", new_auto_auto_review_path(@auto) %>
+    </div>
+    
+    <div class="r-productfeature">
+      <%= simple_format(@auto.additionalinfo) if @auto.additionalinfo.present? %><hr>
+    </div>
+
+    <div class="row"> 
+      <%= render :file => '/auto_reviews/index' %>
+    </div>
 
 <script type="text/javascript">
   $('.r-clickfeature').on('click', function(e) {

@@ -2,11 +2,14 @@
   <div class="noreviewsonindex">No reviews yet :( </div>
 <% else %>
   <% @local_reviews.each do |local_review| %><br>
+
+<div class="row">
+
       <% if local_review.user.provider == "facebook" %>
-          <div class="mobile-activity-photo">
+          <div class="col-xs-3">
             <%= image_tag(local_review.user.image_auth, width: "50") %>
           </div> 
-            <div class="reviewname mobile">     
+            <div class="col-xs-6" align="left">  
               <%= link_to user_path(local_review.user) do %> 
                 <%= local_review.user.first_name %>
                 <%= local_review.user.last_name.truncate(2, omission: '.')%>
@@ -14,10 +17,10 @@
             </div>
 
       <% elsif local_review.user.provider == "google_oauth2" %>
-          <div class="mobile-activity-photo">
+          <div class="col-xs-3">
             <%= image_tag(local_review.user.image_auth, width: "50") %>
           </div> 
-            <div class="reviewname mobile">     
+            <div class="col-xs-6" align="left">
               <%= link_to user_path(local_review.user) do %> 
                 <%= local_review.user.first_name %>
                 <%= local_review.user.last_name.truncate(2, omission: '.')%>
@@ -25,35 +28,39 @@
             </div>
 
       <% elsif local_review.user.provider == "email" %>
-          <div class="mobile-activity-photo">
+          <div class="col-xs-3">
             <%= image_tag(local_review.user.image, width: "50") %>
           </div> 
-            <div class="reviewname mobile">     
+            <div class="col-xs-6" align="left">
               <%= link_to user_path(local_review.user) do %> 
                 <%= local_review.user.name %>
               <% end %>
             </div> 
 
       <% elsif local_review.user.provider == "twitter" %>
-          <div class="mobile-activity-photo">
+          <div class="col-xs-3">
             <%= image_tag(local_review.user.image_auth, width: "50") %>
           </div> 
-            <div class="reviewname mobile">     
+            <div class="col-xs-6" align="left">   
               <%= link_to user_path(local_review.user) do %> 
                 <%= local_review.user.name %>
               <% end %>
             </div>
 
       <% end %>  
-
-       <br>
-         <div class="separatereview">
-           
+  
+          <div class="col-xs-3">
             <div class="numberOne">
               <%= local_review.point %>
-            </div><br><br>
+            </div>
+          </div>
+
+</div>
+
+         <br>
+         <div class="separatereview">
            
-          <div class="reviewcontent"><%= simple_format(local_review.content) %></div>
+          <div class="reviewcontent mobile" align="left"><%= simple_format(local_review.content) %></div>
            
                 <% local_review.review_images.each do |pic| %>
                      <%= link_to image_tag(pic.image_url(:thumb), width: 50), pic.image_url, target: :_blank if pic.image?  %>

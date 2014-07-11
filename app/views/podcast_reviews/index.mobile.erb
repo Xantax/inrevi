@@ -2,11 +2,14 @@
   <div class="noreviewsonindex">No reviews yet :( </div>
 <% else %>
 <% @podcast_reviews.each do |podcast_review| %><br>
+
+<div class="row">
+
       <% if podcast_review.user.provider == "facebook" %>
-          <div class="mobile-activity-photo">
+          <div class="col-xs-3">          
             <%= image_tag(podcast_review.user.image_auth, width: "50") %>
           </div> 
-            <div class="reviewname mobile">     
+            <div class="col-xs-6" align="left">             
               <%= link_to user_path(podcast_review.user) do %> 
                 <%= podcast_review.user.first_name %>
                 <%= podcast_review.user.last_name.truncate(2, omission: '.')%>
@@ -14,10 +17,10 @@
             </div>
 
       <% elsif podcast_review.user.provider == "google_oauth2" %>
-          <div class="mobile-activity-photo">
+          <div class="col-xs-3">          
             <%= image_tag(podcast_review.user.image_auth, width: "50") %>
           </div> 
-            <div class="reviewname mobile">     
+            <div class="col-xs-6" align="left">              
               <%= link_to user_path(podcast_review.user) do %> 
                 <%= podcast_review.user.first_name %>
                 <%= podcast_review.user.last_name.truncate(2, omission: '.')%>
@@ -25,20 +28,20 @@
             </div>
 
       <% elsif podcast_review.user.provider == "email" %>
-          <div class="mobile-activity-photo">
+          <div class="col-xs-3">          
             <%= image_tag(podcast_review.user.image, width: "50") %>
           </div> 
-            <div class="reviewname mobile">     
+            <div class="col-xs-6" align="left">                
               <%= link_to user_path(podcast_review.user) do %> 
                 <%= podcast_review.user.name %>
               <% end %>
             </div> 
 
       <% elsif podcast_review.user.provider == "twitter" %>
-          <div class="mobile-activity-photo">
+          <div class="col-xs-3">          
             <%= image_tag(podcast_review.user.image_auth, width: "50") %>
           </div> 
-            <div class="reviewname mobile">     
+            <div class="col-xs-6" align="left">                
               <%= link_to user_path(podcast_review.user) do %> 
                 <%= podcast_review.user.name %>
               <% end %>
@@ -46,15 +49,18 @@
 
       <% end %>  
 
-
-       <br>
-         <div class="separatereview">
-           
+          <div class="col-xs-3">
             <div class="numberOne">
               <%= podcast_review.point %>
-            </div><br><br>
+            </div>
+          </div>
+
+</div>
+
+         <br>
+         <div class="separatereview">
            
-          <div class="reviewcontent"><%= simple_format(podcast_review.content) %></div>
+          <div class="reviewcontent mobile" align="left"><%= simple_format(podcast_review.content) %></div>
            
                 <% podcast_review.review_images.each do |pic| %>
                      <%= link_to image_tag(pic.image_url(:thumb), width: 50), pic.image_url, target: :_blank if pic.image?  %>

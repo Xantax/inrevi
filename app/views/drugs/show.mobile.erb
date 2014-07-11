@@ -1,33 +1,46 @@
 <% provide(:title, "#{@drug.name} Reviews") %>
-    <hr>
-    <div class="item-name-mobile">
-      <%= link_to @drug.name.truncate(80, omission: '...'), drug_path(@drug) %>
+
+<hr>
+
+  <div class="row">
+    
+    <div class="col-xs-6">
+      <%= link_to image_tag(@drug.image_url(:thumb)), @drug.image_url, target: :_blank if @drug.image? %>
     </div>
-      <%= render 'show_rating' %>
-    <%= link_to image_tag(@drug.image_url(:thumb)), @drug.image_url, target: :_blank if @drug.image? %> <br>
 
-      <div class="r-clickfeature" id="additional-mobile">
-        <%= link_to "additional info", "#" if @drug.additionalinfo.present? %><br><br>
-      </div>
-    
-    <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
-    <div class="writeareview mobile">
-      <%= link_to "Write a Review", new_drug_drug_review_path(@drug) %>
-    </div><hr>
-    
-<div class="r-productfeature">
-  <%= simple_format(@drug.additionalinfo) if @drug.additionalinfo.present? %><hr>
-</div>
-
-    <% if @promotion.present? && @promotion.drug %>
-        <div class="row showpromotion">
-          <a href="<%= @promotion.link %>" target="_blank"><%= @promotion.text %></a> 
+    <div class="col-xs-6"> 
+      
+      <b><%= link_to @drug.name.truncate(80, omission: '...'), drug_path(@drug) %></b><hr>
+      
+        <div class="row">
+          <div class="col-xs-6"> 
+            <%= render 'show_rating' %>
+          </div> 
+          <div class="col-xs-6">
+            <div class="r-clickfeature" id="additional-mobile">
+                <%= link_to "info", "#" if @drug.additionalinfo.present? %>
+            </div>
+          </div>
         </div>
-    <% end %>
+      
+    </div>
 
-  <div class="row"> 
-    <%= render :file => '/drug_reviews/index' %>
   </div>
+
+<hr>
+
+    <div class="writeareview mobile">
+      <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
+      <%= link_to "Write a Review", new_drug_drug_review_path(@drug) %>
+    </div>
+    
+    <div class="r-productfeature">
+      <%= simple_format(@drug.additionalinfo) if @drug.additionalinfo.present? %><hr>
+    </div>
+
+    <div class="row"> 
+      <%= render :file => '/drug_reviews/index' %>
+    </div>
 
 <script type="text/javascript">
   $('.r-clickfeature').on('click', function(e) {
