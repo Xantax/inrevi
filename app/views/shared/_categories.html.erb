@@ -1,3 +1,21 @@
+<% if @resource_type.to_s == "computer" %>
+  <%= render 'shared/catlists/computer' %>
+<% elsif @resource_type.to_s == "camera" %>
+  <%= render 'shared/catlists/camera' %>
+<% elsif @resource_type.to_s == "securit" %>
+  <%= render 'shared/catlists/securit' %>
+<% elsif @resource_type.to_s == "television" %>
+  <%= render 'shared/catlists/television' %>
+<% elsif @resource_type.to_s == "carelectro" %>
+  <%= render 'shared/catlists/carelectro' %>
+<% elsif @resource_type.to_s == "homeaudio" %>
+  <%= render 'shared/catlists/homeaudio' %>
+<% elsif @resource_type.to_s == "eportable" %>
+  <%= render 'shared/catlists/eportable' %>
+<% elsif @resource_type.to_s == "enavigation" %>
+  <%= render 'shared/catlists/enavigation' %>
+<% else %>
+
 <ul class="nav nav-stacked categorylist">
   <li class="categorylist media"><%= link_to "media", media_path %></li> 
   <li class="categorylist local"><%= link_to "local", locals_path %></li>
@@ -13,3 +31,5 @@
 </ul>
 
 <%= render 'shared/aboutus' %>
+
+<% end %>

@@ -70,6 +70,12 @@
           <%= text_field_tag :query, params[:query], placeholder: "Furniture, Home Decor, Floor Care, Kitchen...", class: 'form-control mobile-search', id: 'query-text-field' %>
           <% elsif @resource_type.to_s == "outdoor" %>
           <%= text_field_tag :query, params[:query], placeholder: "Gardening, Patio Furniture, Grills...", class: 'form-control mobile-search', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "ereader" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Ebook readers, accessories...", class: 'form-control mobile-search', id: 'query-text-field' %>   
+          <% elsif @resource_type.to_s == "enavigation" %>
+          <%= text_field_tag :query, params[:query], placeholder: "GPS & Navigation...", class: 'form-control mobile-search', id: 'query-text-field' %>  
+          <% elsif @resource_type.to_s == "ewar" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Warranties...", class: 'form-control mobile-search', id: 'query-text-field' %>
           <% end %>
 
     <%= hidden_field_tag :category, params[:category] %><br>

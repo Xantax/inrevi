@@ -1245,6 +1245,96 @@ background-image: asset-data-url("caticons/electronics/electroALL.PNG");
   }
 }
 
+.categorylist.ereader {
+a::before {
+content: "";
+position: absolute;
+top: 60%;
+left: -25px;
+width: 28px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -435px; 
+  }
+}
+
+.categorylist.ereader:hover {
+a::before {
+content: "";
+position: absolute;
+top: 60%;
+left: -25px;
+width: 28px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -461px; 
+  }
+}
+
+.categorylist.egps {
+a::before {
+content: "";
+position: absolute;
+top: 60%;
+left: -25px;
+width: 28px;
+height: 24px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -383px; 
+  }
+}
+
+.categorylist.egps:hover {
+a::before {
+content: "";
+position: absolute;
+top: 60%;
+left: -25px;
+width: 28px;
+height: 24px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -409px; 
+  }
+}
+
+.categorylist.ewarranty {
+a::before {
+content: "";
+position: absolute;
+top: 60%;
+left: -25px;
+width: 28px;
+height: 24px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -487px; 
+  }
+}
+
+.categorylist.ewarranty:hover {
+a::before {
+content: "";
+position: absolute;
+top: 60%;
+left: -25px;
+width: 28px;
+height: 24px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/electronics/electroALL.PNG");
+  background-repeat: no-repeat; 
+    background-position: 0 -513px; 
+  }
+}
+
 
 /*   HEALTH SUBCATEGORIES   */
 

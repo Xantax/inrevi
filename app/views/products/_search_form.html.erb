@@ -2,7 +2,7 @@
         <div class="searchbox">
           
           <% if @resource_type.to_s == "computer" %>
-          <%= text_field_tag :query, params[:query], placeholder: 'Laptops, Computer Accessories, External, Monitors...', class: 'form-control search', id: 'query-text-field' %>
+          <%= text_field_tag :query, params[:query], placeholder: 'by name, brand, features...', class: 'form-control search', id: 'query-text-field' %>
           <% elsif @resource_type.to_s == "camera" %>
           <%= text_field_tag :query, params[:query], placeholder: 'Camcorders, Lenses, Telescopes, Digital Cameras...', class: 'form-control search', id: 'query-text-field' %>
           <% elsif @resource_type.to_s == "securit" %>
@@ -69,10 +69,18 @@
           <%= text_field_tag :query, params[:query], placeholder: "Furniture, Home Decor, Floor Care, Kitchen...", class: 'form-control search', id: 'query-text-field' %>
           <% elsif @resource_type.to_s == "outdoor" %>
           <%= text_field_tag :query, params[:query], placeholder: "Gardening, Patio Furniture, Grills...", class: 'form-control search', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "ereader" %>
+          <%= text_field_tag :query, params[:query], placeholder: "eBook Readers, Accessories...", class: 'form-control search', id: 'query-text-field' %>   
+          <% elsif @resource_type.to_s == "enavigation" %>
+          <%= text_field_tag :query, params[:query], placeholder: "GPS & Navigation...", class: 'form-control search', id: 'query-text-field' %>  
+          <% elsif @resource_type.to_s == "ewar" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Warranties...", class: 'form-control search', id: 'query-text-field' %>          
           <% end %>
           
         </div>
+
         <%= hidden_field_tag :category, params[:category] %>
+
                   <div class="searchgo">
                     <span class="input-group-btn">
                       <%= submit_tag "Go", class: "btn btn-default" %>

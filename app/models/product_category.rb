@@ -173,6 +173,21 @@ class ProductCategory < ActiveRecord::Base
     {
       name: 'Outdoors',
       cat_id: 4702
+    },
+    ereader:
+    {
+      name: 'Ereaders',
+      cat_id: 10100
+    },
+    enavigation:
+    {
+      name: 'GPS Navigation',
+      cat_id: 8461
+    },
+    ewar:
+    {
+      name: 'E-Warranties',
+      cat_id: 1061
     }
   }
 

@@ -166,6 +166,15 @@
         <% elsif activity.trackable.productable_type == "videogame" %>
         <%= image_tag('caticons/media/Mgames.PNG') %>
         
+        <% elsif activity.trackable.productable_type == "ereader" %>
+        <%= image_tag('caticons/electronics/hover/ereader.png') %>
+        
+        <% elsif activity.trackable.productable_type == "enavigation" %>
+        <%= image_tag('caticons/electronics/hover/egps.PNG') %>
+        
+        <% elsif activity.trackable.productable_type == "ewar" %>
+        <%= image_tag('caticons/electronics/hover/ewarranties.PNG') %>         
+        
         <% end %>
         
         <%= link_to activity.trackable.product_name.truncate(25, omission: '...'), "/#{activity.trackable.productable_type}s/#{activity.trackable.productable_id}" %><br><br>

@@ -44,6 +44,10 @@ Inrevi::Application.routes.draw do
   get 'tools/search' => 'products#search'
   get 'indoors/search' => 'products#search'
   get 'outdoors/search' => 'products#search'
+  get 'ereaders/search' => 'products#search'
+  get 'enavigations/search' => 'products#search'
+  get 'ewars/search' => 'products#search'
+  
   resources :products, path: 'computers', as: :computer do
     resources :product_reviews do
        member do
@@ -316,6 +320,31 @@ Inrevi::Application.routes.draw do
       end      
     end
   end
+  resources :products, path: 'ereaders', as: :ereader do
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
+  end  
+  resources :products, path: 'enavigations', as: :enavigation do
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
+  end  
+  resources :products, path: 'ewars', as: :ewar do
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
+  end  
+  
 
 #  get 'tags/:tag', to: 'teches#index', as: :ttag
 #  get 'tags/:tag', to: 'podcasts#index', as: :tag  

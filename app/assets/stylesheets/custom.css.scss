@@ -97,26 +97,6 @@ textarea {
 
 /* Navigation */
 
-.nav.navbar-nav.navbar-center {
-  a{background-color:#F8F8F8; color:#282828; font-weight:bold;}
-  a:hover{background-color:#F0F0F0;}
-  padding-left:400px;
-}
-
-.nav.nav-navbar.navbar-right.nav-tabs {
-  border-bottom: 0px;
-a:hover
- {
-  background-color:#FFFFFF;
-  border-bottom: 0px;    
- }
-}
-
-
-.navbar-form.navbar-left {
-  margin-left: 50px; 
-}
-
 .navigation-logo{
   border-bottom: 1px solid #E8E8E8;
   margin-bottom: 20px;
@@ -127,7 +107,7 @@ a:hover
 
 .categorylist {
          height: 50px;
-         width: 220px;
+         width: 150px;
          position: relative;
             
   font-size:120%;
@@ -147,6 +127,23 @@ a:hover
  {
   background-color: #FFFFFF;
  }
+}
+
+#nav-listz ul {
+  margin: 0;
+  padding: 0;
+}
+
+#nav-listz ul li {
+  padding-left:10px;
+}
+
+#nav-listz {
+  cursor:pointer;
+  a{color:#3366CC;}
+  a:hover{color:#3366CC;}
+  color:#3366CC;
+  font-size:85%;
 }
 
 
