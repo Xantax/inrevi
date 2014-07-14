@@ -3,8 +3,6 @@
   <head>
     <title><%= full_title(yield(:title)) %></title>
     
-     <%= stylesheet_link_tag "application", media: "all" %>
-     <%= javascript_include_tag "vendor", :debug => false %>
      <%= stylesheet_link_tag "mobile" if mobile_device? %>
     
      <%= csrf_meta_tags %>
@@ -17,6 +15,8 @@
   <body>
     <div id="Content">
       <%= render 'layouts/header' %>
+     <%= stylesheet_link_tag "application", media: "all" %>
+     <%= javascript_include_tag "vendor", :debug => false %>
     <div class="bodypages">
         <%= yield %>
      </div>

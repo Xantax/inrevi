@@ -188,6 +188,11 @@ class ProductCategory < ActiveRecord::Base
     {
       name: 'E-Warranties',
       cat_id: 1061
+    },
+    beatool:
+    {
+      name: 'Beauy Tools',
+      cat_id: 12122
     }
   }
 

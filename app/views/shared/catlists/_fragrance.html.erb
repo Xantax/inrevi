@@ -1,0 +1,31 @@
+<hr>
+
+<div id="nav-listz">  
+    <ul>      
+      
+      <li>Men's
+         <ul class="current-l">
+           <li><%= link_to "Eau de Parfum", "/fragrances/search?utf8=✓&query=Men+Eau+de+Parfum&category=&commit=Go" %></li>
+           <li><%= link_to "Cologne", "/fragrances/search?utf8=✓&query=Men+Cologne&category=&commit=Go" %></li>
+           <li><%= link_to "Eau de Toilette", "/fragrances/search?utf8=✓&query=Men+Eau+de+Toilette&category=&commit=Go" %></li>
+           <li><%= link_to "Sets", "/fragrances/search?utf8=✓&query=Men+Set&category=&commit=Go" %></li>
+         </ul>
+      </li>
+      <li>Women's
+         <ul class="current-l">
+           <li><%= link_to "Cologne", "/fragrances/search?utf8=✓&query=Women+Cologne&category=&commit=Go" %></li>
+           <li><%= link_to "Eau de Parfum", "/fragrances/search?utf8=✓&query=Women+Eau+de+Parfum&category=&commit=Go" %></li>
+           <li><%= link_to "Essential Oils", "/fragrances/search?utf8=✓&query=Women+Essential+Oils&category=&commit=Go" %></li>
+           <li><%= link_to "Body Sprays", "/fragrances/search?utf8=✓&query=Women+Body+Spray&category=&commit=Go" %></li>
+           <li><%= link_to "Eau de Toilette", "/fragrances/search?utf8=✓&query=Women+Eau+de+Toilette&category=&commit=Go" %></li>
+           <li><%= link_to "Sets", "/fragrances/search?utf8=✓&query=Women+Set&category=&commit=Go" %></li>
+         </ul>
+      </li>
+      
+    </ul>    
+</div>
+
+
+<%= render 'shared/catlists/js_for_lists' %>
+
+<hr>

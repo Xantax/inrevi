@@ -173,7 +173,10 @@
         <%= image_tag('caticons/electronics/hover/egps.PNG') %>
         
         <% elsif activity.trackable.productable_type == "ewar" %>
-        <%= image_tag('caticons/electronics/hover/ewarranties.PNG') %>         
+        <%= image_tag('caticons/electronics/hover/ewarranties.PNG') %> 
+        
+        <% elsif activity.trackable.productable_type == "beatool" %>
+        <%= image_tag('caticons/beauty/btools.png') %>
         
         <% end %>
         

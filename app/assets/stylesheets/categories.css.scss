@@ -880,6 +880,36 @@ background-image: asset-data-url("caticons/beauty/beautyALL.PNG");
   }
 }
 
+.categorylist.beatool {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 24px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -268px; 
+  }
+}
+
+.categorylist.beatool:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 24px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/beauty/beautyALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -292px; 
+  }
+}
+
 
 /*   HOBBIES SUBCATEGORIES   */
 

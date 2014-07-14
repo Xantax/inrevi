@@ -76,6 +76,8 @@
           <%= text_field_tag :query, params[:query], placeholder: "GPS & Navigation...", class: 'form-control mobile-search', id: 'query-text-field' %>  
           <% elsif @resource_type.to_s == "ewar" %>
           <%= text_field_tag :query, params[:query], placeholder: "Warranties...", class: 'form-control mobile-search', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "beatool" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Tools and Accessories...", class: 'form-control search', id: 'query-text-field' %>
           <% end %>
 
     <%= hidden_field_tag :category, params[:category] %><br>

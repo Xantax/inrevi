@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   
   def show
   	@user = User.find(params[:id])
-    @activities = PublicActivity::Activity.paginate(:page => params[:page], :per_page => 10).order("created_at desc").where(owner_id: @user, owner_type: "User")
+    @activities = PublicActivity::Activity.paginate(:page => params[:page], :per_page => 15).order("created_at desc").where(owner_id: @user, owner_type: "User")
    
   end
   

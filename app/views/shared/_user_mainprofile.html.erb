@@ -54,7 +54,7 @@
 
       <div class="inreviews">
       </div>
-    <%= render 'shared/stats' %>  <br>
+    <%= render 'shared/stats' %>  <hr>
 
   <% if !current_user.company && current_user.unverified_company %>
     Not verified!
@@ -62,11 +62,15 @@
     <%= link_to "+ Add update", new_alert_path(), class: "btn btn-default" %>
   <% end %>
 
-    <% if Rails.env.production? %>
-      <hr><br><br><br><br><hr>
-        <%= render 'shared/ad_on_user_mainprofile' %>
-      <hr>
-    <% end %>
+      <div class="home-right-ad">
+        
+      </div>
+      <div class="bottom-about">
+        ©
+        <%= link_to "Contact", new_contact_form_path %> |
+        <%= link_to "TOS", tos_path %> |
+        <%= link_to "Privacy", policy_path %>
+      </div>
 
   <% else %>
   <br>

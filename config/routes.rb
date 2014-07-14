@@ -47,6 +47,7 @@ Inrevi::Application.routes.draw do
   get 'ereaders/search' => 'products#search'
   get 'enavigations/search' => 'products#search'
   get 'ewars/search' => 'products#search'
+  get 'beatools/search' => 'products#search'
   
   resources :products, path: 'computers', as: :computer do
     resources :product_reviews do
@@ -337,6 +338,14 @@ Inrevi::Application.routes.draw do
     end
   end  
   resources :products, path: 'ewars', as: :ewar do
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
+  end 
+  resources :products, path: 'beatools', as: :beatool do
     resources :product_reviews do
        member do
          put "like", to: "product_reviews#upvote"

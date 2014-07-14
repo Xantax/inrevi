@@ -23,7 +23,7 @@
       <div class="r-image"></div>
 
       <div class="r-rightside">
-        <%= f.fields_for :review_images, :remote => true do |p| %>
+        <%= f.fields_for :review_images do |p| %>
             <%= p.file_field :image %>
         <% end %>
       </div>
