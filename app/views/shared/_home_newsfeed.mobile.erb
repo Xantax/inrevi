@@ -1,7 +1,7 @@
       <p id="notice"><%= notice %></p>
 
         <div align="left" class="mobile-activity-home">
-            <% if signed_in? %>
+        <% if signed_in? %>
            <div class="qupdate">
                <div class="">
                  <% if @link.present? %>
@@ -13,16 +13,4 @@
             <%= render :file => '/activities/index' %>
 </div>
 
-        <% else %>
-          <hr>
-          <div align="center">
-            <%= link_to image_tag("otherbigimages/FBlogins.png", alt: "FB Login"), user_omniauth_authorize_path(:facebook) %>
-          </div><hr>
-          <div align="center">
-            <%= link_to image_tag("otherbigimages/Glogin.PNG"), user_omniauth_authorize_path(:google_oauth2) %>
-          </div><hr>
-          <div align="center">
-            <%= link_to image_tag("othericons/email_icon_login.png"), '/users/sign_in' %> 
-            <div class="email-login"><h4><%= link_to "email", "/users/sign_in" %></h4></div>
-          </div><hr>
 	      <% end %>

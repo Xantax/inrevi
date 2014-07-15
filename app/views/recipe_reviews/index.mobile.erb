@@ -5,49 +5,18 @@
 
 <div class="row">
 
-      <% if recipe_review.user.provider == "facebook" %>
-          <div class="col-xs-3">          
-            <%= image_tag(recipe_review.user.image_auth, width: "50") %>
-          </div> 
-            <div class="col-xs-6" align="left">                
-              <%= link_to user_path(recipe_review.user) do %> 
-                <%= recipe_review.user.first_name %>
-                <%= recipe_review.user.last_name.truncate(2, omission: '.')%>
-              <% end %>
-            </div>
-
-      <% elsif recipe_review.user.provider == "google_oauth2" %>
-          <div class="col-xs-3">          
-            <%= image_tag(recipe_review.user.image_auth, width: "50") %>
-          </div> 
-            <div class="col-xs-6" align="left">              
-              <%= link_to user_path(recipe_review.user) do %> 
-                <%= recipe_review.user.first_name %>
-                <%= recipe_review.user.last_name.truncate(2, omission: '.')%>
-              <% end %>
-            </div>
-
-      <% elsif recipe_review.user.provider == "email" %>
-          <div class="col-xs-3">          
-            <%= image_tag(recipe_review.user.image, width: "50") %>
+          <div class="col-xs-3"> 
+            <% if recipe_review.user.image.blank? %>
+              <%= image_tag("grey_star.PNG", width: "50") %>
+            <% else %>
+              <%= image_tag(recipe_review.user.image, width: "50") %>
+            <% end %>
           </div> 
             <div class="col-xs-6" align="left">               
               <%= link_to user_path(recipe_review.user) do %> 
                 <%= recipe_review.user.name %>
               <% end %>
-            </div> 
-
-      <% elsif recipe_review.user.provider == "twitter" %>
-          <div class="col-xs-3">          
-            <%= image_tag(recipe_review.user.image_auth, width: "50") %>
-          </div> 
-            <div class="col-xs-6" align="left">                 
-              <%= link_to user_path(recipe_review.user) do %> 
-                <%= recipe_review.user.name %>
-              <% end %>
-            </div>
-
-      <% end %>  
+            </div>   
 
           <div class="col-xs-3">
             <div class="numberOne">

@@ -9,36 +9,12 @@
   <% else %>
   <% @book_reviews.each do |book_review| %><br>
     <div class="col-sm-3"> 
-        <% if book_review.user.provider == "facebook" %>
-          <div class="reviewname">  
-            <%= link_to user_path(book_review.user) do %> 
-               <%= book_review.user.first_name %>
-               <%= book_review.user.last_name.truncate(2, omission: '.')%>
-            <% end %>
-          </div>
-          <%= image_tag(book_review.user.image_auth, width: "90", class: 'img-thumbnail') %>  
-        
-        <% elsif book_review.user.provider == "google_oauth2" %>
-          <div class="reviewname">  
-            <%= link_to user_path(book_review.user) do %> 
-               <%= book_review.user.first_name %>
-               <%= book_review.user.last_name.truncate(2, omission: '.')%>
-            <% end %>
-          </div>
-          <%= image_tag(book_review.user.image_auth, width: "90", class: 'img-thumbnail') %>
-        
-        <% elsif book_review.user.provider == "email" %>
+
             <%= link_to user_path(book_review.user) do %> 
                <div class="reviewname"><%= book_review.user.name %></div>
             <% end %>
           <%= image_tag(book_review.user.image, width: "90", class: 'img-thumbnail') %>
-      
-        <% elsif book_review.user.provider == "twitter" %>
-            <%= link_to user_path(book_review.user) do %> 
-               <div class="reviewname"><%= book_review.user.name %></div>
-            <% end %>
-          <%= image_tag(book_review.user.image_auth, width: "90", class: 'img-thumbnail') %>      
-        <% end %>  
+ 
       </div>
         
       <div class="col-sm-9 podreview"> 

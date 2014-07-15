@@ -1,48 +1,27 @@
-  <% current_user ||= @user %>
+<% if current_user ||= @user %>
 
-  <% if current_user.provider == "facebook" %>
-   <strong><%= link_to user_path(current_user) do %>      
-       <div class="unameonshow">
-         <%= current_user.first_name %>
-         <%= current_user.last_name.truncate(2, omission: '.')%>
-       </div>
-     <% end %>
-   </strong><br >
-          <%= image_tag(current_user.image_auth, width: "150", class: 'img-thumbnail')%><br><br>
-          <%= render 'shared/stats' %>
-
-     <% elsif current_user.provider == "google_oauth2" %>
-   <strong><%= link_to user_path(current_user) do %>      
-       <div class="unameonshow">
-         <%= current_user.first_name %>
-         <%= current_user.last_name.truncate(2, omission: '.')%>
-       </div>
-     <% end %>
-   </strong><br >
-          <%= image_tag(current_user.image_auth, width: "150", class: 'img-thumbnail')%><br><br>
-          <%= render 'shared/stats' %>
-
-     <% elsif current_user.provider == "email" %>
-      <strong><%= link_to user_path(current_user) do %>   
+      <strong>
+        <%= link_to user_path(current_user) do %>   
          <div class="unameonshow">
            <%= current_user.name %>
          </div>
      <% end %>
-      </strong><br >
+      </strong><br>
+
            <% if current_user.image.blank? %>
-             <%= image_tag("no-image.png", class: 'img-thumbnail') %>
-          <% else %>
-            <%= image_tag(current_user.image_url(:thumb), class: 'img-thumbnail') %><br><br>
+               <%= image_tag("grey_star.PNG", class: 'img-thumbnail') %>
+             <% else %>
+               <%= image_tag(current_user.image_url(:thumb), class: 'img-thumbnail') %>
           <% end %>
-          <%= render 'shared/stats' %>
-    <% elsif current_user.provider == "twitter" %>
-      <strong><%= link_to user_path(current_user) do %>   
-         <div class="unameonshow">
-           <%= current_user.name %>
-         </div>
-     <% end %>
-      </strong><br >
-          <%= image_tag(current_user.image_auth, width: "150", class: 'img-thumbnail') %><br><br>
-          <%= render 'shared/stats' %>
+<% end %>
+
+    <% if current_user?(@user) %>
+      <div class="logoutlink">
+        <%= image_tag("othericons/PhotoShow.PNG", width: '14', height: '14') %>
+        <%= link_to "change image", edit_user_path(@user) %>
+      </div>
     <% end %>
+
+     <hr><%= render 'shared/stats' %>
+
 

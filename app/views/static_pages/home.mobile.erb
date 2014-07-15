@@ -2,7 +2,8 @@
 
 <% unless signed_in? %>
     <div id="login-center">
-      <%= link_to "Login", mobile_newsfeed_path, class: 'btn btn-default btn-lg btn-block' %>
+      <%= link_to "Sign up", "/users/sign_up", class: 'btn btn-primary btn-lg btn-block' %><br>
+      <%= link_to "Login", "/users/sign_in", class: 'btn btn-default btn-lg btn-block' %>
     </div>
     <div vertical-align="bottom">
       <%= render 'shared/aboutus' %>

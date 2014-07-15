@@ -158,16 +158,16 @@ class User < ActiveRecord::Base
        end
   end
   
-def self.new_with_session(params, session)
-  if session["devise.user_attributes"]
-    new(session["devise.user_attributes"], without_protection: true) do |user|
-      user.attributes = params
-      user.valid?
+    def self.new_with_session(params, session)
+      if session["devise.user_attributes"]
+        new(session["devise.user_attributes"], without_protection: true) do |user|
+          user.attributes = params
+          user.valid?
+        end
+      else
+        super
+      end
     end
-  else
-    super
-  end
-end
   
    def facebook
     @facebook ||= Koala::Facebook::API.new(oauth_token)
@@ -176,25 +176,6 @@ end
     logger.info e.to_s
     nil # or consider a custom null object
    end 
-  
-=begin
-#FB friends
-
-    def fbfriends
-     graph = Koala::Facebook::API.new(oauth_token)
-        begin
-          fbfriends = graph.get_connections("me", "friends", fields: "id")
-          fuids = fbfriends.map{ |v| v.values }.flatten
-        rescue Koala::Facebook::AuthenticationError => e
-          redirect_to '/auth/facebook'
-        end
-          friends = User.where(uid: fuids)
-    end
-  
-  def fb_user_id
-    self.fbfriends.map{ |v| v.id }
-  end  
-=end
   
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)
@@ -222,25 +203,7 @@ end
   end
   
   def to_param
-    if self.provider == "email"
       "#{id} #{name}".parameterize
-    elsif self.provider == "twitter"
-      "#{id} #{name}".parameterize
-    else
-      "#{id} #{first_name}".parameterize
-    end
-  end
-  
-  def email_required?
-    false
-  end
-
-  def email_changed?
-    false
-  end
-
-  def password_required?
-    super && provider.blank?
   end
   
 end

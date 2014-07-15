@@ -9,36 +9,16 @@
   <% else %>
   <% @tvshow_reviews.each do |tvshow_review| %><br>
       <div class="col-sm-3"> 
-        <% if tvshow_review.user.provider == "facebook" %>
-            <div class="reviewname">  
-              <%= link_to user_path(tvshow_review.user) do %> 
-                 <%= tvshow_review.user.first_name %>
-                 <%= tvshow_review.user.last_name.truncate(2, omission: '.')%>
-              <% end %>
-            </div>
-            <%= image_tag(tvshow_review.user.image_auth, width: "90", class: 'img-thumbnail') %>  
 
-          <% elsif tvshow_review.user.provider == "google_oauth2" %>
-            <div class="reviewname">  
               <%= link_to user_path(tvshow_review.user) do %> 
-                 <%= tvshow_review.user.first_name %>
-                 <%= tvshow_review.user.last_name.truncate(2, omission: '.')%>
+                 <div class="reviewname"><%= tvshow_review.user.name.truncate(15, omission: '...') %></div>
               <% end %>
-            </div>
-            <%= image_tag(tvshow_review.user.image_auth, width: "90", class: 'img-thumbnail') %>
-
-          <% elsif tvshow_review.user.provider == "email" %>
-              <%= link_to user_path(tvshow_review.user) do %> 
-                 <div class="reviewname"><%= tvshow_review.user.name %></div>
-              <% end %>
-            <%= image_tag(tvshow_review.user.image, width: "90", class: 'img-thumbnail') %>
-        
-          <% elsif tvshow_review.user.provider == "twitter" %>
-              <%= link_to user_path(tvshow_review.user) do %> 
-                 <div class="reviewname"><%= tvshow_review.user.name %></div>
-              <% end %>
-            <%= image_tag(tvshow_review.user.image_auth, width: "90", class: 'img-thumbnail') %>        
-          <% end %>  
+            <% if tvshow_review.user.image.blank? %>
+              <%= image_tag("grey_star.PNG", width: "80", class: 'img-thumbnail') %>
+            <% else %>
+              <%= image_tag(tvshow_review.user.image, width: "90", class: 'img-thumbnail') %>
+            <% end %>
+  
         </div>
 
         <div class="col-sm-9 podreview"> 

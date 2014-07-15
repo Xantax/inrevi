@@ -1,56 +1,17 @@
 <% if signed_in? %>
 
-       <% if current_user.provider == "facebook" %>
-
           <%= link_to user_path(current_user) do %> 
-             <strong><%= current_user.first_name %>
-             <%= current_user.last_name.truncate(2, omission: '.')%></strong><br >
-          <% end %>
-           <%= image_tag('othericons/logout.PNG') %>
-          <div class="logoutlink">
-            <%= link_to "logout", destroy_user_session_path, :method => :delete %><br>
-          </div>
-           <%= image_tag(current_user.image_auth, width: "110", class: 'img-thumbnail') %>
-
-       <% elsif current_user.provider == "google_oauth2" %>
-
-          <%= link_to user_path(current_user) do %> 
-             <strong><%= current_user.first_name %>
-             <%= current_user.last_name.truncate(2, omission: '.')%></strong><br >
-          <% end %>
-           <%= image_tag('othericons/logout.PNG') %>
-          <div class="logoutlink">
-            <%= link_to "logout", destroy_user_session_path, :method => :delete %><br>
-          </div>
-           <%= image_tag(current_user.image_auth, width: "110", class: 'img-thumbnail') %>    
-
-        <% elsif current_user.provider == "email" %>
-
-          <%= link_to user_path(current_user) do %> 
-             <strong><%= current_user.name %></strong><br >
+          <strong><%= current_user.name.truncate(15, omission: '...') %></strong><br >
           <% end %>
            <%= image_tag('othericons/logout.PNG') %>
             <div class="logoutlink">
-              <%= link_to "logout", destroy_user_session_path, :method => :delete %><br>
+              <%= link_to "logout", destroy_user_session_path, :method => :delete %>
             </div>
-           <% if current_user.image.blank? %>
-             <%= image_tag("no-image.png", width: "110", class: 'img-thumbnail') %>
+          <% if current_user.image.blank? %>
+            <%= image_tag("grey_star.PNG", width: "110", class: 'img-thumbnail') %>
           <% else %>
-             <%= image_tag(current_user.image_url(:thumb), width: "110", class: 'img-thumbnail') %>
+            <%= image_tag(current_user.image_url(:thumb), width: "110", class: 'img-thumbnail') %>
           <% end %>
-
-        <% elsif current_user.provider == "twitter" %>
-
-          <%= link_to user_path(current_user) do %> 
-             <strong><%= current_user.name %></strong><br >
-          <% end %>
-           <%= image_tag('othericons/logout.PNG') %>
-            <div class="logoutlink">
-              <%= link_to "logout", destroy_user_session_path, :method => :delete %><br>
-            </div>
-           <%= image_tag(current_user.image_auth, width: "110", class: 'img-thumbnail') %> 
-
-       <% end %> 
 
       <div class="inreviews">
       </div>
@@ -68,15 +29,12 @@
       <div class="bottom-about">
         ©
         <%= link_to "Contact", new_contact_form_path %> |
-        <%= link_to "TOS", tos_path %> |
-        <%= link_to "Privacy", policy_path %>
+        <%= link_to "TOS - Privacy", tos_path %>
       </div>
 
   <% else %>
-  <br>
-    <%= link_to image_tag("otherbigimages/FBlogins.png"), user_omniauth_authorize_path(:facebook) %><br><br>
-    <%= link_to image_tag("otherbigimages/Glogin.PNG"), user_omniauth_authorize_path(:google_oauth2) %><br><br>
-    or
-    <div class="email-login"><b><%= link_to "email", "/users/sign_in" %></b></div>
-    <hr>
+<hr>
+   <%= link_to "Sign up", "/users/sign_up", class: 'btn btn-primary btn-lg btn-block' %><br>
+   <%= link_to "Login", "/users/sign_in", class: 'btn btn-default btn-lg btn-block' %>
+<hr>
 <% end %>

@@ -5,67 +5,23 @@
   <%= render 'follow_form' if signed_in? %><br>
   
   <div align="center">  
-    <% if current_user.provider == "facebook" %>
-      <%= image_tag(current_user.image_auth, width: "160", class: 'img-thumbnail')%><br>
-    <% elsif current_user.provider == "google_oauth2" %>
-    <%= image_tag(current_user.image_auth, width: "160", class: 'img-thumbnail')%><br>
-    <% elsif current_user.provider == "twitter" %>
-      <%= image_tag(current_user.image_auth, width: "160", class: 'img-thumbnail')%><br>
-    <% elsif current_user.provider == "email" %>
+
           <% if current_user.image.blank? %>
-             <%= image_tag("no-image.png", class: 'img-thumbnail') %><br>
+            <%= image_tag("grey_star.PNG", width: "160", class: 'img-thumbnail') %><br>
           <% else %>
             <%= image_tag(current_user.image, width: "160", class: 'img-thumbnail')%><br>
           <% end %>
-    <% end %>  
-  
-  <% if current_user.provider == "facebook" %> 
-   <strong>
-     <%= link_to user_path(current_user) do %> 
-         <div class="unameonshow">
-           <%= current_user.first_name %>
-           <%= current_user.last_name.truncate(2, omission: '.')%>
-         </div>
-      <% end %>
-   </strong>
-  <% elsif current_user.provider == "google_oauth2" %> 
-   <strong>
-     <%= link_to user_path(current_user) do %> 
-         <div class="unameonshow">
-           <%= current_user.first_name %>
-           <%= current_user.last_name.truncate(2, omission: '.')%>
-         </div>
-      <% end %>
-   </strong>
-  <% elsif current_user.provider == "email" %> 
-   <strong>
-     <%= link_to user_path(current_user) do %> 
-         <div class="unameonshow">
-           <%= current_user.name %>
-         </div>
-      <% end %>
-   </strong>
-  <% elsif current_user.provider == "twitter" %> 
-   <strong>
-     <%= link_to user_path(current_user) do %> 
-         <div class="unameonshow">
-           <%= current_user.name %>
-         </div>
-      <% end %>
-   </strong>  
-  <% end %>
 
-  <% if signed_in? %>
-    <% if current_user?(@user) %>
-      <%= image_tag('othericons/logout.PNG') %>
-        <div class="logoutlink">
-          <%= link_to "logout", destroy_user_session_path, :method => :delete %>
-          <br>
-        </div>
-    <% end %>
-  <% end %>
-  
-  <%= render 'shared/stats' %>
+   <strong>
+     <%= link_to user_path(current_user) do %> 
+         <div class="unameonshow">
+           <%= current_user.name %>
+         </div>
+      <% end %>
+   </strong>
+
+    <%= render 'users/logout_img' %>  
+    <%= render 'shared/stats' %>
     
 </div><!-- /center align -->
   

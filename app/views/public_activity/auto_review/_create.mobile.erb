@@ -2,50 +2,19 @@
 <% if activity.trackable %>
   
    <% unless activity.owner == @user %>
-  
-      <% if activity.owner.provider == "facebook" %>
-          <div class="mobile-activity-photo">
-            <%= image_tag(activity.owner.image_auth, width: "50") %>
-          </div> 
-            <div class="reviewname mobile">     
-              <%= link_to user_path(activity.owner) do %> 
-                <%= activity.owner.first_name %>
-                <%= activity.owner.last_name.truncate(2, omission: '.')%>
-              <% end %>
-            </div>
 
-      <% elsif activity.owner.provider == "google_oauth2" %>
           <div class="mobile-activity-photo">
-            <%= image_tag(activity.owner.image_auth, width: "50") %>
-          </div> 
-            <div class="reviewname mobile">     
-              <%= link_to user_path(activity.owner) do %> 
-                <%= activity.owner.first_name %>
-                <%= activity.owner.last_name.truncate(2, omission: '.')%>
-              <% end %>
-            </div>
-
-      <% elsif activity.owner.provider == "email" %>
-          <div class="mobile-activity-photo">
-            <%= image_tag(activity.owner.image, width: "50") %>
+            <% if activity.owner.image.blank? %>
+              <%= image_tag("grey_star.PNG", width: "50") %>
+            <% else %>
+              <%= image_tag(activity.owner.image, width: "50") %>
+            <% end %>
           </div> 
             <div class="reviewname mobile">     
               <%= link_to user_path(activity.owner) do %> 
                 <%= activity.owner.name %>
               <% end %>
             </div> 
-  
-      <% elsif activity.owner.provider == "twitter" %>
-          <div class="mobile-activity-photo">
-            <%= image_tag(activity.owner.image_auth, width: "50") %>
-          </div> 
-            <div class="reviewname mobile">     
-              <%= link_to user_path(activity.owner) do %> 
-                <%= activity.owner.name %>
-              <% end %>
-            </div>  
-
-      <% end %>
   
    <% end %>
   

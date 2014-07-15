@@ -11,6 +11,14 @@
   </div>
   <% end %>
 
+<% if current_user == @user %>
+
+   <%= image_tag("othericons/PhotoShow.PNG") %> (profile photo)
+   <%= f.file_field :image, :class => "podcastnew" %><br>
+
+<% end %>
+
+<% if current_user.admin %>
     Company:
     <%= f.check_box :company %>
       <br><br>
@@ -23,7 +31,10 @@
     Admin:
     <%= f.check_box :admin %>
       <br><br>
+<% end %>
 
-<%= f.submit %>
+<% if current_user == @user || current_user.admin %>
+  <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>
 
 <% end %>

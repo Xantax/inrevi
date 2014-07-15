@@ -19,9 +19,7 @@ class UsersController < ApplicationController
   end
   
   def edit
-    if current_user.admin?
       @user = User.find(params[:id])
-    end
   end
   
   def create
@@ -34,7 +32,6 @@ class UsersController < ApplicationController
   end
   
   def update 
-    if current_user.admin?
         @user = User.find(params[:id])
 
         if @user.update(user_params)
@@ -42,7 +39,6 @@ class UsersController < ApplicationController
           else
             render 'edit'
           end
-    end
   end
   
   def following

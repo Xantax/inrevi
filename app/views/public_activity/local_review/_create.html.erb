@@ -4,37 +4,15 @@
    <% unless activity.owner == @user %>
 
       <div class="col-sm-3 useronactivity">
-        
-        <% if activity.owner.provider == "facebook" %>
-          <div class="reviewname">  
+
             <%= link_to user_path(activity.owner) do %> 
-               <%= activity.owner.first_name %>
-               <%= activity.owner.last_name.truncate(2, omission: '.')%>
+               <div class="reviewname"><%= activity.owner.name.truncate(15, omission: '...') %></div>
             <% end %>
-          </div>
-          <%= image_tag(activity.owner.image_auth, width: "80") %>  
-        
-        <% elsif activity.owner.provider == "google_oauth2" %>
-          <div class="reviewname">  
-            <%= link_to user_path(activity.owner) do %> 
-               <%= activity.owner.first_name %>
-               <%= activity.owner.last_name.truncate(2, omission: '.')%>
+            <% if activity.owner.image.blank? %>
+              <%= image_tag("grey_star.PNG", width: "80", class: 'img-thumbnail') %>
+            <% else %>
+              <%= image_tag(activity.owner.image, width: "80") %>
             <% end %>
-          </div>
-          <%= image_tag(activity.owner.image_auth, width: "80") %>
-        
-        <% elsif activity.owner.provider == "email" %>
-            <%= link_to user_path(activity.owner) do %> 
-               <div class="reviewname"><%= activity.owner.name %></div>
-            <% end %>
-          <%= image_tag(activity.owner.image, width: "80") %>
-        
-        <% elsif activity.owner.provider == "twitter" %>
-            <%= link_to user_path(activity.owner) do %> 
-               <div class="reviewname"><%= activity.owner.name %></div>
-            <% end %>
-          <%= image_tag(activity.owner.image_auth, width: "80") %>
-        <% end %>
   
       </div>
   

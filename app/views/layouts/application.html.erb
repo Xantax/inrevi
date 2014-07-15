@@ -13,13 +13,13 @@
   </head>
 
   <body>
-    <div id="Content">
-      <%= render 'layouts/header' %>
+     <%= render 'layouts/header' %>
      <%= stylesheet_link_tag "application", media: "all" %>
      <%= javascript_include_tag "vendor", :debug => false %>
-    <div class="bodypages">
+    <div id="Content">
+      <div class="bodypages">
         <%= yield %>
-     </div>
+      </div>
     </div>
     <footer>
       <%= render 'layouts/footer' %>

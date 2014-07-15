@@ -1,24 +1,19 @@
 <% provide(:title, 'Sign in') %>
-
 <hr>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :class => "form-control mobiletitle", autofocus: true %></div><br>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, :class => "form-control mobiletitle", autocomplete: "off" %></div><br>
+  <%= f.email_field :email, placeholder: "email" , :class => "form-control mobiletitle" %><br>
+  <%= f.password_field :password, placeholder: "password", :class => "form-control mobiletitle" %><br>
 
-  <%= f.submit "Sign in", class: "btn btn-large btn-default", data: { disable_with: "Signing in..." } %><br><br>
+  <%= f.submit "Sign in", class: "btn btn-default btn-lg btn-block", data: { disable_with: "Signing in..." } %><br><br>
 
   <% if devise_mapping.rememberable? %>
     <%= f.check_box :remember_me, :checked => true %> <%= f.label :remember_me %>
-  <% end %><hr>
+  <% end %> | 
   <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
      <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
   <% end -%>
 
 <% end %>
+
 <hr>
-  <h4>New User?</h4><br>
-    <%= link_to "Sign up", "/users/sign_up", class: "btn btn-large btn-primary" %>
-  <hr>

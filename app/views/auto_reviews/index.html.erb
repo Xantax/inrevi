@@ -9,37 +9,17 @@
   <% else %>
     <% @auto_reviews.each do |auto_review| %><br>
       <div class="col-sm-3"> 
-            <% if auto_review.user.provider == "facebook" %>
-              <div class="reviewname">  
-                <%= link_to user_path(auto_review.user) do %> 
-                   <%= auto_review.user.first_name %>
-                   <%= auto_review.user.last_name.truncate(2, omission: '.')%>
-                <% end %>
-              </div>
-            <%= image_tag(auto_review.user.image_auth, width: "90", class: 'img-thumbnail') %>  
 
-            <% elsif auto_review.user.provider == "google_oauth2" %>
-              <div class="reviewname">  
-                <%= link_to user_path(auto_review.user) do %> 
-                   <%= auto_review.user.first_name %>
-                   <%= auto_review.user.last_name.truncate(2, omission: '.')%>
-                <% end %>
-              </div>
-            <%= image_tag(auto_review.user.image_auth, width: "90", class: 'img-thumbnail') %>
-
-            <% elsif auto_review.user.provider == "email" %>
-              <%= link_to user_path(auto_review.user) do %> 
-                 <div class="reviewname"><%= auto_review.user.name %></div>
-              <% end %>
+          <%= link_to user_path(auto_review.user) do %> 
+             <div class="reviewname"><%= auto_review.user.name.truncate(15, omission: '...') %></div>
+          <% end %>
+        
+          <% if auto_review.user.image.blank? %>
+            <%= image_tag("grey_star.PNG", width: "80", class: 'img-thumbnail') %>
+          <% else %>
             <%= image_tag(auto_review.user.image, width: "90", class: 'img-thumbnail') %>
-        
-            <% elsif auto_review.user.provider == "twitter" %>
-              <%= link_to user_path(auto_review.user) do %> 
-                 <div class="reviewname"><%= auto_review.user.name %></div>
-              <% end %>
-            <%= image_tag(auto_review.user.image_auth, width: "90", class: 'img-thumbnail') %>
-        
-          <% end %> 
+          <% end %>
+
        </div>
 
         <div class="col-sm-9 podreview"> 

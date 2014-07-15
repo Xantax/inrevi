@@ -10,12 +10,15 @@
     <div class="homenews">
       <div class="row">
         <div class="col-xs-9">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div><%= f.label :email %><br />
-            <%= f.email_field :email, :class => "form-control login", autofocus: true, :required => true %></div><br>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>        
+          
+            <div>
+            <%= f.email_field :email, placeholder: "email", :class => "form-control login", :required => true %>
+            </div><br>
 
-            <div><%= f.label :password %><br />
-              <%= f.password_field :password, :class => "form-control login", autocomplete: "off", :required => true %></div><br>
+            <div>
+              <%= f.password_field :password, placeholder: "password", :class => "form-control login", :required => true %>
+            </div><br>
 
             <%= f.submit "Sign in", class: "btn btn-large btn-default", data: { disable_with: "Signing in..." } %><br><br>
 
@@ -29,8 +32,8 @@
           <% end %>
         </div>
         <div class="col-xs-3 sign-up-signin">
-          <h4>New User?</h4><br>
-          <%= link_to "Sign up", "/users/sign_up", class: "btn btn-large btn-primary" %>
+          <b>New User?</b>  
+          <%= image_tag("othericons/nextarrow.PNG") %>
         </div>
       </div>
         <hr>
