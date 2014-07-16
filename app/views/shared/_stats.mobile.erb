@@ -2,30 +2,6 @@
 
 <div class="stats user-mobile">
   
-<% if @user.company %>
-  <hr>
-  <div class="row">
-
-    <div class="col-xs-6">
-      <%= image_tag("othericons/rsz_status_g.png") %> <a href="<%= user_path(@user) %>">
-        <strong id="following">
-          <%= human_number @user.alerts_count %>
-        </strong>
-      updates
-      </a>
-    </div>
-
-    <div class="col-xs-6">
-      <%= image_tag("othericons/followers.png") %> <a href="<%= followers_path(@user) %>">
-          <strong id="followers">
-            <%= human_number @user.followers.count %>
-          </strong>
-        followers
-      </a>
-    </div>
-
-  </div>  
-<% else %>
   <hr>
   <div class="row">
 
@@ -68,6 +44,5 @@
     </div>
 
   </div>  
-<% end %>
   
 </div>

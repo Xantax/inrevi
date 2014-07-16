@@ -1,17 +1,6 @@
 <% @user ||= current_user %>
 <div class="stats">
-  
-  <% if @user.company || @user.unverified_company %>
-  
-     <%= image_tag("othericons/rsz_status_g.png") %> <a href="<%= user_path(@user) %>">
-        <strong id="following">
-          <%= human_number @user.alerts_count %>
-        </strong>
-      updates
-    </a><br>  
-  
-  <% else %>
-  
+
      <%= image_tag("othericons/writerevicon.png") %> <a href="<%= user_path(@user) %>">
         <strong id="following">
           <%= render "shared/reviewcounter" %>
@@ -30,8 +19,6 @@
       following
       </a> 
     <br>
-  
-  <% end %>
   
   <%= image_tag("othericons/followers.png") %> <a href="<%= followers_path(@user) %>">
       <strong id="followers">

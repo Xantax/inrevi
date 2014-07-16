@@ -6,10 +6,9 @@
     <%= render 'shared/categories' %><br><br>
   </div>
 
-  <div class="col-xs-8">
+  <div class="col-xs-8" align="center">
     <div class="homenews">
-      <div class="row">
-        <div class="col-xs-9">
+
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>        
           
             <div>
@@ -20,22 +19,17 @@
               <%= f.password_field :password, placeholder: "password", :class => "form-control login", :required => true %>
             </div><br>
 
-            <%= f.submit "Sign in", class: "btn btn-large btn-default", data: { disable_with: "Signing in..." } %><br><br>
+            <%= f.submit "Log in", class: "btn btn-large btn-default", data: { disable_with: "Signing in..." } %><br><br>
 
             <% if devise_mapping.rememberable? %>
               <%= f.check_box :remember_me, :checked => true %> <%= f.label :remember_me %>
             <% end %> | 
             <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-              <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+              <%= link_to "Forgot your password?", new_password_path(resource_name) %><br>
             <% end -%>
 
           <% end %>
-        </div>
-        <div class="col-xs-3 sign-up-signin">
-          <b>New User?</b>  
-          <%= image_tag("othericons/nextarrow.PNG") %>
-        </div>
-      </div>
+
         <hr>
         <div class="row dumb500"></div>
       
