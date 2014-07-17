@@ -1,16 +1,99 @@
-<div class="mobilemaincats" align="">
-  <ul class="nav nav-stacked categorylist mobile"><hr>
-    <li class="categorylist media"><%= link_to "media", media_path %></li> <hr>
-    <li class="categorylist local"><%= link_to "local", locals_path %></li><hr>
-    <li class="categorylist tech"><%= link_to "tech", teches_path %></li><hr>
-    <li class="categorylist electronics"><%= link_to "electronics", electronics_path %></li>  <hr>
-    <li class="categorylist beauty"><%= link_to "beauty", beauty_path %></li><hr>
-    <li class="categorylist fashion"><%= link_to "fashion", fashion_path %></li><hr>
-    <li class="categorylist health"><%= link_to "health", health_path %></li><hr>
-    <li class="categorylist sustenance"><%= link_to "sustenance", sustenance_path %></li><hr>
-    <li class="categorylist home"><%= link_to "home", home_path %></li><hr>
-    <li class="categorylist hobbies"><%= link_to "hobbies", hobbies_path %></li><hr>
-    <li class="categorylist auto"><%= link_to "vehicle", autos_path %></li><hr>
-    <%= render 'shared/aboutus' %>
-  </ul>
-</div>
+<br>
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/hover/catmedia.PNG'), media_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "media", media_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/hover/catlocal.PNG'), locals_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "local", locals_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/hover/cattech.PNG'), teches_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "tech", teches_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/hover/catelectronics.PNG'), electronics_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "electronics", electronics_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/hover/catbeauty.PNG'), beauty_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "beauty", beauty_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/hover/catfashion.PNG'), fashion_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "fashion", fashion_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/hover/cathealth.PNG'), health_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "health", health_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/hover/catfood.PNG'), sustenance_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "sustenance", sustenance_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/hover/cathome.PNG'), home_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "home", home_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/hover/cathobby.PNG'), hobbies_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "hobbies", hobbies_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/Cvehicle.PNG'), autos_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "vehicle", autos_path %>
+    </div>
+  </div>

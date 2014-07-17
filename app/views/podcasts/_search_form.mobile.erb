@@ -1,0 +1,7 @@
+<br>
+          <%= form_tag podcasts_search_path, :method => :get do %>
+<%= text_field_tag :search, params[:search], :placeholder => "by title or category" , :class => "form-control mobile-search" %>
+<br>
+                  <%= submit_tag "Go", class: "btn btn-primary" %>
+          <% end %>
+<hr>

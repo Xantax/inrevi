@@ -1,12 +1,56 @@
 <% provide(:title, 'Makeup, Frangrance...') %>
-<div class="mobilemaincats" align="">
-  
-<ul class="nav nav-stacked categorylist mobile">
-  <li><%= link_to image_tag('othericons/backarrow.PNG'), root_path %></li><hr>
-  <li class="categorylist makeup"><%= link_to "makeup", makeup_index_path %></li> <hr>
-  <li class="categorylist fragrance"><%= link_to "fragrance", fragrance_index_path %></li><hr>
-  <li class="categorylist hair"><%= link_to "hair", haircare_index_path %></li><hr>
-  <li class="categorylist skin"><%= link_to "skin", skincare_index_path %></li> <hr>
-  <li class="categorylist bath"><%= link_to "bath & body", bodybath_index_path %></li><hr>
-  <li class="categorylist beatool"><%= link_to "tools", beatool_index_path %></li><hr>
-</ul>
+
+<br>
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/beauty/Bmakeup.png'), makeup_index_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "makeup", makeup_index_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/beauty/Bfragrance.png'), fragrance_index_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "fragrance", fragrance_index_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/beauty/Bhair.png'), haircare_index_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "hair", haircare_index_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/beauty/Bskin.png'), skincare_index_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "skin", skincare_index_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/beauty/Bbath.png'), bodybath_index_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "bath & body", bodybath_index_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/beauty/btools.png'), beatool_index_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "tools", beatool_index_path %>
+    </div>
+  </div>

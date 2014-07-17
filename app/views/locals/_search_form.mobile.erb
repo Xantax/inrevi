@@ -1,30 +1,20 @@
-<hr>
+<br>
 <%= form_tag lsearch_path, method: :get do %>
 
     <%= text_field_tag :tags, nil, data: {category: Factual_Taxonomy.taxonomies, place: ZIP_CODE.all_cities}, id: 'tags' %>
 <div class="searchbox mobile local">
     <%= text_field_tag :query, params[:query], placeholder: "e.g. bars, Starbucks...", class: 'form-control mobile-search', id: 'query-text-field' %> 
 </div>
+
   <br><br>
+
 <div class="searchbox mobile local">
     <%= text_field_tag :place, params[:place], placeholder: " 'City' or 'Neighborhood City' ", class: 'form-control mobile-search', id: 'place-text-field' %>
 </div>
+
   <br><br>
-    <div class="searchstyle">
-      <span class="input-group-btn">
-        <%= submit_tag "Go", class: "btn btn-default", :id => "submit-me" %>
-      </span>
-    </div>
+
+        <%= submit_tag "Go", class: "btn btn-primary", data: { disable_with: "Searching..." } %>
 
 <% end %>
 <hr>
-
-        <div id="loading2" class="loadinggif" style="display:none;" align="center">
-          <%= image_tag("othericons/uploading.gif", alt: "") %><br>
-        </div>
-
-<script type="text/javascript">
-  $('#submit-me').on('click', function(e) {
-  return $("#loading2").slideToggle();
-});
-</script>

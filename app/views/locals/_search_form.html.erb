@@ -6,7 +6,7 @@
     <%= text_field_tag :place, params[:place], placeholder: " 'City' or 'Neighborhood City' ", class: 'form-control q', id: 'place-text-field' %>
     <div class="searchstyle">
       <span class="input-group-btn">
-        <%= submit_tag "Go", class: "btn btn-default", :id => "submit-me" %>
+        <%= submit_tag "Go", class: "btn btn-default", :id => "submit-me", data: { disable_with: "..." } %>
       </span>
     </div>
     

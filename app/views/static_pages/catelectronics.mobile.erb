@@ -1,17 +1,101 @@
 <% provide(:title, 'Computers, Smartphones, Photo...') %>
-<div class="mobilemaincats" align="">
-  
-<ul class="nav nav-stacked categorylist mobile">
-  <li><%= link_to image_tag('othericons/backarrow.PNG'), root_path %></li><hr>
-  <li class="categorylist ecomputers"><%= link_to "computers", computer_index_path %></li> <hr>
-  <li class="categorylist ephoto"><%= link_to "photo", camera_index_path %></li><hr>
-  <li class="categorylist emobile"><%= link_to "mobile", emobile_index_path %></li><hr>
-  <li class="categorylist etv"><%= link_to "tv", television_index_path %></li><hr>
-  <li class="categorylist eportable"><%= link_to "portable", eportable_index_path %></li> <hr>
-  <li class="categorylist esecurity"><%= link_to "security", securit_index_path %></li><hr>
-  <li class="categorylist eaudio"><%= link_to "audio", homeaudio_index_path %></li> <hr>
-  <li class="categorylist evehicle"><%= link_to "vehicle", carelectro_index_path %></li><hr>
-  <li class="categorylist ereader"><%= link_to "e-reader", ereader_index_path %></li><hr>
-  <li class="categorylist egps"><%= link_to "GPS", enavigation_index_path %></li><hr>
-  <li class="categorylist ewarranty"><%= link_to "warranties", ewar_index_path %></li><hr>
-</ul>
+
+<br>
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/electronics/Ecomputers.png'), computer_index_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "computers", computer_index_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/electronics/Ecamera.png'), camera_index_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "photo", camera_index_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/electronics/Emobile.png'), emobile_index_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "mobile", emobile_index_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/electronics/Etv.png'), television_index_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "TV", television_index_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/electronics/Eportable.png'), eportable_index_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "portable", eportable_index_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/electronics/Esecurity.png'), securit_index_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "security", securit_index_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/electronics/Eaudio.png'), homeaudio_index_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "audio", homeaudio_index_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/electronics/Evehicle.png'), carelectro_index_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "vehicle", carelectro_index_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/electronics/ereader.png'), ereader_index_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "e-reader", ereader_index_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/electronics/egps.PNG'), enavigation_index_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "GPS", enavigation_index_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/electronics/ewarranties.PNG'), ewar_index_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "warranties", ewar_index_path %>
+    </div>
+  </div>

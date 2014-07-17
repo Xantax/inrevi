@@ -1,12 +1,3 @@
 <% provide(:title, 'TV Shows') %>
-<hr>
-<%= form_tag tvsearch_path, :method => :get do %>
-      <%= text_field_tag(:query, nil, :placeholder => "e.g. Game of Trones" , :class => "form-control mobile-search") %>
-    <br>
-    <div class="searchgo">
-      <span class="input-group-btn">
-        <%= submit_tag "Go", class: "btn btn-default" %>
-      </span>
-    </div>
-<% end %>
-<hr>
+
+<%= render 'search_form' %>

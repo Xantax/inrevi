@@ -1,14 +1,3 @@
 <% provide(:title, 'Apps, Services, Websites...') %>
 
-<hr>          
-  <%= form_tag teches_search_path, :method => :get do %>
-                <%= text_field_tag :search, params[:search], :placeholder => "by name" , :class => "form-control mobile-search" %>
-              <br>
-              <div class="searchgo">
-                <span class="input-group-btn">
-                  <%= submit_tag "Go", class: "btn btn-default" %>
-                </span>
-              </div>
-      
-  <% end %>
-<hr>
+<%= render 'search_form' %>

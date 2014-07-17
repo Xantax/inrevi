@@ -1,13 +1,65 @@
 <% provide(:title, 'Books, Movies, Songs...') %>
-<div class="mobilemaincats" align="">
-  
-<ul class="nav nav-stacked categorylist mobile">
-  <li><%= link_to image_tag('othericons/backarrow.PNG'), root_path %></li><hr>
-  <li class="categorylist books"><%= link_to "books", books_path %></li><hr>
-  <li class="categorylist movies"><%= link_to "movies", movies_path %></li> <hr>
-  <li class="categorylist games"><%= link_to "games", videogame_index_path %></li><hr>
-  <li class="categorylist songs"><%= link_to "songs", songs_path %></li>  <hr>
-  <li class="categorylist tvshows"><%= link_to "tvshows", tvshows_path %></li><hr>
-  <li class="categorylist podcasts"><%= link_to "podcasts", podcasts_path %></li><hr>
-  <li class="categorylist art_media"><%= link_to "fine art", finearts_path %></li><hr>
-</ul>
+
+<br>
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/media/Mbooks.PNG'), books_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "books", books_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/media/Mmovies.PNG'), movies_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "movies", movies_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/media/Mgames.PNG'), videogame_index_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "games", videogame_index_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/media/Msongs.PNG'), songs_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "songs", songs_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/media/Mtv.PNG'), tvshows_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "tvshows", tvshows_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/media/Mpodcasts.PNG'), podcasts_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "podcasts", podcasts_path %>
+    </div>
+  </div>
+
+  <div class="row mobile-cat">
+    <div class="col-xs-3">
+      <%= link_to image_tag('caticons/media/Mart.png'), finearts_path %>
+    </div>
+    <div class="col-xs-9 mobcatlink" align="left">
+      <%= link_to "fine art", finearts_path %>
+    </div>
+  </div>
