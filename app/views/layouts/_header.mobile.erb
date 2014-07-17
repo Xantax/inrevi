@@ -5,14 +5,11 @@
 <div class="row mobilecatheader">
   
   <% if signed_in? %>
-      <div class="col-xs-4">
-        <%= link_to "categories", root_path %>
+      <div class="col-xs-6">
+        <%= link_to image_tag('othericons/rss8.png'), mobile_newsfeed_path %>
       </div>
-      <div class="col-xs-4">
-        <%= link_to "newsfeed", mobile_newsfeed_path %>
-      </div>
-      <div class="col-xs-4">
-        <%= link_to "profile", user_path(current_user) %>
+      <div class="col-xs-6">
+        <%= link_to image_tag('othericons/male12.png'), user_path(current_user) %>
       </div>
   <% else %>
     <div class="slogan-mobile">Just reviews</div>
