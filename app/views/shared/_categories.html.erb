@@ -34,6 +34,18 @@
   <%= render 'shared/catlists/footwear' %>
 <% elsif @resource_type.to_s == "clothing" %>
   <%= render 'shared/catlists/clothing' %>
+<% elsif @resource_type.to_s == "supplement" %>
+  <%= render 'shared/catlists/supplement' %>
+<% elsif @resource_type.to_s == "healthcare" %>
+  <%= render 'shared/catlists/healthcare' %>
+<% elsif @resource_type.to_s == "sexual" %>
+  <%= render 'shared/catlists/sexual' %>
+<% elsif @resource_type.to_s == "medical" %>
+  <%= render 'shared/catlists/medical' %>
+<% elsif @resource_type.to_s == "household" %>
+  <%= render 'shared/catlists/household' %>
+<% elsif @resource_type.to_s == "hkid" %>
+  <%= render 'shared/catlists/hkid' %>
 <% else %>
 
 <ul class="nav nav-stacked categorylist">

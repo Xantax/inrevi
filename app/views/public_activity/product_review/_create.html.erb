@@ -144,6 +144,15 @@
         <% elsif activity.trackable.productable_type == "beatool" %>
         <%= image_tag('caticons/beauty/btools.png') %>
         
+        <% elsif activity.trackable.productable_type == "medical" %>
+        <%= image_tag('caticons/beauty/medical.png') %>
+        
+        <% elsif activity.trackable.productable_type == "household" %>
+        <%= image_tag('caticons/beauty/household.png') %>
+        
+        <% elsif activity.trackable.productable_type == "hchild" %>
+        <%= image_tag('caticons/beauty/hchild.png') %>
+        
         <% end %>
         
         

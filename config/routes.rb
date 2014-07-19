@@ -46,6 +46,10 @@ Inrevi::Application.routes.draw do
   get 'beatools/search' => 'products#search'
   get 'footwears/search' => 'products#search'
   get 'clothings/search' => 'products#search'
+  get 'medicals/search' => 'products#search'
+  get 'households/search' => 'products#search'
+  get 'hkids/search' => 'products#search'
+  get 'vehcars/search' => 'products#search'
   
   resources :products, path: 'computers', as: :computer do
     resources :product_reviews do
@@ -328,6 +332,38 @@ Inrevi::Application.routes.draw do
     end
   end
   resources :products, path: 'clothings', as: :clothing do
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
+  end
+  resources :products, path: 'medicals', as: :medical do
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
+  end  
+  resources :products, path: 'households', as: :household do
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
+  end
+  resources :products, path: 'hkids', as: :hkid do
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
+  end 
+  resources :products, path: 'vehcars', as: :vehcar do
     resources :product_reviews do
        member do
          put "like", to: "product_reviews#upvote"

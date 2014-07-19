@@ -57,6 +57,7 @@ gem 'devise', '~> 3.2.4'
 gem 'cancancan', '~> 1.8'
 gem "rails_autolink"
 gem 'meta-tags'
+gem "valid_email2", '~> 1.1.0'
 
 group :development do
   gem 'brakeman', '~> 2.4.3', :require => false

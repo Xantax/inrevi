@@ -132,6 +132,8 @@ class User < ActiveRecord::Base
   
   has_many :contact_forms 
   
+  validates :email, email: { mx: true, disposable: true }
+  
   has_many :alerts do
     def today
       where(:created_at => (Time.now.beginning_of_day..Time.now))

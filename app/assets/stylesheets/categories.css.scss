@@ -1518,6 +1518,96 @@ background-image: asset-data-url("caticons/health/healthALL.PNG");
   }
 }
 
+.categorylist.medical {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -252px; 
+  }
+}
+
+.categorylist.medical:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -276px; 
+  }
+}
+
+.categorylist.household {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -298px; 
+  }
+}
+
+.categorylist.household:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -325px; 
+  }
+}
+
+.categorylist.hchild {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -352px; 
+  }
+}
+
+.categorylist.hchild:hover {
+a::before {
+content: "";
+position: absolute;
+top: 50%;
+left: -25px;
+width: 28px;
+height: 22px;
+margin-top: -11px;
+background-image: asset-data-url("caticons/health/healthALL.PNG");
+  background-repeat: no-repeat;
+    background-position: 0 -379px; 
+  }
+}
+
 
 /*  FASHION   SUBCATEGORIES   */
 

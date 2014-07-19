@@ -73,6 +73,12 @@
           <%= text_field_tag :query, params[:query], placeholder: "Footwear - Men, Women...", class: 'form-control search', id: 'query-text-field' %>
           <% elsif @resource_type.to_s == "clothing" %>
           <%= text_field_tag :query, params[:query], placeholder: "Clothing & Accessories", class: 'form-control search', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "medical" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Medical Supplies & Equipment", class: 'form-control search', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "household" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Household Supplies", class: 'form-control search', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "hkid" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Baby & Child Care", class: 'form-control search', id: 'query-text-field' %>
           <% end %>
           
         </div>

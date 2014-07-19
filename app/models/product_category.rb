@@ -183,6 +183,26 @@ class ProductCategory < ActiveRecord::Base
     {
       name: 'Clothing & Accessories',
       cat_id: 17366
+    },
+    medical:
+    {
+      name: 'Medical Supplies & Equipment',
+      cat_id: 20446
+    },
+    household:
+    {
+      name: 'Household Supplies',
+      cat_id: 4468
+    },
+    hkid:
+    {
+      name: 'Baby & Child Care',
+      cat_id: 4498
+    },
+    vehcar:
+    {
+      name: 'Vehicle Accessories',
+      cat_id: 934
     }
   }
 
