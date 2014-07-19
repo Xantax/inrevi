@@ -26,10 +26,6 @@ Inrevi::Application.routes.draw do
   get 'bodybaths/search' => 'products#search'
   get 'grocers/search' => 'products#search'
   get 'jewelrs/search' => 'products#search'
-  get 'menclothings/search' => 'products#search'
-  get 'womenclothings/search' => 'products#search'
-  get 'menfootwears/search' => 'products#search'
-  get 'womenfootwears/search' => 'products#search'
   get 'healthcares/search' => 'products#search'
   get 'supplements/search' => 'products#search'
   get 'sexuals/search' => 'products#search'
@@ -48,6 +44,8 @@ Inrevi::Application.routes.draw do
   get 'enavigations/search' => 'products#search'
   get 'ewars/search' => 'products#search'
   get 'beatools/search' => 'products#search'
+  get 'footwears/search' => 'products#search'
+  get 'clothings/search' => 'products#search'
   
   resources :products, path: 'computers', as: :computer do
     resources :product_reviews do
@@ -170,38 +168,6 @@ Inrevi::Application.routes.draw do
     end
   end
   resources :products, path: 'jewelrs', as: :jewelr do
-    resources :product_reviews do
-       member do
-         put "like", to: "product_reviews#upvote"
-         put "dislike", to: "product_reviews#downvote"
-      end      
-    end
-  end
-  resources :products, path: 'menclothings', as: :menclothing do
-    resources :product_reviews do
-       member do
-         put "like", to: "product_reviews#upvote"
-         put "dislike", to: "product_reviews#downvote"
-      end      
-    end
-  end
-  resources :products, path: 'womenclothings', as: :womenclothing do
-    resources :product_reviews do
-       member do
-         put "like", to: "product_reviews#upvote"
-         put "dislike", to: "product_reviews#downvote"
-      end      
-    end
-  end
-  resources :products, path: 'menfootwears', as: :menfootwear do
-    resources :product_reviews do
-       member do
-         put "like", to: "product_reviews#upvote"
-         put "dislike", to: "product_reviews#downvote"
-      end      
-    end
-  end
-  resources :products, path: 'womenfootwears', as: :womenfootwear do
     resources :product_reviews do
        member do
          put "like", to: "product_reviews#upvote"
@@ -353,6 +319,22 @@ Inrevi::Application.routes.draw do
       end      
     end
   end  
+  resources :products, path: 'footwears', as: :footwear do
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
+  end
+  resources :products, path: 'clothings', as: :clothing do
+    resources :product_reviews do
+       member do
+         put "like", to: "product_reviews#upvote"
+         put "dislike", to: "product_reviews#downvote"
+      end      
+    end
+  end
   
 
 #  get 'tags/:tag', to: 'teches#index', as: :ttag

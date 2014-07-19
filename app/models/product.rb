@@ -1,9 +1,9 @@
 class Product < ActiveRecord::Base
   PER_PAGE = 10
   RESOURCE_FOR = [:computer, :camera, :securit, :television, :carelectro, :homeaudio, :eportable, :emobile, :videogame,
-    :makeup, :fragrance, :haircare, :skincare, :bodybath, :grocer, :jewelr, :menclothing, :womenclothing,
-    :menfootwear, :womenfootwear, :healthcare, :supplement, :sexual, :personal, :musical, :sport, :craft,
-    :toy, :appliance, :baby, :pet, :tool, :indoor, :outdoor, :ereader, :enavigation, :ewar, :beatool]
+    :makeup, :fragrance, :haircare, :skincare, :bodybath, :grocer, :jewelr,
+    :healthcare, :supplement, :sexual, :personal, :musical, :sport, :craft,
+    :toy, :appliance, :baby, :pet, :tool, :indoor, :outdoor, :ereader, :enavigation, :ewar, :beatool, :footwear, :clothing]
 
   class << self
     def search(params, resource_type = :computer)

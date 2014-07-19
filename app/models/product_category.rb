@@ -84,26 +84,6 @@ class ProductCategory < ActiveRecord::Base
       name: 'Jewelry',
       cat_id: 4798
     },
-    menclothing:
-    {
-      name: 'Mens clothing',
-      cat_id: 18792
-    },
-    womenclothing:
-    {
-      name: 'Womens clothing',
-      cat_id: 20214
-    },
-    menfootwear:
-    {
-      name: 'Mens footwear',
-      cat_id: 21192
-    },
-    womenfootwear:
-    {
-      name: 'Womens footwear',
-      cat_id: 19486
-    },
     healthcare:
     {
       name: 'Healthcare',
@@ -193,6 +173,16 @@ class ProductCategory < ActiveRecord::Base
     {
       name: 'Beauy Tools',
       cat_id: 12122
+    },
+    footwear:
+    {
+      name: 'Footwear',
+      cat_id: 8551
+    },
+    clothing:
+    {
+      name: 'Clothing & Accessories',
+      cat_id: 17366
     }
   }
 

@@ -28,6 +28,12 @@
   <%= render 'shared/catlists/beatool' %>
 <% elsif @resource_type.to_s == "grocer" %>
   <%= render 'shared/catlists/grocer' %>
+<% elsif @resource_type.to_s == "jewelr" %>
+  <%= render 'shared/catlists/jewelr' %>
+<% elsif @resource_type.to_s == "footwear" %>
+  <%= render 'shared/catlists/footwear' %>
+<% elsif @resource_type.to_s == "clothing" %>
+  <%= render 'shared/catlists/clothing' %>
 <% else %>
 
 <ul class="nav nav-stacked categorylist">

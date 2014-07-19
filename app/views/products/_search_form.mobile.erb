@@ -34,14 +34,6 @@
           <%= text_field_tag :query, params[:query], placeholder: "Beverages, Seafood, Candy, Sauces & Dips...", class: 'form-control mobile-search', id: 'query-text-field' %>
           <% elsif @resource_type.to_s == "jewelr" %>
           <%= text_field_tag :query, params[:query], placeholder: "Rings, Earrings, Bracelets, Men's...", class: 'form-control mobile-search', id: 'query-text-field' %>
-          <% elsif @resource_type.to_s == "menclothing" %>
-          <%= text_field_tag :query, params[:query], placeholder: "Pants, Active, Sunglasses, Cold Weather...", class: 'form-control mobile-search', id: 'query-text-field' %>
-          <% elsif @resource_type.to_s == "womenclothing" %>
-          <%= text_field_tag :query, params[:query], placeholder: "Pants, Active, Sunglasses, Cold Weather, Handbags...", class: 'form-control mobile-search', id: 'query-text-field' %>
-          <% elsif @resource_type.to_s == "menfootwear" %>
-          <%= text_field_tag :query, params[:query], placeholder: "Boots, Sneakers, Athletic & Outdoor...", class: 'form-control mobile-search', id: 'query-text-field' %>
-          <% elsif @resource_type.to_s == "womenfootwear" %>
-          <%= text_field_tag :query, params[:query], placeholder: "Sandals, Pumps, Boots, Sneakers, Athletic & Outdoor...", class: 'form-control mobile-search', id: 'query-text-field' %>
           <% elsif @resource_type.to_s == "healthcare" %>
           <%= text_field_tag :query, params[:query], placeholder: "Cough & Cold, Allergy, Pain Relievers, Alternative Medicine...", class: 'form-control mobile-search', id: 'query-text-field' %>
           <% elsif @resource_type.to_s == "supplement" %>
@@ -78,6 +70,10 @@
           <%= text_field_tag :query, params[:query], placeholder: "Warranties...", class: 'form-control mobile-search', id: 'query-text-field' %>
           <% elsif @resource_type.to_s == "beatool" %>
           <%= text_field_tag :query, params[:query], placeholder: "Tools and Accessories...", class: 'form-control search', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "footwear" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Footwear - Men, Women...", class: 'form-control search', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "clothing" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Clothing & Accessories", class: 'form-control search', id: 'query-text-field' %>
           <% end %>
 
     <%= hidden_field_tag :category, params[:category] %><br>
