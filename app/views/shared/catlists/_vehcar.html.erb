@@ -1,21 +1,543 @@
+<%= link_to image_tag('caticons/Cauto.png', width: '16', height: '16'), "/autos" %>
+<%= link_to "cars", "/autos" %>
+
 <hr>
+
+<%= link_to image_tag('caticons/Cvehicle.PNG', width: '14', height: '14'), "/autos" %>
+<%= link_to "accessories", "/vehcars" %><br><br>
 
 <div id="nav-listz">  
     <ul>      
       
-Oils & Fluids
-RV Parts & Accessories
-Exterior Accessories
-Car Care
-Interior Accessories
-Performance Parts & Accessories
-Tires & Wheels
-Motorcycle & ATV
-Replacement Parts
-Tools & Equipment
-Car Electronics & Accessories
-Automotive Enthusiast Merchandise
-Paint, Body & Trim      
+<li>Oils & Fluids
+  <ul class="current-l">
+    <li>Body Repair & Restoration Chemicals
+      <ul class="current-l">
+        <li><%= link_to "Adhesives", "/vehcars/search?utf8=✓&query=Adhesives&category=&commit=Go" %></li>
+      </ul>
+    </li>
+      
+    <li>Cleaners
+      <ul class="current-l">
+        <li><%= link_to "Electrical Cleaners", "/vehcars/search?utf8=✓&query=Electrical+Cleaners&category=&commit=Go" %></li>
+        <li><%= link_to "Oil Cleanup Absorbers", "/vehcars/search?utf8=✓&query=Oil+Cleanup+Absorbers&category=&commit=Go" %></li>
+        <li><%= link_to "Brake Cleaners", "/vehcars/search?utf8=✓&query=Brake+Cleaners&category=&commit=Go" %></li>
+        <li><%= link_to "Fuel System Cleaners", "/vehcars/search?utf8=✓&query=Fuel+System+Cleaners&category=&commit=Go" %></li>
+        <li><%= link_to "Carburetor & Throttle Body Cleaners", "/vehcars/search?utf8=✓&query=Carburetor+Cleaners&category=&commit=Go" %></li>
+        <li><%= link_to "Engine Cleaners & Degreasers", "/vehcars/search?utf8=✓&query=Engine+Cleaners&category=&commit=Go" %></li>
+        <li><%= link_to "Parts Cleaners", "/vehcars/search?utf8=✓&query=Parts+Cleaners&category=&commit=Go" %></li>
+        <li><%= link_to "Gasket Removers", "/vehcars/search?utf8=✓&query=Gasket+Removers&category=&commit=Go" %></li>
+        <li><%= link_to "Fan Belt Dressings", "/vehcars/search?utf8=✓&query=Fan+Belt+Dressings&category=&commit=Go" %></li>
+      </ul>
+    </li>      
+      
+    <li>Sealers
+      <ul class="current-l">
+        <li><%= link_to "Thread Lock", "/vehcars/search?utf8=✓&query=Thread+Lock&category=&commit=Go" %></li>
+        <li><%= link_to "Pipe", "/vehcars/search?utf8=✓&query=Pipe&category=&commit=Go" %></li>
+        <li><%= link_to "Radiator", "/vehcars/search?utf8=✓&query=Radiator&category=&commit=Go" %></li>
+        <li><%= link_to "Gasket", "/vehcars/search?utf8=✓&query=Gasket&category=&commit=Go" %></li>
+        <li><%= link_to "Silicone", "/vehcars/search?utf8=✓&query=Silicone&category=&commit=Go" %></li>
+      </ul>
+    </li>     
+      
+    <li><%= link_to "Power Steering Fluids", "/vehcars/search?utf8=✓&query=Power+Steering+Fluids&category=&commit=Go" %></li>
+      
+    <li>Additives
+      <ul class="current-l">
+        <li><%= link_to "Transmission", "/vehcars/search?utf8=✓&query=Transmission&category=&commit=Go" %></li>
+        <li><%= link_to "Fuel System", "/vehcars/search?utf8=✓&query=Fuel+System&category=&commit=Go" %></li>
+        <li><%= link_to "Cooling System", "/vehcars/search?utf8=✓&query=Cooling+System&category=&commit=Go" %></li>
+        <li><%= link_to "Hydraulic", "/vehcars/search?utf8=✓&query=Hydraulic&category=&commit=Go" %></li>
+        <li><%= link_to "Power Steering", "/vehcars/search?utf8=✓&query=Power+Steering&category=&commit=Go" %></li>
+        <li><%= link_to "Engine & Oil", "/vehcars/search?utf8=✓&query=Engine&category=&commit=Go" %></li>
+      </ul>
+    </li>     
+      
+    <li><%= link_to "Grease & Lubricants", "/vehcars/search?utf8=✓&query=Grease&category=&commit=Go" %></li>
+      
+    <li><%= link_to "Windshield Washer Fluid", "/vehcars/search?utf8=✓&query=Windshield+Washer+Fluid&category=&commit=Go" %></li>
+      
+    <li>Oils
+      <ul class="current-l">
+        <li><%= link_to "Motor Oils", "/vehcars/search?utf8=✓&query=Motor+Oils&category=&commit=Go" %></li>
+        <li><%= link_to "Air Conditioning Oils", "/vehcars/search?utf8=✓&query=Air+Conditioning+Oils&category=&commit=Go" %></li>
+        <li><%= link_to "Gear Oils", "/vehcars/search?utf8=✓&query=Gear+Oils&category=&commit=Go" %></li>
+        <li><%= link_to "Hydraulic Oils", "/vehcars/search?utf8=✓&query=Hydraulic+Oils&category=&commit=Go" %></li>
+      </ul>
+    </li>     
+      
+    <li><%= link_to "Brake Fluids", "/vehcars/search?utf8=✓&query=Brake+Fluids&category=&commit=Go" %></li>
+      
+    <li>Winter Products
+      <ul class="current-l">
+        <li><%= link_to "Starting Fluids", "/vehcars/search?utf8=✓&query=Starting+Fluids&category=&commit=Go" %></li>
+        <li><%= link_to "Fuel System Dryers", "/vehcars/search?utf8=✓&query=Fuel+System+Dryers&category=&commit=Go" %></li>
+        <li><%= link_to "De-Icers", "/vehcars/search?utf8=✓&query=De-Icers&category=&commit=Go" %></li>
+        <li><%= link_to "Gas Line Antifreezes", "/vehcars/search?utf8=✓&query=Gas+Line+Antifreezes&category=&commit=Go" %></li>
+      </ul>
+    </li>      
+      
+    <li><%= link_to "Transmission Fluids", "/vehcars/search?utf8=✓&query=Transmission+Fluids&category=&commit=Go" %></li>
+      
+    <li><%= link_to "Antifreezes & Coolants", "/vehcars/search?utf8=✓&query=Antifreezes&category=&commit=Go" %></li>
+      
+    <li><%= link_to "Radiator Conditioners & Protectants", "/vehcars/search?utf8=✓&query=Radiator+Conditioners&category=&commit=Go" %></li>
+      
+    <li>Flushes
+      <ul class="current-l">
+        <li><%= link_to "Brake", "/vehcars/search?utf8=✓&query=Brake&category=&commit=Go" %></li>
+        <li><%= link_to "Power Steering", "/vehcars/search?utf8=✓&query=Power+Steering&category=&commit=Go" %></li>
+        <li><%= link_to "Fuel Injection", "/vehcars/search?utf8=✓&query=Fuel+Injection&category=&commit=Go" %></li>
+        <li><%= link_to "Gasket", "/vehcars/search?utf8=✓&query=Gasket&category=&commit=Go" %></li>
+        <li><%= link_to "Fuel", "/vehcars/search?utf8=✓&query=Fuel&category=&commit=Go" %></li>
+        <li><%= link_to "Engine", "/vehcars/search?utf8=✓&query=Engine&category=&commit=Go" %></li>
+        <li><%= link_to "Transmission", "/vehcars/search?utf8=✓&query=Transmission&category=&commit=Go" %></li>
+        <li><%= link_to "Filter", "/vehcars/search?utf8=✓&query=Filter&category=&commit=Go" %></li>
+        <li><%= link_to "Radiator", "/vehcars/search?utf8=✓&query=Radiator&category=&commit=Go" %></li>
+      </ul>
+    </li>      
+      
+    <li><%= link_to "Refrigerants", "/vehcars/search?utf8=✓&query=Refrigerants&category=&commit=Go" %></li>
+      
+  </ul>
+</li>
+
+      
+<li>RV Parts & Accessories
+  <ul class="current-l">
+    
+    <li><%= link_to "Cleaning, Storage & Maintenance", "/vehcars/search?utf8=✓&query=RV+Cleaning&category=&commit=Go" %></li>
+      
+    <li><%= link_to "Lighting", "/vehcars/search?utf8=✓&query=RV+Lighting&category=&commit=Go" %></li>
+      
+    <li>Furnishings & Appliances
+      <ul class="current-l">
+        <li><%= link_to "Appliances", "/vehcars/search?utf8=✓&query=RV+Appliances&category=&commit=Go" %></li>
+        <li><%= link_to "Bedding", "/vehcars/search?utf8=✓&query=RV+Bedding&category=&commit=Go" %></li>
+        <li><%= link_to "Bath, Laundry & Kitchen", "/vehcars/search?utf8=✓&query=RV+Bath&category=&commit=Go" %></li>
+      </ul>
+    </li>      
+      
+    <li><%= link_to "Electronics", "/vehcars/search?utf8=✓&query=RV+Electronics&category=&commit=Go" %></li>
+      
+    <li>Plumbing
+      <ul class="current-l">
+        <li><%= link_to "Freshwater Systems", "/vehcars/search?utf8=✓&query=Freshwater+Systems&category=&commit=Go" %></li>
+        <li><%= link_to "Waste Water & Sanitation", "/vehcars/search?utf8=✓&query=Sanitation&category=&commit=Go" %></li>
+      </ul>
+    </li>      
+      
+    <li><%= link_to "RV & Trailer Covers", "/vehcars/search?utf8=✓&query=RV+Covers&category=&commit=Go" %></li>
+      
+    <li><%= link_to "Heating, Ventilation & Air Conditioning", "/vehcars/search?utf8=✓&query=RV+Heating&category=&commit=Go" %></li>
+      
+    <li><%= link_to "Engine & Chassis Parts", "/vehcars/search?utf8=✓&query=RV+Engine&category=&commit=Go" %></li>
+      
+    <li><%= link_to "Jacks & Leveling", "/vehcars/search?utf8=✓&query=RV+Jacks&category=&commit=Go" %></li>
+      
+    <li><%= link_to "Awnings, Screens & Accessories", "/vehcars/search?utf8=✓&query=RV+Awnings&category=&commit=Go" %></li>
+      
+    <li>Power & Electrical
+      <ul class="current-l">
+        <li><%= link_to "Generators", "/vehcars/search?utf8=✓&query=RV+Generators&category=&commit=Go" %></li>
+      </ul>
+    </li>
+      
+    <li><%= link_to "Hitching & Towing", "/vehcars/search?utf8=✓&query=RV+Hitching&category=&commit=Go" %></li>
+      
+  </ul>
+</li>
+      
+      
+<li>Exterior Accessories
+  <ul class="current-l">
+    <li><%= link_to "Lights & Lighting Accessories", "/vehcars/search?utf8=✓&query=Exterior+Lights&category=&commit=Go" %></li> 
+    <li><%= link_to "Roll Bars & Roll Cages", "/vehcars/search?utf8=✓&query=Exterior+Roll+Bars&category=&commit=Go" %></li> 
+    <li><%= link_to "Covers", "/vehcars/search?utf8=✓&query=Exterior+Covers&category=&commit=Go" %></li> 
+    <li><%= link_to "Fender Flares & Trim", "/vehcars/search?utf8=✓&query=Exterior+Fender+Flares&category=&commit=Go" %></li> 
+    <li><%= link_to "Mirrors", "/vehcars/search?utf8=✓&query=Exterior+Mirrors&category=&commit=Go" %></li> 
+    <li><%= link_to "Spoilers, Wings & Styling Kits", "/vehcars/search?utf8=✓&query=Exterior+Spoilers&category=&commit=Go" %></li> 
+    <li><%= link_to "Horns & Accessories", "/vehcars/search?utf8=✓&query=Exterior+Horns&category=&commit=Go" %></li> 
+    <li><%= link_to "Trailer Accessories", "/vehcars/search?utf8=✓&query=Trailer&category=&commit=Go" %></li> 
+    <li><%= link_to "Snow & Ice", "/vehcars/search?utf8=✓&query=Exterior+Snow&category=&commit=Go" %></li> 
+    <li><%= link_to "Antenna Toppers", "/vehcars/search?utf8=✓&query=Exterior+Antenna+Toppers&category=&commit=Go" %></li> 
+    <li><%= link_to "Chrome Trim & Accessories", "/vehcars/search?utf8=✓&query=Exterior+Chrome+Trim&category=&commit=Go" %></li> 
+    <li><%= link_to "Running Boards & Steps", "/vehcars/search?utf8=✓&query=Running+Boards&category=&commit=Go" %></li> 
+    <li><%= link_to "Gas Tank Doors", "/vehcars/search?utf8=✓&query=Gas+Tank&category=&commit=Go" %></li> 
+    <li><%= link_to "Deflectors & Shields", "/vehcars/search?utf8=✓&query=Deflectors&category=&commit=Go" %></li> 
+    <li><%= link_to "Grilles & Grille Guards", "/vehcars/search?utf8=✓&query=Exterior+Grilles&category=&commit=Go" %></li> 
+    <li><%= link_to "Grilles", "/vehcars/search?utf8=✓&query=Exterior+Grilles&category=&commit=Go" %></li> 
+    <li><%= link_to "Body Armor", "/vehcars/search?utf8=✓&query=Body+Armor&category=&commit=Go" %></li> 
+    <li><%= link_to "License Plate Covers & Frames", "/vehcars/search?utf8=✓&query=License+Plate+Covers&category=&commit=Go" %></li> 
+    <li><%= link_to "Safety", "/vehcars/search?utf8=✓&query=Exterior+Safety&category=&commit=Go" %></li> 
+    <li><%= link_to "Bumpers & Bumper Accessories", "/vehcars/search?utf8=✓&query=Bumpers&category=&commit=Go" %></li> 
+    <li><%= link_to "Towing Products & Winches", "/vehcars/search?utf8=✓&query=Winches&category=&commit=Go" %></li> 
+    <li><%= link_to "Winches", "/vehcars/search?utf8=✓&query=Winches&category=&commit=Go" %></li> 
+    <li><%= link_to "Truck Bed & Tailgate Accessories", "/vehcars/search?utf8=✓&query=Truck+Bed&category=&commit=Go" %></li> 
+    <li><%= link_to "Window Louvers", "/vehcars/search?utf8=✓&query=Window+Louvers&category=&commit=Go" %></li> 
+    <li><%= link_to "Cargo Management", "/vehcars/search?utf8=✓&query=Cargo Management&category=&commit=Go" %></li> 
+    <li><%= link_to "Emblems", "/vehcars/search?utf8=✓&query=Exterior+Emblems&category=&commit=Go" %></li> 
+    <li><%= link_to "Hood Scoops & Vents", "/vehcars/search?utf8=✓&query=Exterior+Hood+Scoops&category=&commit=Go" %></li> 
+  </ul>
+</li>
+      
+<li>Car Care
+  <ul class="current-l">
+    <li>Exterior Care
+      <ul class="current-l">
+        <li><%= link_to "Car Polishes & Waxes", "/vehcars/search?utf8=✓&query=Car+Polishes&category=&commit=Go" %></li>
+        <li><%= link_to "Car Wash Equipment", "/vehcars/search?utf8=✓&query=Car+Wash+Equipment&category=&commit=Go" %></li>
+        <li><%= link_to "Cleaners", "/vehcars/search?utf8=✓&query=Cleaners&category=&commit=Go" %></li>
+        <li><%= link_to "Sealants", "/vehcars/search?utf8=✓&query=Sealants&category=&commit=Go" %></li>
+        <li><%= link_to "Polishing & Rubbing Compounds", "/vehcars/search?utf8=✓&query=Rubbing+Compounds&category=&commit=Go" %></li>
+        <li><%= link_to "Convertible Top Cleaners", "/vehcars/search?utf8=✓&query=Convertible+Top+Cleaners&category=&commit=Go" %></li>
+        <li><%= link_to "Water Blades", "/vehcars/search?utf8=✓&query=Water+Blades&category=&commit=Go" %></li>
+        <li><%= link_to "Polishing & Waxing Kits", "/vehcars/search?utf8=✓&query=Polishing+Kits&category=&commit=Go" %></li>
+      </ul>
+    </li>
+      
+    <li>Tools & Equipment
+      <ul class="current-l">
+        <li><%= link_to "Cloths & Towels", "/vehcars/search?utf8=✓&query=Cloths&category=&commit=Go" %></li>
+        <li><%= link_to "Detailing Tools", "/vehcars/search?utf8=✓&query=Detailing+Tools&category=&commit=Go" %></li>
+        <li><%= link_to "Machine Polishing Equipment", "/vehcars/search?utf8=✓&query=Machine+Polishing+Equipment&category=&commit=Go" %></li>
+        <li><%= link_to "Air Dryers, Blowers & Blades", "/vehcars/search?utf8=✓&query=Air+Dryers&category=&commit=Go" %></li>
+        <li><%= link_to "Brushes & Dusters", "/vehcars/search?utf8=✓&query=Brushes&category=&commit=Go" %></li>
+      </ul>
+    </li>     
+      
+    <li>Finishing
+      <ul class="current-l">
+        <li><%= link_to "Protective Shields", "/vehcars/search?utf8=✓&query=Protective+Shields&category=&commit=Go" %></li>
+        <li><%= link_to "Corrosion & Rust Inhibitors", "/vehcars/search?utf8=✓&query=Corrosion+Inhibitors&category=&commit=Go" %></li>
+      </ul>
+    </li>     
+      
+    <li><%= link_to "Tire & Wheel Care", "/vehcars/search?utf8=✓&query=Wheel+Care&category=&commit=Go" %></li>
+      
+    <li><%= link_to "Undercoatings", "/vehcars/search?utf8=✓&query=Undercoatings&category=&commit=Go" %></li>
+      
+    <li>Interior Care
+      <ul class="current-l">
+        <li><%= link_to "Carpet Cleaners", "/vehcars/search?utf8=✓&query=Carpet+Cleaners&category=&commit=Go" %></li>
+        <li><%= link_to "Vacuums", "/vehcars/search?utf8=✓&query=Vacuums&category=&commit=Go" %></li>
+        <li><%= link_to "Vinyl Cleaners", "/vehcars/search?utf8=✓&query=Vinyl+Cleaners&category=&commit=Go" %></li>
+        <li><%= link_to "Leather Care", "/vehcars/search?utf8=✓&query=Leather+Care&category=&commit=Go" %></li>
+        <li><%= link_to "Upholstery Care", "/vehcars/search?utf8=✓&query=Upholstery+Care&category=&commit=Go" %></li>
+        <li><%= link_to "Protectants", "/vehcars/search?utf8=✓&query=Protectants&category=&commit=Go" %></li>
+      </ul>
+    </li>      
+      
+    <li><%= link_to "Glass Care", "/vehcars/search?utf8=✓&query=Glass+Care&category=&commit=Go" %></li>
+      
+    <li><%= link_to "Solvents", "/vehcars/search?utf8=✓&query=Solvents&category=&commit=Go" %></li>
+      
+    <li><%= link_to "Headlight Restoration", "/vehcars/search?utf8=✓&query=Headlight+Restoration&category=&commit=Go" %></li>
+      
+    <li><%= link_to "Cleaning Kits", "/vehcars/search?utf8=✓&query=Cleaning+Kits&category=&commit=Go" %></li>
+  </ul>
+</li>  
+      
+      
+<li>Interior Accessories
+  <ul class="current-l">
+    <li><%= link_to "Air Fresheners", "/vehcars/search?utf8=✓&query=Air+Fresheners&category=&commit=Go" %></li> 
+    <li><%= link_to "Compasses", "/vehcars/search?utf8=✓&query=Compasses&category=&commit=Go" %></li> 
+    <li><%= link_to "Door Entry Guard", "/vehcars/search?utf8=✓&query=Door+Entry+Guard&category=&commit=Go" %></li> 
+    <li><%= link_to "Garbage Cans", "/vehcars/search?utf8=✓&query=Garbage+Cans&category=&commit=Go" %></li> 
+    <li><%= link_to "Electrical Appliances", "/vehcars/search?utf8=✓&query=Electrical+Appliances&category=&commit=Go" %></li> 
+    <li><%= link_to "Automobilia", "/vehcars/search?utf8=✓&query=Automobilia&category=&commit=Go" %></li> 
+    <li><%= link_to "Antitheft", "/vehcars/search?utf8=✓&query=Antitheft&category=&commit=Go" %></li> 
+    <li><%= link_to "Steering Wheels & Accessories", "/vehcars/search?utf8=✓&query=Steering+Wheels&category=&commit=Go" %></li> 
+    <li><%= link_to "Safety", "/vehcars/search?utf8=✓&query=Safety&category=&commit=Go" %></li> 
+    <li><%= link_to "Floor Mats & Cargo Liners", "/vehcars/search?utf8=✓&query=Floor+Mats&category=&commit=Go" %></li> 
+    <li><%= link_to "Key Chains", "/vehcars/search?utf8=✓&query=Key+Chains&category=&commit=Go" %></li> 
+    <li><%= link_to "Seat Covers & Accessories", "/vehcars/search?utf8=✓&query=Seat+Covers&category=&commit=Go" %></li> 
+    <li><%= link_to "Shift Boots & Knobs", "/vehcars/search?utf8=✓&query=Shift+Boots&category=&commit=Go" %></li> 
+    <li><%= link_to "Ashtrays", "/vehcars/search?utf8=✓&query=Ashtrays&category=&commit=Go" %></li> 
+    <li><%= link_to "Consoles & Organizers", "/vehcars/search?utf8=✓&query=Consoles&category=&commit=Go" %></li> 
+    <li><%= link_to "Insulation & Noise Control", "/vehcars/search?utf8=✓&query=Insulation&category=&commit=Go" %></li> 
+    <li><%= link_to "Sun Protection", "/vehcars/search?utf8=✓&query=Sun+Protection&category=&commit=Go" %></li> 
+    <li><%= link_to "Cup Holders", "/vehcars/search?utf8=✓&query=Cup+Holders&category=&commit=Go" %></li> 
+    <li><%= link_to "Mirrors", "/vehcars/search?utf8=✓&query=Mirrors&category=&commit=Go" %></li> 
+    <li><%= link_to "Covers", "/vehcars/search?utf8=✓&query=Covers&category=&commit=Go" %></li> 
+    <li><%= link_to "Pedals & Pedal Accessories", "/vehcars/search?utf8=✓&query=Pedals&category=&commit=Go" %></li> 
+  </ul>
+</li>
+  
+<li>Performance Parts & Accessories
+  <ul class="current-l">
+    <li><%= link_to "Batteries & Accessories", "/vehcars/search?utf8=✓&query=Batteries&category=&commit=Go" %></li> 
+    <li><%= link_to "Emission System", "/vehcars/search?utf8=✓&query=Emission+System&category=&commit=Go" %></li> 
+    <li><%= link_to "Climate Control System", "/vehcars/search?utf8=✓&query=Climate+Control+System&category=&commit=Go" %></li> 
+    <li><%= link_to "Performance Lighting", "/vehcars/search?utf8=✓&query=Performance+Lighting&category=&commit=Go" %></li> 
+    <li><%= link_to "Drive Train", "/vehcars/search?utf8=✓&query=Drive+Train&category=&commit=Go" %></li> 
+    <li><%= link_to "Motors", "/vehcars/search?utf8=✓&query=Motors&category=&commit=Go" %></li> 
+    <li><%= link_to "Switches & Relays", "/vehcars/search?utf8=✓&query=Switches&category=&commit=Go" %></li> 
+    <li><%= link_to "Bearings & Seals", "/vehcars/search?utf8=✓&query=Bearings&category=&commit=Go" %></li> 
+    <li><%= link_to "Brake System", "/vehcars/search?utf8=✓&query=Brake+System&category=&commit=Go" %></li> 
+    <li><%= link_to "Starters & Alternators", "/vehcars/search?utf8=✓&query=Starters&category=&commit=Go" %></li> 
+    <li><%= link_to "Fuel System", "/vehcars/search?utf8=✓&query=Fuel+System&category=&commit=Go" %></li> 
+    <li><%= link_to "Shocks, Struts & Suspension", "/vehcars/search?utf8=✓&query=Shocks&category=&commit=Go" %></li> 
+    <li><%= link_to "Windshield Wipers & Washers", "/vehcars/search?utf8=✓&query=Windshield+Wipers&category=&commit=Go" %></li> 
+    <li><%= link_to "Steering System", "/vehcars/search?utf8=✓&query=Steering+System&category=&commit=Go" %></li> 
+    <li><%= link_to "Ignition & Electrical", "/vehcars/search?utf8=✓&query=Ignition&category=&commit=Go" %></li> 
+    <li><%= link_to "Gaskets", "/vehcars/search?utf8=✓&query=Gaskets&category=&commit=Go" %></li> 
+    <li><%= link_to "Engine Cooling", "/vehcars/search?utf8=✓&query=Engine+Cooling&category=&commit=Go" %></li> 
+    <li><%= link_to "Filters", "/vehcars/search?utf8=✓&query=Filters&category=&commit=Go" %></li> 
+    <li><%= link_to "Exhaust System", "/vehcars/search?utf8=✓&query=Exhaust+System&category=&commit=Go" %></li> 
+    <li><%= link_to "Belts, Hoses & Pulleys", "/vehcars/search?utf8=✓&query=Belts&category=&commit=Go" %></li> 
+    <li><%= link_to "Engines & Engine Parts", "/vehcars/search?utf8=✓&query=Engines&category=&commit=Go" %></li> 
+  </ul>
+</li>
+      
+<li>Tires & Wheels
+  <ul class="current-l">
+    
+    <li><%= link_to "Spacers", "/vehcars/search?utf8=✓&query=Spacers&category=&commit=Go" %></li> 
+    <li><%= link_to "Trim Rings", "/vehcars/search?utf8=✓&query=Trim+Rings&category=&commit=Go" %></li> 
+    <li><%= link_to "Hubcaps & Covers", "/vehcars/search?utf8=✓&query=Hubcaps&category=&commit=Go" %></li> 
+    <li><%= link_to "Wheels", "/vehcars/search?utf8=✓&query=Wheels&category=&commit=Go" %></li> 
+    <li><%= link_to "Spare Tire Carriers", "/vehcars/search?utf8=✓&query=Spare+Tire+Carriers&category=&commit=Go" %></li> 
+    <li><%= link_to "Rim Screws", "/vehcars/search?utf8=✓&query=Rim+Screws&category=&commit=Go" %></li> 
+    <li><%= link_to "Tires", "/vehcars/search?utf8=✓&query=Tires&category=&commit=Go" %></li> 
+    <li><%= link_to "Tire & Wheel Assemblies", "/vehcars/search?utf8=✓&query=Tire+Assemblies&category=&commit=Go" %></li> 
+    <li>Accessories
+      <ul class="current-l">
+        <li><%= link_to "Hub Centric Rings", "/vehcars/search?utf8=✓&query=Hub+Centric+Rings&category=&commit=Go" %></li> 
+        <li><%= link_to "Wheel Studs", "/vehcars/search?utf8=✓&query=Wheel+Studs&category=&commit=Go" %></li> 
+        <li><%= link_to "Wheel Seals", "/vehcars/search?utf8=✓&query=Wheel+Seals&category=&commit=Go" %></li> 
+        <li><%= link_to "Tire Lights", "/vehcars/search?utf8=✓&query=Tire+Lights&category=&commit=Go" %></li> 
+        <li><%= link_to "Wheel Locks", "/vehcars/search?utf8=✓&query=Wheel+Locks&category=&commit=Go" %></li> 
+        <li><%= link_to "Wheel Dust Shields", "/vehcars/search?utf8=✓&query=Wheel+Dust+Shields&category=&commit=Go" %></li> 
+        <li><%= link_to "Adapters", "/vehcars/search?utf8=✓&query=Adapters&category=&commit=Go" %></li> 
+        <li><%= link_to "Center Caps", "/vehcars/search?utf8=✓&query=Center+Caps&category=&commit=Go" %></li> 
+        <li><%= link_to "Wheel Simulators", "/vehcars/search?utf8=✓&query=Wheel+Simulators&category=&commit=Go" %></li> 
+        <li><%= link_to "Valve Stems & Caps", "/vehcars/search?utf8=✓&query=Valve+Stems&category=&commit=Go" %></li> 
+        <li><%= link_to "Tire Covers", "/vehcars/search?utf8=✓&query=Tire+Covers&category=&commit=Go" %></li> 
+        <li><%= link_to "Lug Nuts", "/vehcars/search?utf8=✓&query=Lug+Nuts&category=&commit=Go" %></li> 
+        <li><%= link_to "Tire Chucks", "/vehcars/search?utf8=✓&query=Tire+Chucks&category=&commit=Go" %></li> 
+        <li><%= link_to "Tire Pressure Monitoring System (TPMS)", "/vehcars/search?utf8=✓&query=TPMS&category=&commit=Go" %></li> 
+        <li><%= link_to "Lug Adapters", "/vehcars/search?utf8=✓&query=Lug+Adapters&category=&commit=Go" %></li> 
+        <li><%= link_to "Digital Tire Pressure Gauges", "/vehcars/search?utf8=✓&query=Digital+Tire+Pressure&category=&commit=Go" %></li> 
+        <li><%= link_to "Lug Nut Washers", "/vehcars/search?utf8=✓&query=Lug+Nut+Washers&category=&commit=Go" %></li> 
+        <li><%= link_to "Wheel Weights", "/vehcars/search?utf8=✓&query=Wheel+Weights&category=&commit=Go" %></li> 
+        <li><%= link_to "Air Compressors & Inflators", "/vehcars/search?utf8=✓&query=Air+Compressors&category=&commit=Go" %></li> 
+        <li><%= link_to "Snow Chains", "/vehcars/search?utf8=✓&query=Snow+Chains&category=&commit=Go" %></li> 
+        <li><%= link_to "Mud Flaps & Splash Guards", "/vehcars/search?utf8=✓&query=Mud+Flaps&category=&commit=Go" %></li> 
+        <li><%= link_to "Wheel Bearings", "/vehcars/search?utf8=✓&query=Wheel+Bearings&category=&commit=Go" %></li> 
+      </ul>
+    </li>
+    
+  </ul>
+</li>      
+      
+<li>Motorcycle & ATV
+  <ul class="current-l">
+      
+    <li>Protective Gear
+      <ul class="current-l">
+        <li><%= link_to "Riding Headwear", "/vehcars/search?utf8=✓&query=Riding+Headwear&category=&commit=Go" %></li> 
+        <li><%= link_to "Rainwear", "/vehcars/search?utf8=✓&query=Rainwear&category=&commit=Go" %></li> 
+        <li><%= link_to "Footwear", "/vehcars/search?utf8=✓&query=Footwear&category=&commit=Go" %></li> 
+        <li><%= link_to "Knee & Shin Protection", "/vehcars/search?utf8=✓&query=Knee+Protection&category=&commit=Go" %></li> 
+        <li><%= link_to "Neck Protection", "/vehcars/search?utf8=✓&query=Neck+Protection&category=&commit=Go" %></li> 
+        <li><%= link_to "Gloves", "/vehcars/search?utf8=✓&query=Gloves&category=&commit=Go" %></li> 
+        <li><%= link_to "Helmets", "/vehcars/search?utf8=✓&query=Helmets&category=&commit=Go" %></li> 
+        <li><%= link_to "Racing Suits", "/vehcars/search?utf8=✓&query=Racing+Suits&category=&commit=Go" %></li> 
+        <li><%= link_to "Jerseys", "/vehcars/search?utf8=✓&query=Jerseys&category=&commit=Go" %></li> 
+        <li><%= link_to "Kidney Belts", "/vehcars/search?utf8=✓&query=Kidney+Belts&category=&commit=Go" %></li> 
+        <li><%= link_to "Eyewear", "/vehcars/search?utf8=✓&query=Eyewear&category=&commit=Go" %></li> 
+        <li><%= link_to "Chest & Back Protectors", "/vehcars/search?utf8=✓&query=Chest+Protectors&category=&commit=Go" %></li> 
+        <li><%= link_to "Jackets & Vests", "/vehcars/search?utf8=✓&query=Jackets&category=&commit=Go" %></li> 
+        <li><%= link_to "Elbow & Wrist Protection", "/vehcars/search?utf8=✓&query=Elbow+Wrist&category=&commit=Go" %></li> 
+        <li><%= link_to "Pants & Chaps", "/vehcars/search?utf8=✓&query=Pants&category=&commit=Go" %></li> 
+        <li><%= link_to "Helmet Accessories", "/vehcars/search?utf8=✓&query=Helmet&category=&commit=Go" %></li> 
+        <li><%= link_to "Base Layers", "/vehcars/search?utf8=✓&query=Base+Layers&category=&commit=Go" %></li> 
+      </ul>
+    </li>      
+      
+    <li>Accessories
+      <ul class="current-l">
+        <li><%= link_to "Tie-Downs", "/vehcars/search?utf8=✓&query=Tie-Downs&category=&commit=Go" %></li> 
+        <li><%= link_to "Plows", "/vehcars/search?utf8=✓&query=Plows&category=&commit=Go" %></li> 
+        <li><%= link_to "Heel Plates", "/vehcars/search?utf8=✓&query=Heel+Plates&category=&commit=Go" %></li> 
+        <li><%= link_to "Loading Ramps", "/vehcars/search?utf8=✓&query=Loading+Ramps&category=&commit=Go" %></li> 
+        <li><%= link_to "Seat Covers", "/vehcars/search?utf8=✓&query=Seat+Covers&category=&commit=Go" %></li> 
+        <li><%= link_to "Brush Guards", "/vehcars/search?utf8=✓&query=Brush+Guards&category=&commit=Go" %></li> 
+        <li><%= link_to "Boot Guards", "/vehcars/search?utf8=✓&query=Boot+Guards&category=&commit=Go" %></li> 
+        <li><%= link_to "Hydration Packs", "/vehcars/search?utf8=✓&query=Hydration+Packs&category=&commit=Go" %></li> 
+        <li><%= link_to "Gun Racks", "/vehcars/search?utf8=✓&query=Gun+Racks&category=&commit=Go" %></li> 
+        <li><%= link_to "Trailer Hitches", "/vehcars/search?utf8=✓&query=Trailer+Hitches&category=&commit=Go" %></li> 
+        <li><%= link_to "Tool Sets", "/vehcars/search?utf8=✓&query=Tool+Sets&category=&commit=Go" %></li> 
+        <li><%= link_to "Towing Products & Winches", "/vehcars/search?utf8=✓&query=Winches&category=&commit=Go" %></li> 
+        <li><%= link_to "Manual Lift Kits", "/vehcars/search?utf8=✓&query=Manual+Lift+Kits&category=&commit=Go" %></li> 
+        <li><%= link_to "Fast Fuelers", "/vehcars/search?utf8=✓&query=Fast+Fuelers&category=&commit=Go" %></li> 
+        <li><%= link_to "Vehicle Covers", "/vehcars/search?utf8=✓&query=Vehicle+Covers&category=&commit=Go" %></li> 
+        <li><%= link_to "Handlebar Accessories", "/vehcars/search?utf8=✓&query=Handlebar&category=&commit=Go" %></li> 
+        <li><%= link_to "Stands", "/vehcars/search?utf8=✓&query=Stands&category=&commit=Go" %></li> 
+        <li><%= link_to "Number Plates", "/vehcars/search?utf8=✓&query=Number+Plates&category=&commit=Go" %></li> 
+        <li><%= link_to "Enduro Computers", "/vehcars/search?utf8=✓&query=Enduro+Computers&category=&commit=Go" %></li> 
+        <li><%= link_to "Bags", "/vehcars/search?utf8=✓&query=Bags&category=&commit=Go" %></li> 
+        <li><%= link_to "Graphics", "/vehcars/search?utf8=✓&query=Graphics&category=&commit=Go" %></li> 
+        <li><%= link_to "Carrying Racks", "/vehcars/search?utf8=✓&query=Carrying+Racks&category=&commit=Go" %></li> 
+        <li><%= link_to "Archery Cases", "/vehcars/search?utf8=✓&query=Archery+Cases&category=&commit=Go" %></li> 
+      </ul>
+    </li> 
+            
+    <li>Parts 
+      <ul class="current-l">
+        <li><%= link_to "Engine Parts", "/vehcars/search?utf8=✓&query=Motorcycle+Engine+Parts&category=&commit=Go" %></li> 
+        <li><%= link_to "Electrical", "/vehcars/search?utf8=✓&query=Motorcycle+Electrical&category=&commit=Go" %></li> 
+        <li><%= link_to "Fuel System", "/vehcars/search?utf8=✓&query=Motorcycle+Fuel+System&category=&commit=Go" %></li> 
+        <li><%= link_to "Body Parts", "/vehcars/search?utf8=✓&query=Motorcycle+Body+Parts&category=&commit=Go" %></li> 
+        <li><%= link_to "Drive Train", "/vehcars/search?utf8=✓&query=Motorcycle+Drive+Train&category=&commit=Go" %></li> 
+        <li><%= link_to "Engines", "/vehcars/search?utf8=✓&query=Motorcycle+Engines&category=&commit=Go" %></li> 
+        <li><%= link_to "Filtration", "/vehcars/search?utf8=✓&query=Motorcycle+Filtration&category=&commit=Go" %></li> 
+        <li><%= link_to "Exhaust", "/vehcars/search?utf8=✓&query=Motorcycle+Exhaust&category=&commit=Go" %></li> 
+        <li><%= link_to "External Lights", "/vehcars/search?utf8=✓&query=Motorcycle+External+Lights&category=&commit=Go" %></li> 
+        <li><%= link_to "Braking", "/vehcars/search?utf8=✓&query=Motorcycle+Braking&category=&commit=Go" %></li> 
+        <li><%= link_to "Gauges", "/vehcars/search?utf8=✓&query=Motorcycle+Gauges&category=&commit=Go" %></li> 
+        <li><%= link_to "Chemicals & Fluids", "/vehcars/search?utf8=✓&query=Motorcycle+Fluids&category=&commit=Go" %></li> 
+        <li><%= link_to "Controls", "/vehcars/search?utf8=✓&query=Motorcycle+Controls&category=&commit=Go" %></li> 
+        <li><%= link_to "Suspension, Fork & Chassis", "/vehcars/search?utf8=✓&query=Motorcycle+Suspension&category=&commit=Go" %></li> 
+        <li><%= link_to "Ignition", "/vehcars/search?utf8=✓&query=Motorcycle+Ignition&category=&commit=Go" %></li> 
+        <li><%= link_to "Wheels & Tires", "/vehcars/search?utf8=✓&query=Motorcycle+Wheels&category=&commit=Go" %></li> 
+      </ul>
+    </li>
+      
+  </ul>
+</li>
+      
+<li>Replacement Parts
+  <ul class="current-l">
+    
+    <li><%= link_to "Shocks, Struts & Suspension", "/vehcars/search?utf8=✓&query=Suspension&category=&commit=Go" %></li> 
+    <li><%= link_to "Caps", "/vehcars/search?utf8=✓&query=Caps&category=&commit=Go" %></li> 
+    <li><%= link_to "Exhaust & Emissions", "/vehcars/search?utf8=✓&query=Exhaust&category=&commit=Go" %></li> 
+    <li><%= link_to "Motors", "/vehcars/search?utf8=✓&query=Motors&category=&commit=Go" %></li> 
+    <li><%= link_to "Lighting & Electrical", "/vehcars/search?utf8=✓&query=Lighting&category=&commit=Go" %></li> 
+    <li><%= link_to "Filters", "/vehcars/search?utf8=✓&query=Filters&category=&commit=Go" %></li> 
+    <li><%= link_to "Brake System", "/vehcars/search?utf8=✓&query=Brake+System&category=&commit=Go" %></li> 
+    <li><%= link_to "Fuel System", "/vehcars/search?utf8=✓&query=Fuel+System&category=&commit=Go" %></li> 
+    <li><%= link_to "Steering System", "/vehcars/search?utf8=✓&query=Steering+System&category=&commit=Go" %></li> 
+    <li><%= link_to "Window Regulators & Motors", "/vehcars/search?utf8=✓&query=Window+Regulators&category=&commit=Go" %></li> 
+    <li><%= link_to "Gaskets", "/vehcars/search?utf8=✓&query=Gaskets&category=&commit=Go" %></li> 
+    <li><%= link_to "Bearings & Seals", "/vehcars/search?utf8=✓&query=Bearings&category=&commit=Go" %></li> 
+    <li><%= link_to "Windshield Wipers & Washers", "/vehcars/search?utf8=✓&query=Washers&category=&commit=Go" %></li> 
+    <li><%= link_to "Ignition Parts", "/vehcars/search?utf8=✓&query=Ignition+Parts&category=&commit=Go" %></li> 
+    <li><%= link_to "Engines & Engine Parts", "/vehcars/search?utf8=✓&query=Engines&category=&commit=Go" %></li> 
+    <li><%= link_to "Cables", "/vehcars/search?utf8=✓&query=Cables&category=&commit=Go" %></li> 
+    <li><%= link_to "Transmission & Drive Train", "/vehcars/search?utf8=✓&query=Transmission&category=&commit=Go" %></li> 
+    <li><%= link_to "Switches & Relays", "/vehcars/search?utf8=✓&query=Switches&category=&commit=Go" %></li> 
+    <li><%= link_to "Starters & Alternators", "/vehcars/search?utf8=✓&query=Starters&category=&commit=Go" %></li> 
+    <li><%= link_to "Belts, Hoses & Pulleys", "/vehcars/search?utf8=✓&query=Belts&category=&commit=Go" %></li> 
+    <li><%= link_to "Sensors", "/vehcars/search?utf8=✓&query=Sensors&category=&commit=Go" %></li> 
+    <li><%= link_to "Engine Cooling & Climate Control", "/vehcars/search?utf8=✓&query=Engine+Cooling&category=&commit=Go" %></li> 
+    <li><%= link_to "Batteries & Accessories", "/vehcars/search?utf8=✓&query=Batteries&category=&commit=Go" %></li> 
+    
+  </ul>
+</li>
+      
+<li>Tools & Equipment
+  <ul class="current-l">
+    
+    <li><%= link_to "Strut Compressors", "/vehcars/search?utf8=✓&query=Strut+Compressors&category=&commit=Go" %></li> 
+    <li><%= link_to "Air Conditioning Tools & Equipment", "/vehcars/search?utf8=✓&query=Air+Conditioning&category=&commit=Go" %></li> 
+    <li><%= link_to "Riveters", "/vehcars/search?utf8=✓&query=Riveters&category=&commit=Go" %></li> 
+    <li><%= link_to "Lockout Kits", "/vehcars/search?utf8=✓&query=Lockout+Kits&category=&commit=Go" %></li> 
+    <li><%= link_to "Applicators", "/vehcars/search?utf8=✓&query=Applicators&category=&commit=Go" %></li> 
+    <li><%= link_to "Windshield Wiper Tools", "/vehcars/search?utf8=✓&query=Windshield+Wiper&category=&commit=Go" %></li> 
+    <li><%= link_to "Body Repair Tools", "/vehcars/search?utf8=✓&query=Body+Repair&category=&commit=Go" %></li> 
+    <li><%= link_to "Fuel System Tools", "/vehcars/search?utf8=✓&query=Fuel+System&category=&commit=Go" %></li> 
+    <li><%= link_to "Muffler Tools", "/vehcars/search?utf8=✓&query=Muffler+Tools&category=&commit=Go" %></li> 
+    <li><%= link_to "Measuring Tools", "/vehcars/search?utf8=✓&query=Measuring+Tools&category=&commit=Go" %></li> 
+    <li><%= link_to "Spark Plug & Ignition Tools", "/vehcars/search?utf8=✓&query=Spark+Plug&category=&commit=Go" %></li> 
+    <li><%= link_to "Bushing Tools", "/vehcars/search?utf8=✓&query=Bushing&category=&commit=Go" %></li> 
+    <li><%= link_to "Hose Repair Kits", "/vehcars/search?utf8=✓&query=Hose+Repair&category=&commit=Go" %></li> 
+    <li><%= link_to "Jump Starters, Battery Chargers & Portable Power", "/vehcars/search?utf8=✓&query=Jump+Starters&category=&commit=Go" %></li> 
+    <li><%= link_to "Tool Trays", "/vehcars/search?utf8=✓&query=Tool+Trays&category=&commit=Go" %></li> 
+    <li><%= link_to "Tool Sets", "/vehcars/search?utf8=✓&query=Tool+Sets&category=&commit=Go" %></li> 
+    <li><%= link_to "Steering & Suspension Tools", "/vehcars/search?utf8=✓&query=Steering&category=&commit=Go" %></li> 
+    <li><%= link_to "Oxygen Sensor Removers", "/vehcars/search?utf8=✓&query=  &category=&commit=Go" %></li> 
+    <li><%= link_to "Hand Tools", "/vehcars/search?utf8=✓&query=Hand+Tools&category=&commit=Go" %></li> 
+    <li><%= link_to "Thread Repair Kits", "/vehcars/search?utf8=✓&query=Thread+Repair&category=&commit=Go" %></li> 
+    <li><%= link_to "Parts Washers", "/vehcars/search?utf8=✓&query=Parts+Washers&category=&commit=Go" %></li> 
+    <li><%= link_to "Flywheel Locks", "/vehcars/search?utf8=✓&query=Flywheel+Locks&category=&commit=Go" %></li> 
+    <li><%= link_to "Engine Tools", "/vehcars/search?utf8=✓&query=Engine+Tools&category=&commit=Go" %></li> 
+    <li><%= link_to "Oil System Tools", "/vehcars/search?utf8=✓&query=Oil+System&category=&commit=Go" %></li> 
+    <li><%= link_to "Drive Train Tools", "/vehcars/search?utf8=✓&query=Drive+Train&category=&commit=Go" %></li> 
+    <li><%= link_to "Brake Tools", "/vehcars/search?utf8=✓&query=Brake&category=&commit=Go" %></li> 
+    <li><%= link_to "Pullers", "/vehcars/search?utf8=✓&query=Pullers&category=&commit=Go" %></li> 
+    <li><%= link_to "Garage & Shop", "/vehcars/search?utf8=✓&query=Garage&category=&commit=Go" %></li> 
+    <li><%= link_to "Diagnostic & Test Tools", "/vehcars/search?utf8=✓&query=Diagnostic&category=&commit=Go" %></li> 
+    <li><%= link_to "Electrical System Tools", "/vehcars/search?utf8=✓&query=Electrical+System&category=&commit=Go" %></li> 
+    <li><%= link_to "Cooling & Water Pump Tools", "/vehcars/search?utf8=✓&query=Water+Pump&category=&commit=Go" %></li> 
+    <li><%= link_to "Tire & Wheel Tools", "/vehcars/search?utf8=✓&query=Tire+Tools&category=&commit=Go" %></li> 
+    <li><%= link_to "Impact Wrenches", "/vehcars/search?utf8=✓&query=Impact+Wrenches&category=&commit=Go" %></li> 
+    <li><%= link_to "Brake Repair Tools", "/vehcars/search?utf8=✓&query=Brake+Repair&category=&commit=Go" %></li>  
+    
+  </ul>
+</li>  
+      
+<li><%= link_to "Car Electronics & Accssories", "/vehcars/search?utf8=✓&query=Car+Electronics&category=&commit=Go" %></li> 
+      
+<li>Automotive Enthusiast Merchandise
+  <ul class="current-l">
+    <li><%= link_to "Jewelry & Watches", "/vehcars/search?utf8=✓&query=Jewelry&category=&commit=Go" %></li> 
+    <li><%= link_to "Home & Office", "/vehcars/search?utf8=✓&query=Office&category=&commit=Go" %></li> 
+    <li><%= link_to "Sports Equipment", "/vehcars/search?utf8=✓&query=Sports&category=&commit=Go" %></li> 
+    <li><%= link_to "Toys & Models", "/vehcars/search?utf8=✓&query=Toys&category=&commit=Go" %></li> 
+    <li><%= link_to "Garage & Shop", "/vehcars/search?utf8=✓&query=Garage&category=&commit=Go" %></li> 
+    <li><%= link_to "Bags & Accessories", "/vehcars/search?utf8=✓&query=Bags&category=&commit=Go" %></li> 
+    <li><%= link_to "Apparel", "/vehcars/search?utf8=✓&query=Apparel&category=&commit=Go" %></li> 
+    <li><%= link_to "Vehicle Accessories", "/vehcars/search?utf8=✓&query=Accessories&category=&commit=Go" %></li> 
+    <li><%= link_to "Collectibles", "/vehcars/search?utf8=✓&query=Collectibles&category=&commit=Go" %></li> 
+    <li><%= link_to "Tailgating & Event Gear", "/vehcars/search?utf8=✓&query=Tailgating&category=&commit=Go" %></li> 
+  </ul>
+</li>
+      
+<li>Paint, Body & Trim 
+  <ul class="current-l">
+    
+    <li><%= link_to "Paints & Primers", "/vehcars/search?utf8=✓&query=Paints&category=&commit=Go" %></li> 
+    
+    <li>Body
+      <ul class="current-l">
+        <li><%= link_to "Exterior Mirror", "/vehcars/search?utf8=✓&query=Exterior+Mirror&category=&commit=Go" %></li> 
+        <li><%= link_to "Doors", "/vehcars/search?utf8=✓&query=Doors&category=&commit=Go" %></li> 
+        <li><%= link_to "Hoods", "/vehcars/search?utf8=✓&query=Hoods&category=&commit=Go" %></li> 
+        <li><%= link_to "Evaporator Housing", "/vehcars/search?utf8=✓&query=Evaporator+Housing&category=&commit=Go" %></li> 
+        <li><%= link_to "Tops & Roofs", "/vehcars/search?utf8=✓&query=Roofs&category=&commit=Go" %></li> 
+        <li><%= link_to "Fender Flares", "/vehcars/search?utf8=✓&query=Fender+Flares&category=&commit=Go" %></li> 
+        <li><%= link_to "Sunroof Mechanicals", "/vehcars/search?utf8=✓&query=Sunroof&category=&commit=Go" %></li> 
+        <li><%= link_to "Grab Handles", "/vehcars/search?utf8=✓&query=Grab+Handles&category=&commit=Go" %></li> 
+        <li><%= link_to "Bumpers", "/vehcars/search?utf8=✓&query=Bumpers&category=&commit=Go" %></li> 
+        <li><%= link_to "Reservoirs", "/vehcars/search?utf8=✓&query=Reservoirs&category=&commit=Go" %></li> 
+        <li><%= link_to "Fenders & Quarter Panels", "/vehcars/search?utf8=✓&query=Quarter+Panels&category=&commit=Go" %></li> 
+        <li><%= link_to "Clips", "/vehcars/search?utf8=✓&query=Clips&category=&commit=Go" %></li> 
+        <li><%= link_to "Air Dams", "/vehcars/search?utf8=✓&query=Air+Dams&category=&commit=Go" %></li> 
+        <li><%= link_to "Automotive Glass", "/vehcars/search?utf8=✓&query=Automotive+Glass&category=&commit=Go" %></li> 
+        <li><%= link_to "Floor Pans", "/vehcars/search?utf8=✓&query=Floor+Pans&category=&commit=Go" %></li> 
+        <li><%= link_to "Fan Shrouds", "/vehcars/search?utf8=✓&query=Fan Shrouds&category=&commit=Go" %></li>
+        <li><%= link_to "Moldings", "/vehcars/search?utf8=✓&query=Moldings&category=&commit=Go" %></li> 
+        <li><%= link_to "Valances", "/vehcars/search?utf8=✓&query=Valances&category=&commit=Go" %></li> 
+        <li><%= link_to "Header Panels", "/vehcars/search?utf8=✓&query=Header+Panels&category=&commit=Go" %></li> 
+        <li><%= link_to "Truck Beds & Tailgates", "/vehcars/search?utf8=✓&query=Truck+Beds&category=&commit=Go" %></li> 
+        <li><%= link_to "Rocker Panels", "/vehcars/search?utf8=✓&query=Rocker+Panels&category=&commit=Go" %></li> 
+        <li><%= link_to "Hatchbacks", "/vehcars/search?utf8=✓&query=Hatchbacks&category=&commit=Go" %></li> 
+        <li><%= link_to "Hood Scoops", "/vehcars/search?utf8=✓&query=Hood+Scoops&category=&commit=Go" %></li> 
+        <li><%= link_to "Trunks", "/vehcars/search?utf8=✓&query=Trunks&category=&commit=Go" %></li> 
+        <li><%= link_to "Sliding Doors", "/vehcars/search?utf8=✓&query=Sliding+Doors&category=&commit=Go" %></li> 
+        <li><%= link_to "Sunroofs", "/vehcars/search?utf8=✓&query=Sunroofs&category=&commit=Go" %></li> 
+      </ul>
+    </li>
+      
+    <li><%= link_to "Trim", "/vehcars/search?utf8=✓&query=Trim&category=&commit=Go" %></li> 
+    
+  </ul>
+</li>
       
     </ul>    
 </div>

@@ -46,6 +46,8 @@
   <%= render 'shared/catlists/household' %>
 <% elsif @resource_type.to_s == "hkid" %>
   <%= render 'shared/catlists/hkid' %>
+<% elsif @resource_type.to_s == "vehcar" %>
+  <%= render 'shared/catlists/vehcar' %>
 <% else %>
 
 <ul class="nav nav-stacked categorylist">

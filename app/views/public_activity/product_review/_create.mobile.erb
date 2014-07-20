@@ -152,6 +152,9 @@
         <% elsif activity.trackable.productable_type == "hchild" %>
         <%= image_tag('caticons/beauty/hchild.png') %>
         
+        <% elsif activity.trackable.productable_type == "vehcar" %>
+        <%= image_tag('caticons/Cvehicle.PNG') %>
+        
         <% end %>
         
         <%= link_to activity.trackable.product_name.truncate(25, omission: '...'), "/#{activity.trackable.productable_type}s/#{activity.trackable.productable_id}" %><br><br>

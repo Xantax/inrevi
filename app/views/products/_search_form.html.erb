@@ -79,6 +79,8 @@
           <%= text_field_tag :query, params[:query], placeholder: "Household Supplies", class: 'form-control search', id: 'query-text-field' %>
           <% elsif @resource_type.to_s == "hkid" %>
           <%= text_field_tag :query, params[:query], placeholder: "Baby & Child Care", class: 'form-control search', id: 'query-text-field' %>
+          <% elsif @resource_type.to_s == "vehcar" %>
+          <%= text_field_tag :query, params[:query], placeholder: "Search Vehicle Accessories", class: 'form-control search', id: 'query-text-field' %>
           <% end %>
           
         </div>
