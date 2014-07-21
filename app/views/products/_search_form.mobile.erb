@@ -52,7 +52,7 @@
           <%= text_field_tag :query, params[:query], placeholder: "Remote-Control, Puzzles, Outdoor Play...", class: 'form-control mobile-search', id: 'query-text-field' %>
           <% elsif @resource_type.to_s == "appliance" %>
           <%= text_field_tag :query, params[:query], placeholder: "Refrigerators, Wall Ovens, Dishwashers...", class: 'form-control mobile-search', id: 'query-text-field' %>
-          <% elsif @resource_type.to_s == "baby" %>
+          <% elsif @resource_type.to_s == "kid" %>
           <%= text_field_tag :query, params[:query], placeholder: "Strollers, Feeding, Car Seats, Diapering...", class: 'form-control mobile-search', id: 'query-text-field' %>
           <% elsif @resource_type.to_s == "pet" %>
           <%= text_field_tag :query, params[:query], placeholder: "Cats, Dogs, Fish, Reptiles, Birds...", class: 'form-control mobile-search', id: 'query-text-field' %>

@@ -1,0 +1,35 @@
+<hr>
+
+<div id="nav-listz" align="left">  
+    <ul>      
+      
+      <li><%= link_to "Trackers", "/enavigations/search?utf8=✓&query=GPS+Tracker&category=&commit=Go" %></li> 
+      <li>Sports & Handheld
+         <ul class="current-l">
+           <li><%= link_to "Cycling", "/enavigations/search?utf8=✓&query=Cycling+GPS+Unit&category=&commit=Go" %></li>
+           <li><%= link_to "Handheld", "/enavigations/search?utf8=✓&query=Handheld+GPS+Unit&category=&commit=Go" %></li>
+           <li><%= link_to "Running", "/enavigations/search?utf8=✓&query=Running&category=&commit=Go" %></li>
+           <li><%= link_to "Golf Course", "/enavigations/search?utf8=✓&query=Golf+Course+GPS&category=&commit=Go" %></li>
+         </ul>
+      </li>  
+      <li>Vehicle
+         <ul class="current-l">
+           <li><%= link_to "Trucking", "/enavigations/search?utf8=✓&query=Trucking+GPS&category=&commit=Go" %></li>
+           <li><%= link_to "RV", "/enavigations/search?utf8=✓&query=RV+GPS&category=&commit=Go" %></li>
+         </ul>
+      </li>
+      <li>Accessories
+         <ul class="current-l">
+           <li><%= link_to "Vehicle Mounts", "/enavigations/search?utf8=✓&query=Vehicle+Mounts&category=&commit=Go" %></li>
+           <li><%= link_to "Cases", "/enavigations/search?utf8=✓&query=Case&category=&commit=Go" %></li>
+           <li><%= link_to "Chargers & Cables", "/enavigations/search?utf8=✓&query=Charger+Cable&category=&commit=Go" %></li>
+         </ul>
+      </li>
+      
+    </ul>    
+</div>
+
+
+<%= render 'shared/catlists/js_for_lists' %>
+
+<hr>

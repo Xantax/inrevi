@@ -1,0 +1,10 @@
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#nav-listz ul li:not(:has(li.current-l))").find("ul").hide().end() // Hide all other ULs
+    .click(function(e) {
+        if (this == e.target) {
+            $(this).children('ul').slideToggle('fast');
+        }
+    });
+});
+</script>

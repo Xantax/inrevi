@@ -1,11 +1,13 @@
 <% provide(:title, @resource_type.to_s.pluralize.humanize) %>
 
-          <%= render 'search_form' %>
+  <%= render 'search_form' %>
 
-            <% if @products %>
-              <%= render 'products' %>
-            <% end %>
+  <% if @products %>
+     <%= render 'products' %>
+  <% end %>
 
-          <% if @products %>
-            <%= render 'pagination' %>
-          <% end %> 
+  <% if @products %>
+      <%= render 'pagination' %>
+  <% end %> 
+
+  <%= render 'subcategories' %>

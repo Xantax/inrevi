@@ -54,20 +54,4 @@
   <%= render 'shared/catlists/indoor' %>
 <% elsif @resource_type.to_s == "outdoor" %>
   <%= render 'shared/catlists/outdoor' %>
-<% else %>
-
-<ul class="nav nav-stacked categorylist">
-  <li class="categorylist media"><%= link_to "media", media_path %></li> 
-  <li class="categorylist local"><%= link_to "local", locals_path %></li>
-  <li class="categorylist tech"><%= link_to "tech", teches_path %></li>
-  <li class="categorylist electronics"><%= link_to "electronics", electronics_path %></li>  
-  <li class="categorylist beauty"><%= link_to "beauty", beauty_path %></li>
-  <li class="categorylist fashion"><%= link_to "fashion", fashion_path %></li>
-  <li class="categorylist health"><%= link_to "health", health_path %></li>
-  <li class="categorylist sustenance"><%= link_to "sustenance", grocer_index_path %></li>
-  <li class="categorylist home"><%= link_to "home", home_path %></li>
-  <li class="categorylist hobbies"><%= link_to "hobbies", hobbies_path %></li>
-  <li class="categorylist auto"><%= link_to "vehicle", autos_path %></li>
-</ul>
-
 <% end %>

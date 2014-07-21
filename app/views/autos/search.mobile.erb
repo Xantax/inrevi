@@ -1,16 +1,6 @@
 <% provide(:title, 'Results...') %>
 
-<hr>
-    <%= form_tag autos_search_path, :method => :get do %>      
-<%= text_field_tag :search, params[:search], :placeholder => "cars, motorcycles, bicycles..." , class: "form-control mobile-search" %>
-<br>
-      <div class="searchgo">
-        <span class="input-group-btn">
-          <%= submit_tag "Go", class: "btn btn-default" %>
-        </span>
-      </div>
-    <% end %> 
-<hr>
+<%= render 'search_form' %>
 
 <% if @autos.empty? %>
     No results! Try something else or <b><%= link_to "+ Add new", new_auto_path() %></b>
