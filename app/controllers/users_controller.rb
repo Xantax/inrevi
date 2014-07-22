@@ -1,11 +1,10 @@
 class UsersController < ApplicationController
-  include SessionsHelper
   before_action :signed_in_user, except: [:show]
+  before_action :require_permission, only: [:edit, :update]
   
   def show
   	@user = User.find(params[:id])
-    @activities = PublicActivity::Activity.paginate(:page => params[:page], :per_page => 15).order("created_at desc").where(owner_id: @user, owner_type: "User")
-   
+    @activities = PublicActivity::Activity.paginate(:page => params[:page], :per_page => 15).order("created_at desc").where(owner_id: @user, owner_type: "User")   
   end
   
   def index
@@ -61,17 +60,9 @@ class UsersController < ApplicationController
       params.require(:user).permit(:admin, :banned, :moderator, :company, :name, :email, :password, :password_confirmation, :remember_me, :image, :provider, :remote_image_url, :unverified_company )
     end
 
-    # Before filters
-
-    def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to root_url, notice: "Please sign in."
+    def require_permission
+      if current_user != User.find(params[:id])
+        redirect_to root_path
       end
-    end
-
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
     end
 end

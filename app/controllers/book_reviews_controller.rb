@@ -2,6 +2,7 @@ class BookReviewsController < ApplicationController
   before_action :set_book_review, only: [:show, :destroy, :upvote, :downvote]
   before_action :set_book, [:new, :create]
   before_action :signed_in_user
+  before_action :require_permission, only: :destroy
 
   def all
     if current_user.admin?
@@ -73,4 +74,11 @@ class BookReviewsController < ApplicationController
         review_images_attributes: [:image, :attachable_id, :attachable_type]
         )
     end
+  
+    def require_permission
+      if current_user != BookReview.find(params[:id]).user
+        redirect_to root_path
+      end
+    end
+  
 end

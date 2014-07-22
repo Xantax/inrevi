@@ -2,6 +2,7 @@ class AutoReviewsController < ApplicationController
   before_action :set_auto_review, only: [:show, :destroy, :upvote, :downvote]
   before_action :set_auto, only: [:index, :new, :create]
   before_action :signed_in_user
+  before_action :require_permission, only: :destroy
 
   def all
     if current_user.admin?
@@ -78,5 +79,11 @@ class AutoReviewsController < ApplicationController
       params.require(:auto_review).permit(:content, :auto_id, :user_id, :point, :score,
         review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
+  
+    def require_permission
+      if current_user != AutoReview.find(params[:id]).user
+        redirect_to root_path
+      end
+    end  
   
 end

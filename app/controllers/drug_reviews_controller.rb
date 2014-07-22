@@ -2,6 +2,7 @@ class DrugReviewsController < ApplicationController
   before_action :set_drug_review, only: [:show, :destroy, :upvote, :downvote]
   before_action :set_drug, only: [:index, :new, :create]
   before_action :signed_in_user
+  before_action :require_permission, only: :destroy
 
   def all
     if current_user.admin?
@@ -74,5 +75,11 @@ class DrugReviewsController < ApplicationController
       params.require(:drug_review).permit(:content, :drug_id, :user_id, :point, :score,
         review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
+  
+    def require_permission
+      if current_user != DrugReview.find(params[:id]).user
+        redirect_to root_path
+      end
+    end 
   
 end

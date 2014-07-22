@@ -3,6 +3,7 @@ class LocalReviewsController < ApplicationController
   before_action :set_local_review, only: [:show, :destroy, :upvote, :downvote, :index]
   before_action :set_local, only: [:index, :new, :create]
   before_action :signed_in_user
+  before_action :require_permission, only: :destroy
 
   def all
     if current_user.admin?
@@ -87,5 +88,11 @@ class LocalReviewsController < ApplicationController
     def factual_authorize
       @factual = Factual.new(ENV["FACTUAL_KEY"], ENV["FACTUAL_SECRET"])
     end
+  
+    def require_permission
+      if current_user != LocalReview.find(params[:id]).user
+        redirect_to root_path
+      end
+    end 
   
 end

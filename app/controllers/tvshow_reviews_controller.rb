@@ -2,6 +2,7 @@ class TvshowReviewsController < ApplicationController
   before_action :set_tvshow_review, only: [:destroy, :upvote, :downvote]
   before_action :set_tvshow, [:new, :create]
   before_action :signed_in_user
+  before_action :require_permission, only: :destroy
 
   def all
     if current_user.admin?
@@ -80,4 +81,10 @@ class TvshowReviewsController < ApplicationController
         :tvshow_id, :tvshow_name, :tvshow_year, :tvshow_poster, 
         review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
+  
+    def require_permission
+      if current_user != TvshowReview.find(params[:id]).user
+        redirect_to root_path
+      end
+    end 
 end

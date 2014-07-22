@@ -2,6 +2,7 @@ class RecipeReviewsController < ApplicationController
   before_action :set_recipe_review, only: [:show, :destroy, :upvote, :downvote]
   before_action :set_recipe, only: [:index, :new, :create]
   before_action :signed_in_user
+  before_action :require_permission, only: :destroy
 
   def all
     if current_user.admin?
@@ -80,4 +81,11 @@ class RecipeReviewsController < ApplicationController
       params.require(:recipe_review).permit(:content, :user_id, :recipe_id, :point, :score, :ingredients, :directions,
         review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
+  
+    def require_permission
+      if current_user != RecipeReview.find(params[:id]).user
+        redirect_to root_path
+      end
+    end 
+  
 end

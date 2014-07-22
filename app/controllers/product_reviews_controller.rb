@@ -3,6 +3,7 @@ class ProductReviewsController < ApplicationController
   before_action :product_retrieve, except: [:all_product_comments, :destroy, :show]
   before_action :set_product_review, only: [:destroy, :upvote, :downvote]
   before_action :signed_in_user
+  before_action :require_permission, only: :destroy
 
   def all
     if current_user.admin?
@@ -63,9 +64,15 @@ class ProductReviewsController < ApplicationController
     @product = Product.retrieve_product eval("params[:#{@resource_type}_id]")
   end
   
-      def product_review_params
+  def product_review_params
         params.require(:product_review).permit(:content, :user_id, :productable_id, :cat_id, :point, :score, :upc_code, :product_name, :productable_type, :gtins,
         review_images_attributes: [:image, :attachable_id, :attachable_type])
-    end
+  end
+  
+    def require_permission
+      if current_user != ProductReview.find(params[:id]).user
+        redirect_to root_path
+      end
+    end 
 
 end

@@ -2,6 +2,7 @@ class MovieReviewsController < ApplicationController
   before_action :set_movie_review, only: [:destroy, :upvote, :downvote]
   before_action :set_movie, [:new, :create]
   before_action :signed_in_user
+  before_action :require_permission, only: :destroy
 
   def all
     if current_user.admin?
@@ -79,4 +80,11 @@ class MovieReviewsController < ApplicationController
         :movie_title, :movie_year, :movie_runtime, :movie_ident, :movie_poster,
         review_images_attributes: [:image, :attachable_id, :attachable_type])
     end
+  
+    def require_permission
+      if current_user != MovieReview.find(params[:id]).user
+        redirect_to root_path
+      end
+    end 
+   
 end
