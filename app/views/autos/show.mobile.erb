@@ -37,6 +37,8 @@
       <%= simple_format(@auto.additionalinfo) if @auto.additionalinfo.present? %><hr>
     </div>
 
+    <%= render 'shared/ad_on_item_mobile' %>
+
     <div class="row"> 
       <%= render :file => '/auto_reviews/index' %>
     </div>

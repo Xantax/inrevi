@@ -7,8 +7,6 @@ class Ability
        user ||= User.new # guest user (not logged in)
        if user.admin?
          can :manage, :all
-       elsif user.company?
-         can :update, AutoReview
        end
     #
     # The first argument to `can` is the action you are giving the user

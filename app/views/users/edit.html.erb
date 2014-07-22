@@ -11,7 +11,7 @@
   </div>
   <% end %>
 
-<% if current_user == @user %>
+<% if current_user?(@user) %>
 
    <%= image_tag("othericons/PhotoShow.PNG") %> (profile photo)
    <%= f.file_field :image, :class => "podcastnew" %><br>

@@ -53,6 +53,8 @@
           <%= simple_format(@recipe.directions) if @recipe.directions.present? %> 
     </div>
 
+    <%= render 'shared/ad_on_item_mobile' %>
+
   <div class="row"> 
     <%= render :file => '/recipe_reviews/index' %>
   </div>

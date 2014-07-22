@@ -38,6 +38,8 @@
       <%= simple_format(@drug.additionalinfo) if @drug.additionalinfo.present? %><hr>
     </div>
 
+    <%= render 'shared/ad_on_item_mobile' %>
+
     <div class="row"> 
       <%= render :file => '/drug_reviews/index' %>
     </div>

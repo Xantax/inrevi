@@ -24,7 +24,7 @@
   <% end %>
 
       <div class="home-right-ad">
-        
+        <%= render 'shared/ad_on_user_mainprofile' %>
       </div>
 
       <div class="bottom-about">
@@ -38,4 +38,11 @@
    <%= link_to "Sign up", "/users/sign_up", class: 'btn btn-primary btn-lg btn-block' %><br>
    <%= link_to "Login", "/users/sign_in", class: 'btn btn-default btn-lg btn-block' %>
 <hr>
+      <div class="row dumb300"></div>
+<hr>
+      <div class="bottom-about">
+        ©
+        <%= link_to "Contact", new_contact_form_path %> |
+        <%= link_to "TOS - Privacy", tos_path %>
+      </div>
 <% end %>

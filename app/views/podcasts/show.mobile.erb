@@ -24,6 +24,8 @@
       <%= link_to "Write a Review", new_podcast_podcast_review_path(@podcast) %>
     </div>
 
+    <%= render 'shared/ad_on_item_mobile' %>
+
   <div class="row"> 
     <%= render :file => '/podcast_reviews/index' %>
   </div>

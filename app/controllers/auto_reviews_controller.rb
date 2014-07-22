@@ -47,8 +47,10 @@ class AutoReviewsController < ApplicationController
   end
 
   def destroy
+    if current_user.admin? || current_user?(@user)
       @auto_review.destroy
-        redirect_to current_user
+      redirect_to current_user
+    end
   end
   
   def upvote

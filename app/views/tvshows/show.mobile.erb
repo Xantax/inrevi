@@ -43,6 +43,7 @@
           <%= link_to "Write a Review", new_tvshow_tvshow_review_path(@tvshow.id) %>
         </div>
 
+    <%= render 'shared/ad_on_item_mobile' %>
 
     <div class="row"> 
       <%= render :file => '/tvshow_reviews/index' %>

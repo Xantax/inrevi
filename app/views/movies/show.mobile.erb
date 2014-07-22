@@ -61,6 +61,8 @@
       <%= simple_format(@movie.overview) if @movie.overview.present? %><hr>
     </div>
 
+    <%= render 'shared/ad_on_item_mobile' %>
+
     <div class="row"> 
       <%= render :file => '/movie_reviews/index' %>
     </div>
