@@ -51,10 +51,6 @@
 
 /* MOBILE - CATEGORIES */
 
-ul.nav.nav-stacked.categorylist.mobile li {
-
-}
-
 .col-xs-9.mobcatlink{
   font-size:160%;
   a{color:#808080; text-decoration:none;}
@@ -78,30 +74,6 @@ ul.nav.nav-stacked.categorylist.mobile li {
 .mobile-activity-home{
   padding-left:5%;
   padding-right:5%;
-}
-
-.mobile-activity-photo{
-  float:left;
-  padding-right:5px;
-}
-
-.reviewname.mobile{
-  display:inline-block;
-  height:70px;
-}
-
-/* MOBILE - login buttons */
-
-.fblogin-mobile{
-  float:left;
-  padding-left:10%;
-  padding-top:10%;
-}
-
-.glogin-mobile{
-  float:right;
-  padding-right:10%;
-  padding-top:10%;
 }
 
 /* MOBILE - USER PROFILE */

@@ -2,19 +2,23 @@
 <% if activity.trackable %>
   
    <% unless activity.owner == @user %>
-
-          <div class="mobile-activity-photo">
+      <div class="row">
+        
+          <div class="col-xs-3">
             <% if activity.owner.image.blank? %>
               <%= image_tag("grey_star.PNG", width: "50") %>
             <% else %>
               <%= image_tag(activity.owner.image, width: "50") %>
             <% end %>
           </div> 
-            <div class="reviewname mobile">     
+        
+            <div class="col-xs-6" align="left">     
               <%= link_to user_path(activity.owner) do %> 
                 <%= activity.owner.name %>
               <% end %>
-            </div> 
+            </div>
+        
+      </div>
 
    <% end %><br>
 
