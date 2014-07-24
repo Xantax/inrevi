@@ -409,9 +409,7 @@ match 'tos' => "static_pages#tos", via: [:get]
 match 'policy' => "static_pages#policy", via: [:get] 
 match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
 
-  
-  resources :promotions
-  resources :links
+    resources :links
   resources :contact_forms 
   resources :activities
   

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709191038) do
+ActiveRecord::Schema.define(version: 20140627200241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,19 +121,6 @@ ActiveRecord::Schema.define(version: 20140709191038) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "contact_forms", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "category"
-    t.text     "message"
-    t.boolean  "read"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "contact_forms", ["user_id"], name: "index_contact_forms_on_user_id", using: :btree
 
   create_table "drug_reviews", force: true do |t|
     t.text     "content"
@@ -380,24 +367,6 @@ ActiveRecord::Schema.define(version: 20140709191038) do
   add_index "product_reviews", ["cached_weighted_score"], name: "index_product_reviews_on_cached_weighted_score", using: :btree
   add_index "product_reviews", ["user_id"], name: "index_product_reviews_on_user_id", using: :btree
 
-  create_table "promotions", force: true do |t|
-    t.string   "text"
-    t.string   "link"
-    t.boolean  "local"
-    t.boolean  "auto"
-    t.boolean  "tech"
-    t.boolean  "book"
-    t.boolean  "movie"
-    t.boolean  "music"
-    t.boolean  "podcast"
-    t.boolean  "tvshow"
-    t.boolean  "drug"
-    t.boolean  "recipe"
-    t.boolean  "art"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "recipe_reviews", force: true do |t|
     t.text     "content"
     t.integer  "point",                 default: -1
@@ -614,7 +583,6 @@ ActiveRecord::Schema.define(version: 20140709191038) do
     t.integer  "tech_reviews_count",     default: 0
     t.integer  "tvshow_reviews_count",   default: 0
     t.integer  "alerts_count",           default: 0
-    t.boolean  "unverified_company"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
