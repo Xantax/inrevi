@@ -3,19 +3,15 @@ class PodcastReviewsController < ApplicationController
   before_action :set_podcast, only: [:index, :new, :create]
   before_action :signed_in_user
   before_action :require_permission, only: :destroy
+  before_action :only_admin, only: :all
   
   def all
-    if current_user.admin?
       @podcast_reviews = PodcastReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
       render 'index'
-    end
   end
   
   def index
     @podcast_reviews = @podcast.podcast_reviews.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
-  end
-
-  def show
   end
 
   def new
@@ -23,9 +19,6 @@ class PodcastReviewsController < ApplicationController
     @podcast_review.review_images.build
     @podcast_review.review_images.build  
     @podcast_review.review_images.build  
-  end
-
-  def edit
   end
 
   def create
@@ -38,16 +31,6 @@ class PodcastReviewsController < ApplicationController
         redirect_to current_user
       else
         render action: 'new'
-      end
-  end
-
-  def update
-    @podcast_review.review_images.build if @podcast_review.review_images.empty?
-
-      if @podcast_review.update(podcast_review_params)
-        redirect_to root_path, notice: 'Review was successfully updated.'
-      else
-        render action: 'edit'
       end
   end
 
@@ -84,6 +67,12 @@ class PodcastReviewsController < ApplicationController
   
     def require_permission
       if current_user != PodcastReview.find(params[:id]).user
+        redirect_to root_path
+      end
+    end 
+    
+    def only_admin
+      unless current_user.admin?
         redirect_to root_path
       end
     end 

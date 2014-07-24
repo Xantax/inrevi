@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   
   acts_as_voter
   
+  validates :email, email: { mx: true, disposable: true }
+  
+  mount_uploader :image, ImageUploader
+  
   #---  CUSTOM  ---#
   
   has_many :autos do
@@ -135,28 +139,6 @@ class User < ActiveRecord::Base
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
   
-  validates :email, email: { mx: true, disposable: true }
-  
-  mount_uploader :image, ImageUploader
-  
-  
-  def self.from_omniauth(auth)
-      where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-        user.provider = auth.provider
-        user.uid = auth.uid
-        user.name = auth.info.name
-        user.first_name = auth.info.first_name
-        user.last_name = auth.info.last_name
-        user.email = auth.info.email
-        user.password = auth.uid
-        user.password_confirmation = auth.uid
-        user.image_auth = auth.info.image
-        user.oauth_token = auth.credentials.token
-        user.oauth_expires_at = Time.at(auth.credentials.expires_at) unless auth.credentials.expires_at.nil?
-        user.save!
-       end
-  end
-  
     def self.new_with_session(params, session)
       if session["devise.user_attributes"]
         new(session["devise.user_attributes"], without_protection: true) do |user|
@@ -167,14 +149,6 @@ class User < ActiveRecord::Base
         super
       end
     end
-  
-   def facebook
-    @facebook ||= Koala::Facebook::API.new(oauth_token)
-    block_given? ? yield(@facebook) : @facebook
-    rescue Koala::Facebook::APIError => e
-    logger.info e.to_s
-    nil # or consider a custom null object
-   end 
   
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)
@@ -198,7 +172,7 @@ class User < ActiveRecord::Base
     sql_from ="users as a inner join relationships as b on a.id = b.followed_id"
     sql_group = "a.id"
     
-    User.select(sql_select).from(sql_from).group(sql_group).limit(100)
+    User.select(sql_select).from(sql_from).group(sql_group).limit(50)
   end
   
   def to_param

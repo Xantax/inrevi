@@ -3,27 +3,18 @@ class AlertsController < ApplicationController
   before_action :signed_in_user
 
   def index
-    if current_user.admin?
       @alerts = Alert.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
-    end
   end
 
   def show
-    unless current_user.admin || current_user.company
-      redirect_to root_path
-    end
   end
 
   def new
-    if current_user.admin || current_user.company
       @alert = Alert.new
-    end
   end
 
   def edit
-    unless current_user.admin || current_user.company
       redirect_to root_path
-    end
   end
 
   def create

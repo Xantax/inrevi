@@ -1,11 +1,10 @@
 class FineartsController < ApplicationController
   before_action :set_fineart, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, except: [:show]
+  before_action :only_admin, only: [:edit, :update, :destroy, :all]
 
   def all
-    if current_user.admin?
       @finearts = Fineart.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
-    end
   end
   
   def search
@@ -20,8 +19,6 @@ class FineartsController < ApplicationController
     @fineart_reviews = Fineart.find(params[:id]).fineart_reviews.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
     @avg_score = 0
     @avg_score = @fineart_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @fineart_reviews.count if @fineart_reviews.count > 0
-    
-    @promotion = Promotion.order("RANDOM()").first
   end
 
   def new
@@ -29,9 +26,6 @@ class FineartsController < ApplicationController
   end
 
   def edit
-    unless current_user.admin?
-      redirect_to root_path
-    end
   end
 
   def create
@@ -54,8 +48,8 @@ class FineartsController < ApplicationController
   end
 
   def destroy
-    @fineart.destroy
-      redirect_to finearts_url
+      @fineart.destroy
+      redirect_to finearts_url    
   end
 
   private
@@ -66,6 +60,12 @@ class FineartsController < ApplicationController
 
     def fineart_params
       params.require(:fineart).permit(:name, :image, :tag_list, :remote_image_url, :user_id)
+    end
+    
+    def only_admin
+      unless current_user.admin?
+        redirect_to root_path
+      end
     end
 
 end

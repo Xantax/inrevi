@@ -1,11 +1,10 @@
  class PodcastsController < ApplicationController
-  before_action :set_podcast, only: [:show, :edit, :update, :destroy]
+   before_action :set_podcast, only: [:show, :edit, :update, :destroy]
    before_action :signed_in_user, except: [:show]
+   before_action :only_admin, only: [:edit, :update, :destroy, :all]
 
   def all
-    if current_user.admin?
        @podcasts = Podcast.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
-    end
   end
    
   def index   
@@ -20,8 +19,6 @@
     @podcast_reviews = Podcast.find(params[:id]).podcast_reviews.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
     @avg_score = 0
     @avg_score = @podcast_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @podcast_reviews.count if @podcast_reviews.count > 0
-    
-    @promotion = Promotion.order("RANDOM()").first
   end
 
   def new
@@ -29,9 +26,6 @@
   end
 
   def edit
-    unless current_user.admin?
-      redirect_to root_path
-    end
   end
 
   def create
@@ -54,10 +48,8 @@
   end
 
   def destroy
-    if current_user.admin?
       @podcast.destroy
         redirect_to podcasts_url
-    end
   end
 
   private
@@ -68,6 +60,12 @@
 
     def podcast_params
       params.require(:podcast).permit(:name, :user_id, :website, :image, :tag_list, :remote_image_url)
+    end
+    
+    def only_admin
+      unless current_user.admin?
+        redirect_to root_path
+      end
     end
 
  end

@@ -3,19 +3,15 @@ class TvshowReviewsController < ApplicationController
   before_action :set_tvshow, [:new, :create]
   before_action :signed_in_user
   before_action :require_permission, only: :destroy
+  before_action :only_admin, only: :all
 
   def all
-    if current_user.admin?
       @tvshow_reviews = TvshowReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
       render 'index'
-    end
   end
   
   def index
     @tvshow_reviews = TvshowReview.where(tvshow_id: params[:id]).paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
-  end
-
-  def show
   end
 
   def new
@@ -23,9 +19,6 @@ class TvshowReviewsController < ApplicationController
     @tvshow_review.review_images.build 
     @tvshow_review.review_images.build
     @tvshow_review.review_images.build
-  end
-
-  def edit
   end
 
   def create
@@ -38,16 +31,6 @@ class TvshowReviewsController < ApplicationController
         redirect_to current_user
       else
         render action: 'new'
-      end
-  end
-
-  def update
-    @tvshow_review.review_images.build if @tvshow_review.review_images.empty?
-
-      if @tvshow_review.update(tvshow_review_params)
-        redirect_to @tvshow_review
-      else
-        render action: 'edit'
       end
   end
 
@@ -86,5 +69,12 @@ class TvshowReviewsController < ApplicationController
       if current_user != TvshowReview.find(params[:id]).user
         redirect_to root_path
       end
+    end  
+    
+    def only_admin
+      unless current_user.admin?
+        redirect_to root_path
+      end
     end 
+  
 end

@@ -3,19 +3,15 @@ class RecipeReviewsController < ApplicationController
   before_action :set_recipe, only: [:index, :new, :create]
   before_action :signed_in_user
   before_action :require_permission, only: :destroy
+  before_action :only_admin, only: :all
 
   def all
-    if current_user.admin?
       @recipe_reviews = RecipeReview.order("cached_votes_score ASC").paginate(:page => params[:page], :per_page => 15)
       render 'index'
-    end
   end  
   
   def index
     @recipe_reviews = @recipe.recipe_reviews.order("cached_votes_score DESC").paginate(:page => params[:page], :per_page => 15)
-  end
-
-  def show
   end
 
   def new
@@ -23,9 +19,6 @@ class RecipeReviewsController < ApplicationController
     @recipe_review.review_images.build 
     @recipe_review.review_images.build 
     @recipe_review.review_images.build 
-  end
-
-  def edit
   end
 
   def create
@@ -38,16 +31,6 @@ class RecipeReviewsController < ApplicationController
         redirect_to current_user
       else
         render action: 'new'
-      end
-  end
-
-  def update
-    @recipe_review.review_images.build if @recipe_review.review_images.empty?
-    
-      if @recipe_review.update(recipe_review_params)
-        redirect_to @recipe_review
-      else
-        render action: 'edit'
       end
   end
 
@@ -84,6 +67,12 @@ class RecipeReviewsController < ApplicationController
   
     def require_permission
       if current_user != RecipeReview.find(params[:id]).user
+        redirect_to root_path
+      end
+    end 
+    
+    def only_admin
+      unless current_user.admin?
         redirect_to root_path
       end
     end 

@@ -3,12 +3,11 @@ class AutoReviewsController < ApplicationController
   before_action :set_auto, only: [:index, :new, :create]
   before_action :signed_in_user
   before_action :require_permission, only: :destroy
+  before_action :only_admin, only: :all
 
   def all
-    if current_user.admin?
       @auto_reviews = AutoReview.order("cached_votes_score ASC").paginate(:page => params[:page], :per_page => 15)
       render 'index'
-    end
   end
   
   def index
@@ -35,23 +34,9 @@ class AutoReviewsController < ApplicationController
       end
   end
 
-  def update
-    if current_user.admin?
-      @auto_review.review_images.build if @auto_review.review_images.empty?
-
-        if @auto_review.update(auto_review_params)
-          redirect_to root_path, notice: 'Auto review was successfully updated.'
-        else
-          render action: 'edit'
-        end
-    end
-  end
-
   def destroy
-    if current_user.admin? || current_user?(@user)
       @auto_review.destroy
       redirect_to current_user
-    end
   end
   
   def upvote
@@ -82,6 +67,12 @@ class AutoReviewsController < ApplicationController
   
     def require_permission
       if current_user != AutoReview.find(params[:id]).user
+        redirect_to root_path
+      end
+    end
+    
+    def only_admin
+      unless current_user.admin?
         redirect_to root_path
       end
     end  

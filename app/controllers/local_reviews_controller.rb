@@ -4,19 +4,15 @@ class LocalReviewsController < ApplicationController
   before_action :set_local, only: [:index, :new, :create]
   before_action :signed_in_user
   before_action :require_permission, only: :destroy
+  before_action :only_admin, only: :all
 
   def all
-    if current_user.admin?
       @local_reviews = LocalReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
       render 'index'
-    end
   end
   
   def index
     @local_reviews = LocalReview.where(local_id: params[:id]).paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
-  end
-
-  def show
   end
 
   def new
@@ -24,9 +20,6 @@ class LocalReviewsController < ApplicationController
     @local_review.review_images.build 
     @local_review.review_images.build 
     @local_review.review_images.build 
-  end
-
-  def edit
   end
 
   def create
@@ -39,16 +32,6 @@ class LocalReviewsController < ApplicationController
         redirect_to current_user
       else
         render action: 'new'
-      end
-  end
-
-  def update
-    @local_review.review_images.build if @local_review.review_images.empty?
-
-      if @local_review.update(local_review_params)
-        redirect_to root_path, notice: 'Local review was successfully updated.'
-      else
-        render action: 'edit'
       end
   end
 
@@ -94,5 +77,11 @@ class LocalReviewsController < ApplicationController
         redirect_to root_path
       end
     end 
+    
+    def only_admin
+      unless current_user.admin?
+        redirect_to root_path
+      end
+    end
   
 end

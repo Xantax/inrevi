@@ -372,14 +372,10 @@ Inrevi::Application.routes.draw do
     end
   end
   
-
 #  get 'tags/:tag', to: 'teches#index', as: :ttag
 #  get 'tags/:tag', to: 'podcasts#index', as: :tag  
 #  get 'tags/:tag', to: 'recipes#index', as: :rtag
 #  get 'tags/:tag', to: 'finearts#index', as: :atag
-  
-#match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
-#match 'auth/failure', to: redirect('/'), via: [:get, :post]
   
 match 'songs/search' => "songs#search", via: [:get]
 match 'msearch' => "movies#search", via: [:get]
@@ -410,7 +406,7 @@ match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
   resources :links
   resources :activities
   
-  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
   
   match '/users/:id', :to => 'users#show', :as => :user, via: [:get]
   resources :users, only: [:edit, :update]

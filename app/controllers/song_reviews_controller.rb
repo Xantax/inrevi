@@ -2,19 +2,15 @@ class SongReviewsController < ApplicationController
   before_action :set_song_review, only: [:show, :destroy, :upvote, :downvote]
   before_action :signed_in_user
   before_action :require_permission, only: :destroy
+  before_action :only_admin, only: :all
 
   def all
-    if current_user.admin?
       @song_reviews = SongReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
       render 'index'
-    end
   end
   
   def index
     @song_reviews = SongReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
-  end
-
-  def show
   end
 
   def new
@@ -23,9 +19,6 @@ class SongReviewsController < ApplicationController
     @song_review.review_images.build 
     @song_review.review_images.build  
     @song_review.review_images.build  
-  end
-
-  def edit
   end
 
   def create
@@ -39,14 +32,6 @@ class SongReviewsController < ApplicationController
         redirect_to current_user
       else
         render action: 'new'
-      end
-  end
-
-  def update
-      if @song_review.update(song_review_params)
-        redirect_to @song_review
-      else
-        render action: 'edit'
       end
   end
 
@@ -86,5 +71,11 @@ class SongReviewsController < ApplicationController
         redirect_to root_path
       end
     end 
+    
+    def only_admin
+      unless current_user.admin?
+        redirect_to root_path
+      end
+    end  
   
 end

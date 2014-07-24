@@ -3,12 +3,11 @@ class BookReviewsController < ApplicationController
   before_action :set_book, [:new, :create]
   before_action :signed_in_user
   before_action :require_permission, only: :destroy
+  before_action :only_admin, only: :all
 
   def all
-    if current_user.admin?
       @book_reviews = BookReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
       render 'index'
-    end
   end
   
   def index
@@ -32,14 +31,6 @@ class BookReviewsController < ApplicationController
         redirect_to current_user
       else
         render action: 'new'
-      end
-  end
-
-  def update
-      if @book_review.update(book_review_params)
-        redirect_to book_book_review_path(@book.id, @book_review), notice: 'Book review was successfully updated.'
-      else
-        render action: 'edit'
       end
   end
 
@@ -77,6 +68,12 @@ class BookReviewsController < ApplicationController
   
     def require_permission
       if current_user != BookReview.find(params[:id]).user
+        redirect_to root_path
+      end
+    end
+    
+    def only_admin
+      unless current_user.admin?
         redirect_to root_path
       end
     end

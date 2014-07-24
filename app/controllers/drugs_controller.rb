@@ -1,11 +1,10 @@
 class DrugsController < ApplicationController
-  before_action :set_drug, only: [:show, :edit, :update, :destroy, :additionalinfo]
+  before_action :set_drug, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, except: [:show]
+  before_action :only_admin, only: [:edit, :update, :destroy, :all]
 
   def all
-    if current_user.admin?
       @drugs = Drug.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
-    end
   end
   
   def index
@@ -17,12 +16,9 @@ class DrugsController < ApplicationController
 
   def show
     @drug_review = DrugReview.new
-    @drug_reviews = Drug.find(params[:id]).drug_reviews.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
-    
+    @drug_reviews = Drug.find(params[:id]).drug_reviews.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")    
     @avg_score = 0
     @avg_score = @drug_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @drug_reviews.count if @drug_reviews.count > 0
-    
-    @promotion = Promotion.order("RANDOM()").first
   end
   
   def new
@@ -30,9 +26,6 @@ class DrugsController < ApplicationController
   end
 
   def edit
-    unless current_user.admin?
-      redirect_to root_path
-    end
   end
 
   def create
@@ -55,10 +48,8 @@ class DrugsController < ApplicationController
   end
 
   def destroy
-    if current_user.admin?
       @drug.destroy
         redirect_to drugs_url
-    end
   end
 
   private
@@ -70,4 +61,11 @@ class DrugsController < ApplicationController
     def drug_params
       params.require(:drug).permit(:name, :image, :additionalinfo, :remote_image_url, :user_id)
     end
+  
+    def only_admin
+      unless current_user.admin?
+        redirect_to root_path
+      end
+    end  
+  
 end

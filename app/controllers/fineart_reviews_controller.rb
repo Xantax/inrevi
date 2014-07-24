@@ -3,19 +3,15 @@ class FineartReviewsController < ApplicationController
   before_action :set_fineart, only: [:index, :new, :create]
   before_action :signed_in_user
   before_action :require_permission, only: :destroy
+  before_action :only_admin, only: :all
   
   def all
-    if current_user.admin?
       @fineart_reviews = FineartReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
       render 'index'
-    end
   end
   
   def index
     @fineart_reviews = @fineart.fineart_reviews.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
-  end
-
-  def show
   end
 
   def new
@@ -23,9 +19,6 @@ class FineartReviewsController < ApplicationController
     @fineart_review.review_images.build 
     @fineart_review.review_images.build 
     @fineart_review.review_images.build     
-  end
-
-  def edit
   end
 
   def create
@@ -38,16 +31,6 @@ class FineartReviewsController < ApplicationController
         redirect_to current_user
       else
         render action: 'new'
-      end
-  end
-
-  def update
-    @fineart_review.review_images.build if @fineart_review.review_images.empty?
-
-      if @fineart_review.update(fineart_review_params)
-        redirect_to @fineart_review
-      else
-        render action: 'edit'
       end
   end
 
@@ -84,6 +67,12 @@ class FineartReviewsController < ApplicationController
   
     def require_permission
       if current_user != FineartReview.find(params[:id]).user
+        redirect_to root_path
+      end
+    end
+    
+    def only_admin
+      unless current_user.admin?
         redirect_to root_path
       end
     end 

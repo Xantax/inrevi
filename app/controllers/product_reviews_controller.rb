@@ -4,12 +4,11 @@ class ProductReviewsController < ApplicationController
   before_action :set_product_review, only: [:destroy, :upvote, :downvote]
   before_action :signed_in_user
   before_action :require_permission, only: :destroy
+  before_action :only_admin, only: :all
 
   def all
-    if current_user.admin?
       @product_reviews = ProductReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
       render 'index'
-    end
   end
   
   def index
@@ -71,6 +70,12 @@ class ProductReviewsController < ApplicationController
   
     def require_permission
       if current_user != ProductReview.find(params[:id]).user
+        redirect_to root_path
+      end
+    end 
+    
+    def only_admin
+      unless current_user.admin?
         redirect_to root_path
       end
     end 

@@ -3,12 +3,11 @@ class DrugReviewsController < ApplicationController
   before_action :set_drug, only: [:index, :new, :create]
   before_action :signed_in_user
   before_action :require_permission, only: :destroy
+  before_action :only_admin, only: :all
 
   def all
-    if current_user.admin?
       @drug_reviews = DrugReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
       render 'index'
-    end
   end
   
   def index
@@ -32,16 +31,6 @@ class DrugReviewsController < ApplicationController
         redirect_to current_user
       else
         render action: 'new'
-      end
-  end
-
-  def update
-    @drug_review.review_images.build if @drug_review.review_images.empty?
-    
-      if @drug_review.update(auto_review_params)
-        redirect_to root_path, notice: 'Review was successfully updated.'
-      else
-        render action: 'edit'
       end
   end
 
@@ -78,6 +67,12 @@ class DrugReviewsController < ApplicationController
   
     def require_permission
       if current_user != DrugReview.find(params[:id]).user
+        redirect_to root_path
+      end
+    end
+    
+    def only_admin
+      unless current_user.admin?
         redirect_to root_path
       end
     end 

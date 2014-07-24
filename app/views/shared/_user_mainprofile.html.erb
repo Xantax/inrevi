@@ -13,19 +13,19 @@
             <%= image_tag(current_user.image_url(:thumb), width: "110", class: 'img-thumbnail') %>
           <% end %><br>
 
-     
-
     <%= render 'shared/stats' %>
 
   <% else %>
-<hr>
+   <hr>
    <%= link_to "Sign up", "/users/sign_up", class: 'btn btn-primary btn-lg btn-block' %><br>
    <%= link_to "Login", "/users/sign_in", class: 'btn btn-default btn-lg btn-block' %>
 <% end %>
 
-<hr><div class="row dumb300"></div>
-<hr><div class="bottom-about">
-        ©
-        <%= mail_to "support@inrevi.com", "Contact" %> |
-        <%= link_to "TOS - Privacy", tos_path %>
-    </div>
+<hr>
+<div class="row dumb300"></div>
+<hr>
+<div class="bottom-about">
+  ©
+  <%= mail_to "support@inrevi.com", "Contact" %> |
+  <%= link_to "TOS - Privacy", tos_path %>
+</div>

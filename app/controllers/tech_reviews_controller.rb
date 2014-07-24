@@ -3,19 +3,15 @@ class TechReviewsController < ApplicationController
   before_action :set_tech, only: [:index, :new, :create]
   before_action :signed_in_user
   before_action :require_permission, only: :destroy
+  before_action :only_admin, only: :all
   
   def all
-    if current_user.admin?
       @tech_reviews = TechReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
       render 'index'
-    end
   end
   
   def index
     @tech_reviews = @tech.tech_reviews.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
-  end
-
-  def show
   end
 
   def new
@@ -23,9 +19,6 @@ class TechReviewsController < ApplicationController
     @tech_review.review_images.build
     @tech_review.review_images.build 
     @tech_review.review_images.build 
-  end
-
-  def edit
   end
 
   def create
@@ -38,16 +31,6 @@ class TechReviewsController < ApplicationController
         redirect_to current_user
       else
         render action: 'new'
-      end
-  end
-
-  def update
-    @tech_review.review_images.build if @tech_review.review_images.empty?
-
-      if @tech_review.update(tech_review_params)
-        redirect_to @tech_review
-      else
-        render action: 'edit'
       end
   end
 
@@ -87,4 +70,11 @@ class TechReviewsController < ApplicationController
         redirect_to root_path
       end
     end 
+    
+    def only_admin
+      unless current_user.admin?
+        redirect_to root_path
+      end
+    end 
+  
 end
