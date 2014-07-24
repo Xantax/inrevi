@@ -11,21 +11,13 @@
             <%= image_tag("grey_star.PNG", width: "110", class: 'img-thumbnail') %>
           <% else %>
             <%= image_tag(current_user.image_url(:thumb), width: "110", class: 'img-thumbnail') %>
-          <% end %>
+          <% end %><br>
 
-      <div class="inreviews">
-      </div>
-    <%= render 'shared/stats' %>  <hr>
+     
 
-  <% if !current_user.company && current_user.unverified_company %>
-    Not verified!
-  <% elsif current_user.company %>
-    <%= link_to "+ Add update", new_alert_path(), class: "btn btn-default" %>
-  <% end %>
+    <%= render 'shared/stats' %> <hr>
 
-      <div class="home-right-ad">
-        <%= render 'shared/ad_on_user_mainprofile' %>
-      </div>
+      <div class="row dumb300"></div> <hr>
 
       <div class="bottom-about">
         ©

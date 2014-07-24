@@ -34,7 +34,7 @@
     <%= image_tag('othericons/writeRev.png', height: '16', width: '16') %>
     <div class="writeareview">
       <%= link_to "Write a Review", eval("new_#{@resource_type}_product_review_path(@product['sem3_id'])") %>
-    </div><br>
+    </div><hr>
     
      <div>
      <%= render 'show_rating' %>
