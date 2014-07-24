@@ -4,10 +4,11 @@
     <div id="login-center">
       <%= link_to "Sign up", "/users/sign_up", class: 'btn btn-primary btn-lg btn-block' %><br>
       <%= link_to "Login", "/users/sign_in", class: 'btn btn-default btn-lg btn-block' %>
-    </div>
-    <div vertical-align="bottom">
-      <%= render 'shared/aboutus' %>
-    </div>
+    </div><br><hr>
+         
+        <%= mail_to "support@inrevi.com", "Contact" %> |
+        <%= link_to "TOS", tos_path %> | 
+        <%= link_to "Privacy Policy", policy_path %>
 <% else %>
     <%= render 'shared/categories' %>
 <% end %>

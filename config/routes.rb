@@ -403,14 +403,11 @@ match 'electronics' => "static_pages#catelectronics", via: [:get]
 match 'health' => "static_pages#cathealth", via: [:get]
 match 'sustenance' => "static_pages#catsustenance", via: [:get]
   
-match 'about' => "static_pages#about", via: [:get]
-match 'contact' => "static_pages#contact", via: [:get]
 match 'tos' => "static_pages#tos", via: [:get]
 match 'policy' => "static_pages#policy", via: [:get] 
 match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
 
-    resources :links
-  resources :contact_forms 
+  resources :links
   resources :activities
   
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
