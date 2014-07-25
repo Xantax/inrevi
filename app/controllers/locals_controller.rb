@@ -13,8 +13,7 @@ class LocalsController < ApplicationController
     render 'index'    
   end
 
-  def show
-    
+  def show    
     query = @factual.table('places')
     @local = query.filters('factual_id' => params[:id]).first
     
@@ -23,10 +22,7 @@ class LocalsController < ApplicationController
     @local_reviews = LocalReview.where(local_id: params[:id]).paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
     
     @avg_score = 0
-    @avg_score = @local_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @local_reviews.count if @local_reviews.count > 0
-    
-    @promotion = Promotion.order("RANDOM()").first
-    
+    @avg_score = @local_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @local_reviews.count if @local_reviews.count > 0    
   end
 
   private

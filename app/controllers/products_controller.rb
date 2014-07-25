@@ -25,8 +25,6 @@ class ProductsController < ApplicationController
     
     @avg_score = 0
     @avg_score = @product_reviews.inject(0) { |sum, r| sum += r.point }.to_f / @product_reviews.count if @product_reviews.count > 0
-    
-    @promotion = Promotion.order("RANDOM()").first
   end
 
   private
