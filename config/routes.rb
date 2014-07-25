@@ -2,6 +2,46 @@ Inrevi::Application.routes.draw do
 
   resources :alerts
 
+match 'songs/search' => "songs#search", via: [:get]
+match 'msearch' => "movies#search", via: [:get]
+match 'tvsearch' => "tvshows#search", via: [:get]
+match 'search' => "books#search", via: [:get]
+match 'drugs/search' => "drugs#search", via: [:get]
+match 'autos/search' => "autos#search", via: [:get]
+match 'teches/search' => "teches#search", via: [:get]
+match 'podcasts/search' => "podcasts#search", via: [:get]
+match 'recipes/search' => "recipes#search", via: [:get]
+match 'finearts/search' => "finearts#search", via: [:get]
+  
+match 'media' => "static_pages#catmedia", via: [:get]
+match 'home' => "static_pages#cathome", via: [:get]
+match 'beauty' => "static_pages#catbeauty", via: [:get]
+match 'fashion' => "static_pages#catfashion", via: [:get]
+  match 'fashion/clothing' => "static_pages#catfashion_clothing", via: [:get]
+  match 'fashion/footwear' => "static_pages#catfashion_footwear", via: [:get]
+match 'hobbies' => "static_pages#cathobbies", via: [:get]
+match 'electronics' => "static_pages#catelectronics", via: [:get]
+match 'health' => "static_pages#cathealth", via: [:get]
+match 'sustenance' => "static_pages#catsustenance", via: [:get]
+  
+match 'tos' => "static_pages#tos", via: [:get]
+match 'policy' => "static_pages#policy", via: [:get] 
+match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
+
+  resources :links
+  resources :activities
+  
+  devise_for :users
+  
+  match '/users/:id', :to => 'users#show', :as => :user, via: [:get]
+  resources :users, only: [:edit, :update]
+  match 'users/:id/followers', :to => "users#followers", :as => "followers", via: [:get]
+  match 'users/:id/following', :to => "users#following", :as => "following", via: [:get]
+  
+  get 'sign_in', :to => 'users/sessions#new', :as => :new_session
+  
+  resources :relationships, only: [:create, :destroy]  
+  
   resources :product_reviews do
        member do
          put "like", to: "product_reviews#upvote"
@@ -376,46 +416,6 @@ Inrevi::Application.routes.draw do
 #  get 'tags/:tag', to: 'podcasts#index', as: :tag  
 #  get 'tags/:tag', to: 'recipes#index', as: :rtag
 #  get 'tags/:tag', to: 'finearts#index', as: :atag
-  
-match 'songs/search' => "songs#search", via: [:get]
-match 'msearch' => "movies#search", via: [:get]
-match 'tvsearch' => "tvshows#search", via: [:get]
-match 'search' => "books#search", via: [:get]
-match 'drugs/search' => "drugs#search", via: [:get]
-match 'autos/search' => "autos#search", via: [:get]
-match 'teches/search' => "teches#search", via: [:get]
-match 'podcasts/search' => "podcasts#search", via: [:get]
-match 'recipes/search' => "recipes#search", via: [:get]
-match 'finearts/search' => "finearts#search", via: [:get]
-  
-match 'media' => "static_pages#catmedia", via: [:get]
-match 'home' => "static_pages#cathome", via: [:get]
-match 'beauty' => "static_pages#catbeauty", via: [:get]
-match 'fashion' => "static_pages#catfashion", via: [:get]
-  match 'fashion/clothing' => "static_pages#catfashion_clothing", via: [:get]
-  match 'fashion/footwear' => "static_pages#catfashion_footwear", via: [:get]
-match 'hobbies' => "static_pages#cathobbies", via: [:get]
-match 'electronics' => "static_pages#catelectronics", via: [:get]
-match 'health' => "static_pages#cathealth", via: [:get]
-match 'sustenance' => "static_pages#catsustenance", via: [:get]
-  
-match 'tos' => "static_pages#tos", via: [:get]
-match 'policy' => "static_pages#policy", via: [:get] 
-match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
-
-  resources :links
-  resources :activities
-  
-  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
-  
-  match '/users/:id', :to => 'users#show', :as => :user, via: [:get]
-  resources :users, only: [:edit, :update]
-  match 'users/:id/followers', :to => "users#followers", :as => "followers", via: [:get]
-  match 'users/:id/following', :to => "users#following", :as => "following", via: [:get]
-  
-  get 'sign_in', :to => 'users/sessions#new', :as => :new_session
-  
-  resources :relationships, only: [:create, :destroy] 
   
 #----------   LOCAL   ----------  
   
