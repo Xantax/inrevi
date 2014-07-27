@@ -9,7 +9,7 @@
           <% if current_user.image.blank? %>
             <%= image_tag("grey_star.PNG", width: "160", class: 'img-thumbnail') %><br>
           <% else %>
-            <%= image_tag(current_user.image_url(:thumb), width: "160", class: 'img-thumbnail')%><br>
+            <%= image_tag(current_user.image_url(:thumb), width: "160", class: 'img-circle')%><br>
           <% end %>
 
    <strong>
