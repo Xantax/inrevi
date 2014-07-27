@@ -178,8 +178,12 @@ a:hover{color:#000000;
   vertical-align:top;
 }
 
-.stats {
-  padding-top:40px;
+.row.stats {
+  padding-bottom:10px;
+  border-bottom: 2px solid #D8D8D8;
+  border-top: 2px solid #D8D8D8;
+  margin-top:15px;
+  font-size:120%;
 }
 
 .logoutlink {

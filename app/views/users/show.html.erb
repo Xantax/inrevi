@@ -1,41 +1,17 @@
-<% provide(:title, @user.first_name) %>
+<% provide(:title, @user.name) %>
 
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53b904537cb32806"></script>
 
-<div class="row">
-  
-  <div class="col-sm-3 usershow">
-    <%= render 'user_info' %><hr>  
-  </div>
-  
-  <div class="col-sm-7 usershow"> 
-   
-    <% if @activities.empty? %>
-    
-        <div class="noreviews usershow">No activity :(</div>
-        <div class="row dumb500"></div>
-    
-      <% else %>
-    
-        <% @activities.each do |activity| %>
-          <div class="activity">
-            <%= render_activity activity %>
-          </div>
-        <% end %>
+<%= render 'user_info' %>
+<%= render 'shared/stats' %>
 
-    <% end %>
+<br>
     
-  </div>
-  
-  <div class="col-sm-2">
-    <%= render 'follow_form' if signed_in? %>
-    <% unless signed_in? %>
-       <%= link_to "Sign up", "/users/sign_up", class: 'btn btn-primary btn-lg btn-block' %><br>
-       <%= link_to "Login", "/users/sign_in", class: 'btn btn-default btn-lg btn-block' %> 
-    <% end %>
-  </div>
-  
-</div>
+  <% @activities.each do |activity| %>
+    <div class="activity">
+      <%= render_activity activity %>
+    </div>
+  <% end %>
 
 <div class="digg_pagination">
   <%= will_paginate @activities %>
