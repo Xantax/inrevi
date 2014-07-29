@@ -5,16 +5,6 @@
             <%= link_to auto.name, auto %><br>
             <%= image_tag auto.image_url(:thumb) if auto.image? %>  
             <hr>
-            <% if signed_in? %>
-              <% if user.admin %>
-                Author: <%= link_to auto.user.first_name, auto.user %> | 
-                <%= link_to 'Show', auto_path(auto) %>
-                <%= link_to 'Edit', edit_auto_path(auto) %>
-                <%= link_to 'Destroy', auto_path(auto),
-                                method: :delete, data: { confirm: 'Are you sure?' } %>
-                <hr>
-              <% end %>
-            <% end %>
          </div>
       <% end %>
 

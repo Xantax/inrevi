@@ -5,16 +5,6 @@
             <%= link_to drug.name, drug %><br>
             <%= image_tag drug.image_url(:thumb) if drug.image? %>  
             <hr>
-            <% if signed_in? %>
-              <% if user.admin %>
-                  Author: <%= link_to drug.user.first_name, drug.user %> |
-                  <%= link_to 'Show', drug_path(drug) %>
-                  <%= link_to 'Edit', edit_drug_path(drug) %>
-                  <%= link_to 'Destroy', drug_path(drug),
-                                  method: :delete, data: { confirm: 'Are you sure?' } %>
-                  <hr>
-              <% end %>
-            <% end %>
          </div>
       <% end %>
 
