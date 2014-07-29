@@ -19,7 +19,7 @@ class TvshowReview < ActiveRecord::Base
   validates_numericality_of :point, greater_than_or_equal_to: 0
   
   def user_quota
-    if user.tvshow_reviews.today.count >= 10
+    if user.tvshow_reviews.today.count >= 200
       errors.add(:base, "You can't create more reviews today!")
     end
   end 
