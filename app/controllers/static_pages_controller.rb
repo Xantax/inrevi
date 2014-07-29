@@ -8,7 +8,7 @@ class StaticPagesController < ApplicationController
   end
   
   def scoreboard
-    @users = User.paginate(:page => params[:page], :per_page => 20).all
+    @users = User.paginate(:page => params[:page], :per_page => 20).order("last_sign_in_at DESC")
   end
 
   def advertising
