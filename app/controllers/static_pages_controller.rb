@@ -6,6 +6,10 @@ class StaticPagesController < ApplicationController
   def home
     @alert = Alert.new
   end
+  
+  def scoreboard
+    @users = User.paginate(:page => params[:page], :per_page => 20).all
+  end
 
   def advertising
   end

@@ -1,0 +1,24 @@
+<% provide(:title, "All users") %>
+
+<% @users.each do |user| %>
+<div class="row">
+  
+  <div class="col-xs-4">
+    <% if user.image.blank? %>
+      <%= image_tag("grey_star.PNG", width: "80", class: 'img-thumbnail') %>
+    <% else %>
+      <%= image_tag(user.image, width: "90", class: 'img-thumbnail') %>
+    <% end %>
+  </div>
+  
+  <div class="col-xs-4">
+    <%= link_to user.name, user %>
+  </div>
+  
+</div>
+<hr>
+<% end %>
+
+<div class="digg_pagination">
+  <%= will_paginate @users %>
+</div>

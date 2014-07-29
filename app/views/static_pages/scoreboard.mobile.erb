@@ -1,0 +1,10 @@
+<br>
+
+<% @users.each do |user| %>
+  <%= link_to user.name, user %>
+  <hr>
+<% end %>
+
+<div class="digg_pagination">
+  <%= will_paginate @users %>
+</div>
