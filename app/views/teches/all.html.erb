@@ -5,12 +5,16 @@
             <%= link_to tech.name, tech %><br>
             <%= image_tag tech.image_url(:thumb) if tech.image? %>  
             <hr>
-            Author: <%= link_to tech.user.first_name, tech.user %> |
-            <%= link_to 'Show', tech_path(tech) %>
-            <%= link_to 'Edit', edit_tech_path(tech) %>
-            <%= link_to 'Destroy', tech_path(tech),
-                            method: :delete, data: { confirm: 'Are you sure?' } %>
-            <hr>
+            <% if signed_in? %>
+              <% if user.admin %>
+                Author: <%= link_to tech.user.first_name, tech.user %> |
+                <%= link_to 'Show', tech_path(tech) %>
+                <%= link_to 'Edit', edit_tech_path(tech) %>
+                <%= link_to 'Destroy', tech_path(tech),
+                                method: :delete, data: { confirm: 'Are you sure?' } %>
+                <hr>
+              <% end %>
+            <% end %>
          </div>
       <% end %>
 

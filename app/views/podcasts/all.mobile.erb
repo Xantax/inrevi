@@ -5,12 +5,12 @@
             <%= link_to podcast.name, podcast %><br>
             <%= image_tag podcast.image_url(:thumb) if podcast.image? %>  
             <hr>
-            Author: <%= link_to podcast.user.first_name, podcast.user %> |
-            <%= link_to 'Show', podcast_path(podcast) %>
-            <%= link_to 'Edit', edit_podcast_path(podcast) %>
-            <%= link_to 'Destroy', podcast_path(podcast),
-                            method: :delete, data: { confirm: 'Are you sure?' } %>
-            <hr>
+                Author: <%= link_to podcast.user.first_name, podcast.user %> |
+                <%= link_to 'Show', podcast_path(podcast) %>
+                <%= link_to 'Edit', edit_podcast_path(podcast) %>
+                <%= link_to 'Destroy', podcast_path(podcast),
+                                method: :delete, data: { confirm: 'Are you sure?' } %>
+                <hr>
          </div>
       <% end %>
 
