@@ -1,14 +1,14 @@
 <div class="row navigation-home">
   
-  <div class="col-xs-4">
+  <div class="col-xs-3">
     <%= link_to image_tag("logou8.PNG", alt: "Inrevi - Power To The People"), root_path %>
   </div>
   
-  <div class="col-xs-4 header">
+  <div class="col-xs-6 header">
 
 <div class="btn-group" align="left">
   
-  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+  <button type="button" class="btn btn-danger btn-lg dropdown-toggle" data-toggle="dropdown">
     Reviews <span class="caret"></span>
   </button>
 
@@ -130,7 +130,7 @@
     
   </div>
   
-  <div class="col-xs-4 header">
+  <div class="col-xs-3 header">
     <% if signed_in? %>
       <%= link_to image_tag('othericons/profile7.png'), user_path(current_user) %>
     <% else %>
