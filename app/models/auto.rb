@@ -27,6 +27,10 @@ include PgSearch
     if user.autos.today.count >= 200
       errors.add(:base, "You can't create more today (SPAM prevention)")
     end
-  end  
+  end
+  
+  def to_param
+      "#{id} #{name}".parameterize
+  end
   
 end

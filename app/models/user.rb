@@ -175,8 +175,4 @@ class User < ActiveRecord::Base
     User.select(sql_select).from(sql_from).group(sql_group).limit(50)
   end
   
-  def to_param
-      "#{id} #{name}".parameterize
-  end
-  
 end
