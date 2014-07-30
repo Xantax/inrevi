@@ -1,27 +1,8 @@
 <% provide(:title, "#{@product['name']} Reviews") %>
 
-<div class="row">
- 
-  <div class="col-sm-2 categories">
-    <%= render 'shared/categories' %>
-  </div> 
-    
-  <div class="col-sm-8"> 
-     <div class="allnews">
+<%= render "productshow" %>
+<%= render 'shared/ad_on_item' %>
        
-       <%= render "productshow" %>
-       
-       <%= render 'shared/ad_on_item' %>
-       
-         <div class="row"> 
-           <%= render :file => "product_reviews/index" %>
-         </div>
-       
-     </div>
-  </div>
-  
-  <div class="col-sm-2">
-    <%= render 'shared/user_mainprofile' %>
-  </div>
-
-</div>
+   <div class="row"> 
+     <%= render :file => "product_reviews/index" %>
+   </div>

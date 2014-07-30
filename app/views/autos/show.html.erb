@@ -1,19 +1,11 @@
 <% provide(:title, "#{@auto.name} Reviews") %>
 
-<div class="row">
- 
-  <div class="col-sm-2 categories">
-    <%= render 'shared/categories' %>
-  </div> 
-    
-  <div class="col-sm-8"> 
-     <div class="allnews">
-        <%= render 'autos/autoshow2' %>
-     </div>
-  </div>
-  
-  <div class="col-sm-2">
-    <%= render 'shared/user_mainprofile' %>
-  </div>
+<%= render 'autos/autoshow' %>
 
-</div>
+<%= render 'shared/ad_on_item' %>
+
+<hr>
+
+  <div class="row"> 
+    <%= render :file => '/auto_reviews/index' %>
+  </div>

@@ -1,19 +1,11 @@
 <% provide(:title, "#{@local['name']} Reviews") %>
 
-<div class="row">
- 
-  <div class="col-sm-2 categories">
-    <%= render 'shared/categories' %>
-  </div> 
-    
-  <div class="col-sm-8"> 
-     <div class="allnews">
-      <%= render 'localshow2' %>
-     </div>
-  </div>
-  
-  <div class="col-sm-2">
-    <%= render 'shared/user_mainprofile' %>
-  </div>
+<%= render 'localshow' %>
 
-</div>
+<%= render 'shared/ad_on_item' %>
+
+<hr>
+
+  <div class="row"> 
+    <%= render :file => "local_reviews/index" %>
+  </div>

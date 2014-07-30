@@ -1,10 +1,9 @@
 <% @user ||= current_user %>
 
-<div class="row stats">
-
   <div class="stats">
     
-    <div class="col-xs-2">
+    <div class="col-xs-6">
+      
       <%= image_tag("othericons/writerevicon.png") %> 
       <a href="<%= user_path(@user) %>">
         <strong id="following">
@@ -12,17 +11,9 @@
         </strong>
         reviews
       </a>
-    </div>
-
-    <div class="col-xs-2">
-      <div class="points">
-        <%= image_tag("othericons/rsz_pcount.png") %> 
-        <%= render "shared/pointcounter" %> 
-        <div class="pointz">votes</div>
-      </div>
-    </div>
-
-    <div class="col-xs-2">
+      
+      <hr>
+      
       <%= image_tag("othericons/following.png") %> 
         <a href="<%= following_path(@user) %>">
           <strong id="following">
@@ -30,9 +21,19 @@
           </strong>
         following
         </a>
+      
     </div>
 
-    <div class="col-xs-2">
+    <div class="col-xs-6">
+      
+      <div class="points">
+        <%= image_tag("othericons/rsz_pcount.png") %> 
+        <%= render "shared/pointcounter" %> 
+        <div class="pointz">votes</div>
+      </div>
+      
+      <hr>
+      
       <%= image_tag("othericons/followers.png") %> 
         <a href="<%= followers_path(@user) %>">
           <strong id="followers">
@@ -40,8 +41,7 @@
           </strong>
         followers
         </a>
+      
     </div>
 
   </div>
-  
-</div>

@@ -1,13 +1,7 @@
 <% provide(:title, 'Sign up') %>
 
-<div class="row">
-  
-  <div class="col-xs-2 categories">
-    <%= render 'shared/categories' %><br><br>
-  </div>
-
-  <div class="col-xs-8" align="center">
-    <div class="homenews">
+<div align="center">
+    
       <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 
             <% if resource.errors.any? %>
@@ -29,14 +23,5 @@
             <%= f.hidden_field :provider, :value => "email" %>
 
       <% end %>
-      
-      <div class="row dumb300"></div><hr>
-      
-    </div>
-  </div>
-
-  <div class="col-xs-2"> 
-    <%= render 'shared/user_mainprofile' %> 
-  </div>
 
 </div>

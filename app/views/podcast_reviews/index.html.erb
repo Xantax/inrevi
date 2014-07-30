@@ -1,8 +1,4 @@
-  <% if @avg_score == 0.0 %>
-    <div class="noreviewsonindex">No reviews yet :( </div>
-    <div class="row dumb500"></div>
-  <% else %>
-    <% @podcast_reviews.each do |podcast_review| %><br>
+<% @podcast_reviews.each do |podcast_review| %><br>
       <div class="col-sm-3"> 
 
               <%= link_to user_path(podcast_review.user) do %> 
@@ -67,8 +63,8 @@
 
         </div><br>
       </div>
-    <% end %>
-  <% end %>
+
+<% end %>
 
 <div class="digg_pagination">
   <%= will_paginate @podcast_reviews %>

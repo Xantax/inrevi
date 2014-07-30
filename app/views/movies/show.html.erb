@@ -1,23 +1,11 @@
 <% provide(:title, "#{@movie.title} Reviews") %>
 
-<div class="row">
- 
-<div class="col-sm-2 categories">
-  <%= render 'shared/categories' %>
-</div> 
-  
-<div class="col-sm-8"> 
-  <div class="allnews">
-    <%= render 'movieshow2' %>
+<%= render "movieshow" %><br>
+
+<%= render 'shared/ad_on_item' %>
+
+<hr>
+
+  <div class="row"> 
+    <%= render :file => "movie_reviews/index" %>
   </div>
-</div>
-
-<div class="col-sm-2">
-  <%= render 'shared/user_mainprofile' %>
-</div>
-
-</div>
-
-<div class="digg_pagination">
-  <%= will_paginate @movie_reviews %>
-</div>

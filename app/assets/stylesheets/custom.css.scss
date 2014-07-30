@@ -11,7 +11,7 @@ body {
 	}
 	
 #Content {
-	width: 900px;
+	width: 960px;
 	margin:0px auto;
 	text-align:left;
 }
@@ -106,15 +106,16 @@ textarea {
   font-size:80%;
 }
 
-
 /* Navigation */
 
-.navigation-logo{
+.row.navigation-home{
   border-bottom: 1px solid #E8E8E8;
   margin-bottom: 20px;
-  width:100%;
 }
 
+.col-xs-4.header{
+  padding-top:10px;
+}
 
 /* Categories */
 
@@ -176,14 +177,6 @@ a:hover{color:#000000;
   background-color: #FFFFFF;}
   display:inline-block;
   vertical-align:top;
-}
-
-.row.stats {
-  padding-bottom:10px;
-  border-bottom: 2px solid #D8D8D8;
-  border-top: 2px solid #D8D8D8;
-  margin-top:15px;
-  font-size:120%;
 }
 
 .logoutlink {
@@ -949,7 +942,6 @@ float:left;
 
 .writeareview{
   display:inline-block;
-  padding-bottom:20px;
   padding-left:5px;
   font-weight:bold;
 }

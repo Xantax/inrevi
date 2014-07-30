@@ -1,13 +1,6 @@
 <% provide(:title, 'Sign in') %>
 
-<div class="row">
-  
-  <div class="col-xs-2 categories">
-    <%= render 'shared/categories' %><br><br>
-  </div>
-
-  <div class="col-xs-8" align="center">
-    <div class="homenews">
+  <div align="center">
 
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>        
           
@@ -29,15 +22,5 @@
             <% end -%>
 
           <% end %>
-
-        <hr>
-        <div class="row dumb500"></div>
-      
-    </div>
-  </div>
-
-  <div class="col-xs-2"> 
-    <%= render 'shared/user_mainprofile' %> 
-  </div>
 
 </div>

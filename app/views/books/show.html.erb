@@ -1,19 +1,11 @@
 <% provide(:title, "#{@book.title} Reviews") %>
 
-<div class="row">
- 
-  <div class="col-sm-2 categories">
-    <%= render 'shared/categories' %>
-  </div> 
-    
-  <div class="col-sm-8"> 
-     <div class="allnews">
-        <%= render 'books/bookshow2' %>
-     </div>
-  </div>
-  
-  <div class="col-sm-2">
-    <%= render 'shared/user_mainprofile' %>
-  </div>
+<%= render 'books/bookshow' %>
 
-</div>
+<%= render 'shared/ad_on_item' %>
+
+<hr>
+
+  <div class="row"> 
+    <%= render :file => "book_reviews/index" %>
+  </div>

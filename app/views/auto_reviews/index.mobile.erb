@@ -1,7 +1,4 @@
-<% if @avg_score == 0.0 %>
-  <div class="noreviewsonindex">No reviews yet :( </div>
-<% else %>
-  <% @auto_reviews.each do |auto_review| %><br>
+ <% @auto_reviews.each do |auto_review| %><br>
 
 <div class="row">
 
@@ -64,7 +61,6 @@
           
       </div><br>
 
-  <% end %>
 <% end %>
 
 <div class="digg_pagination">

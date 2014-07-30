@@ -1,18 +1,45 @@
 <% provide(:title, 'Power To The People') %>
 
+<% if signed_in? %>
+
 <div class="row">
   
-  <div class="col-xs-2 categories">
-    <%= render 'shared/categories' %><br><br>
+  <div class="col-xs-2">
+  
   </div>
 
   <div class="col-xs-8">
-    <%= render 'shared/home_newsfeed' %>
+    
+    <p id="notice"><%= notice %></p>
+    
+    <div class="qupdate">
+      <div class="texty">
+        <% if @link.present? %>
+          <b><a href="<%= @link.link if @link.link.present? %>"><%= @link.text %></a></b>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="homenews">
+      <%= render :file => '/activities/index' %>
+    </div>
+    
   </div>
 
-  <div class="col-xs-2"> 
-    <%= render 'shared/user_mainprofile' %> 
+  <div class="col-xs-2">
+  
   </div>
 
 </div>
+
+ <% else %>
+  <p id="notice"><%= notice %></p>
+  <div class="row dumb500"></div>
+  <div align="center"><hr>
+    © 2014
+    <%= mail_to "support@inrevi.com", "Contact" %> |
+    <%= link_to "Users", scoreboard_path %> | 
+    <%= link_to "Terms & Privacy", tos_path %>
+  </div>
+<% end %>
 

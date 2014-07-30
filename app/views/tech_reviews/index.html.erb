@@ -1,8 +1,4 @@
-  <% if @avg_score == 0.0 %>
-    <div class="noreviewsonindex">No reviews yet :( </div>
-    <div class="row dumb500"></div>
-  <% else %>
-  <% @tech_reviews.each do |tech_review| %><br>
+<% @tech_reviews.each do |tech_review| %><br>
       <div class="col-sm-3"> 
 
               <%= link_to user_path(tech_review.user) do %> 
@@ -67,8 +63,8 @@
 
         </div><br>
       </div>
-    <% end %>
-  <% end %>
+
+<% end %>
 
 <div class="digg_pagination">
   <%= will_paginate @tech_reviews %>

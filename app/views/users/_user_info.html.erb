@@ -11,12 +11,13 @@
       <% end %><br>
     
       <% if current_user?(@user) %>
-          <%= link_to "change image", edit_user_path(@user) %>
+          <%= link_to "change image", edit_user_path(@user) %> | 
+          <%= link_to "logout", destroy_user_session_path, :method => :delete %>
       <% end %>
     
   </div>  
   
-  <div class="col-xs-4" align="left">
+  <div class="col-xs-5" align="left">
     
     <strong>
        <%= link_to user_path(current_user) do %>   
@@ -26,10 +27,16 @@
        <% end %>
     </strong><hr>
     
-    <%= render 'users/follow_form' if signed_in? %>
+    <%= render 'stats' %>
     
+  </div>
+  
+  <div class="col-xs-4" align="left">
+    <%= render 'users/follow_form' if signed_in? %>
   </div>
   
 </div>
 
 <% end %>
+
+<hr>

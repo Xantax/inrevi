@@ -1,23 +1,11 @@
 <% provide(:title, "#{@podcast.name} Reviews") %>
 
-<div class="row">
- 
-  <div class="col-sm-2 categories">
-    <%= render 'shared/categories' %>
-  </div> 
-    
-  <div class="col-sm-8"> 
-     <div class="allnews">
-        <%= render 'podcastshow2' %>
-     </div>
-  </div>
-  
-  <div class="col-sm-2">
-    <%= render 'shared/user_mainprofile' %>
-  </div>
+<%= render 'podcastshow' %>
 
-</div>
+<%= render 'shared/ad_on_item' %>
 
-<div class="digg_pagination">
-  <%= will_paginate @podcast_reviews %>
-</div>
+<hr>
+
+  <div class="row"> 
+    <%= render :file => "podcast_reviews/index" %>
+  </div>
