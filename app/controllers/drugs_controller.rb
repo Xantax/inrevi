@@ -1,6 +1,6 @@
 class DrugsController < ApplicationController
   before_action :set_drug, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, except: [:show, :all]
+  before_action :signed_in_user, except: [:show, :all, :index, :search]
   before_action :only_admin, only: [:edit, :update, :destroy]
 
   def all

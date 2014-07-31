@@ -8,11 +8,6 @@
         <%= image_tag("grey_star.PNG", width: '160', height: '160', class: 'img-thumbnail') %>
       <% else %>
         <%= image_tag(current_user.image_url(:thumb), class: 'img-thumbnail') %>
-      <% end %><br>
-    
-      <% if current_user?(@user) %>
-          <%= link_to "change image", edit_user_path(@user) %> | 
-          <%= link_to "logout", destroy_user_session_path, :method => :delete %>
       <% end %>
     
   </div>  
