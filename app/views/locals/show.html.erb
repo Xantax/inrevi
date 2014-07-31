@@ -1,4 +1,6 @@
-<% provide(:title, "#{@local['name']} Reviews") %>
+<% provide(:title, "#{@local['name']} reviews in #{@local['locality']}") %>
+<% set_meta_tags :description => "Reviews, ratings of #{@local['name']} in #{@local['locality']} - #{@local['category_labels'].join(', ').split.last(1).join('')}" %>
+<% set_meta_tags :keywords => "#{@local['locality']}, #{@local['category_labels'].join(', ').split.last(1).join('')}, #{@local['name']}" %>
 
 <%= render 'localshow' %>
 
