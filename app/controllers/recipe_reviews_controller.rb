@@ -3,12 +3,7 @@ class RecipeReviewsController < ApplicationController
   before_action :set_recipe, only: [:index, :new, :create]
   before_action :signed_in_user
   before_action :require_permission, only: :destroy
-  before_action :only_admin, only: :all
-
-  def all
-      @recipe_reviews = RecipeReview.order("cached_votes_score ASC").paginate(:page => params[:page], :per_page => 15)
-      render 'index'
-  end  
+  before_action :only_admin, only: :all 
   
   def index
     @recipe_reviews = @recipe.recipe_reviews.order("cached_votes_score DESC").paginate(:page => params[:page], :per_page => 15)

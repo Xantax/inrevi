@@ -5,11 +5,6 @@ class TechReviewsController < ApplicationController
   before_action :require_permission, only: :destroy
   before_action :only_admin, only: :all
   
-  def all
-      @tech_reviews = TechReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
-      render 'index'
-  end
-  
   def index
     @tech_reviews = @tech.tech_reviews.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
   end

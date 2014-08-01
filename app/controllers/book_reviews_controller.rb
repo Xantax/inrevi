@@ -4,11 +4,6 @@ class BookReviewsController < ApplicationController
   before_action :signed_in_user
   before_action :require_permission, only: :destroy
   before_action :only_admin, only: :all
-
-  def all
-      @book_reviews = BookReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
-      render 'index'
-  end
   
   def index
     @book_reviews = BookReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")

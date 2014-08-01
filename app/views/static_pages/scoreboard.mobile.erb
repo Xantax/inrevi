@@ -1,8 +1,9 @@
 <br>
 
 <% @users.each do |user| %>
-  <%= link_to user.name, user %>
-  <hr>
+  <table class="table table-striped">
+    <td><%= link_to user.name, user %></td>
+  </table>
 <% end %>
 
 <div class="digg_pagination">

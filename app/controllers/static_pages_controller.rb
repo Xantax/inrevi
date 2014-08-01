@@ -17,12 +17,6 @@ class StaticPagesController < ApplicationController
   def policy
   end
   
-  def admin_dashboard
-    if current_user.admin?
-      @users = User.all
-    end
-  end
-  
   def catmedia
   end
   

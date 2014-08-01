@@ -5,11 +5,6 @@ class FineartReviewsController < ApplicationController
   before_action :require_permission, only: :destroy
   before_action :only_admin, only: :all
   
-  def all
-      @fineart_reviews = FineartReview.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score ASC")
-      render 'index'
-  end
-  
   def index
     @fineart_reviews = @fineart.fineart_reviews.paginate(:page => params[:page], :per_page => 15).order("cached_votes_score DESC")
   end

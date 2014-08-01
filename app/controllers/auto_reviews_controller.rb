@@ -4,11 +4,6 @@ class AutoReviewsController < ApplicationController
   before_action :signed_in_user
   before_action :require_permission, only: :destroy
   before_action :only_admin, only: :all
-
-  def all
-      @auto_reviews = AutoReview.order("cached_votes_score ASC").paginate(:page => params[:page], :per_page => 15)
-      render 'index'
-  end
   
   def index
     @auto_reviews = @auto.auto_reviews.order("cached_votes_score DESC").paginate(:page => params[:page], :per_page => 15)
@@ -35,8 +30,8 @@ class AutoReviewsController < ApplicationController
   end
 
   def destroy
-      @auto_review.destroy
-      redirect_to current_user
+    @auto_review.destroy
+    redirect_to current_user
   end
   
   def upvote
