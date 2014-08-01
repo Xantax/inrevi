@@ -1,7 +1,7 @@
  class PodcastsController < ApplicationController
    before_action :set_podcast, only: [:show, :edit, :update, :destroy]
-   before_action :signed_in_user, except: [:show, :all]
-   before_action :only_admin, only: [:edit, :update, :destroy]
+   before_action :signed_in_user, except: [:show]
+   before_action :only_admin, only: [:edit, :update, :destroy, :all]
 
   def all
        @podcasts = Podcast.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")

@@ -1,7 +1,7 @@
 class DrugsController < ApplicationController
   before_action :set_drug, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, except: [:show, :all, :index, :search]
-  before_action :only_admin, only: [:edit, :update, :destroy]
+  before_action :signed_in_user, except: [:show, :index, :search]
+  before_action :only_admin, only: [:edit, :update, :destroy, :all]
 
   def all
       @drugs = Drug.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
