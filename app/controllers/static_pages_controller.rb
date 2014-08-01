@@ -10,15 +10,6 @@ class StaticPagesController < ApplicationController
   def scoreboard
     @users = User.paginate(:page => params[:page], :per_page => 20).order("last_sign_in_at DESC")
   end
-
-  def advertising
-  end
-
-  def about
-  end
-  
-  def careers
-  end
   
   def tos
   end
@@ -72,9 +63,7 @@ class StaticPagesController < ApplicationController
        @popular_users = User.popular_users.map(&:id)
        @popular_activities = PublicActivity::Activity.order("created_at desc").where(owner_id: @popular_users, owner_type: "User").limit(15)
   
-       @activities = PublicActivity::Activity.paginate(:page => params[:page], :per_page => 15).order("created_at desc").where(owner_id: current_user.followed_user_ids, owner_type: "User")
-      
-       @link = Link.order("RANDOM()").first      
+       @activities = PublicActivity::Activity.paginate(:page => params[:page], :per_page => 15).order("created_at desc").where(owner_id: current_user.followed_user_ids, owner_type: "User")    
     end
   end
   
