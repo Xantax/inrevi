@@ -1,11 +1,15 @@
 <% provide(:title, "#{@auto.name} Reviews") %>
 
 <%= render 'autos/autoshow' %>
-
 <%= render 'shared/ad_on_item' %>
 
 <hr>
 
   <div class="row"> 
-    <%= render :file => '/auto_reviews/index' %>
+    <div class="col-xs-8">
+      <%= render :file => '/auto_reviews/index' %>
+    </div>
+    <div class="col-xs-4">
+      <%= simple_format(@auto.additionalinfo) if @auto.additionalinfo.present? %>
+    </div>
   </div>

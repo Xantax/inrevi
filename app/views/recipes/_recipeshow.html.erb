@@ -10,13 +10,6 @@
     <%= @recipe.ready_time %> min.
     <br><br>
     
-    <div class="r-clickfeature">
-      <div class="recipe-id">
-        <%= link_to "ingredients", "#" %><br>
-        <%= link_to "directions", "#" %><br>
-      </div>
-    </div>
-    
      <div class="podinfo">
        <b>Categories:</b> <%= raw @recipe.tags.map(&:name).map { |t| t }.join(', ') %>
      </div>
@@ -35,20 +28,3 @@
   </div>
   
 </div> <br>
-
-<div class="r-productfeature">
-  <div class="row">
-    <div class="col-sm-6"> 
-      <%= simple_format(@recipe.ingredients) if @recipe.ingredients.present? %>
-    </div>
-    <div class="col-sm-6"> 
-      <%= simple_format(@recipe.directions) if @recipe.directions.present? %> 
-    </div>
-  </div><hr>
-</div>
-
-<script type="text/javascript">
-  $('.r-clickfeature').on('click', function(e) {
-  return $(".r-productfeature").slideToggle();
-});
-</script>

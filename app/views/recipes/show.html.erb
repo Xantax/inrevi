@@ -1,11 +1,24 @@
 <% provide(:title, "#{@recipe.name} Reviews") %>
 
 <%= render 'recipes/recipeshow' %>
-
 <%= render 'shared/ad_on_item' %>
 
 <hr>
 
-  <div class="row"> 
-    <%= render :file => "recipe_reviews/index" %>
+  <div class="row">     
+    <div class="col-xs-8">
+      <%= render :file => "recipe_reviews/index" %>
+    </div>
+    
+    <div class="col-xs-4">
+      <div id="book-description">
+          <h3>ingredients:</h3>
+        <hr>
+          <%= simple_format(@recipe.ingredients) %>
+        <hr>
+          <h3>directions:</h3>
+        <hr>
+          <%= simple_format(@recipe.directions) %> 
+      </div>
+    </div>    
   </div>

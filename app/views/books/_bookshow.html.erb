@@ -12,9 +12,6 @@
      <%= image_tag('othericons/cart_icon.png') %>   
      <%= link_to "Buy it", "https://www.amazon.com/dp/#{@book.isbn_10}/?tag=movtop0c-20", :target => "_blank" if @book.isbn_10.present? %><br>
      <%= link_to "Preview", @book.previewLink, :target => "_blank" if @book.previewLink.present? %> <br>
-     <div class="r-clickfeature">
-       <%= link_to "Description", "#" %>  
-     </div>
    </div>
   
   <div class="col-sm-4">    
@@ -30,15 +27,3 @@
   </div>
   
 </div> <br>
-
-<div class="r-productfeature">
-  <div id="book-description">
-    <%= simple_format(@book.description) if @book.description.present? %>
-  </div><hr>
-</div>
-
-<script type="text/javascript">
-  $('.r-clickfeature').on('click', function(e) {
-  return $(".r-productfeature").slideToggle();
-});
-</script>

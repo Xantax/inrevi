@@ -1,11 +1,17 @@
 <% provide(:title, "#{@book.title} Reviews") %>
 
 <%= render 'books/bookshow' %>
-
 <%= render 'shared/ad_on_item' %>
 
 <hr>
 
   <div class="row"> 
-    <%= render :file => "book_reviews/index" %>
+    <div class="col-xs-8">
+      <%= render :file => "book_reviews/index" %>
+    </div>
+    <div class="col-xs-4">
+      <div id="book-description">
+        <%= simple_format(@book.description) if @book.description.present? %>
+      </div>
+    </div>
   </div>

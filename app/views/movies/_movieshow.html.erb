@@ -37,11 +37,6 @@
       <%= image_tag('othericons/cart_icon.png') %>   
       <a target="_blank" href="http://www.amazon.com/gp/search?ie=UTF8&camp=1789&creative=9325&index=dvd&keywords=<%= @movie.title %>&linkCode=ur2&tag=movtop0c-20&linkId=F6RC34QQ6YU2Y7AW">Buy it</a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=movtop0c-20&l=ur2&o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
       
-      <br><br>
-      <div class="r-clickfeature">
-        <%= link_to "overview", "#" %><br><br>
-      </div>
-      
       </div>
   </div>
   
@@ -60,13 +55,3 @@
   </div>  
   
 </div>
-
-<div class="r-productfeature">
-  <%= simple_format(@movie.overview) if @movie.overview.present? %><hr>
-</div>
-
-<script type="text/javascript">
-  $('.r-clickfeature').on('click', function(e) {
-  return $(".r-productfeature").slideToggle();
-});
-</script>

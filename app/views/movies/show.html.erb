@@ -1,11 +1,31 @@
 <% provide(:title, "#{@movie.title} Reviews") %>
 
 <%= render "movieshow" %><br>
-
 <%= render 'shared/ad_on_item' %>
 
 <hr>
 
   <div class="row"> 
-    <%= render :file => "movie_reviews/index" %>
+    
+    <div class="col-xs-8">
+      <%= render :file => "movie_reviews/index" %>
+    </div>
+    
+    <div class="col-xs-4">
+      
+      <div id="book-description">
+        <%= simple_format(@movie.overview) if @movie.overview.present? %>
+      </div><hr>
+      
+      <h3>Similar:</h3>
+      <% @similar_movies.first(6).each do |movie| %>
+        <% if movie %>
+          <%= link_to movie_path(movie['id']) do %>
+            <%= image_tag("#{@configuration.base_url}w92#{movie['poster_path']}") if movie['poster_path'] %>
+          <% end %>
+        <% end %>
+      <% end %>
+      
+    </div>
+    
   </div>

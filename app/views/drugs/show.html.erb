@@ -1,11 +1,17 @@
 <% provide(:title, "#{@drug.name} Reviews") %>
 
 <%= render 'drugs/drugshow' %>
-
 <%= render 'shared/ad_on_item' %>
 
 <hr>
 
   <div class="row"> 
-    <%= render :file => '/drug_reviews/index' %>
+    <div class="col-xs-8">
+      <%= render :file => '/drug_reviews/index' %>
+    </div>
+    <div class="col-xs-4">
+      <div id="book-description">
+        <%= simple_format(@drug.additionalinfo) %>
+      </div>
+    </div>
   </div>

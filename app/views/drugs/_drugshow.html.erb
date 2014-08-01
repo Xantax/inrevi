@@ -4,12 +4,8 @@
   </div> 
   
    <div class="col-sm-5 autoshow"> 
-     <b><%= @drug.name %></b> <br><br>
-      <div class="r-clickfeature">
-        <%= link_to "additional info", "#" if @drug.additionalinfo.present? %><br><br>
-      </div>
-  
-  </div>
+     <b><%= @drug.name %></b> <br><br>  
+   </div>
   
   <div class="col-sm-4">
     
@@ -26,13 +22,3 @@
   </div>
   
 </div> <br>
-
-<div class="r-productfeature">
-  <%= simple_format(@drug.additionalinfo) if @drug.additionalinfo.present? %><hr>
-</div>
-
-<script type="text/javascript">
-  $('.r-clickfeature').on('click', function(e) {
-  return $(".r-productfeature").slideToggle();
-});
-</script>
