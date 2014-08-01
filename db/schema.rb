@@ -189,13 +189,6 @@ ActiveRecord::Schema.define(version: 20140627200241) do
 
   add_index "finearts", ["user_id"], name: "index_finearts_on_user_id", using: :btree
 
-  create_table "links", force: true do |t|
-    t.string   "link"
-    t.string   "text"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "local_reviews", force: true do |t|
     t.integer  "user_id"
     t.string   "local_id"

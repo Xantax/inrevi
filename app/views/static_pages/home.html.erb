@@ -6,22 +6,11 @@
   
   <div class="col-xs-2"></div>
 
-  <div class="col-xs-8">
-    
+  <div class="col-xs-8">    
     <p id="notice"><%= notice %></p>
-    
-    <div class="qupdate">
-      <div class="texty">
-        <% if @link.present? %>
-          <b><a href="<%= @link.link if @link.link.present? %>"><%= @link.text %></a></b>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="homenews">
-      <%= render :file => '/activities/index' %>
-    </div>
-    
+      <div class="homenews">
+        <%= render :file => '/activities/index' %>
+      </div>    
   </div>
 
   <div class="col-xs-2"></div>

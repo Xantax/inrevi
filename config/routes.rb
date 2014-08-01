@@ -28,8 +28,6 @@ match 'tos' => "static_pages#tos", via: [:get]
 match 'policy' => "static_pages#policy", via: [:get] 
 match 'scoreboard' => "static_pages#scoreboard", via: [:get]  
 match 'admin_dashboard' => "static_pages#admin_dashboard", via: [:get]
-
-  resources :links
   resources :activities
   
   devise_for :users

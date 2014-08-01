@@ -2,14 +2,7 @@
 <br>
 
 <div align="left" class="mobile-activity-home">
-        <% if signed_in? %>
-           <div class="qupdate">
-               <div class="">
-                 <% if @link.present? %>
-                   <b><a href="<%= @link.link if @link.link.present? %>"><%= @link.text %></a></b><hr>
-                 <% end %>
-               </div>
-           </div>
-  <%= render :file => '/activities/index' %>
+  <% if signed_in? %>
+    <%= render :file => '/activities/index' %>
+  <% end %>
 </div>
-	    <% end %>
