@@ -113,8 +113,15 @@ textarea {
   margin-bottom: 20px;
 }
 
-.col-xs-3.header{
+.col-xs-2.header{
   padding-top:5px;
+  text-align:left;
+}
+
+.reviews-header{
+  font-size:130%;
+  padding-top:5px;
+  cursor:pointer;
 }
 
 /* Categories */
@@ -1199,7 +1206,6 @@ ul.admin{
 
 .unameonshow{
   font-size:130%;
-  padding-bottom:10px;
 }
 
 .userfollowname{

@@ -1,8 +1,8 @@
 <%= form_for :user, url: user_path(@user), method: :patch do |f| %>
   <% if @user.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited
-      this post from being saved:</h2>
+    <%= pluralize(@user.errors.count, "error") %> prohibited
+      this from being updated:
     <ul>
     <% @user.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -12,9 +12,12 @@
   <% end %>
 
 <% if current_user?(@user) %>
+  <hr>
 
-   <%= image_tag("othericons/PhotoShow.PNG") %> (profile photo)
-   <%= f.file_field :image, :class => "podcastnew" %><br>
+  <%= image_tag("othericons/PhotoShow.PNG") %> (profile photo)<br><br>
+  <%= f.file_field :image %><hr>
+
+  <%= f.text_field :name, placeholder: "name", :class => "form-control login", :required => true %><hr>
 
 <% end %>
 
@@ -34,7 +37,7 @@
 <% end %>
 
 <% if current_user == @user || current_user.admin %>
-  <%= f.submit "Save", class: "btn btn-primary" %>
+<%= f.submit "Update", class: "btn btn-default" %>
 <% end %>
 
 <% end %>
