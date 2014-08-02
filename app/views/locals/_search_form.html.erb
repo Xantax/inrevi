@@ -6,19 +6,10 @@
     <%= text_field_tag :place, params[:place], placeholder: " 'City' or 'Neighborhood City' ", class: 'form-control q', id: 'place-text-field' %>
     <div class="searchstyle">
       <span class="input-group-btn">
-        <%= submit_tag "Go", class: "btn btn-default", :id => "submit-me", data: { disable_with: "..." } %>
+        <%= submit_tag "Go", class: "btn btn-default", data: { disable_with: "Searching" } %>
       </span>
     </div>
     
   </div>
 <% end %>
 <hr>
-        <div id="loading2" class="loadinggif" style="display:none;" align="center">
-          <%= image_tag("othericons/uploading.gif", alt: "") %><br>
-        </div>
-
-<script type="text/javascript">
-  $('#submit-me').on('click', function(e) {
-  return $("#loading2").slideToggle();
-});
-</script>
