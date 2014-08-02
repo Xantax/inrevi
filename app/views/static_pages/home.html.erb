@@ -19,11 +19,14 @@
  <% else %>
 
 <div class="row">
+  
+  <div class="col-xs-2"></div>
+  
   <div class="col-xs-5">
     <%= image_tag('otherbigimages/shark_attack.png') %>
   </div>
   
-  <div class="col-xs-7" align="center">
+  <div class="col-xs-3" align="left">
     <p id="notice"><%= notice %></p>
     
       <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
@@ -40,9 +43,15 @@
 
             <%= f.text_field :name, placeholder: "name", :class => "form-control login", :required => true %><br>
             <%= f.text_field :email, placeholder: "email", :class => "form-control login", :required => true %><br>
-            <%= f.password_field :password, placeholder: "password", :class => "form-control login", :required => true %><br><br>
+            <%= f.password_field :password, placeholder: "password", :class => "form-control login", :required => true %><br>
       
-            <%= f.submit "Create my account", class: "btn btn-large btn-primary", data: { disable_with: "Creating..." } %> 
+            <div class="create-my-acc">
+              <%= f.submit "Create my account", class: "btn btn-large btn-primary", data: { disable_with: "Creating..." } %><br><br>
+            </div>
+            <div class="or-login-home" align="center">
+              or<br><br>
+              <%= link_to "Login", "/users/sign_in", class: 'btn btn-default btn-sm' %>
+            </div>
 
             <%= f.hidden_field :provider, :value => "email" %>
 
