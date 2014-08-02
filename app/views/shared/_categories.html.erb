@@ -40,6 +40,8 @@
   <%= render 'shared/catlists/healthcare' %>
 <% elsif @resource_type.to_s == "sexual" %>
   <%= render 'shared/catlists/sexual' %>
+<% elsif @resource_type.to_s == "personal" %>
+  <%= render 'shared/catlists/personal' %>
 <% elsif @resource_type.to_s == "medical" %>
   <%= render 'shared/catlists/medical' %>
 <% elsif @resource_type.to_s == "household" %>
