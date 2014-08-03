@@ -144,7 +144,9 @@
           <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
         </ul>
       </div>
-
+    
+    <% else %>
+      <%= link_to "Login", "/users/sign_in", class: 'btn btn-default btn-sm' %>
     <% end %>
   </div>  
   

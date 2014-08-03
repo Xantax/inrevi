@@ -46,11 +46,7 @@
             <%= f.password_field :password, placeholder: "password", :class => "form-control login", :required => true %><br>
       
             <div class="create-my-acc">
-              <%= f.submit "Create my account", class: "btn btn-large btn-primary", data: { disable_with: "Creating..." } %><br><br>
-            </div>
-            <div class="or-login-home" align="center">
-              or<br><br>
-              <%= link_to "Login", "/users/sign_in", class: 'btn btn-default btn-sm' %>
+              <%= f.submit "Create my account", class: "btn btn-large btn-primary", data: { disable_with: "Creating..." } %>
             </div>
 
             <%= f.hidden_field :provider, :value => "email" %>
