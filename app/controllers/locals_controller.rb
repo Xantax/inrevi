@@ -1,6 +1,6 @@
 class LocalsController < ApplicationController
   before_action :factual_authorize, only: [:index, :lsearch, :show, :additionalinfo]
-  before_action :signed_in_user, except: [:show, :index, :search]
+  before_action :signed_in_user, except: [:show, :index, :lsearch]
 
   def index
     @results = []
