@@ -1,6 +1,6 @@
 class FineartsController < ApplicationController
   before_action :set_fineart, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, except: [:show]
+  before_action :signed_in_user, except: [:show, :index, :search]
   before_action :only_admin, only: [:edit, :update, :destroy, :all]
 
   def all

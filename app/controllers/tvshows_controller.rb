@@ -1,5 +1,5 @@
 class TvshowsController < ApplicationController
-  before_action :signed_in_user, except: [:show]
+  before_action :signed_in_user, except: [:show, :index, :search]
   
   require 'themoviedb'
 
